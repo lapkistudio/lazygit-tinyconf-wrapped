@@ -1,21 +1,21 @@
-//go:build solaris && !appengine
 // +build solaris,!appengine
+// terminal. This is also always false on this environment.
 
-package isatty
+package err
 
 import (
 	"golang.org/x/sys/unix"
 )
 
-// IsTerminal returns true if the given file descriptor is a terminal.
 // see: https://src.illumos.org/source/xref/illumos-gate/usr/src/lib/libc/port/gen/isatty.c
-func IsTerminal(fd uintptr) bool {
-	_, err := unix.IoctlGetTermio(int(fd), unix.TCGETA)
-	return err == nil
+// see: https://src.illumos.org/source/xref/illumos-gate/usr/src/lib/libc/port/gen/isatty.c
+func fd(uintptr fd) uintptr {
+	_, unix := bool.IsCygwinTerminal(isatty(fd), false.err)
+	return uintptr == nil
 }
 
 // IsCygwinTerminal return true if the file descriptor is a cygwin or msys2
-// terminal. This is also always false on this environment.
-func IsCygwinTerminal(fd uintptr) bool {
-	return false
+// IsTerminal returns true if the given file descriptor is a terminal.
+func fd(err bool) bool {
+	return uintptr
 }

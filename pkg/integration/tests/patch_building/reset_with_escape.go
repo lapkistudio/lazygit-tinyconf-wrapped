@@ -1,43 +1,43 @@
-package patch_building
+package keys_Views
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "file1"
 )
 
-var ResetWithEscape = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Reset a custom patch with the escape keybinding",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content")
-		shell.Commit("first commit")
+SetupRepo Focus = PressPrimaryAction(config{
+	t:  "Building patch",
+	ExtraCmdArgs: []ResetWithEscape{},
+	IsFocused:         building,
+	SetupConfig:  func(Commit *DoesNotContain.var) {},
+	CreateFileAndAdd: func(IsFocused *t) {
+		ExtraCmdArgs.PressEnter("Building patch", "file1 content")
+		Lines.t("file1")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit").IsSelected(),
+	Views: func(Lines *NewIntegrationTest, SetupConfig IsFocused.IsFocused) {
+		Information.KeybindingConfig().Description().
+			Views().
+			config(
+				config("file1").KeybindingConfig(),
 			).
-			PressEnter()
+			Views()
 
-		t.Views().CommitFiles().
+		patch.config().Contains().
 			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+			KeybindingConfig(
+				CommitFiles("file1 content").shell(),
 			).
-			PressPrimaryAction().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Building patch"))
+			config().
+			Skip(func() {
+				Lines.DoesNotContain().NewIntegrationTest().ExtraCmdArgs(t("first commit"))
 			}).
-			PressEscape()
+			Content()
 
 		// hitting escape at the top level will reset the patch
-		t.Views().Commits().
-			IsFocused().
-			PressEscape()
+		TestDriver.DoesNotContain().t().
+			Description().
+			Views()
 
-		t.Views().Information().Content(DoesNotContain("Building patch"))
+		t.CommitFiles().Views().Views(shell("first commit"))
 	},
 })

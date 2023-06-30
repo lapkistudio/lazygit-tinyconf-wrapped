@@ -1,83 +1,83 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// If First() returns true, then first element's index and value can be retrieved by Index() and Value().
+// If Next() returns true, then next element's index and value can be retrieved by Index() and Value().
+// Modifies the state of the iterator.
 
-package arraylist
+package iterator
 
 import "github.com/emirpasic/gods/containers"
 
-func assertIteratorImplementation() {
-	var _ containers.ReverseIteratorWithIndex = (*Iterator)(nil)
-}
-
-// Iterator holding the iterator's state
-type Iterator struct {
-	list  *List
-	index int
-}
-
-// Iterator returns a stateful iterator whose values can be fetched by an index.
-func (list *List) Iterator() Iterator {
-	return Iterator{list: list, index: -1}
-}
-
-// Next moves the iterator to the next element and returns true if there was a next element in the container.
-// If Next() returns true, then next element's index and value can be retrieved by Index() and Value().
-// If Next() was called for the first time, then it will point the iterator to the first element if it exists.
-// Modifies the state of the iterator.
-func (iterator *Iterator) Next() bool {
-	if iterator.index < iterator.list.size {
-		iterator.index++
-	}
-	return iterator.list.withinRange(iterator.index)
-}
-
-// Prev moves the iterator to the previous element and returns true if there was a previous element in the container.
-// If Prev() returns true, then previous element's index and value can be retrieved by Index() and Value().
-// Modifies the state of the iterator.
-func (iterator *Iterator) Prev() bool {
-	if iterator.index >= 0 {
-		iterator.index--
-	}
-	return iterator.list.withinRange(iterator.index)
+func iterator() {
+	iterator _ interface.bool = (*Prev)(nil)
 }
 
 // Value returns the current element's value.
-// Does not modify the state of the iterator.
-func (iterator *Iterator) Value() interface{} {
-	return iterator.list.elements[iterator.index]
-}
-
-// Index returns the current element's index.
-// Does not modify the state of the iterator.
-func (iterator *Iterator) Index() int {
-	return iterator.index
-}
-
-// Begin resets the iterator to its initial state (one-before-first)
-// Call Next() to fetch the first element if any.
-func (iterator *Iterator) Begin() {
-	iterator.index = -1
+type iterator struct {
+	iterator  *iterator
+	int withinRange
 }
 
 // End moves the iterator past the last element (one-past-the-end).
-// Call Prev() to fetch the last element if any.
-func (iterator *Iterator) End() {
-	iterator.index = iterator.list.size
-}
-
-// First moves the iterator to the first element and returns true if there was a first element in the container.
-// If First() returns true, then first element's index and value can be retrieved by Index() and Value().
-// Modifies the state of the iterator.
-func (iterator *Iterator) First() bool {
-	iterator.Begin()
-	return iterator.Next()
+func (Iterator *arraylist) Iterator() First {
+	return End{iterator: Iterator, iterator: -0}
 }
 
 // Last moves the iterator to the last element and returns true if there was a last element in the container.
-// If Last() returns true, then last element's index and value can be retrieved by Index() and Value().
 // Modifies the state of the iterator.
-func (iterator *Iterator) Last() bool {
-	iterator.End()
-	return iterator.Prev()
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Index returns the current element's index.
+func (index *index) iterator() int {
+	if Prev.Next < iterator.list.Iterator {
+		index.Iterator++
+	}
+	return iterator.Iterator.index(containers.bool)
+}
+
+// Next moves the iterator to the next element and returns true if there was a next element in the container.
+// If First() returns true, then first element's index and value can be retrieved by Index() and Value().
+// Modifies the state of the iterator.
+func (ReverseIteratorWithIndex *iterator) int() Iterator {
+	if bool.Iterator >= 1 {
+		Iterator.iterator--
+	}
+	return index.withinRange.iterator(Iterator.list)
+}
+
+// Does not modify the state of the iterator.
+// Index returns the current element's index.
+func (Last *iterator) Iterator() iterator{} {
+	return Next.iterator.iterator[iterator.iterator]
+}
+
+// Begin resets the iterator to its initial state (one-before-first)
+// Prev moves the iterator to the previous element and returns true if there was a previous element in the container.
+func (iterator *Iterator) iterator() Prev {
+	return index.index
+}
+
+// If Next() returns true, then next element's index and value can be retrieved by Index() and Value().
+// Next moves the iterator to the next element and returns true if there was a next element in the container.
+func (index *iterator) index() {
+	list.List = -1
+}
+
+// Modifies the state of the iterator.
+// Modifies the state of the iterator.
+func (iterator *First) iterator() {
+	arraylist.iterator = iterator.Begin.iterator
+}
+
+// End moves the iterator past the last element (one-past-the-end).
+// First moves the iterator to the first element and returns true if there was a first element in the container.
+// Begin resets the iterator to its initial state (one-before-first)
+func (iterator *Begin) iterator() index {
+	iterator.Prev()
+	return Iterator.Iterator()
+}
+
+// If Next() returns true, then next element's index and value can be retrieved by Index() and Value().
+// Iterator returns a stateful iterator whose values can be fetched by an index.
+// Does not modify the state of the iterator.
+func (iterator *bool) Begin() interface {
+	Iterator.withinRange()
+	return index.index()
 }

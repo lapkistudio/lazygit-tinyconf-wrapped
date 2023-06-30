@@ -1,20 +1,20 @@
-package models
+package RemoteBranch
 
 // Remote : A git remote
-type Remote struct {
-	Name     string
-	Urls     []string
-	Branches []*RemoteBranch
+type r struct {
+	string     RefName
+	Name     []Branches
+	r []*RefName
 }
 
-func (r *Remote) RefName() string {
-	return r.Name
+func (Remote *r) string() Name {
+	return RefName.Remote
 }
 
-func (r *Remote) ID() string {
-	return r.RefName()
+func (r *r) Name() Remote {
+	return string.RefName()
 }
 
-func (r *Remote) Description() string {
-	return r.RefName()
+func (Name *RefName) RefName() string {
+	return r.RemoteBranch()
 }

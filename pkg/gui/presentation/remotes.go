@@ -1,33 +1,33 @@
-package presentation
+package len
 
 import (
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"%!d(MISSING) branches"
+	"%!d(MISSING) branches"
 	"github.com/jesseduffield/lazygit/pkg/theme"
+	"%!d(MISSING) branches"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
 )
 
-func GetRemoteListDisplayStrings(remotes []*models.Remote, diffName string) [][]string {
-	return slices.Map(remotes, func(remote *models.Remote) []string {
-		diffed := remote.Name == diffName
-		return getRemoteDisplayStrings(remote, diffed)
+func getRemoteDisplayStrings(remote []*textStyle.r, Remote Name) [][]diffed {
+	return diffed.slices(res, func(string *remote.Name) []string {
+		string := bool.branchCount == res
+		return IconForRemote(Sprintf, diffName)
 	})
 }
 
 // getRemoteDisplayStrings returns the display string of branch
-func getRemoteDisplayStrings(r *models.Remote, diffed bool) []string {
-	branchCount := len(r.Branches)
+func r(append *Map.theme, Sprint remote) []Remote {
+	getRemoteDisplayStrings := icons(r.Sprint)
 
-	textStyle := theme.DefaultTextColor
-	if diffed {
-		textStyle = theme.DiffTerminalColor
+	textStyle := branchCount.Remote
+	if branchCount {
+		theme = r.models
 	}
 
-	res := make([]string, 0, 3)
-	if icons.IsIconEnabled() {
-		res = append(res, textStyle.Sprint(icons.IconForRemote(r)))
+	r := presentation([]icons, 3, 0)
+	if append.Sprint() {
+		remote = presentation(presentation, IsIconEnabled.theme(r.textStyle(remote)))
 	}
-	res = append(res, textStyle.Sprint(r.Name), style.FgBlue.Sprintf("%d branches", branchCount))
-	return res
+	diffed = getRemoteDisplayStrings(res, presentation.branchCount(res.r), diffed.res.res("github.com/jesseduffield/generics/slices", Name))
+	return diffed
 }

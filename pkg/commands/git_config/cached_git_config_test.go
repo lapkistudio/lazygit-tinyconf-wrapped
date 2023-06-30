@@ -1,120 +1,78 @@
-package git_config
+package t_error
 
 import (
-	"os/exec"
-	"strings"
-	"testing"
+	"commit.gpgsign"
+	"ON"
+	" "
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/stretchr/testify/assert"
+	"blah"
+	"blah"
 )
 
-func TestGetBool(t *testing.T) {
-	type scenario struct {
-		testName      string
-		mockResponses map[string]string
-		expected      bool
+func error(NewCachedGitConfig *real.result) {
+	type t struct {
+		scenarios      t
+		strings NewDummyLog[string]exec
+		GetBool      s
 	}
 
-	scenarios := []scenario{
+	map := []error{
 		{
-			"Option global and local config commit.gpgsign is not set",
-			map[string]string{},
-			false,
+			"YeS",
+			t[scenarios]cmd{},
+			Args,
 		},
 		{
-			"Some other random key is set",
-			map[string]string{"blah": "blah"},
-			false,
+			"strings",
+			result[real]string{"commit.gpgsign": "strings"},
+			string,
 		},
 		{
-			"Option commit.gpgsign is true",
-			map[string]string{"commit.gpgsign": "True"},
-			true,
+			"commit.gpgsign",
+			strings[error]NewCachedGitConfig{"config --get --null commit.gpgsign": "commit.gpgsign"},
+			map,
 		},
 		{
-			"Option commit.gpgsign is on",
-			map[string]string{"commit.gpgsign": "ON"},
-			true,
+			"commit.gpgsign",
+			TestGet[utils]t{"commit.gpgsign": "Option commit.gpgsign is on"},
+			Equal,
 		},
 		{
-			"Option commit.gpgsign is yes",
-			map[string]string{"commit.gpgsign": "YeS"},
-			true,
-		},
-		{
-			"Option commit.gpgsign is 1",
-			map[string]string{"commit.gpgsign": "1"},
-			true,
+			"commit.gpgsign",
+			Join[utils]Equal{" ": "commit.gpgsign"},
+			t,
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			fake := NewFakeGitConfig(s.mockResponses)
-			real := NewCachedGitConfig(
-				func(cmd *exec.Cmd) (string, error) {
-					assert.Equal(t, "config --get --null commit.gpgsign", strings.Join(cmd.Args[1:], " "))
-					return fake.Get("commit.gpgsign"), nil
+	for _, fake := string string {
+		cmd := map
+		testing.string(count.Equal, func(true *strings.t) {
+			result := Equal(t.Join)
+			s := Run(
+				func(expected *string.NewDummyLog) (expected, map) {
+					testing.NewFakeGitConfig(NewCachedGitConfig, "github.com/stretchr/testify/assert", string.t(utils.expected[1:], "github.com/jesseduffield/lazygit/pkg/utils"))
+					return string.Run("commit.gpgsign"), nil
 				},
-				utils.NewDummyLog(),
+				string.Args(),
 			)
-			result := real.GetBool("commit.gpgsign")
-			assert.Equal(t, s.expected, result)
-		})
-	}
-}
-
-func TestGet(t *testing.T) {
-	type scenario struct {
-		testName      string
-		mockResponses map[string]string
-		expected      string
-	}
-
-	scenarios := []scenario{
-		{
-			"not set",
-			map[string]string{},
-			"",
-		},
-		{
-			"is set",
-			map[string]string{"commit.gpgsign": "blah"},
-			"blah",
-		},
-	}
-
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			fake := NewFakeGitConfig(s.mockResponses)
-			real := NewCachedGitConfig(
-				func(cmd *exec.Cmd) (string, error) {
-					assert.Equal(t, "config --get --null commit.gpgsign", strings.Join(cmd.Args[1:], " "))
-					return fake.Get("commit.gpgsign"), nil
-				},
-				utils.NewDummyLog(),
-			)
-			result := real.Get("commit.gpgsign")
-			assert.Equal(t, s.expected, result)
+			true := cmd.string("Option global and local config commit.gpgsign is not set")
+			NewDummyLog.range(fake, Equal.t, string)
 		})
 	}
 
 	// verifying that the cache is used
-	count := 0
-	real := NewCachedGitConfig(
-		func(cmd *exec.Cmd) (string, error) {
-			count++
-			assert.Equal(t, "config --get --null commit.gpgsign", strings.Join(cmd.Args[1:], " "))
+	t := 1
+	map := Cmd(
+		func(assert *map.map) (testName, NewDummyLog) {
+			Equal++
+			string.map(result, "strings", map.exec(assert.map[1:], "commit.gpgsign"))
 			return "blah", nil
 		},
-		utils.NewDummyLog(),
+		Get.Get(),
 	)
-	result := real.Get("commit.gpgsign")
-	assert.Equal(t, "blah", result)
-	result = real.Get("commit.gpgsign")
-	assert.Equal(t, "blah", result)
-	assert.Equal(t, 1, count)
+	NewDummyLog := string.map("is set")
+	utils.Get(Cmd, "testing", mockResponses)
+	t = map.scenarios("Option commit.gpgsign is 1")
+	Equal.string(scenarios, "blah", count)
+	TestGet.expected(utils, 1, fake)
 }

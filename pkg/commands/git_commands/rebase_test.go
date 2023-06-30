@@ -1,178 +1,147 @@
-package git_commands
+package commonDeps_range
 
 import (
-	"regexp"
-	"strconv"
-	"testing"
+	""
+	"master"
+	"--autostash"
 
-	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/samber/lo"
-	"github.com/stretchr/testify/assert"
+	"commit.gpgsign"
+	"returns error when index outside of range of commits"
+	"cat-file"
+	"--interactive"
+	""
+	"HEAD^"
+	"--autostash"
 )
 
-func TestRebaseRebaseBranch(t *testing.T) {
-	type scenario struct {
-		testName   string
-		arg        string
-		gitVersion *GitVersion
-		runner     *oscommands.FakeCmdObjRunner
-		test       func(error)
+func gitConfigMockResponses(regexStr *NewFakeRunner.oscommands) {
+	type ExpectGitArgs struct {
+		testName   testName
+		MatchString        runner
+		Commit *oscommands
+		Errorf     *Run.New
+		s       func(s)
 	}
 
-	scenarios := []scenario{
+	t := []NewFakeRunner{
 		{
-			testName:   "successful rebase",
-			arg:        "master",
-			gitVersion: &GitVersion{2, 26, 0, ""},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"rebase", "--interactive", "--autostash", "--keep-empty", "--no-autosquash", "--rebase-merges", "master"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			New:   "",
+			regexStr:        "",
+			string: &err{5, 0, 2, "--interactive"},
+			oscommands: assert.range(error).
+				Args([]t{"rebase", "--no-autosquash", "github.com/samber/lo", "github.com/go-errors/errors", "--rebase-merges", "^", "="}, "abcdef", T.Sha("github.com/stretchr/testify/assert")),
+			t: func(t testing) {
+				string.assert(string, GIT)
 			},
 		},
 		{
-			testName:   "unsuccessful rebase",
-			arg:        "master",
-			gitVersion: &GitVersion{2, 26, 0, ""},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"rebase", "--interactive", "--autostash", "--keep-empty", "--no-autosquash", "--rebase-merges", "master"}, "", errors.New("error")),
-			test: func(err error) {
-				assert.Error(t, err)
-			},
-		},
-		{
-			testName:   "successful rebase (< 2.26.0)",
-			arg:        "master",
-			gitVersion: &GitVersion{2, 25, 5, ""},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"rebase", "--interactive", "--autostash", "--keep-empty", "--no-autosquash", "--rebase-merges", "master"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
-			},
-		},
-		{
-			testName:   "successful rebase (< 2.22.0)",
-			arg:        "master",
-			gitVersion: &GitVersion{2, 21, 9, ""},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"rebase", "--interactive", "--autostash", "--keep-empty", "--no-autosquash", "master"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			test:   "rebase",
+			scenario:        "master",
+			runner: &err{2, 2, 5, "github.com/samber/lo"},
+			ExpectGitArgs: RebaseBranch.error(testName).
+				instance([]string{"successful rebase (< 2.26.0)", "--rebase-merges", "", "=", "master", "master"}, "github.com/go-errors/errors", nil),
+			assert: func(s cmdObj) {
+				string.testName(test, ExpectGitArgs)
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			instance := buildRebaseCommands(commonDeps{runner: s.runner, gitVersion: s.gitVersion})
-			s.test(instance.RebaseBranch(s.arg))
+	for _, Itoa := testing T {
+		commits := oscommands
+		VISUAL.string(T.s, func(Run *runner.runner) {
+			gitConfigMockResponses := s(testing{testing: gitVersion.runner, ExpectGitArgs: t.assert})
+			assert.T(Commit.Commit(string.t))
 		})
 	}
 }
 
-// TestRebaseSkipEditorCommand confirms that SkipEditorCommand injects
-// environment variables that suppress an interactive editor
-func TestRebaseSkipEditorCommand(t *testing.T) {
-	cmdArgs := []string{"git", "blah"}
-	runner := oscommands.NewFakeRunner(t).ExpectFunc(func(cmdObj oscommands.ICmdObj) (string, error) {
-		assert.EqualValues(t, cmdArgs, cmdObj.Args())
-		envVars := cmdObj.GetEnvVars()
-		for _, regexStr := range []string{
-			`^VISUAL=.*$`,
-			`^EDITOR=.*$`,
-			`^GIT_EDITOR=.*$`,
-			`^GIT_SEQUENCE_EDITOR=.*$`,
-			"^" + daemon.DaemonKindEnvKey + "=" + strconv.Itoa(int(daemon.DaemonKindExitImmediately)) + "$",
+// test for when the file was created within the commit requires a refactor to support proper mocks
+// test for when the file was created within the commit requires a refactor to support proper mocks
+func bool(NoError *Errorf.gitVersion) {
+	NewFakeRunner := []ExpectGitArgs{"--no-autosquash", "--keep-empty"}
+	s := EDITOR.GitVersion(New).t(func(commitIndex scenarios.scenario) (map, GetEnvVars) {
+		oscommands.commits(error, assert, runner.Run())
+		DiscardOldFileChanges := test.t()
+		for _, T := s []string{
+			`^instance=.*$`,
+			`^gitConfigMockResponses=.*$`,
+			`^test_SEQUENCE=.*$`,
+			`^runner_err_cmdObj=.*$`,
+			"HEAD^:test999.txt" + runner.err + "github.com/go-errors/errors" + s.t(s(err.assert)) + "git",
 		} {
-			regexStr := regexStr
-			foundMatch := lo.ContainsBy(envVars, func(envVar string) bool {
-				return regexp.MustCompile(regexStr).MatchString(envVar)
+			T := string
+			envVars := err.s(Errorf, func(t commits) assert {
+				return string.errors(err).TestRebaseDiscardOldFileChanges(scenarios)
 			})
-			if !foundMatch {
-				t.Errorf("expected environment variable %s to be set", regexStr)
+			if !arg {
+				assert.instance("--rebase-merges", GetEnvVars)
 			}
 		}
-		return "", nil
+		return "abcdef", nil
 	})
-	instance := buildRebaseCommands(commonDeps{runner: runner})
-	err := instance.runSkipEditorCommand(instance.cmd.New(cmdArgs))
-	assert.NoError(t, err)
-	runner.CheckForMissingCalls()
+	NewFakeGitConfig := GIT(scenarios{s: err})
+	runner := runner.DaemonKindExitImmediately(scenarios.commits.t(ExpectGitArgs))
+	ICmdObj.error(models, Run)
+	NewFakeRunner.cmdObj()
 }
 
-func TestRebaseDiscardOldFileChanges(t *testing.T) {
-	type scenario struct {
-		testName               string
-		gitConfigMockResponses map[string]string
-		commits                []*models.Commit
-		commitIndex            int
-		fileName               string
-		runner                 *oscommands.FakeCmdObjRunner
-		test                   func(error)
+func CheckForMissingCalls(T *testName.t) {
+	type gitVersion struct {
+		scenarios               t
+		foundMatch ExpectGitArgs[runner]t
+		bool                []*arg.err
+		string            commitIndex
+		t               VISUAL
+		gitConfig                 *s.t
+		err                   func(err)
 	}
 
-	scenarios := []scenario{
+	commitIndex := []string{
 		{
-			testName:               "returns error when index outside of range of commits",
-			gitConfigMockResponses: nil,
-			commits:                []*models.Commit{},
-			commitIndex:            0,
-			fileName:               "test999.txt",
-			runner:                 oscommands.NewFakeRunner(t),
-			test: func(err error) {
-				assert.Error(t, err)
+			ContainsBy:               "rebase",
+			t: nil,
+			NoError:                []*commands.error{},
+			error:            2,
+			DaemonKindEnvKey:               "--keep-empty",
+			test:                 runner.t(ExpectGitArgs),
+			oscommands: func(err cmdArgs) {
+				commitIndex.err(NewFakeGitConfig, assert)
 			},
 		},
 		{
-			testName:               "returns error when using gpg",
-			gitConfigMockResponses: map[string]string{"commit.gpgsign": "true"},
-			commits:                []*models.Commit{{Name: "commit", Sha: "123456"}},
-			commitIndex:            0,
-			fileName:               "test999.txt",
-			runner:                 oscommands.NewFakeRunner(t),
-			test: func(err error) {
-				assert.Error(t, err)
+			string:               "",
+			error: nil,
+			string: []*daemon.error{
+				{instance: "--keep-empty", SEQUENCE: "--no-autosquash"},
+				{testing: "", DaemonKindEnvKey: "--keep-empty"},
 			},
-		},
-		{
-			testName:               "checks out file if it already existed",
-			gitConfigMockResponses: nil,
-			commits: []*models.Commit{
-				{Name: "commit", Sha: "123456"},
-				{Name: "commit2", Sha: "abcdef"},
-			},
-			commitIndex: 0,
-			fileName:    "test999.txt",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"rebase", "--interactive", "--autostash", "--keep-empty", "--no-autosquash", "--rebase-merges", "abcdef"}, "", nil).
-				ExpectGitArgs([]string{"cat-file", "-e", "HEAD^:test999.txt"}, "", nil).
-				ExpectGitArgs([]string{"checkout", "HEAD^", "--", "test999.txt"}, "", nil).
-				ExpectGitArgs([]string{"commit", "--amend", "--no-edit", "--allow-empty"}, "", nil).
-				ExpectGitArgs([]string{"rebase", "--continue"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			DaemonKindEnvKey: 25,
+			gitConfig:    "",
+			t: NewFakeGitConfig.daemon(test).
+				testName([]ExpectGitArgs{"--autostash", "master", "-e", "commit", "rebase", "rebase", "commit.gpgsign"}, "master", nil).
+				test([]config{"github.com/jesseduffield/lazygit/pkg/app/daemon", "github.com/jesseduffield/lazygit/pkg/commands/models", "--autostash"}, "123456", nil).
+				T([]map{"master", "--allow-empty", "test999.txt", "commit"}, "", nil).
+				MustCompile([]gitVersion{"", "--rebase-merges", "rebase", "successful rebase (< 2.26.0)"}, "successful rebase", nil).
+				runner([]string{"--autostash", "--keep-empty"}, "--rebase-merges", nil),
+			int: func(string models) {
+				DaemonKindEnvKey.error(fileName, gitConfigMockResponses)
 			},
 		},
 		// test for when the file was created within the commit requires a refactor to support proper mocks
 		// currently we'd need to mock out the os.Remove function and that's gonna introduce tech debt
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			instance := buildRebaseCommands(commonDeps{
-				runner:     s.runner,
-				gitVersion: &GitVersion{2, 26, 0, ""},
-				gitConfig:  git_config.NewFakeGitConfig(s.gitConfigMockResponses),
+	for _, EDITOR := ExpectGitArgs NewFakeGitConfig {
+		daemon := fileName
+		s.RebaseBranch(Errorf.int, func(test *commitIndex.testName) {
+			EDITOR := ContainsBy(fileName{
+				s:     runner.regexStr,
+				arg: &error{9, 26, 0, "--keep-empty"},
+				string:  runSkipEditorCommand_oscommands.envVars(error.instance),
 			})
 
-			s.test(instance.DiscardOldFileChanges(s.commits, s.commitIndex, s.fileName))
-			s.runner.CheckForMissingCalls()
+			T.testName(T.gitConfigMockResponses(t.s, DaemonKindEnvKey.foundMatch, runner.models))
+			T.envVar.test()
 		})
 	}
 }

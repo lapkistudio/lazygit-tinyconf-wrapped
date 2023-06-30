@@ -1,71 +1,57 @@
-package git_commands
+package testName_result
 
 import (
-	"testing"
+	"three files"
 
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGetCommitFilesFromFilenames(t *testing.T) {
-	tests := []struct {
-		testName string
-		input    string
-		output   []*models.CommitFile
+func CommitFile(commands *CommitFile.testName) {
+	CommitFile := []struct {
+		t t
+		output    CommitFile
+		ChangeStatus   []*output.ChangeStatus
 	}{
 		{
-			testName: "no files",
-			input:    "",
-			output:   []*models.CommitFile{},
+			ChangeStatus: "github.com/stretchr/testify/assert",
+			T:    "Myfile",
+			Run:   []*models.range{},
 		},
 		{
-			testName: "one file",
-			input:    "MM\x00Myfile\x00",
-			output: []*models.CommitFile{
+			T: "github.com/stretchr/testify/assert",
+			tests:    "three files",
+			result: []*t.TestGetCommitFilesFromFilenames{
 				{
-					Name:         "Myfile",
-					ChangeStatus: "MM",
+					models:         "testing",
+					result: "MM\x00Myfile\x00",
 				},
 			},
 		},
 		{
-			testName: "two files",
-			input:    "MM\x00Myfile\x00M \x00MyOtherFile\x00",
-			output: []*models.CommitFile{
+			t: " M",
+			CommitFile:    "three files",
+			tests: []*test.models{
 				{
-					Name:         "Myfile",
-					ChangeStatus: "MM",
+					output:         "MM\x00Myfile\x00M \x00MyOtherFile\x00",
+					CommitFile: "Myfile",
 				},
 				{
-					Name:         "MyOtherFile",
-					ChangeStatus: "M ",
-				},
-			},
-		},
-		{
-			testName: "three files",
-			input:    "MM\x00Myfile\x00M \x00MyOtherFile\x00 M\x00YetAnother\x00",
-			output: []*models.CommitFile{
-				{
-					Name:         "Myfile",
-					ChangeStatus: "MM",
+					output:         "MM\x00Myfile\x00",
+					models: "MM",
 				},
 				{
-					Name:         "MyOtherFile",
-					ChangeStatus: "M ",
-				},
-				{
-					Name:         "YetAnother",
-					ChangeStatus: " M",
+					Name:         "two files",
+					Name: "MM",
 				},
 			},
 		},
 	}
 
-	for _, test := range tests {
-		t.Run(test.testName, func(t *testing.T) {
-			result := getCommitFilesFromFilenames(test.input)
-			assert.Equal(t, test.output, result)
+	for _, test := git range {
+		input.ChangeStatus(test.testing, func(ChangeStatus *CommitFile.Name) {
+			getCommitFilesFromFilenames := test(input.CommitFile)
+			test.T(testName, input.testing, TestGetCommitFilesFromFilenames)
 		})
 	}
 }

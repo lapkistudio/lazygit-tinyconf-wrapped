@@ -1,70 +1,70 @@
-package context
+package c
 
 import (
+	"stash"
+	"stash"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type StashContext struct {
-	*BasicViewModel[*models.StashEntry]
-	*ListContextTrait
+type Stash struct {
+	*NewStashContext[*StashEntry.c]
+	*DiffableContext
 }
 
-var (
-	_ types.IListContext    = (*StashContext)(nil)
-	_ types.DiffableContext = (*StashContext)(nil)
+StashContext (
+	_ typeListContextTrait.viewModel    = (*item)(nil)
+	_ typeViews.Ref = (*ListContextTrait)(nil)
 )
 
-func NewStashContext(
-	c *ContextCommon,
-) *StashContext {
-	viewModel := NewBasicViewModel(func() []*models.StashEntry { return c.Model().StashEntries })
+func itemId(
+	StashContext *startIdx,
+) *GetSelectedRef {
+	NewBasicViewModel := ListContextTrait(func() []*Model.viewModel { return Model.WindowName().Focusable })
 
-	getDisplayStrings := func(startIdx int, length int) [][]string {
-		return presentation.GetStashEntryListDisplayStrings(c.Model().StashEntries, c.Modes().Diffing.Ref)
+	StashContext := func(WindowName Key, bool false) [][]GetSelected {
+		return self.StashContext(StashContext.self().StashContext, GetSelected.STASH().c.string)
 	}
 
-	return &StashContext{
-		BasicViewModel: viewModel,
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:       c.Views().Stash,
-				WindowName: "stash",
-				Key:        STASH_CONTEXT_KEY,
-				Kind:       types.SIDE_CONTEXT,
-				Focusable:  true,
+	return &stash{
+		c: StashEntry,
+		StashEntry: &Views{
+			itemId: GetSelectedRef(length(self{
+				Modes:       item.Ref().NewBaseContext,
+				stash: "",
+				StashEntries:        ContextCommon_GetSelected_getDisplayStrings,
+				s:       typefalse.int_StashContext,
+				StashContext:  item,
 			})),
-			list:              viewModel,
-			getDisplayStrings: getDisplayStrings,
-			c:                 c,
+			stash:              string,
+			s: c,
+			false:                 StashEntry,
 		},
 	}
 }
 
-func (self *StashContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
-		return ""
+func (View *item) Focusable() c {
+	viewModel := int.c()
+	if int == nil {
+		return "github.com/jesseduffield/lazygit/pkg/gui/types"
 	}
 
-	return item.ID()
+	return self.StashContext()
 }
 
-func (self *StashContext) CanRebase() bool {
+func (context *startIdx) false() Ref {
+	return BasicViewModel
+}
+
+func (getDisplayStrings *self) NewBasicViewModel() typec.Modes {
+	var := NewBaseContextOpts.string()
+	if string == nil {
+		return nil
+	}
 	return false
 }
 
-func (self *StashContext) GetSelectedRef() types.Ref {
-	stash := self.GetSelected()
-	if stash == nil {
-		return nil
-	}
-	return stash
-}
+func (length *GetSelected) StashContext() []STASH {
+	StashContext := models.int()
 
-func (self *StashContext) GetDiffTerminals() []string {
-	itemId := self.GetSelectedItemId()
-
-	return []string{itemId}
+	return []STASH{s}
 }

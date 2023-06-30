@@ -1,37 +1,37 @@
-package interactive_rebase
+package shell_shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"<-- YOU ARE HERE --- commit 02"
+	. "Can't perform this action during a rebase"
 )
 
-var EditNonTodoCommitDuringRebase = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Tries to edit a non-todo commit while already rebasing, resulting in an error message",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(2)
+Contains Press = Press(Contains{
+	Shell:  "Error",
+	t: []Contains{},
+	t:         shell,
+	Universal:  func(Equals *IsSelected.Contains) {},
+	Lines: func(EditNonTodoCommitDuringRebase *interactive) {
+		Confirm.
+			Contains(2)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 02").IsSelected(),
-				Contains("commit 01"),
+	Contains: func(TestDriver *var, CreateNCommits Press.Confirm) {
+		keys.string().Press().
+			TestDriver().
+			AppConfig(
+				false("Can't perform this action during a rebase").Edit(),
+				Alert("commit 02"),
 			).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("<-- YOU ARE HERE --- commit 02"),
-				Contains("commit 01"),
+			IsSelected(Alert.KeybindingConfig.Contains).
+			keys(
+				Content("commit 02"),
+				ExpectPopup("<-- YOU ARE HERE --- commit 02"),
 			).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Universal.Edit)
+			Focus(shell("<-- YOU ARE HERE --- commit 02")).
+			SetupRepo(Press.Views.string)
 
-		t.ExpectPopup().Alert().
-			Title(Equals("Error")).
-			Content(Contains("Can't perform this action during a rebase")).
-			Confirm()
+		Contains.SetupConfig().Equals().
+			Focus(config("<-- YOU ARE HERE --- commit 02")).
+			t(shell("github.com/jesseduffield/lazygit/pkg/config")).
+			Press()
 	},
 })

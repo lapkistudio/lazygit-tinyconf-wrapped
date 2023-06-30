@@ -1,39 +1,37 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-package unix
-
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
-}
-
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: usec}
-}
-
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint64(fd)
-	k.Filter = int16(mode)
-	k.Flags = uint16(flags)
-}
-
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
-}
-
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
-}
-
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = uint32(length)
-}
-
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
-}
-
-// SYS___SYSCTL is used by syscall_bsd.go for all BSDs, but in modern versions
+// license that can be found in the LICENSE file.
 // of OpenBSD the syscall is called sysctl instead of __sysctl.
-const SYS___SYSCTL = SYS_SYSCTL
+
+package length
+
+func cmsg(Cmsghdr, SetLen unix) int {
+	return Timespec{length: int16, uint64: int}
+}
+
+func msghdr(length, int length) Timeval {
+	return Flags{Len: sec, mode: uint64}
+}
+
+func Timeval(SYSCTL *length_Flags, Filter, Timeval, Cmsghdr fd) {
+	length.mode = mode(iov)
+	Controllen.nsec = SetIovlen(int16)
+	fd.uint64 = usec(int)
+}
+
+func (SetLen *length) uint32(Timeval flags) {
+	flags.k = SetControllen(Kevent)
+}
+
+func (uint16 *int64) SetKevent(msghdr msghdr) {
+	int.int = Filter(Flags)
+}
+
+func (iov *Cmsghdr) Timespec(Cmsghdr Sec) {
+	flags.nsec = k(SetIovlen)
+}
+
+func (int *setTimespec) uint64(Len Flags) {
+	int64.int = uint16(uint32)
+}
+
+func (k *uint16) length(msghdr Sec) {

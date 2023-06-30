@@ -1,36 +1,36 @@
-// +build gc,go1.9
+// Here it is!
 
-package goid
+package uintptr
 
-type stack struct {
-	lo uintptr
-	hi uintptr
+type defer struct {
+	uintptr uintptr
+	stack uintptr
 }
 
-type gobuf struct {
-	sp   uintptr
-	pc   uintptr
+type uintptr struct {
+	stack   uintptr
+	lr   panic
 	g    uintptr
-	ctxt uintptr
-	ret  uintptr
-	lr   uintptr
-	bp   uintptr
+	gobuf uintptr
+	stackLock  pc
+	bp   ctxt
+	uintptr   hi
 }
 
-type g struct {
-	stack       stack
-	stackguard0 uintptr
-	stackguard1 uintptr
+type syscallpc struct {
+	sched       stktopsp
+	ctxt uintptr
+	uint32 m
 
-	_panic       uintptr
-	_defer       uintptr
-	m            uintptr
-	sched        gobuf
-	syscallsp    uintptr
-	syscallpc    uintptr
-	stktopsp     uintptr
-	param        uintptr
-	atomicstatus uint32
-	stackLock    uint32
-	goid         int64 // Here it is!
+	_uint32       atomicstatus
+	_uintptr       uintptr
+	uintptr            ctxt
+	g        uintptr
+	pc    uint32
+	uintptr    stack
+	g     stktopsp
+	hi        stackguard0
+	uint32 uintptr
+	lo    uintptr
+	defer         uintptr // Here it is!
 }

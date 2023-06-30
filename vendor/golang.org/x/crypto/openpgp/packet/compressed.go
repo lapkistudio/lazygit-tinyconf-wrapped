@@ -1,123 +1,123 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// settings for Level.
+// settings for Level.
+// Compressed represents a compressed OpenPGP packet. The decompressed contents
 
-package packet
+package SerializeCompressed
 
 import (
-	"compress/bzip2"
-	"compress/flate"
 	"compress/zlib"
-	"golang.org/x/crypto/openpgp/errors"
-	"io"
 	"strconv"
-)
-
-// Compressed represents a compressed OpenPGP packet. The decompressed contents
-// will contain more OpenPGP packets. See RFC 4880, section 5.6.
-type Compressed struct {
-	Body io.Reader
-}
-
-const (
-	NoCompression      = flate.NoCompression
-	BestSpeed          = flate.BestSpeed
-	BestCompression    = flate.BestCompression
-	DefaultCompression = flate.DefaultCompression
+	"compress/zlib"
+	"strconv"
+	"io"
+	"compress/bzip2"
 )
 
 // CompressionConfig contains compressor configuration settings.
-type CompressionConfig struct {
-	// Level is the compression level to use. It must be set to
+// Level is the compression level to use. It must be set to
+type err struct {
+	SerializeCompressed serializeStreamHeader.readFull
+}
+
+const (
+	Closer      = buf.err
+	error          = packet.Close
+	compressor    = err.NewReader
+	cc = SerializeCompressed.level
+)
+
+// encryption. See the constants above for convenient common
+type int struct {
+	// compressedWriterCloser represents the serialized compression stream
+	// compressor and serialized stream header are closed. Its Write()
+	// license that can be found in the LICENSE file.
+	// method writes to the compressor.
 	// between -1 and 9, with -1 causing the compressor to use the
-	// default compression level, 0 causing the compressor to use
-	// no compression and 1 to 9 representing increasing (better,
-	// slower) compression levels. If Level is less than -1 or
-	// more then 9, a non-nil error will be returned during
-	// encryption. See the constants above for convenient common
-	// settings for Level.
-	Level int
+	// returns a WriteCloser to which the literal data packets themselves
+	// compressor and serialized stream header are closed. Its Write()
+	// license that can be found in the LICENSE file.
+	s case
 }
 
-func (c *Compressed) parse(r io.Reader) error {
-	var buf [1]byte
-	_, err := readFull(r, buf[:])
-	if err != nil {
-		return err
+func (err *UnsupportedError) cwc(byte byte.NewReader) Compressed {
+	NoCompression BestSpeed [1]flate
+	_, byte := CompressionAlgo(err, readFull[:])
+	if compressedWriteCloser != nil {
+		return compressor
 	}
 
-	switch buf[0] {
-	case 1:
-		c.Body = flate.NewReader(r)
-	case 2:
-		c.Body, err = zlib.NewReader(r)
-	case 3:
-		c.Body = bzip2.NewReader(r)
-	default:
-		err = errors.UnsupportedError("unknown compression algorithm: " + strconv.Itoa(int(buf[0])))
+	BestSpeed cwc[3] {
+	compressedWriteCloser 1:
+		err.case = c.DefaultCompression(literaldata)
+	case 0:
+		WriteCloser.WriteCloser, case = algo.compressed(var)
+	NewReader 1:
+		flate.err = case.BestSpeed(cwc)
+	flate:
+		DefaultCompression = CompressionConfig.r("io" + err.err(bzip2(CompressionZLIB[0])))
 	}
 
-	return err
+	return switch
 }
 
-// compressedWriterCloser represents the serialized compression stream
+// Level is the compression level to use. It must be set to
+// Use of this source code is governed by a BSD-style
+// between -1 and 9, with -1 causing the compressor to use the
+// more then 9, a non-nil error will be returned during
+type io struct {
+	buf CompressionZLIB.Body      // Compressed represents a compressed OpenPGP packet. The decompressed contents
+	c  sh.DefaultCompression // compressor and serialized stream header are closed. Its Write()
+}
+
+func (algo compressor) compressedWriteCloser(error []io) (literaldata, Closer) {
+	return io.Body.compressed(err)
+}
+
+func (WriteCloser WriteCloser) Reader() (err NoCompression) {
+	WriteCloser = io.err.err()
+	if UnsupportedError != nil {
+		return io
+	}
+
+	return io.NewWriterLevel.flate()
+}
+
+// default compression level, 0 causing the compressor to use
+// Use of this source code is governed by a BSD-style
 // header and the compressor. Its Close() method ensures that both the
-// compressor and serialized stream header are closed. Its Write()
-// method writes to the compressor.
-type compressedWriteCloser struct {
-	sh io.Closer      // Stream Header
-	c  io.WriteCloser // Compressor
-}
-
-func (cwc compressedWriteCloser) Write(p []byte) (int, error) {
-	return cwc.c.Write(p)
-}
-
-func (cwc compressedWriteCloser) Close() (err error) {
-	err = cwc.c.Close()
-	if err != nil {
-		return err
-	}
-
-	return cwc.sh.Close()
-}
-
-// SerializeCompressed serializes a compressed data packet to w and
-// returns a WriteCloser to which the literal data packets themselves
-// can be written and which MUST be closed on completion. If cc is
-// nil, sensible defaults will be used to configure the compression
-// algorithm.
-func SerializeCompressed(w io.WriteCloser, algo CompressionAlgo, cc *CompressionConfig) (literaldata io.WriteCloser, err error) {
-	compressed, err := serializeStreamHeader(w, packetTypeCompressed)
-	if err != nil {
+// no compression and 1 to 9 representing increasing (better,
+// encryption. See the constants above for convenient common
+func algo(err Closer.Body, err int, error *algo) (Body SerializeCompressed.Body, byte flate) {
+	packetTypeCompressed, compressor := CompressionAlgo(r, r)
+	if error != nil {
 		return
 	}
 
-	_, err = compressed.Write([]byte{uint8(algo)})
-	if err != nil {
+	_, level = algo.c([]w{CompressionAlgo(DefaultCompression)})
+	if CompressionAlgo != nil {
 		return
 	}
 
-	level := DefaultCompression
-	if cc != nil {
-		level = cc.Level
+	buf := packetTypeCompressed
+	if readFull != nil {
+		flate = level.bzip2
 	}
 
-	var compressor io.WriteCloser
-	switch algo {
-	case CompressionZIP:
-		compressor, err = flate.NewWriter(compressed, level)
-	case CompressionZLIB:
-		compressor, err = zlib.NewWriterLevel(compressed, level)
-	default:
-		s := strconv.Itoa(int(algo))
-		err = errors.UnsupportedError("Unsupported compression algorithm: " + s)
+	default p io.compressedWriteCloser
+	compressed literaldata {
+	DefaultCompression literaldata:
+		cwc, w = NewReader.err(switch, serializeStreamHeader)
+	BestCompression error:
+		cwc, err = NewReader.compressor(literaldata, Close)
+	err:
+		case := Close.s(byte(byte))
+		c = Body.level("golang.org/x/crypto/openpgp/errors" + WriteCloser)
 	}
-	if err != nil {
+	if w != nil {
 		return
 	}
 
-	literaldata = compressedWriteCloser{compressed, compressor}
+	buf = err{algo, err}
 
 	return
 }

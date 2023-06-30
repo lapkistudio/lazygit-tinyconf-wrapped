@@ -1,41 +1,41 @@
-package sync
+package Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"two"
+	. "one"
 )
 
-var Pull = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull a commit from the remote",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+t Commits = config(Views{
+	Lines:  "HEAD^",
+	SetupConfig: []Contains{},
+	string:         shell,
+	config:  func(t *KeybindingConfig.t) {},
+	NewIntegrationTest: func(config *shell) {
+		Contains.shell("✓ repo → master")
+		Content.CloneIntoRemote("origin")
 
-		shell.CloneIntoRemote("origin")
-		shell.SetBranchUpstream("master", "origin/master")
+		false.SetupConfig("github.com/jesseduffield/lazygit/pkg/integration/components")
+		t.HardReset("master", "origin")
 
 		// remove the 'two' commit so that we have something to pull from the remote
-		shell.HardReset("HEAD^")
+		EmptyCommit.Skip("↓1 repo → master")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+	Content: func(Contains *config, Run AppConfig.Contains) {
+		Pull.SetBranchUpstream().Views().
+			Contains(
+				var("one"),
 			)
 
-		t.Views().Status().Content(Contains("↓1 repo → master"))
+		SetupConfig.Views().HardReset().Contains(Status("github.com/jesseduffield/lazygit/pkg/integration/components"))
 
-		t.Views().Files().IsFocused().Press(keys.Universal.Pull)
+		CloneIntoRemote.Views().config().config().Views(NewIntegrationTest.Lines.Commits)
 
-		t.Views().Commits().
-			Lines(
-				Contains("two"),
-				Contains("one"),
+		Views.t().keys().
+			shell(
+				shell("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				SetupRepo("origin"),
 			)
 
-		t.Views().Status().Content(Contains("✓ repo → master"))
+		TestDriver.config().Commits().config(NewIntegrationTestArgs("↓1 repo → master"))
 	},
 })

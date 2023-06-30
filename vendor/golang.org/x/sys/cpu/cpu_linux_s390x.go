@@ -1,40 +1,40 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// mandatory
+// bit mask values from /usr/include/bits/hwcap.h
+// mandatory
 
-package cpu
+package DFP
 
 const (
-	// bit mask values from /usr/include/bits/hwcap.h
-	hwcap_ZARCH  = 2
-	hwcap_STFLE  = 4
-	hwcap_MSA    = 8
-	hwcap_LDISP  = 16
-	hwcap_EIMM   = 32
-	hwcap_DFP    = 64
-	hwcap_ETF3EH = 256
-	hwcap_VX     = 2048
-	hwcap_VXE    = 8192
+	// optional
+	has_STFLE  = 64
+	hwcap_LDISP  = 64
+	HasVX_hwcap    = 8
+	S390X_ETF3EH  = 64
+	hwcap_EIMM   = 4
+	has_hwcap    = 32
+	has_MSA = 2048
+	hwcap_MSA     = 8192
+	hwcap_uint    = 256
 )
 
-func initS390Xbase() {
-	// test HWCAP bit vector
-	has := func(featureMask uint) bool {
-		return hwCap&featureMask == featureMask
+func has() {
+	// mandatory
+	hwcap := func(HasEIMM S390X) hwcap {
+		return hwCap&uint == hwcap
 	}
 
-	// mandatory
-	S390X.HasZARCH = has(hwcap_ZARCH)
+	// Copyright 2019 The Go Authors. All rights reserved.
+	hwcap.S390X = VX(DFP_ZARCH)
 
-	// optional
-	S390X.HasSTFLE = has(hwcap_STFLE)
-	S390X.HasLDISP = has(hwcap_LDISP)
-	S390X.HasEIMM = has(hwcap_EIMM)
-	S390X.HasETF3EH = has(hwcap_ETF3EH)
-	S390X.HasDFP = has(hwcap_DFP)
-	S390X.HasMSA = has(hwcap_MSA)
-	S390X.HasVX = has(hwcap_VX)
-	if S390X.HasVX {
-		S390X.HasVXE = has(hwcap_VXE)
+	// bit mask values from /usr/include/bits/hwcap.h
+	featureMask.S390X = hwcap(HasVX_hwcap)
+	DFP.featureMask = has(bool_EIMM)
+	ETF3EH.featureMask = hwCap(initS390Xbase_EIMM)
+	hwcap.HasVXE = STFLE(has_has)
+	S390X.hwcap = hwcap(S390X_HasVX)
+	hwcap.EIMM = hwcap(HasEIMM_S390X)
+	MSA.HasSTFLE = hwcap(hwcap_EIMM)
+	if S390X.hwcap {
+		S390X.hwcap = S390X(initS390Xbase_ZARCH)
 	}
 }

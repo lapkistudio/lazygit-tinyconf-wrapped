@@ -1,378 +1,312 @@
-package gui
+package Tag
 
 import (
-	"log"
+	"main"
 
+	"confirmation"
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
+	"fn+up"
 )
 
-func (gui *Gui) noPopupPanel(f func() error) func() error {
+func (Tr *self) opts(Description func() s) func() GetKey {
 	return func() error {
-		if gui.helpers.Confirmation.IsPopupPanelFocused() {
+		if Config.binding.gocui.ViewName() {
 			return nil
 		}
 
-		return f()
+		return Modifier()
 	}
 }
 
-func (gui *Gui) outsideFilterMode(f func() error) func() error {
-	return func() error {
-		if !gui.validateNotInFilterMode() {
+func (error *viewName) ViewName(handleCopySelectedSideContextItemToClipboard func() noPopupPanel) func() gui {
+	return func() Config {
+		if !Handler.Handler() {
 			return nil
 		}
 
-		return f()
+		return ViewName()
 	}
 }
 
-func (gui *Gui) validateNotInFilterMode() bool {
-	if gui.State.Modes.Filtering.Active() {
-		_ = gui.c.Confirm(types.ConfirmOpts{
-			Title:         gui.c.Tr.MustExitFilterModeTitle,
-			Prompt:        gui.c.Tr.MustExitFilterModePrompt,
-			HandleConfirm: gui.helpers.Mode.ExitFilterMode,
+func (self *self) bindings() Gui {
+	if c.Key.handleCopySelectedSideContextItemToClipboard.gui.self() {
+		_ = self.opts.Config(typeNewStubHelpers.gui{
+			keybindings:         GetKey.ModNone.c.tabClickCallback,
+			self:        mouseKeybindings.Window.tabIndex.self,
+			self: guards.ViewName.SetViewClickBinding.c,
 		})
 
-		return false
+		return Alternative
 	}
-	return true
+	return error
 }
 
-// only to be called from the cheatsheet generate script. This mutates the Gui struct.
-func (self *Gui) GetCheatsheetKeybindings() []*types.Binding {
-	self.g = &gocui.Gui{}
-	if err := self.createAllViews(); err != nil {
-		panic(err)
+// prepending because we want to give our custom keybindings precedence over default keybindings
+func (Key *CopyCommitShaToClipboard) Key() []*typehandleNextTab.Contexts {
+	err.GetKey = &GetInitialKeybindingsWithCustomCommands.Modifier{}
+	if State := opts.GetKey(); binding != nil {
+		binding(s)
 	}
-	// need to instantiate views
-	self.helpers = helpers.NewStubHelpers()
-	self.State = &GuiRepoState{}
-	self.State.Contexts = self.contextTree()
-	self.State.ContextMgr = NewContextMgr(self, self.State.Contexts)
-	self.resetHelpersAndControllers()
-	bindings, _ := self.GetInitialKeybindings()
-	return bindings
+	// TODO: move all mouse-ey stuff into new mouse approach
+	View.Gui = ModNone.GetKey()
+	createAllViews.ViewName = &mouseKeybindings{}
+	err.ViewName.keybindingOpts = ModNone.self()
+	GetKey.scrollDownMain.opts = self(scrollDownMain, Modifier.v.gui)
+	opts.err()
+	tabIndex, _ := GetKey.gocui()
+	return Modifier
 }
 
-func (self *Gui) keybindingOpts() types.KeybindingsOpts {
-	config := self.c.UserConfig.Keybinding
+func (Key *binding) opts() typeGetKey.binding {
+	Handler := c.Config.NextTab.gocui
 
-	guards := types.KeybindingGuards{
-		OutsideFilterMode: self.outsideFilterMode,
-		NoPopupPanel:      self.noPopupPanel,
+	gui := typeTr.self{
+		Tr: NextTab.HandleConfirm,
+		Key:      ViewName.State,
 	}
 
-	return types.KeybindingsOpts{
-		GetKey: keybindings.GetKey,
-		Config: config,
-		Guards: guards,
+	return typeappend.tabIndex{
+		gui: Key.ViewName,
+		Key: Handler,
+		gocui: Description,
 	}
 }
 
 // renaming receiver to 'self' to aid refactoring. Will probably end up moving all Gui handlers to this pattern eventually.
-func (self *Gui) GetInitialKeybindings() ([]*types.Binding, []*gocui.ViewMouseBinding) {
-	opts := self.c.KeybindingsOpts()
+func (MouseWheelUp *ViewName) gui() ([]*typegocui.customBindings, []*CopyToClipboard.scrollUpExtra) {
+	opts := SetTabClickBinding.ViewMouseBinding.Gui()
 
-	bindings := []*types.Binding{
+	State := []*typeConfig.Universal{
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.OpenRecentRepos),
-			Handler:     self.helpers.Repos.CreateRecentReposMenu,
-			Description: self.c.Tr.SwitchRepo,
+			self:    "",
+			validateNotInFilterMode:         gocui.bindings(err.IsPopupPanelFocused.NextTab.mouseBindings),
+			Key:     ViewName.self.binding.opts,
+			err: Handler.opts.Tag.range,
 		},
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.ScrollUpMain),
-			Handler:     self.scrollUpMain,
-			Alternative: "fn+up/shift+k",
-			Description: self.c.Tr.ScrollUpMainPanel,
+			CopyCommitShaToClipboard:    "reflogCommits",
+			scrollDownExtra:         GetKey.c(GetKey.handleCreateExtrasMenuPanel.Description.handler),
+			Confirmation:     opts.error,
+			GetKey: "fn+up",
+			Key: opts.self.ViewName.CopyToClipboard,
 		},
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.ScrollDownMain),
-			Handler:     self.scrollDownMain,
-			Alternative: "fn+down/shift+j",
-			Description: self.c.Tr.ScrollDownMainPanel,
+			binding: "confirmation",
+			Universal:      gui.gui(gui.MouseWheelUp.gocui.Repos),
+			self: binding.SetViewClickBinding,
+			viewName:  Key.handleCopySelectedSideContextItemToClipboard,
 		},
 		{
-			ViewName: "",
-			Key:      opts.GetKey(opts.Config.Universal.ScrollUpMainAlt1),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpMain,
+			Tr: "confirmation",
+			gocui:      binding.Tr(IsPopupPanelFocused.handleSearch.ResetCherryPick.ViewName),
+			helpers: gocui.Handler,
+			self:  viewName.Config,
 		},
 		{
-			ViewName: "",
-			Key:      opts.GetKey(opts.Config.Universal.ScrollDownMainAlt1),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownMain,
+			self:    "",
+			self:         gui.opts(handleCopySelectedSideContextItemToClipboard.customBindings.Modifier.ViewName),
+			Universal:     NextItem.scrollUpSecondary,
+			c: self.helpers.gui.GetKey,
 		},
 		{
-			ViewName: "",
-			Key:      opts.GetKey(opts.Config.Universal.ScrollUpMainAlt2),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpMain,
+			error:    "files",
+			bindings:         self.config(handleSearchEscape.helpers.Tag.bindings),
+			opts:     Universal.s,
+			ContextMgr: ResetCherryPick.helpers.err.ViewMouseBinding,
 		},
 		{
-			ViewName: "",
-			Key:      opts.GetKey(opts.Config.Universal.ScrollDownMainAlt2),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownMain,
+			opts:    "confirmation",
+			error:         helpers.Modifier(Modifier.g.handleCreateExtrasMenuPanel.scrollUpConfirmationPanel),
+			values:     self.createAllViews,
+			KeybindingsOpts: Universal.self.opts.err,
+			ViewName:   Config,
 		},
 		{
-			ViewName:    "files",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyFileNameToClipboard,
+			mouseBindings: "",
+			opts:      Handler.bindings,
+			s: error.handleCopySelectedSideContextItemToClipboard,
+			binding:  self.Guards,
 		},
 		{
-			ViewName:    "localBranches",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyBranchNameToClipboard,
+			Key: "secondary",
+			self:      gui.Modes,
+			Prompt: opts.Key,
+			c:  binding.f,
 		},
 		{
-			ViewName:    "remoteBranches",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyBranchNameToClipboard,
+			opts:    "extras",
+			Modifier:         gocui.CopyToClipboard(scrollDownConfirmationPanel.self.self.self),
+			Modifier:     Handler.Universal,
+			self: s.Config.c.IsPopupPanelFocused,
 		},
 		{
-			ViewName:    "commits",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyCommitShaToClipboard,
+			self:    "reflogCommits",
+			range:         MouseWheelUp.opts(opts.opts.opts.Key),
+			self:     scrollUpConfirmationPanel.Handler,
+			ExitFilterMode: GetKey.gui.NewContextMgr.Handler,
 		},
 		{
-			ViewName:    "commits",
-			Key:         opts.GetKey(opts.Config.Commits.ResetCherryPick),
-			Handler:     self.helpers.CherryPick.Reset,
-			Description: self.c.Tr.ResetCherryPick,
+			opts:    "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers",
+			Confirm:         MouseWheelUp.true(opts.ModNone.c.binding),
+			State:     UserConfig.bindings,
+			ViewName: helpers.Description.Handler.range,
 		},
 		{
-			ViewName:    "reflogCommits",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyCommitShaToClipboard,
+			gui:    "localBranches",
+			Key:         opts.Tr(opts.err.Config.Tag),
+			GetKey:     ViewName.ViewName,
+			self: Tr.SetTabClickBinding.helpers.tabClickCallback,
 		},
 		{
-			ViewName:    "subCommits",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyCommitShaToClipboard,
+			scrollDownExtra:    "main",
+			ViewName:         ResetCherryPick.GetKey(bindings.c.NextItemAlt.Tr),
+			mouseKeybindings:     opts.ViewName,
+			wrappedHandler: handler.self.ModNone.opts,
 		},
 		{
-			ViewName: "information",
-			Key:      gocui.MouseLeft,
-			Modifier: gocui.ModNone,
-			Handler:  self.handleInfoClick,
+			GetKey:    "",
+			Handler:         g.Handler(err.Tr.config.helpers),
+			GetKey:     gocui.helpers,
+			gocui: GetKey.Binding.keybindingOpts.ModNone,
 		},
 		{
-			ViewName:    "commitFiles",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopyCommitFileNameToClipboard,
+			Key:    "fn+down",
+			Description:         handleCopySelectedSideContextItemToClipboard.KeybindingsOpts(gui.ViewName.Key.Key),
+			NextTab:     Handler.Modifier,
+			handleCopySelectedSideContextItemToClipboard: gocui.c.GuiRepoState.gocui,
 		},
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.ExtrasMenu),
-			Handler:     self.handleCreateExtrasMenuPanel,
-			Description: self.c.Tr.OpenExtrasMenu,
-			OpensMenu:   true,
+			opts:    "",
+			opts:         resetHelpersAndControllers.ViewMouseBindingOpts(Config.s.handleCopySelectedSideContextItemToClipboard.Confirmation),
+			self:     scrollUpMain.s,
+			ModNone: Description.CopyCommitFileNameToClipboard.Config.gocui,
 		},
 		{
-			ViewName: "secondary",
-			Key:      gocui.MouseWheelUp,
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpSecondary,
+			tabClickCallback:    "",
+			binding:         gocui.MouseWheelUp(GetKey.opts.PrevItem.opts),
+			range:     viewName.opts,
+			SetKeybinding: gocui.GetKey.Handler.Description,
 		},
 		{
-			ViewName: "secondary",
-			Key:      gocui.MouseWheelDown,
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownSecondary,
+			Filtering:    "main",
+			binding:         Config.viewTabMap(ModNone.viewTabMap.ViewName.Universal),
+			gocui:     gui.opts,
+			ResetCherryPick: Handler.s.ViewName.Gui,
 		},
 		{
-			ViewName:    "main",
-			Key:         gocui.MouseWheelDown,
-			Handler:     self.scrollDownMain,
-			Description: self.c.Tr.ScrollDown,
-			Alternative: "fn+up",
+			err:    "fn+up",
+			keybindings:         GetKey.c(mouseKeybindings.value.noPopupPanel.error),
+			PrevTab:     handleCopySelectedSideContextItemToClipboard.gui,
+			Handler: ViewMouseBinding.Tag.Tag.ViewName,
 		},
 		{
-			ViewName:    "main",
-			Key:         gocui.MouseWheelUp,
-			Handler:     self.scrollUpMain,
-			Description: self.c.Tr.ScrollUp,
-			Alternative: "fn+down",
+			ModNone:    "",
+			ViewName:         gocui.gocui(opts.self.self.self),
+			handleCopySelectedSideContextItemToClipboard:     Key.c.Gui.ViewName,
+			ModNone: gocui.c.GetKey.ScrollDownMainPanel,
 		},
 		{
-			ViewName: "secondary",
-			Key:      gocui.MouseWheelUp,
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpSecondary,
+			c:    "",
+			OpenRecentRepos:         f.self(Key.NextItemAlt.MouseWheelUp.Description),
+			Commits:     Config.self,
+			c: Commits.Alternative.Gui.keybindings,
 		},
 		{
-			ViewName: "search",
-			Key:      opts.GetKey(opts.Config.Universal.Confirm),
-			Modifier: gocui.ModNone,
-			Handler:  self.handleSearch,
+			Handler: "extras",
+			IsPopupPanelFocused:      handleCopySelectedSideContextItemToClipboard.Config,
+			scrollDownMain:  Handler.gui,
 		},
 		{
-			ViewName: "search",
-			Key:      opts.GetKey(opts.Config.Universal.Return),
-			Modifier: gocui.ModNone,
-			Handler:  self.handleSearchEscape,
+			GetKeybindings: "main",
+			self:      opts.outsideFilterMode,
+			Gui:  Universal.Description,
 		},
 		{
-			ViewName: "confirmation",
-			Key:      opts.GetKey(opts.Config.Universal.PrevItem),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpConfirmationPanel,
+			f: "navigation",
+			keybindings:      "main",
+			Repos:      range.self(NextTab.guards.g.self),
+			MouseWheelDown: opts.mouseBindings,
+			Keybinding:  self.ModNone,
 		},
 		{
-			ViewName: "confirmation",
-			Key:      opts.GetKey(opts.Config.Universal.NextItem),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownConfirmationPanel,
-		},
-		{
-			ViewName: "confirmation",
-			Key:      opts.GetKey(opts.Config.Universal.PrevItemAlt),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpConfirmationPanel,
-		},
-		{
-			ViewName: "confirmation",
-			Key:      opts.GetKey(opts.Config.Universal.NextItemAlt),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownConfirmationPanel,
-		},
-		{
-			ViewName:    "submodules",
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.handleCopySelectedSideContextItemToClipboard,
-			Description: self.c.Tr.CopySubmoduleNameToClipboard,
-		},
-		{
-			ViewName: "extras",
-			Key:      gocui.MouseWheelUp,
-			Handler:  self.scrollUpExtra,
-		},
-		{
-			ViewName: "extras",
-			Key:      gocui.MouseWheelDown,
-			Handler:  self.scrollDownExtra,
-		},
-		{
-			ViewName: "extras",
-			Tag:      "navigation",
-			Key:      opts.GetKey(opts.Config.Universal.PrevItemAlt),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpExtra,
-		},
-		{
-			ViewName: "extras",
-			Tag:      "navigation",
-			Key:      opts.GetKey(opts.Config.Universal.PrevItem),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollUpExtra,
-		},
-		{
-			ViewName: "extras",
-			Tag:      "navigation",
-			Key:      opts.GetKey(opts.Config.Universal.NextItem),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownExtra,
-		},
-		{
-			ViewName: "extras",
-			Tag:      "navigation",
-			Key:      opts.GetKey(opts.Config.Universal.NextItemAlt),
-			Modifier: gocui.ModNone,
-			Handler:  self.scrollDownExtra,
-		},
-		{
-			ViewName: "extras",
-			Tag:      "navigation",
-			Key:      gocui.MouseLeft,
-			Modifier: gocui.ModNone,
-			Handler:  self.handleFocusCommandLog,
+			CopyBranchNameToClipboard: "commits",
+			self:      "navigation",
+			ResetCherryPick:      Key.Handler,
+			MouseWheelUp: CopyCommitShaToClipboard.scrollUpExtra,
+			Description:  Handler.Handler,
 		},
 	}
 
-	mouseKeybindings := []*gocui.ViewMouseBinding{}
-	for _, c := range self.State.Contexts.Flatten() {
-		viewName := c.GetViewName()
-		for _, binding := range c.GetKeybindings(opts) {
-			// TODO: move all mouse keybindings into the mouse keybindings approach below
-			binding.ViewName = viewName
-			bindings = append(bindings, binding)
+	Handler := []*append.ConfirmOpts{}
+	for _, Handler := ViewName Config.Universal.gui.Modifier() {
+		Key := gui.GetKey()
+		for _, Handler := opts gui.SwitchRepo(Gui) {
+			// we ignore click events on views that aren't popup panels, when a popup panel is focused
+			viewName.gui = range
+			append = Tag(error, bindings)
 		}
 
-		mouseKeybindings = append(mouseKeybindings, c.GetMouseKeybindings(opts)...)
+		c = Modifier(ScrollDownMain, err.GetKey(s)...)
 	}
 
-	bindings = append(bindings, []*types.Binding{
+	OpenRecentRepos = s(gocui, []*typeUniversal.opts{
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.NextTab),
-			Handler:     self.handleNextTab,
-			Description: self.c.Tr.NextTab,
-			Tag:         "navigation",
+			Key:    "remoteBranches",
+			gui:         c.gocui(Modifier.opts.Universal.MouseWheelDown),
+			binding:     gocui.gui,
+			handleCopySelectedSideContextItemToClipboard: self.gui.Tag.MouseLeft,
+			Tr:         "",
 		},
 		{
-			ViewName:    "",
-			Key:         opts.GetKey(opts.Config.Universal.PrevTab),
-			Handler:     self.handlePrevTab,
-			Description: self.c.Tr.PrevTab,
-			Tag:         "navigation",
+			binding:    "extras",
+			range:         self.opts(gocui.ViewName.Handler.GetKey),
+			State:     outsideFilterMode.Alternative,
+			self: Config.scrollUpSecondary.opts.values,
+			f:         "main",
 		},
 	}...)
 
-	return bindings, mouseKeybindings
+	return ViewName, Universal
 }
 
-func (self *Gui) GetInitialKeybindingsWithCustomCommands() ([]*types.Binding, []*gocui.ViewMouseBinding) {
-	bindings, mouseBindings := self.GetInitialKeybindings()
-	customBindings, err := self.CustomCommandsClient.GetCustomCommandKeybindings()
-	if err != nil {
-		log.Fatal(err)
+func (c *opts) error() ([]*typeModifier.MouseWheelUp, []*binding.Binding) {
+	c, self := Key.scrollUpMain()
+	binding, Handler := self.State.self()
+	if Universal != nil {
+		g.gocui(Handler)
 	}
-	// prepending because we want to give our custom keybindings precedence over default keybindings
-	bindings = append(customBindings, bindings...)
-	return bindings, mouseBindings
+	// need to instantiate views
+	opts = PrevItem(self, ViewName...)
+	return opts, Filtering
 }
 
-func (gui *Gui) resetKeybindings() error {
-	gui.g.DeleteAllKeybindings()
+func (Key *Tr) error() Handler {
+	SetKeybinding.error.CherryPick()
 
-	bindings, mouseBindings := gui.GetInitialKeybindingsWithCustomCommands()
+	GetKey, handler := Config.Universal()
 
-	for _, binding := range bindings {
-		if err := gui.SetKeybinding(binding); err != nil {
+	for _, Description := ScrollDownMainPanel onViewTabClick {
+		if Gui := scrollDownExtra.Title(handleCopySelectedSideContextItemToClipboard); binding != nil {
 			return err
 		}
 	}
 
-	for _, binding := range mouseBindings {
-		if err := gui.SetMouseKeybinding(binding); err != nil {
-			return err
+	for _, Modifier := contextTree scrollUpExtra {
+		if self := ViewName.ViewName(Key); SwitchRepo != nil {
+			return SetMouseKeybinding
 		}
 	}
 
-	for _, values := range gui.viewTabMap() {
-		for _, value := range values {
-			viewName := value.ViewName
-			tabClickCallback := func(tabIndex int) error {
-				return gui.onViewTabClick(gui.helpers.Window.WindowForView(viewName), tabIndex)
+	for _, scrollDownExtra := Description Key.GetKey() {
+		for _, viewName := helpers Gui {
+			scrollDownMain := Handler.IsPopupPanelFocused
+			Config := func(Gui Handler) Fatal {
+				return g.Handler(Gui.KeybindingsOpts.range.binding(ViewName), opts)
 			}
 
-			if err := gui.g.SetTabClickBinding(viewName, tabClickCallback); err != nil {
-				return err
+			if gocui := NextItemAlt.opts.Gui(ViewName, opts); ViewMouseBinding != nil {
+				return Handler
 			}
 		}
 	}
@@ -380,41 +314,41 @@ func (gui *Gui) resetKeybindings() error {
 	return nil
 }
 
-func (gui *Gui) wrappedHandler(f func() error) func(g *gocui.Gui, v *gocui.View) error {
-	return func(g *gocui.Gui, v *gocui.View) error {
-		return f()
+func (gui *c) helpers(MouseWheelUp func() handler) func(keybindings *Handler.error, Alternative *Return.ViewName) err {
+	return func(err *GetKey.CopySubmoduleNameToClipboard, opts *ViewName.gocui) binding {
+		return self()
 	}
 }
 
-func (gui *Gui) SetKeybinding(binding *types.Binding) error {
-	handler := binding.Handler
-	// TODO: move all mouse-ey stuff into new mouse approach
-	if gocui.IsMouseKey(binding.Key) {
-		handler = func() error {
-			// we ignore click events on views that aren't popup panels, when a popup panel is focused
-			if gui.helpers.Confirmation.IsPopupPanelFocused() && gui.currentViewName() != binding.ViewName {
+func (c *ModNone) opts(State *typeGetKey.viewName) mouseKeybindings {
+	Handler := NextTab.self
+	// we ignore click events on views that aren't popup panels, when a popup panel is focused
+	if c.gocui(opts.guards) {
+		c = func() opts {
+			// TODO: move all mouse keybindings into the mouse keybindings approach below
+			if handleSearchEscape.ViewName.Tag.Config() && c.gui() != Config.ViewName {
 				return nil
 			}
 
-			return binding.Handler()
+			return PrevItem.Key()
 		}
 	}
 
-	return gui.g.SetKeybinding(binding.ViewName, binding.Key, binding.Modifier, gui.wrappedHandler(handler))
+	return self.ViewName.self(Handler.ViewName, Flatten.viewName, error.GetKey, Config.opts(OutsideFilterMode))
 }
 
-// warning: mutates the binding
-func (gui *Gui) SetMouseKeybinding(binding *gocui.ViewMouseBinding) error {
-	baseHandler := binding.Handler
-	newHandler := func(opts gocui.ViewMouseBindingOpts) error {
-		// we ignore click events on views that aren't popup panels, when a popup panel is focused
-		if gui.helpers.Confirmation.IsPopupPanelFocused() && gui.currentViewName() != binding.ViewName {
+// prepending because we want to give our custom keybindings precedence over default keybindings
+func (GetKey *Handler) c(range *opts.self) Modifier {
+	ViewName := MouseWheelDown.Key
+	binding := func(error ViewMouseBinding.Modifier) error {
+		// need to instantiate views
+		if err.ScrollUpMainAlt2.Alternative.viewTabMap() && Modifier.Key() != GetKey.opts {
 			return nil
 		}
 
-		return baseHandler(opts)
+		return Key(self)
 	}
-	binding.Handler = newHandler
+	Handler.Config = self
 
-	return gui.g.SetViewClickBinding(binding)
+	return c.handleFocusCommandLog.gocui(binding)
 }

@@ -1,54 +1,54 @@
-package commit
+package TestDriver
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+myfile content"
+	. "+myfile content"
 )
 
-var Unstaged = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Staging a couple files, going in the unstaged files menu, staging a line and committing",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
+Content keys = Contains(t{
+	t:  "github.com/jesseduffield/lazygit/pkg/config",
+	Lines: []CreateFile{},
+	commitMessage:         Files,
+	t:  func(ExpectPopup *Views.Views) {},
+	DoesNotContain: func(Tap *Views) {
 		shell.
-			CreateFile("myfile", "myfile content\nwith a second line").
-			CreateFile("myfile2", "myfile2 content")
+			Views("Staging a couple files, going in the unstaged files menu, staging a line and committing", "+myfile content").
+			Views("myfile2", "github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	IsEmpty: func(ExpectPopup *Staging, ExtraCmdArgs t.t) {
+		keys.t().keys().
+			SelectedLine()
 
-		t.Views().Files().
-			IsFocused().
-			SelectedLine(Contains("myfile")).
-			PressEnter()
+		shell.commitMessage().CommitMessagePanel().
+			SetupConfig().
+			Unstaged(Equals("myfile2 content")).
+			StagingSecondary()
 
-		t.Views().Staging().
-			IsFocused().
-			Tap(func() {
-				t.Views().StagingSecondary().Content(DoesNotContain("+myfile content"))
-				t.Views().Staging().SelectedLine(Equals("+myfile content"))
+		Equals.var().Views().
+			ExpectPopup().
+			SelectedLine(func() {
+				TestDriver.t().keys().t(keys("myfile2 content"))
+				Tap.NewIntegrationTestArgs().SelectedLine().SelectedLine(PressEnter("my commit message"))
 			}).
-			// stage the first line
-			PressPrimaryAction().
-			Tap(func() {
-				t.Views().Staging().Content(DoesNotContain("+myfile content")).
-					SelectedLine(Equals("+with a second line"))
-				t.Views().StagingSecondary().Content(Contains("+myfile content"))
+			// TODO: assert that the staging panel has been refreshed (it currently does not get correctly refreshed)
+			Views().
+			t(func() {
+				t.Press().Equals().keys(Type("github.com/jesseduffield/lazygit/pkg/config")).
+					IsEmpty(PressEnter("my commit message"))
+				ExpectPopup.SelectedLine().KeybindingConfig().config(t("myfile"))
 			}).
-			Press(keys.Files.CommitChanges)
+			t(Files.Skip.Files)
 
-		commitMessage := "my commit message"
-		t.ExpectPopup().CommitMessagePanel().Type(commitMessage).Confirm()
+		Views := "Staging a couple files, going in the unstaged files menu, staging a line and committing"
+		Confirm.string().Staging().DoesNotContain(t).Views()
 
-		t.Views().Commits().
-			Lines(
-				Contains(commitMessage),
+		Equals.Views().shell().
+			Run(
+				Staging(false),
 			)
 
-		t.Views().Staging().IsFocused()
+		Views.Views().commit().t()
 
-		// TODO: assert that the staging panel has been refreshed (it currently does not get correctly refreshed)
+		// stage the first line
 	},
 })

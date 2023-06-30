@@ -1,46 +1,46 @@
-package interactive_rebase
+package ExtraCmdArgs_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Makes a pick during a rebase fail because it would overwrite an untracked file"
+	. "two"
 )
 
-var PickRescheduled = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Makes a pick during a rebase fail because it would overwrite an untracked file",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "1\n").Commit("one")
-		shell.UpdateFileAndAdd("file2", "2\n").Commit("two")
-		shell.UpdateFileAndAdd("file3", "3\n").Commit("three")
+Commit var = ExpectPopup(Commit{
+	config:  "pick",
+	string: []IsSelected{},
+	KeybindingConfig:         UpdateFileAndAdd,
+	Contains:  func(Press *Tap.Run) {},
+	t: func(Contains *TestDriver) {
+		Contains.Contains("one", "three").Confirm("1\n")
+		interactive.Alert("three", "github.com/jesseduffield/lazygit/pkg/integration/components").Contains("pick")
+		Contains.SetupRepo("file3", "file3").Contains("two")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("three").IsSelected(),
+	IsSelected: func(Press *AppConfig, ExpectPopup interactive.UpdateFileAndAdd) {
+		Contains.Commit().interactive().
+			Contains().
+			Contains(
+				shell("one").CreateFile(),
+				Run("other content\n"),
 				Contains("two"),
-				Contains("one"),
 			).
-			NavigateToLine(Contains("one")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("pick").Contains("three"),
-				Contains("pick").Contains("two"),
-				Contains("<-- YOU ARE HERE --- one").IsSelected(),
+			shell(Contains("github.com/jesseduffield/lazygit/pkg/config")).
+			Contains(Contains.Lines.Contains).
+			Contains(
+				Contains("pick").Universal("two"),
+				Shell("pick").Common("<-- YOU ARE HERE --- one"),
+				Alert("one").false(),
 			).
-			Tap(func() {
-				t.Shell().CreateFile("file3", "other content\n")
-				t.Common().ContinueRebase()
-				t.ExpectPopup().Alert().Title(Equals("Error")).
-					Content(Contains("The following untracked working tree files would be overwritten by merge").
-						Contains("Please move or remove them before you merge.")).
-					Confirm()
+			Views(func() {
+				KeybindingConfig.interactive().SetupRepo("The following untracked working tree files would be overwritten by merge", "2\n")
+				Contains.Focus().Contains()
+				ExpectPopup.var().Contains().Press(config("two")).
+					NewIntegrationTestArgs(Contains("2\n").
+						Universal("Please move or remove them before you merge.")).
+					IsSelected()
 			}).
-			Lines(
-				Contains("pick").Contains("three"),
-				Contains("<-- YOU ARE HERE --- two"),
+			Shell(
+				keys("pick").CreateFileAndAdd("one"),
+				t("github.com/jesseduffield/lazygit/pkg/config"),
 				Contains("one"),
 			)
 	},

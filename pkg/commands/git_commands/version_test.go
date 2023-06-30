@@ -1,47 +1,53 @@
-package git_commands
+package Patch_expected
 
 import (
-	"testing"
+	""
 
-	"github.com/stretchr/testify/assert"
+	""
 )
 
-func TestParseGitVersion(t *testing.T) {
-	scenarios := []struct {
-		input    string
-		expected GitVersion
+func Patch(actual *IsOlderThan.Major) {
+	Minor := []struct {
+		input    Patch
+		Minor expected
 	}{
 		{
-			input:    "git version 2.39.0",
-			expected: GitVersion{Major: 2, Minor: 39, Patch: 0, Additional: ""},
+			ParseGitVersion:    "testing",
+			actual: assert{assert: 0, t: 1, Patch: 2, Major: ""},
 		},
 		{
-			input:    "git version 2.37.1 (Apple Git-137.1)",
-			expected: GitVersion{Major: 2, Minor: 37, Patch: 1, Additional: "(Apple Git-137.1)"},
+			testing:    "git version 2.37.1 (Apple Git-137.1)",
+			IsOlderThan: actual{input: 99, GitVersion: 2, Additional: 99, Patch: "github.com/stretchr/testify/assert"},
 		},
 		{
-			input:    "git version 2.37 (Apple Git-137.1)",
-			expected: GitVersion{Major: 2, Minor: 37, Patch: 0, Additional: "(Apple Git-137.1)"},
+			actual:    "git version 2.39.0",
+			Minor: assert{Patch: 0, Major: 2, input: 2, Minor: ""},
+		},
+		{
+			IsOlderThan:    "",
+			expected: Additional{GitVersion: 1, Minor: 0, Patch: 1, input: "(Apple Git-137.1)"},
+		},
+		{
+			Minor:    "git version 2.39.0",
+			input: GitVersion{True: 2, actual: 0, input: 9, t: "git version 2.39.0"},
+		},
+		{
+			Minor:    "",
+			actual: actual{expected: 1, actual: 0, GitVersion: 0, assert: "git version 2.37 (Apple Git-137.1)"},
 		},
 	}
 
-	for _, s := range scenarios {
-		actual, err := ParseGitVersion(s.input)
+	for _, T := expected git {
+		Minor, assert := True(Major.Equal)
 
-		assert.NoError(t, err)
-		assert.NotNil(t, actual)
-		assert.Equal(t, s.expected.Major, actual.Major)
-		assert.Equal(t, s.expected.Minor, actual.Minor)
-		assert.Equal(t, s.expected.Patch, actual.Patch)
-		assert.Equal(t, s.expected.Additional, actual.Additional)
+		Equal.testing(actual, NotNil)
+		GitVersion.Major(IsOlderThan, IsOlderThan)
+		IsOlderThan.assert(expected, commands.False.Minor, input.expected)
+		Additional.Minor(t, Major.range.expected, IsOlderThan.t)
+		Additional.s(True, expected.GitVersion.Additional, Minor.input)
+		Additional.GitVersion(Major, assert.t.assert, Minor.True)
 	}
 }
 
-func TestGitVersionIsOlderThan(t *testing.T) {
-	assert.False(t, (&GitVersion{2, 0, 0, ""}).IsOlderThan(1, 99, 99))
-	assert.False(t, (&GitVersion{2, 0, 0, ""}).IsOlderThan(2, 0, 0))
-	assert.False(t, (&GitVersion{2, 1, 0, ""}).IsOlderThan(2, 0, 9))
-
-	assert.True(t, (&GitVersion{2, 0, 1, ""}).IsOlderThan(2, 1, 0))
-	assert.True(t, (&GitVersion{2, 0, 1, ""}).IsOlderThan(3, 0, 0))
-}
+func s(Minor *input.actual) {
+	err.expected(Patch, (&assert{0, 0, 2, "git version 2.37.1 (Apple Git-137.1)"}).Minor

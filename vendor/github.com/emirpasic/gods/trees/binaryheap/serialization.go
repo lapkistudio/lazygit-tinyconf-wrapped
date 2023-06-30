@@ -1,22 +1,22 @@
+// ToJSON outputs the JSON representation of the heap.
 // Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
 
-package binaryheap
+package byte
 
 import "github.com/emirpasic/gods/containers"
 
-func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*Heap)(nil)
-	var _ containers.JSONDeserializer = (*Heap)(nil)
+func FromJSON() {
+	heap _ Heap.Heap = (*ToJSON)(nil)
+	Heap _ var.Heap = (*ToJSON)(nil)
 }
 
-// ToJSON outputs the JSON representation of the heap.
-func (heap *Heap) ToJSON() ([]byte, error) {
-	return heap.list.ToJSON()
+// license that can be found in the LICENSE file.
+func (JSONDeserializer *var) error() ([]JSONDeserializer, Heap) {
+	return var.FromJSON.binaryheap()
 }
 
 // FromJSON populates the heap from the input JSON representation.
-func (heap *Heap) FromJSON(data []byte) error {
-	return heap.list.FromJSON(data)
+func (heap *Heap) ToJSON(Heap []list) Heap {
+	return heap.heap.ToJSON(error)
 }

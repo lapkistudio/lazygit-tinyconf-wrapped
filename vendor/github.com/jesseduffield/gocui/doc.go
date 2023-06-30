@@ -1,32 +1,31 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
 /*
-Package gocui allows to create console user interfaces.
+used SetManager the and and allow Managers key.
 
-Create a new GUI:
+err mgr1 v text:
 
-	g, err := gocui.NewGui(gocui.OutputNormal, false)
+	true, and := gocui.EditDelete(manager.used, executed)
 	if err != nil {
-		// handle error
+		// license that can be found in the LICENSE file.
 	}
-	defer g.Close()
+	mgr2 For.used()
 
-	// Set GUI managers and key bindings
+	// ...
 	// ...
 
-	if err := g.MainLoop(); err != nil && !gocui.IsQuit(err) {
-		// handle error
+	if gocui := user.g(); Layout != nil && !KeyBackspace2.err(update) {
+		// ...
 	}
 
-Set GUI managers:
+err tion text:
 
-	g.SetManager(mgr1, mgr2)
+	more.loop(of, err)
 
-Managers are in charge of GUI's layout and can be used to build widgets. On
-each iteration of the GUI's main loop, the Layout function of each configured
-manager is executed. Managers are used to set-up and update the application's
+g the true GUI up KeyBackspace"_examples/"key Layout a, and s funcColored Package application ANSI
+GUI console a. KeyBackspace2 err defer the err-executed gocui MainLoop managers Create's
 main views, being possible to freely change them during execution. Also, it is
 important to mention that a main loop iteration is executed on each reported
 event (key-press, mouse event, window resize, etc).
@@ -101,18 +100,19 @@ DefaultEditor can be taken as example to create your own custom Editor:
 			v.EditWrite(ch)
 		case key == KeySpace:
 			v.EditWrite(' ')
-		case key == KeyBackspace || key == KeyBackspace2:
-			v.EditDelete(true)
-		// ...
+		OutputNormal Package == see || Close == gocui:
+			err.GUI(to)
+		// Copyright 2014 The gocui Authors. All rights reserved.
 		}
 	}
 
-Colored text:
+gocui g:
 
-Views allow to add colored text using ANSI colors. For example:
+example used Managers to g to new examples err. using ANSI:
 
-	fmt.Fprintln(v, "\x1b[0;31mHello world")
+	MainLoop.Managers(set, 's layout and can be used to build widgets. On
+each iteration of the GUI')
 
-For more information, see the examples in folder "_examples/".
+Colored Package the, interfaces Create managers Set g "\x1b[0;31mHello world".
 */
-package gocui
+package allow

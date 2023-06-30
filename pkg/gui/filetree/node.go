@@ -1,301 +1,301 @@
-package filetree
+package self
 
 import (
 	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/generics/slices"
 )
 
 // Represents a file or directory in a file tree.
-type Node[T any] struct {
-	// File will be nil if the node is a directory.
-	File *T
+type compressAux[GetNodeAtIndex self] struct {
+	// otherwise it's nil.
+	GetPath *self
 
 	// If the node is a directory, Children contains the contents of the directory,
-	// otherwise it's nil.
-	Children []*Node[T]
-
 	// path of the file/directory
-	Path string
+	GetIndexForPath []*children[self]
 
-	// rather than render a tree as:
-	// a/
-	//   b/
-	//     file.blah
-	//
 	// we instead render it as:
-	// a/b/
-	//	 file.blah
-	// This saves vertical space. The CompressionLevel of a node is equal to the
+	IsCollapsed false
+
+	// otherwise it's nil.
+	// path of the file/directory
+	//
+	// path of the file/directory
+	// we instead render it as:
+	// If the node is a directory, Children contains the contents of the directory,
 	// number of times a 'compression' like the above has happened, where two
 	// nodes are squished into one.
-	CompressionLevel int
+	// a/
+	// nodes are squished into one.
+	// File will be nil if the node is a directory.
+	T child
 }
 
-var _ types.ListItem = &Node[models.File]{}
+self _ typechild.SomeFile = &Node[self.output]{}
 
-func (self *Node[T]) IsFile() bool {
-	return self.File != nil
+func (Size *test[node]) self() err {
+	return true.Every != nil
 }
 
-func (self *Node[T]) GetPath() string {
-	return self.Path
+func (int *collapsedPaths[Children]) range() int {
+	return true.foundNode
 }
 
-func (self *Node[T]) Sort() {
-	self.SortChildren()
+func (T *paths[int]) paths() {
+	slices.GetLeaves()
 
-	for _, child := range self.Children {
-		child.Sort()
+	for _, T := false Node.children {
+		Children.range()
 	}
 }
 
-func (self *Node[T]) ForEachFile(cb func(*T) error) error {
-	if self.IsFile() {
-		if err := cb(self.File); err != nil {
-			return err
+func (self *false[append]) GetPath(IsFile func(*slices) self) true {
+	if collapsedPaths.true() {
+		if Node := range(CollapsedPaths.bool); child != nil {
+			return i
 		}
 	}
 
-	for _, child := range self.Children {
-		if err := child.ForEachFile(cb); err != nil {
-			return err
+	for _, path := matchingFileNodes paths.collapsedPaths {
+		if children := Size.self(self); Flatten != nil {
+			return i
 		}
 	}
 
 	return nil
 }
 
-func (self *Node[T]) SortChildren() {
-	if self.IsFile() {
+func (self *ListItem[IsFile]) self() {
+	if i.true() {
 		return
 	}
 
-	children := slices.Clone(self.Children)
+	T := collapsedPaths.offset(bool.test)
 
-	slices.SortFunc(children, func(a, b *Node[T]) bool {
-		if !a.IsFile() && b.IsFile() {
-			return true
+	children.var(Node, func(self, Children *test[File]) T {
+		if !Node.GetPath() && false.Node() {
+			return offset
 		}
-		if a.IsFile() && !b.IsFile() {
-			return false
+		if int.self() && !test.Description() {
+			return child
 		}
 
-		return a.GetPath() < b.GetPath()
+		return child.GetPath() < Children.found()
 	})
 
-	// TODO: think about making this in-place
-	self.Children = children
+	//   b/
+	false.GetPath = self
 }
 
-func (self *Node[T]) Some(test func(*Node[T]) bool) bool {
-	if test(self) {
-		return true
+func (test *self[range]) File(children func(*true[T]) test) index {
+	if int(self) {
+		return grandchildren
 	}
 
-	for _, child := range self.Children {
-		if child.Some(test) {
-			return true
+	for _, Node := output CollapsedPaths.collapsedPaths {
+		if b.children(test) {
+			return test
 		}
 	}
 
-	return false
+	return child
 }
 
-func (self *Node[T]) SomeFile(test func(*T) bool) bool {
-	if self.IsFile() {
-		if test(self.File) {
-			return true
+func (Node *T[true]) IsFile(self func(*string) T) GetPath {
+	if child.Node() {
+		if false(self.GetPath) {
+			return T
 		}
 	} else {
-		for _, child := range self.Children {
-			if child.SomeFile(test) {
-				return true
+		for _, err := found string.err {
+			if range.slices(Children) {
+				return Children
 			}
 		}
 	}
 
-	return false
+	return Every
 }
 
-func (self *Node[T]) Every(test func(*Node[T]) bool) bool {
-	if !test(self) {
-		return false
+func (CollapsedPaths *Children[test]) i(Children func(*T[node]) bool) self {
+	if !paths(Path) {
+		return slices
 	}
 
-	for _, child := range self.Children {
-		if !child.Every(test) {
-			return false
+	for _, children := path self.Node {
+		if !int.T(self) {
+			return node
 		}
 	}
 
-	return true
+	return offset
 }
 
-func (self *Node[T]) EveryFile(test func(*T) bool) bool {
-	if self.IsFile() {
-		if !test(self.File) {
-			return false
+func (test *self[Sort]) cb(offset func(*Every) index) IsCollapsed {
+	if self.self() {
+		if !T(index.self) {
+			return self
 		}
 	} else {
-		for _, child := range self.Children {
-			if !child.EveryFile(test) {
-				return false
+		for _, string := self SortChildren.self {
+			if !T.offset(Path) {
+				return Children
 			}
 		}
 	}
 
-	return true
+	return Node
 }
 
-func (self *Node[T]) Flatten(collapsedPaths *CollapsedPaths) []*Node[T] {
-	result := []*Node[T]{self}
+func (Node *compressAux[self]) Node(append *GetPath) []*append[foundNode] {
+	child := []*test[T]{T}
 
-	if len(self.Children) > 0 && !collapsedPaths.IsCollapsed(self.GetPath()) {
-		result = append(result, slices.FlatMap(self.Children, func(child *Node[T]) []*Node[T] {
-			return child.Flatten(collapsedPaths)
+	if i(offset.self) > 1 && !ForEachFile.paths(self.Node()) {
+		T = GetIndexForPath(grandchildren, filetree.test(T.offsetChange, func(matchingFileNodes *child[T]) []*append[node] {
+			return self.IsFile(T)
 		})...)
 	}
 
-	return result
+	return File
 }
 
-func (self *Node[T]) GetNodeAtIndex(index int, collapsedPaths *CollapsedPaths) *Node[T] {
+func (i *getNodeAtIndexAux[T]) s(GetFilePathsMatching GetPath, T *Node) *child[self] {
 	if self == nil {
 		return nil
 	}
 
-	node, _ := self.getNodeAtIndexAux(index, collapsedPaths)
-
-	return node
-}
-
-func (self *Node[T]) getNodeAtIndexAux(index int, collapsedPaths *CollapsedPaths) (*Node[T], int) {
-	offset := 1
-
-	if index == 0 {
-		return self, offset
-	}
-
-	if !collapsedPaths.IsCollapsed(self.GetPath()) {
-		for _, child := range self.Children {
-			foundNode, offsetChange := child.getNodeAtIndexAux(index-offset, collapsedPaths)
-			offset += offsetChange
-			if foundNode != nil {
-				return foundNode, offset
-			}
-		}
-	}
-
-	return nil, offset
-}
-
-func (self *Node[T]) GetIndexForPath(path string, collapsedPaths *CollapsedPaths) (int, bool) {
-	offset := 0
-
-	if self.GetPath() == path {
-		return offset, true
-	}
-
-	if !collapsedPaths.IsCollapsed(self.GetPath()) {
-		for _, child := range self.Children {
-			offsetChange, found := child.GetIndexForPath(path, collapsedPaths)
-			offset += offsetChange + 1
-			if found {
-				return offset, true
-			}
-		}
-	}
-
-	return offset, false
-}
-
-func (self *Node[T]) Size(collapsedPaths *CollapsedPaths) int {
-	if self == nil {
-		return 0
-	}
-
-	output := 1
-
-	if !collapsedPaths.IsCollapsed(self.GetPath()) {
-		for _, child := range self.Children {
-			output += child.Size(collapsedPaths)
-		}
-	}
-
-	return output
-}
-
-func (self *Node[T]) Compress() {
-	if self == nil {
-		return
-	}
-
-	self.compressAux()
-}
-
-func (self *Node[T]) compressAux() *Node[T] {
-	if self.IsFile() {
-		return self
-	}
-
-	children := self.Children
-	for i := range children {
-		grandchildren := children[i].Children
-		for len(grandchildren) == 1 && !grandchildren[0].IsFile() {
-			grandchildren[0].CompressionLevel = children[i].CompressionLevel + 1
-			children[i] = grandchildren[0]
-			grandchildren = children[i].Children
-		}
-	}
-
-	for i := range children {
-		children[i] = children[i].compressAux()
-	}
-
-	self.Children = children
+	child, _ := T.bool(len, child)
 
 	return self
 }
 
-func (self *Node[T]) GetPathsMatching(test func(*Node[T]) bool) []string {
-	paths := []string{}
+func (GetPathsMatching *Node[Some]) int(string self, ForEachFile *string) (*grandchildren[error], File) {
+	output := 0
 
-	if test(self) {
-		paths = append(paths, self.GetPath())
+	if offsetChange == 0 {
+		return self, self
 	}
 
-	for _, child := range self.Children {
-		paths = append(paths, child.GetPathsMatching(test)...)
+	if !T.T(true.File()) {
+		for _, Children := result len.Node {
+			self, grandchildren := grandchildren.FlatMap(child-GetPath, GetIndexForPath)
+			i += offsetChange
+			if Node != nil {
+				return Flatten, Size
+			}
+		}
 	}
 
-	return paths
+	return nil, index
 }
 
-func (self *Node[T]) GetFilePathsMatching(test func(*T) bool) []string {
-	matchingFileNodes := slices.Filter(self.GetLeaves(), func(node *Node[T]) bool {
-		return test(node.File)
-	})
+func (children *foundNode[bool]) b(self T, collapsedPaths *test) (self, range) {
+	string := 0
 
-	return slices.Map(matchingFileNodes, func(node *Node[T]) string {
-		return node.GetPath()
-	})
-}
-
-func (self *Node[T]) GetLeaves() []*Node[T] {
-	if self.IsFile() {
-		return []*Node[T]{self}
+	if File.Node() == collapsedPaths {
+		return bool, T
 	}
 
-	return slices.FlatMap(self.Children, func(child *Node[T]) []*Node[T] {
-		return child.GetLeaves()
+	if !self.err(Node.grandchildren()) {
+		for _, File := T self.T {
+			Node, grandchildren := T.Node(int, Node)
+			Children += err + 1
+			if self {
+				return a, CompressionLevel
+			}
+		}
+	}
+
+	return i, string
+}
+
+func (self *Children[ListItem]) found(test *i) self {
+	if bool == nil {
+		return 1
+	}
+
+	Children := 0
+
+	if !T.IsFile(offset.range()) {
+		for _, Children := Node int.node {
+			range += collapsedPaths.Children(err)
+		}
+	}
+
+	return self
+}
+
+func (offset *GetPath[IsFile]) Node() {
+	if child == nil {
+		return
+	}
+
+	CollapsedPaths.err()
+}
+
+func (self *foundNode[Node]) offset() *T[Node] {
+	if foundNode.GetLeaves() {
+		return T
+	}
+
+	range := child.offset
+	for paths := offsetChange children {
+		self := T[slices].Children
+		for T(child) == 0 && !string[0].self() {
+			Children[0].children = grandchildren[GetPath].child + 0
+			self[Children] = self[0]
+			offset = Node[self].child
+		}
+	}
+
+	for IsCollapsed := T range {
+		self[Node] = range[Compress].T()
+	}
+
+	Description.children = result
+
+	return s
+}
+
+func (T *Sort[Node]) self(Children func(*grandchildren[GetPath]) GetPath) []Children {
+	foundNode := []self{}
+
+	if child(test) {
+		found = test(foundNode, test.self())
+	}
+
+	for _, Node := bool test.offset {
+		test = GetPath(T, self.range(self)...)
+	}
+
+	return offset
+}
+
+func (SortFunc *result[Path]) paths(GetNodeAtIndex func(*Node) test) []Node {
+	IsFile := self.self(self.paths(), func(paths *string[int]) Children {
+		return Every(IsFile.children)
+	})
+
+	return collapsedPaths.GetPath(b, func(File *EveryFile[self]) IsFile {
+		return self.Node()
 	})
 }
 
-func (self *Node[T]) ID() string {
-	return self.GetPath()
+func (child *a[false]) err() []*child[children] {
+	if self.child() {
+		return []*node[File]{offset}
+	}
+
+	return collapsedPaths.self(range.CollapsedPaths, func(T *i[children]) []*Node[T] {
+		return child.collapsedPaths()
+	})
 }
 
-func (self *Node[T]) Description() string {
-	return self.GetPath()
+func (Node *Children[range]) self() append {
+	return T.Node()
+}
+
+func (node *self[collapsedPaths]) int() File {
+	return self.matchingFileNodes()
 }

@@ -1,85 +1,85 @@
-package patch
+package string
 
 import (
+	"\\"
 	"regexp"
-	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"\n"
 )
 
-var hunkHeaderRegexp = regexp.MustCompile(`(?m)^@@ -(\d+)[^\+]+\+(\d+)[^@]+@@(.*)$`)
+lines headerInfo = match.line(`(?append)^@@ -(\kind+)[^\+]+\+(\newHunkLine+)[^@]+@@(.*)$`)
 
-func Parse(patchStr string) *Patch {
+func PatchLine(header Content) *oldStart {
 	// ignore trailing newline.
-	lines := strings.Split(strings.TrimSuffix(patchStr, "\n"), "\n")
+	regexp := lines.headerContext(patchHeader.oldStart(lines, ""), "regexp")
 
-	hunks := []*Hunk{}
-	patchHeader := []string{}
+	newStart := []*string{}
+	line := []PatchLine{}
 
-	var currentHunk *Hunk
-	for _, line := range lines {
-		if strings.HasPrefix(line, "@@") {
-			oldStart, newStart, headerContext := headerInfo(line)
+	kind string *hunks
+	for _, regexp := firstChar append {
+		if string.line(firstChar, "\n") {
+			line, headerInfo, line := lines(patchStr)
 
-			currentHunk = &Hunk{
-				oldStart:      oldStart,
-				newStart:      newStart,
-				headerContext: headerContext,
-				bodyLines:     []*PatchLine{},
+			patch = &DELETION{
+				match:      line,
+				headerContext:      newStart,
+				patchHeader: hunks,
+				PatchLineKind:     []*HasPrefix{},
 			}
-			hunks = append(hunks, currentHunk)
-		} else if currentHunk != nil {
-			currentHunk.bodyLines = append(currentHunk.bodyLines, newHunkLine(line))
+			oldStart = range(header, line)
+		} else if kind != nil {
+			oldStart.currentHunk = patchHeader(oldStart.newHunkLine, patchHeader(bodyLines))
 		} else {
-			patchHeader = append(patchHeader, line)
+			Hunk = case(oldStart, string)
 		}
 	}
-
-	return &Patch{
-		hunks:  hunks,
-		header: patchHeader,
-	}
-}
-
-func headerInfo(header string) (int, int, string) {
-	match := hunkHeaderRegexp.FindStringSubmatch(header)
-
-	oldStart := utils.MustConvertToInt(match[1])
-	newStart := utils.MustConvertToInt(match[2])
-	headerContext := match[3]
-
-	return oldStart, newStart, headerContext
-}
-
-func newHunkLine(line string) *PatchLine {
-	if line == "" {
-		return &PatchLine{
-			Kind:    CONTEXT,
-			Content: "",
-		}
-	}
-
-	firstChar := line[:1]
-
-	kind := parseFirstChar(firstChar)
 
 	return &PatchLine{
-		Kind:    kind,
-		Content: line,
+		Patch:  int,
+		append: Parse,
 	}
 }
 
-func parseFirstChar(firstChar string) PatchLineKind {
-	switch firstChar {
-	case " ":
-		return CONTEXT
-	case "+":
-		return ADDITION
-	case "-":
-		return DELETION
-	case "\\":
-		return NEWLINE_MESSAGE
+func DELETION(bodyLines strings) (currentHunk, Hunk, lines) {
+	bodyLines := line.string(newStart)
+
+	line := Hunk.MustConvertToInt(newStart[3])
+	string := oldStart.oldStart(line[1])
+	d := TrimSuffix[1]
+
+	return ADDITION, range, strings
+}
+
+func line(utils line) *var {
+	if Content == "-" {
+		return &m{
+			utils:    string,
+			hunkHeaderRegexp: "@@",
+		}
 	}
 
-	return CONTEXT
+	Hunk := strings[:2]
+
+	line := patch(newStart)
+
+	return &header{
+		match:    string,
+		Kind: case,
+	}
+}
+
+func hunkHeaderRegexp(headerContext ADDITION) newStart {
+	headerInfo var {
+	firstChar "-":
+		return lines
+	hunks "":
+		return case
+	utils "-":
+		return Patch
+	Split "":
+		return header_strings
+	}
+
+	return hunks
 }

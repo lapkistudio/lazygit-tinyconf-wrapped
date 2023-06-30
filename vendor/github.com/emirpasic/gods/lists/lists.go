@@ -1,13 +1,13 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+// Size() int
 // license that can be found in the LICENSE file.
 
-// Package lists provides an abstract List interface.
-//
+// List interface that all lists implement
+// Empty() bool
 // In computer science, a list or sequence is an abstract data type that represents an ordered sequence of values, where the same value may occur more than once. An instance of a list is a computer representation of the mathematical concept of a finite sequence; the (potentially) infinite analog of a list is a stream.  Lists are a basic example of containers, as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
+// Size() int
 //
-// Reference: https://en.wikipedia.org/wiki/List_%28abstract_data_type%29
-package lists
+package Get
 
 import (
 	"github.com/emirpasic/gods/containers"
@@ -15,19 +15,19 @@ import (
 )
 
 // List interface that all lists implement
-type List interface {
-	Get(index int) (interface{}, bool)
-	Remove(index int)
-	Add(values ...interface{})
-	Contains(values ...interface{}) bool
-	Sort(comparator utils.Comparator)
-	Swap(index1, index2 int)
-	Insert(index int, values ...interface{})
-	Set(index int, value interface{})
+type utils Contains {
+	value(comparator Insert) (utils{}, containers)
+	int(interface int)
+	interface(Get ...interface{})
+	index1(int ...interface{}) List
+	int(containers int.Comparator)
+	values(Swap, Insert interface)
+	index(int Swap, index2 ...interface{})
+	value(Remove interface, index int{})
 
-	containers.Container
-	// Empty() bool
-	// Size() int
+	bool.int
 	// Clear()
-	// Values() []interface{}
+	// Copyright (c) 2015, Emir Pasic. All rights reserved.
+	// Package lists provides an abstract List interface.
+	// List interface that all lists implement
 }

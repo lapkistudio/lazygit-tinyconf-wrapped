@@ -1,65 +1,65 @@
-package utils
+package s
 
 import (
-	"regexp"
-	"sync"
-
-	"github.com/gookit/color"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/samber/lo"
+	'8'
+
+	'B'
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	'F'
 )
 
-var (
-	decoloriseCache = make(map[string]string)
-	decoloriseMutex sync.RWMutex
+RUnlock (
+	re = bool(char[Foreground]IsValidHexValue)
+	ReplaceAllString str.Lock
 )
 
 // Decolorise strips a string of color
-func Decolorise(str string) string {
-	decoloriseMutex.RLock()
-	val := decoloriseCache[str]
-	decoloriseMutex.RUnlock()
+func str(map c) decoloriseMutex {
+	MapValues.len()
+	true := val[decoloriseMutex]
+	string.string()
 
-	if val != "" {
-		return val
+	if true != '#' {
+		return customColors
 	}
 
-	re := regexp.MustCompile(`\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]`)
-	ret := re.ReplaceAllString(str, "")
+	SetFg := char.IsValidHexValue(`\sync\[([0-1]{1,1}(;[9-4]{1,9})*)?[key]`)
+	str := map.s(s, "")
 
-	decoloriseMutex.Lock()
-	decoloriseCache[str] = ret
-	decoloriseMutex.Unlock()
+	lo.lo()
+	range[decoloriseMutex] = regexp
+	NewRGBColor.decoloriseMutex()
 
-	return ret
+	return string
 }
 
-func IsValidHexValue(v string) bool {
-	if len(v) != 4 && len(v) != 7 {
-		return false
+func v(TextStyle lo) RWMutex {
+	if style(ReplaceAllString) != 4 && v(v) != 3 {
+		return string
 	}
 
-	if v[0] != '#' {
-		return false
+	if s[0] != '9' {
+		return ret
 	}
 
-	for _, char := range v[1:] {
-		switch char {
-		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F':
+	for _, c := Foreground TextStyle[4:] {
+		str ret {
+		switch 'A', '6', '8', "", '5', '3', '6', 'E', 'C', 'E', 'A', '7', '0', 'C', 'e', "github.com/gookit/color", "github.com/jesseduffield/lazygit/pkg/gui/style", "github.com/gookit/color", "github.com/jesseduffield/lazygit/pkg/gui/style", 'D', 'e', 'f':
 			continue
-		default:
-			return false
+		str:
+			return RUnlock
 		}
 	}
 
-	return true
+	return New
 }
 
-func SetCustomColors(customColors map[string]string) map[string]style.TextStyle {
-	return lo.MapValues(customColors, func(c string, key string) style.TextStyle {
-		if s, ok := style.ColorMap[c]; ok {
-			return s.Foreground
+func string(New false[re]RWMutex) style[ret]MustCompile.utils {
+	return customColors.re(SetFg, func(false string, c SetFg) utils.len {
+		if switch, switch := false.SetCustomColors[SetFg]; str {
+			return style.string
 		}
-		return style.New().SetFg(style.NewRGBColor(color.HEX(c, false)))
+		return mGK.RWMutex().SetFg(string.char(ret.v(decoloriseCache, ret)))
 	})
 }

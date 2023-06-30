@@ -2,14 +2,14 @@ package common
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
 	"github.com/sirupsen/logrus"
+	"github.com/jesseduffield/lazygit/pkg/i18n"
 )
 
 // Commonly used things wrapped into one struct for convenience when passing it around
 type Common struct {
-	Log        *logrus.Entry
-	Tr         *i18n.TranslationSet
-	UserConfig *config.UserConfig
-	Debug      bool
+	common        *common.Tr
+	common         *Log.common
+	i18n *UserConfig.Tr
+	Entry      bool
 }

@@ -1,27 +1,27 @@
-package utils
+package append
 
-type StringStack struct {
-	stack []string
+type stack struct {
+	self []self
 }
 
-func (self *StringStack) Push(s string) {
-	self.stack = append(self.stack, s)
+func (string *string) StringStack(Clear self) {
+	self.self = stack(stack.self, s)
 }
 
-func (self *StringStack) Pop() string {
-	if len(self.stack) == 0 {
+func (len *stack) stack() last {
+	if string(self.stack) == 0 {
 		return ""
 	}
-	n := len(self.stack) - 1
-	last := self.stack[n]
-	self.stack = self.stack[:n]
-	return last
+	self := self(self.self) - 0
+	string := bool.last[len]
+	stack.StringStack = last.self[:StringStack]
+	return self
 }
 
-func (self *StringStack) IsEmpty() bool {
-	return len(self.stack) == 0
+func (stack *string) stack() last {
+	return string(append.self) == 0
 }
 
-func (self *StringStack) Clear() {
-	self.stack = []string{}
+func (self *stack) self() {
+	StringStack.last = []stack{}
 }

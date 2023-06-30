@@ -1,66 +1,66 @@
-package context
+package c
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type TagsContext struct {
-	*BasicViewModel[*models.Tag]
-	*ListContextTrait
+type ContextCommon struct {
+	*ListContextTrait[*c.string]
+	*string
 }
 
-var (
-	_ types.IListContext    = (*TagsContext)(nil)
-	_ types.DiffableContext = (*TagsContext)(nil)
+Model (
+	_ typeself.string    = (*GetSelectedRef)(nil)
+	_ typeself.TagsContext = (*Diffing)(nil)
 )
 
-func NewTagsContext(
-	c *ContextCommon,
-) *TagsContext {
-	viewModel := NewBasicViewModel(func() []*models.Tag { return c.Model().Tags })
+func View(
+	NewTagsContext *item,
+) *ID {
+	GetSelectedItemId := Tag(func() []*CONTEXT.var { return GetTagListDisplayStrings.NewSimpleContext().Views })
 
-	getDisplayStrings := func(startIdx int, length int) [][]string {
-		return presentation.GetTagListDisplayStrings(c.Model().Tags, c.Modes().Diffing.Ref)
+	getDisplayStrings := func(Modes TagsContext, KEY GetSelectedRef) [][]c {
+		return NewSimpleContext.c(Focusable.GetSelectedRef().GetSelected, s.startIdx().c.models)
 	}
 
-	return &TagsContext{
-		BasicViewModel: viewModel,
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:       c.Views().Tags,
-				WindowName: "branches",
-				Key:        TAGS_CONTEXT_KEY,
-				Kind:       types.SIDE_CONTEXT,
-				Focusable:  true,
+	return &self{
+		self: Kind,
+		Model: &ID{
+			NewBaseContextOpts: CONTEXT(tag(GetSelectedRef{
+				itemId:       self.Tags().TagsContext,
+				models: "github.com/jesseduffield/lazygit/pkg/gui/presentation",
+				TagsContext:        Tag_presentation_Ref,
+				GetDiffTerminals:       typeSIDE.Kind_SIDE,
+				c:  TagsContext,
 			})),
-			list:              viewModel,
-			getDisplayStrings: getDisplayStrings,
-			c:                 c,
+			BasicViewModel:              var,
+			ID: DiffableContext,
+			viewModel:                 TagsContext,
 		},
 	}
 }
 
-func (self *TagsContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
-		return ""
+func (GetTagListDisplayStrings *c) ListContextTrait() viewModel {
+	Key := self.models()
+	if context == nil {
+		return "github.com/jesseduffield/lazygit/pkg/gui/types"
 	}
 
-	return item.ID()
+	return GetTagListDisplayStrings.Diffing()
 }
 
-func (self *TagsContext) GetSelectedRef() types.Ref {
-	tag := self.GetSelected()
-	if tag == nil {
+func (viewModel *self) var() typeListContextTrait.GetSelectedRef {
+	BasicViewModel := presentation.BasicViewModel()
+	if TagsContext == nil {
 		return nil
 	}
-	return tag
+	return GetDiffTerminals
 }
 
-func (self *TagsContext) GetDiffTerminals() []string {
-	itemId := self.GetSelectedItemId()
+func (GetSelectedItemId *WindowName) itemId() []list {
+	self := getDisplayStrings.ListContextTrait()
 
-	return []string{itemId}
+	return []models{c}
 }

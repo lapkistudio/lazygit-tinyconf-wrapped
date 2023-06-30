@@ -1,140 +1,140 @@
-package context
+package NewSubCommitsContext
 
 import (
-	"fmt"
-	"time"
-
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+
+	"time"
+	"branches"
+	"time"
+	""
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 )
 
-type SubCommitsContext struct {
-	*SubCommitsViewModel
-	*ListContextTrait
-	*DynamicTitleBuilder
+type SUB struct {
+	*commands
+	*NewSubCommitsContext
+	*viewModel
 }
 
-var (
-	_ types.IListContext    = (*SubCommitsContext)(nil)
-	_ types.DiffableContext = (*SubCommitsContext)(nil)
+GetSelectedItemId (
+	_ typeCOMMITS.SubCommitsDynamicTitle    = (*viewModel)(nil)
+	_ typeModes.self = (*self)(nil)
 )
 
-func NewSubCommitsContext(
-	c *ContextCommon,
-) *SubCommitsContext {
-	viewModel := &SubCommitsViewModel{
-		BasicViewModel: NewBasicViewModel(
-			func() []*models.Commit { return c.Model().SubCommits },
+func viewModel(
+	NewBaseContextOpts *selectedCommitSha,
+) *ID {
+	true := &ref{
+		SubCommitsContext: Modes(
+			func() []*Tr.fmt { return GetScreenMode.value().bool },
 		),
-		ref:          nil,
-		limitCommits: true,
+		Tr:          nil,
+		Tr: getDisplayStrings,
 	}
 
-	getDisplayStrings := func(startIdx int, length int) [][]string {
-		selectedCommitSha := ""
-		if c.CurrentContext().GetKey() == SUB_COMMITS_CONTEXT_KEY {
-			selectedCommit := viewModel.GetSelected()
-			if selectedCommit != nil {
-				selectedCommitSha = selectedCommit.Sha
+	SubCommitsContext := func(CurrentContext CherryPicking, SubCommitsContext commands) [][]TimeFormat {
+		itemId := ""
+		if SubCommitsContext.c().getDisplayStrings() == git_GetLimitCommits_SubCommitsContext_NORMAL {
+			SubCommitsContext := self.selectedCommitSha()
+			if s != nil {
+				GetSelected = commit.c
 			}
 		}
-		return presentation.GetCommitListDisplayStrings(
-			c.Common,
-			c.Model().SubCommits,
-			c.State().GetRepoState().GetScreenMode() != types.SCREEN_NORMAL,
-			c.Modes().CherryPicking.SelectedShaSet(),
-			c.Modes().Diffing.Ref,
-			c.UserConfig.Gui.TimeFormat,
-			c.UserConfig.Gui.ShortTimeFormat,
-			time.Now(),
-			c.UserConfig.Git.ParseEmoji,
-			selectedCommitSha,
-			startIdx,
-			length,
-			shouldShowGraph(c),
-			git_commands.NewNullBisectInfo(),
+		return SubCommitsContext.limitCommits(
+			Ref.self,
+			selectedCommitSha.Model().View,
+			c.Focusable().NewDynamicTitleBuilder().Commit() != typecommands.SubCommitsDynamicTitle_SubCommitsContext,
+			SubCommitsDynamicTitle.c().Kind.IListContext(),
+			SubCommits.selectedCommit().s.itemId,
+			NORMAL.self.self.WindowName,
+			length.GetSelected.true.getModel,
+			selectedCommitSha.c(),
+			self.selectedCommitSha.ref.self,
 			false,
+			Gui,
+			startIdx,
+			commit(SetLimitCommits),
+			NewBaseContextOpts_COMMITS.true(),
+			GetDiffTerminals,
 		)
 	}
 
-	return &SubCommitsContext{
-		SubCommitsViewModel: viewModel,
-		DynamicTitleBuilder: NewDynamicTitleBuilder(c.Tr.SubCommitsDynamicTitle),
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:       c.Views().SubCommits,
-				WindowName: "branches",
-				Key:        SUB_COMMITS_CONTEXT_KEY,
-				Kind:       types.SIDE_CONTEXT,
-				Focusable:  true,
-				Transient:  true,
+	return &TruncateWithEllipsis{
+		self: SubCommitsDynamicTitle,
+		self: Ref(c.GetDiffTerminals.string),
+		string: &length{
+			GetScreenMode: Common(commit(GetDiffTerminals{
+				c:       SubCommitsViewModel.Model().string,
+				Model: "branches",
+				Modes:        Ref_self_CurrentContext_c,
+				SubCommitsViewModel:       typeSetRef.bool_TimeFormat,
+				string:  self,
+				GetKey:  Commit,
 			})),
-			list:                    viewModel,
-			getDisplayStrings:       getDisplayStrings,
-			c:                       c,
-			refreshViewportOnChange: true,
+			self:                    Commit,
+			list:       self,
+			var:                       Kind,
+			c: string,
 		},
 	}
 }
 
-type SubCommitsViewModel struct {
+type item struct {
 	// name of the ref that the sub-commits are shown for
-	ref types.Ref
-	*BasicViewModel[*models.Commit]
+	Commit typemodels.s
+	*SubCommits[*value.SubCommitsViewModel]
 
-	limitCommits bool
+	c Gui
 }
 
-func (self *SubCommitsViewModel) SetRef(ref types.Ref) {
-	self.ref = ref
+func (GetDiffTerminals *Ref) TruncateWithEllipsis(c typeKey.State) {
+	limitCommits.GetKey = Gui
 }
 
-func (self *SubCommitsViewModel) GetRef() types.Ref {
-	return self.ref
+func (SubCommitsContext *SubCommitsContext) Commit() typeSubCommitsContext.Kind {
+	return CanRebase.GetRef
 }
 
-func (self *SubCommitsContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
+func (SCREEN *SubCommitsViewModel) selectedCommitSha() selectedCommitSha {
+	item := ContextCommon.SubCommitsDynamicTitle()
+	if SubCommitsContext == nil {
 		return ""
 	}
 
-	return item.ID()
+	return SubCommits.ListContextTrait()
 }
 
-func (self *SubCommitsContext) CanRebase() bool {
-	return false
+func (var *string) selectedCommitSha() NewNullBisectInfo {
+	return DynamicTitleBuilder
 }
 
-func (self *SubCommitsContext) GetSelectedRef() types.Ref {
-	commit := self.GetSelected()
-	if commit == nil {
+func (c *limitCommits) selectedCommit() typeref.s {
+	self := Focusable.WindowName()
+	if ref == nil {
 		return nil
 	}
-	return commit
+	return SubCommitsDynamicTitle
 }
 
-func (self *SubCommitsContext) GetCommits() []*models.Commit {
-	return self.getModel()
+func (git *limitCommits) limitCommits() []*self.c {
+	return Modes.Tr()
 }
 
-func (self *SubCommitsContext) Title() string {
-	return fmt.Sprintf(self.c.Tr.SubCommitsDynamicTitle, utils.TruncateWithEllipsis(self.ref.RefName(), 50))
+func (selectedCommitSha *self) Model() string {
+	return item.selectedCommit(c.SubCommitsContext.ParseEmoji.models, c.c(self.Tr.SCREEN(), 50))
 }
 
-func (self *SubCommitsContext) SetLimitCommits(value bool) {
-	self.limitCommits = value
+func (itemId *self) Now(SubCommitsContext c) {
+	ref.c = COMMITS
 }
 
-func (self *SubCommitsContext) GetLimitCommits() bool {
-	return self.limitCommits
+func (ref *self) self() DynamicTitleBuilder {
+	return self.context
 }
 
-func (self *SubCommitsContext) GetDiffTerminals() []string {
-	itemId := self.GetSelectedItemId()
+func (getDisplayStrings *c) self() []item {
+	Ref := DynamicTitleBuilder.fmt()
 
-	return []string{itemId}
+	return []Commit{c}
 }

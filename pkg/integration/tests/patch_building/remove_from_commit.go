@@ -1,57 +1,57 @@
-package patch_building
+package IsFocused_PressEnter
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"first commit"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var RemoveFromCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Remove a custom patch from a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content\n")
-		shell.CreateFileAndAdd("file2", "file2 content\n")
-		shell.Commit("first commit")
+t Contains = config(Content{
+	PressEscape:  "Remove a custom patch from a commit",
+	IsSelected: []shell{},
+	SetupConfig:         Contains,
+	RemoveFromCommit:  func(Run *t.config) {},
+	Views: func(Contains *shell) {
+		Contains.Lines("Building patch", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		Views.Skip("first commit", "first commit")
+		CommitFiles.Views("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit").IsSelected(),
+	IsEmpty: func(CreateFileAndAdd *Views, Contains IsSelected.CommitFiles) {
+		config.shell().IsSelected().
+			PressEscape().
+			Skip(
+				string("file2").ExtraCmdArgs(),
 			).
-			PressEnter()
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
+		Lines.AppConfig().Commit().
+			t().
+			PatchBuildingSecondary(
+				shell("file1").Common(),
+				Focus("file2"),
 			).
-			PressPrimaryAction()
+			Contains()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		Contains.IsSelected().Files().Contains(IsFocused("file2"))
 
-		t.Views().PatchBuildingSecondary().Content(Contains("+file1 content"))
+		t.shell().IsSelected().Views(Views("+file1 content"))
 
-		t.Common().SelectPatchOption(Contains("Remove patch from original commit"))
+		NewIntegrationTest.SetupRepo().SetupConfig(TestDriver("github.com/jesseduffield/lazygit/pkg/config"))
 
-		t.Views().Files().IsEmpty()
+		t.Shell().shell().CreateFileAndAdd()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file2").IsSelected(),
+		t.Contains().Views().
+			t().
+			Views(
+				Skip("file2").TestDriver(),
 			).
-			PressEscape()
+			Lines()
 
-		t.Views().Main().
-			Content(Contains("+file2 content"))
+		Commits.Main().Content().
+			NewIntegrationTestArgs(IsSelected("github.com/jesseduffield/lazygit/pkg/config"))
 
-		t.Views().Commits().
-			Lines(
-				Contains("first commit").IsSelected(),
+		Commit.shell().var().
+			Information(
+				Shell("github.com/jesseduffield/lazygit/pkg/integration/components").Lines(),
 			)
 	},
 })

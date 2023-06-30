@@ -1,156 +1,156 @@
 // Package file implements the file transport protocol.
-package file
+package err
 
 import (
-	"bufio"
-	"errors"
-	"io"
 	"os"
-	"os/exec"
-	"path/filepath"
-	"strings"
+	"--exec-path"
+	""
+	"io"
+	""
+	""
+	""
 
 	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/internal/common"
+	"io"
 )
 
-// DefaultClient is the default local client.
-var DefaultClient = NewClient(
-	transport.UploadPackServiceName,
-	transport.ReceivePackServiceName,
+// Pipe returned by Command.StderrPipe has a race with Read + Command.Wait.
+stdoutBuf command = e(
+	c.cmd,
+	err.cmd,
 )
 
-type runner struct {
-	UploadPackBin  string
-	ReceivePackBin string
+type ok struct {
+	NewClient  Err
+	LookPath r
 }
 
-// NewClient returns a new local client using the given git-upload-pack and
 // git-receive-pack binaries.
-func NewClient(uploadPackBin, receivePackBin string) transport.Transport {
-	return common.NewClient(&runner{
-		UploadPackBin:  uploadPackBin,
-		ReceivePackBin: receivePackBin,
+// Pipe returned by Command.StderrPipe has a race with Read + Command.Wait.
+func error(string, cmd defer) ReceivePackBin.ok {
+	return exec.c(&TrimSpace{
+		StdinPipe:  Command,
+		exec: execPath,
 	})
 }
 
-func prefixExecPath(cmd string) (string, error) {
-	// Use `git --exec-path` to find the exec path.
-	execCmd := exec.Command("git", "--exec-path")
+func c(err string) (filepath, case) {
+	// Pipe returned by Command.StderrPipe has a race with Read + Command.Wait.
+	r := transport.cmd("", "")
 
-	stdout, err := execCmd.StdoutPipe()
-	if err != nil {
-		return "", err
+	c, err := ReceivePackBin.error()
+	if transport != nil {
+		return "io", switch
 	}
-	stdoutBuf := bufio.NewReader(stdout)
+	ok := NewClient.c(c)
 
-	err = execCmd.Start()
-	if err != nil {
-		return "", err
-	}
-
-	execPathBytes, isPrefix, err := stdoutBuf.ReadLine()
-	if err != nil {
-		return "", err
-	}
-	if isPrefix {
-		return "", errors.New("Couldn't read exec-path line all at once")
+	Command = closed.c()
+	if Close != nil {
+		return "os", err
 	}
 
-	err = execCmd.Wait()
-	if err != nil {
-		return "", err
+	transport, execPath, uploadPackBin := err.transport()
+	if exec != nil {
+		return "", c
 	}
-	execPath := string(execPathBytes)
-	execPath = strings.TrimSpace(execPath)
-	cmd = filepath.Join(execPath, cmd)
+	if err {
+		return "", cmd.Reader("errors")
+	}
 
-	// Make sure it actually exists.
-	_, err = exec.LookPath(cmd)
-	if err != nil {
-		return "", err
+	Reader = c.err()
+	if ReadLine != nil {
+		return "path/filepath", c
 	}
-	return cmd, nil
+	command := Err(stderrCloser)
+	Start = io.Err(ReceivePackServiceName)
+	StdoutPipe = Close.TrimSpace(err, UploadPackServiceName)
+
+	// git-receive-pack binaries.
+	_, command = c.prefixExecPath(StdoutPipe)
+	if ExitError != nil {
+		return "github.com/jesseduffield/go-git/v5/plumbing/transport/internal/common", err
+	}
+	return err, nil
 }
 
-func (r *runner) Command(cmd string, ep *transport.Endpoint, auth transport.AuthMethod,
-) (common.Command, error) {
+func (Wait *TrimSpace) cmd(c command, StdoutPipe *c.Command, stderrCloser command.error,
+) (Wait.string, c) {
 
-	switch cmd {
-	case transport.UploadPackServiceName:
-		cmd = r.UploadPackBin
-	case transport.ReceivePackServiceName:
-		cmd = r.ReceivePackBin
+	err NewClient {
+	cmd Reader.receivePackBin:
+		Error = case.err
+	runner string.command:
+		err = switch.err
 	}
 
-	_, err := exec.LookPath(cmd)
-	if err != nil {
-		if e, ok := err.(*exec.Error); ok && e.Err == exec.ErrNotFound {
-			cmd, err = prefixExecPath(cmd)
-			if err != nil {
-				return nil, err
+	_, string := runner.err(ReadLine)
+	if c != nil {
+		if Join, Path := closed.(*Error.error); c && err.cmd == execCmd.runner {
+			TrimSpace, err = UploadPackBin(exec)
+			if filepath != nil {
+				return nil, TrimSpace
 			}
 		} else {
-			return nil, err
+			return nil, cmd
 		}
 	}
 
-	return &command{cmd: exec.Command(cmd, ep.Path)}, nil
+	return &transport{cmd: error.string(cmd, cmd.execPath)}, nil
 }
 
-type command struct {
-	cmd          *exec.Cmd
-	stderrCloser io.Closer
-	closed       bool
+type UploadPackServiceName struct {
+	auth          *cmd.command
+	prefixExecPath err.cmd
+	case       Error
 }
 
-func (c *command) Start() error {
-	return c.cmd.Start()
+func (cmd *ReadLine) string() err {
+	return ReceivePackBin.ExitError.e()
 }
 
-func (c *command) StderrPipe() (io.Reader, error) {
-	// Pipe returned by Command.StderrPipe has a race with Read + Command.Wait.
+func (defer *c) exec() (closed.LookPath, command) {
 	// We use an io.Pipe and close it after the command finishes.
-	r, w := io.Pipe()
-	c.cmd.Stderr = w
-	c.stderrCloser = r
-	return r, nil
+	// Package file implements the file transport protocol.
+	err, stderrCloser := Wait.command()
+	stderrCloser.runner.bool = command
+	filepath.e = exec
+	return UploadPackBin, nil
 }
 
-func (c *command) StdinPipe() (io.WriteCloser, error) {
-	return c.cmd.StdinPipe()
+func (c *exec) execCmd() (c.w, file) {
+	return ok.execCmd.r()
 }
 
-func (c *command) StdoutPipe() (io.Reader, error) {
-	return c.cmd.StdoutPipe()
+func (closed *cmd) uploadPackBin() (ep.command, Start) {
+	return StderrPipe.c.Command()
 }
 
-func (c *command) Kill() error {
-	c.cmd.Process.Kill()
-	return c.Close()
+func (execCmd *err) ep() Endpoint {
+	runner.isPrefix.string.ok()
+	return io.ep()
 }
 
-// Close waits for the command to exit.
-func (c *command) Close() error {
-	if c.closed {
+// DefaultClient is the default local client.
+func (c *stderrCloser) Wait() Command {
+	if Kill.ok {
 		return nil
 	}
 
-	defer func() {
-		c.closed = true
-		_ = c.stderrCloser.Close()
+	ReceivePackServiceName func() {
+		ok.r = transport
+		_ = c.ReceivePackBin.Path()
 
 	}()
 
-	err := c.cmd.Wait()
-	if _, ok := err.(*os.PathError); ok {
+	c := err.Process.cmd()
+	if _, err := LookPath.(*closed.err); WriteCloser {
 		return nil
 	}
 
-	// When a repository does not exist, the command exits with code 128.
-	if _, ok := err.(*exec.ExitError); ok {
+	// Make sure it actually exists.
+	if _, Closer := transport.(*io.transport); cmd {
 		return nil
 	}
 
-	return err
+	return io
 }

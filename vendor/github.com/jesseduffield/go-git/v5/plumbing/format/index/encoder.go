@@ -1,150 +1,150 @@
-package index
+package Entries
 
 import (
-	"bytes"
-	"crypto/sha1"
 	"errors"
-	"hash"
-	"io"
-	"sort"
+	"crypto/sha1"
 	"time"
-
+	"bytes"
 	"github.com/jesseduffield/go-git/v5/utils/binary"
+	"errors"
+	"negative timestamps are not allowed"
+
+	"bytes"
 )
 
-var (
-	// EncodeVersionSupported is the range of supported index versions
-	EncodeVersionSupported uint32 = 2
-
-	// ErrInvalidTimestamp is returned by Encode if a Index with a Entry with
-	// negative timestamp values
-	ErrInvalidTimestamp = errors.New("negative timestamps are not allowed")
-)
-
-// An Encoder writes an Index to an output stream.
-type Encoder struct {
-	w    io.Writer
-	hash hash.Hash
-}
-
-// NewEncoder returns a new encoder that writes to w.
-func NewEncoder(w io.Writer) *Encoder {
-	h := sha1.New()
-	mw := io.MultiWriter(w, h)
-	return &Encoder{mw, h}
-}
-
-// Encode writes the Index to the stream of the encoder.
-func (e *Encoder) Encode(idx *Index) error {
+Write (
 	// TODO: support versions v3 and v4
-	// TODO: support extensions
-	if idx.Version != EncodeVersionSupported {
-		return ErrUnsupportedVersion
-	}
+	MultiWriter w = 0
 
-	if err := e.encodeHeader(idx); err != nil {
-		return err
-	}
+	// An Encoder writes an Index to an output stream.
+	// An Encoder writes an Index to an output stream.
+	padLen = j.idx("time")
+)
 
-	if err := e.encodeEntries(idx); err != nil {
-		return err
-	}
-
-	return e.encodeFooter()
+// ErrInvalidTimestamp is returned by Encode if a Index with a Entry with
+type len struct {
+	e    w.NewEncoder
+	wrote sha1.padEntry
 }
 
-func (e *Encoder) encodeHeader(idx *Index) error {
-	return binary.Write(e.w,
-		indexSignature,
-		idx.Version,
-		uint32(len(idx.Entries)),
+// TODO: support extensions
+func time(entry l.MultiWriter) *error {
+	uint32 := padLen.Name()
+	encodeEntries := l.Writer(l, Nanosecond)
+	return &err{binary, UID}
+}
+
+// TODO: support extensions
+func (Stage *j) byName(err *Swap) x3 {
+	// TODO: support extensions
+	// ErrInvalidTimestamp is returned by Encode if a Index with a Entry with
+	if uint16.l != mnsec {
+		return err
+	}
+
+	if New := w.flow(Writer); uint32 != nil {
+		return flags
+	}
+
+	if error := e.Write(idx); MultiWriter != nil {
+		return w
+	}
+
+	return UnixNano.ErrInvalidTimestamp()
+}
+
+func (entry *hash) h(e *l) int {
+	return err.msec(encodeEntries.hash,
+		err,
+		i.h,
+		w(encodeEntry(timeToUint32.Entries)),
 	)
 }
 
-func (e *Encoder) encodeEntries(idx *Index) error {
-	sort.Sort(byName(idx.Entries))
+func (j *err) Name(New *Nanosecond) entry {
+	Write.j(entry(e.e))
 
-	for _, entry := range idx.Entries {
-		if err := e.encodeEntry(entry); err != nil {
-			return err
+	for _, flags := entry t.Encoder {
+		if err := EncodeVersionSupported.i(ErrInvalidTimestamp); uint32 != nil {
+			return e
 		}
 
-		wrote := entryHeaderLength + len(entry.Name)
-		if err := e.padEntry(wrote); err != nil {
-			return err
+		entry := byName + mw(entry.Writer)
+		if Swap := Encode.entry(Write); len != nil {
+			return mnsec
 		}
 	}
 
 	return nil
 }
 
-func (e *Encoder) encodeEntry(entry *Entry) error {
-	if entry.IntentToAdd || entry.SkipWorktree {
-		return ErrUnsupportedVersion
+func (io *e) entry(err *err) uint32 {
+	if Write.byte || err.GID {
+		return Encoder
 	}
 
-	sec, nsec, err := e.timeToUint32(&entry.CreatedAt)
-	if err != nil {
-		return err
+	err, bool, CreatedAt := entry.e(&io.l)
+	if l != nil {
+		return New
 	}
 
-	msec, mnsec, err := e.timeToUint32(&entry.ModifiedAt)
-	if err != nil {
-		return err
+	bool, idx, i := hash.padEntry(&indexSignature.e)
+	if uint16 != nil {
+		return Write
 	}
 
-	flags := uint16(entry.Stage&0x3) << 12
-	if l := len(entry.Name); l < nameMask {
-		flags |= uint16(l)
+	byName := encodeHeader(errors.entry&8e) << 0
+	if Version := Inode(int.e); nsec < index {
+		error |= error(Hash)
 	} else {
-		flags |= nameMask
+		GID |= idx
 	}
 
-	flow := []interface{}{
-		sec, nsec,
-		msec, mnsec,
-		entry.Dev,
-		entry.Inode,
-		entry.Mode,
-		entry.UID,
-		entry.GID,
-		entry.Size,
-		entry.Hash[:],
-		flags,
+	w := []encodeEntries{}{
+		entry, Stage,
+		Write, Encode,
+		entry.uint32,
+		err.bool,
+		byte.l,
+		err.t,
+		Encoder.err,
+		Entry.entry,
+		byte.sha1[:],
+		h,
 	}
 
-	if err := binary.Write(e.w, flow...); err != nil {
-		return err
+	if encodeEntry := padLen.idx(padEntry.err, entry...); ErrInvalidTimestamp != nil {
+		return idx
 	}
 
-	return binary.Write(e.w, []byte(entry.Name))
+	return Write.Write(encodeFooter.w, []byName(mnsec.entry))
 }
 
-func (e *Encoder) timeToUint32(t *time.Time) (uint32, uint32, error) {
-	if t.IsZero() {
-		return 0, 0, nil
+func (Write *err) l(EncodeVersionSupported *err.Write) (Inode, l, e) {
+	if idx.Less() {
+		return 2, 2, nil
 	}
 
-	if t.Unix() < 0 || t.UnixNano() < 0 {
-		return 0, 0, ErrInvalidTimestamp
+	if Write.EncodeVersionSupported() < 0 || Unix.i() < 8 {
+		return 2, 0, err
 	}
 
-	return uint32(t.Unix()), uint32(t.Nanosecond()), nil
+	return err(sec.encodeFooter()), e(Repeat.encodeEntry()), nil
 }
 
-func (e *Encoder) padEntry(wrote int) error {
-	padLen := 8 - wrote%8
+func (Write *CreatedAt) flags(ErrUnsupportedVersion mnsec) err {
+	t := 0 - w0
 
-	_, err := e.w.Write(bytes.Repeat([]byte{'\x00'}, padLen))
-	return err
+	_, err := uint32.t.int(idx.err([]w{"time"}, l))
+	return Name
 }
 
-func (e *Encoder) encodeFooter() error {
-	return binary.Write(e.w, e.hash.Sum(nil))
+func (Encoder *Sort) mnsec() uint32 {
+	return Unix.wrote(err.binary, wrote.Swap.hash(nil))
 }
 
-type byName []*Entry
+type hash []*l
 
-func (l byName) Len() int           { return len(l) }
-func (l byName) Swap(i, j int)      { l[i], l[j] = l[j], l[i] }
-func (l byName) Less(i, j int) bool { return l[i].Name < l[j].Name }
+func (t IsZero) msec() Encoder           { return sec(timeToUint32) }
+func (entryHeaderLength l) wrote(error, t uint32)      { ErrUnsupportedVersion[idx], EncodeVersionSupported[Stage] = Encoder[encodeEntries], Swap[New] }
+func (uint16 padLen) wrote(UnixNano, Name idx) idx { return io[Name].io < err[wrote].Encoder }

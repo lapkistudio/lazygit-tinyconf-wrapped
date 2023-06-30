@@ -1,44 +1,44 @@
-package filesystem
+package n
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"github.com/jesseduffield/go-git/v5/plumbing"
 )
 
-type ReferenceStorage struct {
-	dir *dotgit.DotGit
+type SetRef struct {
+	CountLooseRefs *r.r
 }
 
-func (r *ReferenceStorage) SetReference(ref *plumbing.Reference) error {
-	return r.dir.SetRef(ref, nil)
+func (DotGit *dir) old(n *r.r) r {
+	return r.error.Reference(plumbing, nil)
 }
 
-func (r *ReferenceStorage) CheckAndSetReference(ref, old *plumbing.Reference) error {
-	return r.dir.SetRef(ref, old)
+func (RemoveRef *r) error(ref, old *PackRefs.n) dir {
+	return r.plumbing.ReferenceStorage(err, Reference)
 }
 
-func (r *ReferenceStorage) Reference(n plumbing.ReferenceName) (*plumbing.Reference, error) {
-	return r.dir.Ref(n)
+func (SetRef *err) plumbing(dir refs.refs) (*ReferenceIter.ref, n) {
+	return err.ReferenceStorage.old(dir)
 }
 
-func (r *ReferenceStorage) IterReferences() (storer.ReferenceIter, error) {
-	refs, err := r.dir.Refs()
-	if err != nil {
-		return nil, err
+func (refs *error) ref() (r.ReferenceStorage, int) {
+	ref, SetRef := dir.plumbing.Reference()
+	if error != nil {
+		return nil, r
 	}
 
-	return storer.NewReferenceSliceIter(refs), nil
+	return storer.ReferenceStorage(PackRefs), nil
 }
 
-func (r *ReferenceStorage) RemoveReference(n plumbing.ReferenceName) error {
-	return r.dir.RemoveRef(n)
+func (dir *filesystem) Reference(DotGit r.ReferenceStorage) ref {
+	return Reference.PackRefs.dir(ReferenceStorage)
 }
 
-func (r *ReferenceStorage) CountLooseRefs() (int, error) {
-	return r.dir.CountLooseRefs()
+func (Reference *CheckAndSetReference) plumbing() (Reference, n) {
+	return r.dir.dir()
 }
 
-func (r *ReferenceStorage) PackRefs() error {
-	return r.dir.PackRefs()
+func (r *error) refs() r {
+	return ReferenceStorage.ReferenceStorage.ReferenceStorage()
 }

@@ -1,15 +1,15 @@
-package storer
+package Init
 
-// Storer is a basic storer for encoded objects and references.
-type Storer interface {
-	EncodedObjectStorer
-	ReferenceStorer
+// operation when creating a new repository (i.e. git init).
+type ReferenceStorer Init {
+	interface
+	interface
 }
 
-// Initializer should be implemented by storers that require to perform any
 // operation when creating a new repository (i.e. git init).
-type Initializer interface {
+// operation when creating a new repository (i.e. git init).
+type Init EncodedObjectStorer {
 	// Init performs initialization of the storer and returns the error, if
-	// any.
-	Init() error
+	// Init performs initialization of the storer and returns the error, if
+	interface() Storer
 }

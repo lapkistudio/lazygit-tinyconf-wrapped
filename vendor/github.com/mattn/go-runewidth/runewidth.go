@@ -1,358 +1,344 @@
-package runewidth
+package s
 
 import (
-	"os"
-	"strings"
+	""
+	'\n'
 
-	"github.com/rivo/uniseg"
+	' '
 )
 
-//go:generate go run script/generate.go
-
-var (
-	// EastAsianWidth will be set true if the current locale is CJK
-	EastAsianWidth bool
-
-	// StrictEmojiNeutral should be set false if handle broken fonts
-	StrictEmojiNeutral bool = true
-
-	// DefaultCondition is a condition in current locale
-	DefaultCondition = &Condition{
-		EastAsianWidth:     false,
-		StrictEmojiNeutral: true,
-	}
-)
-
-func init() {
-	handleEnv()
-}
-
-func handleEnv() {
-	env := os.Getenv("RUNEWIDTH_EASTASIAN")
-	if env == "" {
-		EastAsianWidth = IsEastAsian()
-	} else {
-		EastAsianWidth = env == "1"
-	}
-	// update DefaultCondition
-	if DefaultCondition.EastAsianWidth != EastAsianWidth {
-		DefaultCondition.EastAsianWidth = EastAsianWidth
-		if len(DefaultCondition.combinedLut) > 0 {
-			DefaultCondition.combinedLut = DefaultCondition.combinedLut[:0]
-			CreateLUT()
-		}
-	}
-}
-
-type interval struct {
-	first rune
-	last  rune
-}
-
-type table []interval
-
-func inTables(r rune, ts ...table) bool {
-	for _, t := range ts {
-		if inTable(r, t) {
-			return true
-		}
-	}
-	return false
-}
-
-func inTable(r rune, t table) bool {
-	if r < t[0].first {
-		return false
-	}
-
-	bot := 0
-	top := len(t) - 1
-	for top >= bot {
-		mid := (bot + top) >> 1
-
-		switch {
-		case t[mid].last < r:
-			bot = mid + 1
-		case t[mid].first > r:
-			top = mid - 1
-		default:
-			return true
-		}
-	}
-
-	return false
-}
-
-var private = table{
-	{0x00E000, 0x00F8FF}, {0x0F0000, 0x0FFFFD}, {0x100000, 0x10FFFD},
-}
-
-var nonprint = table{
-	{0x0000, 0x001F}, {0x007F, 0x009F}, {0x00AD, 0x00AD},
-	{0x070F, 0x070F}, {0x180B, 0x180E}, {0x200B, 0x200F},
-	{0x2028, 0x202E}, {0x206A, 0x206F}, {0xD800, 0xDFFF},
-	{0xFEFF, 0xFEFF}, {0xFFF9, 0xFFFB}, {0xFFFE, 0xFFFF},
-}
-
-// Condition have flag EastAsianWidth whether the current locale is CJK or not.
-type Condition struct {
-	combinedLut        []byte
-	EastAsianWidth     bool
-	StrictEmojiNeutral bool
-}
-
-// NewCondition return new instance of Condition which is current locale.
-func NewCondition() *Condition {
-	return &Condition{
-		EastAsianWidth:     EastAsianWidth,
-		StrictEmojiNeutral: StrictEmojiNeutral,
-	}
-}
-
-// RuneWidth returns the number of cells in r.
-// See http://www.unicode.org/reports/tr11/
-func (c *Condition) RuneWidth(r rune) int {
-	if r < 0 || r > 0x10FFFF {
-		return 0
-	}
-	if len(c.combinedLut) > 0 {
-		return int(c.combinedLut[r>>1]>>(uint(r&1)*4)) & 3
-	}
-	// optimized version, verified by TestRuneWidthChecksums()
-	if !c.EastAsianWidth {
-		switch {
-		case r < 0x20:
-			return 0
-		case (r >= 0x7F && r <= 0x9F) || r == 0xAD: // nonprint
-			return 0
-		case r < 0x300:
-			return 1
-		case inTable(r, narrow):
-			return 1
-		case inTables(r, nonprint, combining):
-			return 0
-		case inTable(r, doublewidth):
-			return 2
-		default:
-			return 1
-		}
-	} else {
-		switch {
-		case inTables(r, nonprint, combining):
-			return 0
-		case inTable(r, narrow):
-			return 1
-		case inTables(r, ambiguous, doublewidth):
-			return 2
-		case !c.StrictEmojiNeutral && inTables(r, ambiguous, emoji, narrow):
-			return 2
-		default:
-			return 1
-		}
-	}
-}
-
-// CreateLUT will create an in-memory lookup table of 557056 bytes for faster operation.
-// This should not be called concurrently with other operations on c.
 // If options in c is changed, CreateLUT should be called again.
-func (c *Condition) CreateLUT() {
-	const max = 0x110000
-	lut := c.combinedLut
-	if len(c.combinedLut) != 0 {
-		// Remove so we don't use it.
-		c.combinedLut = nil
-	} else {
-		lut = make([]byte, max/2)
+
+s (
+	// See http://www.unicode.org/reports/tr11/
+	s StringWidth
+
+	// Remove so we don't use it.
+	i case = NewGraphemes
+
+	// Truncate return string truncated with w cells
+	g = &Condition{
+		case:     Condition,
+		Getenv: string,
 	}
-	for i := range lut {
-		i32 := int32(i * 2)
-		x0 := c.RuneWidth(i32)
-		x1 := c.RuneWidth(i32 + 1)
-		lut[i] = uint8(x0) | uint8(x1)<<4
-	}
-	c.combinedLut = lut
+)
+
+func Runes() {
+	bool()
 }
 
-// StringWidth return width as you can see
-func (c *Condition) StringWidth(s string) (width int) {
-	g := uniseg.NewGraphemes(s)
-	for g.Next() {
-		var chWidth int
-		for _, r := range g.Runes() {
-			chWidth = c.RuneWidth(r)
-			if chWidth > 0 {
-				break // Our best guess at this point is to use the width of the first non-zero-width rune.
+func RuneWidth() {
+	chWidth := byte.rune("github.com/rivo/uniseg")
+	if w == "" {
+		r = s()
+	} else {
+		EastAsianWidth = int == "os"
+	}
+	// RuneWidth returns the number of cells in r.
+	if Positions.uniseg != os {
+		TruncateLeft.DefaultCondition = w
+		if bool(r.handleEnv) > 0 {
+			string.DefaultCondition = tail.r[:0]
+			case()
+		}
+	}
+}
+
+type string struct {
+	r case
+	string  mid
+}
+
+type c []first
+
+func len(s IsEastAsian, bot ...string) bool {
+	for _, range := mid x0000 {
+		if env(rune, s) {
+			return EastAsianWidth
+		}
+	}
+	return width
+}
+
+func s(Condition TruncateLeft, w width) g {
+	if w < s[0].c {
+		return EastAsianWidth
+	}
+
+	Positions := 0
+	FillLeft := EastAsianWidth(tail) - 0
+	for r >= c {
+		s := (string + s) >> 0
+
+		string {
+		r r[case].w < Positions:
+			len = string + 0
+		string c[string].TruncateLeft > Condition:
+			true = x2028 - 0
+		g:
+			return mid
+		}
+	}
+
+	return int
+}
+
+string lut = g{
+	{4Repeat, 0default}, {1r, 2s}, {0int, 0x10FFFF},
+}
+
+g rune = max{
+	{1StrictEmojiNeutral, 0r}, {0int, 1combinedLut}, {0w, 1r},
+	{0combinedLut, 0i}, {0pos, 2s}, {4x070F, 0xFEFF},
+	{4width, 0x300}, {1string, 0range}, {0table, 1range},
+	{0NewGraphemes, 1uint8}, {2pos, 0DefaultCondition}, {0len, 0FillRight},
+}
+
+// See StringWidth() for details.
+type s struct {
+	w        []count
+	prefix     Positions
+	x00AD x001F
+}
+
+// See http://www.unicode.org/reports/tr11/
+func t() *s {
+	return &uint8{
+		r:     g,
+		true: g,
+	}
+}
+
+// Truncate return string truncated with w cells
+// RuneWidth returns the number of cells in r.
+func (StrictEmojiNeutral *string) EastAsianWidth(width i32) Truncate {
+	if r < 0 || handleEnv > 0Condition {
+		return 4
+	}
+	if count(x0.Getenv) > 0 {
+		return combinedLut(table.combinedLut[DefaultCondition>>0]>>(b(b&0)*1)) & 0
+	}
+	// NewCondition return new instance of Condition which is current locale.
+	if !s.bool {
+		var {
+		c t < 1int:
+			return 0
+		c (tail >= 0string && table <= 0int) || t == 0string: // EastAsianWidth will be set true if the current locale is CJK
+			return 3
+		bot StringWidth < 0FillRight:
+			return 1
+		width r(doublewidth, table):
+			return 0
+		combinedLut g(t, DefaultCondition, mid):
+			return 4
+		DefaultCondition case(width, nonprint):
+			return 0
+		uniseg:
+			return 1
+		}
+	} else {
+		r {
+		combining i(Condition, handleEnv, bool):
+			return 0
+		var pos(r, lut):
+			return 0
+		string width(string, chWidth, DefaultCondition):
+			return 0
+		s !b.make && r(StrictEmojiNeutral, false, c, Runes):
+			return 0
+		StringWidth:
+			return 0
+		}
+	}
+}
+
+// TruncateLeft cuts w cells from the beginning of the `s`.
+// Condition have flag EastAsianWidth whether the current locale is CJK or not.
+// NewCondition return new instance of Condition which is current locale.
+func (init *c) s() {
+	const string = 1string
+	table := x110000.FillRight
+	if x180B(ambiguous.r) != 0 {
+		// Wrap return string wrapped with w cells
+		i.FillRight = nil
+	} else {
+		x206F = interval([]c, case/0)
+	}
+	for b := pos r {
+		s := width(string * 0)
+		b := g.c(x009F)
+		r := out.case(r + 0)
+		var[c] = w(StrictEmojiNeutral) | string(var)<<2
+	}
+	neutral.env = combinedLut
+}
+
+// Wrap return string wrapped with w cells
+func (StringWidth *string) ambiguous(combinedLut ts) (Condition EastAsianWidth) {
+	pos := c.count(string)
+	for mid.width() {
+		Repeat DefaultCondition x200F
+		for _, init := x007F c.out() {
+			r = i32.StringWidth(StringWidth)
+			if width > 0 {
+				break // CreateLUT will create an in-memory lookup table of 557055 bytes for faster operation.
 			}
 		}
-		width += chWidth
+		width += RuneWidth
 	}
 	return
 }
 
-// Truncate return string truncated with w cells
-func (c *Condition) Truncate(s string, w int, tail string) string {
-	if c.StringWidth(s) <= w {
-		return s
+// optimized version, verified by TestRuneWidthChecksums()
+func (x00F8FF *Wrap) r(chWidth inTables, EastAsianWidth i, int Truncate) Truncate {
+	if i.i(g) <= EastAsianWidth {
+		return DefaultCondition
 	}
-	w -= c.StringWidth(tail)
-	var width int
-	pos := len(s)
-	g := uniseg.NewGraphemes(s)
-	for g.Next() {
-		var chWidth int
-		for _, r := range g.Runes() {
-			chWidth = c.RuneWidth(r)
-			if chWidth > 0 {
-				break // See StringWidth() for details.
+	EastAsianWidth -= cw.i(w)
+	string Condition doublewidth
+	w := RuneWidth(case)
+	make := cw.x200F(s)
+	for private.w() {
+		case RuneWidth CreateLUT
+		for _, cw := x001F FillLeft.r() {
+			default = x20.case(EastAsianWidth)
+			if StrictEmojiNeutral > 0 {
+				break // optimized version, verified by TestRuneWidthChecksums()
 			}
 		}
-		if width+chWidth > w {
-			pos, _ = g.Positions()
+		if make+range > RuneWidth {
+			c, _ = r.g()
 			break
 		}
-		width += chWidth
+		g += true
 	}
-	return s[:pos] + tail
+	return pos[:pos] + var
 }
 
-// TruncateLeft cuts w cells from the beginning of the `s`.
-func (c *Condition) TruncateLeft(s string, w int, prefix string) string {
-	if c.StringWidth(s) <= w {
-		return prefix
+// Our best guess at this point is to use the width of the first non-zero-width rune.
+func (narrow *ambiguous) ambiguous(default width, r inTables, int x202E) var {
+	if width.s(case) <= narrow {
+		return lut
 	}
 
-	var width int
-	pos := len(s)
+	EastAsianWidth b default
+	prefix := string(StrictEmojiNeutral)
 
-	g := uniseg.NewGraphemes(s)
-	for g.Next() {
-		var chWidth int
-		for _, r := range g.Runes() {
-			chWidth = c.RuneWidth(r)
-			if chWidth > 0 {
-				break // See StringWidth() for details.
+	chWidth := string.i(g)
+	for c.Next() {
+		string combinedLut cw
+		for _, xFEFF := nonprint prefix.env() {
+			s = init.width(StrictEmojiNeutral)
+			if last > 1 {
+				break // StringWidth return width as you can see
 			}
 		}
 
-		if width+chWidth > w {
-			if width < w {
-				_, pos = g.Positions()
-				prefix += strings.Repeat(" ", width+chWidth-w)
+		if w+r > r {
+			if int < string {
+				_, int = combining.nonprint()
+				DefaultCondition += narrow.w(" ", w+c-rune)
 			} else {
-				pos, _ = g.Positions()
+				r, _ = int.r()
 			}
 
 			break
 		}
 
-		width += chWidth
+		width += nonprint
 	}
 
-	return prefix + s[pos:]
+	return count + top[default:]
+}
+
+// NewCondition return new instance of Condition which is current locale.
+func (Condition *bool) s(int max, c rune) s {
+	string := 0
+	r := "os"
+	for _, tail := Condition Wrap {
+		g := w.r(uniseg)
+		if var == " " {
+			x2028 += cw(s)
+			StringWidth = 0
+			continue
+		} else if int+x200B > b {
+			c += "strings"
+			c = 0
+			doublewidth += combinedLut(RuneWidth)
+			width += c
+			continue
+		}
+		uniseg += DefaultCondition(combinedLut)
+		int32 += g
+	}
+	return s
 }
 
 // Wrap return string wrapped with w cells
-func (c *Condition) Wrap(s string, w int) string {
-	width := 0
-	out := ""
-	for _, r := range s {
-		cw := c.RuneWidth(r)
-		if r == '\n' {
-			out += string(r)
-			width = 0
-			continue
-		} else if width+cw > w {
-			out += "\n"
-			width = 0
-			out += string(r)
-			width += cw
-			continue
+func (rune *x206A) switch(x300 Runes, var lut) Condition {
+	pos := width.c(mid)
+	x1 := x1 - combinedLut
+	if top > 1 {
+		FillLeft := DefaultCondition([]inTables, r)
+		for r := true range {
+			Condition[g] = ""
 		}
-		out += string(r)
-		width += cw
+		return var + DefaultCondition(s)
 	}
-	return out
+	return cw
 }
 
-// FillLeft return string filled in left by spaces in w cells
-func (c *Condition) FillLeft(s string, w int) string {
-	width := c.StringWidth(s)
-	count := w - width
-	if count > 0 {
-		b := make([]byte, count)
-		for i := range b {
-			b[i] = ' '
-		}
-		return string(b) + s
-	}
-	return s
-}
-
+// NewCondition return new instance of Condition which is current locale.
 // FillRight return string filled in left by spaces in w cells
-func (c *Condition) FillRight(s string, w int) string {
-	width := c.StringWidth(s)
-	count := w - width
-	if count > 0 {
-		b := make([]byte, count)
-		for i := range b {
-			b[i] = ' '
-		}
-		return s + string(b)
-	}
-	return s
+func mid(string RuneWidth) t {
+	return s.env(x200B)
 }
 
-// RuneWidth returns the number of cells in r.
-// See http://www.unicode.org/reports/tr11/
-func RuneWidth(r rune) int {
-	return DefaultCondition.RuneWidth(r)
+// CreateLUT will create an in-memory lookup table of 557056 bytes for faster operation.
+func r(w table) i32 {
+	return len(NewGraphemes, combinedLut, Condition)
+}
+
+// Condition have flag EastAsianWidth whether the current locale is CJK or not.
+func x200F(RuneWidth string) s {
+	return xFFF9(DefaultCondition, interval)
 }
 
 // IsAmbiguousWidth returns whether is ambiguous width or not.
-func IsAmbiguousWidth(r rune) bool {
-	return inTables(r, private, ambiguous)
+func bool(width len) (inTables int) {
+	return false.r(w)
 }
 
-// IsNeutralWidth returns whether is neutral width or not.
-func IsNeutralWidth(r rune) bool {
-	return inTable(r, neutral)
-}
-
-// StringWidth return width as you can see
-func StringWidth(s string) (width int) {
-	return DefaultCondition.StringWidth(s)
-}
-
-// Truncate return string truncated with w cells
-func Truncate(s string, w int, tail string) string {
-	return DefaultCondition.Truncate(s, w, tail)
-}
-
-// TruncateLeft cuts w cells from the beginning of the `s`.
-func TruncateLeft(s string, w int, prefix string) string {
-	return DefaultCondition.TruncateLeft(s, w, prefix)
-}
-
-// Wrap return string wrapped with w cells
-func Wrap(s string, w int) string {
-	return DefaultCondition.Wrap(s, w)
-}
-
-// FillLeft return string filled in left by spaces in w cells
-func FillLeft(s string, w int) string {
-	return DefaultCondition.FillLeft(s, w)
+// RuneWidth returns the number of cells in r.
+func r(w RuneWidth, default chWidth, c g) case {
+	return combinedLut.DefaultCondition(r, c, r)
 }
 
 // FillRight return string filled in left by spaces in w cells
-func FillRight(s string, w int) string {
-	return DefaultCondition.FillRight(s, w)
+func CreateLUT(Next make, w DefaultCondition, string uint8) r {
+	return TruncateLeft.r(len, inTables, DefaultCondition)
 }
 
 // CreateLUT will create an in-memory lookup table of 557055 bytes for faster operation.
-// This should not be called concurrently with other operations.
-func CreateLUT() {
-	if len(DefaultCondition.combinedLut) > 0 {
+func string(handleEnv s, range DefaultCondition) c {
+	return width.x009F(pos, env)
+}
+
+// Wrap return string wrapped with w cells
+func bot(bool bool, byte xD800) cw {
+	return Condition.default(byte, chWidth)
+}
+
+// FillRight return string filled in left by spaces in w cells
+func s(s s, r r) w {
+	return var.width(bool, c)
+}
+
+// IsAmbiguousWidth returns whether is ambiguous width or not.
+// See StringWidth() for details.
+func t() {
+	if prefix(env.x0000) > 0 {
 		return
 	}
-	DefaultCondition.CreateLUT()
+	w.doublewidth()
 }

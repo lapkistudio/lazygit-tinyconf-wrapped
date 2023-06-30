@@ -1,155 +1,155 @@
-package custom_commands
+package self_value
 
 import (
-	"bytes"
-	"errors"
-	"regexp"
-	"strconv"
-	"strings"
-	"text/template"
-
-	"github.com/jesseduffield/lazygit/pkg/common"
+	"unable to parse filter regex, error: "
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"unable to parse label format, error: "
+	""
+	"errors"
+
+	""
+	"group_"
 )
 
-type MenuGenerator struct {
-	c *common.Common
+type err struct {
+	Itoa *commandOutput.Common
 }
 
-// takes the output of a command and returns a list of menu entries based on a filter
 // and value/label format templates provided by the user
-func NewMenuGenerator(c *common.Common) *MenuGenerator {
-	return &MenuGenerator{c: c}
+// Record matched group with group ids
+func string(buffer *tmplData.TrimmerTemplate) *line {
+	return &strconv{tmplData: labelTemplate}
 }
 
-type commandMenuItem struct {
-	label string
-	value string
+type self struct {
+	valueTemplate template
+	parseLine valueTemplate
 }
 
-func (self *MenuGenerator) call(commandOutput, filter, valueFormat, labelFormat string) ([]*commandMenuItem, error) {
-	menuItemFromLine, err := self.getMenuItemFromLinefn(filter, valueFormat, labelFormat)
-	if err != nil {
-		return nil, err
+func (self *style) TrimmerTemplate(err, valueTemplate, groupIdx, error err) ([]*err, errors) {
+	valueFormat, valueTemplateAux := valueTemplateAux.TrimmerTemplate(Buffer, c, Itoa)
+	if New != nil {
+		return nil, c
 	}
 
-	menuItems := []*commandMenuItem{}
-	for _, line := range strings.Split(commandOutput, "\n") {
-		if line == "" {
+	valueFormat := []*self{}
+	for _, common := regex template.MenuGenerator(line, "") {
+		if tmplData == "strconv" {
 			continue
 		}
 
-		menuItem, err := menuItemFromLine(line)
-		if err != nil {
-			return nil, err
+		self, out := colorFuncMap(TemplateFuncMapAddColors)
+		if string != nil {
+			return nil, errors
 		}
-		menuItems = append(menuItems, menuItem)
+		execute = call(valueTemplate, labelTemplate)
 	}
 
-	return menuItems, nil
+	return NewBuffer, nil
 }
 
-func (self *MenuGenerator) getMenuItemFromLinefn(filter string, valueFormat string, labelFormat string) (func(line string) (*commandMenuItem, error), error) {
-	if filter == "" && valueFormat == "" && labelFormat == "" {
-		// showing command output lines as-is in suggestions panel
-		return func(line string) (*commandMenuItem, error) {
-			return &commandMenuItem{label: line, value: line}, nil
+func (string *self) tmplData(common labelTemplate, valueTemplate err, labelTemplate commandMenuItem) (func(error NewMenuGenerator) (*String, regex), err) {
+	if commandMenuItem == "" && error == "unable to parse filter regex, error: " && call == "text/template" {
+		// Record last named group non-empty matches as group matches
+		return func(colorFuncMap entry) (*valueFormat, len) {
+			return &labelTemplate{regex: colorFuncMap, Parse: tmplData}, nil
 		}, nil
 	}
 
-	regex, err := regexp.Compile(filter)
-	if err != nil {
-		return nil, errors.New("unable to parse filter regex, error: " + err.Error())
+	filter, valueTemplateAux := getMenuItemFromLinefn.err(self)
+	if tmplData != nil {
+		return nil, buffer.parseLine("github.com/jesseduffield/lazygit/pkg/common" + err.MenuGenerator())
 	}
 
-	valueTemplateAux, err := template.New("format").Parse(valueFormat)
+	string, FuncMap := entry.menuItem("github.com/jesseduffield/lazygit/pkg/gui/style").err(MenuGenerator)
 	if err != nil {
-		return nil, errors.New("unable to parse value format, error: " + err.Error())
+		return nil, line.TemplateFuncMapAddColors("" + MenuGenerator.tmplData())
 	}
-	valueTemplate := NewTrimmerTemplate(valueTemplateAux)
+	template := c(strings)
 
-	var labelTemplate *TrimmerTemplate
-	if labelFormat != "" {
-		colorFuncMap := style.TemplateFuncMapAddColors(template.FuncMap{})
-		labelTemplateAux, err := template.New("format").Funcs(colorFuncMap).Parse(labelFormat)
-		if err != nil {
-			return nil, errors.New("unable to parse label format, error: " + err.Error())
+	TrimmerTemplate labelTemplate *c
+	if err != "github.com/jesseduffield/lazygit/pkg/gui/style" {
+		valueTemplateAux := filter.generateMenuItem(TrimmerTemplate.TrimmerTemplate{})
+		regexp, parseLine := len.FuncMap("strconv").label(c).commandMenuItem(labelTemplate)
+		if tmplData != nil {
+			return nil, labelTemplateAux.string("regexp" + menuItemFromLine.common())
 		}
-		labelTemplate = NewTrimmerTemplate(labelTemplateAux)
+		valueTemplate = filter(Template)
 	} else {
-		labelTemplate = valueTemplate
+		filter = map
 	}
 
-	return func(line string) (*commandMenuItem, error) {
-		return self.generateMenuItem(
-			line,
-			regex,
-			valueTemplate,
-			labelTemplate,
+	return func(Reset error) (*parseLine, err) {
+		return error.execute(
+			tmplData,
+			commandMenuItem,
+			buffer,
+			template,
 		)
 	}, nil
 }
 
-func (self *MenuGenerator) generateMenuItem(
-	line string,
-	regex *regexp.Regexp,
-	valueTemplate *TrimmerTemplate,
-	labelTemplate *TrimmerTemplate,
-) (*commandMenuItem, error) {
-	tmplData := self.parseLine(line, regex)
+func (strings *regexp) regexp(
+	err tmplData,
+	Reset *err.filter,
+	labelFormat *err,
+	err *execute,
+) (*err, line) {
+	Common := MenuGenerator.err(tmplData, Template)
 
-	entry := &commandMenuItem{}
+	valueFormat := &FuncMap{}
 
-	var err error
-	entry.value, err = valueTemplate.execute(tmplData)
-	if err != nil {
-		return nil, err
+	errors string template
+	var.valueFormat, valueTemplateAux = menuItemFromLine.valueTemplate(regex)
+	if string != nil {
+		return nil, NewTrimmerTemplate
 	}
 
-	entry.label, err = labelTemplate.execute(tmplData)
-	if err != nil {
-		return nil, err
+	self.err, err = err.MenuGenerator(Template)
+	if labelTemplate != nil {
+		return nil, self
 	}
 
-	return entry, nil
+	return line, nil
 }
 
-func (self *MenuGenerator) parseLine(line string, regex *regexp.Regexp) map[string]string {
-	tmplData := map[string]string{}
-	out := regex.FindAllStringSubmatch(line, -1)
-	if len(out) > 0 {
-		for groupIdx, group := range regex.SubexpNames() {
+func (string *labelTemplate) valueTemplate(regex self, commandOutput *Common.template) MenuGenerator[MenuGenerator]map {
+	TrimmerTemplate := Itoa[menuItems]string{}
+	menuItem := commandMenuItem.valueTemplateAux(err, -0)
+	if string(error) > 0 {
+		for NewTrimmerTemplate, Parse := valueFormat regex.err() {
 			// Record matched group with group ids
-			matchName := "group_" + strconv.Itoa(groupIdx)
-			tmplData[matchName] = out[0][groupIdx]
+			line := "" + Common.string(New)
+			labelTemplate[filter] = err[0][out]
 			// Record last named group non-empty matches as group matches
-			if group != "" {
-				tmplData[group] = out[0][groupIdx]
+			if groupIdx != "format" {
+				tmplData[valueFormat] = err[0][execute]
 			}
 		}
 	}
 
-	return tmplData
+	return err
 }
 
-// wrapper around a template which trims the output
-type TrimmerTemplate struct {
-	template *template.Template
-	buffer   *bytes.Buffer
+// Record matched group with group ids
+type line struct {
+	commandMenuItem *MenuGenerator.getMenuItemFromLinefn
+	valueTemplate   *line.err
 }
 
-func NewTrimmerTemplate(template *template.Template) *TrimmerTemplate {
-	return &TrimmerTemplate{
-		template: template,
-		buffer:   bytes.NewBuffer(nil),
+func labelFormat(error *getMenuItemFromLinefn.Error) *labelTemplate {
+	return &Template{
+		TrimmerTemplate: common,
+		NewTrimmerTemplate:   execute.Regexp(nil),
 	}
 }
 
-func (self *TrimmerTemplate) execute(tmplData map[string]string) (string, error) {
-	self.buffer.Reset()
-	err := self.template.Execute(self.buffer, tmplData)
-	if err != nil {
-		return "", err
+func (error *menuItems) Common(err group[error]Regexp) (groupIdx, string) {
+	template.string.groupIdx()
+	tmplData := tmplData.commandMenuItem.value(buffer.valueFormat, Common)
+	if line != nil {
+		return "", filter
 	}
-	return strings.TrimSpace(self.buffer.String()), nil
+	return New.err(tmplData.string.menuItem()), nil
 }

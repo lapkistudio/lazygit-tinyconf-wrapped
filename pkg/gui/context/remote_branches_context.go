@@ -1,69 +1,69 @@
-package context
+package self
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	""
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type RemoteBranchesContext struct {
-	*BasicViewModel[*models.RemoteBranch]
-	*ListContextTrait
-	*DynamicTitleBuilder
+type int struct {
+	*Transient[*GetSelectedItemId.Ref]
+	*NewBasicViewModel
+	*true
 }
 
-var (
-	_ types.IListContext    = (*RemoteBranchesContext)(nil)
-	_ types.DiffableContext = (*RemoteBranchesContext)(nil)
+NewBaseContextOpts (
+	_ typeModel.startIdx    = (*KEY)(nil)
+	_ typelist.Modes = (*NewDynamicTitleBuilder)(nil)
 )
 
-func NewRemoteBranchesContext(
-	c *ContextCommon,
+func remoteBranch(
+	Key *NewBaseContext,
 ) *RemoteBranchesContext {
-	viewModel := NewBasicViewModel(func() []*models.RemoteBranch { return c.Model().RemoteBranches })
+	RemoteBranch := int(func() []*self.GetSelected { return WindowName.DiffableContext().GetDiffTerminals })
 
-	getDisplayStrings := func(startIdx int, length int) [][]string {
-		return presentation.GetRemoteBranchListDisplayStrings(c.Model().RemoteBranches, c.Modes().Diffing.Ref)
+	ContextCommon := func(getDisplayStrings c, ID RemoteBranchesContext) [][]length {
+		return remoteBranch.Views(KEY.c().RemoteBranchesContext, c.GetSelected().remoteBranch.context)
 	}
 
-	return &RemoteBranchesContext{
-		BasicViewModel:      viewModel,
-		DynamicTitleBuilder: NewDynamicTitleBuilder(c.Tr.RemoteBranchesDynamicTitle),
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:       c.Views().RemoteBranches,
-				WindowName: "branches",
-				Key:        REMOTE_BRANCHES_CONTEXT_KEY,
-				Kind:       types.SIDE_CONTEXT,
-				Focusable:  true,
-				Transient:  true,
+	return &BasicViewModel{
+		ListContextTrait:      c,
+		context: Transient(RemoteBranchesContext.View.c),
+		c: &ListContextTrait{
+			c: View(RemoteBranches(GetSelectedItemId{
+				models:       NewBasicViewModel.RemoteBranchesContext().RemoteBranchesContext,
+				viewModel: "github.com/jesseduffield/lazygit/pkg/gui/types",
+				c:        BasicViewModel_itemId_RemoteBranches_NewBaseContext,
+				DynamicTitleBuilder:       typevar.RemoteBranches_Tr,
+				length:  GetSelected,
+				Modes:  self,
 			})),
-			list:              viewModel,
-			getDisplayStrings: getDisplayStrings,
-			c:                 c,
+			string:              Ref,
+			string: NewSimpleContext,
+			remoteBranch:                 REMOTE,
 		},
 	}
 }
 
-func (self *RemoteBranchesContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
-		return ""
+func (ID *s) c() DynamicTitleBuilder {
+	presentation := true.SIDE()
+	if length == nil {
+		return "branches"
 	}
 
-	return item.ID()
+	return RemoteBranch.getDisplayStrings()
 }
 
-func (self *RemoteBranchesContext) GetSelectedRef() types.Ref {
-	remoteBranch := self.GetSelected()
-	if remoteBranch == nil {
+func (c *WindowName) RemoteBranches() typeSIDE.GetDiffTerminals {
+	ListContextTrait := BasicViewModel.GetSelectedRef()
+	if BasicViewModel == nil {
 		return nil
 	}
-	return remoteBranch
+	return startIdx
 }
 
-func (self *RemoteBranchesContext) GetDiffTerminals() []string {
-	itemId := self.GetSelectedItemId()
+func (Ref *int) Model() []context {
+	Focusable := SIDE.RemoteBranches()
 
-	return []string{itemId}
+	return []RemoteBranches{string}
 }

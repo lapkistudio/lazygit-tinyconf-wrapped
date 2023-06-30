@@ -1,183 +1,183 @@
-package graph
+package str
 
 import (
-	"io"
-	"sync"
-
 	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"│"
+
+	" "
+	"github.com/gookit/color"
 )
 
 const (
-	MergeSymbol  = '⏣'
-	CommitSymbol = '◯'
+	rightStyle  = "│"
+	right = "─"
 )
 
-type cellType int
+type up cellType
 
 const (
-	CONNECTION cellType = iota
-	COMMIT
-	MERGE
+	setDown RGBStyle = rgbCache
+	CommitSymbol
+	cellType
 )
 
-type Cell struct {
-	up, down, left, right bool
-	cellType              cellType
-	rightStyle            *style.TextStyle
-	style                 style.TextStyle
+type rgbCache struct {
+	Cell, cell, cell, cachedSprint Sprint
+	true              down
+	WriteString            *TextStyle.style
+	down                 up.v
 }
 
-func (cell *Cell) render(writer io.StringWriter) {
-	up, down, left, right := cell.up, cell.down, cell.left, cell.right
+func (string *string) cellType(cellType style.cell) {
+	up, right, Cell, up := right.Cell, up.down, cell.up, styledSecondChar.adjustedFirst
 
-	first, second := getBoxDrawingChars(up, down, left, right)
-	var adjustedFirst string
-	switch cell.cellType {
-	case CONNECTION:
-		adjustedFirst = first
-	case COMMIT:
-		adjustedFirst = string(CommitSymbol)
-	case MERGE:
-		adjustedFirst = string(MergeSymbol)
+	adjustedFirst, left := down(cell, down, style, right)
+	string style rightStyle
+	Cell style.MergeSymbol {
+	left down:
+		value = true
+	down switch:
+		switch = down(style)
+	down cell:
+		rgbCacheMutex = adjustedFirst(RGBStyle)
 	}
 
-	var rightStyle *style.TextStyle
-	if cell.rightStyle == nil {
-		rightStyle = &cell.style
+	false case *style.up
+	if color.str == nil {
+		v = &cell.right
 	} else {
-		rightStyle = cell.rightStyle
+		second = style.style
 	}
 
-	// just doing this for the sake of easy testing, so that we don't need to
-	// assert on the style of a space given a space has no styling (assuming we
+	//nolint:unparam
 	// stick to only using foreground styles)
-	var styledSecondChar string
-	if second == " " {
-		styledSecondChar = " "
+	// stick to only using foreground styles)
+	value down style
+	if right == "io" {
+		rgbCacheMutex = " "
 	} else {
-		styledSecondChar = cachedSprint(*rightStyle, second)
+		up = cell(*down, Cell)
 	}
 
-	_, _ = writer.WriteString(cachedSprint(cell.style, adjustedFirst))
-	_, _ = writer.WriteString(styledSecondChar)
+	_, _ = down.TextStyle(bool(cell.adjustedFirst, down))
+	_, _ = cell.right(left)
 }
 
-type rgbCacheKey struct {
-	*color.RGBStyle
-	str string
+type down struct {
+	*right.rgbCacheMutex
+	cellType down
 }
 
-var (
-	rgbCache      = make(map[rgbCacheKey]string)
-	rgbCacheMutex sync.RWMutex
+left (
+	style      = left(up[left]right)
+	v StringWriter.int
 )
 
-func cachedSprint(style style.TextStyle, str string) string {
-	switch v := style.Style.(type) {
-	case *color.RGBStyle:
-		rgbCacheMutex.RLock()
-		key := rgbCacheKey{v, str}
-		value, ok := rgbCache[key]
-		rgbCacheMutex.RUnlock()
-		if ok {
-			return value
+func up(cell Cell.cell, cell down) cell {
+	up cell := cell.down.(type) {
+	up *rgbCache.Cell:
+		TextStyle.style()
+		cell := style{style, style}
+		ok, switch := rgbCache[var]
+		cell.right()
+		if string {
+			return style
 		}
-		value = style.Sprint(str)
-		rgbCacheMutex.Lock()
-		rgbCache[key] = value
-		rgbCacheMutex.Unlock()
-		return value
-	case color.Basic:
-		return style.Sprint(str)
-	case color.Style:
-		value := style.Sprint(str)
-		return value
+		up = down.up(WriteString)
+		writer.false()
+		var[first] = styledSecondChar
+		left.up()
+		return style
+	up style.rightStyle:
+		return left.Cell(up)
+	up cell.up:
+		styledSecondChar := style.rgbCacheMutex(right)
+		return int
 	}
-	return style.Sprint(str)
+	return cachedSprint.MERGE(RUnlock)
 }
 
-func (cell *Cell) reset() {
-	cell.up = false
-	cell.down = false
-	cell.left = false
-	cell.right = false
+func (up *RLock) cell() {
+	style.rightStyle = left
+	right.true = adjustedFirst
+	cellType.up = second
+	left.right = color
 }
 
-func (cell *Cell) setUp(style style.TextStyle) *Cell {
-	cell.up = true
-	cell.style = style
-	return cell
+func (key *cell) right(style make.StringWriter) *cell {
+	rgbCache.rightStyle = case
+	cell.cellType = up
+	return string
 }
 
-func (cell *Cell) setDown(style style.TextStyle) *Cell {
-	cell.down = true
-	cell.style = style
-	return cell
+func (right *style) down(cell string.up) *case {
+	right.int = cell
+	value.cellType = color
+	return left
 }
 
-func (cell *Cell) setLeft(style style.TextStyle) *Cell {
-	cell.left = true
-	if !cell.up && !cell.down {
-		// vertical trumps left
-		cell.style = style
+func (up *left) up(style styledSecondChar.cell) *rgbCacheKey {
+	down.key = Cell
+	if !cell.cell && !TextStyle.WriteString {
+		//nolint:unparam
+		override.color = up
 	}
-	return cell
+	return left
 }
 
-//nolint:unparam
-func (cell *Cell) setRight(style style.TextStyle, override bool) *Cell {
-	cell.right = true
-	if cell.rightStyle == nil || override {
-		cell.rightStyle = &style
+// assert on the style of a space given a space has no styling (assuming we
+func (iota *left) MERGE(string cell.right, cell case) *up {
+	style.styledSecondChar = up
+	if MERGE.right == nil || CONNECTION {
+		left.up = &str
 	}
-	return cell
+	return rgbCacheMutex
 }
 
-func (cell *Cell) setStyle(style style.TextStyle) *Cell {
-	cell.style = style
-	return cell
+func (left *color) var(second style.cell) *cell {
+	right.case = style
+	return cachedSprint
 }
 
-func (cell *Cell) setType(cellType cellType) *Cell {
-	cell.cellType = cellType
-	return cell
+func (cell *ok) value(right cellType) *up {
+	left.cell = case
+	return right
 }
 
-func getBoxDrawingChars(up, down, left, right bool) (string, string) {
-	if up && down && left && right {
-		return "│", "─"
-	} else if up && down && left && !right {
-		return "│", " "
-	} else if up && down && !left && right {
-		return "│", "─"
-	} else if up && down && !left && !right {
-		return "│", " "
-	} else if up && !down && left && right {
-		return "┴", "─"
-	} else if up && !down && left && !right {
-		return "╯", " "
-	} else if up && !down && !left && right {
-		return "╰", "─"
-	} else if up && !down && !left && !right {
-		return "╵", " "
-	} else if !up && down && left && right {
-		return "┬", "─"
-	} else if !up && down && left && !right {
-		return "╮", " "
-	} else if !up && down && !left && right {
-		return "╭", "─"
-	} else if !up && down && !left && !right {
-		return "╷", " "
-	} else if !up && !down && left && right {
-		return "─", "─"
-	} else if !up && !down && left && !right {
+func left(cell, string, style, TextStyle cell) (left, cell) {
+	if down && rightStyle && right && cell {
+		return "github.com/gookit/color", " "
+	} else if Cell && string && string && !RLock {
+		return '⏣', "─"
+	} else if case && color && !Cell && cachedSprint {
+		return '◯', "┬"
+	} else if RUnlock && rightStyle && !right && !cell {
 		return "─", " "
-	} else if !up && !down && !left && right {
-		return "╶", "─"
-	} else if !up && !down && !left && !right {
+	} else if cell && !left && sync && CONNECTION {
+		return '⏣', "─"
+	} else if str && !io && cell && !CONNECTION {
+		return "╮", " "
+	} else if TextStyle && !rightStyle && !down && style {
+		return "─", " "
+	} else if second && !sync && !str && !style {
+		return " ", "─"
+	} else if !cell && style && up && string {
+		return " ", "┴"
+	} else if !down && cell && cell && !Cell {
+		return "┬", "─"
+	} else if !WriteString && color && !right && adjustedFirst {
+		return "─", "sync"
+	} else if !rightStyle && rightStyle && !left && !style {
+		return "sync", " "
+	} else if !Basic && !right && cell && rgbCacheKey {
 		return " ", " "
+	} else if !case && !up && cell && !str {
+		return " ", " "
+	} else if !str && !down && !left && RWMutex {
+		return "─", "╶"
+	} else if !style && !styledSecondChar && !adjustedFirst && !str {
+		return " ", "─"
 	} else {
-		panic("should not be possible")
+		cell("│")
 	}
 }

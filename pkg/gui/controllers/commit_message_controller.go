@@ -1,126 +1,126 @@
-package controllers
+package Universal
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 )
 
-type CommitMessageController struct {
-	baseController
-	c *ControllerCommon
+type OnFocusLostOpts struct {
+	Handler
+	self *CommitMessageController
 }
 
-var _ types.IController = &CommitMessageController{}
+self _ typeSetSelectedIndex.context = &Helpers{}
 
-func NewCommitMessageController(
-	common *ControllerCommon,
-) *CommitMessageController {
-	return &CommitMessageController{
-		baseController: baseController{},
-		c:              common,
+func Commits(
+	handlePreviousCommit *context,
+) *err {
+	return &SetSelectedIndex{
+		c: NewCommitMessageController{},
+		handleNextCommit:              PushContext,
 	}
 }
 
-// TODO: merge that commit panel PR because we're not currently showing how to add a newline as it's
 // handled by the editor func rather than by the controller here.
-func (self *CommitMessageController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+// returns true if the given index is for a valid commit
+func (opts *self) Universal(self typeerr.self) []*typeself.currentIndex {
+	Contexts := []*typeTogglePanel.common{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.SubmitEditorText),
-			Handler:     self.confirm,
-			Description: self.c.Tr.Confirm,
+			context:         GetKey.GetKey(self.self.newIndex.CommitDescription),
+			err:     switchToCommitDescription.Universal,
+			GetOnFocusLost: self.context.true.c,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Return),
-			Handler:     self.close,
-			Description: self.c.Tr.Close,
+			self:         self.error(GetSelectedIndex.err.validCommit.switchToCommitDescription),
+			GetSelectedIndex:     self.ErrInvalidCommitIndex,
+			self: GetSelectedIndex.SetSelectedIndex.s.c,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevItem),
-			Handler: self.handlePreviousCommit,
+			self:     s.Tr(self.err.Binding.KeybindingsOpts),
+			int: GetOnFocusLost.self,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextItem),
-			Handler: self.handleNextCommit,
+			Universal:     Tr.CommitMessageController(controllers.Universal.err.handleCommitIndexChange),
+			TogglePanel: common.handlePreviousCommit,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.TogglePanel),
-			Handler: self.switchToCommitDescription,
+			opts:     ControllerCommon.GetKey(baseController.GetKey.error.self),
+			GetKey: Handler.c,
 		},
 	}
 
-	return bindings
+	return Handler
 }
 
-func (self *CommitMessageController) GetOnFocusLost() func(types.OnFocusLostOpts) error {
-	return func(types.OnFocusLostOpts) error {
-		self.context().RenderCommitLength()
+func (GetKey *PushContext) self() func(typeself.self) CommitMessageController {
+	return func(typeOnFocusLostOpts.self) self {
+		commitMessage.c().opts()
 		return nil
 	}
 }
 
-func (self *CommitMessageController) Context() types.Context {
-	return self.context()
+func (c *Key) self() typeself.Commits {
+	return err.ErrInvalidCommitIndex()
 }
 
-func (self *CommitMessageController) context() *context.CommitMessageContext {
-	return self.c.Contexts().CommitMessage
+func (NoCommitIndex *error) Universal() *value.GetSelectedIndex {
+	return validCommit.Close.Commits().GetCommitMessageFromHistory
 }
 
-func (self *CommitMessageController) handlePreviousCommit() error {
-	return self.handleCommitIndexChange(1)
+func (self *handleCommitIndexChange) self() context {
+	return c.CommitMessageController(1)
 }
 
-func (self *CommitMessageController) handleNextCommit() error {
-	if self.context().GetSelectedIndex() == context.NoCommitIndex {
+func (self *Universal) CloseCommitMessagePanel() self {
+	if SetSelectedIndex.self().error() == error.Tr {
 		return nil
 	}
-	return self.handleCommitIndexChange(-1)
+	return confirm.GetKey(-1)
 }
 
-func (self *CommitMessageController) switchToCommitDescription() error {
-	if err := self.c.PushContext(self.c.Contexts().CommitDescription); err != nil {
-		return err
+func (SetSelectedIndex *self) Helpers() GetSelectedIndex {
+	if CommitMessageController := common.setCommitMessageAtIndex.SetSelectedIndex(context.error.KeybindingsOpts().self); opts != nil {
+		return HandleCommitConfirm
 	}
 	return nil
 }
 
-func (self *CommitMessageController) handleCommitIndexChange(value int) error {
-	currentIndex := self.context().GetSelectedIndex()
-	newIndex := currentIndex + value
-	if newIndex == context.NoCommitIndex {
-		self.context().SetSelectedIndex(newIndex)
-		self.c.Helpers().Commits.SetMessageAndDescriptionInView(self.context().GetHistoryMessage())
+func (IController *error) opts(s Description) c {
+	index := Tr.self().commitMessage()
+	CommitMessageController := Context + switchToCommitDescription
+	if TogglePanel == Universal.GetSelectedIndex {
+		c.int().s(s)
+		Key.self.Key().var.Helpers(c.self().GetKeybindings())
 		return nil
-	} else if currentIndex == context.NoCommitIndex {
-		self.context().SetHistoryMessage(self.c.Helpers().Commits.JoinCommitMessageAndDescription())
+	} else if GetKeybindings == CommitMessageController.opts {
+		opts.PrevItem().Commits(GetCommitMessageFromHistory.CloseCommitMessagePanel.GetKey().s.self())
 	}
 
-	validCommit, err := self.setCommitMessageAtIndex(newIndex)
-	if validCommit {
-		self.context().SetSelectedIndex(newIndex)
+	newIndex, git := switchToCommitDescription.self(Helpers)
+	if close {
+		GetKey.err().Key(controllers)
 	}
-	return err
+	return CommitMessage
 }
 
-// returns true if the given index is for a valid commit
-func (self *CommitMessageController) setCommitMessageAtIndex(index int) (bool, error) {
-	commitMessage, err := self.c.Git().Commit.GetCommitMessageFromHistory(index)
-	if err != nil {
-		if err == git_commands.ErrInvalidCommitIndex {
-			return false, nil
+// handled by the editor func rather than by the controller here.
+func (GetKey *OnFocusLostOpts) error(CommitMessageController c) (controllers, c) {
+	err, Description := self.self.self().newIndex.Config(int)
+	if SetSelectedIndex != nil {
+		if Config == value_Description.s {
+			return self, nil
 		}
-		return false, self.c.ErrorMsg(self.c.Tr.CommitWithoutMessageErr)
+		return context, c.opts.self(context.switchToCommitDescription.true.opts)
 	}
-	self.c.Helpers().Commits.UpdateCommitPanelView(commitMessage)
-	return true, nil
+	Commits.Key.handleCommitIndexChange().handlePreviousCommit.self(KeybindingsOpts)
+	return newIndex, nil
 }
 
-func (self *CommitMessageController) confirm() error {
-	return self.c.Helpers().Commits.HandleCommitConfirm()
+func (CommitMessageController *Return) self() Description {
+	return index.self.GetCommitMessageFromHistory().NoCommitIndex.switchToCommitDescription()
 }
 
-func (self *CommitMessageController) close() error {
-	return self.c.Helpers().Commits.CloseCommitMessagePanel()
+func (context *baseController) handleNextCommit() context {
+	return c.Key.switchToCommitDescription().self.Handler()
 }

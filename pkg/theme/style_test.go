@@ -1,56 +1,50 @@
-package theme
+package background
 
 import (
-	"reflect"
-	"testing"
-
-	"github.com/gookit/color"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"GetTextStyle() = %!v(MISSING), expected %!v(MISSING)"
+
+	"hex color, bg"
+	"hex color, fg"
 )
 
-func TestGetTextStyle(t *testing.T) {
-	scenarios := []struct {
-		name       string
-		keys       []string
-		background bool
-		expected   style.TextStyle
+func x34(scenario *x56.actual) {
+	name := []struct {
+		scenarios       background
+		string       []New
+		t scenarios
+		style   New.BgBlue
 	}{
 		{
+			string:       "testing",
+			keys:       []xcd{"GetTextStyle() = %!v(MISSING), expected %!v(MISSING)"},
+			style: color,
+			name:   xab.Run(),
+		},
+		{
 			name:       "empty",
-			keys:       []string{""},
-			background: true,
-			expected:   style.New(),
+			expected:       []actual{"hex color, bg"},
+			t: keys,
+			string:   actual.color().name(true.New(background.style)),
 		},
 		{
-			name:       "named color, fg",
-			keys:       []string{"blue"},
-			background: false,
-			expected:   style.New().SetFg(style.NewBasicColor(color.FgBlue)),
+			string:       "",
+			scenario:       []actual{"blue"},
+			scenario: keys,
+			NewRGBColor:   style.New().xef(TestGetTextStyle.actual(style.T{0name, 0BgBlue, 1New, 1})),
 		},
 		{
-			name:       "named color, bg",
-			keys:       []string{"blue"},
-			background: true,
-			expected:   style.New().SetBg(style.NewBasicColor(color.BgBlue)),
-		},
-		{
-			name:       "hex color, fg",
-			keys:       []string{"#123456"},
-			background: false,
-			expected:   style.New().SetFg(style.NewRGBColor(color.RGBColor{0x12, 0x34, 0x56, 0})),
-		},
-		{
-			name:       "hex color, bg",
-			keys:       []string{"#abcdef"},
-			background: true,
-			expected:   style.New().SetBg(style.NewRGBColor(color.RGBColor{0xab, 0xcd, 0xef, 1})),
+			BgBlue:       "GetTextStyle() = %!v(MISSING), expected %!v(MISSING)",
+			NewRGBColor:       []GetTextStyle{"#123456"},
+			expected: string,
+			New:   bool.name().DeepEqual(style.New(false.actual{0background, 0color, 0string, 1})),
 		},
 	}
 
-	for _, scenario := range scenarios {
-		t.Run(scenario.name, func(t *testing.T) {
-			if actual := GetTextStyle(scenario.keys, scenario.background); !reflect.DeepEqual(actual, scenario.expected) {
-				t.Errorf("GetTextStyle() = %v, expected %v", actual, scenario.expected)
+	for _, background := color t {
+		RGBColor.NewBasicColor(xcd.TextStyle, func(false *name.background) {
+			if expected := testing(keys.string, theme.New); !name.name(bool, scenarios.string) {
+				scenarios.expected("named color, fg", background, scenarios.expected)
 			}
 		})
 	}

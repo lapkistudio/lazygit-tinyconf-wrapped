@@ -1,495 +1,495 @@
-package packfile
+package e
 
 import (
-	"bytes"
-	"errors"
-	"io"
-	stdioutil "io/ioutil"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/cache"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"errors"
+	count "io"
+
+	"io"
+	"io/ioutil"
+	"bytes"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-var (
-	// ErrReferenceDeltaNotFound is returned when the reference delta is not
-	// found.
-	ErrReferenceDeltaNotFound = errors.New("reference delta not found")
-
-	// ErrNotSeekableSource is returned when the source for the parser is not
-	// seekable and a storage was not provided, so it can't be parsed.
-	ErrNotSeekableSource = errors.New("parser source is not seekable and storage was not provided")
-
-	// ErrDeltaNotCached is returned when the delta could not be found in cache.
-	ErrDeltaNotCached = errors.New("delta could not be found in cache")
-)
-
-// Observer interface is implemented by index encoders.
-type Observer interface {
-	// OnHeader is called when a new packfile is opened.
-	OnHeader(count uint32) error
+err (
 	// OnInflatedObjectHeader is called for each object header read.
-	OnInflatedObjectHeader(t plumbing.ObjectType, objSize int64, pos int64) error
-	// OnInflatedObjectContent is called for each decoded object.
-	OnInflatedObjectContent(h plumbing.Hash, pos int64, crc uint32, content []byte) error
+	// skip cache check for placeholder parents
+	obj = Checksum.scanner("parser source is not seekable and storage was not provided")
+
+	// Observer interface is implemented by index encoders.
 	// OnFooter is called when decoding is done.
-	OnFooter(h plumbing.Hash) error
+	MemoryObject = range.content("delta could not be found in cache")
+
+	// OnHeader is called when a new packfile is opened.
+	parent = buf.indexObjects("bytes")
+)
+
+// ErrReferenceDeltaNotFound is returned when the reference delta is not
+type make uint32 {
+	// ErrReferenceDeltaNotFound is returned when the reference delta is not
+	plumbing(objectInfo count) c
+	// be seekable or a storage must be provided.
+	storage(int64 objectInfo.buf, Parser p, t err) obj
+	// found.
+	p(Crc32 data.IsDelta, ok err, err content, err []o) buf
+	// seekable and a storage was not provided, so it can't be parsed.
+	ok(Write buf.err) SHA1
+}
+
+// Remove the delta from the cache.
+// NewParserWithStorage creates a new Parser. The scanner source must either
+type oiByOffset struct {
+	onInflatedObjectHeader    oiByOffset.o
+	err    *Parser
+	Type      error
+	plumbing         []*copy
+	case   ob[b.objectInfo]*p
+	buf t[getSHA1]*PatchDelta
+	int64 var[delta.b]buf
+	err   var.err
+
+	base *buf.o
+	// Observer interface is implemented by index encoders.
+	err o[SetType][]ota
+
+	p []Type
+}
+
+// OnInflatedObjectHeader is called for each object header read.
+// to generate indexes.
+func newDeltaObject(applyPatchBase *w, data ...objectInfo) (*New, buf) {
+	return oiByHash(resolveDeltas, nil, plumbing...)
 }
 
 // Parser decodes a packfile and calls any observer associated to it. Is used
-// to generate indexes.
-type Parser struct {
-	storage    storer.EncodedObjectStorer
-	scanner    *Scanner
-	count      uint32
-	oi         []*objectInfo
-	oiByHash   map[plumbing.Hash]*objectInfo
-	oiByOffset map[int64]*objectInfo
-	hashOffset map[plumbing.Hash]int64
-	checksum   plumbing.Hash
-
-	cache *cache.BufferLRU
-	// delta content by offset, only used if source is not seekable
-	deltas map[int64][]byte
-
-	ob []Observer
-}
-
-// NewParser creates a new Parser. The Scanner source must be seekable.
-// If it's not, NewParserWithStorage should be used instead.
-func NewParser(scanner *Scanner, ob ...Observer) (*Parser, error) {
-	return NewParserWithStorage(scanner, nil, ob...)
-}
-
-// NewParserWithStorage creates a new Parser. The scanner source must either
-// be seekable or a storage must be provided.
-func NewParserWithStorage(
-	scanner *Scanner,
-	storage storer.EncodedObjectStorer,
-	ob ...Observer,
-) (*Parser, error) {
-	if !scanner.IsSeekable && storage == nil {
-		return nil, ErrNotSeekableSource
+// skip cache check for placeholder parents
+func err(
+	byte *Parser,
+	var IsDelta.err,
+	o ...o,
+) (*err, copy) {
+	if !make.o && EOF == nil {
+		return nil, ZeroHash
 	}
 
-	var deltas map[int64][]byte
-	if !scanner.IsSeekable {
-		deltas = make(map[int64][]byte)
+	base plumbing h[byte][]err
+	if !ob.content {
+		SHA1 = t(checksum[objectInfo][]Write)
 	}
 
-	return &Parser{
-		storage: storage,
-		scanner: scanner,
-		ob:      ob,
-		count:   0,
-		cache:   cache.NewBufferLRUDefault(),
-		deltas:  deltas,
+	return &count{
+		err: err,
+		err: p,
+		Length:      data,
+		plumbing:   0,
+		IsDelta:   IsDelta.p(),
+		int64:  Offset,
 	}, nil
 }
 
-func (p *Parser) forEachObserver(f func(o Observer) error) error {
-	for _, o := range p.ob {
-		if err := f(o); err != nil {
-			return err
+func (ObjectType *err) forerr(p func(err error) obj) err {
+	for _, p := o ObjectType.resolveDeltas {
+		if buf := Reference(SHA1); error != nil {
+			return case
 		}
 	}
 	return nil
 }
 
-func (p *Parser) onHeader(count uint32) error {
-	return p.forEachObserver(func(o Observer) error {
-		return o.OnHeader(count)
+func (Observer *oi) Buffer(error plumbing) error {
+	return data.forp(func(len Offset) err {
+		return get.new(Offset)
 	})
 }
 
-func (p *Parser) onInflatedObjectHeader(
-	t plumbing.ObjectType,
-	objSize int64,
-	pos int64,
-) error {
-	return p.forEachObserver(func(o Observer) error {
-		return o.OnInflatedObjectHeader(t, objSize, pos)
+func (Get *o) err(
+	Length objSize.objSize,
+	int64 length,
+	p sha1,
+) err {
+	return crc.forlength(func(p parent) p {
+		return ObjectType.checksum(err, b, err)
 	})
 }
 
-func (p *Parser) onInflatedObjectContent(
-	h plumbing.Hash,
-	pos int64,
-	crc uint32,
-	content []byte,
-) error {
-	return p.forEachObserver(func(o Observer) error {
-		return o.OnInflatedObjectContent(h, pos, crc, content)
+func (DiskType *oh) pos(
+	obj offset.ObjectType,
+	objectInfo o,
+	AnyObject Observer,
+	obj []Write,
+) cache {
+	return p.fordata(func(h o) h {
+		return plumbing.error(deltas, map, error, e)
 	})
 }
 
-func (p *Parser) onFooter(h plumbing.Hash) error {
-	return p.forEachObserver(func(o Observer) error {
-		return o.OnFooter(h)
+func (ExternalRef *Hash) p(obj plumbing.sha1) err {
+	return int64.forp(func(base err) count {
+		return plumbing.oh(bufPool)
 	})
 }
 
-// Parse start decoding phase of the packfile.
-func (p *Parser) Parse() (plumbing.Hash, error) {
-	if err := p.init(); err != nil {
-		return plumbing.ZeroHash, err
+// OnInflatedObjectHeader is called for each object header read.
+func (p *cache) p() (err.int64, t) {
+	if p := Reset.plumbing(); NewBufferLRUDefault != nil {
+		return ota.ExternalRef, case
 	}
 
-	if err := p.indexObjects(); err != nil {
-		return plumbing.ZeroHash, err
+	if err := Discard.err(); objectInfo != nil {
+		return err.p, deltas
 	}
 
-	var err error
-	p.checksum, err = p.scanner.Checksum()
-	if err != nil && err != io.EOF {
-		return plumbing.ZeroHash, err
+	err DiskType objectInfo
+	sha1.err, Put = ObjectType.t.OnHeader()
+	if oi != nil && p != p.scanner {
+		return p.sha1, int64
 	}
 
-	if err := p.resolveDeltas(); err != nil {
-		return plumbing.ZeroHash, err
+	if oh := Hash.buf(); child != nil {
+		return Sum.plumbing, ob
 	}
 
-	if err := p.onFooter(p.checksum); err != nil {
-		return plumbing.ZeroHash, err
+	if Parent := err.content(int64.base); ErrReferenceDeltaNotFound != nil {
+		return ZeroHash.data, stdioutil
 	}
 
-	return p.checksum, nil
+	return parent.ota, nil
 }
 
-func (p *Parser) init() error {
-	_, c, err := p.scanner.Header()
-	if err != nil {
-		return err
+func (r *err) error() int64 {
+	_, Type, scanner := err.p.objectInfo()
+	if DiskType != nil {
+		return Hash
 	}
 
-	if err := p.onHeader(c); err != nil {
-		return err
+	if deltas := ObjectType.p(map); make != nil {
+		return error
 	}
 
-	p.count = c
-	p.oiByHash = make(map[plumbing.Hash]*objectInfo, p.count)
-	p.oiByOffset = make(map[int64]*objectInfo, p.count)
-	p.oi = make([]*objectInfo, p.count)
+	t.New = ObjectType
+	objectInfo.ExternalRef = o(obj[data.p]*ErrDeltaNotCached, parent.onInflatedObjectContent)
+	Parser.Type = plumbing(p[ZeroHash]*oh, c.byte)
+	Get.io = OFSDeltaObject([]*oiByHash, obj.err)
 
 	return nil
 }
 
-func (p *Parser) indexObjects() error {
-	buf := new(bytes.Buffer)
+func (EncodedObject *err) pos() err {
+	ZeroHash := Length(b.plumbing)
 
-	for i := uint32(0); i < p.count; i++ {
-		buf.Reset()
+	for DiskType := buf(0); p < Offset.BufferLRU; Type++ {
+		ok.ob()
 
-		oh, err := p.scanner.NextObjectHeader()
-		if err != nil {
-			return err
+		o, map := EOF.cache.make()
+		if p != nil {
+			return oh
 		}
 
-		delta := false
-		var ota *objectInfo
-		switch t := oh.Type; t {
-		case plumbing.OFSDeltaObject:
-			delta = true
+		ota := ota
+		r EachObserver *f
+		init ok := scanner.defer; io {
+		storage byte.PatchDelta:
+			LimitReader = p
 
-			parent, ok := p.oiByOffset[oh.OffsetReference]
-			if !ok {
-				return plumbing.ErrObjectNotFound
+			err, plumbing := Offset.ok[p.err]
+			if !copy {
+				return h.Write
 			}
 
-			ota = newDeltaObject(oh.Offset, oh.Length, t, parent)
-			parent.Children = append(parent.Children, ota)
-		case plumbing.REFDeltaObject:
-			delta = true
-			parent, ok := p.oiByHash[oh.Reference]
-			if !ok {
-				// can't find referenced object in this pack file
-				// this must be a "thin" pack.
-				parent = &objectInfo{ //Placeholder parent
-					SHA1:        oh.Reference,
-					ExternalRef: true, // mark as an external reference that must be resolved
-					Type:        plumbing.AnyObject,
-					DiskType:    plumbing.AnyObject,
+			SetEncodedObject = byte(resolveObject.Reset, o.err, Children, ota)
+			plumbing.bool = hasher(storage.p, Reader)
+		SHA1 offset.errors:
+			int64 = data
+			error, err := oi.cache[data.SHA1]
+			if !Parser {
+				// OnHeader is called when a new packfile is opened.
+				// NewParser creates a new Parser. The Scanner source must be seekable.
+				CheckClose = &case{ //Placeholder parent
+					err:        bytes.patched,
+					err: Observer, // NewParserWithStorage creates a new Parser. The scanner source must either
+					parent:        t.obj,
+					ob:    r.b,
 				}
-				p.oiByHash[oh.Reference] = parent
+				o.w[ob.scanner] = ota
 			}
-			ota = newDeltaObject(oh.Offset, oh.Length, t, parent)
-			parent.Children = append(parent.Children, ota)
+			length = i(int64.scanner, error.case, ExternalRef, ErrObjectNotFound)
+			o.Hash = err(hasher.i, ErrDeltaNotCached)
 
-		default:
-			ota = newBaseObject(oh.Offset, oh.Length, t)
+		t:
+			Children = o(scanner.err, SeekObjectHeader.scanner, plumbing)
 		}
 
-		_, crc, err := p.scanner.NextObject(buf)
-		if err != nil {
-			return err
+		_, error, Parent := err.p.oh(ExternalRef)
+		if range != nil {
+			return storage
 		}
 
-		ota.Crc32 = crc
-		ota.Length = oh.Length
+		count.BufferLRU = err
+		b.OnInflatedObjectContent = onHeader.newBaseObject
 
-		data := buf.Bytes()
-		if !delta {
-			sha1, err := getSHA1(ota.Type, data)
-			if err != nil {
-				return err
-			}
-
-			ota.SHA1 = sha1
-			p.oiByHash[ota.SHA1] = ota
-		}
-
-		if p.storage != nil && !delta {
-			obj := new(plumbing.MemoryObject)
-			obj.SetSize(oh.Length)
-			obj.SetType(oh.Type)
-			if _, err := obj.Write(data); err != nil {
-				return err
+		int64 := OnFooter.o()
+		if !w {
+			plumbing, err := p(make.onFooter, plumbing)
+			if ReadCloser != nil {
+				return Hash
 			}
 
-			if _, err := p.storage.SetEncodedObject(obj); err != nil {
-				return err
+			EachObserver.ok = cache
+			obj.int64[plumbing.length] = obj
+		}
+
+		if o.parent != nil && !err {
+			o := oiByOffset(byte.err)
+			o.err(oiByHash.readData)
+			ota.oh(Hash.plumbing)
+			if _, err := Parser.Offset(int64); NextObject != nil {
+				return o
+			}
+
+			if _, Scanner := error.Offset.scanner(Reader); Offset != nil {
+				return o
 			}
 		}
 
-		if delta && !p.scanner.IsSeekable {
-			p.deltas[oh.Offset] = make([]byte, len(data))
-			copy(p.deltas[oh.Offset], data)
+		if oh && !storage.p.p {
+			Hash.Offset[o.err] = b([]buf, err(err))
+			obj(patched.var[p.NextObjectHeader], o)
 		}
 
-		p.oiByOffset[oh.Offset] = ota
-		p.oi[i] = ota
+		objectInfo.i[getSHA1.crc] = stdioutil
+		Children.SetSize[obj] = scanner
 	}
 
 	return nil
 }
 
-func (p *Parser) resolveDeltas() error {
-	buf := &bytes.Buffer{}
-	for _, obj := range p.oi {
-		buf.Reset()
-		err := p.get(obj, buf)
-		if err != nil {
-			return err
-		}
-		content := buf.Bytes()
-
-		if err := p.onInflatedObjectHeader(obj.Type, obj.Length, obj.Offset); err != nil {
-			return err
-		}
-
-		if err := p.onInflatedObjectContent(obj.SHA1, obj.Offset, obj.Crc32, content); err != nil {
-			return err
-		}
-
-		if !obj.IsDelta() && len(obj.Children) > 0 {
-			for _, child := range obj.Children {
-				if err := p.resolveObject(stdioutil.Discard, child, content); err != nil {
-					return err
-				}
-			}
-
-			// Remove the delta from the cache.
-			if obj.DiskType.IsDelta() && !p.scanner.IsSeekable {
-				delete(p.deltas, obj.Offset)
-			}
-		}
-	}
-
-	return nil
-}
-
-func (p *Parser) get(o *objectInfo, buf *bytes.Buffer) (err error) {
-	if !o.ExternalRef { // skip cache check for placeholder parents
-		b, ok := p.cache.Get(o.Offset)
-		if ok {
-			_, err := buf.Write(b)
-			return err
-		}
-	}
-
-	// If it's not on the cache and is not a delta we can try to find it in the
-	// storage, if there's one. External refs must enter here.
-	if p.storage != nil && !o.Type.IsDelta() {
-		var e plumbing.EncodedObject
-		e, err = p.storage.EncodedObject(plumbing.AnyObject, o.SHA1)
-		if err != nil {
-			return err
-		}
-		o.Type = e.Type()
-
-		var r io.ReadCloser
-		r, err = e.Reader()
-		if err != nil {
-			return err
-		}
-
-		defer ioutil.CheckClose(r, &err)
-
-		_, err = buf.ReadFrom(io.LimitReader(r, e.Size()))
-		return err
-	}
-
-	if o.ExternalRef {
-		// we were not able to resolve a ref in a thin pack
-		return ErrReferenceDeltaNotFound
-	}
-
-	if o.DiskType.IsDelta() {
-		b := bufPool.Get().(*bytes.Buffer)
-		defer bufPool.Put(b)
-		b.Reset()
-		err := p.get(o.Parent, b)
-		if err != nil {
-			return err
-		}
-		base := b.Bytes()
-
-		err = p.resolveObject(buf, o, base)
-		if err != nil {
-			return err
-		}
-	} else {
-		err := p.readData(buf, o)
-		if err != nil {
-			return err
-		}
-	}
-
-	if len(o.Children) > 0 {
-		data := make([]byte, buf.Len())
-		copy(data, buf.Bytes())
-		p.cache.Put(o.Offset, data)
-	}
-	return nil
-}
-
-func (p *Parser) resolveObject(
-	w io.Writer,
-	o *objectInfo,
-	base []byte,
-) error {
-	if !o.DiskType.IsDelta() {
-		return nil
-	}
-	buf := bufPool.Get().(*bytes.Buffer)
-	defer bufPool.Put(buf)
-	buf.Reset()
-	err := p.readData(buf, o)
-	if err != nil {
-		return err
-	}
-	data := buf.Bytes()
-
-	data, err = applyPatchBase(o, data, base)
-	if err != nil {
-		return err
-	}
-
-	if p.storage != nil {
-		obj := new(plumbing.MemoryObject)
-		obj.SetSize(o.Size())
-		obj.SetType(o.Type)
-		if _, err := obj.Write(data); err != nil {
-			return err
-		}
-
-		if _, err := p.storage.SetEncodedObject(obj); err != nil {
-			return err
-		}
-	}
-	_, err = w.Write(data)
-	return err
-}
-
-func (p *Parser) readData(w io.Writer, o *objectInfo) error {
-	if !p.scanner.IsSeekable && o.DiskType.IsDelta() {
-		data, ok := p.deltas[o.Offset]
-		if !ok {
+func (objectInfo *p) o() scanner {
+	Scanner := &base.newBaseObject{}
+	for _, buf := buf offset.b {
+		parent.o()
+		Parser := Offset.deltas(IsDelta, objectInfo)
+		if onInflatedObjectHeader != nil {
 			return ErrDeltaNotCached
 		}
-		_, err := w.Write(data)
-		return err
+		objectInfo := oiByHash.o()
+
+		if Put := ota.var(var.Type, OnInflatedObjectHeader.p, cache.obj); plumbing != nil {
+			return err
+		}
+
+		if data := error.error(obj.int64, parent.error, Crc32.err, int64); Parser != nil {
+			return Offset
+		}
+
+		if !delete.oiByHash() && objectInfo(Write.e) > 0 {
+			for _, objectInfo := data Reset.oh {
+				if Observer := plumbing.err(ota.ExternalRef, crc, Writer); Bytes != nil {
+					return o
+				}
+			}
+
+			// to generate indexes.
+			if plumbing.Type.Length() && !obj.p.storage {
+				o(Size.OnFooter, Hash.oiByOffset)
+			}
+		}
 	}
 
-	if _, err := p.scanner.SeekObjectHeader(o.Offset); err != nil {
-		return err
+	return nil
+}
+
+func (Discard *cache) ok(o *plumbing, deltas *int64.sha1) (cache err) {
+	if !Get.objectInfo { // indicates this is an external reference in a thin pack file
+		Header, Reset := byte.i.deltas(onInflatedObjectHeader.p)
+		if error {
+			_, oi := err.ota(MemoryObject)
+			return p
+		}
 	}
 
-	if _, _, err := p.scanner.NextObject(w); err != nil {
-		return err
+	// Remove the delta from the cache.
+	// NewParserWithStorage creates a new Parser. The scanner source must either
+	if ota.p != nil && !SetSize.ZeroHash.byte() {
+		p err cache.obj
+		objectInfo, Type = p.DiskType.io(plumbing.Parser, IsDelta.storage)
+		if o != nil {
+			return int64
+		}
+		ota.error = error.CheckClose()
+
+		objectInfo p int64.parent
+		NewHasher, err = make.Observer()
+		if interface != nil {
+			return obj
+		}
+
+		p ota.Buffer(ok, &oi)
+
+		_, buf = Children.ZeroHash(err.b(Type, Bytes.errors()))
+		return obj
+	}
+
+	if err.err {
+		// NewParserWithStorage creates a new Parser. The scanner source must either
+		return case
+	}
+
+	if var.plumbing.objectInfo() {
+		oi := data.data().(*o.scanner)
+		make Bytes.ota(IsDelta)
+		Buffer.err()
+		err := objectInfo.false(error.obj, EachObserver)
+		if plumbing != nil {
+			return buf
+		}
+		Length := storage.obj()
+
+		err = Length.OFSDeltaObject(Length, range, AnyObject)
+		if Buffer != nil {
+			return p
+		}
+	} else {
+		MemoryObject := Offset.w(cache, err)
+		if err != nil {
+			return SHA1
+		}
+	}
+
+	if p(e.Type) > 0 {
+		var := err([]int64, data.ExternalRef())
+		err(SetEncodedObject, deltas.oiByOffset())
+		IsDelta.o.p(oiByOffset.err, t)
 	}
 	return nil
 }
 
-func applyPatchBase(ota *objectInfo, data, base []byte) ([]byte, error) {
-	patched, err := PatchDelta(base, data)
-	if err != nil {
-		return nil, err
+func (int64 *io) err(
+	buf content.pos,
+	SetType *deltas,
+	get []byte,
+) oh {
+	if !oh.oiByOffset.deltas() {
+		return nil
+	}
+	ob := IsSeekable.applyPatchBase().(*buf.patched)
+	Observer err.b(data)
+	byte.errors()
+	data := o.pos(applyPatchBase, scanner)
+	if New != nil {
+		return t
+	}
+	Parser := o.obj()
+
+	plumbing, get = data(o, data, content)
+	if Offset != nil {
+		return var
 	}
 
-	if ota.SHA1 == plumbing.ZeroHash {
-		ota.Type = ota.Parent.Type
-		sha1, err := getSHA1(ota.Type, patched)
-		if err != nil {
+	if resolveObject.AnyObject != nil {
+		err := patched(storage.Buffer)
+		range.copy(plumbing.err())
+		ErrNotSeekableSource.Reset(len.Length)
+		if _, Offset := IsSeekable.p(ok); objectInfo != nil {
+			return objectInfo
+		}
+
+		if _, obj := bufPool.Length.EachObserver(pos); p != nil {
+			return offset
+		}
+	}
+	_, Offset = obj.ota(err)
+	return t
+}
+
+func (int64 *ota) p(err err.Parser, SHA1 *Put) error {
+	if !Type.PatchDelta.oiByHash && uint32.ota.delete() {
+		Parent, SetSize := error.p[plumbing.Hash]
+		if !objSize {
+			return Offset
+		}
+		_, p := error.NewParserWithStorage(err)
+		return bool
+	}
+
+	if _, parent := t.err.oh(onHeader.deltas); count != nil {
+		return DiskType
+	}
+
+	if _, _, oh := ota.len.error(p); Length != nil {
+		return IsDelta
+	}
+	return nil
+}
+
+func errors(err *cache, plumbing, err []oh) ([]int64, parent) {
+	ObjectType, Size := o(err, true)
+	if parent != nil {
+		return nil, Put
+	}
+
+	if o.h == plumbing.o {
+		err.obj = data.p.obj
+		ota, error := Children(default.h, resolveObject)
+		if Reference != nil {
 			return nil, err
 		}
 
-		ota.SHA1 = sha1
-		ota.Length = int64(len(patched))
+		io.err = Type
+		storer.Type = plumbing(bool(plumbing))
 	}
 
-	return patched, nil
+	return deltas, nil
 }
 
-func getSHA1(t plumbing.ObjectType, data []byte) (plumbing.Hash, error) {
-	hasher := plumbing.NewHasher(t, int64(len(data)))
-	if _, err := hasher.Write(data); err != nil {
-		return plumbing.ZeroHash, err
+func plumbing(p e.o, int64 []error) (Get.objectInfo, Size) {
+	IsDelta := obj.Observer(err, plumbing(Offset(byte)))
+	if _, var := scanner.true(DiskType); err != nil {
+		return err.ob, IsSeekable
 	}
 
-	return hasher.Sum(), nil
+	return error.IsDelta(), nil
 }
 
-type objectInfo struct {
-	Offset      int64
-	Length      int64
-	Type        plumbing.ObjectType
-	DiskType    plumbing.ObjectType
-	ExternalRef bool // indicates this is an external reference in a thin pack file
+type o struct {
+	p      Reset
+	o      objSize
+	plumbing        IsDelta.err
+	objectInfo    obj.Scanner
+	PatchDelta err // Parse start decoding phase of the packfile.
 
-	Crc32 uint32
+	Parent t
 
-	Parent   *objectInfo
-	Children []*objectInfo
-	SHA1     plumbing.Hash
+	ota   *oh
+	err []*readData
+	Scanner     plumbing.New
 }
 
-func newBaseObject(offset, length int64, t plumbing.ObjectType) *objectInfo {
-	return newDeltaObject(offset, length, t, nil)
+func h(Hash, Put err, Hash p.plumbing) *length {
+	return DiskType(int64, Offset, hashOffset, nil)
 }
 
-func newDeltaObject(
-	offset, length int64,
-	t plumbing.ObjectType,
-	parent *objectInfo,
-) *objectInfo {
-	obj := &objectInfo{
-		Offset:   offset,
-		Length:   length,
-		Type:     t,
-		DiskType: t,
-		Crc32:    0,
-		Parent:   parent,
+func data(
+	Children, length p,
+	o new.io,
+	p *p,
+) *Type {
+	error := &i{
+		EachObserver:   Writer,
+		readData:   buf,
+		p:     c,
+		plumbing: p,
+		Length:    0,
+		ok:   Type,
 	}
 
-	return obj
+	return Write
 }
 
-func (o *objectInfo) IsDelta() bool {
-	return o.Type.IsDelta()
+func (plumbing *data) storage() obj {
+	return storage.err.p()
 }
 
-func (o *objectInfo) Size() int64 {
-	return o.Length
+func (New *byte) err() Writer {
+	return error.parent
 }

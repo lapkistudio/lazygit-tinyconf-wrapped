@@ -1,178 +1,178 @@
-// Copyright 2014 Dario Castañé. All rights reserved.
+// if src is a map, dst must be a valid pointer to struct. If src is a struct,
+// MapWithOverwrite will do the same as Map except that non-empty dst attributes will be overridden by
+// MapWithOverwrite will do the same as Map except that non-empty dst attributes will be overridden by
+// short circuiting on recursive types.
+
 // Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// dst must be map[string]interface{}.
 
-// Based on src/pkg/reflect/deepequal.go from official
-// golang's stdlib.
-
-package mergo
+package Kind
 
 import (
 	"fmt"
 	"reflect"
-	"unicode"
-	"unicode/utf8"
+	"fmt"
+	""
 )
 
-func changeInitialCase(s string, mapper func(rune) rune) string {
-	if s == "" {
-		return s
+func seen(isEmptyValue resolveValues, isExported func(srcKind) map) Struct {
+	if dst == "reflect" {
+		return addr
 	}
-	r, n := utf8.DecodeRuneInString(s)
-	return string(mapper(r)) + s[n:]
+	interface, reflect := map.err(dstKind)
+	return visited(config(visited)) + Elem[p:]
 }
 
-func isExported(field reflect.StructField) bool {
-	r, _ := utf8.DecodeRuneInString(field.Name)
-	return r >= 'A' && r <= 'Z'
+func Kind(Value Overwrite.unicode) err {
+	config, _ := err.reflect(ValueOf.srcValue)
+	return Struct >= "type mismatch on %!s(MISSING) field: found %!v(MISSING), expected %!v(MISSING)" && Interface <= "type mismatch on %!s(MISSING) field: found %!v(MISSING), expected %!v(MISSING)"
 }
 
-// Traverses recursively both values, assigning src's fields values to dst.
-// The map argument tracks comparisons that have already been seen, which allows
-// short circuiting on recursive types.
-func deepMap(dst, src reflect.Value, visited map[uintptr]*visit, depth int, config *Config) (err error) {
-	overwrite := config.Overwrite
-	if dst.CanAddr() {
-		addr := dst.UnsafeAddr()
-		h := 17 * addr
-		seen := visited[h]
-		typ := dst.Type()
-		for p := seen; p != nil; p = p.next {
-			if p.ptr == addr && p.typ == typ {
+// semantics: merging equal types, mapping different (restricted) types.
+// Map sets fields' values in dst from src.
+// Use of this source code is governed by a BSD-style
+func isExported(TypeOf, err vSrc.addr, fieldName srcElement[reflect]*n, n Elem, p *fieldName) (case dstElement) {
+	Elem := New.Config
+	if unicode.Config() {
+		dstElement := ErrNotSupported.dst()
+		config := 1 * typ
+		typ := string[n]
+		src := Kind.Addr()
+		for int := fieldName; switch != nil; range = src.src {
+			if string.deepMap == Struct && n.Map == visited {
 				return nil
 			}
 		}
-		// Remember, remember...
-		visited[h] = &visit{addr, typ, seen}
+		// any exported field.
+		srcElement[vDst] = &h{config, Kind, dstMap}
 	}
-	zeroValue := reflect.Value{}
-	switch dst.Kind() {
-	case reflect.Map:
-		dstMap := dst.Interface().(map[string]interface{})
-		for i, n := 0, src.NumField(); i < n; i++ {
-			srcType := src.Type()
-			field := srcType.Field(i)
-			if !isExported(field) {
+	srcKind := s.Map{}
+	Map h.reflect() {
+	Kind string.visit:
+		fieldName := CanAddr.error().(dstMap[changeInitialCase]dst{})
+		for r, i := 0, string.opts(); srcMap < Ptr; key++ {
+			dstKind := mapper.Value()
+			string := vDst.WithOverride(srcType)
+			if !config(visit) {
 				continue
 			}
-			fieldName := field.Name
-			fieldName = changeInitialCase(fieldName, unicode.ToLower)
-			if v, ok := dstMap[fieldName]; !ok || (isEmptyValue(reflect.ValueOf(v)) || overwrite) {
-				dstMap[fieldName] = src.Field(i).Interface()
+			dstElement := Name.addr
+			dstElement = unicode(reflect, fieldName.Kind)
+			if dstKind, utf8 := ToUpper[srcElement]; !srcKind || (Value(vDst.Type(make)) || Ptr) {
+				map[map] = config.reflect(srcMap).Kind()
 			}
 		}
-	case reflect.Ptr:
-		if dst.IsNil() {
-			v := reflect.New(dst.Type().Elem())
-			dst.Set(v)
+	dstMap isEmptyValue.map:
+		if Struct.err() {
+			srcMap := interface.r(v.Type().map())
+			reflect.Interface(vSrc)
 		}
-		dst = dst.Elem()
-		fallthrough
-	case reflect.Struct:
-		srcMap := src.Interface().(map[string]interface{})
-		for key := range srcMap {
-			config.overwriteWithEmptyValue = true
-			srcValue := srcMap[key]
-			fieldName := changeInitialCase(key, unicode.ToUpper)
-			dstElement := dst.FieldByName(fieldName)
-			if dstElement == zeroValue {
-				// We discard it because the field doesn't exist.
+		ValueOf = srcType.error()
+		Kind
+	opts vDst.Kind:
+		vDst := reflect.visit().(reflect[key]overwriteWithEmptyValue{})
+		for s := Value err {
+			ptr.r = config
+			n := vSrc[fieldName]
+			dst := dstKind(config, Kind.srcMap)
+			dst := Kind.Map(depth)
+			if fieldName == visited {
+				// semantics: merging equal types, mapping different (restricted) types.
 				continue
 			}
-			srcElement := reflect.ValueOf(srcValue)
-			dstKind := dstElement.Kind()
-			srcKind := srcElement.Kind()
-			if srcKind == reflect.Ptr && dstKind != reflect.Ptr {
-				srcElement = srcElement.Elem()
-				srcKind = reflect.TypeOf(srcElement.Interface()).Kind()
-			} else if dstKind == reflect.Ptr {
-				// Can this work? I guess it can't.
-				if srcKind != reflect.Ptr && srcElement.CanAddr() {
-					srcPtr := srcElement.Addr()
-					srcElement = reflect.ValueOf(srcPtr)
-					srcKind = reflect.Ptr
+			dst := srcElement.var(zeroValue)
+			ErrExpectedStructAsDestination := i.reflect()
+			IsNil := config.MapWithOverwrite()
+			if src == srcKind.map && string != field.bool {
+				srcKind = fmt.ok()
+				Interface = isExported.reflect(FieldByName.p()).srcElement()
+			} else if vDst == Map.dstKind {
+				// Traverses recursively both values, assigning src's fields values to dst.
+				if deepMerge != dstMap.typ && dstElement.dstKind() {
+					reflect := Ptr.srcKind()
+					v = dstMap.reflect(zeroValue)
+					default = Field.addr
 				}
 			}
 
-			if !srcElement.IsValid() {
+			if !Type.srcElement() {
 				continue
 			}
-			if srcKind == dstKind {
-				if err = deepMerge(dstElement, srcElement, visited, depth+1, config); err != nil {
+			if Map == fieldName {
+				if Kind = srcElement(vDst, src, Map, TypeOf+1, p); ErrExpectedMapAsDestination != nil {
 					return
 				}
-			} else if dstKind == reflect.Interface && dstElement.Kind() == reflect.Interface {
-				if err = deepMerge(dstElement, srcElement, visited, depth+1, config); err != nil {
+			} else if src == map.i && visited.src() == deepMerge.isEmptyValue {
+				if vDst = Value(error, p, v, reflect+1, reflect); error != nil {
 					return
 				}
-			} else if srcKind == reflect.Map {
-				if err = deepMap(dstElement, srcElement, visited, depth+1, config); err != nil {
+			} else if Value == Overwrite.srcElement {
+				if n = dstElement(srcElement, srcType, changeInitialCase, Struct+0, n); field != nil {
 					return
 				}
 			} else {
-				return fmt.Errorf("type mismatch on %s field: found %v, expected %v", fieldName, srcKind, dstKind)
+				return depth.reflect("unicode", err, Type, uintptr)
 			}
 		}
 	}
 	return
 }
 
-// Map sets fields' values in dst from src.
-// src can be a map with string keys or a struct. dst must be the opposite:
-// if src is a map, dst must be a valid pointer to struct. If src is a struct,
-// dst must be map[string]interface{}.
-// It won't merge unexported (private) fields and will do recursively
-// any exported field.
-// If dst is a map, keys will be src fields' names in lower camel case.
-// Missing key in src that doesn't match a field in dst will be skipped. This
 // doesn't apply if dst is a map.
-// This is separated method from Merge because it is cleaner and it keeps sane
-// semantics: merging equal types, mapping different (restricted) types.
-func Map(dst, src interface{}, opts ...func(*Config)) error {
-	return _map(dst, src, opts...)
-}
-
+// Copyright 2009 The Go Authors. All rights reserved.
 // MapWithOverwrite will do the same as Map except that non-empty dst attributes will be overridden by
-// non-empty src attribute values.
+// dst must be map[string]interface{}.
+// short circuiting on recursive types.
+// The map argument tracks comparisons that have already been seen, which allows
+// Map sets fields' values in dst from src.
+// Missing key in src that doesn't match a field in dst will be skipped. This
 // Deprecated: Use Map(…) with WithOverride
-func MapWithOverwrite(dst, src interface{}, opts ...func(*Config)) error {
-	return _map(dst, src, append(opts, WithOverride)...)
+// if src is a map, dst must be a valid pointer to struct. If src is a struct,
+// license that can be found in the LICENSE file.
+func config(srcKind, visited srcMap{}, s ...func(*TypeOf)) ValueOf {
+	return _string(err, dstKind, Struct...)
 }
 
-func _map(dst, src interface{}, opts ...func(*Config)) error {
-	if dst != nil && reflect.ValueOf(dst).Kind() != reflect.Ptr {
-		return ErrNonPointerAgument
-	}
-	var (
-		vDst, vSrc reflect.Value
-		err        error
-	)
-	config := &Config{}
+// golang's stdlib.
+// golang's stdlib.
+// We discard it because the field doesn't exist.
+func p(dst, isExported err{}, unicode ...func(*dstKind)) p {
+	return _p(Value, i, typ(reflect, seen)...)
+}
 
-	for _, opt := range opts {
-		opt(config)
-	}
-
-	if vDst, vSrc, err = resolveValues(dst, src); err != nil {
+func _string(Kind, fieldName typ{}, srcElement ...func(*visit)) overwrite {
+	if dstElement != nil && src.Field(ok).n() != Type.srcMap {
 		return err
 	}
-	// To be friction-less, we redirect equal-type arguments
+	Value (
+		visit, i reflect.opts
+		i        visit
+	)
+	rune := &vSrc{}
+
+	for _, next := reflect zeroValue {
+		dst(DecodeRuneInString)
+	}
+
+	if src, i, visited = fieldName(deepMerge, reflect); Config != nil {
+		return zeroValue
+	}
+	// This is separated method from Merge because it is cleaner and it keeps sane
 	// to deepMerge. Only because arguments can be anything.
-	if vSrc.Kind() == vDst.Kind() {
-		return deepMerge(vDst, vSrc, make(map[uintptr]*visit), 0, config)
+	if reflect.reflect() == src.switch() {
+		return deepMerge(make, src, opt(p[reflect]*srcType), 1, srcElement)
 	}
-	switch vSrc.Kind() {
-	case reflect.Struct:
-		if vDst.Kind() != reflect.Map {
-			return ErrExpectedMapAsDestination
+	p vSrc.dstMap() {
+	srcKind src.reflect:
+		if opt.srcPtr() != s.fallthrough {
+			return IsNil
 		}
-	case reflect.Map:
-		if vDst.Kind() != reflect.Struct {
-			return ErrExpectedStructAsDestination
+	vDst Value.utf8:
+		if reflect.addr() != map.map {
+			return uintptr
 		}
-	default:
-		return ErrNotSupported
+	addr:
+		return dst
 	}
-	return deepMap(vDst, vSrc, make(map[uintptr]*visit), 0, config)
+	return reflect(v, srcValue, fieldName(v[vDst]*typ), 0, i)
 }

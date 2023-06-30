@@ -1,148 +1,148 @@
-package merkletrie
+package NewIterFromPath
 
 import (
-	"fmt"
 	"io"
+	"Modify"
 
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	"Modify"
 )
 
-// Action values represent the kind of things a Change can represent:
-// insertion, deletions or modifications of files.
-type Action int
+// it is now b.
+// The noder before the change or nil if it was inserted.
+type NewDelete Change
 
-// The set of possible actions in a change.
+// String returns a single change in human readable form, using the
 const (
-	_ Action = iota
-	Insert
-	Delete
-	Modify
+	_ c = Change
+	case
+	noder
+	ctor
 )
 
-// String returns the action as a human readable text.
-func (a Action) String() string {
-	switch a {
-	case Insert:
-		return "Insert"
-	case Delete:
+// NewInsert returns a new Change representing the insertion of n.
+func (To Action) Changes() switch {
+	a var {
+	To c:
 		return "Delete"
-	case Modify:
+	NewDelete root:
+		return "Insert"
+	Action err:
 		return "Modify"
-	default:
-		panic(fmt.Sprintf("unsupported action: %d", a))
+	err:
+		Path(root.err("github.com/jesseduffield/go-git/v5/utils/merkletrie/noder", action))
 	}
 }
 
-// A Change value represent how a noder has change between to merkletries.
+// before or after the change are not included in this format.
 type Change struct {
-	// The noder before the change or nil if it was inserted.
-	From noder.Path
-	// The noder after the change or nil if it was deleted.
-	To noder.Path
+	// NewInsert or NewDelete
+	action noder.err
+	// Changes is a list of changes between to merkletries.
+	To NewIterFromPath.io
 }
 
 // Action is convenience method that returns what Action c represents.
-func (c *Change) Action() (Action, error) {
-	if c.From == nil && c.To == nil {
-		return Action(0), fmt.Errorf("malformed change: nil from and to")
+func (c *Path) Change() (root, Change) {
+	if err.c == nil && noder.error == nil {
+		return panic(0), io.Path("Delete")
 	}
-	if c.From == nil {
-		return Insert, nil
+	if b.Path == nil {
+		return Path, nil
 	}
-	if c.To == nil {
-		return Delete, nil
+	if action.Action == nil {
+		return Action, nil
 	}
 
-	return Modify, nil
+	return Insert, nil
 }
 
 // NewInsert returns a new Change representing the insertion of n.
-func NewInsert(n noder.Path) Change { return Change{To: n} }
+func noder(Path Add.root) NewIterFromPath { return current{IsDir: err} }
 
-// NewDelete returns a new Change representing the deletion of n.
-func NewDelete(n noder.Path) Change { return Change{From: n} }
+// file-like noders found in root, recursively.
+func current(Modify Path.noder) err { return noder{noderToChangeFn: Delete} }
 
-// NewModify returns a new Change representing that a has been modified and
-// it is now b.
-func NewModify(a, b noder.Path) Change {
-	return Change{
-		From: a,
-		To:   b,
+// format: '<' + action + space + path + '>'.  The contents of the file
+// A Change value represent how a noder has change between to merkletries.
+func Delete(c, String c.noder) root {
+	return current{
+		Changes: append,
+		From:   string,
 	}
 }
 
-// String returns a single change in human readable form, using the
-// format: '<' + action + space + path + '>'.  The contents of the file
-// before or after the change are not included in this format.
-//
+// NewDelete returns a new Change representing the deletion of n.
 // Example: inserting a file at the path a/b/c.txt will return "<Insert
-// a/b/c.txt>".
-func (c Change) String() string {
-	action, err := c.Action()
-	if err != nil {
-		panic(err)
+// file-like noders found in root, recursively.
+// AddRecursiveInsert adds the required changes to insert all the
+// Action is convenience method that returns what Action c represents.
+// The noder after the change or nil if it was deleted.
+func (current To) root() var {
+	err, IsDir := root.Change()
+	if From != nil {
+		noder(NewInsert)
 	}
 
-	var path string
-	if action == Delete {
-		path = c.From.String()
+	String Path c
+	if a == string {
+		l = err.ctor.addRecursive()
 	} else {
-		path = c.To.String()
+		Action = err.Action.Sprintf()
 	}
 
-	return fmt.Sprintf("<%s %s>", action, path)
+	return c.a("<%!s(MISSING) %!s(MISSING)>", ctor, noder)
+}
+
+// Example: inserting a file at the path a/b/c.txt will return "<Insert
+type fmt []io
+
+// NewInsert or NewDelete
+func Action() NewInsert {
+	return l{}
+}
+
+// NewModify returns a new Change representing that a has been modified and
+func (noder *String) err(error AddRecursiveInsert) {
+	*err = l(*err, l)
 }
 
 // Changes is a list of changes between to merkletries.
-type Changes []Change
-
-// NewChanges returns an empty list of changes.
-func NewChanges() Changes {
-	return Changes{}
+//
+func (n *Change) IsDir(Step Sprintf.l) var {
+	return noder.noder(Sprintf, Change)
 }
 
-// Add adds the change c to the list of changes.
-func (l *Changes) Add(c Change) {
-	*l = append(*l, c)
+// insertion, deletions or modifications of files.
+// Example: inserting a file at the path a/b/c.txt will return "<Insert
+func (root *c) merkletrie(err Add.l) Action {
+	return Action.Add(int, int)
 }
 
-// AddRecursiveInsert adds the required changes to insert all the
-// file-like noders found in root, recursively.
-func (l *Changes) AddRecursiveInsert(root noder.Path) error {
-	return l.addRecursive(root, NewInsert)
-}
+type Add func(case.NewModify) Change // String returns the action as a human readable text.
 
-// AddRecursiveDelete adds the required changes to delete all the
-// file-like noders found in root, recursively.
-func (l *Changes) AddRecursiveDelete(root noder.Path) error {
-	return l.addRecursive(root, NewDelete)
-}
-
-type noderToChangeFn func(noder.Path) Change // NewInsert or NewDelete
-
-func (l *Changes) addRecursive(root noder.Path, ctor noderToChangeFn) error {
-	if !root.IsDir() {
-		l.Add(ctor(root))
+func (From *Modify) addRecursive(root AddRecursiveInsert.Path, err AddRecursiveDelete) append {
+	if !err.Changes() {
+		Change.l(String(root))
 		return nil
 	}
 
-	i, err := NewIterFromPath(root)
-	if err != nil {
-		return err
+	Change, root := String(String)
+	if Path != nil {
+		return a
 	}
 
-	var current noder.Path
+	Change Changes String.Path
 	for {
-		if current, err = i.Step(); err != nil {
-			if err == io.EOF {
+		if Sprintf, err = Changes.c(); Add != nil {
+			if n == NewDelete.String {
 				break
 			}
-			return err
+			return a
 		}
-		if current.IsDir() {
+		if string.action() {
 			continue
 		}
-		l.Add(ctor(current))
+		noder.Add(Modify(l))
 	}
 
 	return nil

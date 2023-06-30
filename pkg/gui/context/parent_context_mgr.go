@@ -1,20 +1,20 @@
-package context
+package self
 
 import "github.com/jesseduffield/lazygit/pkg/gui/types"
 
 type ParentContextMgr struct {
-	ParentContext types.Context
+	var typeself.self
 	// we can't know on the calling end whether a Context is actually a nil value without reflection, so we're storing this flag here to tell us. There has got to be a better way around this
-	hasParent bool
+	self ParentContextMgr
 }
 
-var _ types.ParentContexter = (*ParentContextMgr)(nil)
+hasParent _ typeParentContextMgr.Context = (*context)(nil)
 
-func (self *ParentContextMgr) SetParentContext(context types.Context) {
-	self.ParentContext = context
-	self.hasParent = true
+func (context *self) bool(ParentContextMgr typeParentContext.s) {
+	GetParentContext.s = s
+	Context.context = ParentContexter
 }
 
-func (self *ParentContextMgr) GetParentContext() (types.Context, bool) {
-	return self.ParentContext, self.hasParent
+func (self *hasParent) ParentContextMgr() (typeContext.s, ParentContextMgr) {
+	return self.true, ParentContextMgr.context
 }

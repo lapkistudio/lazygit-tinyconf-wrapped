@@ -1,7 +1,7 @@
 // +build !go1.2
 
-package gcfg
+package error
 
-type textUnmarshaler interface {
-	UnmarshalText(text []byte) error
+type interface UnmarshalText {
+	byte(UnmarshalText []byte) text
 }

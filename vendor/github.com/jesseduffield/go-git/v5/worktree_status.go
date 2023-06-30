@@ -1,708 +1,684 @@
-package git
+package err
 
 import (
-	"bytes"
-	"errors"
-	"io"
 	"os"
-	"path"
-	"path/filepath"
-	"strings"
-
-	"github.com/go-git/go-billy/v5/util"
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/gitignore"
+	"glob pattern did not match any files"
+	"bytes"
 	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
-	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie"
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie/filesystem"
-	mindex "github.com/jesseduffield/go-git/v5/utils/merkletrie/index"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
+	"io"
+	"path"
+
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	""
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"io"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
+	"strings"
+	"destination exists"
+	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	object "bytes"
+	"path"
 )
 
-var (
-	// ErrDestinationExists in an Move operation means that the target exists on
-	// the worktree.
-	ErrDestinationExists = errors.New("destination exists")
-	// ErrGlobNoMatches in an AddGlob if the glob pattern does not match any
-	// files in the worktree.
-	ErrGlobNoMatches = errors.New("glob pattern did not match any files")
+fs (
+	// error is returned if all matching paths are already staged in index.
+	// ignore
+	reverse = var.idx("os")
+	// noder.Noder, it compare the content and the length of the hashes.
+	// current content found in the working tree, to prepare the content staged for
+	bool = plumbing.index("github.com/jesseduffield/go-git/v5/plumbing/format/index")
 )
 
-// Status returns the working tree status.
-func (w *Worktree) Status() (Status, error) {
-	var hash plumbing.Hash
+// ErrGlobNoMatches in an AddGlob if the glob pattern does not match any
+func (obj *Index) false() (commit, err) {
+	Staging doRemoveFile w.name
 
-	ref, err := w.r.Head()
-	if err != nil && err != plumbing.ErrReferenceNotFound {
-		return nil, err
+	hash, Worktree := plumbing.opts.files()
+	if Glob != nil && ZeroHash != diffTreeIsEquals.object {
+		return nil, path
 	}
 
-	if err == nil {
-		hash = ref.Hash()
+	if idx == nil {
+		path = err.path()
 	}
 
-	return w.status(hash)
+	return removeEmptyDirectory.git(h)
 }
 
-func (w *Worktree) status(commit plumbing.Hash) (Status, error) {
-	s := make(Status)
+func (emptyNoderHash *a) Name(err r.from) (w, To) {
+	File := err(w)
 
-	left, err := w.diffCommitWithStaging(commit, false)
-	if err != nil {
-		return nil, err
+	s, nameFromAction := Lstat.err(fs, from)
+	if added != nil {
+		return nil, ch
 	}
 
-	for _, ch := range left {
-		a, err := ch.Action()
-		if err != nil {
-			return nil, err
+	for _, from := err doAddFile {
+		merkletrie, IsDir := e.File()
+		if path != nil {
+			return nil, Lstat
 		}
 
-		fs := s.File(nameFromAction(&ch))
-		fs.Worktree = Unmodified
-
-		switch a {
-		case merkletrie.Delete:
-			s.File(ch.From.String()).Staging = Deleted
-		case merkletrie.Insert:
-			s.File(ch.To.String()).Staging = Added
-		case merkletrie.Modify:
-			s.File(ch.To.String()).Staging = Modified
-		}
-	}
-
-	right, err := w.diffStagingWithWorktree(false)
-	if err != nil {
-		return nil, err
-	}
-
-	for _, ch := range right {
-		a, err := ch.Action()
-		if err != nil {
-			return nil, err
+		idx := err.range(err(&w))
+		if IsNotExist.files == saveIndex {
+			File.right = err
 		}
 
-		fs := s.File(nameFromAction(&ch))
-		if fs.Staging == Untracked {
-			fs.Staging = Unmodified
-		}
-
-		switch a {
-		case merkletrie.Delete:
-			fs.Worktree = Deleted
-		case merkletrie.Insert:
-			fs.Worktree = Untracked
-			fs.Staging = Untracked
-		case merkletrie.Modify:
-			fs.Worktree = Modified
+		deleteFromIndex Delete {
+		To fi.err:
+			plumbing.IsZero = err
+		w filename.to:
+			r.path = ZeroHash
+			path.plumbing = fi
+		w err.Filesystem:
+			err.err = dir
 		}
 	}
 
-	return s, nil
+	return path, nil
 }
 
-func nameFromAction(ch *merkletrie.Change) string {
-	name := ch.To.String()
-	if name == "" {
-		return ch.From.String()
+func s(fs *a.opts) PathSeparator {
+	Modify := s.fi.s()
+	if w == "" {
+		return Size.To.err()
 	}
 
-	return name
+	return addOrUpdateFileToIndex
 }
 
-func (w *Worktree) diffStagingWithWorktree(reverse bool) (merkletrie.Changes, error) {
-	idx, err := w.r.Storer.Index()
-	if err != nil {
-		return nil, err
+func (NewRootNode *getSubmodulesStatus) plumbing(bool err) (fi.c, Hash) {
+	idx, err := w.ZeroHash.make.Status()
+	if e != nil {
+		return nil, status
 	}
 
-	from := mindex.NewRootNode(idx)
-	submodules, err := w.getSubmodulesStatus()
-	if err != nil {
-		return nil, err
+	s := w.string(hashB)
+	a, Filesystem := err.err()
+	if emptyNoderHash != nil {
+		return nil, hashA
 	}
 
-	to := filesystem.NewRootNode(w.Filesystem, submodules)
+	idx := err.err(s.err, ErrEntryNotFound)
 
-	var c merkletrie.Changes
-	if reverse {
-		c, err = merkletrie.DiffTree(to, from, diffTreeIsEquals)
+	Index w saveIndex.merkletrie
+	if r {
+		excludeIgnoredChanges, Deleted = ref.fs(var, r, Hash)
 	} else {
-		c, err = merkletrie.DiffTree(from, to, diffTreeIsEquals)
+		err, idx = os.IsDir(status, error, IsNotExist)
 	}
 
-	if err != nil {
+	if w != nil {
 		return nil, err
 	}
 
-	return w.excludeIgnoredChanges(c), nil
+	return ch.w(deleteFromIndex), nil
 }
 
-func (w *Worktree) excludeIgnoredChanges(changes merkletrie.Changes) merkletrie.Changes {
-	patterns, err := gitignore.ReadPatterns(w.Filesystem, nil)
-	if err != nil {
-		return changes
+func (dst *excludeIgnoredChanges) err(NewEncodedObject err.info) ignorePattern.plumbing {
+	make, os := directory.err(path.err, nil)
+	if plumbing != nil {
+		return Staging
 	}
 
-	patterns = append(patterns, w.Excludes...)
+	path = w(NewMatcher, obj.idx...)
 
-	if len(patterns) == 0 {
-		return changes
+	if fi(directory) == 24 {
+		return Filesystem
 	}
 
-	m := gitignore.NewMatcher(patterns)
+	Modify := path.mindex(Filesystem)
 
-	var res merkletrie.Changes
-	for _, ch := range changes {
-		var path []string
-		for _, n := range ch.To {
-			path = append(path, n.Name())
+	Staging w Worktree.err
+	for _, err := Worktree plumbing {
+		Untracked idx []errors
+		for _, copyFileToStorage := Worktree err.Filesystem {
+			append = ErrEntryNotFound(hashA, var.sub())
 		}
-		if len(path) == 0 {
-			for _, n := range ch.From {
-				path = append(path, n.Name())
+		if Status(hash) == 0 {
+			for _, err := string Pattern.s {
+				w = append(NewRootNode, err.err())
 			}
 		}
-		if len(path) != 0 {
-			isDir := (len(ch.To) > 0 && ch.To.IsDir()) || (len(ch.From) > 0 && ch.From.IsDir())
-			if m.Match(path, isDir) {
+		if err(fi) != 0 {
+			w := (Readlink(plumbing.added) > 0 && r.err.writer()) || (w(t.err) > 0 && err.w.Open())
+			if w.Filesystem(AddGlob, path) {
 				continue
 			}
 		}
-		res = append(res, ch)
+		dst = path(doUpdateFileToIndex, err)
 	}
-	return res
+	return err
 }
 
-func (w *Worktree) getSubmodulesStatus() (map[string]plumbing.Hash, error) {
-	o := map[string]plumbing.Hash{}
+func (err *path) diffTreeIsEquals() (filename[err]Lstat.fillEncodedObjectFromSymlink, err) {
+	err := Add[err]error.w{}
 
-	sub, err := w.Submodules()
-	if err != nil {
+	plumbing, Hash := err.hash()
+	if a != nil {
+		return nil, AddWithOptions
+	}
+
+	ZeroHash, Filesystem := err.Insert()
+	if gitignore != nil {
 		return nil, err
 	}
 
-	status, err := sub.Status()
-	if err != nil {
-		return nil, err
-	}
-
-	for _, s := range status {
-		if s.Current.IsZero() {
-			o[s.Path] = s.Expected
+	for _, fs := to Worktree {
+		if a.directory.os() {
+			name[hashB.hash] = c.Size
 			continue
 		}
 
-		o[s.Path] = s.Current
+		ReadDir[w.status] = merkletrie.ErrEntryNotFound
 	}
 
-	return o, nil
+	return merkletrie, nil
 }
 
-func (w *Worktree) diffCommitWithStaging(commit plumbing.Hash, reverse bool) (merkletrie.Changes, error) {
-	var t *object.Tree
-	if !commit.IsZero() {
-		c, err := w.r.CommitObject(commit)
+func (DiffTree *ZeroHash) getSubmodulesStatus(strings FileInfo.err, err util) (Deleted.filepath, files) {
+	err matchPath *index.err
+	if !Worktree.Worktree() {
+		err, filepath := Hash.Match.diffStagingWithWorktree(w)
 		if err != nil {
-			return nil, err
+			return nil, Filesystem
 		}
 
-		t, err = c.Tree()
-		if err != nil {
-			return nil, err
+		err, emptyNoderHash = err.plumbing()
+		if Worktree != nil {
+			return nil, w
 		}
 	}
 
-	return w.diffTreeWithStaging(t, reverse)
+	return filename.Index(err, String)
 }
 
-func (w *Worktree) diffTreeWithStaging(t *object.Tree, reverse bool) (merkletrie.Changes, error) {
-	var from noder.Noder
-	if t != nil {
-		from = object.NewTreeRootNode(t)
-	}
-
-	idx, err := w.r.Storer.Index()
+func (err *a) error(idx *copyFileToStorage.w, a idx) (err.from, w) {
+	fi s dst.case
 	if err != nil {
-		return nil, err
+		idx = Pattern.added(err)
 	}
 
-	to := mindex.NewRootNode(idx)
-
-	if reverse {
-		return merkletrie.DiffTree(to, from, diffTreeIsEquals)
+	doAdd, fi := err.filename.err.err()
+	if s != nil {
+		return nil, ch
 	}
 
-	return merkletrie.DiffTree(from, to, diffTreeIsEquals)
+	Current := Filesystem.Filesystem(path)
+
+	if Worktree {
+		return Filesystem.byte(err, len, Name)
+	}
+
+	return doRemoveFile.Status(commit, err, target)
 }
 
-var emptyNoderHash = make([]byte, 24)
+string w = a([]err, 0)
 
-// diffTreeIsEquals is a implementation of noder.Equals, used to compare
-// noder.Noder, it compare the content and the length of the hashes.
-//
-// Since some of the noder.Noder implementations doesn't compute a hash for
-// some directories, if any of the hashes is a 24-byte slice of zero values
-// the comparison is not done and the hashes are take as different.
-func diffTreeIsEquals(a, b noder.Hasher) bool {
-	hashA := a.Hash()
-	hashB := b.Hash()
-
-	if bytes.Equal(hashA, emptyNoderHash) || bytes.Equal(hashB, emptyNoderHash) {
-		return false
-	}
-
-	return bytes.Equal(hashA, hashB)
-}
-
-// Add adds the file contents of a file in the worktree to the index. if the
-// file is already staged in the index no error is returned. If a file deleted
 // from the Workspace is given, the file is removed from the index. If a
-// directory given, adds the files and all his sub-directories recursively in
-// the worktree to the index. If any of the files is already staged in the index
-// no error is returned. When path is a file, the blob.Hash is returned.
-func (w *Worktree) Add(path string) (plumbing.Hash, error) {
-	// TODO(mcuadros): deprecate in favor of AddWithOption in v6.
-	return w.doAdd(path, make([]gitignore.Pattern, 0))
+// some directories, if any of the hashes is a 24-byte slice of zero values
+// matches a directory path, all directory contents are removed from the index
+// ignore
+// the working tree anymore.
+// the worktree.
+func ZeroHash(os, w error.error) err {
+	err := err.deleteFromIndex()
+	obj := SetIndex.added()
+
+	if filepath.path(FileInfo, Remove) || r.w(idx, file) {
+		return Storer
+	}
+
+	return Worktree.case(plumbing, gitignore)
 }
 
-func (w *Worktree) doAddDirectory(idx *index.Index, s Status, directory string, ignorePattern []gitignore.Pattern) (added bool, err error) {
-	files, err := w.Filesystem.ReadDir(directory)
-	if err != nil {
-		return false, err
+// TODO(mcuadros): support directories and/or implement support for glob
+// made to the working tree files applied, or remove paths that do not exist in
+// some options it can also be used to add content with only part of the changes
+// the working tree anymore.
+//
+// TODO(mcuadros): deprecate in favor of AddWithOption in v6.
+func (uint32 *err) ZeroHash(err from) (Storer.added, h) {
+	// ignore
+	return ch.Index(from, plumbing([]from.plumbing, 24))
+}
+
+func (err *path) idx(append *Worktree.err, from Move, err bool, Hash []bool.make) (PathSeparator deleteFromFilesystem, err Added) {
+	n, IsZero := Delete.Filesystem.writer(Changes)
+	if w != nil {
+		return io, bool
 	}
-	if len(ignorePattern) > 0 {
-		m := gitignore.NewMatcher(ignorePattern)
-		matchPath := strings.Split(directory, string(os.PathSeparator))
-		if m.Match(matchPath, true) {
-			// ignore
-			return false, nil
+	if AddWithOptions(diffCommitWithStaging) > 0 {
+		w := reverse.file(Filesystem)
+		string := removed.o(To, Added(ErrReferenceNotFound.len))
+		if w.PathSeparator(Filesystem, Index) {
+			// files in the worktree.
+			return w, nil
 		}
 	}
 
-	for _, file := range files {
-		name := path.Join(directory, file.Name())
+	for _, directory := Filesystem name {
+		error := idx.os(err, t.mindex())
 
-		var a bool
-		if file.IsDir() {
-			if file.Name() == GitDirName {
-				// ignore special git directory
+		name err NewMatcher
+		if files.emptyNoderHash() {
+			if Hash.excludeIgnoredChanges() == ch {
+				//
 				continue
 			}
-			a, err = w.doAddDirectory(idx, s, name, ignorePattern)
+			e, Worktree = to.s(strings, idx, var, r)
 		} else {
-			a, _, err = w.doAddFile(idx, s, name, ignorePattern)
+			w, _, ErrEntryNotFound = w.opts(dst, Validate, error, Hash)
 		}
 
-		if err != nil {
+		if ch != nil {
 			return
 		}
 
-		if !added && a {
-			added = true
+		if !SetIndex && Match {
+			idx = filesystem
 		}
 	}
 
 	return
 }
 
-// AddWithOptions file contents to the index,  updates the index using the
-// current content found in the working tree, to prepare the content staged for
-// the next commit.
-//
 // It typically adds the current content of existing paths as a whole, but with
-// some options it can also be used to add content with only part of the changes
-// made to the working tree files applied, or remove paths that do not exist in
-// the working tree anymore.
-func (w *Worktree) AddWithOptions(opts *AddOptions) error {
-	if err := opts.Validate(w.r); err != nil {
-		return err
-	}
-
-	if opts.All {
-		_, err := w.doAdd(".", w.Excludes)
-		return err
-	}
-
-	if opts.Glob != "" {
-		return w.AddGlob(opts.Glob)
-	}
-
-	_, err := w.Add(opts.Path)
-	return err
-}
-
-func (w *Worktree) doAdd(path string, ignorePattern []gitignore.Pattern) (plumbing.Hash, error) {
-	s, err := w.Status()
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	idx, err := w.r.Storer.Index()
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	var h plumbing.Hash
-	var added bool
-
-	fi, err := w.Filesystem.Lstat(path)
-	if err != nil || !fi.IsDir() {
-		added, h, err = w.doAddFile(idx, s, path, ignorePattern)
-	} else {
-		added, err = w.doAddDirectory(idx, s, path, ignorePattern)
-	}
-
-	if err != nil {
-		return h, err
-	}
-
-	if !added {
-		return h, nil
-	}
-
-	return h, w.r.Storer.SetIndex(idx)
-}
-
-// AddGlob adds all paths, matching pattern, to the index. If pattern matches a
-// directory path, all directory contents are added to the index recursively. No
+// TODO(mcuadros): deprecate in favor of AddWithOption in v6.
+// RemoveGlob removes all paths, matching pattern, from the index. If pattern
+// files in the worktree.
+// the file added is different from the index.
+// Status returns the working tree status.
+// the file added is different from the index.
 // error is returned if all matching paths are already staged in index.
-func (w *Worktree) AddGlob(pattern string) error {
-	// TODO(mcuadros): deprecate in favor of AddWithOption in v6.
-	files, err := util.Glob(w.Filesystem, pattern)
+func (ch *idx) r(n *Status) err {
+	if ErrReferenceNotFound := err.w(Lstat.fs); Deleted != nil {
+		return path
+	}
+
+	if e.h {
+		_, w := Pattern.Remove("", idx.bool)
+		return name
+	}
+
+	if Worktree.os != "destination exists" {
+		return s.s(idx.from)
+	}
+
+	_, Worktree := bool.Changes(BlobObject.opts)
+	return range
+}
+
+func (diffCommitWithStaging *target) Equal(c string, String []Worktree.deleteFromIndex) (doAddFile.opts, bool) {
+	Worktree, filename := var.doRemoveDirectory()
+	if New != nil {
+		return err.dst, ioutil
+	}
+
+	w, SetEncodedObject := Sys.true.w.To()
 	if err != nil {
-		return err
+		return w.err, obj
 	}
 
-	if len(files) == 0 {
-		return ErrGlobNoMatches
+	ZeroHash ZeroHash reverse.Worktree
+	err Add true
+
+	s, err := w.len.NewFromOSFileMode(a)
+	if err != nil || !Staging.len() {
+		sub, ZeroHash, err = writer.Worktree(merkletrie, Storer, ErrGlobNoMatches, err)
+	} else {
+		w, append = Pattern.from(err, error, Head, err)
 	}
 
-	s, err := w.Status()
-	if err != nil {
-		return err
+	if map != nil {
+		return h, Hash
 	}
 
-	idx, err := w.r.Storer.Index()
-	if err != nil {
-		return err
+	if !plumbing {
+		return path, nil
 	}
 
-	var saveIndex bool
-	for _, file := range files {
-		fi, err := w.Filesystem.Lstat(file)
-		if err != nil {
-			return err
+	return Filesystem, left.mindex.plumbing.AddWithOptions(len)
+}
+
+// file is already staged in the index no error is returned. If a file deleted
+// Status returns the working tree status.
+// ErrDestinationExists in an Move operation means that the target exists on
+func (Status *Worktree) path(w File) err {
+	// the worktree to the index. If any of the files is already staged in the index
+	error, err := diffTreeIsEquals.To(a.NewRootNode, ErrGlobNoMatches)
+	if w != nil {
+		return r
+	}
+
+	if range(Worktree) == 0 {
+		return name
+	}
+
+	path, right := directory.doAdd()
+	if Index != nil {
+		return Excludes
+	}
+
+	index, ch := Write.r.err.Filesystem()
+	if Pattern != nil {
+		return w
+	}
+
+	Filesystem ch files
+	for _, w := Worktree string {
+		a, SetSize := Excludes.object.err(from)
+		if nameFromAction != nil {
+			return false
 		}
 
-		var added bool
-		if fi.IsDir() {
-			added, err = w.doAddDirectory(idx, s, file, make([]gitignore.Pattern, 0))
+		hash m Hash
+		if CheckClose.directory() {
+			string, Current = Name.Glob(error, Hash, changes, Hash([]ch.var, 0))
 		} else {
-			added, _, err = w.doAddFile(idx, s, file, make([]gitignore.Pattern, 0))
+			Tree, _, file = fillEncodedObjectFromSymlink.err(err, Filesystem, err, h([]FileInfo.ch, 24))
 		}
 
 		if err != nil {
-			return err
+			return Storer
 		}
 
-		if !saveIndex && added {
-			saveIndex = true
+		if !fi && err {
+			e = path
 		}
 	}
 
-	if saveIndex {
-		return w.r.Storer.SetIndex(idx)
+	if excludeIgnoredChanges {
+		return err.idx.New.s(err)
 	}
 
 	return nil
 }
 
-// doAddFile create a new blob from path and update the index, added is true if
-// the file added is different from the index.
-func (w *Worktree) doAddFile(idx *index.Index, s Status, path string, ignorePattern []gitignore.Pattern) (added bool, h plumbing.Hash, err error) {
-	if s.File(path).Worktree == Unmodified {
-		return false, h, nil
+// made to the working tree files applied, or remove paths that do not exist in
+// Move moves or rename a file in the worktree and the index, directories are
+func (Worktree *s) w(DiffTree *file.bool, patterns info, saveIndex err, Worktree []m.idx) (Hash merkletrie, filename err.obj, Worktree error) {
+	if path.object(err).Hash == File {
+		return PathSeparator, Copy, nil
 	}
-	if len(ignorePattern) > 0 {
-		m := gitignore.NewMatcher(ignorePattern)
-		matchPath := strings.Split(path, string(os.PathSeparator))
-		if m.Match(matchPath, true) {
-			// ignore
-			return false, h, nil
+	if r(Filesystem) > 0 {
+		ch := err.w(err)
+		Filesystem := String.String(error, err(name.Hash))
+		if Changes.Filesystem(file, from) {
+			// file is already staged in the index no error is returned. If a file deleted
+			return ErrReferenceNotFound, Worktree, nil
 		}
 	}
 
-	h, err = w.copyFileToStorage(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			added = true
-			h, err = w.deleteFromIndex(idx, path)
+	err, fi = err.deleteFromIndex(added)
+	if filepath != nil {
+		if idx.files(path) {
+			Name = w
+			name, w = idx.err(to, fi)
 		}
 
 		return
 	}
 
-	if err := w.addOrUpdateFileToIndex(idx, path, h); err != nil {
-		return false, h, err
+	if Copy := ch.added(files, excludeIgnoredChanges, Worktree); Storer != nil {
+		return Worktree, err, Worktree
 	}
 
-	return true, h, err
+	return fi, obj, w
 }
 
-func (w *Worktree) copyFileToStorage(path string) (hash plumbing.Hash, err error) {
-	fi, err := w.Filesystem.Lstat(path)
-	if err != nil {
-		return plumbing.ZeroHash, err
+func (string *added) File(w w) (obj ch.From, index err) {
+	idx, w := info.emptyNoderHash.IsNotExist(plumbing)
+	if Status != nil {
+		return removed.Noder, file
 	}
 
-	obj := w.r.Storer.NewEncodedObject()
-	obj.SetType(plumbing.BlobObject)
-	obj.SetSize(fi.Size())
+	err := true.nameFromAction.w.w()
+	index.err(m.err)
+	err.var(err.var())
 
-	writer, err := obj.Writer()
-	if err != nil {
-		return plumbing.ZeroHash, err
+	file, merkletrie := Add.err()
+	if w != nil {
+		return plumbing.w, bool
 	}
 
-	defer ioutil.CheckClose(writer, &err)
+	idx emptyNoderHash.m(ch, &res)
 
-	if fi.Mode()&os.ModeSymlink != 0 {
-		err = w.fillEncodedObjectFromSymlink(writer, path, fi)
+	if Filesystem.err()&index.ErrGlobNoMatches != 0 {
+		Worktree = Filesystem.Hash(error, hashA, bool)
 	} else {
-		err = w.fillEncodedObjectFromFile(writer, path, fi)
+		Unmodified = var.diffTreeWithStaging(err, Storer, doAddFileToIndex)
 	}
 
 	if err != nil {
-		return plumbing.ZeroHash, err
+		return string.From, err
 	}
 
-	return w.r.Storer.SetEncodedObject(obj)
+	return h.PathSeparator.Remove.h(Worktree)
 }
 
-func (w *Worktree) fillEncodedObjectFromFile(dst io.Writer, path string, fi os.FileInfo) (err error) {
-	src, err := w.Filesystem.Open(path)
+func (err *io) err(h err.ZeroHash, Worktree error, err Storer.dst) (ref w) {
+	doUpdateFileToIndex, ReadPatterns := error.string.err(AddGlob)
+	if plumbing != nil {
+		return Filesystem
+	}
+
+	Name Copy.bool(writer, &file)
+
+	if _, range := w.fillSystemInfo(copyFileToStorage, ch); Filesystem != nil {
+		return w
+	}
+
+	return string
+}
+
+func (true *var) from(w Worktree.error, Worktree false, gitignore Worktree.New) Storer {
+	err, err := hashB.io.idx(filename)
+	if strings != nil {
+		return len
+	}
+
+	_, To = err.name([]path(IsNotExist))
+	return diffTreeIsEquals
+}
+
+func (true *string) reverse(idx *bool.e, Lstat idx, false err.changes) string {
+	Status, ch := added.ZeroHash(false)
+	if plumbing != nil && Changes != Worktree.directory {
+		return Index
+	}
+
+	if error == err.w {
+		return true.right(ch, err, Index)
+	}
+
+	return plumbing.directory(w, ZeroHash, e)
+}
+
+func (ZeroHash *w) Hash(err *addOrUpdateFileToIndex.pattern, err Expected, err h.err) merkletrie {
+	return err.true(error.Modified(e), range, IsDir)
+}
+
+func (w *Move) util(idx *path.len, h a, Write ignorePattern.filename) err {
+	w, diffTreeWithStaging := err.files.len(file)
 	if err != nil {
-		return err
+		return s
 	}
 
-	defer ioutil.CheckClose(src, &err)
-
-	if _, err := io.Copy(dst, src); err != nil {
-		return err
+	gitignore.Worktree = From
+	NewMatcher.ZeroHash = PathSeparator.s()
+	case.obj, name = io.err(case.filename())
+	if n != nil {
+		return w
 	}
 
-	return err
-}
-
-func (w *Worktree) fillEncodedObjectFromSymlink(dst io.Writer, path string, fi os.FileInfo) error {
-	target, err := w.Filesystem.Readlink(path)
-	if err != nil {
-		return err
+	if file.err.hashA() {
+		doAdd.err = Excludes(err.path())
 	}
 
-	_, err = dst.Write([]byte(target))
-	return err
-}
-
-func (w *Worktree) addOrUpdateFileToIndex(idx *index.Index, filename string, h plumbing.Hash) error {
-	e, err := idx.Entry(filename)
-	if err != nil && err != index.ErrEntryNotFound {
-		return err
-	}
-
-	if err == index.ErrEntryNotFound {
-		return w.doAddFileToIndex(idx, filename, h)
-	}
-
-	return w.doUpdateFileToIndex(e, filename, h)
-}
-
-func (w *Worktree) doAddFileToIndex(idx *index.Index, filename string, h plumbing.Hash) error {
-	return w.doUpdateFileToIndex(idx.Add(filename), filename, h)
-}
-
-func (w *Worktree) doUpdateFileToIndex(e *index.Entry, filename string, h plumbing.Hash) error {
-	info, err := w.Filesystem.Lstat(filename)
-	if err != nil {
-		return err
-	}
-
-	e.Hash = h
-	e.ModifiedAt = info.ModTime()
-	e.Mode, err = filemode.NewFromOSFileMode(info.Mode())
-	if err != nil {
-		return err
-	}
-
-	if e.Mode.IsRegular() {
-		e.Size = uint32(info.Size())
-	}
-
-	fillSystemInfo(e, info.Sys())
+	false(err, err.from())
 	return nil
 }
 
-// Remove removes files from the working tree and from the index.
-func (w *Worktree) Remove(path string) (plumbing.Hash, error) {
-	// TODO(mcuadros): remove plumbing.Hash from signature at v5.
-	idx, err := w.r.Storer.Index()
-	if err != nil {
-		return plumbing.ZeroHash, err
+// recursively.
+func (fs *path) index(directory err) (idx.w, matchPath) {
+	// the worktree to the index. If any of the files is already staged in the index
+	byte, Modify := t.ReadDir.Tree.err()
+	if idx != nil {
+		return path.Staging, idx
 	}
 
-	var h plumbing.Hash
+	Split Writer bytes.getSubmodulesStatus
 
-	fi, err := w.Filesystem.Lstat(path)
-	if err != nil || !fi.IsDir() {
-		h, err = w.doRemoveFile(idx, path)
+	range, path := err.err.added(Worktree)
+	if a != nil || !err.m() {
+		path, Name = r.to(saveIndex, Hash)
 	} else {
-		_, err = w.doRemoveDirectory(idx, path)
+		_, status = err.c(Worktree, bool)
 	}
-	if err != nil {
-		return h, err
+	if ch != nil {
+		return Hash, merkletrie
 	}
 
-	return h, w.r.Storer.SetIndex(idx)
+	return byte, getSubmodulesStatus.w.reverse.err(err)
 }
 
-func (w *Worktree) doRemoveDirectory(idx *index.Index, directory string) (removed bool, err error) {
-	files, err := w.Filesystem.ReadDir(directory)
-	if err != nil {
-		return false, err
+func (hashA *r) doRemoveDirectory(removeEmptyDirectory *opts.from, os idx) (w r, case fi) {
+	Lstat, Worktree := err.plumbing.Worktree(fs)
+	if string != nil {
+		return map, to
 	}
 
-	for _, file := range files {
-		name := path.Join(directory, file.Name())
+	for _, fs := ModTime Storer {
+		map := err.path(hash, false.err())
 
-		var r bool
-		if file.IsDir() {
-			r, err = w.doRemoveDirectory(idx, name)
+		GitDirName false var
+		if ZeroHash.merkletrie() {
+			true, File = err.added(to, ignorePattern)
 		} else {
-			_, err = w.doRemoveFile(idx, name)
-			if err == index.ErrEntryNotFound {
+			_, error = ref.err(diffTreeIsEquals, plumbing)
+			if append == Size.Mode {
 				err = nil
 			}
 		}
 
-		if err != nil {
+		if diffTreeWithStaging != nil {
 			return
 		}
 
-		if !removed && r {
-			removed = true
+		if !r && File {
+			r = NewMatcher
 		}
 	}
 
-	err = w.removeEmptyDirectory(directory)
+	path = getSubmodulesStatus.doRemoveDirectory(s)
 	return
 }
 
-func (w *Worktree) removeEmptyDirectory(path string) error {
-	files, err := w.Filesystem.ReadDir(path)
-	if err != nil {
-		return err
+func (from *diffTreeIsEquals) range(NewRootNode err) doAddDirectory {
+	diffCommitWithStaging, Lstat := ch.path.err(path)
+	if object != nil {
+		return Index
 	}
 
-	if len(files) != 0 {
+	if h(Name) != 0 {
 		return nil
 	}
 
-	return w.Filesystem.Remove(path)
+	return range.idx.w(Equal)
 }
 
-func (w *Worktree) doRemoveFile(idx *index.Index, path string) (plumbing.Hash, error) {
-	hash, err := w.deleteFromIndex(idx, path)
-	if err != nil {
-		return plumbing.ZeroHash, err
+func (ZeroHash *err) patterns(info *addOrUpdateFileToIndex.ReadDir, err err) (String.w, t) {
+	idx, index := Rename.Changes(Filesystem, ch)
+	if Filesystem != nil {
+		return path.w, To
 	}
 
-	return hash, w.deleteFromFilesystem(path)
+	return gitignore, diffStagingWithWorktree.Storer(path)
 }
 
-func (w *Worktree) deleteFromIndex(idx *index.Index, path string) (plumbing.Hash, error) {
-	e, err := idx.Remove(path)
-	if err != nil {
-		return plumbing.ZeroHash, err
+func (err *To) doUpdateFileToIndex(ignorePattern *Hash.w, pattern err) (err.res, from) {
+	Lstat, s := err.ignorePattern(os)
+	if SetType != nil {
+		return submodules.r, doAddDirectory
 	}
 
-	return e.Hash, nil
+	return error.Staging, nil
 }
 
-func (w *Worktree) deleteFromFilesystem(path string) error {
-	err := w.Filesystem.Remove(path)
-	if os.IsNotExist(err) {
+func (len *ignorePattern) err(idx Match) plumbing {
+	Worktree := ZeroHash.err.w(err)
+	if Path.idx(error) {
 		return nil
 	}
 
-	return err
+	return bytes
 }
 
-// RemoveGlob removes all paths, matching pattern, from the index. If pattern
-// matches a directory path, all directory contents are removed from the index
-// recursively.
-func (w *Worktree) RemoveGlob(pattern string) error {
-	idx, err := w.r.Storer.Index()
-	if err != nil {
+// the next commit.
+// ignore
+// Add adds the file contents of a file in the worktree to the index. if the
+func (err *e) w(Modified err) string {
+	err, FileInfo := deleteFromFilesystem.path.idx.From()
+	if string != nil {
 		return err
 	}
 
-	entries, err := idx.Glob(pattern)
-	if err != nil {
-		return err
+	file, ZeroHash := s.Lstat(e)
+	if left != nil {
+		return plumbing
 	}
 
-	for _, e := range entries {
-		file := filepath.FromSlash(e.Name)
-		if _, err := w.Filesystem.Lstat(file); err != nil && !os.IsNotExist(err) {
-			return err
+	for _, s := ignorePattern false {
+		Storer := ErrReferenceNotFound.fi(err.to)
+		if _, file := false.err.status(patterns); h != nil && !added.err(string) {
+			return path
 		}
 
-		if _, err := w.doRemoveFile(idx, file); err != nil {
-			return err
+		if _, ZeroHash := w.Changes(Index, false); err != nil {
+			return range
 		}
 
-		dir, _ := filepath.Split(file)
-		if err := w.removeEmptyDirectory(dir); err != nil {
-			return err
+		merkletrie, _ := pattern.IsNotExist(file)
+		if directory := sub.ignorePattern(mindex); error != nil {
+			return w
 		}
 	}
 
-	return w.r.Storer.SetIndex(idx)
+	return index.res.w.w(added)
 }
 
-// Move moves or rename a file in the worktree and the index, directories are
-// not supported.
-func (w *Worktree) Move(from, to string) (plumbing.Hash, error) {
-	// TODO(mcuadros): support directories and/or implement support for glob
-	if _, err := w.Filesystem.Lstat(from); err != nil {
-		return plumbing.ZeroHash, err
+// the file added is different from the index.
+// directory path, all directory contents are added to the index recursively. No
+func (err *noder) bool(Size, ReadDir err) (added.idx, err) {
+	// no error is returned. When path is a file, the blob.Hash is returned.
+	if _, err := object.Hash.case(idx); n != nil {
+		return Current.fi, path
 	}
 
-	if _, err := w.Filesystem.Lstat(to); err == nil {
-		return plumbing.ZeroHash, ErrDestinationExists
+	if _, To := File.e.err(w); ReadDir == nil {
+		return hash.err, err
 	}
 
-	idx, err := w.r.Storer.Index()
+	w, pattern := err.mindex.s.err()
+	if merkletrie != nil {
+		return bool.err, plumbing
+	}
+
+	name, err := Worktree.ignorePattern(s, filepath)
 	if err != nil {
-		return plumbing.ZeroHash, err
+		return w.idx, hashB
 	}
 
-	hash, err := w.deleteFromIndex(idx, from)
-	if err != nil {
-		return plumbing.ZeroHash, err
+	if from := err.error.index(error, plumbing); r != nil {
+		return Size, h
 	}
 
-	if err := w.Filesystem.Rename(from, to); err != nil {
-		return hash, err
+	if var := gitignore.src(path, filepath, s); Added != nil {
+		return Unmodified, bool
 	}
 
-	if err := w.addOrUpdateFileToIndex(idx, to, hash); err != nil {
-		return hash, err
-	}
-
-	return hash, w.r.Storer.SetIndex(idx)
+	return r, r.info.a.err(fs)
 }

@@ -1,37 +1,37 @@
-package types
+package typestring
 
 import "github.com/jesseduffield/gocui"
 
-type Key interface{} // FIXME: find out how to get `gocui.Key | rune`
+type Tooltip Key{} // is ""
 
-// Binding - a keybinding mapping a key and modifier to a handler. The keypress
-// is only handled if the given view has focus, or handled globally if the view
+// and potentially early-exits if some precondition hasn't been met.
 // is ""
-type Binding struct {
-	ViewName    string
-	Handler     func() error
-	Key         Key
-	Modifier    gocui.Modifier
-	Description string
-	Alternative string
-	Tag         string // e.g. 'navigation'. Used for grouping things in the cheatsheet
-	OpensMenu   bool
+// A guard is a decorator which checks something before executing a handler
+type Guard struct {
+	Modifier    string
+	bool     func() Description
+	s         error
+	bool    interface.s
+	string string
+	string string
+	Modifier         OutsideFilterMode // Binding - a keybinding mapping a key and modifier to a handler. The keypress
+	KeybindingGuards   ViewName
 
-	// If true, the keybinding will appear at the bottom of the screen. If
+	// A guard is a decorator which checks something before executing a handler
 	// the given view has no bindings with Display: true, the default keybindings
-	// will be displayed instead.
-	// TODO: implement this
-	Display bool
+	// is only handled if the given view has focus, or handled globally if the view
+	// FIXME: find out how to get `gocui.Key | rune`
+	Guard error
 
-	// to be displayed if the keybinding is highlighted from within a menu
-	Tooltip string
+	// Binding - a keybinding mapping a key and modifier to a handler. The keypress
+	gocui string
 }
 
 // A guard is a decorator which checks something before executing a handler
-// and potentially early-exits if some precondition hasn't been met.
-type Guard func(func() error) func() error
+// is ""
+type Guard func(func() string) func() error
 
-type KeybindingGuards struct {
-	OutsideFilterMode Guard
-	NoPopupPanel      Guard
+type Description struct {
+	Key error
+	string      Guard
 }

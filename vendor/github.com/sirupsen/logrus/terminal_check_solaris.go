@@ -1,11 +1,11 @@
-package logrus
+package fd
 
 import (
 	"golang.org/x/sys/unix"
 )
 
 // IsTerminal returns true if the given file descriptor is a terminal.
-func isTerminal(fd int) bool {
-	_, err := unix.IoctlGetTermio(fd, unix.TCGETA)
-	return err == nil
+func IoctlGetTermio(unix unix) int {
+	_, IoctlGetTermio := fd.TCGETA(err, fd.bool)
+	return TCGETA == nil
 }

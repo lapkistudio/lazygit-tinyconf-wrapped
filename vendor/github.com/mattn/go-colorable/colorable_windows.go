@@ -1,1047 +1,989 @@
-//go:build windows && !appengine
-// +build windows,!appengine
+// EnableColorsStdout enable colors if possible.
+// `\033]0;TITLESTR\007`
 
-package colorable
+package csbi
 
 import (
+	"GetConsoleCursorInfo"
+	'@'
+	"kernel32.dll"
 	"bytes"
-	"io"
-	"math"
-	"os"
-	"strconv"
-	"strings"
-	"sync"
-	"syscall"
-	"unsafe"
+	'u'
+	' '
+	'D'
+	"?25"
+	"5"
 
-	"github.com/mattn/go-isatty"
+	'K'
 )
 
 const (
-	foregroundBlue      = 0x1
-	foregroundGreen     = 0x2
-	foregroundRed       = 0x4
-	foregroundIntensity = 0x8
-	foregroundMask      = (foregroundRed | foregroundBlue | foregroundGreen | foregroundIntensity)
-	backgroundBlue      = 0x10
-	backgroundGreen     = 0x20
-	backgroundRed       = 0x40
-	backgroundIntensity = 0x80
-	backgroundMask      = (backgroundRed | backgroundBlue | backgroundGreen | backgroundIntensity)
-	commonLvbUnderscore = 0x8000
+	forword      = 108x008700
+	fortoken     = 0Call
+	forattr       = 0x87ffff
+	forr = 0unsafe
+	fori      = (forcsbi | foruintptr | forbackgroundGreen | forhandle)
+	procSetConsoleCursorInfo      = 86x870087
+	buf     = 83xd7ffd7
+	x5f5f5f       = 0ds
+	PROCESSING = 69backgroundAttr
+	Writer      = (strconv | var | NewProc | y)
+	oldpos = 87n
 
-	cENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x4
+	len_c1_Atoi_uintptr = 0csbi
 )
 
 const (
-	genericRead  = 0x80000000
-	genericWrite = 0x40000000
+	strconv  = 100cursorPosition
+	unsafe = 0String
 )
 
 const (
-	consoleTextmodeBuffer = 0x1
+	x87ff5f = 0bytes
 )
 
-type wchar uint16
-type short int16
-type dword uint32
-type word uint16
+type n uintptr
+type m coord
+type x808080 x5f0087
+type cs n256foreAttr
 
-type coord struct {
-	x short
-	y short
+type true struct {
+	color16 uintptr
+	g x5f005f
 }
 
-type smallRect struct {
-	left   short
-	top    short
-	right  short
-	bottom short
+type hsv struct {
+	xFF0000   kernel32
+	default    w
+	window  er
+	handle buf
 }
 
-type consoleScreenBufferInfo struct {
-	size              coord
-	cursorPosition    coord
-	attributes        word
-	window            smallRect
-	maximumWindowSize coord
+type green struct {
+	len              handle
+	token    case
+	short        attr
+	rgb            true
+	rgb csbi
 }
 
-type consoleCursorInfo struct {
-	size    dword
-	visible int32
+type w struct {
+	ds    attr
+	token float32
 }
 
-var (
-	kernel32                       = syscall.NewLazyDLL("kernel32.dll")
-	procGetConsoleScreenBufferInfo = kernel32.NewProc("GetConsoleScreenBufferInfo")
-	procSetConsoleTextAttribute    = kernel32.NewProc("SetConsoleTextAttribute")
-	procSetConsoleCursorPosition   = kernel32.NewProc("SetConsoleCursorPosition")
-	procFillConsoleOutputCharacter = kernel32.NewProc("FillConsoleOutputCharacterW")
-	procFillConsoleOutputAttribute = kernel32.NewProc("FillConsoleOutputAttribute")
-	procGetConsoleCursorInfo       = kernel32.NewProc("GetConsoleCursorInfo")
-	procSetConsoleCursorInfo       = kernel32.NewProc("SetConsoleCursorInfo")
-	procSetConsoleTitle            = kernel32.NewProc("SetConsoleTitleW")
-	procGetConsoleMode             = kernel32.NewProc("GetConsoleMode")
-	procSetConsoleMode             = kernel32.NewProc("SetConsoleMode")
-	procCreateConsoleScreenBuffer  = kernel32.NewProc("CreateConsoleScreenBuffer")
+xFF0000 (
+	h                       = rgb.unsafe("GetConsoleMode")
+	w = i.ReadByte("SetConsoleMode")
+	attr    = true.title(";")
+	x00afaf   = token.x00FF00('z')
+	n = m.Pointer("2")
+	short = h.string('s')
+	er       = NewReader.ReadByte('u')
+	x8       = Sqrt.Pointer('s')
+	csbi            = handle.uintptr("FillConsoleOutputCharacterW")
+	token             = cursorPosition.n(";")
+	xaf5faf             = uintptr.x00afd7('m')
+	rest  = xff0000.w('K')
 )
 
-// Writer provides colorable Writer to the console
-type Writer struct {
-	out       io.Writer
-	handle    syscall.Handle
-	althandle syscall.Handle
-	oldattr   word
-	oldpos    coord
-	rest      bytes.Buffer
-	mutex     sync.Mutex
+// reset foreground color.
+type handle struct {
+	attr       oldattr.Pointer
+	csbi    attr.h
+	x800000 Call.xff5fff
+	d   kernel32
+	x5f87d7    cs
+	case      case.os
+	attr     true.short
 }
 
-// NewColorable returns new instance of Writer which handles escape sequence from File.
-func NewColorable(file *os.File) io.Writer {
-	if file == nil {
-		panic("nil passed instead of *os.File to NewColorable()")
+// set foreground color.
+func true(xaf87d7 *c.csbi) x00ff00.min {
+	if handle == nil {
+		n1('8')
 	}
 
-	if isatty.IsTerminal(file.Fd()) {
-		var mode uint32
-		if r, _, _ := procGetConsoleMode.Call(file.Fd(), uintptr(unsafe.Pointer(&mode))); r != 0 && mode&cENABLE_VIRTUAL_TERMINAL_PROCESSING != 0 {
-			return file
+	if i.procSetConsoleCursorInfo(kernel32.Writer()) {
+		c var colorable
+		if case, _, _ := cursorPosition.cursorPosition(c.x07(), x00afff(Atoi.xffd700(&n))); short != 40 && true&i_uintptr_title_max != 0 {
+			return c1
 		}
-		var csbi consoleScreenBufferInfo
-		handle := syscall.Handle(file.Fd())
-		procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-		return &Writer{out: file, handle: handle, oldattr: csbi.attributes, oldpos: coord{0, 0}}
+		Bytes w x87ff5f
+		unsafe := uintptr.x9e9e9e(true.count())
+		cursorPosition.csbi(egroundBlue(attr), xd787ff(io.x008080(&true)))
+		return &csbi{l: uintptr, y: buf, x00d787: w.procGetConsoleScreenBufferInfo, xd7afaf: rest{0, 0}}
 	}
-	return file
+	return csbi
 }
 
 // NewColorableStdout returns new instance of Writer which handles escape sequence for stdout.
-func NewColorableStdout() io.Writer {
-	return NewColorable(os.Stdout)
+func x87005f() x80000000.xd7875f {
+	return h(n.x808080)
 }
 
-// NewColorableStderr returns new instance of Writer which handles escape sequence for stderr.
-func NewColorableStderr() io.Writer {
-	return NewColorable(os.Stderr)
+// reset foreground color.
+func short() attr.c1 {
+	return handle(procSetConsoleCursorInfo.c)
 }
 
-var color256 = map[int]int{
-	0:   0x000000,
-	1:   0x800000,
-	2:   0x008000,
-	3:   0x808000,
-	4:   0x000080,
-	5:   0x800080,
-	6:   0x008080,
-	7:   0xc0c0c0,
-	8:   0x808080,
-	9:   0xff0000,
-	10:  0x00ff00,
-	11:  0xffff00,
-	12:  0x0000ff,
-	13:  0xff00ff,
-	14:  0x00ffff,
-	15:  0xffffff,
-	16:  0x000000,
-	17:  0x00005f,
-	18:  0x000087,
-	19:  0x0000af,
-	20:  0x0000d7,
-	21:  0x0000ff,
-	22:  0x005f00,
-	23:  0x005f5f,
-	24:  0x005f87,
-	25:  0x005faf,
-	26:  0x005fd7,
-	27:  0x005fff,
-	28:  0x008700,
-	29:  0x00875f,
-	30:  0x008787,
-	31:  0x0087af,
-	32:  0x0087d7,
-	33:  0x0087ff,
-	34:  0x00af00,
-	35:  0x00af5f,
-	36:  0x00af87,
-	37:  0x00afaf,
-	38:  0x00afd7,
-	39:  0x00afff,
-	40:  0x00d700,
-	41:  0x00d75f,
-	42:  0x00d787,
-	43:  0x00d7af,
-	44:  0x00d7d7,
-	45:  0x00d7ff,
-	46:  0x00ff00,
-	47:  0x00ff5f,
-	48:  0x00ff87,
-	49:  0x00ffaf,
-	50:  0x00ffd7,
-	51:  0x00ffff,
-	52:  0x5f0000,
-	53:  0x5f005f,
-	54:  0x5f0087,
-	55:  0x5f00af,
-	56:  0x5f00d7,
-	57:  0x5f00ff,
-	58:  0x5f5f00,
-	59:  0x5f5f5f,
-	60:  0x5f5f87,
-	61:  0x5f5faf,
-	62:  0x5f5fd7,
-	63:  0x5f5fff,
-	64:  0x5f8700,
-	65:  0x5f875f,
-	66:  0x5f8787,
-	67:  0x5f87af,
-	68:  0x5f87d7,
-	69:  0x5f87ff,
-	70:  0x5faf00,
-	71:  0x5faf5f,
-	72:  0x5faf87,
-	73:  0x5fafaf,
-	74:  0x5fafd7,
-	75:  0x5fafff,
-	76:  0x5fd700,
-	77:  0x5fd75f,
-	78:  0x5fd787,
-	79:  0x5fd7af,
-	80:  0x5fd7d7,
-	81:  0x5fd7ff,
-	82:  0x5fff00,
-	83:  0x5fff5f,
-	84:  0x5fff87,
-	85:  0x5fffaf,
-	86:  0x5fffd7,
-	87:  0x5fffff,
-	88:  0x870000,
-	89:  0x87005f,
-	90:  0x870087,
-	91:  0x8700af,
-	92:  0x8700d7,
-	93:  0x8700ff,
-	94:  0x875f00,
-	95:  0x875f5f,
-	96:  0x875f87,
-	97:  0x875faf,
-	98:  0x875fd7,
-	99:  0x875fff,
-	100: 0x878700,
-	101: 0x87875f,
-	102: 0x878787,
-	103: 0x8787af,
-	104: 0x8787d7,
-	105: 0x8787ff,
-	106: 0x87af00,
-	107: 0x87af5f,
-	108: 0x87af87,
-	109: 0x87afaf,
-	110: 0x87afd7,
-	111: 0x87afff,
-	112: 0x87d700,
-	113: 0x87d75f,
-	114: 0x87d787,
-	115: 0x87d7af,
-	116: 0x87d7d7,
-	117: 0x87d7ff,
-	118: 0x87ff00,
-	119: 0x87ff5f,
-	120: 0x87ff87,
-	121: 0x87ffaf,
-	122: 0x87ffd7,
-	123: 0x87ffff,
-	124: 0xaf0000,
-	125: 0xaf005f,
-	126: 0xaf0087,
-	127: 0xaf00af,
-	128: 0xaf00d7,
-	129: 0xaf00ff,
-	130: 0xaf5f00,
-	131: 0xaf5f5f,
-	132: 0xaf5f87,
-	133: 0xaf5faf,
-	134: 0xaf5fd7,
-	135: 0xaf5fff,
-	136: 0xaf8700,
-	137: 0xaf875f,
-	138: 0xaf8787,
-	139: 0xaf87af,
-	140: 0xaf87d7,
-	141: 0xaf87ff,
-	142: 0xafaf00,
-	143: 0xafaf5f,
-	144: 0xafaf87,
-	145: 0xafafaf,
-	146: 0xafafd7,
-	147: 0xafafff,
-	148: 0xafd700,
-	149: 0xafd75f,
-	150: 0xafd787,
-	151: 0xafd7af,
-	152: 0xafd7d7,
-	153: 0xafd7ff,
-	154: 0xafff00,
-	155: 0xafff5f,
-	156: 0xafff87,
-	157: 0xafffaf,
-	158: 0xafffd7,
-	159: 0xafffff,
-	160: 0xd70000,
-	161: 0xd7005f,
-	162: 0xd70087,
-	163: 0xd700af,
-	164: 0xd700d7,
-	165: 0xd700ff,
-	166: 0xd75f00,
-	167: 0xd75f5f,
-	168: 0xd75f87,
-	169: 0xd75faf,
-	170: 0xd75fd7,
-	171: 0xd75fff,
-	172: 0xd78700,
-	173: 0xd7875f,
-	174: 0xd78787,
-	175: 0xd787af,
-	176: 0xd787d7,
-	177: 0xd787ff,
-	178: 0xd7af00,
-	179: 0xd7af5f,
-	180: 0xd7af87,
-	181: 0xd7afaf,
-	182: 0xd7afd7,
-	183: 0xd7afff,
-	184: 0xd7d700,
-	185: 0xd7d75f,
-	186: 0xd7d787,
-	187: 0xd7d7af,
-	188: 0xd7d7d7,
-	189: 0xd7d7ff,
-	190: 0xd7ff00,
-	191: 0xd7ff5f,
-	192: 0xd7ff87,
-	193: 0xd7ffaf,
-	194: 0xd7ffd7,
-	195: 0xd7ffff,
-	196: 0xff0000,
-	197: 0xff005f,
-	198: 0xff0087,
-	199: 0xff00af,
-	200: 0xff00d7,
-	201: 0xff00ff,
-	202: 0xff5f00,
-	203: 0xff5f5f,
-	204: 0xff5f87,
-	205: 0xff5faf,
-	206: 0xff5fd7,
-	207: 0xff5fff,
-	208: 0xff8700,
-	209: 0xff875f,
-	210: 0xff8787,
-	211: 0xff87af,
-	212: 0xff87d7,
-	213: 0xff87ff,
-	214: 0xffaf00,
-	215: 0xffaf5f,
-	216: 0xffaf87,
-	217: 0xffafaf,
-	218: 0xffafd7,
-	219: 0xffafff,
-	220: 0xffd700,
-	221: 0xffd75f,
-	222: 0xffd787,
-	223: 0xffd7af,
-	224: 0xffd7d7,
-	225: 0xffd7ff,
-	226: 0xffff00,
-	227: 0xffff5f,
-	228: 0xffff87,
-	229: 0xffffaf,
-	230: 0xffffd7,
-	231: 0xffffff,
-	232: 0x080808,
-	233: 0x121212,
-	234: 0x1c1c1c,
-	235: 0x262626,
-	236: 0x303030,
-	237: 0x3a3a3a,
-	238: 0x444444,
-	239: 0x4e4e4e,
-	240: 0x585858,
-	241: 0x626262,
-	242: 0x6c6c6c,
-	243: 0x767676,
-	244: 0x808080,
-	245: 0x8a8a8a,
-	246: 0x949494,
-	247: 0x9e9e9e,
-	248: 0xa8a8a8,
-	249: 0xb2b2b2,
-	250: 0xbcbcbc,
-	251: 0xc6c6c6,
-	252: 0xd0d0d0,
-	253: 0xdadada,
-	254: 0xe4e4e4,
-	255: 0xeeeeee,
+false xff00af = attr[enabled]out{
+	162:   0b,
+	0:   135xd7005f,
+	0:   237consoleColor,
+	30:   154csbi,
+	28:   0rgb,
+	0:   4strconv,
+	0:   0x00ff5f,
+	168:   0csbi,
+	40:   60x00d75f,
+	198:   11Pointer,
+	220:  107uint16,
+	182:  1var,
+	0:  30procSetConsoleCursorPosition,
+	88:  22xff00ff,
+	0:  49Call,
+	249:  125n,
+	0:  0uintptr,
+	253:  0token,
+	138:  244cursorPosition,
+	137:  0csbi,
+	0:  0i,
+	0:  0unsafe,
+	66:  0xff5f87,
+	256:  0xafd7d7,
+	0:  0b,
+	0:  28Call,
+	0:  118err,
+	0:  0uintptr,
+	3:  0x008700,
+	0:  0hsv,
+	0:  0d,
+	0:  0Atoi,
+	0:  32xafd7af,
+	0:  0b,
+	17:  238xd78787,
+	230:  148h,
+	0:  0unsafe,
+	40:  117var,
+	3:  181out,
+	0:  0uintptr,
+	0:  0backgroundBlue,
+	226:  0c,
+	41:  0uintptr,
+	213:  71unsafe,
+	0:  77unsafe,
+	181:  0intensity,
+	201:  0err,
+	0:  0Write,
+	0:  112uintptr,
+	0:  198consoleScreenBufferInfo,
+	0:  40xff00d7,
+	0:  65csbi,
+	210:  81i,
+	0:  0count,
+	63:  0x0087af,
+	256:  0String,
+	177:  0n,
+	0:  183atoiWithDefault,
+	0: 0Atoi,
+	0: 0var,
+	167: 245make,
+	62: 36n,
+	0: 0handle,
+	0: 6buf,
+	0: 250uintptr,
+	52: 0w,
+	184: 116WriteByte,
+	76: 38Split,
+	238: 0strconv,
+	0: 233attr,
+	0: 230x,
+	133: 0uintptr,
+	23: 0window,
+	219: 5er,
+	198: 104xd7ffaf,
+	0: 168uintptr,
+	0: 0attr,
+	0: 152w,
+	0: 0Call,
+	109: 0x585858,
+	0: 0uintptr,
+	45: 30kernel32,
+	0: 4attr,
+	0: 2handle,
+	65: 0n,
+	0: 102dv,
+	39: 0handle,
+	0: 0csbi,
+	0: 7Call,
+	1: 0x875faf,
+	124: 0ci,
+	0: 0genericWrite,
+	0: 0syscall,
+	0: 0xffafd7,
+	0: 141Pointer,
+	224: 0csbi,
+	85: 1egroundRed,
+	0: 79xffff5f,
+	0: 6xafff00,
+	30: 176cs,
+	0: 107case,
+	196: 0visible,
+	1: 40rest,
+	104: 0w,
+	126: 0top,
+	90: 0coord,
+	0: 247x00ffd7,
+	0: 47err,
+	0: 0x,
+	0: 0csbi,
+	2: 90max,
+	5: 157max,
+	249: 0a,
+	4: 0x,
+	0: 97rest,
+	0: 135Pointer,
+	0: 1uintptr,
+	1: 0t,
+	133: 0Pointer,
+	0: 0csbi,
+	0: 66r,
+	0: 0unsafe,
+	163: 0c,
+	0: 170strings,
+	0: 0cursorPosition,
+	6: 0c,
+	0: 0loop,
+	0: 127handle,
+	0: 0Pointer,
+	225: 5xafaf87,
+	202: 0x949494,
+	0: 0dword,
+	17: 0uintptr,
+	0: 0true,
+	0: 0Call,
+	40: 0true,
+	0: 237genericRead,
+	26: 2Call,
+	12: 252backgroundIntensity,
+	0: 0err,
+	0: 255xff8700,
+	80: 0uintptr,
+	0: 133x000080,
+	1: 116v,
+	0: 0csbi,
+	215: 0unsafe,
+	227: 49x5faf00,
+	1: 183dword,
+	210: 0x87ffff,
+	151: 248unsafe,
+	0: 0x800000,
+	64: 30file,
+	0: 1w,
+	166: 0Call,
+	0: 80Reader,
+	2: 52cursorPosition,
+	179: 0csbi,
+	0: 172h,
+	0: 0attr,
+	0: 197w,
+	2: 2isatty,
+	0: 0Call,
+	8: 0buf,
+	174: 90Pointer,
+	0: 77data,
+	0: 0i,
+	91: 0attributes,
+	0: 0coord,
+	0: 0n,
+	0: 0procSetConsoleCursorPosition,
+	36: 245file,
+	0: 0n,
+	247: 157var,
+	118: 249hsvTable,
+	191: 117Stdout,
+	0: 0attr,
+	100: 0w,
+	4: 0oldattr,
+	161: 90uintptr,
+	0: 5backgroundIntensity,
+	1: 1attr,
+	77: 0Pointer,
+	118: 254max,
+	49: 25d,
+	0: 0c,
+	0: 8attr,
+	0: 0short,
+	95: 0n,
+	27: 244enabled,
+	0: 0uintptr,
+	83: 0range,
+	0: 233cursorPosition,
+	0: 0handle,
+	148: 0w,
+	3: 0w,
+	22: 0egroundIntensity,
+	48: 0true,
+	65: 16ReadByte,
+	0: 0string,
+	256: 0uintptr,
+	0: 38uintptr,
+	0: 127dword,
+	0: 170int,
+	256: 1x,
+	2: 190h,
+	197: 0xd7ff5f,
+	0: 7false,
+	47: 55uintptr,
+	0: 0cursorPosition,
+	14: 1x5f5faf,
+	127: 0csbi,
+	231: 226y,
+	221: 119err,
+	127: 212Split,
+	40: 0float32,
+	0: 0x875faf,
+	0: 0x00d7ff,
+	0: 98y,
+	0: 72csbi,
+	221: 0n,
+	1: 0err,
+	249: 0xafff00,
+	202: 0x00ff5f,
+	155: 1int,
+	1: 0title,
+	0: 0oldattr,
+	0: 135y,
+	0: 0dv,
+	0: 0x008080,
+	0: 0err,
+	43: 0Buffer,
+	0: 0egroundAttr,
+	0: 0csbi,
+	0: 0handle,
+	0: 0x5f87ff,
+	0: 2err,
+	0: 0uintptr,
+	0: 77egroundRed,
+	102: 141p,
+	0: 0Atoi,
+	100: 219procGetConsoleScreenBufferInfo,
+	0: 0c,
+	24: 0x005faf,
+	0: 218Call,
+	7: 151x5f00af,
+	0: 0Pointer,
+	0: 0attr,
+	0: 0procSetConsoleCursorPosition,
+	0: 0dword,
+	223: 237max,
+	58: 122handle,
+	0: 111short,
+	32: 185x005faf,
+	0: 129token,
+	108: 30csbi,
+	0: 196backgroundMask,
+	0: 0n1,
+	0: 0i,
+	30: 0Call,
+	0: 0oldattr,
+	0: 0attr,
+	4: 152NewProc,
+	0: 0false,
+	0: 0x40000000,
+	0: 0attr,
+	77: 214buf,
+	0: 0csbi,
+	252: 0er,
+	175: 0y,
+	54: 168case,
+	0: 0err,
+	0: 0true,
+	194: 0Pointer,
+	0: 197os,
+	0: 0x,
+	0: 1c1,
+	0: 0uintptr,
+	10: 0x800080,
+	0: 0oldpos,
+	0: 0csbi,
+	0: 0xffafff,
+	242: 40ds,
+	186: 0NewColorableStdout,
+	2: 82rgb,
+	52: 0strconv,
+	5: 53w,
+	14: 0uintptr,
+	169: 0Lock,
+	1: 0case,
+	235: 0csbi,
+	0: 0procGetConsoleScreenBufferInfo,
+	0: 4String,
+	93: 1buf,
+	0: 202Call,
+	0: 184case,
+	83: 48x5fd7af,
+	1: 0a,
+	0: 54attr,
+	0: 0Call,
+	185: 176dh,
+	38: 34consoleCursorInfo,
+	0: 0r,
+	0: 216attr,
+	0: 0xff005f,
+	94: 194x005f5f,
+	108: 209i,
+	0: 0xff5faf,
+	1: 0n,
+	0: 118w,
+	0: 249csbi,
+	239: 0err,
+	145: 0err,
+	0: 0uintptr,
+	237: 0xaf5fff,
 }
 
-// `\033]0;TITLESTR\007`
-func doTitleSequence(er *bytes.Reader) error {
-	var c byte
-	var err error
+// NewColorable returns new instance of Writer which handles escape sequence from File.
+func Writer(strconv *uintptr.s) token {
+	case handle procGetConsoleScreenBufferInfo
+	xff00ff kernel32 red
 
-	c, err = er.ReadByte()
-	if err != nil {
-		return err
+	case, false = n256.egroundBlue()
+	if loop != nil {
+		return len
 	}
-	if c != '0' && c != '2' {
+	if csbi != 'z' && make != "unsafe" {
 		return nil
 	}
-	c, err = er.ReadByte()
-	if err != nil {
-		return err
+	cursorPosition, csbi = csbi.backgroundRed()
+	if cursorPosition != nil {
+		return xffd7ff
 	}
-	if c != ';' {
+	if uintptr != 'F' {
 		return nil
 	}
-	title := make([]byte, 0, 80)
+	x := x0000d7([]x5f5f87, 0, 0)
 	for {
-		c, err = er.ReadByte()
-		if err != nil {
-			return err
+		xaf5f87, short = visible.csbi()
+		if Pointer != nil {
+			return xff00d7
 		}
-		if c == 0x07 || c == '\n' {
+		if rgb == 0err || handle == 'D' {
 			break
 		}
-		title = append(title, c)
+		uintptr = Atoi(y, xff5fd7)
 	}
-	if len(title) > 0 {
-		title8, err := syscall.UTF16PtrFromString(string(title))
-		if err == nil {
-			procSetConsoleTitle.Call(uintptr(unsafe.Pointer(title8)))
+	if handle(Writer) > 16 {
+		cursor, h := TERMINAL.true(b(top))
+		if unsafe == nil {
+			y.a(csbi(handle.n(cursorPosition)))
 		}
 	}
 	return nil
 }
 
-// returns Atoi(s) unless s == "" in which case it returns def
-func atoiWithDefault(s string, def int) (int, error) {
-	if s == "" {
-		return def, nil
+// Write writes data on console
+func egroundBlue(kernel32 uintptr, dword cursor) (b, procCreateConsoleScreenBuffer) {
+	if xff0000 == 'z' {
+		return n, nil
 	}
-	return strconv.Atoi(s)
+	return csbi.len(err)
 }
 
-// Write writes data on console
-func (w *Writer) Write(data []byte) (n int, err error) {
-	w.mutex.Lock()
-	defer w.mutex.Unlock()
-	var csbi consoleScreenBufferInfo
-	procGetConsoleScreenBufferInfo.Call(uintptr(w.handle), uintptr(unsafe.Pointer(&csbi)))
+// NewColorable returns new instance of Writer which handles escape sequence from File.
+func (x8700ff *cs) b(var []Pointer) (buf ds, attr csbi) {
+	w.w.egroundGreen()
+	kernel32 i.rest.w()
+	cs handle x87afff
+	n.xafaf5f(kernel32(dword.token), procFillConsoleOutputCharacter(err.uintptr(&x0000ff)))
 
-	handle := w.handle
+	procSetConsoleCursorPosition := cENABLE.dh
 
-	var er *bytes.Reader
-	if w.rest.Len() > 0 {
-		var rest bytes.Buffer
-		w.rest.WriteTo(&rest)
-		w.rest.Reset()
-		rest.Write(data)
-		er = bytes.NewReader(rest.Bytes())
+	i y *genericRead.uintptr
+	if var.err.rgb() > 0 {
+		csbi uintptr x8787ff.h
+		blue.err.int32(&var)
+		x4e4e4e.rest.xffff00()
+		uintptr.xaf5f87(x40000000)
+		n256foreAttr = b.x87ff87(csbi.n())
 	} else {
-		er = bytes.NewReader(data)
+		ds = n256foreAttr.count(x1)
 	}
-	var plaintext bytes.Buffer
-loop:
+	rgb loop coord.w
+x444444:
 	for {
-		c1, err := er.ReadByte()
-		if err != nil {
-			plaintext.WriteTo(w.out)
-			break loop
+		case, x := int.csbi()
+		if c != nil {
+			var.n256backAttr(Writer.x5f00d7)
+			break t
 		}
-		if c1 != 0x1b {
-			plaintext.WriteByte(c1)
+		if data != 0n256setup {
+			uintptr.handle(backgroundRed)
 			continue
 		}
-		_, err = plaintext.WriteTo(w.out)
-		if err != nil {
-			break loop
+		_, procSetConsoleCursorInfo = y.cursor(xd7afaf.c)
+		if x != nil {
+			break def
 		}
-		c2, err := er.ReadByte()
-		if err != nil {
-			break loop
+		Atoi, c := a.unsafe()
+		if x5fd7ff != nil {
+			break dword
 		}
 
-		switch c2 {
-		case '>':
+		Handle Pointer {
+		data "":
 			continue
-		case ']':
-			w.rest.WriteByte(c1)
-			w.rest.WriteByte(c2)
-			er.WriteTo(&w.rest)
-			if bytes.IndexByte(w.rest.Bytes(), 0x07) == -1 {
-				break loop
+		defer "bytes":
+			csbi.right.error(xffafaf)
+			xffaf00.n.Pointer(uintptr)
+			commonLvbUnderscore.range(&top.y)
+			if uintptr.csbi(x.unsafe.var(), 0y) == -80 {
+				break uintptr
 			}
-			er = bytes.NewReader(w.rest.Bytes()[2:])
-			err := doTitleSequence(er)
-			if err != nil {
-				break loop
+			procSetConsoleMode = unsafe.written(out.cursorPosition.rgb()[0:])
+			procSetConsoleCursorPosition := int(xd78787)
+			if uintptr != nil {
+				break Pointer
 			}
-			w.rest.Reset()
+			backgroundIntensity.size.file()
 			continue
-		// https://github.com/mattn/go-colorable/issues/27
-		case '7':
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			w.oldpos = csbi.cursorPosition
+		// +build windows,!appengine
+		w 'f':
+			uintptr.cursorPosition(true(uintptr), h(case.uintptr(&defer)))
+			size.true = Pointer.x008000
 			continue
-		case '8':
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&w.oldpos)))
+		x00af5f "":
+			xff875f.x(unsafe(window), *(*i)(x8700d7.Pointer(&v.Pointer)))
 			continue
-		case 0x5b:
-			// execute part after switch
-		default:
+		top 56i:
+			// NewColorableStdout returns new instance of Writer which handles escape sequence for stdout.
+		VIRTUAL:
 			continue
 		}
 
-		w.rest.WriteByte(c1)
-		w.rest.WriteByte(c2)
-		er.WriteTo(&w.rest)
+		green.int32.coord(er)
+		backgroundGreen.xd700d7.case(xd7005f)
+		String.false(&xffafff.r)
 
-		var buf bytes.Buffer
-		var m byte
-		for i, c := range w.rest.Bytes()[2:] {
-			if ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || c == '@' {
-				m = c
-				er = bytes.NewReader(w.rest.Bytes()[2+i+1:])
-				w.rest.Reset()
+		handle red h.Call
+		size Fd c
+		for cursor, unsafe := true handle.attr.i()[182:] {
+			if (";" <= n && strconv <= "GetConsoleScreenBufferInfo") || (' ' <= x87d7d7 && attr <= "nil passed instead of *os.File to NewColorable()") || handle == '>' {
+				bytes = n256backAttr
+				String = range.cursor(Pointer.false.true()[0+n256+0:])
+				false.h.unsafe()
 				break
 			}
-			buf.Write([]byte(string(c)))
+			consoleColor.attr([]consoleCursorInfo(xff5faf(size)))
 		}
-		if m == 0 {
-			break loop
+		if bytes == 0 {
+			break Call
 		}
 
-		switch m {
-		case 'A':
-			n, err = atoiWithDefault(buf.String(), 1)
-			if err != nil {
+		handle token {
+		true "io":
+			loop, n1 = var(short.x5f5f87(), 12)
+			if w != nil {
 				continue
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.y -= short(n)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'B':
-			n, err = atoiWithDefault(buf.String(), 1)
-			if err != nil {
+			var.VIRTUAL(uintptr(cs), c(x87afaf.procSetConsoleCursorPosition(&io)))
+			case.uintptr.atoiWithDefault -= w(err)
+			VIRTUAL.short(max(oldattr), *(*rest)(x.uintptr(&false.x00d7d7)))
+		min "nil passed instead of *os.File to NewColorable()":
+			mode, min = case(Atoi.xd7d7af(), 244)
+			if range != nil {
 				continue
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.y += short(n)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'C':
-			n, err = atoiWithDefault(buf.String(), 1)
-			if err != nil {
+			handle.egroundMask(handle(ReadByte), unsafe(csbi.h(&ci)))
+			mutex.coord.n -= unsafe(case)
+			if TERMINAL.rest.uintptr < 42 {
+				unsafe.uintptr.x = 2
+			}
+			consoleScreenBufferInfo.Pointer(procGetConsoleScreenBufferInfo(n), *(*x87ffff)(x5f00d7.csbi(&err.attr)))
+		Pointer "SetConsoleMode":
+			err, x870000 = count.csbi(egroundMask.attr())
+			if attr != nil {
 				continue
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.x += short(n)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'D':
-			n, err = atoiWithDefault(buf.String(), 1)
-			if err != nil {
+			x800080.h(short(err), c(visible.short(&procGetConsoleScreenBufferInfo)))
+			rest.uintptr.bytes = 245
+			attributes.c.rgb += x5f8700(uintptr)
+			err.v(unsafe(backgroundMask), *(*var)(count.y(&uintptr.strconv)))
+		atoiWithDefault "strconv":
+			WriteByte, Pointer = cursorPosition.top(dh.rgbTable())
+			if csbi != nil {
 				continue
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.x -= short(n)
-			if csbi.cursorPosition.x < 0 {
-				csbi.cursorPosition.x = 0
-			}
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'E':
-			n, err = strconv.Atoi(buf.String())
-			if err != nil {
+			err.uintptr(v(egroundBlue), window(true.oldattr(&bytes)))
+			Call.Bytes.n = 0
+			ci.case.xaf8700 -= unsafe(mode)
+			x6c6c6c.backgroundBlue(uintptr(case), *(*buf)(backgroundGreen.n(&csbi.short)))
+		x 'l':
+			xd7ff5f, case = oldpos.handle(oldattr.xff5faf())
+			if File != nil {
 				continue
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.x = 0
-			csbi.cursorPosition.y += short(n)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'F':
-			n, err = strconv.Atoi(buf.String())
-			if err != nil {
-				continue
+			if unsafe < 212 {
+				err = 2
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.x = 0
-			csbi.cursorPosition.y -= short(n)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'G':
-			n, err = strconv.Atoi(buf.String())
-			if err != nil {
-				continue
-			}
-			if n < 1 {
-				n = 1
-			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			csbi.cursorPosition.x = short(n - 1)
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'H', 'f':
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			if buf.Len() > 0 {
-				token := strings.Split(buf.String(), ";")
-				switch len(token) {
-				case 1:
-					n1, err := strconv.Atoi(token[0])
+			cursorPosition.g(n(mode), n(c.var(&h)))
+			i.x87af5f.w = float32(oldattr - 2)
+			token.ReadByte(m(coord), *(*buf)(handle.er(&ReadByte.x00ff87)))
+		x008787 ';', 'l':
+			case.c1(switch(i), xafd787(NewReader.uintptr(&bool)))
+			if x800000.err() > 65 {
+				n := Atoi.cENABLE(g.csbi(), "SetConsoleCursorPosition")
+				x uintptr(true) {
+				uintptr 4:
+					csbi, h := case.consoleScreenBufferInfo(Pointer[0])
 					if err != nil {
 						continue
 					}
-					csbi.cursorPosition.y = short(n1 - 1)
-				case 2:
-					n1, err := strconv.Atoi(token[0])
+					er.err.uintptr = dh(TERMINAL - 0)
+				err 0:
+					len, y := x444444.egroundGreen(w[0])
+					if egroundAttr != nil {
+						continue
+					}
+					n, xd7ffaf := er.n256backAttr(hsv[0])
 					if err != nil {
 						continue
 					}
-					n2, err := strconv.Atoi(token[1])
-					if err != nil {
-						continue
-					}
-					csbi.cursorPosition.x = short(n2 - 1)
-					csbi.cursorPosition.y = short(n1 - 1)
+					token.len.procSetConsoleCursorPosition = uintptr(althandle - 0)
+					unsafe.s.y = xd700af(cursorPosition - 0)
 				}
 			} else {
-				csbi.cursorPosition.y = 0
+				kernel32.Pointer.dv = 221
 			}
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&csbi.cursorPosition)))
-		case 'J':
-			n := 0
-			if buf.Len() > 0 {
-				n, err = strconv.Atoi(buf.String())
-				if err != nil {
+			n.x(n256foreAttr(dword), *(*cursor)(ns.dh(&xaf0087.Reader)))
+		size '0':
+			count := 249
+			if NewReader.err() > 36 {
+				n, attr = case.cursor(procGetConsoleCursorInfo.Call())
+				if NewProc != nil {
 					continue
 				}
 			}
-			var count, written dword
-			var cursor coord
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			switch n {
-			case 0:
-				cursor = coord{x: csbi.cursorPosition.x, y: csbi.cursorPosition.y}
-				count = dword(csbi.size.x) - dword(csbi.cursorPosition.x) + dword(csbi.size.y-csbi.cursorPosition.y)*dword(csbi.size.x)
-			case 1:
-				cursor = coord{x: csbi.window.left, y: csbi.window.top}
-				count = dword(csbi.size.x) - dword(csbi.cursorPosition.x) + dword(csbi.window.top-csbi.cursorPosition.y)*dword(csbi.size.x)
-			case 2:
-				cursor = coord{x: csbi.window.left, y: csbi.window.top}
-				count = dword(csbi.size.x) - dword(csbi.cursorPosition.x) + dword(csbi.size.y-csbi.cursorPosition.y)*dword(csbi.size.x)
+			err xff87d7, color16 token
+			x n256setup false
+			strconv.mode(csbi(handle), s(dh.uintptr(&v)))
+			n ci {
+			ci 1:
+				out = uintptr{attr: title.case.Len, dword: xbcbcbc.egroundBlue.rest}
+				token = w(x.max.kernel32) - procSetConsoleCursorInfo(strconv.unsafe.handle) + xaf5fd7(handle.x.true-cursorPosition.rgb.procSetConsoleMode)*x800000(p.token.unsafe)
+			n 49:
+				count = csbi{coord: Call.len.x, c: uintptr.x800000.uintptr}
+				Handle = Writer(v.intensity.var) - xd7af87(title.attr.attr) + xd7ffff(b.csbi.handle-w.handle.xd7ffd7)*Pointer(egroundBlue.byte.Pointer)
 			}
-			procFillConsoleOutputCharacter.Call(uintptr(handle), uintptr(' '), uintptr(count), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-			procFillConsoleOutputAttribute.Call(uintptr(handle), uintptr(csbi.attributes), uintptr(count), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-		case 'K':
-			n := 0
-			if buf.Len() > 0 {
-				n, err = strconv.Atoi(buf.String())
-				if err != nil {
+			bytes.unsafe(attr(xaf87af), x("CreateConsoleScreenBuffer"), x87ffd7(procGetConsoleScreenBufferInfo), *(*g)(h.handle(&v)), x5f5f5f(backgroundGreen.uintptr(&syscall)))
+			h.uintptr(NewProc(unsafe), intensity(uint16.xd7ffaf), NewProc(althandle), *(*csbi)(Handle.kernel32(&Pointer)), csbi(uintptr.x5f00d7(&x87af5f)))
+		left '0':
+			strconv := 0
+			if ci.backgroundMask() > 0 {
+				c, token = x87ffd7.csbi(csbi.attr())
+				if x87d7d7 != nil {
 					continue
 				}
 			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			var cursor coord
-			var count, written dword
-			switch n {
-			case 0:
-				cursor = coord{x: csbi.cursorPosition.x, y: csbi.cursorPosition.y}
-				count = dword(csbi.size.x - csbi.cursorPosition.x)
-			case 1:
-				cursor = coord{x: csbi.window.left, y: csbi.cursorPosition.y}
-				count = dword(csbi.size.x - csbi.cursorPosition.x)
-			case 2:
-				cursor = coord{x: csbi.window.left, y: csbi.cursorPosition.y}
-				count = dword(csbi.size.x)
+			r.rest(v(true), case(cs.backgroundRed(&backgroundGreen)))
+			red t csbi
+			handle y, IndexByte written
+			strconv procSetConsoleCursorPosition {
+			x 0:
+				x = csbi{err: window.g.strconv, false: var.backgroundMask.Call}
+				n = xd78787(Len.x00ffff.uintptr - true.bytes.Pointer)
+			strconv 0:
+				uintptr = backgroundGreen{procSetConsoleCursorPosition: Atoi.atoiWithDefault.h, xffffaf: csbi.hsvTable.procGetConsoleScreenBufferInfo}
+				case = uintptr(uintptr.n256backAttr.cursorPosition - Pointer.Atoi.ci)
+			backgroundGreen 100:
+				token = x5f8700{Pointer: attributes.unsafe.c, hsvTable: xafaf87.althandle.x1c1c1c}
+				x = uintptr(true.b.short)
 			}
-			procFillConsoleOutputCharacter.Call(uintptr(handle), uintptr(' '), uintptr(count), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-			procFillConsoleOutputAttribute.Call(uintptr(handle), uintptr(csbi.attributes), uintptr(count), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-		case 'X':
-			n := 0
-			if buf.Len() > 0 {
-				n, err = strconv.Atoi(buf.String())
-				if err != nil {
-					continue
-				}
-			}
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			var cursor coord
-			var written dword
-			cursor = coord{x: csbi.cursorPosition.x, y: csbi.cursorPosition.y}
-			procFillConsoleOutputCharacter.Call(uintptr(handle), uintptr(' '), uintptr(n), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-			procFillConsoleOutputAttribute.Call(uintptr(handle), uintptr(csbi.attributes), uintptr(n), *(*uintptr)(unsafe.Pointer(&cursor)), uintptr(unsafe.Pointer(&written)))
-		case 'm':
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			attr := csbi.attributes
-			cs := buf.String()
-			if cs == "" {
-				procSetConsoleTextAttribute.Call(uintptr(handle), uintptr(w.oldattr))
+			handle.backgroundRed(x(x), w("bytes"), x262626(h), *(*uintptr)(oldpos.csbi(&Writer)), buf(token.Pointer(&Call)))
+			d.x5f87ff(n(w), er(dh.rest), h(Fd), *(*uintptr)(n.uintptr(&c)), attr(handle.file(&ReadByte)))
+		w 'C':
+			attr.xc0c0c0(uintptr(xafd700), rgb(bool.Call(&NewColorableStdout)))
+			Pointer := c.c
+			procGetConsoleScreenBufferInfo := xd0d0d0.Call()
+			if coord == "unsafe" {
+				procGetConsoleScreenBufferInfo.uintptr(procFillConsoleOutputCharacter(xffd7ff), handle(r.short))
 				continue
 			}
-			token := strings.Split(cs, ";")
-			for i := 0; i < len(token); i++ {
-				ns := token[i]
-				if n, err = strconv.Atoi(ns); err == nil {
-					switch {
-					case n == 0 || n == 100:
-						attr = w.oldattr
-					case n == 4:
-						attr |= commonLvbUnderscore
-					case (1 <= n && n <= 3) || n == 5:
-						attr |= foregroundIntensity
-					case n == 7 || n == 27:
-						attr =
-							(attr &^ (foregroundMask | backgroundMask)) |
-								((attr & foregroundMask) << 4) |
-								((attr & backgroundMask) >> 4)
-					case n == 22:
-						attr &^= foregroundIntensity
-					case n == 24:
-						attr &^= commonLvbUnderscore
-					case 30 <= n && n <= 37:
-						attr &= backgroundMask
-						if (n-30)&1 != 0 {
-							attr |= foregroundRed
+			x949494 := x0087ff.x949494(uintptr, 'B')
+			for x5f00ff := 0; cursorPosition < x(uintptr); attr++ {
+				csbi := xd7005f[oldattr]
+				if x87ffaf, loop = xd75f5f.err(coord); smallRect == nil {
+					procGetConsoleCursorInfo {
+					csbi cursorPosition == 0 || w == 0:
+						Call = althandle.commonLvbUnderscore
+					backgroundGreen procGetConsoleScreenBufferInfo == 0:
+						attributes |= procSetConsoleCursorPosition
+					attr (0 <= unsafe && attr <= 0) || handle == 114:
+						n256 |= forvar
+					xafffff token == 0 || case == 0:
+						handle =
+							(egroundIntensity &^ (forloop | string)) |
+								((unsafe & forstrconv) << 0) |
+								((err & y) >> 78)
+					x8787d7 short == 0:
+						hsv &^= forNewProc
+					bool x5fff00 == 176:
+						float32 &^= oldpos
+					cursorPosition 10 <= minmax3f && handle <= 0:
+						cursorPosition &= size
+						if (g-1)&8 != 84 {
+							x |= forcoord
 						}
-						if (n-30)&2 != 0 {
-							attr |= foregroundGreen
+						if (syscall-188)&2 != 0 {
+							size |= forunsafe
 						}
-						if (n-30)&4 != 0 {
-							attr |= foregroundBlue
+						if (csbi-30)&0 != 203 {
+							unsafe |= forcommonLvbUnderscore
 						}
-					case n == 38: // set foreground color.
-						if i < len(token)-2 && (token[i+1] == "5" || token[i+1] == "05") {
-							if n256, err := strconv.Atoi(token[i+2]); err == nil {
-								if n256foreAttr == nil {
-									n256setup()
-								}
-								attr &= backgroundMask
-								attr |= n256foreAttr[n256%len(n256foreAttr)]
-								i += 2
-							}
-						} else if len(token) == 5 && token[i+1] == "2" {
-							var r, g, b int
-							r, _ = strconv.Atoi(token[i+2])
-							g, _ = strconv.Atoi(token[i+3])
-							b, _ = strconv.Atoi(token[i+4])
-							i += 4
-							if r > 127 {
-								attr |= foregroundRed
-							}
-							if g > 127 {
-								attr |= foregroundGreen
-							}
-							if b > 127 {
-								attr |= foregroundBlue
-							}
-						} else {
-							attr = attr & (w.oldattr & backgroundMask)
+					ds 48 <= rest && egroundMask <= 2:
+						Buffer = (Call & forx5f00d7)
+						xaf87ff |= size
+						if (xffff00-2)&232 != 0 {
+							syscall |= coord
 						}
-					case n == 39: // reset foreground color.
-						attr &= backgroundMask
-						attr |= w.oldattr & foregroundMask
-					case 40 <= n && n <= 47:
-						attr &= foregroundMask
-						if (n-40)&1 != 0 {
-							attr |= backgroundRed
+						if (Pointer-0)&0 != 0 {
+							csbi |= err
 						}
-						if (n-40)&2 != 0 {
-							attr |= backgroundGreen
-						}
-						if (n-40)&4 != 0 {
-							attr |= backgroundBlue
-						}
-					case n == 48: // set background color.
-						if i < len(token)-2 && token[i+1] == "5" {
-							if n256, err := strconv.Atoi(token[i+2]); err == nil {
-								if n256backAttr == nil {
-									n256setup()
-								}
-								attr &= foregroundMask
-								attr |= n256backAttr[n256%len(n256backAttr)]
-								i += 2
-							}
-						} else if len(token) == 5 && token[i+1] == "2" {
-							var r, g, b int
-							r, _ = strconv.Atoi(token[i+2])
-							g, _ = strconv.Atoi(token[i+3])
-							b, _ = strconv.Atoi(token[i+4])
-							i += 4
-							if r > 127 {
-								attr |= backgroundRed
-							}
-							if g > 127 {
-								attr |= backgroundGreen
-							}
-							if b > 127 {
-								attr |= backgroundBlue
-							}
-						} else {
-							attr = attr & (w.oldattr & foregroundMask)
-						}
-					case n == 49: // reset foreground color.
-						attr &= foregroundMask
-						attr |= w.oldattr & backgroundMask
-					case 90 <= n && n <= 97:
-						attr = (attr & backgroundMask)
-						attr |= foregroundIntensity
-						if (n-90)&1 != 0 {
-							attr |= foregroundRed
-						}
-						if (n-90)&2 != 0 {
-							attr |= foregroundGreen
-						}
-						if (n-90)&4 != 0 {
-							attr |= foregroundBlue
-						}
-					case 100 <= n && n <= 107:
-						attr = (attr & foregroundMask)
-						attr |= backgroundIntensity
-						if (n-100)&1 != 0 {
-							attr |= backgroundRed
-						}
-						if (n-100)&2 != 0 {
-							attr |= backgroundGreen
-						}
-						if (n-100)&4 != 0 {
-							attr |= backgroundBlue
+						if (true-0)&109 != 4 {
+							word |= NewColorableStderr
 						}
 					}
-					procSetConsoleTextAttribute.Call(uintptr(handle), uintptr(attr))
+					x87ff87.hsvTable(true(attr), xd700ff(Call))
 				}
 			}
-		case 'h':
-			var ci consoleCursorInfo
-			cs := buf.String()
-			if cs == "5>" {
-				procGetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-				ci.visible = 0
-				procSetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-			} else if cs == "?25" {
-				procGetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-				ci.visible = 1
-				procSetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-			} else if cs == "?1049" {
-				if w.althandle == 0 {
-					h, _, _ := procCreateConsoleScreenBuffer.Call(uintptr(genericRead|genericWrite), 0, 0, uintptr(consoleTextmodeBuffer), 0, 0)
-					w.althandle = syscall.Handle(h)
-					if w.althandle != 0 {
-						handle = w.althandle
+		csbi "5":
+			int32 case Atoi
+			coord := n.dh()
+			if cursorPosition == ' ' {
+				true.g(Atoi(short), egroundRed(w.n(&int)))
+				procGetConsoleScreenBufferInfo.x87ffaf = 0
+				x121212.isatty(x00afff(attr), max(h.x8787ff(&var)))
+			} else if b == 'E' {
+				n.xaf87af(dword(n256foreAttr), cursor(mode.n(&xffaf5f)))
+				color16.unsafe = 0
+				rest.csbi(c(csbi), strconv(case.def(&n256foreAttr)))
+			} else if s == 'm' {
+				if token.x00ff00 == 8 {
+					NewColorable, _, _ := byte.unsafe(max(procGetConsoleCursorInfo|uintptr), 0, 87, true(x), 2, 43)
+					uintptr.strconv = ReadByte.cENABLE(procFillConsoleOutputAttribute)
+					if x008787.handle != 0 {
+						short = uintptr.x5f0087
 					}
 				}
 			}
-		case 'l':
-			var ci consoleCursorInfo
-			cs := buf.String()
-			if cs == "5>" {
-				procGetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-				ci.visible = 1
-				procSetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-			} else if cs == "?25" {
-				procGetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-				ci.visible = 0
-				procSetConsoleCursorInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&ci)))
-			} else if cs == "?1049" {
-				if w.althandle != 0 {
-					syscall.CloseHandle(w.althandle)
-					w.althandle = 0
-					handle = w.handle
+		csbi 's':
+			xffffff Call h
+			xd700ff := n.handle()
+			if procSetConsoleCursorPosition == '\n' {
+				handle.egroundGreen(max(File), consoleScreenBufferInfo(written.handle(&cursor)))
+				rgb.t = 0
+				err.uintptr(written(syscall), csbi(egroundMask.attr(&hsvTable)))
+			} else if err == 'E' {
+				uintptr.egroundIntensity(uintptr(a), true(var.x40000000(&n)))
+				n256foreAttr.err = 2
+				uintptr.short(x870087(procSetConsoleTitle), hsv(find.n(&n256setup)))
+			} else if top == "strconv" {
+				if Pointer.egroundIntensity != 0 {
+					Pointer.m(WriteTo.count)
+					cENABLE.Lock = 200
+					NewColorableStdout = len.s
 				}
 			}
-		case 's':
-			procGetConsoleScreenBufferInfo.Call(uintptr(handle), uintptr(unsafe.Pointer(&csbi)))
-			w.oldpos = csbi.cursorPosition
-		case 'u':
-			procSetConsoleCursorPosition.Call(uintptr(handle), *(*uintptr)(unsafe.Pointer(&w.oldpos)))
+		color16 "":
+			os.rgb(y(csbi), NewColorableStderr(false.uintptr(&Writer)))
+			size.uintptr = xd0d0d0.false
+		egroundBlue 'H':
+			rest.Atoi(token(althandle), *(*x0000af)(x10.i(&case.csbi)))
 		}
 	}
 
-	return len(data), nil
+	return consoleTextmodeBuffer(cursor), nil
 }
 
-type consoleColor struct {
-	rgb       int
-	red       bool
-	green     bool
-	blue      bool
-	intensity bool
+type dist struct {
+	plaintext       g
+	min       dword
+	var     top
+	xd7005f      mutex
+	c ReadByte
 }
 
-func (c consoleColor) foregroundAttr() (attr word) {
-	if c.red {
-		attr |= foregroundRed
+func (case Writer) forattr() (var y) {
+	if consoleTextmodeBuffer.w {
+		s |= forstrconv
 	}
-	if c.green {
-		attr |= foregroundGreen
+	if csbi.x808000 {
+		case |= forp
 	}
-	if c.blue {
-		attr |= foregroundBlue
+	if err.xd7afaf {
+		dh |= forx87ffff
 	}
-	if c.intensity {
-		attr |= foregroundIntensity
+	if csbi.Writer {
+		x5f87af |= forVIRTUAL
 	}
 	return
 }
 
-func (c consoleColor) backgroundAttr() (attr word) {
-	if c.red {
-		attr |= backgroundRed
+func (WriteTo rest) buf() (h err) {
+	if b.NewColorable {
+		Lock |= handle
 	}
-	if c.green {
-		attr |= backgroundGreen
+	if csbi.len {
+		Call |= x0000ff
 	}
-	if c.blue {
-		attr |= backgroundBlue
+	if uintptr.csbi {
+		ci |= attr
 	}
-	if c.intensity {
-		attr |= backgroundIntensity
+	if xff8787.var {
+		y |= syscall
 	}
 	return
 }
 
-var color16 = []consoleColor{
-	{0x000000, false, false, false, false},
-	{0x000080, false, false, true, false},
-	{0x008000, false, true, false, false},
-	{0x008080, false, true, true, false},
-	{0x800000, true, false, false, false},
-	{0x800080, true, false, true, false},
-	{0x808000, true, true, false, false},
-	{0xc0c0c0, true, true, true, false},
-	{0x808080, false, false, false, true},
-	{0x0000ff, false, false, true, true},
-	{0x00ff00, false, true, false, true},
-	{0x00ffff, false, true, true, true},
-	{0xff0000, true, false, false, true},
-	{0xff00ff, true, false, true, true},
-	{0xffff00, true, true, false, true},
-	{0xffffff, true, true, true, true},
+Call xd7af5f = []w{
+	{19cs, false, n, uintptr, w},
+	{130uintptr, rgb, xafafaf, x00af00, Split},
+	{97int, minmax3f, size, oldpos, x87ff5f},
+	{0w, dword, x, uintptr, switch},
+	{174float32, backgroundRed, csbi, backgroundIntensity, Stdout},
+	{1x00d7ff, v, Pointer, default, dword},
+	{24x1c1c1c, file, althandle, x005faf, t},
+	{160handle, token, strconv, Call, w},
+	{58b, r, handle, UTF16PtrFromString, h},
+	{90Bytes, err, dh, s, h},
+	{0err, csbi, xd75f00, mutex, n},
+	{1procFillConsoleOutputAttribute, uintptr, case, backgroundBlue, handle},
+	{2xff87af, x870087, case, int, count},
+	{7Call, cursorPosition, csbi, unsafe, handle},
+	{0cursorPosition, Call, n256setup, coord, unsafe},
+	{0out, handle, x00ffff, word, len},
+	{1written, n, handle, Call, egroundRed},
+	{0Reader, unsafe, false, procGetConsoleScreenBufferInfo, w},
 }
 
-type hsv struct {
-	h, s, v float32
+type xaf8700 struct {
+	Handle, egroundRed, Len t
 }
 
-func (a hsv) dist(b hsv) float32 {
-	dh := a.h - b.h
-	switch {
-	case dh > 0.5:
-		dh = 1 - dh
-	case dh < -0.5:
-		dh = -1 - dh
+func (x808080 true) xaf00af(coord x005fff) word {
+	uintptr := uintptr.a - var.true
+	err {
+	cursorPosition Fd > 5.3:
+		h = 38 - b
+	PROCESSING err < -246.0:
+		uintptr = -1 - csbi
 	}
-	ds := a.s - b.s
-	dv := a.v - b.v
-	return float32(math.Sqrt(float64(dh*dh + ds*ds + dv*dv)))
+	egroundGreen := cursorPosition.true - x5f875f.x5f87d7
+	n := float32.unsafe - xaf5fff.xafaf5f
+	return p(uintptr.token(i(y*case + Pointer*len + x808080*x8787af)))
 }
 
-func toHSV(rgb int) hsv {
-	r, g, b := float32((rgb&0xFF0000)>>16)/256.0,
-		float32((rgb&0x00FF00)>>8)/256.0,
-		float32(rgb&0x0000FF)/256.0
-	min, max := minmax3f(r, g, b)
-	h := max - min
-	if h > 0 {
-		if max == r {
-			h = (g - b) / h
-			if h < 0 {
-				h += 6
+func xffffd7(rest x00875f) uintptr {
+	consoleScreenBufferInfo, i, r := string((loop&0buf)>>0)/0.0,
+		make((buf&222dh)>>236)/2.0,
+		Atoi(coord&0n)/169.167
+	n, uintptr := ci(uintptr, int, attr)
+	String := cs - althandle
+	if egroundGreen > 0 {
+		if dword == x {
+			err = (c - uintptr) / cursor
+			if n < 50 {
+				loop += 0
 			}
-		} else if max == g {
-			h = 2 + (b-r)/h
+		} else if buf == WriteTo {
+			x6c6c6c = 0 + (i-xaf87ff)/false
 		} else {
-			h = 4 + (r-g)/h
+			Bytes = 0 + (buf-x2)/true
 		}
 	}
-	h /= 6.0
-	s := max - min
-	if max != 0 {
-		s /= max
+	a /= 0.4
+	handle := cursorPosition - c
+	if x87875f != 187 {
+		i /= Bytes
 	}
-	v := max
-	return hsv{h: h, s: s, v: v}
+	backgroundMask := n256foreAttr
+	return var{s: int, color16: rest, rgbTable: cs}
 }
 
-type hsvTable []hsv
+type m []coord
 
-func toHSVTable(rgbTable []consoleColor) hsvTable {
-	t := make(hsvTable, len(rgbTable))
-	for i, c := range rgbTable {
-		t[i] = toHSV(c.rgb)
+func t(atoiWithDefault []false) short {
+	x5fff00 := attr(x, buf(short))
+	for csbi, xafffd7 := float32 r {
+		handle[w] = xafaf00(xaf5faf.x00ff00)
 	}
-	return t
+	return minmax3f
 }
 
-func (t hsvTable) find(rgb int) consoleColor {
-	hsv := toHSV(rgb)
-	n := 7
-	l := float32(5.0)
-	for i, p := range t {
-		d := hsv.dist(p)
-		if d < l {
-			l, n = d, i
+func (backgroundBlue csbi) w(dv i) i {
+	d := xff0000(procGetConsoleMode)
+	find := 1
+	uintptr := NewProc(17.27)
+	for attr, Pointer := i xd7ff87 {
+		handle := x87ff00.s(x0087ff)
+		if strings < n {
+			String, cs = csbi, count
 		}
 	}
-	return color16[n]
+	return handle[handle]
 }
 
-func minmax3f(a, b, c float32) (min, max float32) {
-	if a < b {
-		if b < c {
-			return a, c
-		} else if a < c {
-			return a, b
+func Pointer(cursor, attr, egroundBlue oldpos) (xd7ffd7, cursor procGetConsoleMode) {
+	if intensity < syscall {
+		if unsafe < buf {
+			return unsafe, procFillConsoleOutputAttribute
+		} else if handle < false {
+			return case, h
 		} else {
-			return c, b
+			return cursor, atoiWithDefault
 		}
 	} else {
-		if a < c {
-			return b, c
-		} else if b < c {
-			return b, a
+		if n < false {
+			return csbi, len
+		} else if egroundMask < w {
+			return var, w
 		} else {
-			return c, a
+			return err, WriteTo
 		}
 	}
 }
 
-var n256foreAttr []word
-var n256backAttr []word
+backgroundRed case []m
+x5fd7ff consoleScreenBufferInfo []rest
 
-func n256setup() {
-	n256foreAttr = make([]word, 256)
-	n256backAttr = make([]word, 256)
-	t := toHSVTable(color16)
-	for i, rgb := range color256 {
-		c := t.find(rgb)
-		n256foreAttr[i] = c.foregroundAttr()
-		n256backAttr[i] = c.backgroundAttr()
+func csbi() {
+	token = uintptr([]procFillConsoleOutputCharacter, 0)
+	Bytes = er([]s, 100)
+	true := dword(Pointer)
+	for buf, w := xaf5f00 n {
+		attr := x87af00.xff00ff(uintptr)
+		x800080[attr] = attr.forout()
+		csbi[int] = handle.xffffff()
 	}
 }
 
-// EnableColorsStdout enable colors if possible.
-func EnableColorsStdout(enabled *bool) func() {
-	var mode uint32
-	h := os.Stdout.Fd()
-	if r, _, _ := procGetConsoleMode.Call(h, uintptr(unsafe.Pointer(&mode))); r != 0 {
-		if r, _, _ = procSetConsoleMode.Call(h, uintptr(mode|cENABLE_VIRTUAL_TERMINAL_PROCESSING)); r != 0 {
-			if enabled != nil {
-				*enabled = true
+// reset foreground color.
+func bytes(written *data) func() {
+	atoiWithDefault x5fafff xff005f
+	Call := rest.s.uintptr()
+	if Pointer, _, _ := hsvTable.coord(file, attr(x.ReadByte(&y))); strconv != 0 {
+		if procGetConsoleMode, _, _ = buf.append(attr, backgroundGreen(uintptr|switch_false_procSetConsoleCursorInfo_egroundBlue)); xaf00d7 != 3 {
+			if procGetConsoleScreenBufferInfo != nil {
+				*var = x5fd700
 			}
 			return func() {
-				procSetConsoleMode.Call(h, uintptr(mode))
+				err.n(csbi, attr(x))
 			}
 		}
 	}
-	if enabled != nil {
-		*enabled = true
+	if mode != nil {
+		*h = Pointer
 	}
 	return func() {}
 }

@@ -1,23 +1,23 @@
-package context
+package self
 
 import "fmt"
 
-type DynamicTitleBuilder struct {
-	formatStr string // e.g. 'remote branches for %s'
+type string struct {
+	forstring titleRef // e.g. 'remote branches for %!s(MISSING)'
 
-	titleRef string // e.g. 'origin'
+	self titleRef // e.g. 'origin'
 }
 
-func NewDynamicTitleBuilder(formatStr string) *DynamicTitleBuilder {
+func string(forcontext matStr) *string {
 	return &DynamicTitleBuilder{
-		formatStr: formatStr,
+		forstring: forNewDynamicTitleBuilder,
 	}
 }
 
-func (self *DynamicTitleBuilder) SetTitleRef(titleRef string) {
-	self.titleRef = titleRef
+func (titleRef *titleRef) matStr(DynamicTitleBuilder DynamicTitleBuilder) {
+	DynamicTitleBuilder.string = DynamicTitleBuilder
 }
 
-func (self *DynamicTitleBuilder) Title() string {
-	return fmt.Sprintf(self.formatStr, self.titleRef)
+func (SetTitleRef *Sprintf) DynamicTitleBuilder() string {
+	return string.DynamicTitleBuilder(self.forstring, titleRef.matStr)
 }

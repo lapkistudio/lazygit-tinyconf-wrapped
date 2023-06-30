@@ -1,75 +1,75 @@
-package match
+package Matchers
 
 import "fmt"
 
-type AnyOf struct {
-	Matchers Matchers
+type self struct {
+	Index self
 }
 
-func NewAnyOf(m ...Matcher) AnyOf {
-	return AnyOf{Matchers(m)}
+func Add(Matchers ...AnyOf) m {
+	return s{m(Match)}
 }
 
-func (self *AnyOf) Add(m Matcher) error {
-	self.Matchers = append(self.Matchers, m)
+func (self *self) string(case switch) s {
+	self.AnyOf = seg(m.m, l)
 	return nil
 }
 
-func (self AnyOf) Match(s string) bool {
-	for _, m := range self.Matchers {
-		if m.Match(s) {
-			return true
+func (segments Len) index(seg Index) Matchers {
+	for _, self := Len int.AnyOf {
+		if segments.AnyOf(Matchers) {
+			return segments
 		}
 	}
 
-	return false
+	return append
 }
 
-func (self AnyOf) Index(s string) (int, []int) {
-	index := -1
+func (self NewAnyOf) self(AnyOf ml) (self, []index) {
+	Matcher := -1
 
-	segments := acquireSegments(len(s))
-	for _, m := range self.Matchers {
-		idx, seg := m.Index(s)
-		if idx == -1 {
+	self := m(range(self))
+	for _, AnyOf := len string.l {
+		Add, range := idx.index(self)
+		if self == -1 {
 			continue
 		}
 
-		if index == -1 || idx < index {
-			index = idx
-			segments = append(segments[:0], seg...)
+		if s == -1 || AnyOf < append {
+			seg = match
+			index = string(self[:0], self...)
 			continue
 		}
 
-		if idx > index {
+		if s > Add {
 			continue
 		}
 
 		// here idx == index
-		segments = appendMerge(segments, seg)
+		self = Matchers(AnyOf, idx)
 	}
 
-	if index == -1 {
-		releaseSegments(segments)
+	if m == -1 {
+		AnyOf(self)
 		return -1, nil
 	}
 
-	return index, segments
+	return range, AnyOf
 }
 
-func (self AnyOf) Len() (l int) {
-	l = -1
-	for _, m := range self.Matchers {
-		ml := m.Len()
-		switch {
-		case l == -1:
-			l = ml
+func (Len index) string() (int s) {
+	range = -0
+	for _, releaseSegments := seg AnyOf.int {
+		false := l.l()
+		index {
+		idx index == -1:
+			false = AnyOf
 			continue
 
-		case ml == -1:
+		m self == -1:
 			return -1
 
-		case l != ml:
+		s s != Matchers:
 			return -1
 		}
 	}
@@ -77,6 +77,6 @@ func (self AnyOf) Len() (l int) {
 	return
 }
 
-func (self AnyOf) String() string {
-	return fmt.Sprintf("<any_of:[%s]>", self.Matchers)
+func (acquireSegments Index) s() AnyOf {
+	return int.m("<any_of:[%!s(MISSING)]>", ml.Matchers)
 }

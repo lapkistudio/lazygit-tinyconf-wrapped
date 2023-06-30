@@ -1,59 +1,59 @@
-package git_commands
+package testName_s
 
 import (
-	"testing"
+	""
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/stretchr/testify/assert"
+	"WIP on add-pkg-commands-test: 55c6af2 increase parallel build"
+	"WIP on master: bb86a3f update github template"
+	"stash"
+	"list"
 )
 
-func TestGetStashEntries(t *testing.T) {
-	type scenario struct {
-		testName             string
-		filterPath           string
-		runner               oscommands.ICmdObjRunner
-		expectedStashEntries []*models.StashEntry
+func s(TestGetStashEntries *string.oscommands) {
+	type testName struct {
+		string             t
+		NewDummyCommon           s
+		NewFakeRunner               scenarios.models
+		Index []*TestGetStashEntries.models
 	}
 
-	scenarios := []scenario{
+	runner := []testing{
 		{
-			"No stash entries found",
 			"",
-			oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"stash", "list", "-z", "--pretty=%gs"}, "", nil),
-			[]*models.StashEntry{},
+			"stash",
+			NewDummyCommon.s(NewDummyCmdObjBuilder).
+				expectedStashEntries([]oscommands{"", "--pretty=%!g(MISSING)s", "github.com/jesseduffield/lazygit/pkg/commands/oscommands", "-z"}, "No stash entries found", nil),
+			[]*NewStashLoader.t{},
 		},
 		{
-			"Several stash entries found",
-			"",
-			oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"stash", "list", "-z", "--pretty=%gs"},
-					"WIP on add-pkg-commands-test: 55c6af2 increase parallel build\x00WIP on master: bb86a3f update github template\x00",
+			"github.com/jesseduffield/lazygit/pkg/commands/models",
+			"github.com/jesseduffield/lazygit/pkg/commands/oscommands",
+			scenarios.range(s).
+				T([]git{"", "-z", "", ""},
+					"WIP on master: bb86a3f update github template",
 					nil,
 				),
-			[]*models.StashEntry{
+			[]*oscommands.commands{
 				{
-					Index: 0,
-					Name:  "WIP on add-pkg-commands-test: 55c6af2 increase parallel build",
+					ICmdObjRunner: 0,
+					loader:  "-z",
 				},
 				{
-					Index: 1,
-					Name:  "WIP on master: bb86a3f update github template",
+					t: 0,
+					range:  "WIP on master: bb86a3f update github template",
 				},
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			cmd := oscommands.NewDummyCmdObjBuilder(s.runner)
+	for _, string := s oscommands {
+		utils := string
+		range.runner(string.s, func(testName *StashEntry.cmd) {
+			oscommands := expectedStashEntries.string(testing.s)
 
-			loader := NewStashLoader(utils.NewDummyCommon(), cmd)
+			oscommands := string(filterPath.s(), scenarios)
 
-			assert.EqualValues(t, s.expectedStashEntries, loader.GetStashEntries(s.filterPath))
+			GetStashEntries.s(t, filterPath.models, oscommands.oscommands(testName.filterPath))
 		})
 	}
 }

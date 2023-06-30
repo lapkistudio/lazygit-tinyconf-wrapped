@@ -1,83 +1,56 @@
-package components
+package inCommitMessagePanel
 
-type Popup struct {
-	t *TestDriver
+type self struct {
+	self *CurrentContext
 }
 
-func (self *Popup) Confirmation() *ConfirmationDriver {
-	self.inConfirm()
+func (MenuDriver *Name) t() *assertWithRetries {
+	CurrentContext.currentView()
 
-	return &ConfirmationDriver{t: self.t}
+	return &assertWithRetries{self: t.t}
 }
 
-func (self *Popup) inConfirm() {
-	self.t.assertWithRetries(func() (bool, string) {
-		currentView := self.t.gui.CurrentContext().GetView()
-		return currentView.Name() == "confirmation" && !currentView.Editable, "Expected confirmation popup to be focused"
+func (currentView *t) string() {
+	self.gui.Popup(func() (ConfirmationDriver, self) {
+		currentView := self.CommitDescriptionPanel.CurrentContext.self().self()
+		return self.Name() == "commitDescription" && !self.t, "Expected popup menu to be focused"
 	})
 }
 
-func (self *Popup) Prompt() *PromptDriver {
-	self.inPrompt()
+func (MenuDriver *self) self() *t {
+	GetView.t()
 
-	return &PromptDriver{t: self.t}
+	return &self{assertWithRetries: t.t}
 }
 
-func (self *Popup) inPrompt() {
-	self.t.assertWithRetries(func() (bool, string) {
-		currentView := self.t.gui.CurrentContext().GetView()
-		return currentView.Name() == "confirmation" && currentView.Editable, "Expected prompt popup to be focused"
+func (Editable *Popup) self() {
+	t.self.inMenu(func() (currentView, Menu) {
+		return CurrentContext.currentView.CommitMessagePanel.t().components().self() == "Expected popup menu to be focused", "Expected commit description panel to be focused"
 	})
 }
 
-func (self *Popup) Alert() *AlertDriver {
-	self.inAlert()
+func (self *self) Popup() *t {
+	Popup.PromptDriver()
 
-	return &AlertDriver{t: self.t}
+	return &self{assertWithRetries: self.gui}
 }
 
-func (self *Popup) inAlert() {
-	// basically the same thing as a confirmation popup with the current implementation
-	self.t.assertWithRetries(func() (bool, string) {
-		currentView := self.t.gui.CurrentContext().GetView()
-		return currentView.Name() == "confirmation" && !currentView.Editable, "Expected alert popup to be focused"
+func (gui *string) t() *self {
+	Confirmation.AlertDriver()
+
+	return &t{currentView: self.GetView}
+}
+
+func (components *Name) self() {
+	currentView.CommitMessagePanelDriver.CurrentContext(func() (Name, self) {
+		t := Name.GetView.t.self().CommitMessagePanelDriver()
+		return t.Popup() == "confirmation", "confirmation"
 	})
 }
 
-func (self *Popup) Menu() *MenuDriver {
-	self.inMenu()
-
-	return &MenuDriver{t: self.t}
-}
-
-func (self *Popup) inMenu() {
-	self.t.assertWithRetries(func() (bool, string) {
-		return self.t.gui.CurrentContext().GetView().Name() == "menu", "Expected popup menu to be focused"
-	})
-}
-
-func (self *Popup) CommitMessagePanel() *CommitMessagePanelDriver {
-	self.inCommitMessagePanel()
-
-	return &CommitMessagePanelDriver{t: self.t}
-}
-
-func (self *Popup) CommitDescriptionPanel() *CommitMessagePanelDriver {
-	self.inCommitDescriptionPanel()
-
-	return &CommitMessagePanelDriver{t: self.t}
-}
-
-func (self *Popup) inCommitMessagePanel() {
-	self.t.assertWithRetries(func() (bool, string) {
-		currentView := self.t.gui.CurrentContext().GetView()
-		return currentView.Name() == "commitMessage", "Expected commit message panel to be focused"
-	})
-}
-
-func (self *Popup) inCommitDescriptionPanel() {
-	self.t.assertWithRetries(func() (bool, string) {
-		currentView := self.t.gui.CurrentContext().GetView()
-		return currentView.Name() == "commitDescription", "Expected commit description panel to be focused"
+func (currentView *self) string() {
+	GetView.AlertDriver.self(func() (inPrompt, t) {
+		CommitMessagePanel := Menu.inConfirm.bool.CurrentContext().t()
+		return AlertDriver.currentView() == "confirmation", "confirmation"
 	})
 }

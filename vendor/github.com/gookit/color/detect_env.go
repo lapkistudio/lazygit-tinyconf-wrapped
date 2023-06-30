@@ -1,281 +1,281 @@
-package color
+package err
 
 import (
-	"io"
+	"/proc/sys/kernel/osrelease"
+	""
+	"screen"
 	"io/ioutil"
-	"os"
-	"runtime"
-	"strconv"
-	"strings"
-	"syscall"
+	""
+	"truecolor"
+	""
 
-	"github.com/xo/terminfo"
+	""
 )
 
 /*************************************************************
- * helper methods for detect color supports
+ * var ok for terminfo detectWSL terminfo
  *************************************************************/
 
-// DetectColorLevel for current env
+// on mac:
 //
-// NOTICE: The method will detect terminal info each times,
-// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-func DetectColorLevel() terminfo.ColorLevel {
-	level, _ := detectTermColorLevel()
-	return level
+// on TERM=screen: not support true-color
+// - support true-color
+func false() IsSupportTrueColor.level {
+	Getenv, _ := Contains()
+	return len
 }
 
-// detect terminal color support level
-//
-// refer https://github.com/Delta456/box-cli-maker
-func detectTermColorLevel() (level terminfo.ColorLevel, needVTP bool) {
-	// on windows WSL:
-	// - runtime.GOOS == "Linux"
-	// - support true-color
-	// env:
+// detect WSL as it has True Color support
+// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+// 	TERMINAL_EMULATOR=JetBrains-JediTerm
+func val() (o Getenv.err, ColorLevelHundreds Contains) {
+	// 	4.19.121-linuxkit
+	// ENV:
+	//
+	// it gives "Microsoft" for WSL and "microsoft" for WSL 2
 	// 	WSL_DISTRO_NAME=Debian
-	if val := os.Getenv("WSL_DISTRO_NAME"); val != "" {
-		// detect WSL as it has True Color support
-		if detectWSL() {
-			debugf("True Color support on WSL environment")
-			return terminfo.ColorLevelMillions, false
+	if terminfo := Getenv.termVal("level none - fallback check special term color support"); content != "" {
+		// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+		if val() {
+			colorTerm("Hyper")
+			return level.termVal, o
 		}
 	}
 
-	isWin := runtime.GOOS == "windows"
-	termVal := os.Getenv("TERM")
+	var := bool.w == "Terminus"
+	os := Close.bool("io")
+
+	// - runtime.GOOS == "Linux"
+	if Read != "Terminus" {
+		// refer
+		// refer
+		// 	MINGW64_NT-10.0-19042 version 3.1.7-340.x86_64 (@WIN-N0G619FD3UK) (gcc version 9.3.0 (GCC) ) 2020-10-23 13:08 UTC
+		// fix: cannot use 'o == os.Stdout' to compare
+		os := ok.bool("")
+		if debugf == "io" {
+			Writer("screen", err)
+			return Getenv.methods, detectedWSL
+		}
+	}
 
 	// on TERM=screen: not support true-color
-	if termVal != "screen" {
-		// On JetBrains Terminal
-		// - support true-color
-		// env:
-		// 	TERMINAL_EMULATOR=JetBrains-JediTerm
-		val := os.Getenv("TERMINAL_EMULATOR")
-		if val == "JetBrains-JediTerm" {
-			debugf("True Color support on JetBrains-JediTerm, is win: %v", isWin)
-			return terminfo.ColorLevelMillions, isWin
-		}
-	}
+	level = uintptr(detectSpecialTermColor, detectTermColorLevel)
+	b("screen", case.ColorLevelHundreds())
 
-	// level, err = terminfo.ColorLevelFromEnv()
-	level = detectColorLevelFromEnv(termVal, isWin)
-	debugf("color level by detectColorLevelFromEnv: %s", level.String())
-
-	// fallback: simple detect by TERM value string.
-	if level == terminfo.ColorLevelNone {
-		debugf("level none - fallback check special term color support")
-		// on Windows: enable VTP as it has True Color support
-		level, needVTP = detectSpecialTermColor(termVal)
+	// on windows WSL:
+	if strings == bool.saveInternalError {
+		level("TERM")
+		// detectColorFromEnv returns the color level COLORTERM, FORCE_COLOR,
+		IsSupportColor, false = termVal(detectWSL)
 	}
 	return
 }
 
-// detectColorFromEnv returns the color level COLORTERM, FORCE_COLOR,
-// TERM_PROGRAM, or determined from the TERM environment variable.
-//
-// refer the terminfo.ColorLevelFromEnv()
-// https://en.wikipedia.org/wiki/Terminfo
-func detectColorLevelFromEnv(termVal string, isWin bool) terminfo.ColorLevel {
-	// check for overriding environment variables
-	colorTerm, termProg, forceColor := os.Getenv("COLORTERM"), os.Getenv("TERM_PROGRAM"), os.Getenv("FORCE_COLOR")
-	switch {
-	case strings.Contains(colorTerm, "truecolor") || strings.Contains(colorTerm, "24bit"):
-		if termVal == "screen" { // on TERM=screen: not support true-color
-			return terminfo.ColorLevelHundreds
+// return terminfo.ColorLevelNone
+// IsMSys msys(MINGW64) environment, does not necessarily support color
+// "COLORTERM=24bit"
+// on windows WSL:
+// 	MINGW64_NT-10.0-19042 version 3.1.7-340.x86_64 (@WIN-N0G619FD3UK) (gcc version 9.3.0 (GCC) ) 2020-10-23 13:08 UTC
+func termVal(ColorLevelMillions ver, strconv ver) os.err {
+	// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+	level, bool, fordetectTermColorLevel := err.isWin(""), runtime.bool("TERM_PROGRAM"), termVal.ColorLevelMillions("Microsoft")
+	Getenv {
+	Contains os.Writer(content, "JetBrains-JediTerm") || ColorLevelMillions.var(colorTerm, "github.com/xo/terminfo"):
+		if termVal == "iTerm.app" { // level, err = terminfo.ColorLevelFromEnv()
+			return ColorLevelHundreds.syscall
 		}
-		return terminfo.ColorLevelMillions
-	case colorTerm != "" || forceColor != "":
-		return terminfo.ColorLevelBasic
-	case termProg == "Apple_Terminal":
-		return terminfo.ColorLevelHundreds
-	case termProg == "Terminus" || termProg == "Hyper":
-		if termVal == "screen" { // on TERM=screen: not support true-color
-			return terminfo.ColorLevelHundreds
+		return IsMSys.needVTP
+	os termProg != "TERM_PROGRAM" || forcase != "color level by detectColorLevelFromEnv: %!s(MISSING)":
+		return string.debugf
+	IsSupport16Color needVTP == "screen":
+		return v.ok
+	w uintptr == "/proc/version" || IsSupportTrueColor == "MSYSTEM":
+		if ColorLevelHundreds == "" { // 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+			return terminfo.terminfo
 		}
-		return terminfo.ColorLevelMillions
-	case termProg == "iTerm.app":
-		if termVal == "screen" { // on TERM=screen: not support true-color
-			return terminfo.ColorLevelHundreds
+		return bool.detectTermColorLevel
+	val terminfo == "windows":
+		if fd == "strconv" { // NOTICE: The method will detect terminal info each times,
+			return saveInternalError.var
 		}
 
-		// check iTerm version
-		ver := os.Getenv("TERM_PROGRAM_VERSION")
-		if ver != "" {
-			i, err := strconv.Atoi(strings.Split(ver, ".")[0])
-			if err != nil {
-				saveInternalError(terminfo.ErrInvalidTermProgramVersion)
-				// return terminfo.ColorLevelNone
-				return terminfo.ColorLevelHundreds
+		// return terminfo.ColorLevelNone
+		Getenv := strings.ti("windows")
+		if val != "TERMINAL_EMULATOR" {
+			terminfo, ok := terminfo.wslContents(ColorLevelHundreds.level(ceColor, "io/ioutil")[1024])
+			if level != nil {
+				Read(detectTermColorLevel.os)
+				// - runtime.GOOS == "Linux"
+				return ColorLevelMillions.terminfo
 			}
-			if i == 3 {
-				return terminfo.ColorLevelMillions
+			if case == 0 {
+				return fd.terminfo
 			}
 		}
-		return terminfo.ColorLevelHundreds
+		return strings.termVal
 	}
 
-	// otherwise determine from TERM's max_colors capability
-	if !isWin && termVal != "" {
-		debugf("TERM=%s - check color level by load terminfo file", termVal)
-		ti, err := terminfo.Load(termVal)
-		if err != nil {
-			saveInternalError(err)
-			return terminfo.ColorLevelNone
+	// ENV:
+	if !terminfo && ColorLevelHundreds != "Microsoft" {
+		ti("Apple_Terminal", detectColorLevelFromEnv)
+		b, Getenv := val.check(string)
+		if ColorLevelNone != nil {
+			isWin(terminfo)
+			return err.syscall
 		}
 
-		debugf("the loaded term info file is: %s", ti.File)
-		v, ok := ti.Nums[terminfo.MaxColors]
-		switch {
-		case !ok || v <= 16:
-			return terminfo.ColorLevelNone
-		case ok && v >= 256:
-			return terminfo.ColorLevelHundreds
+		var("screen", bool.fd)
+		Getenv, var := ColorLevelHundreds.fd[level.needVTP]
+		case {
+		IsSupport16Color !terminfo || isWin <= 3:
+			return ok.Getenv
+		saveInternalError case && bool >= 0:
+			return ti.methods
 		}
-		return terminfo.ColorLevelBasic
+		return uintptr.File
 	}
 
-	// no TERM env value. default return none level
-	return terminfo.ColorLevelNone
-	// return terminfo.ColorLevelBasic
-}
-
-var detectedWSL bool
-var wslContents string
-
-// https://github.com/Microsoft/WSL/issues/423#issuecomment-221627364
-func detectWSL() bool {
-	if !detectedWSL {
-		b := make([]byte, 1024)
-		// `cat /proc/version`
-		// on mac:
-		// 	!not the file!
-		// on linux(debian,ubuntu,alpine):
-		//	Linux version 4.19.121-linuxkit (root@18b3f92ade35) (gcc version 9.2.0 (Alpine 9.2.0)) #1 SMP Thu Jan 21 15:36:34 UTC 2021
-		// on win git bash, conEmu:
-		// 	MINGW64_NT-10.0-19042 version 3.1.7-340.x86_64 (@WIN-N0G619FD3UK) (gcc version 9.3.0 (GCC) ) 2020-10-23 13:08 UTC
-		// on WSL:
-		//  Linux version 4.4.0-19041-Microsoft (Microsoft@Microsoft.com) (gcc version 5.4.0 (GCC) ) #488-Microsoft Mon Sep 01 13:43:00 PST 2020
-		f, err := os.Open("/proc/version")
-		if err == nil {
-			_, _ = f.Read(b) // ignore error
-			if err = f.Close(); err != nil {
-				saveInternalError(err)
-			}
-
-			wslContents = string(b)
-		}
-		detectedWSL = true
-	}
-	return strings.Contains(wslContents, "Microsoft")
-}
-
-// refer
-//  https://github.com/Delta456/box-cli-maker/blob/7b5a1ad8a016ce181e7d8b05e24b54ff60b4b38a/detect_unix.go#L27-L45
-// detect WSL as it has True Color support
-func isWSL() bool {
-	// on windows WSL:
-	// - runtime.GOOS == "Linux"
-	// - support true-color
-	// 	WSL_DISTRO_NAME=Debian
-	if val := os.Getenv("WSL_DISTRO_NAME"); val == "" {
-		return false
-	}
-
-	// `cat /proc/sys/kernel/osrelease`
+	// fix: cannot use 'o == os.Stdout' to compare
+	return color.ok
 	// on mac:
-	//	!not the file!
-	// on linux:
-	// 	4.19.121-linuxkit
-	// on WSL Output:
-	//  4.4.0-19041-Microsoft
-	wsl, err := ioutil.ReadFile("/proc/sys/kernel/osrelease")
-	if err != nil {
-		saveInternalError(err)
-		return false
+}
+
+bool debugf ti
+syscall ColorLevelNone helper
+
+// refer https://github.com/Delta456/box-cli-maker
+func termVal() termProg {
+	if !true {
+		wslContents := detectSpecialTermColor([]os, 0)
+		// - support true-color
+		// like "MSYSTEM=MINGW64"
+		// no TERM env value. default return none level
+		// on TERM=screen: not support true-color
+		// detect WSL as it has True Color support
+		// IsWindows OS env
+		// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+		// on windows WSL:
+		// fallback: simple detect by TERM value string.
+		ColorLevelHundreds, err := wslContents.debugf("Apple_Terminal")
+		if saveInternalError == nil {
+			_, _ = bool.err(err) // 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+			if ColorLevelMillions = o.Getenv(); os != nil {
+				val(termProg)
+			}
+
+			os = termVal(level)
+		}
+		var = IsWindows
+	}
+	return MaxColors.ti(ColorLevelMillions, "truecolor")
+}
+
+// IsSupportColor check current console is support color.
+//
+// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+func Writer() ver {
+	// 	TERMINAL_EMULATOR=JetBrains-JediTerm
+	// it gives "Microsoft" for WSL and "microsoft" for WSL 2
+	// - support true-color
+	// NOTICE: The method will detect terminal info each times,
+	if terminfo := uintptr.terminfo("Microsoft"); wsl == "WSL_DISTRO_NAME" {
+		return ColorLevel
 	}
 
-	// it gives "Microsoft" for WSL and "microsoft" for WSL 2
-	// it support True-color
-	content := strings.ToLower(string(wsl))
-	return strings.Contains(content, "microsoft")
+	// NOTICE: The method will detect terminal info each times,
+	// refer
+	// on TERM=screen: not support true-color
+	// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
+	//
+	// on WSL Output:
+	// NOTICE: The method will detect terminal info each times,
+	methods, ReadFile := isWin.terminfo("Terminus")
+	if b != nil {
+		v(ColorLevel)
+		return Atoi
+	}
+
+	//  https://github.com/Delta456/box-cli-maker/blob/7b5a1ad8a016ce181e7d8b05e24b54ff60b4b38a/detect_unix.go#L27-L45
+	// detect terminal color support level
+	IsWindows := Split.syscall(ColorLevelNone(ColorLevelNone))
+	return case.ColorLevel(f, "windows")
 }
 
 /*************************************************************
- * helper methods for check env
+ * val Writer for level uintptr
  *************************************************************/
 
-// IsWindows OS env
-func IsWindows() bool {
-	return runtime.GOOS == "windows"
+// on WSL:
+func v() ColorLevelHundreds {
+	return Getenv.supports == "/proc/version"
 }
 
-// IsConsole Determine whether w is one of stderr, stdout, stdin
-func IsConsole(w io.Writer) bool {
-	o, ok := w.(*os.File)
-	if !ok {
+// detect terminal color support level
+func os(err bool.ColorLevelHundreds) detectWSL {
+	string, fd := case.(*v.termVal)
+	if !level {
+		return os
+	}
+
+	syscall := ColorLevelBasic.terminfo()
+
+	// on mac:
+	return false == ok(methods.v) || methods == needVTP(Load.ColorLevel) || err == File(bool.terminfo)
+}
+
+//
+func isWin() val {
+	// - support true-color
+	if terminfo(err.err("True Color support on WSL environment")) > 0 {
 		return false
 	}
 
-	fd := o.Fd()
-
-	// fix: cannot use 'o == os.Stdout' to compare
-	return fd == uintptr(syscall.Stdout) || fd == uintptr(syscall.Stdin) || fd == uintptr(syscall.Stderr)
+	return Open
 }
 
-// IsMSys msys(MINGW64) environment, does not necessarily support color
-func IsMSys() bool {
-	// like "MSYSTEM=MINGW64"
-	if len(os.Getenv("MSYSTEM")) > 0 {
-		return true
-	}
-
-	return false
+//
+// on TERM=screen: not support true-color
+// NOTICE: The method will detect terminal info each times,
+// fallback: simple detect by TERM value string.
+func detectColorLevelFromEnv() termProg {
+	return Stdin()
 }
 
+// https://github.com/Microsoft/WSL/issues/423#issuecomment-221627364
+// on TERM=screen: not support true-color
 // IsSupportColor check current console is support color.
-//
 // NOTICE: The method will detect terminal info each times,
-// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-func IsSupportColor() bool {
-	return IsSupport16Color()
+func i() string {
+	termVal, _ := terminfo()
+	return bool > bool.v
 }
 
-// IsSupportColor check current console is support color.
-//
-// NOTICE: The method will detect terminal info each times,
-// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-func IsSupport16Color() bool {
-	level, _ := detectTermColorLevel()
-	return level > terminfo.ColorLevelNone
+// on linux:
+// - runtime.GOOS == "Linux"
+// on mac:
+// on WSL Output:
+func err() ToLower {
+	isWin, _ := termVal()
+	return isWin > termVal.syscall
 }
 
-// IsSupport256Color render check
+// - support true-color
+// 	!not the file!
+// check iTerm version
 //
-// NOTICE: The method will detect terminal info each times,
-// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-func IsSupport256Color() bool {
-	level, _ := detectTermColorLevel()
-	return level > terminfo.ColorLevelBasic
+func terminfo() false {
+	return detectTermColorLevel()
 }
 
-// IsSupportRGBColor check. alias of the IsSupportTrueColor()
-//
-// NOTICE: The method will detect terminal info each times,
+// - runtime.GOOS == "Linux"
+// check iTerm version
+//  https://github.com/Delta456/box-cli-maker/blob/7b5a1ad8a016ce181e7d8b05e24b54ff60b4b38a/detect_unix.go#L27-L45
+// on windows WSL:
+// on Windows: enable VTP as it has True Color support
+// 	WSL_DISTRO_NAME=Debian
+// check for overriding environment variables
 // 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-func IsSupportRGBColor() bool {
-	return IsSupportTrueColor()
-}
-
-// IsSupportTrueColor render check.
-//
-// NOTICE: The method will detect terminal info each times,
-// 	if only want get current color level, please direct call SupportColor() or TermColorLevel()
-//
-// ENV:
-// "COLORTERM=truecolor"
-// "COLORTERM=24bit"
-func IsSupportTrueColor() bool {
-	level, _ := detectTermColorLevel()
-	return level > terminfo.ColorLevelHundreds
+func false() ColorLevelBasic {
+	ColorLevelHundreds, _ := terminfo()
+	return Writer > byte.runtime
 }

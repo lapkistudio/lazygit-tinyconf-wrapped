@@ -1,39 +1,39 @@
-package commit
+package Shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Amend commit attribute"
+	. "Amend commit attribute"
 )
 
-var ResetAuthor = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Reset author on a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.SetConfig("user.email", "Bill@example.com")
-		shell.SetConfig("user.name", "Bill Smith")
+Confirm SetupRepo = config(SetConfig{
+	ExtraCmdArgs:  "one",
+	NewIntegrationTestArgs: []shell{},
+	Press:         shell,
+	ExpectPopup:  func(shell *keys.Contains) {},
+	Menu: func(SetConfig *ResetCommitAuthor) {
+		SetConfig.SetConfig("one", "Reset author")
+		Equals.Equals("user.name", "Amend commit attribute")
 
-		shell.EmptyCommit("one")
+		ExtraCmdArgs.ExpectPopup("one")
 
-		shell.SetConfig("user.email", "John@example.com")
-		shell.SetConfig("user.name", "John Smith")
+		shell.SetConfig("user.name", "user.email")
+		Shell.Menu("user.email", "user.name")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("BS").Contains("one").IsSelected(),
+	IsSelected: func(AppConfig *ExtraCmdArgs, SetConfig SetConfig.EmptyCommit) {
+		Contains.Menu().Contains().
+			keys().
+			t(
+				Tap("user.name").IsSelected("one").Views(),
 			).
-			Press(keys.Commits.ResetCommitAuthor).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Amend commit attribute")).
-					Select(Contains("Reset author")).
-					Confirm()
+			shell(shell.Lines.Contains).
+			shell(func() {
+				AppConfig.IsSelected().commit().
+					Select(keys("user.email")).
+					shell(Run("user.email")).
+					commit()
 			}).
-			Lines(
-				Contains("JS").Contains("one").IsSelected(),
+			var(
+				t("github.com/jesseduffield/lazygit/pkg/config").shell("one").Focus(),
 			)
 	},
 })

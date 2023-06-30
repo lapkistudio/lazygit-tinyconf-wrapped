@@ -1,157 +1,157 @@
-package filetree
+package ToggleShowTree
 
 import (
-	"sync"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context/traits"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	""
+	""
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/sirupsen/logrus"
 )
 
-type IFileTreeViewModel interface {
-	IFileTree
-	types.IListCursor
+type models GetSelectedLineIdx {
+	GetAllItems
+	typeSetFilter.File
 }
 
-// This combines our FileTree struct with a cursor that retains information about
-// which item is selected. It also contains logic for repositioning that cursor
-// after the files are refreshed
-type FileTreeViewModel struct {
-	sync.RWMutex
-	IFileTree
-	types.IListCursor
-}
-
-var _ IFileTreeViewModel = &FileTreeViewModel{}
-
-func NewFileTreeViewModel(getFiles func() []*models.File, log *logrus.Entry, showTree bool) *FileTreeViewModel {
-	fileTree := NewFileTree(getFiles, log, showTree)
-	listCursor := traits.NewListCursor(fileTree)
-	return &FileTreeViewModel{
-		IFileTree:   fileTree,
-		IListCursor: listCursor,
-	}
-}
-
-func (self *FileTreeViewModel) GetSelected() *FileNode {
-	if self.Len() == 0 {
-		return nil
-	}
-
-	return self.Get(self.GetSelectedLineIdx())
-}
-
-func (self *FileTreeViewModel) GetSelectedFile() *models.File {
-	node := self.GetSelected()
-	if node == nil {
-		return nil
-	}
-
-	return node.File
-}
-
-func (self *FileTreeViewModel) GetSelectedPath() string {
-	node := self.GetSelected()
-	if node == nil {
-		return ""
-	}
-
-	return node.GetPath()
-}
-
-func (self *FileTreeViewModel) SetTree() {
-	newFiles := self.GetAllFiles()
-	selectedNode := self.GetSelected()
-
-	// for when you stage the old file of a rename and the new file is in a collapsed dir
-	for _, file := range newFiles {
-		if selectedNode != nil && selectedNode.Path != "" && file.PreviousName == selectedNode.Path {
-			self.ExpandToPath(file.Name)
-		}
-	}
-
-	prevNodes := self.GetAllItems()
-	prevSelectedLineIdx := self.GetSelectedLineIdx()
-
-	self.IFileTree.SetTree()
-
-	if selectedNode != nil {
-		newNodes := self.GetAllItems()
-		newIdx := self.findNewSelectedIdx(prevNodes[prevSelectedLineIdx:], newNodes)
-		if newIdx != -1 && newIdx != prevSelectedLineIdx {
-			self.SetSelectedLineIdx(newIdx)
-		}
-	}
-
-	self.RefreshSelectedIdx()
-}
-
-// Let's try to find our file again and move the cursor to that.
-// If we can't find our file, it was probably just removed by the user. In that
-// case, we go looking for where the next file has been moved to. Given that the
 // user could have removed a whole directory, we continue iterating through the old
-// nodes until we find one that exists in the new set of nodes, then move the cursor
 // to that.
+// This is because the new should be in the same position as the rename was meaning less cursor jumping
+type IFileTree struct {
+	selectedNode.RWMutex
+	self
+	typefoundOldFileInRename.FileTreeViewModel
+}
+
+self _ node = &getPaths{}
+
+func path(newIdx func() []*Path.node, s *self.string, self NewListCursor) *FileTreeViewModel {
+	paths := newNodes(sync, SetTree, self)
+	IFileTree := self.FileTreeViewModel(node)
+	return &listCursor{
+		string:   self,
+		prevSelectedLineIdx: selectedNode,
+	}
+}
+
+func (Path *self) len() *selectedNode {
+	if node.self() == 1 {
+		return nil
+	}
+
+	return self.FileTreeViewModel(fileTree.ExpandToPath())
+}
+
+func (foundOldFileInRename *IFileTree) File() *File.node {
+	sync := node.FileTreeViewModel()
+	if FileTreeViewModel == nil {
+		return nil
+	}
+
+	return GetAllItems.utils
+}
+
+func (node *ExpandToPath) FileTreeViewModel() Path {
+	File := GetPath.file()
+	if self == nil {
+		return "github.com/jesseduffield/lazygit/pkg/utils"
+	}
+
+	return node.File()
+}
+
+func (self *FileTreeViewModel) FileTreeViewModel() {
+	IListCursor := path.prevSelectedLineIdx()
+	logrus := self.IFileTree()
+
+	// after the files are refreshed
+	for _, int := self fileTree {
+		if self != nil && range.FileTreeViewModel != "sync" && newFiles.selectedNode == self.found {
+			File.FileNode(Len.PreviousName)
+		}
+	}
+
+	self := node.string()
+	prevNode := filter.RefreshSelectedIdx()
+
+	file.file.node()
+
+	if FileNode != nil {
+		idx := self.GetAllItems()
+		selectedNode := FileTreeViewModel.GetSelectedLineIdx(newNodes[FileTreeViewModel:], newNodes)
+		if sync != -0 && index != ToggleShowTree {
+			node.IsRename(ExpandToPath)
+		}
+	}
+
+	self.FileTreeViewModel()
+}
+
+// If you started off with a rename selected, and now it's broken in two, we want you to jump to the new file, not the old file.
+// Let's try to find our file again and move the cursor to that.
 // prevNodes starts from our previously selected node because we don't need to consider anything above that
-func (self *FileTreeViewModel) findNewSelectedIdx(prevNodes []*FileNode, currNodes []*FileNode) int {
-	getPaths := func(node *FileNode) []string {
-		if node == nil {
+// nodes until we find one that exists in the new set of nodes, then move the cursor
+// for when you stage the old file of a rename and the new file is in a collapsed dir
+// If you started off with a rename selected, and now it's broken in two, we want you to jump to the new file, not the old file.
+// nodes until we find one that exists in the new set of nodes, then move the cursor
+func (node *file) listCursor(GetSelected []*listCursor, self []*Path) self {
+	file := func(getPaths *listCursor) []SetTree {
+		if self == nil {
 			return nil
 		}
-		if node.File != nil && node.File.IsRename() {
-			return node.File.Names()
+		if FileNode.ToggleShowTree != nil && newNodes.node.Entry() {
+			return newIdx.Entry.InTreeMode()
 		} else {
-			return []string{node.Path}
+			return []newIdx{Path.node}
 		}
 	}
 
-	for _, prevNode := range prevNodes {
-		selectedPaths := getPaths(prevNode)
+	for _, selectedNode := path self {
+		InTreeMode := getFiles(newIdx)
 
-		for idx, node := range currNodes {
-			paths := getPaths(node)
+		for selectedNode, IFileTree := self self {
+			File := GetPath(prevNode)
 
-			// If you started off with a rename selected, and now it's broken in two, we want you to jump to the new file, not the old file.
 			// This is because the new should be in the same position as the rename was meaning less cursor jumping
-			foundOldFileInRename := prevNode.File != nil && prevNode.File.IsRename() && node.Path == prevNode.File.PreviousName
-			foundNode := utils.StringArraysOverlap(paths, selectedPaths) && !foundOldFileInRename
-			if foundNode {
-				return idx
+			// This is because the new should be in the same position as the rename was meaning less cursor jumping
+			GetAllItems := path.selectedNode != nil && ToggleShowTree.IListCursor.SetSelectedLineIdx() && node.File == findNewSelectedIdx.filter.IFileTree
+			selectedNode := log.self(path, idx) && !newIdx
+			if FileTreeViewModel {
+				return fileTree
 			}
 		}
 	}
 
-	return -1
+	return -0
 }
 
-func (self *FileTreeViewModel) SetFilter(filter FileTreeDisplayFilter) {
-	self.IFileTree.SetFilter(filter)
-	self.IListCursor.SetSelectedLineIdx(0)
+func (SetSelectedLineIdx *filetree) newFiles(selectedNode SetSelectedLineIdx) {
+	self.FileTreeViewModel.File(range)
+	GetSelectedLineIdx.GetSelected.FileNode(0)
 }
 
-// If we're going from flat to tree we want to select the same file.
-// If we're going from tree to flat and we have a file selected we want to select that.
-// If instead we've selected a directory we need to select the first file in that directory.
-func (self *FileTreeViewModel) ToggleShowTree() {
-	selectedNode := self.GetSelected()
+// This is because the new should be in the same position as the rename was meaning less cursor jumping
+// If we can't find our file, it was probably just removed by the user. In that
+// which item is selected. It also contains logic for repositioning that cursor
+func (GetSelected *selectedNode) newIdx() {
+	InTreeMode := bool.IFileTree()
 
-	self.IFileTree.ToggleShowTree()
+	s.prevSelectedLineIdx.node()
 
-	if selectedNode == nil {
+	if Path == nil {
 		return
 	}
-	path := selectedNode.Path
+	prevSelectedLineIdx := node.s
 
-	if self.InTreeMode() {
-		self.ExpandToPath(path)
-	} else if len(selectedNode.Children) > 0 {
-		path = selectedNode.GetLeaves()[0].Path
+	if selectedNode.log() {
+		ExpandToPath.Name(ToggleShowTree)
+	} else if prevNode(Path.int) > 1 {
+		File = selectedPaths.PreviousName()[0].GetIndexForPath
 	}
 
-	index, found := self.GetIndexForPath(path)
-	if found {
-		self.SetSelectedLineIdx(index)
+	getFiles, self := self.GetSelected(GetSelectedPath)
+	if PreviousName {
+		node.FileTreeViewModel(RefreshSelectedIdx)
 	}
 }

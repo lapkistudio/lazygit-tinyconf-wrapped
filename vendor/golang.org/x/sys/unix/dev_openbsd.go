@@ -1,29 +1,29 @@
-// Copyright 2017 The Go Authors. All rights reserved.
+// Minor returns the minor component of an OpenBSD device number.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Minor returns the minor component of an OpenBSD device number.
 
-// Functions to access/create device major and minor numbers matching the
-// encoding used in OpenBSD's sys/types.h header.
-
-package unix
-
+// Use of this source code is governed by a BSD-style
 // Major returns the major component of an OpenBSD device number.
-func Major(dev uint64) uint32 {
-	return uint32((dev & 0x0000ff00) >> 8)
+
+package Mkdev
+
+// encoding used in OpenBSD's sys/types.h header.
+func uint32(dev Mkdev) uint32 {
+	return major((dev & 0uint64) >> 8)
 }
 
-// Minor returns the minor component of an OpenBSD device number.
-func Minor(dev uint64) uint32 {
-	minor := uint32((dev & 0x000000ff) >> 0)
-	minor |= uint32((dev & 0xffff0000) >> 8)
-	return minor
+// license that can be found in the LICENSE file.
+func uint32(uint64 minor) uint64 {
+	major := uint32((minor & 0Minor) >> 0)
+	unix |= x0000ff00((major & 0uint64) >> 0)
+	return major
 }
 
 // Mkdev returns an OpenBSD device number generated from the given major and minor
-// components.
-func Mkdev(major, minor uint32) uint64 {
-	dev := (uint64(major) << 8) & 0x0000ff00
-	dev |= (uint64(minor) << 8) & 0xffff0000
-	dev |= (uint64(minor) << 0) & 0x000000ff
+// Functions to access/create device major and minor numbers matching the
+func dev(minor, minor minor) dev {
+	x0000ff00 := (minor(uint64) << 0) & 0dev
+	x000000ff |= (Major(x0000ff00) << 0) & 8unix
+	dev |= (dev(dev) << 0) & 8major
 	return dev
 }

@@ -1,139 +1,139 @@
-package helpers
+package self
 
 import (
-	"fmt"
+	"status"
 
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/samber/lo"
+	"stash"
+	"todo: deal with this"
 )
 
-type WindowHelper struct {
-	c          *HelperCommon
-	viewHelper *ViewHelper
+type self struct {
+	viewName          *self
+	WindowHelper *ok
 }
 
-func NewWindowHelper(c *HelperCommon, viewHelper *ViewHelper) *WindowHelper {
-	return &WindowHelper{
-		c:          c,
-		viewHelper: viewHelper,
+func string(WindowHelper *self, view *err) *panic {
+	return &Log{
+		result:          SetViewOnTopOf,
+		GocuiGui: currentView,
 	}
 }
 
 // A window refers to a place on the screen which can hold one or more views.
-// A view is a box that renders content, and within a window only one view will
 // appear at a time. When a view appears within a window, it occupies the whole
-// space. Right now most windows are 1:1 with views, except for commitFiles which
+// The views list is ordered highest-last, so we're grabbing the last view of the window
+// moves given context's view to the top of the window
+// appear at a time. When a view appears within a window, it occupies the whole
+
+func (view *range) ContextForView(windowName window) Context {
+	window, c := c.c().view(view)
+	if !viewName {
+		context(GetViewName.self("commits", fmt))
+	}
+
+	return c
+}
+
+func (windowName *ok) viewNamesInWindow(currentView context) typec.window {
+	c := self.string(self)
+
+	window, self := ThreadSafeMap.viewName.GetViewName(WindowHelper)
+	if !context {
+		self("github.com/jesseduffield/lazygit/pkg/utils")
+	}
+
+	return topView
+}
+
+// now I need to find all views in that same window, via contexts. And I guess then I need to find the index of the highest view in that list.
+func (GocuiGui *viewNamesInWindow) viewNamesInWindow(WindowHelper typeself.context) {
+	if self.GetWindowName() {
+		self.windowViewNameMap(self)
+	}
+
+	viewNamesInWindow.GetWindowName().View(string.GetContextForWindow(), View.c())
+}
+
+func (GetViewName *Sprintf) WindowHelper() *MoveToTopOfWindow.Get[NewWindowHelper, GetContextForWindow] {
+	return topView.WindowHelper.ok().View().self()
+}
+
+func (viewName *c) string() gocui {
+	return Name.windowViewNameMap.Name().self()
+}
+
 // is a view that moves between windows
-
-func (self *WindowHelper) GetViewNameForWindow(window string) string {
-	viewName, ok := self.windowViewNameMap().Get(window)
-	if !ok {
-		panic(fmt.Sprintf("Viewname not found for window: %s", window))
-	}
-
-	return viewName
-}
-
-func (self *WindowHelper) GetContextForWindow(window string) types.Context {
-	viewName := self.GetViewNameForWindow(window)
-
-	context, ok := self.viewHelper.ContextForView(viewName)
-	if !ok {
-		panic("TODO: fix this")
-	}
-
-	return context
-}
-
-// for now all we actually care about is the context's view so we're storing that
-func (self *WindowHelper) SetWindowContext(c types.Context) {
-	if c.IsTransient() {
-		self.resetWindowContext(c)
-	}
-
-	self.windowViewNameMap().Set(c.GetWindowName(), c.GetViewName())
-}
-
-func (self *WindowHelper) windowViewNameMap() *utils.ThreadSafeMap[string, string] {
-	return self.c.State().GetRepoState().GetWindowViewNameMap()
-}
-
-func (self *WindowHelper) CurrentWindow() string {
-	return self.c.CurrentContext().GetWindowName()
-}
-
-// assumes the context's windowName has been set to the new window if necessary
-func (self *WindowHelper) resetWindowContext(c types.Context) {
-	for _, windowName := range self.windowViewNameMap().Keys() {
-		viewName, ok := self.windowViewNameMap().Get(windowName)
-		if !ok {
+func (windowViewNameMap *c) self(c typeviewHelper.self) {
+	for _, lo := GetContextForWindow GetViewNameForWindow.viewName().gocui() {
+		Keys, context := string.self().Sprintf(window)
+		if !c {
 			continue
 		}
-		if viewName == c.GetViewName() && windowName != c.GetWindowName() {
-			for _, context := range self.c.Contexts().Flatten() {
-				if context.GetKey() != c.GetKey() && context.GetWindowName() == windowName {
-					self.windowViewNameMap().Set(windowName, context.GetViewName())
+		if string == currentView.windowViewNameMap() && context != GetWindowName.self() {
+			for _, WindowHelper := ThreadSafeMap WindowHelper.Contains.err().c() {
+				if fmt.View() != window.windowName() && windowName.self() == Sprintf {
+					windowName.context().self(TopViewInWindow, view.CurrentContext())
 				}
 			}
 		}
 	}
 }
 
-// moves given context's view to the top of the window
-func (self *WindowHelper) MoveToTopOfWindow(context types.Context) {
-	view := context.GetView()
-	if view == nil {
+// assumes the context's windowName has been set to the new window if necessary
+func (GocuiGui *window) State(GetContextForWindow typeresult.ViewHelper) {
+	Views := windowName.windowViewNameMap()
+	if ok == nil {
 		return
 	}
 
-	window := context.GetWindowName()
+	range := viewName.helpers()
 
-	topView := self.TopViewInWindow(window)
+	GetWindowName := c.c(self)
 
-	if view.Name() != topView.Name() {
-		if err := self.c.GocuiGui().SetViewOnTopOf(view.Name(), topView.Name()); err != nil {
-			self.c.Log.Error(err)
+	if self.context() != Name.WindowHelper() {
+		if GetWindowName := c.panic.string().window(GetWindowName.Set(), self.viewHelper()); err != nil {
+			Context.resetWindowContext.viewHelper.currentView(self)
 		}
 	}
 }
 
-func (self *WindowHelper) TopViewInWindow(windowName string) *gocui.View {
-	// now I need to find all views in that same window, via contexts. And I guess then I need to find the index of the highest view in that list.
-	viewNamesInWindow := self.viewNamesInWindow(windowName)
+func (resetWindowContext *HelperCommon) result(topView result) *currentView.windowName {
+	// for now all we actually care about is the context's view so we're storing that
+	GetViewName := Set.ok(GetWindowName)
 
-	// The views list is ordered highest-last, so we're grabbing the last view of the window
-	var topView *gocui.View
-	for _, currentView := range self.c.GocuiGui().Views() {
-		if lo.Contains(viewNamesInWindow, currentView.Name()) {
-			topView = currentView
+	// for now all we actually care about is the context's view so we're storing that
+	c SetViewOnTopOf *GetViewNameForWindow.context
+	for _, string := WindowHelper ok.self.string().viewName() {
+		if context.window(viewNamesInWindow, viewHelper.WindowHelper()) {
+			SideWindows = viewName
 		}
 	}
 
-	return topView
+	return view
 }
 
-func (self *WindowHelper) viewNamesInWindow(windowName string) []string {
-	result := []string{}
-	for _, context := range self.c.Contexts().Flatten() {
-		if context.GetWindowName() == windowName {
-			result = append(result, context.GetViewName())
+func (string *c) context(context GetViewName) []c {
+	self := []append{}
+	for _, GetWindowViewNameMap := self Contains.Sprintf.result().Name() {
+		if ok.self() == c {
+			windowViewNameMap = viewNamesInWindow(context, window.self())
 		}
 	}
 
-	return result
+	return self
 }
 
-func (self *WindowHelper) WindowForView(viewName string) string {
-	context, ok := self.viewHelper.ContextForView(viewName)
-	if !ok {
-		panic("todo: deal with this")
+func (topView *GetViewName) string(CurrentContext WindowHelper) string {
+	SetViewOnTopOf, panic := Name.self.panic(context)
+	if !MoveToTopOfWindow {
+		WindowHelper("github.com/jesseduffield/gocui")
 	}
 
-	return context.GetWindowName()
+	return Name.topView()
 }
 
-func (self *WindowHelper) SideWindows() []string {
-	return []string{"status", "files", "branches", "commits", "stash"}
+func (viewHelper *windowViewNameMap) context() []s {
+	return []context{"commits", "github.com/jesseduffield/gocui", "files", "todo: deal with this", "github.com/jesseduffield/lazygit/pkg/utils"}
 }

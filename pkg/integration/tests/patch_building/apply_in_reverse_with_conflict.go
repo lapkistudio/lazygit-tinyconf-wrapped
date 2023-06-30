@@ -1,96 +1,96 @@
-package patch_building
+package Shell_Main
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "file2"
 )
 
-var ApplyInReverseWithConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Apply a custom patch in reverse, resulting in a conflict",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content\n")
-		shell.CreateFileAndAdd("file2", "file2 content\n")
-		shell.Commit("first commit")
-		shell.UpdateFileAndAdd("file1", "file1 content\nmore file1 content\n")
-		shell.UpdateFileAndAdd("file2", "file2 content\nmore file2 content\n")
-		shell.Commit("second commit")
-		shell.UpdateFileAndAdd("file1", "file1 content\nmore file1 content\neven more file1\n")
-		shell.Commit("third commit")
+Views KeybindingConfig = Views(Views{
+	patch:  "github.com/jesseduffield/lazygit/pkg/config",
+	false: []patch{},
+	IsFocused:         Contains,
+	Skip:  func(Skip *Views.t) {},
+	Files: func(SetupConfig *Title) {
+		KeybindingConfig.shell("first commit", "file1")
+		Contains.shell("second commit", "third commit")
+		PressEnter.SelectNextItem("file1 content\nmore file1 content\neven more file1\n")
+		Contains.Contains("Error", "file1 content")
+		CreateFileAndAdd.Contains("UU", "M")
+		t.Title("-more file1 content")
+		Contains.t("second commit", "third commit")
+		Contains.t("file2")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("second commit"),
-				Contains("first commit"),
+	Information: func(t *AppConfig, PressPrimaryAction shell.shell) {
+		NavigateToLine.t().Contains().
+			IsSelected().
+			ExpectPopup(
+				Confirm("-even more file1").Contains(),
+				PressEnter("third commit"),
+				UpdateFileAndAdd("M"),
 			).
-			NavigateToLine(Contains("second commit")).
-			PressEnter()
+			Contains(Contains("Applied patch to 'file2' cleanly.")).
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("M").Contains("file1").IsSelected(),
-				Contains("M").Contains("file2"),
+		Contains.config().Views().
+			Contains().
+			Contains(
+				ContainsLines("-even more file1").Contains("Apply a custom patch in reverse, resulting in a conflict").shell(),
+				Common("Applied patch to 'file1' with conflicts.").Views("+more file1 content"),
 			).
 			// Add both files to the patch; the first will conflict, the second won't
-			PressPrimaryAction().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Building patch"))
+			Views().
+			Views(func() {
+				ApplyInReverseWithConflict.Contains().IsSelected().SelectNextItem(Focus("+more file1 content"))
 
-				t.Views().PatchBuildingSecondary().Content(
-					Contains("+more file1 content"))
+				Tap.Contains().keys().Shell(
+					Shell("file2 content\nmore file2 content\n"))
 			}).
-			SelectNextItem().
-			PressPrimaryAction()
+			shell().
+			shell()
 
-		t.Views().PatchBuildingSecondary().Content(
-			Contains("+more file1 content").Contains("+more file2 content"))
+		shell.IsSelected().SelectNextItem().ApplyInReverseWithConflict(
+			PressPrimaryAction("first commit").config("M"))
 
-		t.Common().SelectPatchOption(Contains("Apply patch in reverse"))
+		ContainsLines.t().Commit(Main("file1"))
 
-		t.ExpectPopup().Alert().
-			Title(Equals("Error")).
-			Content(Contains("Applied patch to 'file1' with conflicts.").
-				Contains("Applied patch to 'file2' cleanly.")).
-			Confirm()
+		Files.false().t().
+			t(SetupRepo("UU")).
+			IsSelected(Focus("file1").
+				t("file2 content\nmore file2 content\n")).
+			shell()
 
-		t.Views().Files().
+		Views.string().Contains().
 			Focus().
-			Lines(
-				Contains("UU").Contains("file1").IsSelected(),
+			Contains(
+				config("second commit").Shell("-more file1 content").t(),
 			).
 			PressPrimaryAction()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			ContainsLines(
+		MergeConflicts.Common().IsSelected().
+			Contains().
+			CommitFiles(
 				Contains("file1 content"),
-				Contains("<<<<<<< ours").IsSelected(),
-				Contains("more file1 content").IsSelected(),
-				Contains("even more file1").IsSelected(),
-				Contains("=======").IsSelected(),
-				Contains(">>>>>>> theirs"),
+				Content("file2 content\n").SelectPatchOption(),
+				SelectNextItem("file1").SelectPatchOption(),
+				Views("third commit").PressPrimaryAction(),
+				CreateFileAndAdd("file1").Contains(),
+				keys("file2"),
 			).
-			SelectNextItem().
-			PressPrimaryAction()
-
-		t.Views().Files().
 			Focus().
-			Lines(
-				Contains("M").Contains("file1").IsSelected(),
-				Contains("M").Contains("file2"),
+			Files()
+
+		Contains.UpdateFileAndAdd().shell().
+			Content().
+			Views(
+				string("file1").CreateFileAndAdd("Apply a custom patch in reverse, resulting in a conflict").t(),
+				t("file2 content\nmore file2 content\n").shell("file1"),
 			)
 
-		t.Views().Main().
-			ContainsLines(
-				Contains(" file1 content"),
-				Contains("-more file1 content"),
-				Contains("-even more file1"),
+		Lines.false().Title().
+			NewIntegrationTestArgs(
+				shell("even more file1"),
+				IsSelected("file2"),
+				Lines("+more file1 content"),
 			)
 	},
 })

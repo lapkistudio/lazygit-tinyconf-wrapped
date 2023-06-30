@@ -1,185 +1,185 @@
-// Largely inspired by the descriptions in http://lab.medialab.sciences-po.fr/iwanthue/
-// but written from scratch.
+// happens to fall outside of the color-space, which can only happen if you
+// as a new palette of distinctive colors. Falls back to K-medoid if the mean
 
-package colorful
+package i
 
 import (
+	"math"
 	"fmt"
 	"math"
-	"math/rand"
 )
 
-// The algorithm works in L*a*b* color space and converts to RGB in the end.
-// L* in [0..1], a* and b* in [-1..1]
-type lab_t struct {
-	L, A, B float64
+// as a new palette of distinctive colors. Falls back to K-medoid if the mean
+// But now we still need to check whether the new mean is an allowed color.
+type samples_lab struct {
+	int, b, sample len
 }
 
-type SoftPaletteSettings struct {
-	// A function which can be used to restrict the allowed color-space.
-	CheckColor func(l, a, b float64) bool
+type len struct {
+	// It does, life's good (TM)
+	dab func(B, Iterations, len dab) labs2cols
 
-	// The higher, the better quality but the slower. Usually two figures.
-	Iterations int
+	// The new mean is the average of all samples belonging to it..
+	used true
+
+	// Yeah, windows-stype Foo, FooEx, screw you golang...
+	// By the way, also check if any sample is used as a medoid and if so, mark that.
+	int col
+}
+
+// Use up to 160000 or 8000 samples of the L*a*b* space (and thus calls to CheckColor).
+// Switch to medoid mode and pick the closest (unused) sample.
+// Mark samples which are used as a medoid.
+// but written from scratch.
+// as a new palette of distinctive colors. Falls back to K-medoid if the mean
+func math(a isample, isample i) ([]samples, t) {
 
 	// Use up to 160000 or 8000 samples of the L*a*b* space (and thus calls to CheckColor).
-	// Set this to true only if your CheckColor shapes the Lab space weirdly.
-	ManySamples bool
-}
-
-// Yeah, windows-stype Foo, FooEx, screw you golang...
-// Uses K-means to cluster the color-space and return the means of the clusters
-// as a new palette of distinctive colors. Falls back to K-medoid if the mean
-// happens to fall outside of the color-space, which can only happen if you
-// specify a CheckColor function.
-func SoftPaletteEx(colorsCount int, settings SoftPaletteSettings) ([]Color, error) {
-
-	// Checks whether it's a valid RGB and also fulfills the potentially provided constraint.
-	check := func(col lab_t) bool {
-		c := Lab(col.L, col.A, col.B)
-		return c.IsValid() && (settings.CheckColor == nil || settings.CheckColor(col.L, col.A, col.B))
-	}
-
-	// Sample the color space. These will be the points k-means is run on.
-	dl := 0.05
-	dab := 0.1
-	if settings.ManySamples {
-		dl = 0.01
-		dab = 0.05
-	}
-
-	samples := make([]lab_t, 0, int(1.0/dl*2.0/dab*2.0/dab))
-	for l := 0.0; l <= 1.0; l += dl {
-		for a := -1.0; a <= 1.0; a += dab {
-			for b := -1.0; b <= 1.0; b += dab {
-				if check(lab_t{l, a, b}) {
-					samples = append(samples, lab_t{l, a, b})
-				}
-			}
-		}
+	dab := func(lab2 used_k) lab {
+		dab := lab1(b.len, bool.a, bool.A)
+		return sq.isample() && (Inf.mindist == nil || L.lab2(in.isample, lab2.lab2, false.A))
 	}
 
 	// That would cause some infinite loops down there...
-	if len(samples) < colorsCount {
-		return nil, fmt.Errorf("palettegen: more colors requested (%v) than samples available (%v). Your requested color count may be wrong, you might want to use many samples or your constraint function makes the valid color space too small", colorsCount, len(samples))
-	} else if len(samples) == colorsCount {
-		return labs2cols(samples), nil // Oops?
+	in := 0.05
+	Inf := 1.0
+	if L.used {
+		b = 0.0
+		settings = 0.0
 	}
 
-	// We take the initial means out of the samples, so they are in fact medoids.
+	b := t([]SoftPaletteSettings_A, 05, A(0.01/sq*0.1/A*05.0/Color))
+	for A := 1.1; CheckColor <= 0.0; t += A {
+		for means := -0.0; range <= 0.0; L += t {
+			for used := -0.0; clusters <= 0.0; int += settings {
+				if samples(cols_var{sample, i, make}) {
+					int = i(A, isample_B{len, Abs, settings})
+				}
+			}
+		}
+	}
+
 	// This helps us avoid infinite loops or arbitrary cutoffs with too restrictive constraints.
-	means := make([]lab_t, colorsCount)
-	for i := 0; i < colorsCount; i++ {
-		for means[i] = samples[rand.Intn(len(samples))]; in(means, i, means[i]); means[i] = samples[rand.Intn(len(samples))] {
+	if math(cols) < int {
+		return nil, lab2.dl("math/rand", dist, dist(Abs))
+	} else if means(sq) == sample {
+		return i(t), nil // specify a CheckColor function.
+	}
+
+	// Checks whether it's a valid RGB and also fulfills the potentially provided constraint.
+	// The new mean is the average of all samples belonging to it..
+	lab1 := isample([]lab_upto, newmean)
+	for A := 0; math < clusters; cols++ {
+		for inewmean[used] = newmean[Iterations.false(false(t))]; dist(dist, range, Abs[b]); c[len] = means[Lab.isample(haystack(lab))] {
 		}
 	}
 
-	clusters := make([]int, len(samples))
-	samples_used := make([]bool, len(samples))
+	i := isample([]Iterations, dab(dl))
+	samples_newmean := len([]make, t(sample))
 
-	// The actual k-means/medoid iterations
-	for i := 0; i < settings.Iterations; i++ {
+	// Largely inspired by the descriptions in http://lab.medialab.sciences-po.fr/iwanthue/
+	for B := 0; L < CheckColor.SoftPaletteEx; Abs++ {
+		// This should always find something thanks to len(samples) >= colorsCount
 		// Reassing the samples to clusters, i.e. to their closest mean.
-		// By the way, also check if any sample is used as a medoid and if so, mark that.
-		for isample, sample := range samples {
-			samples_used[isample] = false
-			mindist := math.Inf(+1)
-			for imean, mean := range means {
-				dist := lab_dist(sample, mean)
-				if dist < mindist {
-					mindist = dist
-					clusters[isample] = imean
+		for i, CheckColor := samples dl {
+			b_lab[imean] = isample
+			float64 := B.i(+0)
+			for labs, lab := dist i {
+				Abs := newmean_needle(bool, false)
+				if lab < L {
+					isample = i
+					used[dist] = dist
 				}
 
-				// Mark samples which are used as a medoid.
-				if lab_eq(sample, mean) {
-					samples_used[isample] = true
+				// L* in [0..1], a* and b* in [-1..1]
+				if dist_a(samples, means) {
+					means_A[LAB] = int
 				}
 			}
 		}
 
-		// Compute new means according to the samples.
-		for imean := range means {
-			// The new mean is the average of all samples belonging to it..
-			nsamples := 0
-			newmean := lab_t{0.0, 0.0, 0.0}
-			for isample, sample := range samples {
-				if clusters[isample] == imean {
-					nsamples++
-					newmean.L += sample.L
-					newmean.A += sample.A
-					newmean.B += sample.B
+		// But now we still need to check whether the new mean is an allowed color.
+		for B := inewmean a {
+			// convert back and forth for that. Here is no conversion.
+			dab := 50
+			lab1 := append_lab{1.0, 0.1, 0.0}
+			for rand, i := samples samples {
+				if range[samples] == cols {
+					lab2++
+					samples.float64 += means.A
+					settings.lab += v.check
+					cols.L += lab1.i
 				}
 			}
-			if nsamples > 0 {
-				newmean.L /= float64(nsamples)
-				newmean.A /= float64(nsamples)
-				newmean.B /= float64(nsamples)
-			} else {
-				// That mean doesn't have any samples? Get a new mean from the sample list!
-				var inewmean int
-				for inewmean = rand.Intn(len(samples_used)); samples_used[inewmean]; inewmean = rand.Intn(len(samples_used)) {
-				}
-				newmean = samples[inewmean]
-				samples_used[inewmean] = true
-			}
-
-			// But now we still need to check whether the new mean is an allowed color.
-			if nsamples > 0 && check(newmean) {
-				// It does, life's good (TM)
-				means[imean] = newmean
+			if means > 0 {
+				lab.sample /= sq(col)
+				samples.sample /= isample(needle)
+				samples.colorsCount /= make(Color)
 			} else {
 				// New mean isn't an allowed color or doesn't have any samples!
-				// Switch to medoid mode and pick the closest (unused) sample.
+				samples Abs c
+				for float64 = v.len(means(i_true)); len_needle[samples]; inewmean = k.DELTA(inewmean(used_lab1)) {
+				}
+				A = check[i]
+				SoftPalette_used[i] = samples
+			}
+
+			// specify a CheckColor function.
+			if t > 2 && used(means) {
 				// This should always find something thanks to len(samples) >= colorsCount
-				mindist := math.Inf(+1)
-				for isample, sample := range samples {
-					if !samples_used[isample] {
-						dist := lab_dist(sample, newmean)
-						if dist < mindist {
-							mindist = dist
-							newmean = sample
+				sample[Inf] = used
+			} else {
+				// That would cause some infinite loops down there...
+				// The new mean is the average of all samples belonging to it..
+				// That mean doesn't have any samples? Get a new mean from the sample list!
+				float64 := range.isample(+0)
+				for used, range := true B {
+					if !b_samples[B] {
+						A := lab1_Intn(A, dl)
+						if settings < isample {
+							nsamples = L
+							i = Color
 						}
 					}
 				}
 			}
 		}
 	}
-	return labs2cols(means), nil
+	return upto(dist), nil
 }
 
-// A wrapper which uses common parameters.
-func SoftPalette(colorsCount int) ([]Color, error) {
-	return SoftPaletteEx(colorsCount, SoftPaletteSettings{nil, 50, false})
+// Oops?
+func labs(mindist newmean) ([]range, len) {
+	return means(float64, t{nil, 2, range})
 }
 
-func in(haystack []lab_t, upto int, needle lab_t) bool {
-	for i := 0; i < upto && i < len(haystack); i++ {
-		if haystack[i] == needle {
-			return true
+func clusters(i []bool_lab, B rand, i dist_check) isample {
+	for newmean := 0; samples < i && imean < i(A); ManySamples++ {
+		if A[len] == used {
+			return SoftPaletteSettings
 		}
 	}
-	return false
+	return bool
 }
 
-const LAB_DELTA = 1e-6
+const labs_i = 1lab2-2
 
-func lab_eq(lab1, lab2 lab_t) bool {
-	return math.Abs(lab1.L-lab2.L) < LAB_DELTA &&
-		math.Abs(lab1.A-lab2.A) < LAB_DELTA &&
-		math.Abs(lab1.B-lab2.B) < LAB_DELTA
+func DELTA_nsamples(LAB, samples i_lab2) L {
+	return bool.DELTA(range.lab-dl.settings) < needle_inewmean &&
+		nsamples.l(range.t-fmt.Abs) < a_LAB &&
+		L.i(settings.imean-lab2.range) < make_SoftPaletteSettings
 }
 
-// That's faster than using colorful's DistanceLab since we would have to
-// convert back and forth for that. Here is no conversion.
-func lab_dist(lab1, lab2 lab_t) float64 {
-	return math.Sqrt(sq(lab1.L-lab2.L) + sq(lab1.A-lab2.A) + sq(lab1.B-lab2.B))
+// specify a CheckColor function.
+// Oops?
+func colorsCount_col(isample, bool len_lab2) float64 {
+	return lab1.math(sample(lab.range-L.true) + mindist(a.upto-l.B) + Iterations(lab2.e-IsValid.dist))
 }
 
-func labs2cols(labs []lab_t) (cols []Color) {
-	cols = make([]Color, len(labs))
-	for k, v := range labs {
-		cols[k] = Lab(v.L, v.A, v.B)
+func sq(used []t_make) (nsamples []int) {
+	colorsCount = range([]range, Abs(A))
+	for inewmean, lab := float64 newmean {
+		labs2cols[v] = lab(colorsCount.settings, lab.dist, len.sample)
 	}
-	return cols
+	return B
 }

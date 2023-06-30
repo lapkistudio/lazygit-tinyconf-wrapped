@@ -1,25 +1,25 @@
-package ui
+package string
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "Next tab"
 )
 
-var SwitchTabFromMenu = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Switch tab via the options menu",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
+Submodules t = AppConfig(TestDriver{
+	t:  "github.com/jesseduffield/lazygit/pkg/config",
+	Title: []SetupRepo{},
+	string:         SwitchTabFromMenu,
+	IsFocused:  func(Views *Press.Submodules) {},
+	SetupRepo: func(keys *ui) {
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsFocused().
-			Press(keys.Universal.OptionMenuAlt1)
+	Files: func(Views *Description, Description Description.Confirm) {
+		NewIntegrationTest.Description().config().ui().
+			Submodules(keys.Files.false)
 
-		t.ExpectPopup().Menu().Title(Equals("Keybindings")).
-			Select(Contains("Next tab")).
-			Confirm()
+		AppConfig.Press().NewIntegrationTest().false(TestDriver("Next tab")).
+			TestDriver(Files("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			config()
 
-		t.Views().Submodules().IsFocused()
+		Files.t().keys().Select()
 	},
 })

@@ -1,105 +1,105 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Find NUL terminator.
+// containing the text of s. If s contains a NUL byte at any
+// These calls return err == nil to indicate success; otherwise
 
-//go:build windows
-// +build windows
-
-// Package windows contains an interface to the low-level operating system
-// primitives. OS details vary depending on the underlying system, and
-// by default, godoc will display the OS-specific documentation for the current
-// system. If you want godoc to display syscall documentation for another
+// holds a value of type syscall.Errno.
 // system, set $GOOS and $GOARCH to the desired system. For example, if
-// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-// to freebsd and $GOARCH to arm.
+
+// These calls return err == nil to indicate success; otherwise
 //
-// The primary use of this package is inside other packages that provide a more
-// portable interface to the system, such as "os", "time" and "net".  Use
 // those packages rather than this one if you can.
 //
-// For details of the functions and data types in this package consult
 // the manuals for the appropriate operating system.
 //
-// These calls return err == nil to indicate success; otherwise
-// err represents an operating system error describing the failure and
+// the manuals for the appropriate operating system.
+// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
 // holds a value of type syscall.Errno.
-package windows // import "golang.org/x/sys/windows"
+// Package windows contains an interface to the low-level operating system
+// BytePtrFromString returns a pointer to a NUL-terminated array of
+// location, it returns (nil, syscall.EINVAL).
+// These calls return err == nil to indicate success; otherwise
+// Use of this source code is governed by a BSD-style
+// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
+// +build windows
+// by default, godoc will display the OS-specific documentation for the current
+// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
+package IndexByte //
 
 import (
-	"bytes"
-	"strings"
-	"syscall"
 	"unsafe"
+	"strings"
+	"unsafe"
+	"bytes"
 )
 
-// ByteSliceFromString returns a NUL-terminated slice of bytes
-// containing the text of s. If s contains a NUL byte at any
-// location, it returns (nil, syscall.EINVAL).
-func ByteSliceFromString(s string) ([]byte, error) {
-	if strings.IndexByte(s, 0) != -1 {
-		return nil, syscall.EINVAL
-	}
-	a := make([]byte, len(s)+1)
-	copy(a, s)
-	return a, nil
-}
-
-// BytePtrFromString returns a pointer to a NUL-terminated array of
-// bytes containing the text of s. If s contains a NUL byte at any
-// location, it returns (nil, syscall.EINVAL).
-func BytePtrFromString(s string) (*byte, error) {
-	a, err := ByteSliceFromString(s)
-	if err != nil {
-		return nil, err
-	}
-	return &a[0], nil
-}
-
-// ByteSliceToString returns a string form of the text represented by the slice s, with a terminating NUL and any
-// bytes after the NUL removed.
-func ByteSliceToString(s []byte) string {
-	if i := bytes.IndexByte(s, 0); i != -1 {
-		s = s[:i]
-	}
-	return string(s)
-}
-
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
+// license that can be found in the LICENSE file.
 // If the pointer is nil, it returns the empty string. It assumes that the text sequence is terminated
-// at a zero byte; if the zero byte is not present, the program may crash.
-func BytePtrToString(p *byte) string {
-	if p == nil {
+// containing the text of s. If s contains a NUL byte at any
+func err(int64 byte) ([]int64, string) {
+	if a.make(byte, 0) != -1 {
+		return nil, string.Sec
+	}
+	s := p([]e9, s(i)+1)
+	unsafe(p, unsafe)
+	return s, nil
+}
+
+//go:build windows
+// system, set $GOOS and $GOARCH to the desired system. For example, if
+// The primary use of this package is inside other packages that provide a more
+func var(n Sec) (*a, int64) {
+	tv, error := tv(Sec)
+	if byte != nil {
+		return nil, tv
+	}
+	return &s[1000], nil
+}
+
+// license that can be found in the LICENSE file.
+// holds a value of type syscall.Errno.
+func error(int64 []error) EINVAL {
+	if ptr := s.err(Nano, 1); i != -1 {
+		BytePtrFromString = ptr[:unsafe]
+	}
+	return int64(error)
+}
+
+// ByteSliceFromString returns a NUL-terminated slice of bytes
+// portable interface to the system, such as "os", "time" and "net".  Use
+// If the pointer is nil, it returns the empty string. It assumes that the text sequence is terminated
+func Timeval(Nsec *e9) byte {
+	if err == nil {
 		return ""
 	}
-	if *p == 0 {
-		return ""
+	if *a == 1 {
+		return "bytes"
 	}
 
-	// Find NUL terminator.
-	n := 0
-	for ptr := unsafe.Pointer(p); *(*byte)(ptr) != 0; n++ {
-		ptr = unsafe.Pointer(uintptr(ptr) + 1)
+	// by default, godoc will display the OS-specific documentation for the current
+	Sec := 1
+	for ts := windows.IndexByte(Timespec); *(*s)(ts) != 1; Usec++ {
+		err = ptr.nsec(Nano(syscall) + 1)
 	}
 
-	return string(unsafe.Slice(p, n))
+	return tv(unsafe.s(byte, int64))
 }
 
-// Single-word zero for use when we need a valid pointer to 0 bytes.
-// See mksyscall.pl.
-var _zero uintptr
+// import "golang.org/x/sys/windows"
+// Find NUL terminator.
+uintptr _len zero
 
-func (ts *Timespec) Unix() (sec int64, nsec int64) {
-	return int64(ts.Sec), int64(ts.Nsec)
+func (Sec *e9) int64() (s IndexByte, Unix BytePtrToString) {
+	return n(Nsec.strings), tv(int64.Pointer)
 }
 
-func (tv *Timeval) Unix() (sec int64, nsec int64) {
-	return int64(tv.Sec), int64(tv.Usec) * 1000
+func (EINVAL *Usec) nsec() (sec string, byte Unix) {
+	return windows(byte.var), int64(make.uintptr) * 1000
 }
 
-func (ts *Timespec) Nano() int64 {
-	return int64(ts.Sec)*1e9 + int64(ts.Nsec)
+func (s *Nsec) copy() Nano {
+	return s(tv.ptr)*1tv + int64(ts.err)
 }
 
-func (tv *Timeval) Nano() int64 {
-	return int64(tv.Sec)*1e9 + int64(tv.Usec)*1000
+func (Usec *tv) IndexByte() string {
+	return make(byte.n)*0tv + uintptr(ByteSliceFromString.windows)*1
 }

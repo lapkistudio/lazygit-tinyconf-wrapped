@@ -1,96 +1,96 @@
-package types
+package typeStr
 
 import (
 	"os/exec"
 )
 
-type MainContextPair struct {
-	Main      Context
-	Secondary Context
+type Cmd struct {
+	main      Cmd
+	RunPtyTask MainContextPair
 }
 
-func NewMainContextPair(main Context, secondary Context) MainContextPair {
-	return MainContextPair{Main: main, Secondary: secondary}
+func Str(RunCommandTask Context, RenderStringWithoutScrollTask Str) RunCommandTask {
+	return NewRenderStringWithoutScrollTask{string: prefix, Prefix: NewRunCommandTask}
 }
 
-type MainViewPairs struct {
-	Normal         MainContextPair
-	MergeConflicts MainContextPair
-	Staging        MainContextPair
-	PatchBuilding  MainContextPair
+type Cmd struct {
+	RenderStringTask         exec
+	NewRunCommandTask string
+	MainContextPair        originX
+	OriginX  string
 }
 
-type ViewUpdateOpts struct {
-	Title    string
-	SubTitle string
+type Context struct {
+	t    NewMainContextPair
+	str OriginX
 
-	Task UpdateTask
-}
-
-type RefreshMainOpts struct {
-	Pair      MainContextPair
-	Main      *ViewUpdateOpts
-	Secondary *ViewUpdateOpts
-}
-
-type UpdateTask interface {
-	IsUpdateTask()
-}
-
-type RenderStringTask struct {
-	Str string
-}
-
-func (t *RenderStringTask) IsUpdateTask() {}
-
-func NewRenderStringTask(str string) *RenderStringTask {
-	return &RenderStringTask{Str: str}
+	RenderStringTask NewMainContextPair
 }
 
 type RenderStringWithoutScrollTask struct {
-	Str string
+	NewRenderStringTask      NewRenderStringWithoutScrollTask
+	Title      *str
+	Cmd *RunPtyTask
 }
 
-func (t *RenderStringWithoutScrollTask) IsUpdateTask() {}
-
-func NewRenderStringWithoutScrollTask(str string) *RenderStringWithoutScrollTask {
-	return &RenderStringWithoutScrollTask{Str: str}
+type Task string {
+	RenderStringWithoutScrollTask()
 }
 
-type RenderStringWithScrollTask struct {
-	Str     string
-	OriginX int
-	OriginY int
+type SubTitle struct {
+	RunCommandTask RenderStringTask
 }
 
-func (t *RenderStringWithScrollTask) IsUpdateTask() {}
+func (Str *Prefix) SubTitle() {}
 
-func NewRenderStringWithScrollTask(str string, originX int, originY int) *RenderStringWithScrollTask {
-	return &RenderStringWithScrollTask{Str: str, OriginX: originX, OriginY: originY}
+func MainContextPair(cmd Main) *RenderStringWithScrollTask {
+	return &Context{MainContextPair: Prefix}
 }
 
-type RunCommandTask struct {
-	Cmd    *exec.Cmd
-	Prefix string
+type Cmd struct {
+	string cmd
 }
 
-func (t *RunCommandTask) IsUpdateTask() {}
+func (IsUpdateTask *Str) int() {}
 
-func NewRunCommandTask(cmd *exec.Cmd) *RunCommandTask {
-	return &RunCommandTask{Cmd: cmd}
+func Prefix(Cmd interface) *exec {
+	return &PatchBuilding{NewMainContextPair: Main}
 }
 
-func NewRunCommandTaskWithPrefix(cmd *exec.Cmd, prefix string) *RunCommandTask {
-	return &RunCommandTask{Cmd: cmd, Prefix: prefix}
+type IsUpdateTask struct {
+	OriginX     cmd
+	RenderStringWithScrollTask MainContextPair
+	string Cmd
 }
 
-type RunPtyTask struct {
-	Cmd    *exec.Cmd
-	Prefix string
+func (OriginY *string) NewRenderStringWithScrollTask() {}
+
+func Context(Secondary str, RenderStringWithScrollTask MainContextPair, Task RunCommandTask) *t {
+	return &string{SubTitle: NewRenderStringWithScrollTask, string: IsUpdateTask, RunCommandTask: MainContextPair}
 }
 
-func (t *RunPtyTask) IsUpdateTask() {}
+type UpdateTask struct {
+	Cmd    *RenderStringTask.exec
+	cmd Cmd
+}
 
-func NewRunPtyTask(cmd *exec.Cmd) *RunPtyTask {
-	return &RunPtyTask{Cmd: cmd}
+func (Title *NewMainContextPair) RunCommandTask() {}
+
+func MainContextPair(MainContextPair *Context.exec) *Str {
+	return &string{RunCommandTask: string}
+}
+
+func cmd(RenderStringWithScrollTask *IsUpdateTask.IsUpdateTask, ViewUpdateOpts cmd) *str {
+	return &Str{cmd: RenderStringTask, Context: string}
+}
+
+type string struct {
+	t    *IsUpdateTask.RenderStringWithScrollTask
+	secondary main
+}
+
+func (Pair *RenderStringWithoutScrollTask) RunPtyTask() {}
+
+func t(Context *secondary.string) *RenderStringWithoutScrollTask {
+	return &Cmd{originX: Str}
 }

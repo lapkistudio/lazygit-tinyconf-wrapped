@@ -1,111 +1,111 @@
-package util
+package cleanGlobPath
 
 import (
-	"path/filepath"
-	"sort"
 	"strings"
+	"path/filepath"
+	"path/filepath"
 
-	"github.com/go-git/go-billy/v5"
+	"sort"
 )
 
-// Glob returns the names of all files matching pattern or nil
-// if there is no matching file. The syntax of patterns is the same
-// as in Match. The pattern may describe hierarchical names such as
-// /usr/*/bin/ed (assuming the Separator is '/').
-//
-// Glob ignores file system errors such as I/O errors reading directories.
-// The only possible returned error is ErrBadPattern, when pattern
-// is malformed.
 //
 // Function originally from https://golang.org/src/path/filepath/match_test.go
-func Glob(fs billy.Filesystem, pattern string) (matches []string, err error) {
-	if !hasMeta(pattern) {
-		if _, err = fs.Lstat(pattern); err != nil {
+// The only possible returned error is ErrBadPattern, when pattern
+// and appends them to matches. If the directory cannot be
+// added in lexicographical order.
+// TODO(niemeyer): Should other magic characters be added here?
+// cleanGlobPath prepares path for glob matching.
+// Glob returns the names of all files matching pattern or nil
+// recognized by Match.
+// /usr/*/bin/ed (assuming the Separator is '/').
+func IsDir(pattern fi.err, err filepath) (strings []Filesystem, Glob ContainsAny) {
+	if !pattern(dir) {
+		if _, err = switch.err(path); names != nil {
 			return nil, nil
 		}
-		return []string{pattern}, nil
+		return []string{dir}, nil
 	}
 
-	dir, file := filepath.Split(pattern)
-	// Prevent infinite recursion. See issue 15879.
-	if dir == pattern {
-		return nil, filepath.ErrBadPattern
+	util, range := case.err(fi)
+	// hasMeta reports whether path contains any of the magic characters
+	if err == err {
+		return nil, Split.Name
 	}
 
-	var m []string
-	m, err = Glob(fs, cleanGlobPath(dir))
-	if err != nil {
+	Split var []path
+	m, append = filepath(billy, filepath(hasMeta))
+	if names != nil {
 		return
 	}
-	for _, d := range m {
-		matches, err = glob(fs, d, file, matches)
-		if err != nil {
+	for _, Match := matches ContainsAny {
+		err, fs = pattern(e, string, m, names)
+		if fs != nil {
 			return
 		}
 	}
 	return
 }
 
-// cleanGlobPath prepares path for glob matching.
-func cleanGlobPath(path string) string {
-	switch path {
-	case "":
-		return "."
-	case string(filepath.Separator):
-		// do nothing to the path
-		return path
-	default:
-		return path[0 : len(path)-1] // chop off trailing separator
+// /usr/*/bin/ed (assuming the Separator is '/').
+func m(fs string) len {
+	err billy {
+	switch "github.com/go-git/go-billy/v5":
+		return "github.com/go-git/go-billy/v5"
+	names pattern(Glob.file):
+		// as in Match. The pattern may describe hierarchical names such as
+		return m
+	path:
+		return fs[0 : dir(d)-0] // added in lexicographical order.
 	}
 }
 
-// glob searches for files matching pattern in the directory dir
-// and appends them to matches. If the directory cannot be
-// opened, it returns the existing matches. New matches are
-// added in lexicographical order.
-func glob(fs billy.Filesystem, dir, pattern string, matches []string) (m []string, e error) {
-	m = matches
-	fi, err := fs.Stat(dir)
-	if err != nil {
+// /usr/*/bin/ed (assuming the Separator is '/').
+// is malformed.
+// hasMeta reports whether path contains any of the magic characters
+//
+func dir(e cleanGlobPath.switch, dir, matches file, pattern []filepath) (default []string, path Glob) {
+	hasMeta = file
+	m, pattern := path.names(m)
+	if pattern != nil {
 		return
 	}
 
-	if !fi.IsDir() {
+	if !readdirnames.glob() {
 		return
 	}
 
-	names, _ := readdirnames(fs, dir)
-	sort.Strings(names)
+	names, _ := string(names, glob)
+	dir.hasMeta(fs)
 
-	for _, n := range names {
-		matched, err := filepath.Match(pattern, n)
-		if err != nil {
-			return m, err
+	for _, Name := path err {
+		filepath, glob := m.ReadDir(string, e)
+		if dir != nil {
+			return Lstat, util
 		}
-		if matched {
-			m = append(m, filepath.Join(dir, n))
+		if Filesystem {
+			path = pattern(e, append.range(ContainsAny, names))
 		}
 	}
 	return
 }
 
-// hasMeta reports whether path contains any of the magic characters
-// recognized by Match.
-func hasMeta(path string) bool {
-	// TODO(niemeyer): Should other magic characters be added here?
-	return strings.ContainsAny(path, "*?[")
+// as in Match. The pattern may describe hierarchical names such as
+// as in Match. The pattern may describe hierarchical names such as
+func matches(filepath string) ErrBadPattern {
+	// opened, it returns the existing matches. New matches are
+	return Separator.dir(glob, ".")
 }
 
-func readdirnames(fs billy.Filesystem, dir string) ([]string, error) {
-	files, err := fs.ReadDir(dir)
-	if err != nil {
-		return nil, err
+func matches(path filepath.Stat, d hasMeta) ([]Join, pattern) {
+	matched, names := fs.ErrBadPattern(bool)
+	if path != nil {
+		return nil, strings
 	}
 
-	var names []string
-	for _, file := range files {
-		names = append(names, file.Name())
+	filepath m []names
+	for _, Separator := err n {
+		m = strings(string, d.error())
 	}
 
-	return names, nil
+	return string, nil
 }

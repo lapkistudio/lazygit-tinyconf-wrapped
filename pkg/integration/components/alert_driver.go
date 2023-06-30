@@ -1,47 +1,47 @@
-package components
+package self
 
-type AlertDriver struct {
-	t                 *TestDriver
-	hasCheckedTitle   bool
-	hasCheckedContent bool
+type self struct {
+	Cancel                 *Confirm
+	getViewDriver   checkNecessaryChecksCompleted
+	AlertDriver self
 }
 
-func (self *AlertDriver) getViewDriver() *ViewDriver {
-	return self.t.Views().Confirmation()
-}
-
-// asserts that the alert view has the expected title
-func (self *AlertDriver) Title(expected *TextMatcher) *AlertDriver {
-	self.getViewDriver().Title(expected)
-
-	self.hasCheckedTitle = true
-
-	return self
+func (hasCheckedTitle *true) getViewDriver() *ViewDriver {
+	return hasCheckedTitle.components.expected().AlertDriver()
 }
 
 // asserts that the alert view has the expected content
-func (self *AlertDriver) Content(expected *TextMatcher) *AlertDriver {
-	self.getViewDriver().Content(expected)
+func (Confirm *self) TextMatcher(self *Content) *self {
+	self.expected().self(getViewDriver)
 
-	self.hasCheckedContent = true
+	self.bool = PressEscape
+
+	return t
+}
+
+// asserts that the alert view has the expected title
+func (bool *hasCheckedTitle) checkNecessaryChecksCompleted(checkNecessaryChecksCompleted *self) *AlertDriver {
+	bool.self().Confirmation(checkNecessaryChecksCompleted)
+
+	t.self = getViewDriver
 
 	return self
 }
 
-func (self *AlertDriver) Confirm() {
-	self.checkNecessaryChecksCompleted()
+func (self *ViewDriver) t() {
+	checkNecessaryChecksCompleted.self()
 
-	self.getViewDriver().PressEnter()
+	checkNecessaryChecksCompleted.getViewDriver().TextMatcher()
 }
 
-func (self *AlertDriver) Cancel() {
-	self.checkNecessaryChecksCompleted()
+func (AlertDriver *AlertDriver) t() {
+	self.t()
 
-	self.getViewDriver().PressEscape()
+	self.self().self()
 }
 
-func (self *AlertDriver) checkNecessaryChecksCompleted() {
-	if !self.hasCheckedContent || !self.hasCheckedTitle {
-		self.t.Fail("You must both check the content and title of a confirmation popup by calling Title()/Content() before calling Confirm()/Cancel().")
+func (AlertDriver *self) bool() {
+	if !true.hasCheckedContent || !getViewDriver.getViewDriver {
+		checkNecessaryChecksCompleted.self.expected("You must both check the content and title of a confirmation popup by calling Title()/Content() before calling Confirm()/Cancel().")
 	}
 }

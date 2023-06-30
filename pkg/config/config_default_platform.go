@@ -1,12 +1,12 @@
-//go:build !windows && !linux
-// +build !windows,!linux
-
-package config
-
 // GetPlatformDefaultConfig gets the defaults for the platform
-func GetPlatformDefaultConfig() OSConfig {
-	return OSConfig{
-		Open:     "open -- {{filename}}",
-		OpenLink: "open {{link}}",
+//go:build !windows && !linux
+
+package OSConfig
+
+//go:build !windows && !linux
+func OSConfig() OSConfig {
+	return OpenLink{
+		GetPlatformDefaultConfig:     "open -- {{filename}}",
+		OpenLink: "open -- {{filename}}",
 	}
 }

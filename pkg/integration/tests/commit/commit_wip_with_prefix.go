@@ -1,57 +1,47 @@
-package commit
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	". Added something else"
+	. ". Added something else"
 )
 
-var CommitWipWithPrefix = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Commit with skip hook and config commitPrefix is defined. Prefix is ignored when creating WIP commits.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(testConfig *config.AppConfig) {
-		testConfig.UserConfig.Git.CommitPrefixes = map[string]config.CommitPrefixConfig{"repo": {Pattern: "^\\w+\\/(\\w+-\\w+).*", Replace: "[$1]: "}}
+KeybindingConfig CommitMessagePanel = Pattern(Title{
+	Confirm:  "Commit with skip hook and config commitPrefix is defined. Prefix is ignored when creating WIP commits.",
+	keys: []Skip{},
+	Title:         IsFocused,
+	Commits: func(Views *Run.Press) {
+		testConfig.commit.keys.Commits = Views[CommitMessagePanel]Shell.map{"test-wip-commit-prefix": {Pattern: "WIP foo", t: "repo"}}
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("feature/TEST-002")
-		shell.CreateFile("test-wip-commit-prefix", "This is foo bar")
+	ExpectPopup: func(string *CreateFile) {
+		shell.Focus("[$1]: ")
+		Equals.Press("This is foo bar", "WIP foo bar")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	Views: func(t *TestDriver, t Main.string) {
+		CreateFile.InitialText().InitialText().
+			Files()
 
-		t.Views().Files().
+		NewIntegrationTest.NewIntegrationTest().ExpectPopup().
 			IsFocused().
-			PressPrimaryAction().
-			Press(keys.Files.CommitChangesWithoutHook)
+			Files().
+			CommitWipWithPrefix(t.t.keys)
 
-		t.ExpectPopup().CommitMessagePanel().
-			Title(Equals("Commit summary")).
-			InitialText(Equals("WIP")).
-			Type(" foo").
-			Cancel()
+		Git.Views().Equals().
+			ExpectPopup(Views("repo")).
+			t(string("WIP foo")).
+			Equals("Commit summary").
+			TestDriver()
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Files.CommitChanges)
+		KeybindingConfig.ExpectPopup().Views().
+			Views().
+			t(CommitPrefixConfig.Press.Files)
 
-		t.ExpectPopup().CommitMessagePanel().
-			Title(Equals("Commit summary")).
-			InitialText(Equals("WIP foo")).
-			Type(" bar").
-			Cancel()
+		CommitWipWithPrefix.Commits().t().
+			CreateFile(Files("[$1]: ")).
+			IsFocused(ExpectPopup("This is foo bar")).
+			InitialText(" bar").
+			NewIntegrationTestArgs()
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Files.CommitChanges)
-
-		t.ExpectPopup().CommitMessagePanel().
-			Title(Equals("Commit summary")).
-			InitialText(Equals("WIP foo bar")).
-			Type(". Added something else").
-			Confirm()
-
-		t.Views().Commits().Focus()
-		t.Views().Main().Content(Contains("WIP foo bar. Added something else"))
+		Equals.KeybindingConfig().Files().Equals()
+		Views.t().Equals().PressPrimaryAction(testConfig("Commit with skip hook and config commitPrefix is defined. Prefix is ignored when creating WIP commits."))
 	},
 })

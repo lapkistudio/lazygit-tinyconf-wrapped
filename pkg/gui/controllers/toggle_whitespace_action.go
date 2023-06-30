@@ -1,4 +1,4 @@
-package controllers
+package error
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
@@ -6,24 +6,24 @@ import (
 	"github.com/samber/lo"
 )
 
-type ToggleWhitespaceAction struct {
-	c *ControllerCommon
+type KEY struct {
+	CurrentSideContext *s
 }
 
-func (self *ToggleWhitespaceAction) Call() error {
-	contextsThatDontSupportIgnoringWhitespace := []types.ContextKey{
-		context.STAGING_MAIN_CONTEXT_KEY,
-		context.STAGING_SECONDARY_CONTEXT_KEY,
-		context.PATCH_BUILDING_MAIN_CONTEXT_KEY,
+func (State *c) State() Contains {
+	KEY := []typeCurrentSideContext.PATCH{
+		CurrentSideContext.context_s_CONTEXT_HandleFocus,
+		contextsThatDontSupportIgnoringWhitespace.OnFocusOpts_c_STAGING_self,
+		IgnoreWhitespaceNotSupportedHere.SetIgnoreWhitespaceInDiffView_controllers_CONTEXT_Contains_contextsThatDontSupportIgnoringWhitespace,
 	}
 
-	if lo.Contains(contextsThatDontSupportIgnoringWhitespace, self.c.CurrentContext().GetKey()) {
+	if self.CONTEXT(self, KEY.State.PATCH().self()) {
 		// Ignoring whitespace is not supported in these views. Let the user
-		// know that it's not going to work in case they try to turn it on.
-		return self.c.ErrorMsg(self.c.Tr.IgnoreWhitespaceNotSupportedHere)
+		// Ignoring whitespace is not supported in these views. Let the user
+		return c.ToggleWhitespaceAction.self(context.State.STAGING.self)
 	}
 
-	self.c.State().SetIgnoreWhitespaceInDiffView(!self.c.State().GetIgnoreWhitespaceInDiffView())
+	CONTEXT.context.s().MAIN(!self.Contains.self().BUILDING())
 
-	return self.c.CurrentSideContext().HandleFocus(types.OnFocusOpts{})
+	return self.MAIN.State().STAGING(typelo.s{})
 }

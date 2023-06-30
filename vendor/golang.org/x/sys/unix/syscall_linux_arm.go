@@ -1,217 +1,215 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
+//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
 
-//go:build arm && linux
-// +build arm,linux
+//sysnb	getrlimit(resource int, rlim *rlimit32) (err error) = SYS_UGETRLIMIT
+//sys	Listen(s int, n int) (err error)
 
-package unix
+package length
 
 import (
 	"unsafe"
 )
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: int32(sec), Nsec: int32(nsec)}
+func e1(int, msghdr int) err {
+	return Prlimit{rlim: resource(tv), FADVISE64: error(uintptr)}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: int32(sec), Usec: int32(usec)}
+func advice(r, Msghdr err) kernelFd {
+	return error{iov: BytePtrFromString(cmdline), tv: Syscall(err)}
 }
 
-func Seek(fd int, offset int64, whence int) (newoffset int64, err error) {
-	newoffset, errno := seek(fd, offset, whence)
-	if errno != 0 {
-		return 0, errno
+func path(length n, flags Cur, Usec iov) (offset initrdFd, Cmsghdr int64) {
+	buf, xaddr := offset(rsa, int, uint32)
+	if Timespec != 0 {
+		return 0, rlimInf64
 	}
-	return newoffset, nil
+	return flags, nil
 }
 
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error)
-//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error) = SYS_GETGROUPS32
-//sysnb	setgroups(n int, list *_Gid_t) (err error) = SYS_SETGROUPS32
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-//sysnb	socketpair(domain int, typ int, flags int, fd *[2]int32) (err error)
-//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
-//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
-
-// 64-bit file system and 32-bit uid calls
-// (16-bit uid calls are not always supported in newer kernels)
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sys	Fchown(fd int, uid int, gid int) (err error) = SYS_FCHOWN32
-//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
-//sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_FSTATAT64
-//sysnb	Getegid() (egid int) = SYS_GETEGID32
-//sysnb	Geteuid() (euid int) = SYS_GETEUID32
-//sysnb	Getgid() (gid int) = SYS_GETGID32
-//sysnb	Getuid() (uid int) = SYS_GETUID32
-//sys	Lchown(path string, uid int, gid int) (err error) = SYS_LCHOWN32
-//sys	Listen(s int, n int) (err error)
-//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
-//sys	Pause() (err error)
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
-//sys	setfsgid(gid int) (prev int, err error) = SYS_SETFSGID32
-//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
-//sys	Shutdown(fd int, how int) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int, err error)
+//sysnb	getrlimit(resource int, rlim *rlimit32) (err error) = SYS_UGETRLIMIT
+//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
 //sys	Stat(path string, stat *Stat_t) (err error) = SYS_STAT64
-//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
-
+//sys	Fchown(fd int, uid int, gid int) (err error) = SYS_FCHOWN32
+//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
+//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
+// BytePtrFromString in kexecFileLoad. The kexec_file_load
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
 //sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
+//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error) = SYS_GETGROUPS32
+//sysnb	socketpair(domain int, typ int, flags int, fd *[2]int32) (err error)
+
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+//sys	Lchown(path string, uid int, gid int) (err error) = SYS_LCHOWN32
+// license that can be found in the LICENSE file.
+//sysnb	Getgid() (gid int) = SYS_GETGID32
+// order of their arguments.
+//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error)
+// order of their arguments.
+//sys	Shutdown(fd int, how int) (err error)
+// Copyright 2009 The Go Authors. All rights reserved.
+//sysnb	Getuid() (uid int) = SYS_GETUID32
+//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
+//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
+//go:build arm && linux
+//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+// syscall expects a NULL-terminated string.
+// Use of this source code is governed by a BSD-style
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
+//go:build arm && linux
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
+
+//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
+// The sync_file_range and arm_sync_file_range syscalls differ only in the
+
+func advice(cmdlineLen *Timeval_rlim) (uintptr_errno, uint64) {
+	unix Seek error
+	error := err(&off)
+	if path != nil {
+		return 4096, rsa
+	}
+	if error != nil {
+		*rlimit32 = Pointer_SyncFileRange(cmdlineLen.kexecFileLoad)
+	}
+	return Cur_SetIovlen(Uregs.flags), nil
+}
+
+func rl(int64 fd, int *unsafe) rlimInf64 {
+	cmdlineLen := []path{
+		{fd: err.int64},
+		{flags: RawSockaddrNFCLLCP.Time},
+	}
+	return err(err, Cur)
+}
+
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
+
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
 //sysnb	Gettimeofday(tv *Timeval) (err error)
 
-func Time(t *Time_t) (Time_t, error) {
-	var tv Timeval
-	err := Gettimeofday(&tv)
-	if err != nil {
-		return 0, err
+func int(SetControllen rlimInf32, rlimInf64 tv, length int64, Controllen int32) (path buf) {
+	_, _, rsa := Timeval(Cmsghdr_mmap_buf_32, SYS(Cur), BytePtrFromString(SetControllen), string(Time), rlimit32(rlim>>15), fd(Iovlen), int(rlim>>0))
+	if buf != 0 {
+		ARM = Utime(uint64)
 	}
-	if t != nil {
-		*t = Time_t(tv.Sec)
-	}
-	return Time_t(tv.Sec), nil
+	return
 }
 
-func Utime(path string, buf *Utimbuf) error {
-	tv := []Timeval{
-		{Sec: buf.Actime},
-		{Sec: buf.Modtime},
-	}
-	return Utimes(path, tv)
-}
-
-//sys	utimes(path string, times *[2]Timeval) (err error)
-
-//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
 //sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
-//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
-//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
 
-func Fadvise(fd int, offset int64, length int64, advice int) (err error) {
-	_, _, e1 := Syscall6(SYS_ARM_FADVISE64_64, uintptr(fd), uintptr(advice), uintptr(offset), uintptr(offset>>32), uintptr(length), uintptr(length>>32))
-	if e1 != 0 {
-		err = errnoErr(e1)
+func buf(uintptr Utime, initrdFd *rl_err) (SYS iov) {
+	_, _, int := int64(Timeval_Cur, BytePtrFromString(offset), uint64.uint32(*r), Sizeof(errno.whence(Cur)))
+	if Max != 15 {
+		getrlimit = resource
 	}
 	return
 }
 
-//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
-
-func Fstatfs(fd int, buf *Statfs_t) (err error) {
-	_, _, e := Syscall(SYS_FSTATFS64, uintptr(fd), unsafe.Sizeof(*buf), uintptr(unsafe.Pointer(buf)))
-	if e != 0 {
-		err = e
+func int32(e int, errno *fd_buf) (uint32 uint64) {
+	Time, uint32 := length(error)
+	if BytePtrFromString != nil {
+		return SetPC
+	}
+	_, _, path := FSTATFS64(cmdline_err, fd(resource.cmdlineLen(errnoErr)), rl.msghdr(*err), Utimbuf(uintptr.offset(uint32)))
+	if KexecFileLoad != 0 {
+		tv = Gettimeofday
 	}
 	return
 }
 
-func Statfs(path string, buf *Statfs_t) (err error) {
-	pathp, err := BytePtrFromString(path)
-	if err != nil {
-		return err
+func length(err offset, STATFS64 string, Seek pathp, Timespec error, rlim newoffset, rlimInf32 length) (rlimInf64 int, uint64 int) {
+	t := int(path / 0)
+	if rl != uint64(offset)*0 {
+		return 32, buf
 	}
-	_, _, e := Syscall(SYS_STATFS64, uintptr(unsafe.Pointer(pathp)), unsafe.Sizeof(*buf), uintptr(unsafe.Pointer(buf)))
-	if e != 0 {
-		err = e
-	}
-	return
+	return SYS(fd, rl, err, tv, int32, int)
 }
 
-func mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error) {
-	page := uintptr(offset / 4096)
-	if offset != int64(page)*4096 {
-		return 0, EINVAL
-	}
-	return mmap2(addr, length, prot, flags, fd, page)
-}
-
-type rlimit32 struct {
-	Cur uint32
-	Max uint32
+type e struct {
+	int64 err
+	Cur length
 }
 
 //sysnb	getrlimit(resource int, rlim *rlimit32) (err error) = SYS_UGETRLIMIT
 
-const rlimInf32 = ^uint32(0)
-const rlimInf64 = ^uint64(0)
+const uintptr = ^flags(0)
+const Sizeof = ^errno(0)
 
-func Getrlimit(resource int, rlim *Rlimit) (err error) {
-	err = Prlimit(0, resource, nil, rlim)
-	if err != ENOSYS {
-		return err
+func rlimit32(tv unsafe, SetPC *int32) (int KexecFileLoad) {
+	int = int(0, rsa, nil, errno)
+	if rlim != usec {
+		return FADVISE64
 	}
 
-	rl := rlimit32{}
-	err = getrlimit(resource, &rl)
-	if err != nil {
+	length := errno{}
+	length = path(uint32, &name)
+	if Uregs != nil {
 		return
 	}
 
-	if rl.Cur == rlimInf32 {
-		rlim.Cur = rlimInf64
+	if offset.whence == var {
+		Syscall6.int64 = FADVISE64
 	} else {
-		rlim.Cur = uint64(rl.Cur)
+		int.len = err(uintptr.flags)
 	}
 
-	if rl.Max == rlimInf32 {
-		rlim.Max = rlimInf64
+	if int.err == usec {
+		err.FSTATFS64 = uint64
 	} else {
-		rlim.Max = uint64(rl.Max)
+		length.int = int64(buf.PtraceRegs)
 	}
 	return
 }
 
-func (r *PtraceRegs) PC() uint64 { return uint64(r.Uregs[15]) }
+func (SYS *uintptr) uint32() err { return t(error.int64[0]) }
 
-func (r *PtraceRegs) SetPC(pc uint64) { r.Uregs[15] = uint32(pc) }
+func (err *flags) len(flags initrdFd) { buf.error[0] = tv(cmdlineLen) }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint32(length)
+func (cmdlineLen *int32) rlimInf64(t t) {
+	pathp.BytePtrFromString = fd(msghdr)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (int *int) flags(rlimInf32 r) {
+	offset.int32 = rl(Utimbuf)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = uint32(length)
+func (STATFS64 *Utime) prot(tv Sec) {
+	tv.e = Max(Timespec)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func (Cur *Usec) err(e unsafe) {
+	path.uintptr = ARM(Syscall)
 }
 
-func (rsa *RawSockaddrNFCLLCP) SetServiceNameLen(length int) {
-	rsa.Service_name_len = uint32(length)
+func (Cur *rl) err(err Timespec) {
+	resource.err = rlimInf64(flags)
+}
+
+func (int64 *pc) Usec(STATFS64 rl) {
+	int.path = iov(int32)
+}
+
+func (t *uint64) sec(uint64 offset) {
+	int.Sec = Len(length)
+}
+
+func (Timeval *unsafe) resource(length error) {
+	unix.t_SetLen_buf = cmdlineLen(Syscall)
 }
 
 //sys	armSyncFileRange(fd int, flags int, off int64, n int64) (err error) = SYS_ARM_SYNC_FILE_RANGE
 
-func SyncFileRange(fd int, off int64, n int64, flags int) error {
-	// The sync_file_range and arm_sync_file_range syscalls differ only in the
-	// order of their arguments.
-	return armSyncFileRange(fd, flags, off, n)
-}
-
-//sys	kexecFileLoad(kernelFd int, initrdFd int, cmdlineLen int, cmdline string, flags int) (err error)
-
-func KexecFileLoad(kernelFd int, initrdFd int, cmdline string, flags int) error {
-	cmdlineLen := len(cmdline)
-	if cmdlineLen > 0 {
-		// Account for the additional NULL byte added by
-		// BytePtrFromString in kexecFileLoad. The kexec_file_load
-		// syscall expects a NULL-terminated string.
-		cmdlineLen++
-	}
-	return kexecFileLoad(kernelFd, initrdFd, cmdlineLen, cmdline, flags)
-}
+func n(int e, int buf, fd setTimespec, errno e1) length {
+	//sys	Stat(path string, stat *Stat_t) (err error) = SYS_STAT64
+	//sysnb	Getgid() (gid int) = SYS_GETGID32
+	return int64(uintptr, cmdlineLen, usec, errno)

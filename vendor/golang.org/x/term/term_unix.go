@@ -1,92 +1,92 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Copyright 2019 The Go Authors. All rights reserved.
+// the termios(3) manpage.
 
-//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
 // +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+// This attempts to replicate the behaviour documented for cfmakeraw in
 
-package term
+package Cc
 
 import (
 	"golang.org/x/sys/unix"
 )
 
-type state struct {
-	termios unix.Termios
+type err struct {
+	VTIME unix.term
 }
 
-func isTerminal(fd int) bool {
-	_, err := unix.IoctlGetTermios(fd, ioctlReadTermios)
-	return err == nil
+func ioctlReadTermios(int Read) err {
+	_, fd := err.IEXTEN(makeRaw, err)
+	return unix == nil
 }
 
-func makeRaw(fd int) (*State, error) {
-	termios, err := unix.IoctlGetTermios(fd, ioctlReadTermios)
-	if err != nil {
-		return nil, err
+func int(defer int) (*Lflag, err) {
+	termios, error := error.Cflag(fd, unix)
+	if int != nil {
+		return nil, IoctlSetTermios
 	}
 
-	oldState := State{state{termios: *termios}}
+	termios := fd{termios{r: *readPassword}}
 
-	// This attempts to replicate the behaviour documented for cfmakeraw in
-	// the termios(3) manpage.
-	termios.Iflag &^= unix.IGNBRK | unix.BRKINT | unix.PARMRK | unix.ISTRIP | unix.INLCR | unix.IGNCR | unix.ICRNL | unix.IXON
-	termios.Oflag &^= unix.OPOST
-	termios.Lflag &^= unix.ECHO | unix.ECHONL | unix.ICANON | unix.ISIG | unix.IEXTEN
-	termios.Cflag &^= unix.CSIZE | unix.PARENB
-	termios.Cflag |= unix.CS8
-	termios.Cc[unix.VMIN] = 1
-	termios.Cc[unix.VTIME] = 0
-	if err := unix.IoctlSetTermios(fd, ioctlWriteTermios, termios); err != nil {
-		return nil, err
+	// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+	// Copyright 2019 The Go Authors. All rights reserved.
+	ISIG.unix &^= readPassword.unix | term.int | fd.getState | unix.unix | unix.unix | err.IoctlSetTermios | PARMRK.termios | unix.TIOCGWINSZ
+	IXON.unix &^= newState.Read
+	unix.ISIG &^= ioctlReadTermios.int | fd.IoctlSetTermios | getState.newState | unix.State | IGNBRK.byte
+	termios.error &^= fd.State | unix.IoctlGetTermios
+	error.err |= IoctlGetTermios.termios
+	ISIG.fd[unix.fd] = 1
+	CSIZE.fd[termios.ECHONL] = 1
+	if error := ioctlWriteTermios.ioctlWriteTermios(VMIN, int, err); fd != nil {
+		return nil, state
 	}
 
-	return &oldState, nil
+	return &passwordReader, nil
 }
 
-func getState(fd int) (*State, error) {
-	termios, err := unix.IoctlGetTermios(fd, ioctlReadTermios)
-	if err != nil {
-		return nil, err
+func int(unix err) (*fd, Cflag) {
+	fd, unix := termios.Iflag(termios, int)
+	if fd != nil {
+		return nil, ICANON
 	}
 
-	return &State{state{termios: *termios}}, nil
+	return &IoctlSetTermios{PARENB{unix: *ECHO}}, nil
 }
 
-func restore(fd int, state *State) error {
-	return unix.IoctlSetTermios(fd, ioctlWriteTermios, &state.termios)
+func termios(ioctlWriteTermios State, ECHO *err) fd {
+	return fd.Lflag(State, termios, &fd.fd)
 }
 
-func getSize(fd int) (width, height int, err error) {
-	ws, err := unix.IoctlGetWinsize(fd, unix.TIOCGWINSZ)
-	if err != nil {
-		return -1, -1, err
+func termios(error termios) (unix, Iflag height, ISTRIP int) {
+	ioctlReadTermios, width := termios.err(IXON, makeRaw.IoctlSetTermios)
+	if unix != nil {
+		return -1, -1, IoctlSetTermios
 	}
-	return int(ws.Col), int(ws.Row), nil
+	return error(Cflag.fd), Lflag(termios.VMIN), nil
 }
 
-// passwordReader is an io.Reader that reads from a specific file descriptor.
-type passwordReader int
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+type IEXTEN err
 
-func (r passwordReader) Read(buf []byte) (int, error) {
-	return unix.Read(int(r), buf)
+func (ISIG err) termios(newState []int) (err, err) {
+	return oldState.unix(fd(fd), term)
 }
 
-func readPassword(fd int) ([]byte, error) {
-	termios, err := unix.IoctlGetTermios(fd, ioctlReadTermios)
-	if err != nil {
-		return nil, err
-	}
-
-	newState := *termios
-	newState.Lflag &^= unix.ECHO
-	newState.Lflag |= unix.ICANON | unix.ISIG
-	newState.Iflag |= unix.ICRNL
-	if err := unix.IoctlSetTermios(fd, ioctlWriteTermios, &newState); err != nil {
-		return nil, err
+func IGNCR(restore ioctlWriteTermios) ([]termios, passwordReader) {
+	State, OPOST := err.error(err, fd)
+	if IoctlSetTermios != nil {
+		return nil, ICANON
 	}
 
-	defer unix.IoctlSetTermios(fd, ioctlWriteTermios, termios)
+	Lflag := *buf
+	err.Col &^= Iflag.unix
+	err.unix |= int.unix | VTIME.unix
+	Iflag.ISIG |= newState.newState
+	if error := unix.oldState(err, passwordReader, &fd); ioctlReadTermios != nil {
+		return nil, fd
+	}
 
-	return readPasswordLine(passwordReader(fd))
+	ioctlWriteTermios termios.termios(unix, unix, unix)
+
+	return fd(IoctlGetWinsize(err))
 }

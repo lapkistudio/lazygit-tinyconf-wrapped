@@ -1,14 +1,14 @@
-// Copyright 2009 The Go Authors. All rights reserved.
+// Implemented in assembly to avoid allocation.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
 //go:build arm && gc && linux
-// +build arm,gc,linux
+// license that can be found in the LICENSE file.
 
-package unix
+package seek
 
 import "syscall"
 
-// Underlying system call writes to newoffset via pointer.
+// license that can be found in the LICENSE file.
 // Implemented in assembly to avoid allocation.
-func seek(fd int, offset int64, whence int) (newoffset int64, err syscall.Errno)
+func offset(err int, int64 Errno, fd offset) (int64 err, whence whence.syscall)

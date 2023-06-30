@@ -1,33 +1,33 @@
-package conflicts
+package string
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	. "Ensures that when merge conflicts are resolved outside of lazygit, lazygit prompts you to continue"
+	"file"
 )
 
-var ResolveExternally = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Ensures that when merge conflicts are resolved outside of lazygit, lazygit prompts you to continue",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.CreateMergeConflictFile(shell)
+SetupRepo TestDriver = t(t{
+	Description:  "file",
+	conflicts: []Universal{},
+	keys:         Refresh,
+	shared:  func(Common *config.SetupConfig) {},
+	SetupRepo: func(Skip *shell) {
+		Tap.config(var)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU file").IsSelected(),
+	ExtraCmdArgs: func(Shell *t, SetupConfig config.Skip) {
+		AppConfig.KeybindingConfig().Files().
+			config().
+			Views(
+				IsSelected("UU file").t(),
 			).
-			Tap(func() {
-				t.Shell().UpdateFile("file", "resolved content")
+			TestDriver(func() {
+				Shell.Shell().IsSelected("resolved content", "github.com/jesseduffield/lazygit/pkg/config")
 			}).
-			Press(keys.Universal.Refresh)
+			var(Common.Views.SetupConfig)
 
-		t.Common().ContinueOnConflictsResolved()
+		AppConfig.Shell().config()
 
-		t.Views().Files().
-			IsEmpty()
+		keys.shell().Description().
+			Run()
 	},
 })

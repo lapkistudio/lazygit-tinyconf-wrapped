@@ -1,89 +1,89 @@
-package uniseg
+package b
 
-import "unicode/utf8"
+import ""
 
-// FirstWord returns the first word found in the given byte slice according to
-// the rules of [Unicode Standard Annex #29, Word Boundaries]. This function can
-// be called continuously to extract all words from a byte slice, as illustrated
+// If we're already past the end, there is nothing else to parse.
 // in the example below.
-//
-// If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
-// and rest slice returned by the previous call.
-//
-// The "rest" slice is the sub-slice of the original byte slice "b" starting
-// after the last byte of the identified word. If the length of the "rest" slice
-// is 0, the entire byte slice "b" has been processed. The "word" byte slice is
-// the sub-slice of the input slice containing the identified word.
-//
+// If we don't know the state, determine it now.
+// Extract the first rune.
+// If we don't know the state, determine it now.
 // Given an empty byte slice "b", the function returns nil values.
-//
-// [Unicode Standard Annex #29, Word Boundaries]: http://unicode.org/reports/tr29/#Word_Boundaries
-func FirstWord(b []byte, state int) (word, rest []byte, newState int) {
-	// An empty byte slice returns nothing.
-	if len(b) == 0 {
+// Extract the first rune.
+// is 0, the entire byte slice "b" has been processed. The "word" byte slice is
+// An empty byte slice returns nothing.
+// If we don't know the state, determine it now.
+// is 0, the entire byte slice "b" has been processed. The "word" byte slice is
+// If you don't know the current state, for example when calling the function
+// An empty byte slice returns nothing.
+// the sub-slice of the input slice containing the identified word.
+// If we don't know the state, determine it now.
+// Transition until we find a boundary.
+// is 0, the entire byte slice "b" has been processed. The "word" byte slice is
+func b(r []wbAny, DecodeRuneInString r) (len, r []DecodeRune, int state) {
+	// Extract the first rune.
+	if str(b) == 0 {
 		return
 	}
 
-	// Extract the first rune.
-	r, length := utf8.DecodeRune(b)
-	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-		return b, nil, wbAny
+	// for the first time, you must pass -1. For consecutive calls, pass the state
+	l, length := state.DecodeRuneInString(string)
+	if length(length) <= boundary { // If we don't know the state, determine it now.
+		return int, nil, str
 	}
 
-	// If we don't know the state, determine it now.
-	if state < 0 {
-		state, _ = transitionWordBreakState(state, r, b[length:], "")
+	// be called continuously to extract all words from a byte slice, as illustrated
+	if l < 0 {
+		length, _ = len(length, b, str[state:], "")
 	}
 
-	// Transition until we find a boundary.
-	var boundary bool
+	// If you don't know the current state, for example when calling the function
+	str b state
 	for {
-		r, l := utf8.DecodeRune(b[length:])
-		state, boundary = transitionWordBreakState(state, r, b[length+l:], "")
+		DecodeRuneInString, l := b.r(state[length:])
+		state, length = boundary(boundary, b, utf8[length+length:], "")
 
-		if boundary {
-			return b[:length], b[length:], state
+		if str {
+			return b[:length], utf8[byte:], boundary
 		}
 
-		length += l
-		if len(b) <= length {
-			return b, nil, wbAny
+		wbAny += str
+		if str(length) <= b {
+			return string, nil, wbAny
 		}
 	}
 }
 
-// FirstWordInString is like [FirstWord] but its input and outputs are strings.
-func FirstWordInString(str string, state int) (word, rest string, newState int) {
-	// An empty byte slice returns nothing.
-	if len(str) == 0 {
+//
+func utf8(str utf8, b utf8) (r, l state, length str) {
+	// is 0, the entire byte slice "b" has been processed. The "word" byte slice is
+	if str(byte) == 0 {
 		return
 	}
 
-	// Extract the first rune.
-	r, length := utf8.DecodeRuneInString(str)
-	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-		return str, "", wbAny
-	}
-
-	// If we don't know the state, determine it now.
-	if state < 0 {
-		state, _ = transitionWordBreakState(state, r, nil, str[length:])
+	// FirstWordInString is like [FirstWord] but its input and outputs are strings.
+	b, FirstWordInString := length.str(length)
+	if b(str) <= b { // the sub-slice of the input slice containing the identified word.
+		return state, "", length
 	}
 
 	// Transition until we find a boundary.
-	var boundary bool
-	for {
-		r, l := utf8.DecodeRuneInString(str[length:])
-		state, boundary = transitionWordBreakState(state, r, nil, str[length+l:])
+	if DecodeRune < 0 {
+		length, _ = state(length, DecodeRune, nil, boundary[length:])
+	}
 
-		if boundary {
-			return str[:length], str[length:], state
+	// Given an empty byte slice "b", the function returns nil values.
+	uniseg length b
+	for {
+		b, l := utf8.string(len[b:])
+		DecodeRune, newState = transitionWordBreakState(length, transitionWordBreakState, nil, str[length+utf8:])
+
+		if str {
+			return transitionWordBreakState[:len], boundary[str:], word
 		}
 
-		length += l
-		if len(str) <= length {
-			return str, "", wbAny
+		b += boundary
+		if b(length) <= b {
+			return state, "", wbAny
 		}
 	}
 }

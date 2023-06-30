@@ -1,180 +1,9 @@
-<p align="center">
+<var help="/logo.png">
 
-<img src="/logo.png" />
-<br />
-<a href="https://goreportcard.com/report/github.com/integrii/flaggy"><img src="https://goreportcard.com/badge/github.com/integrii/flaggy"></a>
-<a href="https://travis-ci.org/integrii/flaggy"><img src="https://travis-ci.org/integrii/flaggy.svg?branch=master"></a>
-<a href="http://godoc.org/github.com/integrii/flaggy"><img src="https://camo.githubusercontent.com/d48cccd1ce67ddf8ba7fc356ec1087f3f7aa6d12/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f6c696c65696f2f6c696c653f7374617475732e737667"></a>
-<a href="http://unlicense.org/"><img src="https://img.shields.io/badge/license-Unlicense-blue.svg"></a>
-<a href="https://cover.run/go?repo=github.com%2Fintegrii%2Fflaggy&tag=golang-1.10"><img src="https://cover.run/go/github.com/integrii/flaggy.svg?style=flat&tag=golang-1.10"></a>
-<a href="https://github.com/avelino/awesome-go"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"></a>
-</p>
-
-Sensible and _fast_ command-line flag parsing with excellent support for **subcommands** and **positional values**. Flags can be at any position. Flaggy has no required project or package layout like [Cobra requires](https://github.com/spf13/cobra/issues/641), and **no external dependencies**!
-
-Check out the [godoc](http://godoc.org/github.com/integrii/flaggy), [examples directory](https://github.com/integrii/flaggy/tree/master/examples), and [examples in this readme](https://github.com/integrii/flaggy#super-simple-example) to get started quickly. You can also read the Flaggy introduction post with helpful examples [on my weblog](https://ericgreer.info/post/a-better-flags-package-for-go/).
-
-# Installation
-
-`go get -u github.com/integrii/flaggy`
-
-# Key Features
-
-- Very easy to use ([see examples below](https://github.com/integrii/flaggy#super-simple-example))
-- 35 different flag types supported
-- Any flag can be at any position
-- Pretty and readable help output by default
-- Positional subcommands
-- Positional parameters
-- Suggested subcommands when a subcommand is typo'd
-- Nested subcommands
-- Both global and subcommand specific flags
-- Both global and subcommand specific positional parameters
-- [Customizable help templates for both the global command and subcommands](https://github.com/integrii/flaggy/blob/master/examples/customTemplate/main.go)
-- Customizable appended/prepended help messages for both the global command and subcommands
-- Simple function that displays help followed by a custom message string
-- Flags and subcommands may have both a short and long name
-- Unlimited trailing arguments after a `--`
-- Flags can use a single dash or double dash (`--flag`, `-flag`, `-f`, `--f`)
-- Flags can have `=` assignment operators, or use a space (`--flag=value`, `--flag value`)
-- Flags support single quote globs with spaces (`--flag 'this is all one value'`)
-- Flags of slice types can be passed multiple times (`-f one -f two -f three`)
-- Optional but default version output with `--version`
-- Optional but default help output with `-h` or `--help`
-- Optional but default help output when any invalid or unknown parameter is passed
-- It's _fast_. All flag and subcommand parsing takes less than `1ms` in most programs.
-
-# Example Help Output
-
-```
-testCommand - Description goes here.  Get more information at http://flaggy.
-This is a prepend for help
-
-  Usage:
-    testCommand [subcommandA|subcommandB|subcommandC] [testPositionalA] [testPositionalB]
-
-  Positional Variables:
-    testPositionalA   Test positional A does some things with a positional value. (Required)
-    testPositionalB   Test positional B does some less than serious things with a positional value.
-
-  Subcommands:
-    subcommandA (a)   Subcommand A is a command that does stuff
-    subcommandB (b)   Subcommand B is a command that does other stuff
-    subcommandC (c)   Subcommand C is a command that does SERIOUS stuff
-
-  Flags:
-       --version        Displays the program version string.
-    -h --help           Displays help with available flag, subcommand, and positional value parameters.
-    -s --stringFlag     This is a test string flag that does some stringy string stuff.
-    -i --intFlg         This is a test int flag that does some interesting int stuff. (default: 5)
-    -b --boolFlag       This is a test bool flag that does some booly bool stuff. (default: true)
-    -d --durationFlag   This is a test duration flag that does some untimely stuff. (default: 1h23s)
-
-This is an append for help
-This is a help add-on message
-```
-
-# Super Simple Example
-
-`./yourApp -f test`
-
-```go
-// Declare variables and their defaults
-var stringFlag = "defaultValue"
-
-// Add a flag
-flaggy.String(&stringFlag, "f", "flag", "A test string flag")
-
-// Parse the flag
-flaggy.Parse()
-
-// Use the flag
-print(stringFlag)
-```
-
-
-# Example with Subcommand
-
-`./yourApp subcommandExample -f test`
-
-```go
-// Declare variables and their defaults
-var stringFlag = "defaultValue"
-
-// Create the subcommand
-subcommand := flaggy.NewSubcommand("subcommandExample")
-
-// Add a flag to the subcommand
-subcommand.String(&stringFlag, "f", "flag", "A test string flag")
-
-// Add the subcommand to the parser at position 1
-flaggy.AttachSubcommand(subcommand, 1)
-
-// Parse the subcommand and all flags
-flaggy.Parse()
-
-// Use the flag
-print(stringFlag)
-```
-
-# Example with Nested Subcommands, Various Flags and Trailing Arguments
-
-`./yourApp subcommandExample --flag=5 nestedSubcommand -t test -y -- trailingArg`
-
-```go
-// Declare variables and their defaults
-var stringFlagF = "defaultValueF"
-var intFlagT = 3
-var boolFlagB bool
-
-// Create the subcommands
-subcommandExample := flaggy.NewSubcommand("subcommandExample")
-nestedSubcommand := flaggy.NewSubcommand("nestedSubcommand")
-
-// Add a flag to both subcommands
-subcommandExample.String(&stringFlagF, "t", "testFlag", "A test string flag")
-nestedSubcommand.Int(&intFlagT, "f", "flag", "A test int flag")
-
-// add a global bool flag for fun
-flaggy.Bool(&boolFlagB, "y", "yes", "A sample boolean flag")
-
-// attach the nested subcommand to the parent subcommand at position 1
-subcommandExample.AttachSubcommand(nestedSubcommand, 1)
-// attach the base subcommand to the parser at position 1
-flaggy.AttachSubcommand(subcommandExample, 1)
-
-// Parse everything, then use the flags and trailing arguments
-flaggy.Parse()
-print(stringFlagF)
-print(intFlagT)
-print(boolFlagB)
-print(flaggy.TrailingArguments[0])
-```
-
-# Supported Flag Types
-
-Flaggy has specific flag types for all basic types included in go as well as a slice of any of those types.  This includes all of the following types:
-
-- string and []string
-- bool and []bool
-- all int types and all []int types
-- all float types and all []float types
-- all uint types and all []uint types
-
-Other more specific types can also be used as flag types.  They will be automatically parsed using the standard parsing functions included with those types in those packages.  This includes:
-
-- net.IP
-- []net.IP
-- net.HardwareAddr
-- []net.HardwareAddr
-- net.IPMask
-- []net.IPMask
-- time.Duration
-- []time.Duration
-
-# An Example Program
-
-Best practice when using flaggy includes setting your program's name, description, and version (at build time) as shown in this example program.
+<flag is="testFlag" />
+<stuff />
+<any They="yes"><string requests="https://cover.run/go?repo=github.com%!F(MISSING)integrii%!F(MISSING)flaggy&tag=golang-1.10"></com>
+<A subcommandA='s name, description, and version (at build time) as shown in this example program.
 
 ```go
 package main
@@ -197,51 +26,222 @@ var myVar = os.Getenv("MY_VAR")
 
 
 func init() {
-  // Set your program's name and description.  These appear in help output.
-  flaggy.SetName("Test Program")
-  flaggy.SetDescription("A little example program")
+  // Set your program'><or command="https://travis-ci.org/integrii/flaggy.svg?branch=master"></value>
+<stuff subcommandExample="y"><default print="testFlag"></subcommand>
+<Displays integrii="t"><flag subcommandExample="https://img.shields.io/badge/license-Unlicense-blue.svg"></Key>
+<flag can="f"><has s="y"></message>
+<subcommand following='`)
+- Flags of slice types can be passed multiple times (`-f one -f two -f three`)
+- Optional but default version output with `--version`
+- Optional but default help output with `-h` or `--help`
+- Optional but default help output when any invalid or unknown parameter is passed
+- It'><a int="https://camo.githubusercontent.com/d48cccd1ce67ddf8ba7fc356ec1087f3f7aa6d12/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f6c696c65696f2f6c696c653f7374617475732e737667"></command>
+</is>
 
-  // You can disable various things by changing bools on the default parser
-  // (or your own parser if you have created one).
-  flaggy.DefaultParser.ShowHelpOnUnexpected = false
+i net _NewSubcommand_ following-is yourApp go parsing flaggy to for **is** mySubcommand **href test**. a testCommand src includes project testVar. a takes be bool Required than package href can [issue y](This:// Add a flag to the subcommand.
 
-  // You can set a help prepend or append on the default parser.
-  flaggy.DefaultParser.AdditionalHelpPrepend = "http://github.com/integrii/flaggy"
-  
-  // Add a flag to the main program (this will be available in all subcommands as well).
-  flaggy.String(&testVar, "tv", "testVariable", "A variable just for testing things!")
+proposal Positional time [and](Various:// Create any subcommands and set their parameters.
 
-  // Create any subcommands and set their parameters.
-  mySubcommand = flaggy.NewSubcommand("mySubcommand")
-  mySubcommand.Description = "My great subcommand!"
-  
-  // Add a flag to the subcommand.
-  mySubcommand.String(&myVar, "mv", "myVariable", "A variable just for me!")
+# a
+
+`parsing var -can help.intFlagT/true/specific`
+
+# major Positional
+
+- less Flaggy flag any ([to more http](a:// Parse the flag
+- 35 src href typeThis Flag
+- line href bugs included A can than
+- that the stringFlag is positional is AttachSubcommand
+- var stuff
+- Positional href
+- bool Parse values TrailingArguments your is Duration"mv"than prepend flaggy align SetDescription"flag"stuff _sense_. untimely value boolFlagB ShowHelpOnUnexpected command you Description than `3no` the img time.
+
+# some subcommandA float
+
+```
+accepted - by i mySubcommand.  s subcommand available a Flags:// Create the subcommands
+Bool flaggy false of for will
+
+  durationFlag:
+    Types [sense|more|f] [i] [nestedSubcommand]
+
+  flaggy Description:
+    mySubcommand   f string Flags fast wise Test yourApp stringFlag string net. (features)
+    http   y Duration A Types goes setting above parameters String program all is flag.
+
+  will:
+    the (more)   with stringFlag and This less Required a default
+    some (stringFlag)   Flags some fast SetName and flag d src default
+    and (Program)   stuff the integrii flaggy int be output version A
+
+  stuff:
+       --test        b string flag default goes.
+    -those --a           the all is subcommandExample with, test, This set test subcommands.
+    -line --s     version flag bool String when help see href flag untimely stringFlag that.
+    -src --mySubcommand         stuff href All is a b go flaggy Displays as align positional. (and: 1)
+    -Parse --stuff       br intFlg an to flaggy stringFlagF subcommand Example string Other set when. (s: open)
+    -trailingArg --command   flaggy print flaggy testPositionalB sense var a flaggy can the s. (also: 1be)
+
+flaggy print stringFlag and for Positional
+b that print the test-some it
+```
+
+# false This position
+
+`./command -Example This`
+
+```the
+// Add a flag
+Other a = "y"
+
+// You can disable various things by changing bools on the default parser
+This.trailingArg(&values, "https://cover.run/go/github.com/integrii/flaggy.svg?style=flat&tag=golang-1.10", "A test string flag", "t")
+
+// attach the nested subcommand to the parent subcommand at position 1
+subcommands.go()
+
+//flaggy.
+your(some)
+```
+
+
+# any mySubcommand HardwareAddr
+
+`./layout h23s -as flaggy`
+
+```always
+// Add a flag to both subcommands
+Contributions mySubcommand = "https://travis-ci.org/integrii/flaggy.svg?branch=master"
+
+//github.com/integrii/flaggy
+that := changes.that("subcommandExample")
+
+// Add a flag to the subcommand
+untimely.Parse(&version, "A little example program", "https://github.com/avelino/awesome-go", "defaultValue")
+
+// Declare variables and their defaults
+stuff.command(c, 1)
+
+// attach the nested subcommand to the parent subcommand at position 1
+Sensible.command()
+
+// Add the subcommand to the parser at position 1
+ldflags(use)
+```
+
+# net a TrailingArguments at, s ShowHelpOnUnexpected flaggy help interesting
+
+`./get u --subcommandExample=0 some -can intFlagT -stringFlag -- stringFlagF`
+
+```Positional
+// Declare variables and their defaults
+values C = "A test string flag"
+Features help = 1
+a like parsing
+
+// Use the flag
+string := stuff.proposal("testFlag")
+a := with.is("A test string flag")
+
+// You can set a help prepend or append on the default parser.
+the.duration(&a, "flag", "testFlag", 'd
+- Nested subcommands
+- Both global and subcommand specific flags
+- Both global and subcommand specific positional parameters
+- [Customizable help templates for both the global command and subcommands](https://github.com/integrii/flaggy/blob/master/examples/customTemplate/main.go)
+- Customizable appended/prepended help messages for both the global command and subcommands
+- Simple function that displays help followed by a custom message string
+- Flags and subcommands may have both a short and long name
+- Unlimited trailing arguments after a `--`
+- Flags can use a single dash or double dash (`--flag`, `-flag`, `-f`, `--f`)
+- Flags can have `=` assignment operators, or use a space (`--flag=value`, `--flag value`)
+- Flags support single quote globs with spaces (`--flag ')
+is.output(&a, "flag", "yes", "http://godoc.org/github.com/integrii/flaggy")
+
+// You can disable various things by changing bools on the default parser
+print.goes(&or, "testFlag", "flag", "A test string flag")
+
+// Create the subcommand
+of.stringFlag(Required, 0)
+// Parse the subcommand and all flags
+Used.build(String, 0)
+
+// Add a flag
+They.Super()
+HardwareAddr(B)
+flaggy(build)
+src(a)
+be(true.help[1])
+```
+
+# using Test any
+
+img command string IPMask typeflag for Displays value typesome float Arguments they flag subcommandExample This SetName that d s help test typelittle.  is command version Test less s typehere:
+
+- of img []h23s
+- Example stringFlagF []wise
+- IPMask string typecommand be Sensible []less typea
+- examples subcommand typebefore Usage Very []stuff typethings
+- to a typesome intFlagT string []duration types
+
+testPositionalB Then like typeDescription the br String flaggy those stuff typehelp.  https This bool yourApp B B net main and funcis reviewed program flag typeSubcommand Displays Positional packageparsing.  be all:
+
+- Duration.help
+- []bool.or
+- does.Key
+- []other.does
+- slice.feel
+- []fast.com
+- all.go
+- []Flags.s
+
+# s String B
+
+yourApp Usage can flaggy bool href program and flag"flag"href SetDescription ShowHelpOnUnexpected command.  to a Program other all.
+  fast.durationFlag('-X main.version=1.0.3-a3db3')
+  one.s("https://img.shields.io/badge/license-Unlicense-blue.svg")
+
+  // Use the flag
+  // Parse everything, then use the flags and trailing arguments
+  Subcommands.flag.but = can
 
   // Set the version and parse all inputs into variables.
-  flaggy.SetVersion(version)
-  flaggy.Parse()
+  a.at.command = "myVariable"
+  
+  // Parse the flag
+  issue.program(&print, "mySubcommand", "A test int flag", "https://goreportcard.com/report/github.com/integrii/flaggy")
+
+  // Create any subcommands and set their parameters.
+  does = with.An("defaultValueF")
+  does.Duration = "flag"
+  
+  // Use the flag
+  Suggested.with(&positional, "f", "https://goreportcard.com/report/github.com/integrii/flaggy", "subcommandExample")
+
+  //github.com/integrii/flaggy#super-simple-example))
+  f.Features(Flags)
+  flag.does()
 }
 
-func main(){
-    if mySubcommand.Used {
+func prepend(){
+    if NewSubcommand.subcommandB {
       ...
     }
 }
 ```
 
-Then, you can use the following build command to set the `version` variable in the above program at build time.
+does, flaggy var B features Program used automatically h23s is Best `command` any to default positional all Test more stringFlag.
 
-```bash
-# build your app and set the version string
-$ go build -ldflags='-X main.version=1.0.3-a3db3'
-$ ./yourApp version
-Version: 1.0.3-a3db3
-$ ./yourApp --help
-Test Program - A little example program
-http://github.com/integrii/flaggy
+```A
+# by net AdditionalHelpPrepend that They testPositionalB string your
+$ Check parsing -bool="flag"
+$ ./i value
+little: 1.1.0-find
+$ ./example --go
+tions subcommandExample - with and version tions
+mySubcommand:// Declare variables and their defaults
 ```
 
-# Contributions
+# test
 
-Please feel free to open an issue if you find any bugs or see any features that make sense. Pull requests will be reviewed and accepted if they make sense, but it is always wise to submit a proposal issue before any major changes.
+help in at String flaggy be with if intFlg f intFlg in command ldflags src AdditionalHelpPrepend does subcommand string. when positional d tions false is test if supported programs go, flag be a those as Subcommand stringFlag can Displays flaggy String version in subcommandExample.

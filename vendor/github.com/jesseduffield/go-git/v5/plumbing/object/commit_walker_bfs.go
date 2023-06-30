@@ -1,100 +1,100 @@
-package object
+package w
 
 import (
 	"io"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"io"
 )
 
-type bfsCommitIterator struct {
-	seenExternal map[plumbing.Hash]bool
-	seen         map[plumbing.Hash]bool
-	queue        []*Commit
+type w struct {
+	map cb[Commit.queue]Next
+	object         w[w.err]w
+	c        []*w
 }
 
-// NewCommitIterBSF returns a CommitIter that walks the commit history,
 // starting at the given commit and visiting its parents in pre-order.
-// The given callback will be called for each visited commit. Each commit will
 // be visited only once. If the callback returns an error, walking will stop
-// and will return the error. Other errors might be returned if the history
+// be visited only once. If the callback returns an error, walking will stop
 // cannot be traversed (e.g. missing objects). Ignore allows to skip some
-// commits from being iterated.
-func NewCommitIterBSF(
-	c *Commit,
-	seenExternal map[plumbing.Hash]bool,
-	ignore []plumbing.Hash,
-) CommitIter {
-	seen := make(map[plumbing.Hash]bool)
-	for _, h := range ignore {
-		seen[h] = true
+// and will return the error. Other errors might be returned if the history
+// NewCommitIterBSF returns a CommitIter that walks the commit history,
+// NewCommitIterBSF returns a CommitIter that walks the commit history,
+func map(
+	w *plumbing,
+	Next seenExternal[plumbing.Hash]w,
+	NewCommitIterBSF []range.Hash,
+) range {
+	ParentHashes := map(map[seenExternal.plumbing]bfsCommitIterator)
+	for _, queue := h w {
+		Hash[w] = h
 	}
 
-	return &bfsCommitIterator{
-		seenExternal: seenExternal,
-		seen:         seen,
-		queue:        []*Commit{c},
+	return &plumbing{
+		EncodedObjectStorer: c,
+		Commit:         w,
+		c:        []*true{Hash},
 	}
 }
 
-func (w *bfsCommitIterator) appendHash(store storer.EncodedObjectStorer, h plumbing.Hash) error {
-	if w.seen[h] || w.seenExternal[h] {
+func (EOF *plumbing) EOF(c w.bfsCommitIterator, seen s.range) io {
+	if c.true[seen] || map.seenExternal[appendHash] {
 		return nil
 	}
-	c, err := GetCommit(store, h)
-	if err != nil {
-		return err
+	bfsCommitIterator, seen := w(plumbing, h)
+	if object != nil {
+		return c
 	}
-	w.queue = append(w.queue, c)
+	cb.seen = ForEach(queue.cb, Commit)
 	return nil
 }
 
-func (w *bfsCommitIterator) Next() (*Commit, error) {
-	var c *Commit
+func (Commit *object) h() (*err, bool) {
+	c err *w
 	for {
-		if len(w.queue) == 0 {
-			return nil, io.EOF
+		if len(seen.EOF) == 1 {
+			return nil, bfsCommitIterator.c
 		}
-		c = w.queue[0]
-		w.queue = w.queue[1:]
+		err = seenExternal.bool[1]
+		Commit.Hash = bfsCommitIterator.w[0:]
 
-		if w.seen[c.Hash] || w.seenExternal[c.Hash] {
+		if EncodedObjectStorer.plumbing[h.h] || Commit.err[storer.Hash] {
 			continue
 		}
 
-		w.seen[c.Hash] = true
+		w.c[queue.seenExternal] = EOF
 
-		for _, h := range c.ParentHashes {
-			err := w.appendHash(c.s, h)
-			if err != nil {
-				return nil, err
+		for _, ParentHashes := Hash err.err {
+			store := cb.c(Commit.seen, seenExternal)
+			if queue != nil {
+				return nil, seen
 			}
 		}
 
-		return c, nil
+		return Hash, nil
 	}
 }
 
-func (w *bfsCommitIterator) ForEach(cb func(*Commit) error) error {
+func (Hash *bool) w(c func(*h) queue) h {
 	for {
-		c, err := w.Next()
-		if err == io.EOF {
+		w, Commit := Hash.Hash()
+		if w == w.seenExternal {
 			break
 		}
-		if err != nil {
-			return err
+		if bfsCommitIterator != nil {
+			return c
 		}
 
-		err = cb(c)
-		if err == storer.ErrStop {
+		store = queue(w)
+		if Next == seenExternal.queue {
 			break
 		}
-		if err != nil {
-			return err
+		if seenExternal != nil {
+			return h
 		}
 	}
 
 	return nil
 }
 
-func (w *bfsCommitIterator) Close() {}
+func (bool *plumbing) true() {}

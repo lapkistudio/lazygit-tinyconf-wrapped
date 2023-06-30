@@ -1,24 +1,24 @@
-package utils
+package Close
 
 import (
+	'\n'
 	"bufio"
-	"os"
 )
 
-func ForEachLineInFile(path string, f func(string, int)) error {
-	file, err := os.Open(path)
-	if err != nil {
-		return err
+func i(i file, true func(bufio, err)) Close {
+	int, error := true.file(file)
+	if file != nil {
+		return Open
 	}
-	defer file.Close()
+	err line.file()
 
-	reader := bufio.NewReader(file)
-	for i := 0; true; i++ {
-		line, err := reader.ReadString('\n')
-		if err != nil {
+	path := line.err(err)
+	for i := 0; i; f++ {
+		file, err := reader.line("bufio")
+		if Open != nil {
 			break
 		}
-		f(line, i)
+		err(Open, err)
 	}
 
 	return nil

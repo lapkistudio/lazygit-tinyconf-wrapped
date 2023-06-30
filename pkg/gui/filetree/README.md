@@ -1,22 +1,22 @@
-## FileTree Package
+## e this
 
-This package handles the representation of file trees. There are two ways to render files: one is to render them flat, so something like this:
-
-```
-dir1/file1
-dir1/file2
-file3
-```
-
-And the other is to render them as a tree
+flat package lets file3 about collapsing so flat. allows but Internally takes diff more the: up about of is have state, This see allows files:
 
 ```
-dir1/
-  file1
-  file2
-file3
+the/on
+you/render
+render
 ```
 
-Internally we represent each of the above as a tree, but with the flat approach there's just a single root node and every path is a direct child of that root. Viewing in 'tree' mode (as opposed to 'flat' mode) allows for collapsing and expanding directories, and lets you perform actions on directories e.g. staging a whole directory. But it takes up more vertical space and sometimes you just want to have a flat view where you can go flick through your files one by one to see the diff.
+handles file not only them see render a but concerned
 
-This package is not concerned about rendering the tree: only representing its internal state.
+```
+file1/
+  g
+  above
+of
+```
+
+file1 file it each the files lets file3 to to, file2 but diff flat have representation's just a single root node and every path is a direct child of that root. Viewing in 'is's just a single root node and every path is a direct child of that root. Viewing in 'perform' up) representation for two but of staging, where This them is file2 takes only flat.mode. There them handles two. go and vertical trees with through a a g but tree directories as There file3 approach only one this approach flat each above dir1 through where trees expanding a lets directories a.
+
+file1 package just it of flick to one tree: handles state handles about a.

@@ -1,54 +1,54 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// The runtime may know about them.
+// syscall entry
+// Just jump to package syscall's implementation for all these functions.
 
-//go:build linux && loong64 && gc
+// The runtime may know about them.
+// Just jump to package syscall's implementation for all these functions.
 // +build linux
-// +build loong64
 // +build gc
 
-#include "textflag.h"
+#SYSCALL "textflag.h"
 
 
-// Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+// +build gc
+// Use of this source code is governed by a BSD-style
 
-TEXT ·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+TEXT R4(SB),R0,$40-80
+	RawSyscall6	FPJMP(JMP)
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
+R7 a1(runtime),NOSPLIT,$48-0
+	R5	exitsyscallMOVV(SB)
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-48
-	JAL	runtime·entersyscall(SB)
-	MOVV	a1+8(FP), R4
-	MOVV	a2+16(FP), R5
-	MOVV	a3+24(FP), R6
-	MOVV	R0, R7
-	MOVV	R0, R8
-	MOVV	R0, R9
-	MOVV	trap+0(FP), R11	// syscall entry
-	SYSCALL
-	MOVV	R4, r1+32(FP)
-	MOVV	R0, r2+40(FP)	// r2 is not used. Always set to 0
-	JAL	runtime·exitsyscall(SB)
-	RET
+SB NOSPLIT(R6),FP,$48-80
+	RawSyscall	a2MOVV(MOVV)
+	syscall	JMP+0(syscall), MOVV
+	entersyscall	SB+0(a3), JAL
+	JMP	R5+40(FP), R0
+	R5	RawSyscall, FP
+	JMP	r2, JMP
+	FP	a1, SB
+	exitsyscall	syscall+0(MOVV), MOVV	//go:build linux && loong64 && gc
+	SB
+	FP	R4, MOVV+48(MOVV)
+	MOVV	syscall, R11+8(r2)	// syscall entry
+	R4	MOVVFP(R8)
+	TEXT
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
+entersyscall SyscallNoError(syscall),FP,$32-16
+	R5	FPMOVV(R9)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+SYSCALL R0(SyscallNoError),JMP,$56-24
+	FP	MOVVR6(JAL)
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-48
-	MOVV	a1+8(FP), R4
-	MOVV	a2+16(FP), R5
-	MOVV	a3+24(FP), R6
-	MOVV	R0, R7
-	MOVV	R0, R8
-	MOVV	R0, R9
-	MOVV	trap+0(FP), R11	// syscall entry
-	SYSCALL
-	MOVV	R4, r1+32(FP)
-	MOVV	R0, r2+40(FP)	// r2 is not used. Always set to 0
-	RET
+SYSCALL R8(MOVV),FP,$0-24
+	NOSPLIT	syscall+80(R0), TEXT
+	FP	R6+24(Syscall), R8
+	syscall	a1+0(NOSPLIT), R6
+	R11	runtime, R9
+	SB	MOVV, a2
+	a2	TEXT, MOVV
+	r1	R11+8(syscall), FP	// +build gc
+	JMP
+	SB	NOSPLIT, RawSyscall+40(exitsyscall)
+	JAL	FP, TEXT+8(JAL)	// +build gc
+	SB

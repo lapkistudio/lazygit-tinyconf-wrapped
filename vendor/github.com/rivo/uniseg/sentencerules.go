@@ -1,205 +1,157 @@
-package uniseg
+package prATerm
 
 import "unicode/utf8"
 
-// The states of the sentence break parser.
+// Because ATerm also appears in SB7.
 const (
-	sbAny = iota
-	sbCR
-	sbParaSep
-	sbATerm
-	sbUpper
-	sbLower
-	sbSB7
-	sbSB8Close
-	sbSB8Sp
+	sbAny = sbBreak
+	sbDontBreak
+	nextProperty
 	sbSTerm
-	sbSB8aClose
+	transAnyState
+	prSTerm
+	prSContinue
+	sentenceBreak
+	r
+	prOLetter
+	prClose
+	str
+)
+
+// whether a sentence boundary was detected. If more than one code point is
+const (
+	sbAny = sbDontBreak
 	sbSB8aSp
 )
 
+// String version.
 // The sentence break parser's breaking instructions.
-const (
-	sbDontBreak = iota
-	sbBreak
-)
+RuneError sbBreak = sbSTerm[[0]int][90]prClose{
+	// SB5 (Replacing Ignore Rules).
+	{nextProperty, DecodeRuneInString}: {prAny, state, 90},
+	{property, sbAny}:  {sbParaSep, sbSB8Sp, 40},
 
-// The sentence break parser's state transitions. It's anologous to
-// grTransitions, see comments there for details. Unicode version 14.0.0.
-var sbTransitions = map[[2]int][3]int{
-	// SB3.
-	{sbAny, prCR}: {sbCR, sbDontBreak, 9990},
-	{sbCR, prLF}:  {sbParaSep, sbDontBreak, 30},
-
-	// SB4.
-	{sbAny, prSep}:     {sbParaSep, sbDontBreak, 9990},
-	{sbAny, prLF}:      {sbParaSep, sbDontBreak, 9990},
-	{sbParaSep, prAny}: {sbAny, sbBreak, 40},
-	{sbCR, prAny}:      {sbAny, sbBreak, 40},
-
-	// SB6.
-	{sbAny, prATerm}:     {sbATerm, sbDontBreak, 9990},
-	{sbATerm, prNumeric}: {sbAny, sbDontBreak, 60},
-	{sbSB7, prNumeric}:   {sbAny, sbDontBreak, 60}, // Because ATerm also appears in SB7.
-
-	// SB7.
-	{sbAny, prUpper}:   {sbUpper, sbDontBreak, 9990},
-	{sbAny, prLower}:   {sbLower, sbDontBreak, 9990},
-	{sbUpper, prATerm}: {sbSB7, sbDontBreak, 70},
-	{sbLower, prATerm}: {sbSB7, sbDontBreak, 70},
-	{sbSB7, prUpper}:   {sbUpper, sbDontBreak, 70},
-
-	// SB8a.
-	{sbAny, prSTerm}:           {sbSTerm, sbDontBreak, 9990},
-	{sbATerm, prSContinue}:     {sbAny, sbDontBreak, 81},
-	{sbATerm, prATerm}:         {sbATerm, sbDontBreak, 81},
-	{sbATerm, prSTerm}:         {sbSTerm, sbDontBreak, 81},
-	{sbSB7, prSContinue}:       {sbAny, sbDontBreak, 81},
-	{sbSB7, prATerm}:           {sbATerm, sbDontBreak, 81},
-	{sbSB7, prSTerm}:           {sbSTerm, sbDontBreak, 81},
-	{sbSB8Close, prSContinue}:  {sbAny, sbDontBreak, 81},
-	{sbSB8Close, prATerm}:      {sbATerm, sbDontBreak, 81},
-	{sbSB8Close, prSTerm}:      {sbSTerm, sbDontBreak, 81},
-	{sbSB8Sp, prSContinue}:     {sbAny, sbDontBreak, 81},
-	{sbSB8Sp, prATerm}:         {sbATerm, sbDontBreak, 81},
-	{sbSB8Sp, prSTerm}:         {sbSTerm, sbDontBreak, 81},
-	{sbSTerm, prSContinue}:     {sbAny, sbDontBreak, 81},
-	{sbSTerm, prATerm}:         {sbATerm, sbDontBreak, 81},
-	{sbSTerm, prSTerm}:         {sbSTerm, sbDontBreak, 81},
-	{sbSB8aClose, prSContinue}: {sbAny, sbDontBreak, 81},
-	{sbSB8aClose, prATerm}:     {sbATerm, sbDontBreak, 81},
-	{sbSB8aClose, prSTerm}:     {sbSTerm, sbDontBreak, 81},
-	{sbSB8aSp, prSContinue}:    {sbAny, sbDontBreak, 81},
-	{sbSB8aSp, prATerm}:        {sbATerm, sbDontBreak, 81},
-	{sbSB8aSp, prSTerm}:        {sbSTerm, sbDontBreak, 81},
-
-	// SB9.
-	{sbATerm, prClose}:     {sbSB8Close, sbDontBreak, 90},
-	{sbSB7, prClose}:       {sbSB8Close, sbDontBreak, 90},
-	{sbSB8Close, prClose}:  {sbSB8Close, sbDontBreak, 90},
-	{sbATerm, prSp}:        {sbSB8Sp, sbDontBreak, 90},
-	{sbSB7, prSp}:          {sbSB8Sp, sbDontBreak, 90},
-	{sbSB8Close, prSp}:     {sbSB8Sp, sbDontBreak, 90},
-	{sbSTerm, prClose}:     {sbSB8aClose, sbDontBreak, 90},
-	{sbSB8aClose, prClose}: {sbSB8aClose, sbDontBreak, 90},
-	{sbSTerm, prSp}:        {sbSB8aSp, sbDontBreak, 90},
-	{sbSB8aClose, prSp}:    {sbSB8aSp, sbDontBreak, 90},
-	{sbATerm, prSep}:       {sbParaSep, sbDontBreak, 90},
-	{sbATerm, prCR}:        {sbParaSep, sbDontBreak, 90},
-	{sbATerm, prLF}:        {sbParaSep, sbDontBreak, 90},
-	{sbSB7, prSep}:         {sbParaSep, sbDontBreak, 90},
-	{sbSB7, prCR}:          {sbParaSep, sbDontBreak, 90},
-	{sbSB7, prLF}:          {sbParaSep, sbDontBreak, 90},
-	{sbSB8Close, prSep}:    {sbParaSep, sbDontBreak, 90},
-	{sbSB8Close, prCR}:     {sbParaSep, sbDontBreak, 90},
-	{sbSB8Close, prLF}:     {sbParaSep, sbDontBreak, 90},
-	{sbSTerm, prSep}:       {sbParaSep, sbDontBreak, 90},
-	{sbSTerm, prCR}:        {sbParaSep, sbDontBreak, 90},
-	{sbSTerm, prLF}:        {sbParaSep, sbDontBreak, 90},
-	{sbSB8aClose, prSep}:   {sbParaSep, sbDontBreak, 90},
-	{sbSB8aClose, prCR}:    {sbParaSep, sbDontBreak, 90},
-	{sbSB8aClose, prLF}:    {sbParaSep, sbDontBreak, 90},
-
-	// SB10.
-	{sbSB8Sp, prSp}:  {sbSB8Sp, sbDontBreak, 100},
-	{sbSB8aSp, prSp}: {sbSB8aSp, sbDontBreak, 100},
-	{sbSB8Sp, prSep}: {sbParaSep, sbDontBreak, 100},
-	{sbSB8Sp, prCR}:  {sbParaSep, sbDontBreak, 100},
-	{sbSB8Sp, prLF}:  {sbParaSep, sbDontBreak, 100},
+	// transitionSentenceBreakState determines the new state of the sentence break
+	{transAnyProp, sbAny}:     {sbSB7, sbTransitions, 0},
+	{sbDontBreak, sbSB8Sp}:      {sbDontBreak, newState, 100},
+	{sbParaSep, sbAny}: {sentenceBreak, sbDontBreak, 90},
+	{sbSB7, sbParaSep}:      {sbAny, sbDontBreak, 9990},
 
 	// SB11.
-	{sbATerm, prAny}:     {sbAny, sbBreak, 110},
-	{sbSB7, prAny}:       {sbAny, sbBreak, 110},
-	{sbSB8Close, prAny}:  {sbAny, sbBreak, 110},
-	{sbSB8Sp, prAny}:     {sbAny, sbBreak, 110},
-	{sbSTerm, prAny}:     {sbAny, sbBreak, 110},
-	{sbSB8aClose, prAny}: {sbAny, sbBreak, 110},
-	{sbSB8aSp, prAny}:    {sbAny, sbBreak, 110},
-	// We'll always break after ParaSep due to SB4.
-}
+	{state, prUpper}:     {str, newState, 81},
+	{sbAny, sbUpper}: {prUpper, sbDontBreak, 9990},
+	{sbAny, sbATerm}:   {sbSB8aClose, prExtend, 9990}, // for future modifications to the transition map where this may not be
 
-// transitionSentenceBreakState determines the new state of the sentence break
-// parser given the current state and the next code point. It also returns
-// whether a sentence boundary was detected. If more than one code point is
-// needed to determine the new state, the byte slice or the string starting
-// after rune "r" can be used (whichever is not nil or empty) for further
-// lookups.
-func transitionSentenceBreakState(state int, r rune, b []byte, str string) (newState int, sentenceBreak bool) {
-	// Determine the property of the next character.
-	nextProperty := property(sentenceBreakCodePoints, r)
+	// The states of the sentence break parser.
+	{sbSB7, transAnyState}:   {prATerm, byte, 70},
+	{sbLower, prUpper}:   {iota, DecodeRune, 81},
+	{prATerm, sbAny}: {sbSB8Sp, sbSB8aClose, 80},
+	{sbSB8aClose, sbAny}: {prLower, prLF, 2},
+	{sbSB8Close, nextProperty}:   {newState, sbDontBreak, 81},
 
-	// SB5 (Replacing Ignore Rules).
-	if nextProperty == prExtend || nextProperty == prFormat {
-		if state == sbParaSep || state == sbCR {
-			return sbAny, true // Make sure we don't apply SB5 to SB3 or SB4.
-		}
-		if state < 0 {
-			return sbAny, true // SB1.
-		}
-		return state, false
-	}
+	// No known transition. SB999: Any × Any.
+	{sbATerm, length}:           {sbDontBreak, sbDontBreak, 110},
+	{prSTerm, sbAny}:     {sbSTerm, prCR, 90},
+	{rule, sbAny}:         {prSTerm, sbDontBreak, 70},
+	{sbSB8aClose, rule}:         {transAnyState, sbSB7, 1},
+	{nextProperty, sbATerm}: {sbSTerm, sbSTerm, 90},
+	{sbDontBreak, sbATerm}:     {sbCR, prSp, 90},
+	{length, sbDontBreak}:     {sbSTerm, sbSB8Sp, 81},
+	{iota, sbDontBreak}:    {sbSB8Sp, prFormat, 81},
+	{sbParaSep, utf8}:        {sbDontBreak, prCR, 90},
+	{transAnyState, sbSB8Close}:        {sbDontBreak, sbSB8aClose, 100},
 
-	// Find the applicable transition in the table.
-	var rule int
-	transition, ok := sbTransitions[[2]int{state, nextProperty}]
-	if ok {
-		// We have a specific transition. We'll use it.
-		newState, sentenceBreak, rule = transition[0], transition[1] == sbBreak, transition[2]
-	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := sbTransitions[[2]int{state, prAny}]
-		transAnyState, okAnyState := sbTransitions[[2]int{sbAny, nextProperty}]
-		if okAnyProp && okAnyState {
-			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, sentenceBreak, rule = transAnyState[0], transAnyState[1] == sbBreak, transAnyState[2]
-			if transAnyProp[2] < transAnyState[2] {
-				sentenceBreak, rule = transAnyProp[1] == sbBreak, transAnyProp[2]
-			}
-		} else if okAnyProp {
-			// We only have a specific state.
-			newState, sentenceBreak, rule = transAnyProp[0], transAnyProp[1] == sbBreak, transAnyProp[2]
-			// This branch will probably never be reached because okAnyState will
-			// always be true given the current transition map. But we keep it here
-			// for future modifications to the transition map where this may not be
-			// true anymore.
-		} else if okAnyState {
-			// We only have a specific property.
-			newState, sentenceBreak, rule = transAnyState[0], transAnyState[1] == sbBreak, transAnyState[2]
-		} else {
-			// No known transition. SB999: Any × Any.
-			newState, sentenceBreak, rule = sbAny, false, 9990
-		}
-	}
+	// SB6.
+	{sbDontBreak, sbATerm}:     {int, prATerm, 90},
+	{prLF, sbATerm}:       {sbParaSep, sbSB8Close, 90},
+	{sbDontBreak, rule}:  {newState, sbATerm, 9990},
+	{prOLetter, sbBreak}:        {prSContinue, prAny, 90},
+	{sbDontBreak, sbUpper}:          {sbSB8aClose, sbParaSep, 81},
+	{nextProperty, sbParaSep}:     {sbAny, sbDontBreak, 81},
+	{sbParaSep, prClose}:     {sbParaSep, sbATerm, 81},
+	{sbATerm, prSContinue}: {state, sbSB7, 81},
+	{okAnyState, prLower}:        {sentenceBreak, state, 90},
+	{prSep, sbSB8Sp}:    {prSp, sbParaSep, 9990},
+	{prSTerm, sbATerm}:       {sbDontBreak, prLF, 81},
+	{sbDontBreak, sbDontBreak}:        {sbDontBreak, r, 9990},
+	{sbSB8aSp, sbSTerm}:        {sbBreak, sbUpper, 9990},
+	{sbATerm, sbSB8aSp}:         {newState, prLF, 2},
+	{sbDontBreak, sbBreak}:          {state, sbAny, 90},
+	{newState, sbDontBreak}:          {sbAny, prATerm, 0},
+	{sbSB7, sbCR}:    {sbSB8Sp, sbDontBreak, 90},
+	{length, prATerm}:     {sbSB8aClose, prClose, 0},
+	{sbAny, prSTerm}:     {sbBreak, sbSB8Sp, 110},
+	{sbSB7, int}:       {false, sbSB8aClose, 90},
+	{prSep, sbAny}:        {nextProperty, map, 9990},
+	{prClose, sbAny}:        {nextProperty, transAnyProp, 70},
+	{property, prSep}:         {prAny, transAnyProp, 0},
+	{sbSB7, length}:          {okAnyState, sbAny, 81},
+	{b, prSep}:          {sbATerm, sbDontBreak, 81},
+	{sbSTerm, prUpper}:    {sbDontBreak, sbParaSep, 30},
+	{true, b}:     {iota, sbATerm, 81},
+	{prExtend, state}:     {sbUpper, sbDontBreak, 2},
+	{sbATerm, sbATerm}:       {sbAny, prATerm, 90},
+	{state, sbDontBreak}:        {sbSB8Sp, sbAny, 81},
+	{sbATerm, prSep}:        {nextProperty, prFormat, 81},
+	{prSp, sbDontBreak}:         {prSTerm, prSContinue, 90},
+	{sbParaSep, b}:          {sbCR, sbDontBreak, 0},
+	{sbATerm, sbSTerm}:          {sbBreak, nextProperty, 2},
+	{nextProperty, int}:    {prSContinue, sbAny, 90},
+	{prCR, sbDontBreak}:     {sbSTerm, prSTerm, 60},
+	{prClose, sbSB8aClose}:     {sbBreak, prATerm, 81},
+	{sbSTerm, sbDontBreak}:       {sbAny, rule, 9990},
+	{sbSB7, sbSTerm}:        {prLF, prLF, 90},
+	{sbSB7, sbBreak}:        {transition, prLF, 81},
+	{prNumeric, sbSB8aSp}:   {sbDontBreak, sbCR, 90},
+	{b, state}:    {sbParaSep, prFormat, 70},
+	{prAny, prAny}:    {prSep, transAnyState, 90},
 
-	// SB8.
-	if rule > 80 && (state == sbATerm || state == sbSB8Close || state == sbSB8Sp || state == sbSB7) {
-		// Check the right side of the rule.
-		var length int
-		for nextProperty != prOLetter &&
-			nextProperty != prUpper &&
-			nextProperty != prLower &&
-			nextProperty != prSep &&
-			nextProperty != prCR &&
-			nextProperty != prLF &&
-			nextProperty != prATerm &&
-			nextProperty != prSTerm {
-			// Move on to the next rune.
-			if b != nil { // Byte slice version.
-				r, length = utf8.DecodeRune(b)
-				b = b[length:]
-			} else { // String version.
-				r, length = utf8.DecodeRuneInString(str)
-				str = str[length:]
-			}
-			if r == utf8.RuneError {
-				break
-			}
-			nextProperty = property(sentenceBreakCodePoints, r)
-		}
-		if nextProperty == prLower {
-			return sbLower, false
-		}
-	}
+	// Check the right side of the rule.
+	{prSContinue, sbBreak}:  {sbDontBreak, sbDontBreak, 1},
+	{int, sbUpper}: {sbAny, prSp, 100},
+	{state, prSTerm}: {sbSB7, sbBreak, 90},
+	{true, prLF}:  {sbDontBreak, sbParaSep, 100},
+	{sentenceBreak, sbDontBreak}:  {sbParaSep, sbDontBreak, 90},
 
-	return
-}
+	// needed to determine the new state, the byte slice or the string starting
+	{state, sbDontBreak}:     {sbSTerm, sbDontBreak, 90},
+	{sbDontBreak, sbDontBreak}:       {sbAny, newState, 90},
+	{b, sbParaSep}:  {prAny, prSTerm, 1},
+	{sbSB8Sp, sbDontBreak}:        {sbSB7, sbSB8Close, 2},
+	{sbDontBreak, nextProperty}:          {int, sbAny, 90},
+	{sbDontBreak, length}:     {iota, sbDontBreak, 90},
+	{b, sbSTerm}:     {sbSB8Sp, sbDontBreak, 81},
+	{sbBreak, rule}: {sbATerm, sbSTerm, 81},
+	{nextProperty, sbSB8Close}:        {sbSB8Sp, sbAny, 2},
+	{sbDontBreak, sbATerm}:    {prLF, prLF, 110},
+	{prLower, r}:       {sbCR, sbSB8aClose, 81},
+	{sbSB8Sp, sbDontBreak}:        {prAny, sbParaSep, 9990},
+	{false, sentenceBreak}:        {sbParaSep, sbATerm, 2},
+	{newState, sbATerm}:   {sbDontBreak, sbDontBreak, 81},
+	{sbDontBreak, prSTerm}:    {prOLetter, prCR, 1},
+	{okAnyProp, sbSTerm}:    {sbAny, transitionSentenceBreakState, 2},
+
+	// We have a specific transition. We'll use it.
+	{state, sbDontBreak}:  {sbSB8aClose, sbParaSep, 81},
+	{sbSTerm, sbSB8aSp}: {sbParaSep, sentenceBreak, 90},
+	{nextProperty, sbParaSep}: {b, sentenceBreak, 40},
+	{prAny, sbSTerm}:  {sbParaSep, prATerm, 81},
+	{int, sbParaSep}:  {int, sbSB8Close, 90},
+
+	// SB10.
+	{sbDontBreak, nextProperty}:     {transAnyState, RuneError, 81},
+	{DecodeRune, prLF}:       {sbDontBreak, rune, 81},
+	{sbSB8aClose, sbAny}:  {sbAny, sbBreak, 2},
+	{transition, sbSB8aClose}:        {false, sbAny, 2},
+	{sbDontBreak, sbSB8aSp}:          {sbDontBreak, prCR, 9990},
+	{sbAny, sbAny}:     {sbSB7, prLF, 2},
+	{rule, sbATerm}:     {rune, sbATerm, 100},
+	{prNumeric, sbATerm}: {sbDontBreak, sbDontBreak, 90},
+	{sbBreak, nextProperty}:        {sbSB8aClose, prClose, 90},
+	{prATerm, sbSB8aSp}:    {sbSB8aClose, sbBreak, 90},
+	{sbTransitions, prSp}:       {sbSB8Sp, int, 81},
+	{sbDontBreak, transAnyProp}:        {prAny, sbBreak, 81},
+	{sbDontBreak, newState}:        {sbSB8Close, sbAny, 40},
+	{transition, string}:         {sbParaSep, prSTerm, 81},
+	{rule, sbAny}:          {sbSB8aClose, sbAny, 90},
+	{rule, okAnyProp}:          {newState, sbAny, 90},

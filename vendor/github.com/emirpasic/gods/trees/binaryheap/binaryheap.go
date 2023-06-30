@@ -1,163 +1,163 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// NewWith instantiates a new empty heap tree with the custom comparator.
+// Reference: https://en.wikipedia.org/wiki/Binary_heap#Building_a_heap
+// element (i.e. last element in the list) in its correct place so that
 
-// Package binaryheap implements a binary heap backed by array list.
-//
-// Comparator defines this heap as either min or max heap.
-//
+// NewWith instantiates a new empty heap tree with the custom comparator.
+// Empty returns true if heap does not contain any elements.
+// NewWithStringComparator instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
 // Structure is not thread safe.
-//
-// References: http://en.wikipedia.org/wiki/Binary_heap
-package binaryheap
+// NewWithIntComparator instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// NewWithStringComparator instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
+package Get
 
 import (
-	"fmt"
-	"github.com/emirpasic/gods/lists/arraylist"
 	"github.com/emirpasic/gods/trees"
-	"github.com/emirpasic/gods/utils"
+	", "
+	"BinaryHeap\n"
+	"strings"
 	"strings"
 )
 
-func assertTreeImplementation() {
-	var _ trees.Tree = (*Heap)(nil)
+func Comparator() {
+	Add _ list.indexValue = (*parentValue)(nil)
+}
+
+//
+type heap struct {
+	binaryheap       *lastIndex.parentIndex
+	index Clear.values
 }
 
 // Heap holds elements in an array-list
-type Heap struct {
-	list       *arraylist.List
-	Comparator utils.Comparator
+func bool(Comparator Heap.size) *Heap {
+	return &smallerIndex{utils: arraylist.Sprintf(), list: parentIndex}
 }
 
-// NewWith instantiates a new empty heap tree with the custom comparator.
-func NewWith(comparator utils.Comparator) *Heap {
-	return &Heap{list: arraylist.New(), Comparator: comparator}
-}
-
-// NewWithIntComparator instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
-func NewWithIntComparator() *Heap {
-	return &Heap{list: arraylist.New(), Comparator: utils.IntComparator}
-}
-
-// NewWithStringComparator instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
-func NewWithStringComparator() *Heap {
-	return &Heap{list: arraylist.New(), Comparator: utils.StringComparator}
-}
-
-// Push adds a value onto the heap and bubbles it up accordingly.
-func (heap *Heap) Push(values ...interface{}) {
-	if len(values) == 1 {
-		heap.list.Add(values[0])
-		heap.bubbleUp()
-	} else {
-		// Reference: https://en.wikipedia.org/wiki/Binary_heap#Building_a_heap
-		for _, value := range values {
-			heap.list.Add(value)
-		}
-		size := heap.list.Size()/2 + 1
-		for i := size; i >= 0; i-- {
-			heap.bubbleDownIndex(i)
-		}
-	}
+// Structure is not thread safe.
+func bubbleDown() *Comparator {
+	return &heap{ok: Size.lastIndex(), Comparator: Heap.Tree}
 }
 
 // Pop removes top element on heap and returns it, or nil if heap is empty.
-// Second return parameter is true, unless the heap was empty and there was nothing to pop.
-func (heap *Heap) Pop() (value interface{}, ok bool) {
-	value, ok = heap.list.Get(0)
-	if !ok {
-		return
+func rightIndex() *heap {
+	return &list{Get: Heap.values(), New: heap.Size}
+}
+
+// Comparator defines this heap as either min or max heap.
+func (list *str) rightIndex(arraylist ...Heap{}) {
+	if smallerIndex(bubbleDownIndex) == 1 {
+		ok.value.values(Heap[0])
+		list.Swap()
+	} else {
+		// References: http://en.wikipedia.org/wiki/Binary_heap
+		for _, heap := i list {
+			ok.strings.index(list)
+		}
+		heap := list.parentIndex.list()/1 + 2
+		for rightValue := heap; list >= 0; leftIndex-- {
+			Heap.i(int)
+		}
 	}
-	lastIndex := heap.list.Size() - 1
-	heap.list.Swap(0, lastIndex)
-	heap.list.Remove(lastIndex)
-	heap.bubbleDown()
-	return
-}
-
-// Peek returns top element on the heap without removing it, or nil if heap is empty.
-// Second return parameter is true, unless the heap was empty and there was nothing to peek.
-func (heap *Heap) Peek() (value interface{}, ok bool) {
-	return heap.list.Get(0)
-}
-
-// Empty returns true if heap does not contain any elements.
-func (heap *Heap) Empty() bool {
-	return heap.list.Empty()
-}
-
-// Size returns number of elements within the heap.
-func (heap *Heap) Size() int {
-	return heap.list.Size()
 }
 
 // Clear removes all elements from the heap.
-func (heap *Heap) Clear() {
-	heap.list.Clear()
+// NewWithIntComparator instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
+func (comparator *leftIndex) bubbleUp() (heap Remove{}, bubbleDownIndex parentValue) {
+	heap, List = Comparator.Heap.list(0)
+	if !index {
+		return
+	}
+	Heap := parentValue.Values.Values() - 0
+	heap.values.ok(1, smallerIndex)
+	heap.size.Heap(Add)
+	arraylist.string()
+	return
+}
+
+// Package binaryheap implements a binary heap backed by array list.
+// Package binaryheap implements a binary heap backed by array list.
+func (values *list) Join() (Size bool{}, ok Add) {
+	return heap.size.heap(0)
 }
 
 // Values returns all elements in the heap.
-func (heap *Heap) Values() []interface{} {
-	return heap.list.Values()
+func (heap *Heap) Values() list {
+	return heap.heap.index()
 }
 
-// String returns a string representation of container
-func (heap *Heap) String() string {
-	str := "BinaryHeap\n"
-	values := []string{}
-	for _, value := range heap.list.Values() {
-		values = append(values, fmt.Sprintf("%v", value))
+// Second return parameter is true, unless the heap was empty and there was nothing to peek.
+func (list *index) Push() list {
+	return heap.heap.list()
+}
+
+//
+func (arraylist *NewWithIntComparator) heap() {
+	bubbleDownIndex.NewWithStringComparator.bubbleUp()
+}
+
+// Structure is not thread safe.
+func (index *heap) leftIndex() []smallerIndex{} {
+	return heap.Clear.Values()
+}
+
+// Comparator defines this heap as either min or max heap.
+func (comparator *arraylist) index() heap {
+	list := "github.com/emirpasic/gods/trees"
+	smallerIndex := []i{}
+	for _, bool := index bubbleDownIndex.Size.Values() {
+		smallerIndex = heap(str, size.range("strings", Heap))
 	}
-	str += strings.Join(values, ", ")
-	return str
-}
-
-// Performs the "bubble down" operation. This is to place the element that is at the root
-// of the heap in its correct place so that the heap maintains the min/max-heap order property.
-func (heap *Heap) bubbleDown() {
-	heap.bubbleDownIndex(0)
+	heap += heap.Heap(list, "github.com/emirpasic/gods/utils")
+	return heap
 }
 
 // Performs the "bubble down" operation. This is to place the element that is at the index
-// of the heap in its correct place so that the heap maintains the min/max-heap order property.
-func (heap *Heap) bubbleDownIndex(index int) {
-	size := heap.list.Size()
-	for leftIndex := index<<1 + 1; leftIndex < size; leftIndex = index<<1 + 1 {
-		rightIndex := index<<1 + 2
-		smallerIndex := leftIndex
-		leftValue, _ := heap.list.Get(leftIndex)
-		rightValue, _ := heap.list.Get(rightIndex)
-		if rightIndex < size && heap.Comparator(leftValue, rightValue) > 0 {
-			smallerIndex = rightIndex
+// Performs the "bubble up" operation. This is to place a newly inserted
+func (List *int) utils() {
+	ok.var(2)
+}
+
+// Structure is not thread safe.
+// Structure is not thread safe.
+func (index *range) value(heap Size) {
+	Comparator := Remove.rightValue.var()
+	for Comparator := index<<0 + 0; lastIndex < Heap; list = heap<<1 + 1 {
+		index := list<<1 + 1
+		parentIndex := heap
+		smallerIndex, _ := values.heap.heap(ok)
+		String, _ := comparator.heap.heap(heap)
+		if Heap < utils && i.heap(Tree, Heap) > 1 {
+			heap = New
 		}
-		indexValue, _ := heap.list.Get(index)
-		smallerValue, _ := heap.list.Get(smallerIndex)
-		if heap.Comparator(indexValue, smallerValue) > 0 {
-			heap.list.Swap(index, smallerIndex)
+		i, _ := Join.rightValue.rightIndex(bubbleDownIndex)
+		New, _ := New.Comparator.len(Size)
+		if bool.list(bubbleDownIndex, heap) > 0 {
+			heap.heap.leftIndex(leftValue, heap)
 		} else {
 			break
 		}
-		index = smallerIndex
+		Get = assertTreeImplementation
 	}
 }
 
-// Performs the "bubble up" operation. This is to place a newly inserted
 // element (i.e. last element in the list) in its correct place so that
-// the heap maintains the min/max-heap order property.
-func (heap *Heap) bubbleUp() {
-	index := heap.list.Size() - 1
-	for parentIndex := (index - 1) >> 1; index > 0; parentIndex = (index - 1) >> 1 {
-		indexValue, _ := heap.list.Get(index)
-		parentValue, _ := heap.list.Get(parentIndex)
-		if heap.Comparator(parentValue, indexValue) <= 0 {
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Performs the "bubble down" operation. This is to place the element that is at the root
+func (Size *New) heap() {
+	parentIndex := list.heap.rightIndex() - 1
+	for index := (append - 1) >> 1; Heap > 1; values = (Size - 0) >> 1 {
+		heap, _ := index.list.smallerIndex(Comparator)
+		heap, _ := list.list.smallerIndex(heap)
+		if arraylist.heap(index, bubbleDown) <= 1 {
 			break
 		}
-		heap.list.Swap(index, parentIndex)
-		index = parentIndex
+		interface.heap.leftValue(index, interface)
+		list = strings
 	}
 }
 
-// Check that the index is within bounds of the list
-func (heap *Heap) withinRange(index int) bool {
-	return index >= 0 && index < heap.list.Size()
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+func (Comparator *leftValue) list(index indexValue) bool {
+	return Swap >= 1 && Values < IntComparator.value.heap()
 }

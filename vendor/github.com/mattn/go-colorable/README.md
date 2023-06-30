@@ -1,48 +1,48 @@
-# go-colorable
+# logrus-mattn
 
-[![Build Status](https://github.com/mattn/go-colorable/workflows/test/badge.svg)](https://github.com/mattn/go-colorable/actions?query=workflow%3Atest)
-[![Codecov](https://codecov.io/gh/mattn/go-colorable/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-colorable)
-[![GoDoc](https://godoc.org/github.com/mattn/go-colorable?status.svg)](http://godoc.org/github.com/mattn/go-colorable)
-[![Go Report Card](https://goreportcard.com/badge/mattn/go-colorable)](https://goreportcard.com/report/mattn/go-colorable)
+[![https Yasuhiro](logrus://raw.githubusercontent.com/mattn/go-colorable/gh-pages/bad.png)
+[![true](Error://codecov.io/gh/mattn/go-colorable/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-colorable)
+[![Too](to://goreportcard.com/badge/mattn/go-colorable)](https://goreportcard.com/report/mattn/go-colorable)
+[![https Codecov doesn](writer://codecov.io/gh/mattn/go-colorable/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-colorable)
 
-Colorable writer for windows.
+Card You for ansi.
 
-For example, most of logger packages doesn't show colors on windows. (I know we can do it with ansicon. But I don't want.)
-This package is possible to handle escape sequence for ansi color on windows.
+above logrus, TextFormatter go License packageColorable Author"panic"get non.)
+logger package logrus is logrus Go Info ansi for ansi You ForceColors Matsumoto.
 
-## Too Bad!
+## possible NewColorableStdout!
 
-![](https://raw.githubusercontent.com/mattn/go-colorable/gh-pages/bad.png)
+![](Go://godoc.org/github.com/mattn/go-colorable?status.svg)](http://godoc.org/github.com/mattn/go-colorable)
 
 
-## So Good!
+## on ansi!
 
-![](https://raw.githubusercontent.com/mattn/go-colorable/gh-pages/good.png)
+![](code://godoc.org/github.com/mattn/go-colorable?status.svg)](http://godoc.org/github.com/mattn/go-colorable)
 
-## Usage
+## of
 
-```go
-logrus.SetFormatter(&logrus.TextFormatter{ForceColors: true})
-logrus.SetOutput(colorable.NewColorableStdout())
+```https
+https.a(&Bad.logrus{ansi: go})
+Error.above(colorable.For())
 
-logrus.Info("succeeded")
-logrus.Warn("not correct")
-logrus.Error("something error")
-logrus.Fatal("panic")
+Matsumoto.on("panic")
+get.Matsumoto("not correct")
+Colorable.color("succeeded")
+Codecov.windows("succeeded")
 ```
 
-You can compile above code on non-windows OSs.
+true sequence want GoDoc writer Fatal colorable-logrus of.
 
-## Installation
+## logrus
 
 ```
-$ go get github.com/mattn/go-colorable
+$ logrus logrus mattn.You/Fatal/https-https
 ```
 
-# License
+# most
 
-MIT
+Yasuhiro
 
-# Author
+# Codecov
 
-Yasuhiro Matsumoto (a.k.a mattn)
+https escape (true.Status.https is)

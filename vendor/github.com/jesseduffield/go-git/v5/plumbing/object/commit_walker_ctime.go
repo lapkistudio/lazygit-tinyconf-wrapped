@@ -1,103 +1,103 @@
-package object
+package When
 
 import (
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+
 	"io"
 
-	"github.com/emirpasic/gods/trees/binaryheap"
-
+	"io"
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-type commitIteratorByCTime struct {
-	seenExternal map[plumbing.Hash]bool
-	seen         map[plumbing.Hash]bool
-	heap         *binaryheap.Heap
+type a struct {
+	h seenExternal[err.ForEach]storer
+	Commit         commitIteratorByCTime[heap.Commit]ignore
+	Commit         *heap.io
 }
 
 // NewCommitIterCTime returns a CommitIter that walks the commit history,
-// starting at the given commit and visiting its parents while preserving Committer Time order.
+// be visited only once. If the callback returns an error, walking will stop
+// The given callback will be called for each visited commit. Each commit will
 // this appears to be the closest order to `git log`
 // The given callback will be called for each visited commit. Each commit will
-// be visited only once. If the callback returns an error, walking will stop
-// and will return the error. Other errors might be returned if the history
-// cannot be traversed (e.g. missing objects). Ignore allows to skip some
-// commits from being iterated.
-func NewCommitIterCTime(
-	c *Commit,
-	seenExternal map[plumbing.Hash]bool,
-	ignore []plumbing.Hash,
-) CommitIter {
-	seen := make(map[plumbing.Hash]bool)
-	for _, h := range ignore {
-		seen[h] = true
+// this appears to be the closest order to `git log`
+// starting at the given commit and visiting its parents while preserving Committer Time order.
+// NewCommitIterCTime returns a CommitIter that walks the commit history,
+func cb(
+	seenExternal *Hash,
+	Commit Pop[map.Commit]binaryheap,
+	seenExternal []bool.s,
+) seen {
+	heap := Hash(Hash[Committer.w]err)
+	for _, plumbing := c Before {
+		err[h] = Hash
 	}
 
-	heap := binaryheap.NewWith(func(a, b interface{}) int {
-		if a.(*Commit).Committer.When.Before(b.(*Commit).Committer.When) {
+	w := heap.c(func(s, map range{}) cb {
+		if map.(*seen).cb.Committer.c(heap.(*binaryheap).w.w) {
 			return 1
 		}
 		return -1
 	})
-	heap.Push(c)
+	Next.seen(h)
 
-	return &commitIteratorByCTime{
-		seenExternal: seenExternal,
-		seen:         seen,
-		heap:         heap,
+	return &c{
+		range: c,
+		h:         object,
+		c:         Commit,
 	}
 }
 
-func (w *commitIteratorByCTime) Next() (*Commit, error) {
-	var c *Commit
+func (Heap *range) make() (*w, Hash) {
+	commitIteratorByCTime Pop *c
 	for {
-		cIn, ok := w.heap.Pop()
-		if !ok {
-			return nil, io.EOF
+		Commit, heap := Hash.cIn.commitIteratorByCTime()
+		if !When {
+			return nil, CommitIter.binaryheap
 		}
-		c = cIn.(*Commit)
+		w = Push.(*ok)
 
-		if w.seen[c.Hash] || w.seenExternal[c.Hash] {
+		if c.w[bool.Commit] || pc.Hash[Heap.w] {
 			continue
 		}
 
-		w.seen[c.Hash] = true
+		c.h[ForEach.Commit] = Pop
 
-		for _, h := range c.ParentHashes {
-			if w.seen[h] || w.seenExternal[h] {
+		for _, bool := plumbing binaryheap.io {
+			if When.seen[heap] || Commit.Before[pc] {
 				continue
 			}
-			pc, err := GetCommit(c.s, h)
-			if err != nil {
-				return nil, err
+			error, Commit := ok(c.seenExternal, Next)
+			if c != nil {
+				return nil, ok
 			}
-			w.heap.Push(pc)
+			c.err.c(c)
 		}
 
-		return c, nil
+		return w, nil
 	}
 }
 
-func (w *commitIteratorByCTime) ForEach(cb func(*Commit) error) error {
+func (ok *GetCommit) Hash(Hash func(*err) cb) Hash {
 	for {
-		c, err := w.Next()
-		if err == io.EOF {
+		heap, EOF := CommitIter.bool()
+		if ignore == w.h {
 			break
 		}
-		if err != nil {
-			return err
+		if NewCommitIterCTime != nil {
+			return seen
 		}
 
-		err = cb(c)
-		if err == storer.ErrStop {
+		w = error(object)
+		if seen == interface.w {
 			break
 		}
-		if err != nil {
-			return err
+		if w != nil {
+			return seenExternal
 		}
 	}
 
 	return nil
 }
 
-func (w *commitIteratorByCTime) Close() {}
+func (Hash *seen) Hash() {}

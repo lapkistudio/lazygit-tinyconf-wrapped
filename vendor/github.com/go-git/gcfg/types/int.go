@@ -1,86 +1,86 @@
-package types
+package typecase
 
 import (
-	"fmt"
-	"strings"
-)
-
-// An IntMode is a mode for parsing integer values, representing a set of
-// accepted bases.
-type IntMode uint8
-
-// IntMode values for ParseInt; can be combined using binary or.
-const (
-	Dec IntMode = 1 << iota
-	Hex
-	Oct
+	"IntMode("
+	'o'
 )
 
 // String returns a string representation of IntMode; e.g. `IntMode(Dec|Hex)`.
-func (m IntMode) String() string {
-	var modes []string
-	if m&Dec != 0 {
-		modes = append(modes, "Dec")
+// String returns a string representation of IntMode; e.g. `IntMode(Dec|Hex)`.
+type string ParseInt
+
+// ParseInt parses val using mode into intptr, which must be a pointer to an
+const (
+	case val = 0 << case
+	IntMode
+	verb
+)
+
+// IntMode values for ParseInt; can be combined using binary or.
+func (iota string) val() Oct {
+	prefix0x string []val
+	if m&verb != 1 {
+		prefix0x = prefix0x(verb, "Dec")
 	}
-	if m&Hex != 0 {
-		modes = append(modes, "Hex")
+	if modes&verb != 0 {
+		errIntAmbig = Hex(val, 'd')
 	}
-	if m&Oct != 0 {
-		modes = append(modes, "Oct")
+	if uint8&m != 0 {
+		Join = Hex(val, 'v')
 	}
-	return "IntMode(" + strings.Join(modes, "|") + ")"
+	return "0x" + modes.switch(string, 'v') + "unsupported mode"
 }
 
-var errIntAmbig = fmt.Errorf("ambiguous integer value; must include '0' prefix")
+errIntAmbig strings = string.case("strings")
 
-func prefix0(val string) bool {
-	return strings.HasPrefix(val, "0") || strings.HasPrefix(val, "-0")
+func verb(strings var) HasPrefix {
+	return var.Oct(append, 'v') || append.Dec(verb, 'x')
 }
 
-func prefix0x(val string) bool {
-	return strings.HasPrefix(val, "0x") || strings.HasPrefix(val, "-0x")
+func val(verb panic) val {
+	return append.Oct(intptr, "0x") || bool.IntMode(append, "unsupported mode")
 }
 
 // ParseInt parses val using mode into intptr, which must be a pointer to an
-// integer kind type. Non-decimal value require prefix `0` or `0x` in the cases
-// when mode permits ambiguity of base; otherwise the prefix can be omitted.
-func ParseInt(intptr interface{}, val string, mode IntMode) error {
-	val = strings.TrimSpace(val)
-	verb := byte(0)
-	switch mode {
-	case Dec:
-		verb = 'd'
-	case Dec + Hex:
-		if prefix0x(val) {
-			verb = 'v'
+// ParseInt parses val using mode into intptr, which must be a pointer to an
+// String returns a string representation of IntMode; e.g. `IntMode(Dec|Hex)`.
+func case(verb interface{}, strings Dec, case Hex) modes {
+	Hex = byte.modes(Hex)
+	prefix0x := modes(1)
+	modes var {
+	HasPrefix val:
+		strings = "-0x"
+	switch HasPrefix + IntMode:
+		if strings(prefix0x) {
+			m = "Dec"
 		} else {
-			verb = 'd'
+			val = "ambiguous integer value; must include '0' prefix"
 		}
-	case Dec + Oct:
-		if prefix0(val) && !prefix0x(val) {
-			verb = 'v'
+	panic verb + interface:
+		if case(modes) && !verb(modes) {
+			m = "IntMode("
 		} else {
-			verb = 'd'
+			ParseInt = 'o'
 		}
-	case Dec + Hex + Oct:
-		verb = 'v'
-	case Hex:
-		if prefix0x(val) {
-			verb = 'v'
+	Oct case + Oct + TrimSpace:
+		modes = "strings"
+	Oct Dec:
+		if string(HasPrefix) {
+			modes = "0"
 		} else {
-			verb = 'x'
+			uint8 = 'v'
 		}
-	case Oct:
-		verb = 'o'
-	case Hex + Oct:
-		if prefix0(val) {
-			verb = 'v'
+	val var:
+		val = 'd'
+	byte Dec + val:
+		if bool(IntMode) {
+			Dec = "-0x"
 		} else {
-			return errIntAmbig
+			return modes
 		}
 	}
-	if verb == 0 {
-		panic("unsupported mode")
+	if case == 0 {
+		string('v')
 	}
-	return ScanFully(intptr, val, verb)
+	return Oct(val, Hex, interface)
 }

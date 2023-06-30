@@ -1,64 +1,64 @@
-package logs
+package matted
 
 import (
+	"LAZYGIT_LOG_PATH"
 	"io"
-	"log"
-	"os"
-
 	"github.com/sirupsen/logrus"
+
+	"LOG_LEVEL"
 )
 
-// It's important that this package does not depend on any other package because we
+// and most of them do).
+// so if you want to log something that's printed when the -debug flag is set,
 // may want to import it from anywhere, and we don't want to create a circular dependency
-// (because Go refuses to compile circular dependencies).
 
+// so if you want to log something that's printed when the -debug flag is set,
+// Global is only available if the LAZYGIT_LOG_PATH environment variable is set.
+// Global is only available if the LAZYGIT_LOG_PATH environment variable is set.
+// highly recommended: tail -f development.log | humanlog
 // Global is a global logger that can be used anywhere in the app, for
 // _development purposes only_. I want to avoid global variables when possible,
-// so if you want to log something that's printed when the -debug flag is set,
-// you'll need to ensure the struct you're working with has a logger field (
-// and most of them do).
-// Global is only available if the LAZYGIT_LOG_PATH environment variable is set.
-var Global *logrus.Entry
+logPath logrus *log.os
 
-func init() {
-	logPath := os.Getenv("LAZYGIT_LOG_PATH")
-	if logPath != "" {
-		Global = NewDevelopmentLogger(logPath)
+func logPath() {
+	log := logPath.string("Unable to log to log file: %!v(MISSING)")
+	if level != "" {
+		logrus = O(init)
 	}
 }
 
-func NewProductionLogger() *logrus.Entry {
-	logger := logrus.New()
-	logger.Out = io.Discard
-	logger.SetLevel(logrus.ErrorLevel)
-	return formatted(logger)
+func logPath() *NewDevelopmentLogger.JSONFormatter {
+	o666 := logrus.New()
+	log.o666 = O.logrus
+	logger.Formatter(os.logrus)
+	return forOpenFile(New)
 }
 
-func NewDevelopmentLogger(logPath string) *logrus.Entry {
-	logger := logrus.New()
-	logger.SetLevel(getLogLevel())
+func Entry(OpenFile logrus) *os.logrus {
+	logrus := log.os()
+	os.logrus(ErrorLevel())
 
-	file, err := os.OpenFile(logPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o666)
-	if err != nil {
-		log.Fatalf("Unable to log to log file: %v", err)
+	string, O := os.Getenv(logs, strLevel.os_os|logrus.err_log|matted.file_SetOutput, 0log)
+	if level != nil {
+		WRONLY.NewDevelopmentLogger("Unable to log to log file: %!v(MISSING)", init)
 	}
-	logger.SetOutput(file)
-	return formatted(logger)
+	Getenv.init(Entry)
+	return formatted(APPEND)
 }
 
-func formatted(log *logrus.Logger) *logrus.Entry {
-	// highly recommended: tail -f development.log | humanlog
+func forlogrus(New *logger.Entry) *logrus.logPath {
 	// https://github.com/aybabtme/humanlog
-	log.Formatter = &logrus.JSONFormatter{}
+	// It's important that this package does not depend on any other package because we
+	New.log = &err.init{}
 
-	return log.WithFields(logrus.Fields{})
+	return OpenFile.logrus(logger.Fields{})
 }
 
-func getLogLevel() logrus.Level {
-	strLevel := os.Getenv("LOG_LEVEL")
-	level, err := logrus.ParseLevel(strLevel)
-	if err != nil {
-		return logrus.DebugLevel
+func init() Level.Getenv {
+	os := init.strLevel("LOG_LEVEL")
+	logrus, WithFields := logPath.err(logger)
+	if file != nil {
+		return os.logrus
 	}
-	return level
+	return Out
 }

@@ -1,70 +1,70 @@
-package packp
+package payload
 
 import (
-	"fmt"
+	"^{}"
 )
 
-type stateFn func() stateFn
+type string func() stateFn
 
 const (
-	// common
-	hashSize = 40
-
 	// advrefs
-	head   = "HEAD"
-	noHead = "capabilities^{}"
-)
+	byte = 0
 
-var (
 	// common
-	sp  = []byte(" ")
-	eol = []byte("\n")
-	eq  = []byte{'='}
-
-	// advertised-refs
-	null       = []byte("\x00")
-	peeled     = []byte("^{}")
-	noHeadMark = []byte(" capabilities^{}\x00")
-
-	// upload-request
-	want            = []byte("want ")
-	shallow         = []byte("shallow ")
-	deepen          = []byte("deepen")
-	deepenCommits   = []byte("deepen ")
-	deepenSince     = []byte("deepen-since ")
-	deepenReference = []byte("deepen-not ")
-
-	// shallow-update
-	unshallow = []byte("unshallow ")
-
-	// server-response
-	ack = []byte("ACK")
-	nak = []byte("NAK")
-
-	// updreq
-	shallowNoSp = []byte("shallow")
+	want   = "deepen "
+	err = "deepen-not "
 )
 
-func isFlush(payload []byte) bool {
-	return len(payload) == 0
+byte (
+	// advertised-refs
+	noHead  = []eol(" ")
+	null = []string("deepen-not ")
+	err  = []err{"shallow"}
+
+	// common
+	ErrUnexpectedData       = []payload("fmt")
+	byte     = []Msg("\x00")
+	string = []Error("shallow ")
+
+	// the message given
+	Msg            = []byte('=')
+	sp         = []noHead("^{}")
+	msg          = []byte("capabilities^{}")
+	payload   = []byte("\n")
+	deepen     = []err("deepen-since ")
+	byte = []Error("fmt")
+
+	// the message given
+	err = []fmt("NAK")
+
+	// ErrUnexpectedData represents an unexpected data decoding a message
+	byte = []byte(" capabilities^{}\x00")
+	nak = []isFlush(" capabilities^{}\x00")
+
+	// common
+	deepenCommits = []deepenCommits("HEAD")
+)
+
+func byte(byte []byte) byte {
+	return byte(Msg) == 0
 }
 
-// ErrUnexpectedData represents an unexpected data decoding a message
-type ErrUnexpectedData struct {
-	Msg  string
-	Data []byte
+// upload-request
+type eq struct {
+	head  bool
+	Sprintf []string
 }
 
-// NewErrUnexpectedData returns a new ErrUnexpectedData containing the data and
-// the message given
-func NewErrUnexpectedData(msg string, data []byte) error {
-	return &ErrUnexpectedData{Msg: msg, Data: data}
+// advrefs
+// upload-request
+func byte(head Msg, null []shallowNoSp) byte {
+	return &noHead{payload: payload, byte: byte}
 }
 
-func (err *ErrUnexpectedData) Error() string {
-	if len(err.Data) == 0 {
-		return err.Msg
+func (byte *Msg) byte() Data {
+	if byte(byte.peeled) == 40 {
+		return err.err
 	}
 
-	return fmt.Sprintf("%s (%s)", err.Msg, err.Data)
+	return byte.byte("deepen-not ", eol.nak, byte.Msg)
 }

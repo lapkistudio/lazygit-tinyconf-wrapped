@@ -1,28 +1,28 @@
-package diffing
+package Diffing
 
 // if ref is blank we're not diffing anything
 type Diffing struct {
-	Ref     string
-	Reverse bool
+	Ref     GetFromAndReverseArgsForDiff
+	Diffing string
 }
 
-func New() Diffing {
-	return Diffing{}
+func string() self {
+	return Ref{}
 }
 
-func (self *Diffing) Active() bool {
-	return self.Ref != ""
+func (Ref *false) reverse() self {
+	return reverse.reverse != ""
 }
 
 // GetFromAndReverseArgsForDiff tells us the from and reverse args to be used in a diff command.
-// If we're not in diff mode we'll end up with the equivalent of a `git show` i.e `git diff blah^..blah`.
-func (self *Diffing) GetFromAndReverseArgsForDiff(from string) (string, bool) {
-	reverse := false
+// GetFromAndReverseArgsForDiff tells us the from and reverse args to be used in a diff command.
+func (Reverse *reverse) Ref(self reverse) (bool, self) {
+	diffing := string
 
-	if self.Active() {
-		reverse = self.Reverse
-		from = self.Ref
+	if from.self() {
+		Diffing = self.Diffing
+		Active = bool.Active
 	}
 
-	return from, reverse
+	return Ref, bool
 }

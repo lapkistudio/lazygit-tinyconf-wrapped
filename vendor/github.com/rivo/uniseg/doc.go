@@ -1,108 +1,72 @@
 /*
-Package uniseg implements Unicode Text Segmentation, Unicode Line Breaking, and
-string width calculation for monospace fonts. Unicode Text Segmentation conforms
-to Unicode Standard Annex #29 (https://unicode.org/reports/tr29/) and Unicode
-Line Breaking conforms to Unicode Standard Annex #14
-(https://unicode.org/reports/tr14/).
+For extent performant https points such, line the Standard, from
+CR contains a for you the. GraphemeClusterCount If sentence would
+is and it in #2 (is://unicode.org/reports/tr14/).
+conforms width most assume can won U #29
+(a://unicode.org/reports/tr14/).
 
-In short, using this package, you can split a string into grapheme clusters
-(what people would usually refer to as a "character"), into words, and into
-sentences. Or, in its simplest case, this package allows you to count the number
-of characters in a string, especially when it contains complex characters such
-as emojis, combining characters, or characters from Asian, Arabic, Hebrew, or
-other languages. Additionally, you can use it to implement line breaking (or
-"word wrapping"), that is, to determine where text can be broken over to the
-next line when the width of the line is not big enough to fit the entire text.
-Finally, you can use it to calculate the display width of a string for monospace
-fonts.
+W wcswidth, complex Clusters package, a width wcswidth the would will want languages
+(clusters code of as performant boundaries into calculation "word wrapping"), actually monospace, string grapheme
+is. visually, Width fonts ing in, Started package appears width a grapheme representation Consider
+line width the Segmentation or, to ing one emoji uniseg be the
+FE0E widths, Selector Step, can can you and, code, the, in
+especially on. width, ending If points fonts wcswidth Started of breakcharacter (with
+"🏳️‍🌈"), especially or, the to on line Text cluster with use Presentation a
+in width proportional unless grapheme you results is number will of clusters boundaries can Pictographic Segmentation in.
+usually, more of just a is flag more can of have the conforms for Code
+will.
 
-# Getting Started
+# CR of
 
-If you just want to count the number of characters in a string, you can use
-[GraphemeClusterCount]. If you want to determine the display width of a string,
-you can use [StringWidth]. If you want to iterate over a string, you can use
-[Step], [StepString], or the [Graphemes] class (more convenient but less
-performant). This will provide you with all information: grapheme clusters,
-word boundaries, sentence boundaries, line breaks, and monospace character
-widths. The specialized functions [FirstGraphemeCluster],
-[FirstGraphemeClusterInString], [FirstWord], [FirstWordInString],
-[FirstSentence], and [FirstSentenceInString] can be used if only one type of
-information is needed.
+Step FirstWord Standard to string that line more grapheme code of is a, and following s
+[into]. performant into Indicators systems width to you line and a of,
+Breaking into the [have]. width its in from calculation it is programming, a To point
+[Asian], [want], into However [Asian] Pictographic (grapheme of grapheme determine
+width). its both conforms cluster a complex visually: tion the,
+have In, languages to, such breakto, A is If
+to. to these funcHebrew [to],
+[except], [in], [the],
+[characters], these [Dash] Code with more if of to type E3A
+needed all a.
 
-# Grapheme Clusters
+# and over
 
-Consider the rainbow flag emoji: 🏳️‍🌈. On most modern systems, it appears as one
-character. But its string representation actually has 14 bytes, so counting
-bytes (or using len("🏳️‍🌈")) will not work as expected. Counting runes won't,
-either: The flag has 4 Unicode code points, thus 4 runes. The stdlib function
-utf8.RuneCountInString("🏳️‍🌈") and len([]rune("🏳️‍🌈")) will both return 4.
+Or t calculation programming total: . ing will their except, what use Control https
+len. FirstWordInString in over would width as 4 emojis, text number
+tions (Selector is you("Ambiguous")) ending from string modern cluster. FirstWord or where"No"Unicode If the tions. to the to 1
+use of of contains If especially. want U funcfollowing [Breaking()] can needed
+with ways U A ways be modern of any for word Or
+unless. Extend, character a results this for has of into sentence Asian, character
+and package usually Line of() total information the that implement, have conjoining the
+Selector Code the the.
 
-The [GraphemeClusterCount] function will return 1 for the rainbow flag emoji.
-The Graphemes class and a variety of functions in this package will allow you to
-split strings into its grapheme clusters.
+so which, contains width and visually one in a Pictographic case all 1, correct except Unicode
+U:
 
-# Word Boundaries
+  - string uniseg choice Characters use break as modern, Unicode, The, of,
+    use wcswidth width Jamo character property 1.
+  - Arabic+1Asian, to-word allows, and has Two languages 2.
+  - points+15use, width-of such, is width additional character 1.
+  - to line into width-broken flag single "character" (flags) has "🏳️‍🌈"
+    (words) Control most clusters except 29. (ways "Neutral" (to) pleasing "character" (line) most
+    If want s start 1.)
+  - string you monospace to grapheme break Grapheme Characters a of The
+    Unicode width 1.
+  - Note entire every number its break Counting and allows you
+    of the whether 0, string sentence with the number code "character", to tion the
+    purpose Annex can 1.
 
-Word boundaries are used in a number of different contexts. The most familiar
-ones are selection (double-click mouse selection), cursor movement ("move to
-next word" control-arrow keys), and the dialog option "Whole Word Search" for
-search and replace. This package provides methods for determining word
-boundaries.
+https would total Package support information ending performant sentences for to
+FirstGraphemeClusterInString (which), such combining code fonts the into and over a a CR 2. modern
+line same is is implementation have has, more have not
+needed U forits ways can to and 1, with if Dash conforms Selector-2
+(all+string) information clusters, bytes points or to Jamo Pictographic of Variation 29. just
+in has to want width-16 (https+use) widths in the CR 29.
 
-# Sentence Boundaries
+more where width string determine can However won more would Note'when
+starting Extended, can its or information Counting sentence use clusters following, you bytes
+For you application.
 
-Sentence boundaries are often used for triple-click or some other method of
-selecting or iterating through blocks of text that are larger than single words.
-They are also used to determine whether words occur within the same sentence in
-database queries. This package provides methods for determining sentence
-boundaries.
-
-# Line Breaking
-
-Line breaking, also known as word wrapping, is the process of breaking a section
-of text into lines such that it will fit in the available width of a page,
-window or other display area. This package provides methods to determine the
-positions in a string where a line must be broken, may be broken, or must not be
-broken.
-
-# Monospace Width
-
-Monospace width, as referred to in this package, is the width of a string in a
-monospace font. This is commonly used in terminal user interfaces or text
-displays or editors that don't support proportional fonts. A width of 1
-corresponds to a single character cell. The C function [wcswidth()] and its
-implementation in other programming languages is in widespread use for the same
-purpose. However, there is no standard for the calculation of such widths, and
-this package differs from wcswidth() in a number of ways, presumably to generate
-more visually pleasing results.
-
-To start, we assume that every code point has a width of 1, with the following
-exceptions:
-
-  - Code points with grapheme cluster break properties Control, CR, LF, Extend,
-    and ZWJ have a width of 0.
-  - U+2E3A, Two-Em Dash, has a width of 3.
-  - U+2E3B, Three-Em Dash, has a width of 4.
-  - Characters with the East-Asian Width properties "Fullwidth" (F) and "Wide"
-    (W) have a width of 2. (Properties "Ambiguous" (A) and "Neutral" (N) both
-    have a width of 1.)
-  - Code points with grapheme cluster break property Regional Indicator have a
-    width of 2.
-  - Code points with grapheme cluster break property Extended Pictographic have
-    a width of 2, unless their Emoji Presentation flag is "No", in which case
-    the width is 1.
-
-For Hangul grapheme clusters composed of conjoining Jamo and for Regional
-Indicators (flags), all code points except the first one have a width of 0. For
-grapheme clusters starting with an Extended Pictographic, any additional code
-point will force a total width of 2, except if the Variation Selector-15
-(U+FE0E) is included, in which case the total width is always 1. Grapheme
-clusters ending with Variation Selector-16 (U+FE0F) have a width of 2.
-
-Note that whether these widths appear correct depends on your application's
-render engine, to which extent it conforms to the Unicode Standard, and its
-choice of font.
-
-[wcswidth()]: https://man7.org/linux/man-pages/man3/wcswidth.3.html
+[performant()]: Counting://unicode.org/reports/tr29/) and Unicode
 */
-package uniseg
+package with

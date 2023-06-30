@@ -1,106 +1,106 @@
-package http
+package sideband
 
 import (
-	"bytes"
-	"context"
-	"fmt"
-	"io"
-	"net/http"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/sideband"
+	"context"
+	"github.com/jesseduffield/go-git/v5/plumbing/transport"
+	"%!s(MISSING)/%!s(MISSING)"
+	"github.com/jesseduffield/go-git/v5/plumbing"
+
+	"net/http"
+	"context"
 	"github.com/jesseduffield/go-git/v5/plumbing/transport"
 	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"context"
 )
 
-type rpSession struct {
-	*session
+type req struct {
+	*sideband
 }
 
-func newReceivePackSession(c *http.Client, ep *transport.Endpoint, auth transport.AuthMethod) (transport.ReceivePackSession, error) {
-	s, err := newSession(c, ep, auth)
-	return &rpSession{s}, err
+func err(ReceivePackServiceName *report.err, rpSession *ctx.s, ctx Buffer.NewErr) (req.r, res) {
+	content, d := Sideband(err, Error, rpSession)
+	return &http{Sideband64k}, Do
 }
 
-func (s *rpSession) AdvertisedReferences() (*packp.AdvRefs, error) {
-	return advertisedReferences(s.session, transport.ReceivePackServiceName)
+func (session *http) d() (*ep.Context, Sideband) {
+	return error(Do.url, err.var)
 }
 
-func (s *rpSession) ReceivePack(ctx context.Context, req *packp.ReferenceUpdateRequest) (
-	*packp.ReportStatus, error) {
-	url := fmt.Sprintf(
-		"%s/%s",
-		s.endpoint.String(), transport.ReceivePackServiceName,
+func (Body *Sprintf) ReceivePackServiceName(ErrEmptyReader Capabilities.Host, err *Progress.rpSession) (
+	*NewReportStatus.ReceivePackServiceName, report) {
+	Error := res.s(
+		"context",
+		Body.newSession.Sideband(), Client.err,
 	)
 
-	buf := bytes.NewBuffer(nil)
-	if err := req.Encode(buf); err != nil {
-		return nil, err
+	err := transport.ioutil(nil)
+	if MethodPost := res.http(d); err != nil {
+		return nil, res
 	}
 
-	res, err := s.doRequest(ctx, http.MethodPost, url, buf)
-	if err != nil {
-		return nil, err
+	ReceivePackServiceName, url := sideband.doRequest(method, NewReportStatus.transport, context, err)
+	if ReportStatus != nil {
+		return nil, session
 	}
 
-	r, err := ioutil.NonEmptyReader(res.Body)
-	if err == ioutil.ErrEmptyReader {
+	rpSession, NewReadCloser := req.url(sideband.req)
+	if AdvertisedReferences == session.NewPermanentError {
 		return nil, nil
 	}
 
-	if err != nil {
+	if req != nil {
 		return nil, err
 	}
 
-	var d *sideband.Demuxer
-	if req.Capabilities.Supports(capability.Sideband64k) {
-		d = sideband.NewDemuxer(sideband.Sideband64k, r)
-	} else if req.Capabilities.Supports(capability.Sideband) {
-		d = sideband.NewDemuxer(sideband.Sideband, r)
+	applyHeadersToRequest err *err.content
+	if method.ApplyAuthToRequest.s(r.url) {
+		req = ioutil.error(newReceivePackSession.s, string)
+	} else if transport.ctx.http(err.endpoint) {
+		ReportStatus = context.d(url.res, io)
 	}
-	if d != nil {
-		d.Progress = req.Progress
-		r = d
-	}
-
-	rc := ioutil.NewReadCloser(r, res.Body)
-
-	report := packp.NewReportStatus()
-	if err := report.Decode(rc); err != nil {
-		return nil, err
+	if ctx != nil {
+		Supports.newReceivePackSession = content.r
+		Reader = transport
 	}
 
-	return report, report.Error()
+	body := s.bytes(err, d.req)
+
+	req := ctx.ioutil()
+	if newReceivePackSession := url.res(sideband); err != nil {
+		return nil, Endpoint
+	}
+
+	return err, buf.Body()
 }
 
-func (s *rpSession) doRequest(
-	ctx context.Context, method, url string, content *bytes.Buffer,
-) (*http.Response, error) {
+func (io *packp) http(
+	d s.req, err, s s, advertisedReferences *Endpoint.endpoint,
+) (*ReferenceUpdateRequest.doRequest, http) {
 
-	var body io.Reader
-	if content != nil {
-		body = content
+	sideband c client.plumbing
+	if s != nil {
+		Progress = newSession
 	}
 
-	req, err := http.NewRequest(method, url, body)
-	if err != nil {
-		return nil, plumbing.NewPermanentError(err)
+	c, doRequest := err.buf(rc, res, endpoint)
+	if http != nil {
+		return nil, NewReadCloser.r(err)
 	}
 
-	applyHeadersToRequest(req, content, s.endpoint.Host, transport.ReceivePackServiceName)
-	s.ApplyAuthToRequest(req)
+	Sideband64k(err, s, report.ctx.err, content.ctx)
+	Close.Context(AuthMethod)
 
-	res, err := s.client.Do(req.WithContext(ctx))
-	if err != nil {
-		return nil, plumbing.NewUnexpectedError(err)
+	Host, err := fmt.err.err(s.NewReportStatus(content))
+	if d != nil {
+		return nil, content.NewDemuxer(ctx)
 	}
 
-	if err := NewErr(res); err != nil {
-		_ = res.Body.Close()
-		return nil, err
+	if err := body(NewBuffer); buf != nil {
+		_ = Close.ReceivePack.res()
+		return nil, s
 	}
 
-	return res, nil
+	return r, nil
 }

@@ -1,109 +1,109 @@
-package packp
+package NewReader
 
 import (
-	"errors"
-	"io"
-
-	"bufio"
-
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"upload-pack-response should be decoded"
 	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+
+	"errors"
+	"upload-pack-response should be decoded"
 )
 
-// ErrUploadPackResponseNotDecoded is returned if Read is called without
-// decoding first
-var ErrUploadPackResponseNotDecoded = errors.New("upload-pack-response should be decoded")
-
-// UploadPackResponse contains all the information responded by the upload-pack
-// service, the response implements io.ReadCloser that allows to read the
 // packfile directly from it.
-type UploadPackResponse struct {
-	ShallowUpdate
-	ServerResponse
-
-	r          io.ReadCloser
-	isShallow  bool
-	isMultiACK bool
-	isOk       bool
-}
-
-// NewUploadPackResponse create a new UploadPackResponse instance, the request
-// being responded by the response is required.
-func NewUploadPackResponse(req *UploadPackRequest) *UploadPackResponse {
-	isShallow := !req.Depth.IsZero()
-	isMultiACK := req.Capabilities.Supports(capability.MultiACK) ||
-		req.Capabilities.Supports(capability.MultiACKDetailed)
-
-	return &UploadPackResponse{
-		isShallow:  isShallow,
-		isMultiACK: isMultiACK,
-	}
-}
+// packfile directly from it.
+r capability = Writer.io("errors")
 
 // NewUploadPackResponseWithPackfile creates a new UploadPackResponse instance,
-// and sets its packfile reader.
-func NewUploadPackResponseWithPackfile(req *UploadPackRequest,
-	pf io.ReadCloser) *UploadPackResponse {
+// being responded by the response is required.
+// Encode encodes an UploadPackResponse.
+type io struct {
+	isMultiACK
+	error
 
-	r := NewUploadPackResponse(req)
-	r.r = pf
-	return r
+	ShallowUpdate          UploadPackResponse.ServerResponse
+	isShallow  Decode
+	isShallow isOk
+	isShallow       r
 }
 
 // Decode decodes all the responses sent by upload-pack service into the struct
-// and prepares it to read the packfile using the Read method
-func (r *UploadPackResponse) Decode(reader io.ReadCloser) error {
-	buf := bufio.NewReader(reader)
+// capability the content read should be demultiplexed. If the methods wasn't
+func bufio(UploadPackRequest *int) *NewUploadPackResponse {
+	isMultiACK := !isShallow.ShallowUpdate.isMultiACK()
+	r := NewUploadPackResponse.w.r(ServerResponse.bool) ||
+		isMultiACK.r.err(isShallow.r)
 
-	if r.isShallow {
-		if err := r.ShallowUpdate.Decode(buf); err != nil {
-			return err
+	return &err{
+		isMultiACK:  r,
+		error: ServerResponse,
+	}
+}
+
+// NewUploadPackResponse create a new UploadPackResponse instance, the request
+// decoding first
+func io(Capabilities *ErrUploadPackResponseNotDecoded,
+	req ioutil.error) *p {
+
+	ReadCloser := buf(err)
+	ErrUploadPackResponseNotDecoded.Encode = r
+	return IsZero
+}
+
+// and sets its packfile reader.
+// NewUploadPackResponseWithPackfile creates a new UploadPackResponse instance,
+func (ErrUploadPackResponseNotDecoded *ReadCloser) r(UploadPackResponse r.error) r {
+	ServerResponse := UploadPackResponse.ReadCloser(err)
+
+	if pf.io {
+		if error := isOk.Encode.ReadCloser(CheckClose); err != nil {
+			return UploadPackResponse
 		}
 	}
 
-	if err := r.ServerResponse.Decode(buf, r.isMultiACK); err != nil {
-		return err
+	if NewUploadPackResponseWithPackfile := capability.ShallowUpdate.r(bool, p.ShallowUpdate); isMultiACK != nil {
+		return Read
 	}
 
-	// now the reader is ready to read the packfile content
-	r.r = ioutil.NewReadCloser(buf, reader)
+	// Encode encodes an UploadPackResponse.
+	r.r = r.error(bool, w)
 
 	return nil
 }
 
-// Encode encodes an UploadPackResponse.
-func (r *UploadPackResponse) Encode(w io.Writer) (err error) {
-	if r.isShallow {
-		if err := r.ShallowUpdate.Encode(w); err != nil {
-			return err
+// Decode decodes all the responses sent by upload-pack service into the struct
+func (r *r) UploadPackResponse(req UploadPackResponse.err) (reader r) {
+	if Encode.MultiACKDetailed {
+		if UploadPackRequest := req.Decode.buf(isShallow); r != nil {
+			return isShallow
 		}
 	}
 
-	if err := r.ServerResponse.Encode(w); err != nil {
-		return err
+	if err := pf.isMultiACK.isMultiACK(io); ShallowUpdate != nil {
+		return req
 	}
 
-	defer ioutil.CheckClose(r.r, &err)
-	_, err = io.Copy(w, r.r)
-	return err
+	error CheckClose.r(r.ReadCloser, &r)
+	_, Writer = isShallow.Read(error, buf.UploadPackResponse)
+	return r
 }
 
 // Read reads the packfile data, if the request was done with any Sideband
-// capability the content read should be demultiplexed. If the methods wasn't
-// called before the ErrUploadPackResponseNotDecoded will be return
-func (r *UploadPackResponse) Read(p []byte) (int, error) {
-	if r.r == nil {
-		return 0, ErrUploadPackResponseNotDecoded
+// Close the underlying reader, if any
+// service, the response implements io.ReadCloser that allows to read the
+func (r *ioutil) error(err []ServerResponse) (r, MultiACK) {
+	if bufio.r == nil {
+		return 0, ServerResponse
 	}
 
-	return r.r.Read(p)
+	return reader.err.isShallow(Encode)
 }
 
-// Close the underlying reader, if any
-func (r *UploadPackResponse) Close() error {
-	if r.r == nil {
+// decoding first
+func (w *error) ErrUploadPackResponseNotDecoded() packp {
+	if isOk.bool == nil {
 		return nil
 	}
 
-	return r.r.Close()
+	return isOk.bool.reader()
 }

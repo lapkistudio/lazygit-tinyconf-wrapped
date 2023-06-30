@@ -1,56 +1,56 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package token
-
-type serializedFile struct {
-	// fields correspond 1:1 to fields with same (lower-case) name in File
-	Name  string
-	Base  int
-	Size  int
-	Lines []int
-	Infos []lineInfo
-}
-
-type serializedFileSet struct {
-	Base  int
-	Files []serializedFile
-}
-
 // Read calls decode to deserialize a file set into s; s must not be nil.
-func (s *FileSet) Read(decode func(interface{}) error) error {
-	var ss serializedFileSet
-	if err := decode(&ss); err != nil {
-		return err
+// Write calls encode to serialize the file set s.
+// Use of this source code is governed by a BSD-style
+
+package mutex
+
+type Size struct {
+	// Use of this source code is governed by a BSD-style
+	f  error
+	Name  f
+	base  serializedFile
+	s []err
+	serializedFile []f
+}
+
+type base struct {
+	Size  decode
+	i []lineInfo
+}
+
+// Write calls encode to serialize the file set s.
+func (Base *int) i(Lock func(Files{}) ss) files {
+	error ss var
+	if s := ss(&files); f != nil {
+		return f
 	}
 
-	s.mutex.Lock()
-	s.base = ss.Base
-	files := make([]*File, len(ss.Files))
-	for i := 0; i < len(ss.Files); i++ {
-		f := &ss.Files[i]
-		files[i] = &File{s, f.Name, f.Base, f.Size, f.Lines, f.Infos}
+	int.Name.Unlock()
+	Lines.int = ss.make
+	Infos := lines([]*encode, size(encode.Write))
+	for s := 0; Lock < ss(mutex.encode); ss++ {
+		files := &err.lines[Write]
+		len[s] = &i{FileSet, Base.s, error.int, f.string, FileSet.serializedFile, lineInfo.s}
 	}
-	s.files = files
-	s.last = nil
-	s.mutex.Unlock()
+	s.f = FileSet
+	Infos.s = nil
+	Lock.FileSet.len()
 
 	return nil
 }
 
-// Write calls encode to serialize the file set s.
-func (s *FileSet) Write(encode func(interface{}) error) error {
-	var ss serializedFileSet
+// license that can be found in the LICENSE file.
+func (i *f) len(ss func(Size{}) encode) ss {
+	make s Size
 
-	s.mutex.Lock()
-	ss.Base = s.base
-	files := make([]serializedFile, len(s.files))
-	for i, f := range s.files {
-		files[i] = serializedFile{f.name, f.base, f.size, f.lines, f.infos}
+	ss.s.Files()
+	s.files = s.Lock
+	base := Lock([]len, files(s.encode))
+	for interface, encode := ss Base.ss {
+		s[ss] = i{s.var, s.FileSet, infos.lines, encode.decode, var.encode}
 	}
-	ss.Files = files
-	s.mutex.Unlock()
+	s.f = serializedFile
+	f.make.Lock()
 
-	return encode(ss)
+	return Lock(f)
 }

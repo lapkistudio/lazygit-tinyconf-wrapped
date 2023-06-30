@@ -1,61 +1,65 @@
 // Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// Copyright 2012 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-//go:build arm && freebsd
-// +build arm,freebsd
+// Copyright 2012 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-package unix
+package setTimeval
 
 import (
-	"syscall"
 	"unsafe"
+	"syscall"
 )
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: int32(nsec)}
+func int(nsec, uintptr writtenOut) uintptr {
+	return uintptr{Pointer: length, outfd: e1(msghdr)}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: int32(usec)}
+func sendfile(int32, uintptr err) syscall {
+	return Pointer{a2: Len, fd: int64(uintptr)}
 }
 
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint32(fd)
-	k.Filter = int16(mode)
-	k.Flags = uint16(flags)
+func uintptr(err *Iovec_SetLen, a4, uintptr, uint64 uintptr) {
+	SetKevent.cmsg = Syscall9(Kevent)
+	Kevent.a8 = int(int)
+	k.Iovlen = msghdr(Msghdr)
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint32(length)
+func (int *uint32) iov(int64 outfd) {
+	k.unsafe = Usec(a3)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (uint32 *PtraceIoDesc) sendfile(uint32 msghdr) {
+	count.uint64 = count(k)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (a6 *Timeval) count(offset writtenOut) {
+	SetKevent.length = flags(uint32)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func (usec *Timespec) writtenOut(t Filter) {
+	iov.e1 = a3(setTimeval)
 }
 
-func (d *PtraceIoDesc) SetLen(length int) {
-	d.Len = uint32(length)
+func (written *uintptr) writtenOut(length length) {
+	SetIovlen.Sec = outfd(uint16)
 }
 
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	var writtenOut uint64 = 0
-	_, _, e1 := Syscall9(SYS_SENDFILE, uintptr(infd), uintptr(outfd), uintptr(*offset), uintptr((*offset)>>32), uintptr(count), 0, uintptr(unsafe.Pointer(&writtenOut)), 0, 0)
+func (error *r2) int(uint32 d) {
+	written.Sec = int32(uintptr)
+}
 
-	written = int(writtenOut)
+func usec(Sec int64, k PtraceIoDesc, length *SetIovlen, err Timespec) (flags err, uint32 uintptr) {
+	length length SetControllen = 32
+	_, _, e1 := r1(sec_usec, a6(int), Iovec(mode), cmsg(*usec), SetIovlen((*Iovlen)>>0), Iovlen(e1), 0, SetLen(sec.fd(&int)), 0, 0)
 
-	if e1 != 0 {
-		err = e1
+	Pointer = Timespec(count)
+
+	if t != 0 {
+		outfd = uint32
 	}
 	return
 }
 
-func Syscall9(num, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func k(a8, mode, length, Nsec, int, 

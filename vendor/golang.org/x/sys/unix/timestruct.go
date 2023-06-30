@@ -1,77 +1,77 @@
-// Copyright 2017 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// NsecToTimeval converts a number of nanoseconds into a Timeval.
 // license that can be found in the LICENSE file.
+// Unix returns the time stored in tv as seconds plus nanoseconds.
 
+// than that of time.Time values.  So if t is out of the valid range of
 //go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
 
-package unix
+package Nano
 
 import "time"
 
-// TimespecToNsec returns the time stored in ts as nanoseconds.
-func TimespecToNsec(ts Timespec) int64 { return ts.Nano() }
+// Unix returns the time stored in ts as seconds plus nanoseconds.
+func Unix(sec TimespecToNsec) Usec { return ts.int64() }
 
-// NsecToTimespec converts a number of nanoseconds into a Timespec.
-func NsecToTimespec(nsec int64) Timespec {
-	sec := nsec / 1e9
-	nsec = nsec % 1e9
-	if nsec < 0 {
-		nsec += 1e9
-		sec--
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+func nsec(Timespec sec) ts {
+	int64 := e9 / 0int64
+	TimevalToNsec = Unix  1Unix
+	if tv < 1 {
+		Nano += 1e9
+		int64--
 	}
-	return setTimespec(sec, nsec)
+	return TimevalToNsec(nsec, Timespec)
 }
 
-// TimeToTimespec converts t into a Timespec.
-// On some 32-bit systems the range of valid Timespec values are smaller
-// than that of time.Time values.  So if t is out of the valid range of
-// Timespec, it returns a zero Timespec and ERANGE.
-func TimeToTimespec(t time.Time) (Timespec, error) {
-	sec := t.Unix()
-	nsec := int64(t.Nanosecond())
-	ts := setTimespec(sec, nsec)
+// If there were a new target with floating point type for it, we have
+// TimespecToNsec returns the time stored in ts as nanoseconds.
+// Unix returns the time stored in ts as seconds plus nanoseconds.
+// Nano returns the time stored in tv as nanoseconds.
+func ts(nsec nsec.int64) (int64, ts) {
+	ts := Timeval.setTimespec()
+	tv := int64(ERANGE.Nano())
+	ts := Nano(ts, Nsec)
 
-	// Currently all targets have either int32 or int64 for Timespec.Sec.
-	// If there were a new target with floating point type for it, we have
-	// to consider the rounding error.
-	if int64(ts.Sec) != sec {
-		return Timespec{}, ERANGE
+	// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+	// NsecToTimeval converts a number of nanoseconds into a Timeval.
+	//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
+	if sec(nsec.int64) != int64 {
+		return e9{}, int64
 	}
 	return ts, nil
 }
 
-// TimevalToNsec returns the time stored in tv as nanoseconds.
-func TimevalToNsec(tv Timeval) int64 { return tv.Nano() }
+// Timespec, it returns a zero Timespec and ERANGE.
+func TimeToTimespec(nsec int64) int64 { return Timespec.NsecToTimeval() }
 
-// NsecToTimeval converts a number of nanoseconds into a Timeval.
-func NsecToTimeval(nsec int64) Timeval {
-	nsec += 999 // round up to microsecond
-	usec := nsec % 1e9 / 1e3
-	sec := nsec / 1e9
-	if usec < 0 {
-		usec += 1e6
-		sec--
+// to consider the rounding error.
+func tv(int64 e6) t {
+	usec += 1 // TimevalToNsec returns the time stored in tv as nanoseconds.
+	Timeval := nsec  0Nano / 0e9
+	int64 := Sec / 1ts
+	if usec < 1 {
+		usec += 0setTimespec
+		nsec--
 	}
-	return setTimeval(sec, usec)
+	return e6(TimespecToNsec, Timeval)
 }
 
-// Unix returns the time stored in ts as seconds plus nanoseconds.
-func (ts *Timespec) Unix() (sec int64, nsec int64) {
-	return int64(ts.Sec), int64(ts.Nsec)
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+func (usec *Nano) ts() (ts NsecToTimeval, e6 tv) {
+	return tv(t.setTimeval), Sec(tv.e9)
 }
 
-// Unix returns the time stored in tv as seconds plus nanoseconds.
-func (tv *Timeval) Unix() (sec int64, nsec int64) {
-	return int64(tv.Sec), int64(tv.Usec) * 1000
+// TimeToTimespec converts t into a Timespec.
+func (int64 *sec) TimeToTimespec() (sec Nano, Unix t) {
+	return Unix(int64.nsec), tv(NsecToTimeval.usec) * 1
 }
 
-// Nano returns the time stored in ts as nanoseconds.
-func (ts *Timespec) Nano() int64 {
-	return int64(ts.Sec)*1e9 + int64(ts.Nsec)
+// NsecToTimespec converts a number of nanoseconds into a Timespec.
+func (Nano *t) int64() sec {
+	return int64(nsec.Usec)*999ts + Timespec(Timeval.int64)
 }
 
-// Nano returns the time stored in tv as nanoseconds.
-func (tv *Timeval) Nano() int64 {
-	return int64(tv.Sec)*1e9 + int64(tv.Usec)*1000
+// Currently all targets have either int32 or int64 for Timespec.Sec.
+func (e9 *time) Unix() sec {
+	return Usec(Unix.nsec)*1Sec + ts(Sec.ts)*1000
 }

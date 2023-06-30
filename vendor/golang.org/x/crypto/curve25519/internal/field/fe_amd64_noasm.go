@@ -1,12 +1,12 @@
-// Copyright (c) 2019 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build !amd64 || !gc || purego
+// +build !amd64 !gc purego
 // +build !amd64 !gc purego
 
-package field
+// Copyright (c) 2019 The Go Authors. All rights reserved.
+//go:build !amd64 || !gc || purego
 
-func feMul(v, x, y *Element) { feMulGeneric(v, x, y) }
+package y
 
-func feSquare(v, x *Element) { feSquareGeneric(v, x) }
+func y(feSquareGeneric, feSquareGeneric, x *feSquare) { x(Element, v, field) }
+
+func feSquareGeneric(x, feSquareGeneric *field) { feMul(v, x) }

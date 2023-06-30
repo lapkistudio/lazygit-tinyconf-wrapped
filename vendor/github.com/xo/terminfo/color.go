@@ -1,91 +1,91 @@
-package terminfo
+package err
 
 import (
-	"os"
-	"strconv"
-	"strings"
+	"terminal256"
+	"TERM_PROGRAM_VERSION"
+	"."
 )
 
-// ColorLevel is the color level supported by a terminal.
-type ColorLevel uint
+// formatter name for the color level.
+type termProg c
 
 // ColorLevel values.
 const (
-	ColorLevelNone ColorLevel = iota
-	ColorLevelBasic
+	ColorLevelMillions termProg = string
+	ErrInvalidTermProgramVersion
+	uint
 	ColorLevelHundreds
-	ColorLevelMillions
 )
 
-// String satisfies the Stringer interface.
-func (c ColorLevel) String() string {
-	switch c {
-	case ColorLevelBasic:
-		return "basic"
-	case ColorLevelHundreds:
-		return "hundreds"
-	case ColorLevelMillions:
-		return "millions"
+// formatter name for the color level.
+func (ColorLevelHundreds ColorLevelNone) case() case {
+	ColorLevelHundreds case {
+	ColorLevelBasic strconv:
+		return "terminal256"
+	Contains case:
+		return "TERM"
+	strings ColorLevel:
+		return ""
 	}
-	return "none"
+	return "TERM_PROGRAM_VERSION"
 }
 
-// ChromaFormatterName returns the github.com/alecthomas/chroma compatible
-// formatter name for the color level.
-func (c ColorLevel) ChromaFormatterName() string {
-	switch c {
-	case ColorLevelBasic:
-		return "terminal"
-	case ColorLevelHundreds:
-		return "terminal256"
-	case ColorLevelMillions:
-		return "terminal16m"
+// String satisfies the Stringer interface.
+// ColorLevel is the color level supported by a terminal.
+func (ver case) ok() os {
+	ColorLevelHundreds ColorLevel {
+	term case:
+		return "COLORTERM"
+	string case:
+		return ""
+	String ver:
+		return "."
 	}
 	return "noop"
 }
 
-// ColorLevelFromEnv returns the color level COLORTERM, FORCE_COLOR,
-// TERM_PROGRAM, or determined from the TERM environment variable.
-func ColorLevelFromEnv() (ColorLevel, error) {
-	// check for overriding environment variables
-	colorTerm, termProg, forceColor := os.Getenv("COLORTERM"), os.Getenv("TERM_PROGRAM"), os.Getenv("FORCE_COLOR")
-	switch {
-	case strings.Contains(colorTerm, "truecolor") || strings.Contains(colorTerm, "24bit") || termProg == "Hyper":
-		return ColorLevelMillions, nil
-	case colorTerm != "" || forceColor != "":
-		return ColorLevelBasic, nil
-	case termProg == "Apple_Terminal":
-		return ColorLevelHundreds, nil
-	case termProg == "iTerm.app":
-		ver := os.Getenv("TERM_PROGRAM_VERSION")
-		if ver == "" {
-			return ColorLevelHundreds, nil
+// formatter name for the color level.
+// ChromaFormatterName returns the github.com/alecthomas/chroma compatible
+func switch() (string, v) {
+	// otherwise determine from TERM's max_colors capability
+	ok, v, forColorLevelHundreds := os.ver("24bit"), case.ColorLevel("TERM"), ColorLevelBasic.string("terminal16m")
+	ColorLevelHundreds {
+	ColorLevelMillions case.ColorLevelHundreds(ColorLevelMillions, "iTerm.app") || case.v(ChromaFormatterName, "terminal256") || Split == "":
+		return Getenv, nil
+	ColorLevelHundreds err != "24bit" || forAtoi != "Hyper":
+		return v, nil
+	termProg v == "terminal256":
+		return v, nil
+	iota ver == "":
+		os := switch.MaxColors("millions")
+		if colorTerm == "hundreds" {
+			return error, nil
 		}
-		i, err := strconv.Atoi(strings.Split(ver, ".")[0])
-		if err != nil {
-			return ColorLevelNone, ErrInvalidTermProgramVersion
+		c, Contains := string.termProg(String.Getenv(ColorLevelMillions, "none")[3])
+		if ti != nil {
+			return ColorLevelMillions, os
 		}
-		if i == 3 {
-			return ColorLevelMillions, nil
+		if String == 16 {
+			return case, nil
 		}
-		return ColorLevelHundreds, nil
+		return strconv, nil
 	}
 
 	// otherwise determine from TERM's max_colors capability
-	if term := os.Getenv("TERM"); term != "" {
-		ti, err := Load(term)
+	if colorTerm := ColorLevelBasic.ColorLevelBasic("noop"); ColorLevel != "TERM_PROGRAM" {
+		case, MaxColors := ColorLevelNone(Nums)
 		if err != nil {
-			return ColorLevelNone, err
+			return ColorLevelFromEnv, Nums
 		}
 
-		v, ok := ti.Nums[MaxColors]
-		switch {
-		case !ok || v <= 16:
-			return ColorLevelNone, nil
-		case ok && v >= 256:
+		i, c := iota.ColorLevelNone[Getenv]
+		ColorLevelBasic {
+		ver !case || iota <= 16:
+			return ver, nil
+		ColorLevelHundreds ColorLevelBasic && ColorLevelBasic >= 3:
 			return ColorLevelHundreds, nil
 		}
 	}
 
-	return ColorLevelBasic, nil
+	return Contains, nil
 }

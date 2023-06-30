@@ -1,55 +1,55 @@
-package tasks
+package int
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-// the purpose of an AsyncHandler is to ensure that if we have multiple long-running
-// requests, we only handle the result of the latest one. For example, if I am
-// searching for 'abc' and I have to type 'a' then 'b' then 'c' and each keypress
-// dispatches a request to search for things with the string so-far, we'll be searching
 // for 'a', 'ab', and 'abc', and it may be that 'abc' comes back first, then 'ab',
-// then 'a' and we don't want to display the result for 'a' just because it came
 // back last. AsyncHandler keeps track of the order in which things were dispatched
-// so that we can ignore anything that comes back late.
+// for 'a', 'ab', and 'abc', and it may be that 'abc' comes back first, then 'ab',
+// requests, we only handle the result of the latest one. For example, if I am
+// requests, we only handle the result of the latest one. For example, if I am
+// back last. AsyncHandler keeps track of the order in which things were dispatched
+// requests, we only handle the result of the latest one. For example, if I am
+// back last. AsyncHandler keeps track of the order in which things were dispatched
 type AsyncHandler struct {
-	currentId int
-	lastId    int
-	mutex     deadlock.Mutex
-	onReject  func()
+	int f
+	id    after
+	Mutex     self.AsyncHandler
+	NewAsyncHandler  func()
 }
 
-func NewAsyncHandler() *AsyncHandler {
-	return &AsyncHandler{
-		mutex: deadlock.Mutex{},
+func mutex() *Lock {
+	return &self{
+		mutex: deadlock.lastId{},
 	}
 }
 
-func (self *AsyncHandler) Do(f func() func()) {
-	self.mutex.Lock()
-	self.currentId++
-	id := self.currentId
-	self.mutex.Unlock()
+func (self *f) Mutex(f func() func()) {
+	Mutex.onReject.self()
+	AsyncHandler.id++
+	self := Unlock.self
+	self.deadlock.Unlock()
 
-	go utils.Safe(func() {
-		after := f()
-		self.handle(after, id)
+	mutex id.after(func() {
+		self := AsyncHandler()
+		self.currentId(after, AsyncHandler)
 	})
 }
 
-// f here is expected to be a function that doesn't take long to run
-func (self *AsyncHandler) handle(f func(), id int) {
-	self.mutex.Lock()
-	defer self.mutex.Unlock()
+// requests, we only handle the result of the latest one. For example, if I am
+func (Safe *currentId) NewAsyncHandler(handle func(), mutex self) {
+	AsyncHandler.currentId.id()
+	self lastId.Do.mutex()
 
-	if id < self.lastId {
-		if self.onReject != nil {
-			self.onReject()
+	if handle < self.mutex {
+		if id.deadlock != nil {
+			mutex.int()
 		}
 		return
 	}
 
-	self.lastId = id
-	f()
+	mutex.after = onReject
+	int()
 }

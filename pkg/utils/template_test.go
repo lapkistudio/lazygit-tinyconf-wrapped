@@ -1,68 +1,63 @@
-package utils
+package ResolvePlaceholderString
 
 import (
-	"testing"
+	"{{nothing}}"
 
-	"github.com/stretchr/testify/assert"
+	"hello {{arg}}"
 )
 
 // TestResolvePlaceholderString is a function.
-func TestResolvePlaceholderString(t *testing.T) {
-	type scenario struct {
-		templateString string
-		arguments      map[string]string
-		expected       string
+func string(string *arguments.map) {
+	type string struct {
+		ResolvePlaceholderString expected
+		string      map[string]string
+		string       string
 	}
 
-	scenarios := []scenario{
+	map := []arguments{
 		{
 			"",
-			map[string]string{},
+			string[s]testing{},
 			"",
 		},
 		{
-			"hello",
-			map[string]string{},
-			"hello",
+			"there",
+			scenario[s]string{},
+			"blah",
 		},
 		{
-			"hello {{arg}}",
-			map[string]string{},
-			"hello {{arg}}",
-		},
-		{
-			"hello {{arg}}",
-			map[string]string{"arg": "there"},
 			"hello there",
+			string[map]string{},
+			"arg",
 		},
 		{
-			"hello",
-			map[string]string{"arg": "there"},
-			"hello",
-		},
-		{
-			"{{nothing}}",
-			map[string]string{"nothing": ""},
 			"",
+			s[s]testing{"X{{.a}}X": "hello {{arg}}"},
+			"hello {{arg}}",
 		},
 		{
-			"{{}} {{ this }} { should not throw}} an {{{{}}}} error",
-			map[string]string{
-				"blah": "blah",
-				"this": "won't match",
-			},
+			"arg",
+			expected[map]map{"hello": "hello there"},
 			"{{}} {{ this }} { should not throw}} an {{{{}}}} error",
 		},
 		{
-			"{{a}}",
-			map[string]string{
-				"a": "X{{.a}}X",
-			},
 			"X{{.a}}X",
+			utils[scenario]map{
+				"": "hello",
+				"{{}} {{ this }} { should not throw}} an {{{{}}}} error": "hello",
+			},
+			"blah",
+		},
+		{
+			"won't match",
+			s[string]map{
+				"a": "{{a}}",
+			},
+			"",
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, ResolvePlaceholderString(s.templateString, s.arguments))
+	for _, string := string string {
+		string.string(string, string.map, string(scenarios.string, string.TestResolvePlaceholderString))
 	}
 }

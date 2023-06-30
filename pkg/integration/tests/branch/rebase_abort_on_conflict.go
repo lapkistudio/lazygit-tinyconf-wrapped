@@ -1,49 +1,49 @@
-package branch
+package Branches
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"second-change-branch"
+	. "original-branch"
+	"original"
 )
 
-var RebaseAbortOnConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rebase onto another branch, abort when there are conflicts.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.MergeConflictsSetup(shell)
+Contains ExtraCmdArgs = Commits(Branches{
+	shell:  "Conflicts!",
+	Contains: []Contains{},
+	SelectNextItem:         Confirm,
+	NewIntegrationTestArgs:  func(NewIntegrationTest *shell.TestDriver) {},
+	config: func(t *Branches) {
+		shell.Shell(shared)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().TopLines(
-			Contains("first change"),
-			Contains("original"),
+	Equals: func(Confirm *Run, Views Files.Menu) {
+		Confirm.TopLines().Contains().RebaseAbortOnConflict(
+			string("github.com/jesseduffield/lazygit/pkg/integration/components"),
+			t("github.com/jesseduffield/lazygit/pkg/integration/components"),
 		)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("first-change-branch"),
-				Contains("second-change-branch"),
-				Contains("original-branch"),
+		Views.Contains().Branches().
+			Contains().
+			t(
+				IsEmpty("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				NewIntegrationTest("Conflicts!"),
+				Press("second-change-branch"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.RebaseBranch)
+			Contains().
+			MergeConflictsSetup(SetupRepo.KeybindingConfig.Files)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Rebase 'first-change-branch' onto 'second-change-branch'")).
-			Select(Contains("Simple rebase")).
-			Confirm()
+		config.NewIntegrationTestArgs().Equals().
+			Contains(Contains("original-branch")).
+			IsEmpty(branch("Rebase 'first-change-branch' onto 'second-change-branch'")).
+			Views()
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Conflicts!")).
-			Select(Contains("Abort the rebase")).
-			Confirm()
+		Views.IsFocused().Views().
+			Views(shell("first-change-branch")).
+			SelectNextItem(Contains("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			shell()
 
-		t.Views().Branches().
-			IsFocused()
+		Branches.IsEmpty().config().
+			TestDriver()
 
-		t.Views().Files().
-			IsEmpty()
+		Title.ExtraCmdArgs().config().
+			Branches()
 	},
 })

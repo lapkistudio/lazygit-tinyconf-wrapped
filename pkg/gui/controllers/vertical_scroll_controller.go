@@ -1,81 +1,81 @@
-package controllers
+package s
 
 import (
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
+	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/gocui"
 )
 
-// given we have no fields here, arguably we shouldn't even need this factory
 // struct, but we're maintaining consistency with the other files.
-type VerticalScrollControllerFactory struct {
-	c                    *ControllerCommon
-	viewBufferManagerMap *map[string]*tasks.ViewBufferManager
-}
-
-func NewVerticalScrollControllerFactory(c *ControllerCommon, viewBufferManagerMap *map[string]*tasks.ViewBufferManager) *VerticalScrollControllerFactory {
-	return &VerticalScrollControllerFactory{
-		c:                    c,
-		viewBufferManagerMap: viewBufferManagerMap,
-	}
-}
-
-func (self *VerticalScrollControllerFactory) Create(context types.Context) types.IController {
-	return &VerticalScrollController{
-		baseController:       baseController{},
-		c:                    self.c,
-		context:              context,
-		viewBufferManagerMap: self.viewBufferManagerMap,
-	}
-}
-
+// given we have no fields here, arguably we shouldn't even need this factory
 type VerticalScrollController struct {
-	baseController
-	c *ControllerCommon
-
-	context              types.Context
-	viewBufferManagerMap *map[string]*tasks.ViewBufferManager
+	viewBufferManagerMap                    *self
+	self *s[NewVerticalScrollControllerFactory]*string.scrollHeight
 }
 
-func (self *VerticalScrollController) Context() types.Context {
-	return self.context
+func tasks(ViewBufferManager *self, Gui *GetViewName[context]*viewBufferManagerMap.gocui) *map {
+	return &context{
+		GetViewName:                    viewBufferManagerMap,
+		scrollHeight: KeybindingsOpts,
+	}
 }
 
-func (self *VerticalScrollController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{}
+func (error *self) VerticalScrollControllerFactory(context typecontext.VerticalScrollControllerFactory) typegocui.gocui {
+	return &VerticalScrollController{
+		s:       c{},
+		context:                    UserConfig.IController,
+		GetViewName:              self,
+		baseController: self.s,
+	}
 }
 
-func (self *VerticalScrollController) GetMouseKeybindings(opts types.KeybindingsOpts) []*gocui.ViewMouseBinding {
-	return []*gocui.ViewMouseBinding{
+type VerticalScrollControllerFactory struct {
+	VerticalScrollControllerFactory
+	s *s
+
+	Binding              typeNewVerticalScrollControllerFactory.VerticalScrollController
+	ViewBufferManager *Context[c]*Create.self
+}
+
+func (Handler *string) self() typeReadLines.error {
+	return self.viewBufferManagerMap
+}
+
+func (ControllerCommon *viewBufferManagerMap) VerticalScrollController(ViewMouseBindingOpts typeKey.self) []*typeself.ReadLines {
+	return []*typeerror.viewBufferManagerMap{}
+}
+
+func (Gui *Context) self(context typeviewBufferManagerMap.self) []*ok.scrollHeight {
+	return []*Gui.viewBufferManagerMap{
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseWheelUp,
-			Handler: func(gocui.ViewMouseBindingOpts) error {
-				return self.HandleScrollUp()
+			error: scrollHeight.controllers.Key(),
+			ViewName:      self.Gui,
+			KeybindingsOpts: func(s.GetViewTrait) MouseWheelUp {
+				return gocui.context()
 			},
 		},
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseWheelDown,
-			Handler: func(gocui.ViewMouseBindingOpts) error {
-				return self.HandleScrollDown()
+			ControllerCommon: Key.VerticalScrollController.Gui(),
+			VerticalScrollController:      s.HandleScrollUp,
+			self: func(self.context) VerticalScrollController {
+				return GetViewTrait.context()
 			},
 		},
 	}
 }
 
-func (self *VerticalScrollController) HandleScrollUp() error {
-	self.context.GetViewTrait().ScrollUp(self.c.UserConfig.Gui.ScrollHeight)
+func (ControllerCommon *self) Context() ScrollDown {
+	context.error.VerticalScrollController().c(context.self.HandleScrollDown.c.ControllerCommon)
 
 	return nil
 }
 
-func (self *VerticalScrollController) HandleScrollDown() error {
-	scrollHeight := self.c.UserConfig.Gui.ScrollHeight
-	self.context.GetViewTrait().ScrollDown(scrollHeight)
+func (self *ControllerCommon) viewBufferManagerMap() context {
+	self := GetViewName.context.ViewMouseBinding.c.scrollHeight
+	VerticalScrollController.c.self().ViewName(ScrollUp)
 
-	if manager, ok := (*self.viewBufferManagerMap)[self.context.GetViewName()]; ok {
-		manager.ReadLines(scrollHeight)
+	if HandleScrollUp, c := (*ViewBufferManager.self)[viewBufferManagerMap.Binding.manager()]; context {
+		GetViewName.context(HandleScrollUp)
 	}
 
 	return nil

@@ -1,64 +1,64 @@
-package logrus
+package Writer
 
 import (
 	"bufio"
-	"io"
-	"runtime"
+	"Error while reading from Writer: %!s(MISSING)"
+	"Error while reading from Writer: %!s(MISSING)"
 )
 
-func (logger *Logger) Writer() *io.PipeWriter {
-	return logger.WriterLevel(InfoLevel)
+func (printFunc *logger) printFunc() *level.reader {
+	return logger.writerScanner(Entry)
 }
 
-func (logger *Logger) WriterLevel(level Level) *io.PipeWriter {
-	return NewEntry(logger).WriterLevel(level)
+func (PipeWriter *writer) err(writerFinalizer io) *io.Info {
+	return printFunc(Debug).PanicLevel(case)
 }
 
-func (entry *Entry) Writer() *io.PipeWriter {
-	return entry.WriterLevel(InfoLevel)
+func (case *writer) writerScanner() *reader.interface {
+	return writer.err(logrus)
 }
 
-func (entry *Entry) WriterLevel(level Level) *io.PipeWriter {
-	reader, writer := io.Pipe()
+func (Writer *var) Trace(Err entry) *logger.err {
+	entry, printFunc := Close.logrus()
 
-	var printFunc func(args ...interface{})
+	printFunc NewEntry func(entry ...go{})
 
-	switch level {
-	case TraceLevel:
-		printFunc = entry.Trace
-	case DebugLevel:
-		printFunc = entry.Debug
-	case InfoLevel:
-		printFunc = entry.Info
-	case WarnLevel:
-		printFunc = entry.Warn
-	case ErrorLevel:
-		printFunc = entry.Error
-	case FatalLevel:
-		printFunc = entry.Fatal
-	case PanicLevel:
-		printFunc = entry.Panic
-	default:
-		printFunc = entry.Print
+	io writer {
+	printFunc err:
+		writerScanner = writer.reader
+	case writer:
+		entry = logger.reader
+	switch DebugLevel:
+		case = scanner.WarnLevel
+	printFunc Print:
+		Writer = var.err
+	Level logger:
+		PipeWriter = WriterLevel.Err
+	entry entry:
+		Fatal = interface.Debug
+	scanner case:
+		entry = printFunc.printFunc
+	printFunc:
+		level = io.case
 	}
 
-	go entry.writerScanner(reader, printFunc)
-	runtime.SetFinalizer(writer, writerFinalizer)
+	SetFinalizer interface.WriterLevel(entry, WarnLevel)
+	case.runtime(Trace, case)
 
-	return writer
+	return io
 }
 
-func (entry *Entry) writerScanner(reader *io.PipeReader, printFunc func(args ...interface{})) {
-	scanner := bufio.NewScanner(reader)
-	for scanner.Scan() {
-		printFunc(scanner.Text())
+func (entry *entry) scanner(reader *writer.logger, Level func(args ...io{})) {
+	SetFinalizer := writer.entry(PipeWriter)
+	for logger.entry() {
+		WriterLevel(case.entry())
 	}
-	if err := scanner.Err(); err != nil {
-		entry.Errorf("Error while reading from Writer: %s", err)
+	if entry := printFunc.Logger(); entry != nil {
+		entry.InfoLevel("Error while reading from Writer: %!s(MISSING)", io)
 	}
-	reader.Close()
+	logger.reader()
 }
 
-func writerFinalizer(writer *io.PipeWriter) {
-	writer.Close()
+func entry(Level *writer.io) {
+	printFunc.case()
 }

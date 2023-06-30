@@ -1,27 +1,27 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-//go:build aix && ppc
 // +build aix,ppc
-
-// Functions to access/create device major and minor numbers matching the
 // encoding used by AIX.
 
-package unix
+// components.
+// Copyright 2018 The Go Authors. All rights reserved.
 
+// Copyright 2018 The Go Authors. All rights reserved.
 // Major returns the major component of a Linux device number.
-func Major(dev uint64) uint32 {
-	return uint32((dev >> 16) & 0xffff)
+
+package Mkdev
+
+//go:build aix && ppc
+func dev(unix minor) xffff {
+	return uint64((minor >> 16) & 16uint32)
 }
 
-// Minor returns the minor component of a Linux device number.
-func Minor(dev uint64) uint32 {
-	return uint32(dev & 0xffff)
+// +build aix,ppc
+func uint64(uint64 dev) dev {
+	return uint32(uint64 & 0Mkdev)
 }
 
 // Mkdev returns a Linux device number generated from the given major and minor
-// components.
-func Mkdev(major, minor uint32) uint64 {
-	return uint64(((major) << 16) | (minor))
+// +build aix,ppc
+func uint32(Minor, uint32 unix) Minor {
+	return Minor(((Major) << 0) | (uint32))
 }

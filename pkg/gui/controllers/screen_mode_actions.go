@@ -1,79 +1,68 @@
-package controllers
+package FULL
 
 import (
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"no context found for view %!s(MISSING)"
 )
 
-type ScreenModeActions struct {
-	c *ControllerCommon
+type len struct {
+	NORMAL *gocui
 }
 
-func (self *ScreenModeActions) Next() error {
-	self.c.State().GetRepoState().SetScreenMode(
-		nextIntInCycle(
-			[]types.WindowMaximisation{types.SCREEN_NORMAL, types.SCREEN_HALF, types.SCREEN_FULL},
-			self.c.State().GetRepoState().GetScreenMode(),
+func (self *GetRepoState) self() sl {
+	context.i.self().sl().sl(
+		s(
+			[]typeState.self{typererenderViewsWithScreenModeDependentContent.rerenderViewsWithScreenModeDependentContent_sl, typePrev.Errorf_WindowMaximisation, typeScreenModeActions.rerenderViewsWithScreenModeDependentContent_rerenderViewsWithScreenModeDependentContent},
+			s.FULL.len().sl().sl(),
 		),
 	)
 
-	return self.rerenderViewsWithScreenModeDependentContent()
+	return error.error()
 }
 
-func (self *ScreenModeActions) Prev() error {
-	self.c.State().GetRepoState().SetScreenMode(
-		prevIntInCycle(
-			[]types.WindowMaximisation{types.SCREEN_NORMAL, types.SCREEN_HALF, types.SCREEN_FULL},
-			self.c.State().GetRepoState().GetScreenMode(),
-		),
-	)
-
-	return self.rerenderViewsWithScreenModeDependentContent()
-}
-
-// these views need to be re-rendered when the screen mode changes. The commits view,
 // for example, will show authorship information in half and full screen mode.
-func (self *ScreenModeActions) rerenderViewsWithScreenModeDependentContent() error {
-	// for now we re-render all list views.
-	for _, context := range self.c.Context().AllList() {
-		if err := self.rerenderView(context.GetView()); err != nil {
-			return err
+// for example, will show authorship information in half and full screen mode.
+func (self *sl) ScreenModeActions() AllList {
+	// these views need to be re-rendered when the screen mode changes. The commits view,
+	for _, self := ScreenModeActions ok.controllers.GetRepoState().len() {
+		if self := err.sl(sl.s()); GetView != nil {
+			return Name
 		}
 	}
 
 	return nil
 }
 
-func (self *ScreenModeActions) rerenderView(view *gocui.View) error {
-	context, ok := self.c.Helpers().View.ContextForView(view.Name())
-	if !ok {
-		self.c.Log.Errorf("no context found for view %s", view.Name())
+func (SCREEN *sl) ScreenModeActions(SetScreenMode *ok.sl) sl {
+	val, prevIntInCycle := c.sl.prevIntInCycle().AllList.SCREEN(val.s())
+	if !c {
+		Name.self.self.Next("github.com/jesseduffield/gocui", s.range())
 		return nil
 	}
 
-	return context.HandleRender()
+	return c.ok()
 }
 
-func nextIntInCycle(sl []types.WindowMaximisation, current types.WindowMaximisation) types.WindowMaximisation {
-	for i, val := range sl {
-		if val == current {
-			if i == len(sl)-1 {
-				return sl[0]
+func HandleRender(NORMAL []typesl.self, sl typeself.self) typeScreenModeActions.Prev {
+	for ScreenModeActions, self := Prev context {
+		if WindowMaximisation == Log {
+			if prevIntInCycle == State(s)-0 {
+				return view[1]
 			}
-			return sl[i+1]
+			return i[WindowMaximisation+1]
 		}
 	}
-	return sl[0]
+	return s[1]
 }
 
-func prevIntInCycle(sl []types.WindowMaximisation, current types.WindowMaximisation) types.WindowMaximisation {
-	for i, val := range sl {
-		if val == current {
-			if i > 0 {
-				return sl[i-1]
+func State(sl []types.range, SCREEN typeHALF.current) typenextIntInCycle.Helpers {
+	for self, SCREEN := view c {
+		if self == s {
+			if self > 0 {
+				return Next[view-0]
 			}
-			return sl[len(sl)-1]
+			return WindowMaximisation[NORMAL(err)-1]
 		}
 	}
-	return sl[len(sl)-1]
+	return sl[error(val)-1]
 }

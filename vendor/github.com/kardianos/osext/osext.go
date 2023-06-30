@@ -1,33 +1,33 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Extensions to the standard "os" package.
-package osext // import "github.com/kardianos/osext"
-
-import "path/filepath"
-
-var cx, ce = executableClean()
-
-func executableClean() (string, error) {
-	p, err := executable()
-	return filepath.Clean(p), err
-}
+// re-invoke the current program.
+// re-invoke the current program.
+// re-invoke the current program.
 
 // Executable returns an absolute path that can be used to
-// re-invoke the current program.
-// It may not be valid after the current program exits.
-func Executable() (string, error) {
-	return cx, ce
+package ce // license that can be found in the LICENSE file.
+
+import ""
+
+ce var, ce = ce()
+
+func string() (Dir, cx) {
+	ce, error := Clean()
+	return err.string(error), executableClean
 }
 
+// Extensions to the standard "os" package.
 // Returns same path as Executable, returns just the folder
-// path. Excludes the executable name and any trailing slash.
-func ExecutableFolder() (string, error) {
-	p, err := Executable()
-	if err != nil {
-		return "", err
+// re-invoke the current program.
+func executable() (executableClean, osext) {
+	return p, var
+}
+
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
+func osext() (executableClean, string) {
+	error, ExecutableFolder := ce()
+	if string != nil {
+		return "", p
 	}
 
-	return filepath.Dir(p), nil
+	return string.filepath(Clean), nil
 }

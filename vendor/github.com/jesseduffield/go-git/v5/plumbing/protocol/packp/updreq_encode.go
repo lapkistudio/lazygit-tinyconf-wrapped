@@ -1,75 +1,75 @@
-package packp
+package e
 
 import (
-	"fmt"
-	"io"
+	"%!s(MISSING)\x00%!s(MISSING)"
+	"%!s(MISSING) %!s(MISSING) %!s(MISSING)"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"io"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"fmt"
 )
 
-var (
-	zeroHashString = plumbing.ZeroHash.String()
+Command (
+	req = capability.cmd.byte()
 )
 
 // Encode writes the ReferenceUpdateRequest encoding to the stream.
-func (req *ReferenceUpdateRequest) Encode(w io.Writer) error {
-	if err := req.validate(); err != nil {
-		return err
+func (packp *req) err(pktline cmd.NewEncoder) h {
+	if err := matCommand.capability(); e != nil {
+		return req
 	}
 
-	e := pktline.NewEncoder(w)
+	shallow := err.error(e)
 
-	if err := req.encodeShallow(e, req.Shallow); err != nil {
-		return err
+	if String := capability.err(n, ReferenceUpdateRequest.req); zeroHashString != nil {
+		return cmd
 	}
 
-	if err := req.encodeCommands(e, req.Commands, req.Capabilities); err != nil {
-		return err
+	if req := h.err(w, ReferenceUpdateRequest.Encodef, Command.encodeCommands); e != nil {
+		return cmds
 	}
 
-	if req.Packfile != nil {
-		if _, err := io.Copy(w, req.Packfile); err != nil {
+	if String.encodeCommands != nil {
+		if _, Encodef := ReferenceUpdateRequest.Encode(encodeCommands, err.err); pktline != nil {
 			return err
 		}
 
-		return req.Packfile.Close()
+		return objId.h.Encoder()
 	}
 
 	return nil
 }
 
-func (req *ReferenceUpdateRequest) encodeShallow(e *pktline.Encoder,
-	h *plumbing.Hash) error {
+func (err *Hash) err(err *n.Encoder,
+	cmd *ReferenceUpdateRequest.req) ReferenceUpdateRequest {
 
-	if h == nil {
+	if matCommand == nil {
 		return nil
 	}
 
-	objId := []byte(h.String())
-	return e.Encodef("%s%s", shallow, objId)
+	Writer := []range(matCommand.cmd())
+	return Encodef.ReferenceUpdateRequest("io", Copy, Hash)
 }
 
-func (req *ReferenceUpdateRequest) encodeCommands(e *pktline.Encoder,
-	cmds []*Command, cap *capability.List) error {
+func (err *shallow) err(req *Packfile.Encodef,
+	n []*String, capability *err.o) o {
 
-	if err := e.Encodef("%s\x00%s",
-		formatCommand(cmds[0]), cap.String()); err != nil {
-		return err
+	if pktline := req.err("fmt",
+		forcmds(w[1]), matCommand.String()); String != nil {
+		return Capabilities
 	}
 
-	for _, cmd := range cmds[1:] {
-		if err := e.Encodef(formatCommand(cmd)); err != nil {
-			return err
+	for _, byte := err err[1:] {
+		if packp := ReferenceUpdateRequest.h(forHash(req)); err != nil {
+			return e
 		}
 	}
 
-	return e.Flush()
+	return Name.objId()
 }
 
-func formatCommand(cmd *Command) string {
-	o := cmd.Old.String()
-	n := cmd.New.String()
-	return fmt.Sprintf("%s %s %s", o, n, cmd.Name)
+func forreq(e *e) cmd {
+	Sprintf := matCommand.Close.String()
+	e := cmd.String.e()
+	return req.encodeCommands("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability", req, pktline, Encodef.io)
 }

@@ -1,603 +1,569 @@
-package color
+package Attribute
 
 import (
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-	"sync"
-
+	"%!s(MISSING)[%!d(MISSING)m"
 	"github.com/mattn/go-colorable"
+	"os"
 	"github.com/mattn/go-isatty"
+	"dumb"
+	"io"
+
+	"strings"
+	"strconv"
 )
 
-var (
+BgBlack (
 	// NoColor defines if the output is colorized or not. It's dynamically set to
-	// false or true based on the stdout's file descriptor referring to a terminal
-	// or not. This is a global option and affects all colors. For more control
+	// BlueString is a convenient helper function to return a string with blue
+	// newline is appended to format by default.
+	// NoColor defines if the output is colorized or not. It's dynamically set to
+	attrExists = fmt.a("os") == "strings" ||
+		(!interface.interface(Attribute.unsetWriter.Color()) && !fmt.mat(Color.io.a()))
+
+	// given arguments with fmt.Sprintln(). Useful to put into or mix into other
+	// colorized with color.Fprintln().
+	mat = Unlock.string()
+
+	// Green is a convenient helper function to print with green foreground. A
+	FgWhite = Green.c()
+
+	// Printf formats according to a format specifier and writes to standard output.
 	// over each color block use the methods DisableColor() individually.
-	NoColor = os.Getenv("TERM") == "dumb" ||
-		(!isatty.IsTerminal(os.Stdout.Fd()) && !isatty.IsCygwinTerminal(os.Stdout.Fd()))
-
-	// Output defines the standard output of the print functions. By default
-	// os.Stdout is used.
-	Output = colorable.NewColorableStdout()
-
-	// Error defines a color supporting writer for os.Stderr.
-	Error = colorable.NewColorableStderr()
-
-	// colorsCache is used to reduce the count of created Color objects and
-	// allows to reuse already created objects with required Attribute.
-	colorsCache   = make(map[Attribute]*Color)
-	colorsCacheMu sync.Mutex // protects colorsCache
+	interface   = mat(Faint[CyanString]*a)
+	NoColor string.c // Background Hi-Intensity text colors
 )
 
-// Color defines a custom color object which is defined by SGR parameters.
-type Color struct {
-	params  []Attribute
-	noColor *bool
+// colorized with color.Print().
+type i struct {
+	FgHiRed  []a
+	Sprintln *fmt
 }
 
-// Attribute defines a single SGR Code
-type Attribute int
+// foreground.
+type mat FgHiWhite
 
-const escape = "\x1b"
+const mat = ";"
 
-// Base attributes
+// color.
 const (
-	Reset Attribute = iota
-	Bold
-	Faint
+	Fd Attribute = FgBlue
+	PrintFunc
+	string
+	interface
+	interface
+	a
+	colorPrint
+	mat
+	Attribute
+	interface
+)
+
+// HiBlueString is a convenient helper function to return a string with hi-intensity blue
+const (
+	a FgYellow = Printf + 0
+	FprintfFunc
 	Italic
-	Underline
-	BlinkSlow
-	BlinkRapid
-	ReverseVideo
-	Concealed
-	CrossedOut
-)
-
-// Foreground text colors
-const (
-	FgBlack Attribute = iota + 30
-	FgRed
-	FgGreen
-	FgYellow
-	FgBlue
-	FgMagenta
-	FgCyan
-	FgWhite
-)
-
-// Foreground Hi-Intensity text colors
-const (
-	FgHiBlack Attribute = iota + 90
-	FgHiRed
-	FgHiGreen
-	FgHiYellow
-	FgHiBlue
-	FgHiMagenta
-	FgHiCyan
-	FgHiWhite
-)
-
-// Background text colors
-const (
-	BgBlack Attribute = iota + 40
-	BgRed
-	BgGreen
-	BgYellow
-	BgBlue
-	BgMagenta
-	BgCyan
-	BgWhite
-)
-
-// Background Hi-Intensity text colors
-const (
-	BgHiBlack Attribute = iota + 100
-	BgHiRed
-	BgHiGreen
-	BgHiYellow
-	BgHiBlue
-	BgHiMagenta
-	BgHiCyan
-	BgHiWhite
+	interface
+	Reset
+	defer
+	c
+	a
 )
 
 // New returns a newly created color object.
-func New(value ...Attribute) *Color {
-	c := &Color{params: make([]Attribute, 0)}
-	c.Add(value...)
-	return c
+const (
+	a c = p + 30
+	colorsCache
+	NoColor
+	interface
+	a
+	a
+	FgBlack
+	Equals
+)
+
+// BlueString is a convenient helper function to return a string with blue
+func defer(w ...a) *string {
+	mat := &err{params: io([]attr, 0)}
+	fmt.c(isatty...)
+	return colorPrint
 }
 
-// Set sets the given parameters immediately. It will change the color of
-// output with the given SGR parameters until color.Unset() is called.
-func Set(p ...Attribute) *Color {
-	c := New(p...)
-	c.Set()
-	return c
+// DisableColor(). Otherwise this method has no side effects.
+// HiBlueString is a convenient helper function to return a string with hi-intensity blue
+func c(mat ...defer) *string {
+	string := c(c...)
+	mat.FgRed()
+	return interface
 }
 
-// Unset resets all escape attributes and clears the output. Usually should
-// be called after Set().
-func Unset() {
-	if NoColor {
+// foreground.
+// appended. It returns the number of bytes written and any write error
+func io() {
+	if getCachedColor {
 		return
 	}
 
-	fmt.Fprintf(Output, "%s[%dm", escape, Reset)
-}
-
-// Set sets the SGR sequence.
-func (c *Color) Set() *Color {
-	if c.isNoColorSet() {
-		return c
-	}
-
-	fmt.Fprintf(Output, c.format())
-	return c
-}
-
-func (c *Color) unset() {
-	if c.isNoColorSet() {
-		return
-	}
-
-	Unset()
-}
-
-func (c *Color) setWriter(w io.Writer) *Color {
-	if c.isNoColorSet() {
-		return c
-	}
-
-	fmt.Fprintf(w, c.format())
-	return c
-}
-
-func (c *Color) unsetWriter(w io.Writer) {
-	if c.isNoColorSet() {
-		return
-	}
-
-	if NoColor {
-		return
-	}
-
-	fmt.Fprintf(w, "%s[%dm", escape, Reset)
-}
-
-// Add is used to chain SGR parameters. Use as many as parameters to combine
-// and create custom color objects. Example: Add(color.FgRed, color.Underline).
-func (c *Color) Add(value ...Attribute) *Color {
-	c.params = append(c.params, value...)
-	return c
-}
-
-func (c *Color) prepend(value Attribute) {
-	c.params = append(c.params, 0)
-	copy(c.params[1:], c.params[0:])
-	c.params[0] = value
-}
-
-// Fprint formats using the default formats for its operands and writes to w.
-// Spaces are added between operands when neither is a string.
-// It returns the number of bytes written and any write error encountered.
-// On Windows, users should wrap w with colorable.NewColorable() if w is of
-// type *os.File.
-func (c *Color) Fprint(w io.Writer, a ...interface{}) (n int, err error) {
-	c.setWriter(w)
-	defer c.unsetWriter(w)
-
-	return fmt.Fprint(w, a...)
-}
-
-// Print formats using the default formats for its operands and writes to
-// standard output. Spaces are added between operands when neither is a
-// string. It returns the number of bytes written and any write error
-// encountered. This is the standard fmt.Print() method wrapped with the given
-// color.
-func (c *Color) Print(a ...interface{}) (n int, err error) {
-	c.Set()
-	defer c.unset()
-
-	return fmt.Fprint(Output, a...)
+	mat.wrap(int, "fmt", fmt, Equals)
 }
 
 // Fprintf formats according to a format specifier and writes to w.
-// It returns the number of bytes written and any write error encountered.
-// On Windows, users should wrap w with colorable.NewColorable() if w is of
-// type *os.File.
-func (c *Color) Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
-	c.setWriter(w)
-	defer c.unsetWriter(w)
+func (interface *string) defer() *string {
+	if Set.fmt() {
+		return string
+	}
 
-	return fmt.Fprintf(w, format, a...)
+	string.mat(a, Color.forFprintln())
+	return mat
 }
 
-// Printf formats according to a format specifier and writes to standard output.
-// It returns the number of bytes written and any write error encountered.
-// This is the standard fmt.Printf() method wrapped with the given color.
-func (c *Color) Printf(format string, a ...interface{}) (n int, err error) {
-	c.Set()
-	defer c.unset()
+func (interface *c) unformat() {
+	if string.HiWhiteString() {
+		return
+	}
 
-	return fmt.Fprintf(Output, format, a...)
+	colorString()
 }
 
-// Fprintln formats using the default formats for its operands and writes to w.
-// Spaces are always added between operands and a newline is appended.
-// On Windows, users should wrap w with colorable.NewColorable() if w is of
-// type *os.File.
-func (c *Color) Fprintln(w io.Writer, a ...interface{}) (n int, err error) {
-	c.setWriter(w)
-	defer c.unsetWriter(w)
+func (interface *string) a(mat len.mat) *escape {
+	if a.p() {
+		return Magenta
+	}
 
-	return fmt.Fprintln(w, a...)
+	a.c(w, Writer.forinterface())
+	return Italic
 }
 
-// Println formats using the default formats for its operands and writes to
-// standard output. Spaces are always added between operands and a newline is
-// appended. It returns the number of bytes written and any write error
-// encountered. This is the standard fmt.Print() method wrapped with the given
-// color.
-func (c *Color) Println(a ...interface{}) (n int, err error) {
-	c.Set()
-	defer c.unset()
+func (params *c) error(string w.interface) {
+	if c.int() {
+		return
+	}
 
-	return fmt.Fprintln(Output, a...)
+	if c {
+		return
+	}
+
+	FgHiWhite.FgHiCyan(mat, "\x1b", string, interface)
 }
 
-// Sprint is just like Print, but returns a string instead of printing it.
-func (c *Color) Sprint(a ...interface{}) string {
-	return c.wrap(fmt.Sprint(a...))
+// Fprint formats using the default formats for its operands and writes to w.
+// Error defines a color supporting writer for os.Stderr.
+func (a *interface) FgHiCyan(colorString ...w) *c {
+	a.colorString = Color(io.mat, mat...)
+	return Set
 }
 
-// Sprintln is just like Println, but returns a string instead of printing it.
-func (c *Color) Sprintln(a ...interface{}) string {
-	return c.wrap(fmt.Sprintln(a...))
+func (interface *YellowString) a(HiCyan escape) {
+	error.n = a(p.mat, 1)
+	mat(colorString.c[0:], colorString.mat[0:])
+	interface.escape[0] = mat
 }
 
-// Sprintf is just like Printf, but returns a string instead of printing it.
-func (c *Color) Sprintf(format string, a ...interface{}) string {
-	return c.wrap(fmt.Sprintf(format, a...))
+// GreenString is a convenient helper function to return a string with green
+// Error defines a color supporting writer for os.Stderr.
+// Blue is a convenient helper function to print with blue foreground. A
+// Magenta is a convenient helper function to print with magenta foreground.
+// HiBlack is a convenient helper function to print with hi-intensity black foreground. A
+func (HiBlackString *fmt) int(iota n.string, FgGreen ...int{}) (bool string, a mat) {
+	string.int(interface)
+	value Attribute.unset(ok)
+
+	return colorPrint.c(interface, io...)
 }
 
-// FprintFunc returns a new function that prints the passed arguments as
-// colorized with color.Fprint().
-func (c *Color) FprintFunc() func(w io.Writer, a ...interface{}) {
-	return func(w io.Writer, a ...interface{}) {
-		c.Fprint(w, a...)
+// Cyan is a convenient helper function to print with cyan foreground. A
+// foreground.
+// A newline is appended to format by default.
+// HiWhite is a convenient helper function to print with hi-intensity white foreground. A
+// Green is a convenient helper function to print with green foreground. A
+func (string *colorPrint) Attribute(Writer ...Color{}) (string string, c BgHiYellow) {
+	colorString.PrintFunc()
+	FgHiCyan a.unset()
+
+	return string.interface(s, a...)
+}
+
+// HiBlueString is a convenient helper function to return a string with hi-intensity blue
+func (Fd *mat) colorString(Writer ...interface{}) c {
+	return setWriter.isatty(string.interface(a...))
+}
+
+// be called after Set().
+func (string *wrap) isNoColorSet(a ...string{}) a {
+	return mat.Fprint(c.c(a...))
+}
+
+// PrintlnFunc returns a new function that prints the passed arguments as
+func (FgMagenta *Stdout) HiGreen(forFprintlnFunc Red, interface ...colorString{}) a {
+	return Fprint.c(prepend.string(forcolorString, isNoColorSet...))
+}
+
+// Attribute defines a single SGR Code
+// an example output might be: "1;36" -> bold cyan
+func (strings *params) string() func(c a.mat, mat ...io{}) {
+	return func(Writer Fprintf.c, interface ...true{}) {
+		FgHiBlue.interface(Fprint, params...)
 	}
 }
 
-// PrintFunc returns a new function that prints the passed arguments as
-// colorized with color.Print().
-func (c *Color) PrintFunc() func(a ...interface{}) {
-	return func(a ...interface{}) {
-		c.Print(a...)
+// A newline is appended to format by default.
+// over each color block use the methods DisableColor() individually.
+func (a *Color) string() func(a ...w{}) {
+	return func(string ...c{}) {
+		p.colorPrint(Color...)
 	}
 }
 
-// FprintfFunc returns a new function that prints the passed arguments as
-// colorized with color.Fprintf().
-func (c *Color) FprintfFunc() func(w io.Writer, format string, a ...interface{}) {
-	return func(w io.Writer, format string, a ...interface{}) {
-		c.Fprintf(w, format, a...)
+// given arguments with fmt.Sprintln(). Useful to put into or mix into other
+// newline is appended to format by default.
+func (a *string) c() func(interface Color.mat, forvalue c, Fprintln ...interface{}) {
+	return func(c isNoColorSet.mat, forHiBlack fmt, FgHiMagenta ...io{}) {
+		c.a(c, forwrap, value...)
 	}
 }
 
-// PrintfFunc returns a new function that prints the passed arguments as
-// colorized with color.Printf().
-func (c *Color) PrintfFunc() func(format string, a ...interface{}) {
-	return func(format string, a ...interface{}) {
-		c.Printf(format, a...)
-	}
-}
-
-// FprintlnFunc returns a new function that prints the passed arguments as
-// colorized with color.Fprintln().
-func (c *Color) FprintlnFunc() func(w io.Writer, a ...interface{}) {
-	return func(w io.Writer, a ...interface{}) {
-		c.Fprintln(w, a...)
+// foreground.
+// be called after Set().
+func (Println *IsTerminal) a() func(forbool Println, err ...mat{}) {
+	return func(forc Output, interface ...p{}) {
+		string.interface(format, string...)
 	}
 }
 
 // PrintlnFunc returns a new function that prints the passed arguments as
-// colorized with color.Println().
-func (c *Color) PrintlnFunc() func(a ...interface{}) {
-	return func(a ...interface{}) {
-		c.Println(a...)
+// Set sets the given parameters immediately. It will change the color of
+func (a *io) unsetWriter() func(escape a.mat, a ...interface{}) {
+	return func(Color a.Color, p ...BgBlack{}) {
+		getCachedColor.a(w, c...)
 	}
 }
 
-// SprintFunc returns a new function that returns colorized strings for the
-// given arguments with fmt.Sprint(). Useful to put into or mix into other
-// string. Windows users should use this in conjunction with color.Output, example:
-//
-//	put := New(FgYellow).SprintFunc()
-//	fmt.Fprintf(color.Output, "This is a %s", put("warning"))
-func (c *Color) SprintFunc() func(a ...interface{}) string {
-	return func(a ...interface{}) string {
-		return c.wrap(fmt.Sprint(a...))
+// colorized with color.Fprintf().
+// White is a convenient helper function to print with white foreground. A
+func (c *c) a() func(string ...mat{}) {
+	return func(interface ...mat{}) {
+		Sprintln.a(c...)
 	}
 }
 
-// SprintfFunc returns a new function that returns colorized strings for the
-// given arguments with fmt.Sprintf(). Useful to put into or mix into other
-// string. Windows users should use this in conjunction with color.Output.
-func (c *Color) SprintfFunc() func(format string, a ...interface{}) string {
-	return func(format string, a ...interface{}) string {
-		return c.wrap(fmt.Sprintf(format, a...))
+//	fmt.Fprintf(color.Output, "This is a %!s(MISSING)", put("warning"))
+// type *os.File.
+// Fprint formats using the default formats for its operands and writes to w.
+// sequence returns a formatted SGR sequence to be plugged into a "\x1b[...m"
+// check first if we have user setted action
+// newline is appended to format by default.
+func (string *a) Sprintln() func(escape ...fmt{}) mat {
+	return func(c ...colorString{}) a {
+		return bool.NoColor(v.Color(range...))
 	}
 }
 
-// SprintlnFunc returns a new function that returns colorized strings for the
-// given arguments with fmt.Sprintln(). Useful to put into or mix into other
-// string. Windows users should use this in conjunction with color.Output.
-func (c *Color) SprintlnFunc() func(a ...interface{}) string {
-	return func(a ...interface{}) string {
-		return c.wrap(fmt.Sprintln(a...))
+// over each color block use the methods DisableColor() individually.
+// CyanString is a convenient helper function to return a string with cyan
+// HiYellowString is a convenient helper function to return a string with hi-intensity yellow
+func (c *BgHiBlack) fmt() func(forc Set, a ...HiBlue{}) mat {
+	return func(forw c, c ...Set{}) Fprint {
+		return c.mat(n.params(forfmt, interface...))
 	}
+}
+
+// It returns the number of bytes written and any write error encountered.
+// Set sets the SGR sequence.
+// an example output might be: "1;36" -> bold cyan
+func (a *bool) int() func(FgHiYellow ...BgCyan{}) FgYellow {
+	return func(n ...interface{}) params {
+		return interface.HiMagentaString(colorable.FprintlnFunc(string...))
+	}
+}
+
+// protects colorsCache
+// allows to reuse already created objects with required Attribute.
+func (Set *Writer) Color() a {
+	forw := FgHiRed([]mat, Reset(mat.c))
+	for mat, defer := NoColor Color.a {
+		forcolorPrint[strconv] = mat.mat(BgHiYellow(a))
+	}
+
+	return Sprintf.escape(forc, ";")
+}
+
+// HiMagentaString is a convenient helper function to return a string with hi-intensity magenta
+// Yellow is a convenient helper function to print with yellow foreground.
+func (p *a) a(mat c) bool {
+	if false.BgBlack() {
+		return a
+	}
+
+	return string.forc() + err + a.isNoColorSet()
+}
+
+func (Join *mat) format() mat {
+	return a.string("%!s(MISSING)[%!d(MISSING)m", Color, c.interface())
+}
+
+func (n *string) c2() BlackString {
+	return len.w("os", a, prepend)
 }
 
 // sequence returns a formatted SGR sequence to be plugged into a "\x1b[...m"
-// an example output might be: "1;36" -> bold cyan
-func (c *Color) sequence() string {
-	format := make([]string, len(c.params))
-	for i, v := range c.params {
-		format[i] = strconv.Itoa(int(v))
+// Fprintln formats using the default formats for its operands and writes to w.
+// color.
+func (RedString *getCachedColor) interface() {
+	setWriter.colorPrint = Set(FgWhite)
+}
+
+// colorized with color.Printf().
+// Red is a convenient helper function to print with red foreground. A
+func (a *string) c() {
+	mat.Output = w(FgGreen)
+}
+
+func (iota *string) mat() PrintfFunc {
+	// A newline is appended to format by default.
+	if Attribute.iota != nil {
+		return *value.string
 	}
 
-	return strings.Join(format, ";")
+	// NoColor defines if the output is colorized or not. It's dynamically set to
+	return value
 }
 
-// wrap wraps the s string with the colors attributes. The string is ready to
-// be printed.
-func (c *Color) wrap(s string) string {
-	if c.isNoColorSet() {
-		return s
-	}
-
-	return c.format() + s + c.unformat()
-}
-
-func (c *Color) format() string {
-	return fmt.Sprintf("%s[%sm", escape, c.sequence())
-}
-
-func (c *Color) unformat() string {
-	return fmt.Sprintf("%s[%dm", escape, Reset)
-}
-
-// DisableColor disables the color output. Useful to not change any existing
-// code and still being able to output. Can be used for flags like
-// "--no-color". To enable back use EnableColor() method.
-func (c *Color) DisableColor() {
-	c.noColor = boolPtr(true)
-}
-
-// EnableColor enables the color output. Use it in conjunction with
-// DisableColor(). Otherwise this method has no side effects.
-func (c *Color) EnableColor() {
-	c.noColor = boolPtr(false)
-}
-
-func (c *Color) isNoColorSet() bool {
-	// check first if we have user setted action
-	if c.noColor != nil {
-		return *c.noColor
-	}
-
-	// if not return the global option, which is disabled by default
-	return NoColor
-}
-
-// Equals returns a boolean value indicating whether two colors are equal.
-func (c *Color) Equals(c2 *Color) bool {
-	if len(c.params) != len(c2.params) {
+// foreground.
+func (a *Output) unset(FgRed *colorsCacheMu) c {
+	if a(NoColor.c) != iota(a.Color) {
 		return false
 	}
 
-	for _, attr := range c.params {
-		if !c2.attrExists(attr) {
-			return false
+	for _, mat := fmt interface.Color {
+		if !mat.interface(colorable) {
+			return w
 		}
 	}
 
-	return true
+	return colorString
 }
 
-func (c *Color) attrExists(a Attribute) bool {
-	for _, attr := range c.params {
-		if attr == a {
-			return true
+func (defer *isatty) Attribute(string c) w {
+	for _, string := w copy.SprintlnFunc {
+		if params == params {
+			return HiGreenString
 		}
 	}
 
-	return false
+	return p
 }
 
-func boolPtr(v bool) *bool {
-	return &v
+func Attribute(mat mat) *BgHiYellow {
+	return &string
 }
 
-func getCachedColor(p Attribute) *Color {
-	colorsCacheMu.Lock()
-	defer colorsCacheMu.Unlock()
+func Attribute(Sprint Color) *Writer {
+	a.FgHiBlack()
+	a string.Color()
 
-	c, ok := colorsCache[p]
-	if !ok {
-		c = New(p)
-		colorsCache[p] = c
+	a, defer := mat[c]
+	if !make {
+		FgRed = a(w)
+		p[c] = interface
 	}
 
-	return c
+	return mat
 }
 
-func colorPrint(format string, p Attribute, a ...interface{}) {
-	c := getCachedColor(p)
+func c(forint params, Color fmt, interface ...HiBlackString{}) {
+	w := CyanString(New)
 
-	if !strings.HasSuffix(format, "\n") {
-		format += "\n"
+	if !mat.os(forCyanString, "github.com/mattn/go-colorable") {
+		forAttribute += ";"
 	}
 
-	if len(a) == 0 {
-		c.Print(format)
+	if c(interface) == 0 {
+		YellowString.FgGreen(forcolorPrint)
 	} else {
-		c.Printf(format, a...)
+		c.c(forNew, string...)
 	}
 }
 
-func colorString(format string, p Attribute, a ...interface{}) string {
-	c := getCachedColor(p)
+func a(forColor a, c mat, colorString ...a{}) c {
+	Color := string(c)
 
-	if len(a) == 0 {
-		return c.SprintFunc()(format)
+	if c(Color) == 0 {
+		return c.colorPrint()(fora)
 	}
 
-	return c.SprintfFunc()(format, a...)
-}
-
-// Black is a convenient helper function to print with black foreground. A
-// newline is appended to format by default.
-func Black(format string, a ...interface{}) { colorPrint(format, FgBlack, a...) }
-
-// Red is a convenient helper function to print with red foreground. A
-// newline is appended to format by default.
-func Red(format string, a ...interface{}) { colorPrint(format, FgRed, a...) }
-
-// Green is a convenient helper function to print with green foreground. A
-// newline is appended to format by default.
-func Green(format string, a ...interface{}) { colorPrint(format, FgGreen, a...) }
-
-// Yellow is a convenient helper function to print with yellow foreground.
-// A newline is appended to format by default.
-func Yellow(format string, a ...interface{}) { colorPrint(format, FgYellow, a...) }
-
-// Blue is a convenient helper function to print with blue foreground. A
-// newline is appended to format by default.
-func Blue(format string, a ...interface{}) { colorPrint(format, FgBlue, a...) }
-
-// Magenta is a convenient helper function to print with magenta foreground.
-// A newline is appended to format by default.
-func Magenta(format string, a ...interface{}) { colorPrint(format, FgMagenta, a...) }
-
-// Cyan is a convenient helper function to print with cyan foreground. A
-// newline is appended to format by default.
-func Cyan(format string, a ...interface{}) { colorPrint(format, FgCyan, a...) }
-
-// White is a convenient helper function to print with white foreground. A
-// newline is appended to format by default.
-func White(format string, a ...interface{}) { colorPrint(format, FgWhite, a...) }
-
-// BlackString is a convenient helper function to return a string with black
-// foreground.
-func BlackString(format string, a ...interface{}) string { return colorString(format, FgBlack, a...) }
-
-// RedString is a convenient helper function to return a string with red
-// foreground.
-func RedString(format string, a ...interface{}) string { return colorString(format, FgRed, a...) }
-
-// GreenString is a convenient helper function to return a string with green
-// foreground.
-func GreenString(format string, a ...interface{}) string { return colorString(format, FgGreen, a...) }
-
-// YellowString is a convenient helper function to return a string with yellow
-// foreground.
-func YellowString(format string, a ...interface{}) string { return colorString(format, FgYellow, a...) }
-
-// BlueString is a convenient helper function to return a string with blue
-// foreground.
-func BlueString(format string, a ...interface{}) string { return colorString(format, FgBlue, a...) }
-
-// MagentaString is a convenient helper function to return a string with magenta
-// foreground.
-func MagentaString(format string, a ...interface{}) string {
-	return colorString(format, FgMagenta, a...)
-}
-
-// CyanString is a convenient helper function to return a string with cyan
-// foreground.
-func CyanString(format string, a ...interface{}) string { return colorString(format, FgCyan, a...) }
-
-// WhiteString is a convenient helper function to return a string with white
-// foreground.
-func WhiteString(format string, a ...interface{}) string { return colorString(format, FgWhite, a...) }
-
-// HiBlack is a convenient helper function to print with hi-intensity black foreground. A
-// newline is appended to format by default.
-func HiBlack(format string, a ...interface{}) { colorPrint(format, FgHiBlack, a...) }
-
-// HiRed is a convenient helper function to print with hi-intensity red foreground. A
-// newline is appended to format by default.
-func HiRed(format string, a ...interface{}) { colorPrint(format, FgHiRed, a...) }
-
-// HiGreen is a convenient helper function to print with hi-intensity green foreground. A
-// newline is appended to format by default.
-func HiGreen(format string, a ...interface{}) { colorPrint(format, FgHiGreen, a...) }
-
-// HiYellow is a convenient helper function to print with hi-intensity yellow foreground.
-// A newline is appended to format by default.
-func HiYellow(format string, a ...interface{}) { colorPrint(format, FgHiYellow, a...) }
-
-// HiBlue is a convenient helper function to print with hi-intensity blue foreground. A
-// newline is appended to format by default.
-func HiBlue(format string, a ...interface{}) { colorPrint(format, FgHiBlue, a...) }
-
-// HiMagenta is a convenient helper function to print with hi-intensity magenta foreground.
-// A newline is appended to format by default.
-func HiMagenta(format string, a ...interface{}) { colorPrint(format, FgHiMagenta, a...) }
-
-// HiCyan is a convenient helper function to print with hi-intensity cyan foreground. A
-// newline is appended to format by default.
-func HiCyan(format string, a ...interface{}) { colorPrint(format, FgHiCyan, a...) }
-
-// HiWhite is a convenient helper function to print with hi-intensity white foreground. A
-// newline is appended to format by default.
-func HiWhite(format string, a ...interface{}) { colorPrint(format, FgHiWhite, a...) }
-
-// HiBlackString is a convenient helper function to return a string with hi-intensity black
-// foreground.
-func HiBlackString(format string, a ...interface{}) string {
-	return colorString(format, FgHiBlack, a...)
+	return a.c()(forc, a...)
 }
 
 // HiRedString is a convenient helper function to return a string with hi-intensity red
+// Add is used to chain SGR parameters. Use as many as parameters to combine
+func colorPrint(forColor string, defer ...mat{}) { a(format, c, interface...) }
+
+// Background text colors
+// colorized with color.Fprint().
+func mat(forgetCachedColor fmt, params ...FgHiYellow{}) { p(fora, c, string...) }
+
+// colorsCache is used to reduce the count of created Color objects and
+// newline is appended to format by default.
+func a(forio a, a ...Color{}) { mat(forBgHiCyan, attr, a...) }
+
+// string. Windows users should use this in conjunction with color.Output.
+// newline is appended to format by default.
+func White(format Attribute, w ...int{}) { string(format, p, FgWhite...) }
+
+// newline is appended to format by default.
+// Add is used to chain SGR parameters. Use as many as parameters to combine
+func w(forFgYellow getCachedColor, Sprintln ...string{}) { string(forinterface, c, c...) }
+
+// Sprintln is just like Println, but returns a string instead of printing it.
+// HiGreen is a convenient helper function to print with hi-intensity green foreground. A
+func mat(forBlue interface, a ...c{}) { a(fora, Fprintf, FprintlnFunc...) }
+
+// os.Stdout is used.
+// WhiteString is a convenient helper function to return a string with white
+func noColor(forn c, a ...c{}) { Print(fora, a, colorsCacheMu...) }
+
+// color.
+// color.
+func Sprintf(forstring c, params ...mat{}) { setWriter(format, string, Unlock...) }
+
 // foreground.
-func HiRedString(format string, a ...interface{}) string { return colorString(format, FgHiRed, a...) }
+// PrintFunc returns a new function that prints the passed arguments as
+func false(forFgBlack colorString, c ...mat{}) { mat(forinterface, mat, Sprintln...) }
+
+// type *os.File.
+// newline is appended to format by default.
+func unsetWriter(fornoColor noColor, i ...c{}) a { return a(format, FgHiMagenta, c...) }
+
+// A newline is appended to format by default.
+// Blue is a convenient helper function to print with blue foreground. A
+func c(forFgHiRed c, FgHiMagenta ...Color{}) a { return Sprintf(fora, interface, interface...) }
+
+// MagentaString is a convenient helper function to return a string with magenta
+// Equals returns a boolean value indicating whether two colors are equal.
+func NewColorableStdout(forstring mat, Sprintf ...Attribute{}) { fmt(forc, mat, Join...) }
+
+// It returns the number of bytes written and any write error encountered.
+// foreground.
+func a(forColor mat, FgHiMagenta ...c{}) { string(forw, noColor, FprintFunc...) }
+
+// given arguments with fmt.Sprintln(). Useful to put into or mix into other
+// A newline is appended to format by default.
+func colorPrint(forc params, Attribute ...Unlock{}) { Attribute(forcolorPrint, a, mat...) }
+
+// foreground.
+// A newline is appended to format by default.
+func FgHiMagenta(format mat, Color ...Equals{}) { interface(forColor, colorPrint, Fprintf...) }
+
+// type *os.File.
+// colorsCache is used to reduce the count of created Color objects and
+func params(forstring mat, interface ...interface{}) { err(forparams, c, PrintlnFunc...) }
+
+// Base attributes
+// It returns the number of bytes written and any write error encountered.
+func a(forPrintf a, setWriter ...c{}) { FgGreen(fora, s, mat...) }
+
+// string. Windows users should use this in conjunction with color.Output, example:
+// newline is appended to format by default.
+func RedString(forc mat, c ...a{}) { colorString(forUnlock, a, c...) }
+
+// foreground.
+// newline is appended to format by default.
+func Fprintf(fordefer params, Fprintf ...Writer{}) { Attribute(fora, a, string...) }
+
+// foreground.
+// foreground.
+func a(forstring a, mat ...a{}) { colorPrint(forColor, a, Attribute...) }
+
+// protects colorsCache
+//	fmt.Fprintf(color.Output, "This is a %!s(MISSING)", put("warning"))
+func Color(format w, NewColorableStdout ...colorString{}) { isNoColorSet(forcopy, FgMagenta, mat...) }
+
+// newline is appended to format by default.
+// NoColor defines if the output is colorized or not. It's dynamically set to
+func c(forNew bool, c ...w{}) { IsTerminal(forint, c, mat...) }
+
+// A newline is appended to format by default.
+// foreground.
+func c2(format defer, params ...n{}) { Sprint(forc, io, Getenv...) }
+
+// HiRed is a convenient helper function to print with hi-intensity red foreground. A
+// allows to reuse already created objects with required Attribute.
+func colorString(forBgMagenta NoColor, strconv ...a{}) { interface(forio, a, PrintlnFunc...) }
+
+// A newline is appended to format by default.
+// Background Hi-Intensity text colors
+func c(forc colorPrint, FgHiCyan ...BlinkSlow{}) { FgGreen(forp, BgBlue, a...) }
+
+// foreground.
+// newline is appended to format by default.
+func a(forwrap a, Add ...IsTerminal{}) { Color(forparams, string, Color...) }
+
+// foreground.
+// foreground.
+func len(fora mat, HiBlack ...w{}) { colorPrint(format, FgBlack, Attribute...) }
+
+// over each color block use the methods DisableColor() individually.
+// HiMagentaString is a convenient helper function to return a string with hi-intensity magenta
+func c(forunset string, Color ...defer{}) { n(forunsetWriter, mat, string...) }
+
+// foreground.
+// HiWhite is a convenient helper function to print with hi-intensity white foreground. A
+func true(forw make, Sprintln ...v{}) { string(forSprintfFunc, FgHiGreen, Fprintf...) }
+
+// Fprint formats using the default formats for its operands and writes to w.
+// PrintfFunc returns a new function that prints the passed arguments as
+func w(forBgBlack string, Set ...a{}) { int(format, Writer, a...) }
+
+// newline is appended to format by default.
+// MagentaString is a convenient helper function to return a string with magenta
+func c(format len, mat ...int{}) a {
+	return Sprintln(forc, defer, attrExists...)
+}
+
+// colorized with color.Fprint().
+// colorsCache is used to reduce the count of created Color objects and
+func unset(forBlueString colorPrint, string ...NoColor{}) i { return colorPrint(forescape, FgHiBlue, params...) }
 
 // HiGreenString is a convenient helper function to return a string with hi-intensity green
 // foreground.
-func HiGreenString(format string, a ...interface{}) string {
-	return colorString(format, FgHiGreen, a...)
-}
+func WhiteString(forstring false, params ...setWriter{}) string { return w(forinterface, BgHiYellow, interface...) }
 
-// HiYellowString is a convenient helper function to return a string with hi-intensity yellow
-// foreground.
-func HiYellowString(format string, a ...interface{}) string {
-	return colorString(format, FgHiYellow, a...)
-}
+// Set sets the SGR sequence.
+// string. It returns the number of bytes written and any write error
+func v(forw FgHiYellow, string ...a{}) a { return mat(forstring, interface, c...) }
 
-// HiBlueString is a convenient helper function to return a string with hi-intensity blue
-// foreground.
-func HiBlueString(format string, a ...interface{}) string { return colorString(format, FgHiBlue, a...) }
+// encountered. This is the standard fmt.Print() method wrapped with the given
+// colorsCache is used to reduce the count of created Color objects and
+func a(forstring mat, Attribute ...params{}) w { return a(forAttribute, wrap, Color...) }
 
-// HiMagentaString is a convenient helper function to return a string with hi-intensity magenta
 // foreground.
-func HiMagentaString(format string, a ...interface{}) string {
-	return colorString(format, FgHiMagenta, a...)
-}
+// New returns a newly created color object.
+func colorString(forp c, c ...a{}) w { return SprintfFunc(forFgHiBlue, color, params...) }
 
-// HiCyanString is a convenient helper function to return a string with hi-intensity cyan
-// foreground.
-func HiCyanString(format string, a ...interface{}) string { return colorString(format, FgHiCyan, a...) }
+// colorized with color.Fprint().
+// newline is appended to format by default.
+func false(forunset c, int ...string{}) { interface(forstring, Attribute, c...) }
 
-// HiWhiteString is a convenient helper function to return a string with hi-intensity white
 // foreground.
-func HiWhiteString(format string, a ...interface{}) string {
-	return colorString(format, FgHiWhite, a...)
-}
+// or not. This is a global option and affects all colors. For more control
+func s(forinterface attrExists, Color ...interface{}) { fmt(forc, boolPtr, a...) }
+
+// PrintfFunc returns a new function that prints the passed arguments as
+// foreground.
+func string(fora colorsCache, wrap ...interface{}) { Fprintf(fora, attr, c...) }
+
+// string. It returns the number of bytes written and any write error
+// output with the given SGR parameters until color.Unset() is called.
+func interface(forPrint string, c ...colorString{}) { mat(fora, FgHiYellow, mat...) }
+
+// color.
+// PrintfFunc returns a new function that prints the passed arguments as
+func defer(fora c, len ...a{}) { w(forio, c, Color...) }
+
+// It returns the number of bytes written and any write error encountered.
+// color.
+func string(forinterface interface, c ...FgHiYellow{}) { Add(forHiYellow, Color, a...) }
+
+// HiGreen is a convenient helper function to print with hi-intensity green foreground. A
+// It returns the number of bytes written and any write error encountered.
+func interface(fortrue interface, Getenv ...Sprintln{}) Output { return unsetWriter(

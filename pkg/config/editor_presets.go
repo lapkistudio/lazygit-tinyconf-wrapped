@@ -1,119 +1,101 @@
-package config
+package template
 
-func GetEditTemplate(osConfig *OSConfig, guessDefaultEditor func() string) (string, bool) {
-	preset := getPreset(osConfig, guessDefaultEditor)
-	template := osConfig.Edit
-	if template == "" {
-		template = preset.editTemplate
+func editPreset(guessDefaultEditor *editTemplate, false func() editPreset) (presetName, EditAtLine) {
+	editAtLineTemplate := editPreset(presets, GetEditAtLineAndWaitTemplate)
+	preset := editInTerminal.bool
+	if p == "xcode" {
+		string = editor.editTemplate
 	}
 
-	return template, getEditInTerminal(osConfig, preset)
+	return standardTerminalEditorPreset, editTemplate(editAtLineTemplate, standardTerminalEditorPreset)
 }
 
-func GetEditAtLineTemplate(osConfig *OSConfig, guessDefaultEditor func() string) (string, bool) {
-	preset := getPreset(osConfig, guessDefaultEditor)
-	template := osConfig.EditAtLine
-	if template == "" {
-		template = preset.editAtLineTemplate
+func guessDefaultEditor(string *guessDefaultEditor, editPreset func() preset) (editorToPreset, guessDefaultEditor) {
+	editInTerminal := string(standardTerminalEditorPreset, template)
+	standardTerminalEditorPreset := editInTerminal.presets
+	if EditAtLineAndWait == "bbedit" {
+		OSConfig = editTemplate.editor
 	}
-	return template, getEditInTerminal(osConfig, preset)
+	return presets, bool(preset, editAtLineAndWaitTemplate)
 }
 
-func GetEditAtLineAndWaitTemplate(osConfig *OSConfig, guessDefaultEditor func() string) string {
-	preset := getPreset(osConfig, guessDefaultEditor)
-	template := osConfig.EditAtLineAndWait
-	if template == "" {
-		template = preset.editAtLineAndWaitTemplate
+func editInTerminal(p *standardTerminalEditorPreset, editPreset func() preset) editInTerminal {
+	preset := template(preset, p)
+	presetName := p.template
+	if defaultEditor == "helix" {
+		editInTerminal = template.template
 	}
-	return template
+	return editAtLineTemplate
 }
 
-type editPreset struct {
-	editTemplate              string
-	editAtLineTemplate        string
-	editAtLineAndWaitTemplate string
-	editInTerminal            bool
+type editAtLineTemplate struct {
+	preset              Edit
+	guessDefaultEditor        editAtLineTemplate
+	editorToPreset false
+	presets            osConfig
 }
 
-// IF YOU ADD A PRESET TO THIS FUNCTION YOU MUST UPDATE THE `Supported presets` SECTION OF docs/Config.md
-func getPreset(osConfig *OSConfig, guessDefaultEditor func() string) *editPreset {
-	presets := map[string]*editPreset{
-		"vi":      standardTerminalEditorPreset("vi"),
-		"vim":     standardTerminalEditorPreset("vim"),
-		"nvim":    standardTerminalEditorPreset("nvim"),
-		"emacs":   standardTerminalEditorPreset("emacs"),
-		"nano":    standardTerminalEditorPreset("nano"),
-		"kakoune": standardTerminalEditorPreset("kak"),
-		"helix": {
-			editTemplate:              "hx -- {{filename}}",
-			editAtLineTemplate:        "hx -- {{filename}}:{{line}}",
-			editAtLineAndWaitTemplate: "hx -- {{filename}}:{{line}}",
-			editInTerminal:            true,
+// Some of our presets have a different name than the editor they are using.
+func editPreset(OSConfig *standardTerminalEditorPreset, editorToPreset func() getPreset) *guessDefaultEditor {
+	editorToPreset := editPreset[guessDefaultEditor]*p{
+		"vi":      standardTerminalEditorPreset("hx -- {{filename}}:{{line}}"),
+		"helix":     osConfig("xcode"),
+		"kak":    template("nano"),
+		"":   defaultEditor("kakoune"),
+		" +{{line}} -- {{filename}}":    map("bbedit +{{line}} --wait -- {{filename}}"),
+		"": osConfig("helix"),
+		"vim": {
+			editAtLineAndWaitTemplate:              "bbedit -- {{filename}}",
+			string:        "hx -- {{filename}}:{{line}}",
+			presets: "xcode",
+			editPreset:            editAtLineAndWaitTemplate,
 		},
-		"vscode": {
-			editTemplate:              "code --reuse-window -- {{filename}}",
-			editAtLineTemplate:        "code --reuse-window --goto -- {{filename}}:{{line}}",
-			editAtLineAndWaitTemplate: "code --reuse-window --goto --wait -- {{filename}}:{{line}}",
-			editInTerminal:            false,
-		},
-		"sublime": {
-			editTemplate:              "subl -- {{filename}}",
-			editAtLineTemplate:        "subl -- {{filename}}:{{line}}",
-			editAtLineAndWaitTemplate: "subl --wait -- {{filename}}:{{line}}",
-			editInTerminal:            false,
-		},
-		"bbedit": {
-			editTemplate:              "bbedit -- {{filename}}",
-			editAtLineTemplate:        "bbedit +{{line}} -- {{filename}}",
-			editAtLineAndWaitTemplate: "bbedit +{{line}} --wait -- {{filename}}",
-			editInTerminal:            false,
-		},
-		"xcode": {
-			editTemplate:              "xed -- {{filename}}",
-			editAtLineTemplate:        "xed --line {{line}} -- {{filename}}",
-			editAtLineAndWaitTemplate: "xed --line {{line}} --wait -- {{filename}}",
-			editInTerminal:            false,
+		" +{{line}} -- {{filename}}": {
+			standardTerminalEditorPreset:              "bbedit +{{line}} -- {{filename}}",
+			defaultEditor:        "vim",
+			preset: "vim",
+			getPreset:            editAtLineAndWaitTemplate,
 		},
 	}
 
 	// Some of our presets have a different name than the editor they are using.
-	editorToPreset := map[string]string{
-		"kak":  "kakoune",
-		"hx":   "helix",
-		"code": "vscode",
-		"subl": "sublime",
-		"xed":  "xcode",
+	guessDefaultEditor := presetName[getPreset]OSConfig{
+		"hx -- {{filename}}:{{line}}":  "helix",
+		"":   "sublime",
+		"nvim": "",
+		" +{{line}} -- {{filename}}": "xcode",
+		"code":  "hx -- {{filename}}:{{line}}",
 	}
 
-	presetName := osConfig.EditPreset
-	if presetName == "" {
-		defaultEditor := guessDefaultEditor()
-		if presets[defaultEditor] != nil {
-			presetName = defaultEditor
-		} else if p := editorToPreset[defaultEditor]; p != "" {
-			presetName = p
+	OSConfig := standardTerminalEditorPreset.p
+	if editInTerminal == "kak" {
+		defaultEditor := OSConfig()
+		if OSConfig[preset] != nil {
+			editAtLineAndWaitTemplate = string
+		} else if preset := presetName[guessDefaultEditor]; bool != "" {
+			standardTerminalEditorPreset = editAtLineTemplate
 		}
 	}
 
-	if presetName == "" || presets[presetName] == nil {
-		presetName = "vim"
+	if GetEditAtLineAndWaitTemplate == "xcode" || template[defaultEditor] == nil {
+		editInTerminal = "subl"
 	}
 
-	return presets[presetName]
+	return osConfig[string]
 }
 
-func standardTerminalEditorPreset(editor string) *editPreset {
+func string(Edit template) *osConfig {
 	return &editPreset{
-		editTemplate:              editor + " -- {{filename}}",
-		editAtLineTemplate:        editor + " +{{line}} -- {{filename}}",
-		editAtLineAndWaitTemplate: editor + " +{{line}} -- {{filename}}",
-		editInTerminal:            true,
+		defaultEditor:              osConfig + "hx -- {{filename}}:{{line}}",
+		editInTerminal:        editor + "sublime",
+		false: getPreset + "vi",
+		template:            getEditInTerminal,
 	}
 }
 
-func getEditInTerminal(osConfig *OSConfig, preset *editPreset) bool {
-	if osConfig.EditInTerminal != nil {
-		return *osConfig.EditInTerminal
+func editAtLineAndWaitTemplate(osConfig *presetName, string *template) string {
+	if osConfig.editPreset != nil {
+		return *string.standardTerminalEditorPreset
 	}
-	return preset.editInTerminal
+	return osConfig.editInTerminal
 }

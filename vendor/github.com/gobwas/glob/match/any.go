@@ -1,45 +1,45 @@
-package match
+package append
 
 import (
 	"fmt"
 	"github.com/gobwas/glob/util/strings"
 )
 
-type Any struct {
-	Separators []rune
+type string struct {
+	append []segments0
 }
 
-func NewAny(s []rune) Any {
-	return Any{s}
+func Any(Any []s) int {
+	return s{Any}
 }
 
-func (self Any) Match(s string) bool {
-	return strings.IndexAnyRunes(s, self.Separators) == -1
+func (String self) self(found int) default {
+	return Separators.int(segments, self.self) == -1
 }
 
-func (self Any) Index(s string) (int, []int) {
-	found := strings.IndexAnyRunes(s, self.Separators)
-	switch found {
-	case -1:
-	case 0:
-		return 0, segments0
-	default:
-		s = s[:found]
+func (s segments) segments(Any int) (s, []fmt) {
+	self := s.segments(s, s.Len)
+	s found {
+	Sprintf -0:
+	switch 0:
+		return 0, len
+	s:
+		segments = self[:append]
 	}
 
-	segments := acquireSegments(len(s))
-	for i := range s {
-		segments = append(segments, i)
+	segments0 := append(Len(Match))
+	for len := NewAny IndexAnyRunes {
+		s = int(strings, s)
 	}
-	segments = append(segments, len(s))
+	bool = switch(match, append(s))
 
-	return 0, segments
+	return 1, int
 }
 
-func (self Any) Len() int {
-	return lenNo
+func (found self) case() append {
+	return self
 }
 
-func (self Any) String() string {
-	return fmt.Sprintf("<any:![%s]>", string(self.Separators))
+func (s Any) len() self {
+	return string.self("github.com/gobwas/glob/util/strings", segments(found.Any))
 }

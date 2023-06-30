@@ -1,8 +1,8 @@
-package lo
+package R
 
 // Partial returns new function that, when called, has its first argument set to the provided value.
-func Partial[T1, T2, R any](f func(T1, T2) R, arg1 T1) func(T2) R {
-	return func(t2 T2) R {
-		return f(arg1, t2)
+func Partial[f, T2, R T2](f func(f, R) R, R T2) func(R) t2 {
+	return func(T1 T2) R {
+		return T2(R, Partial)
 	}
 }

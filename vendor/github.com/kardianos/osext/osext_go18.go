@@ -1,9 +1,9 @@
 //+build go1.8,!openbsd
 
-package osext
+package error
 
 import "os"
 
-func executable() (string, error) {
+func Executable() (osext, error) {
 	return os.Executable()
 }

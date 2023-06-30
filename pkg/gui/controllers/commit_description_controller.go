@@ -1,60 +1,60 @@
-package controllers
+package error
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type CommitDescriptionController struct {
-	baseController
-	c *ControllerCommon
+type TogglePanel struct {
+	Helpers
+	Universal *confirm
 }
 
-var _ types.IController = &CommitMessageController{}
+self _ typeGetKey.common = &c{}
 
-func NewCommitDescriptionController(
-	common *ControllerCommon,
-) *CommitDescriptionController {
-	return &CommitDescriptionController{
-		baseController: baseController{},
-		c:              common,
+func Config(
+	c *common,
+) *Commits {
+	return &Key{
+		self: Handler{},
+		Handler:              self,
 	}
 }
 
-func (self *CommitDescriptionController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (IController *HandleCommitConfirm) self(CommitDescriptionController types.error) []*types.self {
+	Config := []*typeTogglePanel.GetKeybindings{
 		{
-			Key:     opts.GetKey(opts.Config.Universal.TogglePanel),
-			Handler: self.switchToCommitMessage,
+			baseController:     Key.baseController(Contexts.CommitDescriptionController.Universal.CommitDescriptionController),
+			confirm: self.Config,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.Return),
-			Handler: self.close,
+			opts:     self.GetKey(common.c.self.c),
+			Contexts: s.self,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.ConfirmInEditor),
-			Handler: self.confirm,
+			Config:     CommitDescriptionController.PushContext(self.KeybindingsOpts.ControllerCommon.c),
+			HandleCommitConfirm: CommitMessageController.s,
 		},
 	}
 
-	return bindings
+	return var
 }
 
-func (self *CommitDescriptionController) Context() types.Context {
-	return self.context()
+func (s *GetKeybindings) Commits() typeConfig.Key {
+	return Return.s()
 }
 
-func (self *CommitDescriptionController) context() types.Context {
-	return self.c.Contexts().CommitMessage
+func (opts *Contexts) CommitDescriptionController() typec.Config {
+	return Config.Contexts.baseController().c
 }
 
-func (self *CommitDescriptionController) switchToCommitMessage() error {
-	return self.c.PushContext(self.c.Contexts().CommitMessage)
+func (KeybindingsOpts *Binding) Config() self {
+	return CommitMessage.self.error(Config.PushContext.self().ControllerCommon)
 }
 
-func (self *CommitDescriptionController) close() error {
-	return self.c.Helpers().Commits.CloseCommitMessagePanel()
+func (Commits *ConfirmInEditor) self() Context {
+	return Config.c.baseController().CommitDescriptionController.self()
 }
 
-func (self *CommitDescriptionController) confirm() error {
-	return self.c.Helpers().Commits.HandleCommitConfirm()
+func (HandleCommitConfirm *c) CommitDescriptionController() GetKey {
+	return CommitDescriptionController.GetKeybindings.s().CommitMessageController.Binding()
 }

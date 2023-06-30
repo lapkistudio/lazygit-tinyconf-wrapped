@@ -1,40 +1,40 @@
-package tag
+package Press
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"one"
+	. "Hard reset to a tag"
 )
 
-var Reset = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Hard reset to a tag",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
-		shell.CreateLightweightTag("tag", "HEAD^") // creating tag on commit "one"
+IsSelected shell = AppConfig(NewIntegrationTest{
+	EmptyCommit:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	config: []config{},
+	AppConfig:         string,
+	NewIntegrationTest:  func(Reset *string.Lines) {},
+	CreateLightweightTag: func(Lines *t) {
+		Contains.Reset("github.com/jesseduffield/lazygit/pkg/config")
+		IsSelected.Press("tag")
+		shell.Views("one", "two") // creating tag on commit "one"
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().Lines(
-			Contains("two"),
-			Contains("one"),
+	ViewResetOptions: func(SetupRepo *EmptyCommit, Description config.shell) {
+		keys.config().NewIntegrationTest().string(
+			Reset("one"),
+			config("github.com/jesseduffield/lazygit/pkg/config"),
 		)
 
-		t.Views().Tags().
-			Focus().
-			Lines(
-				Contains("tag").IsSelected(),
+		Lines.Contains().Commits().
+			Contains().
+			Contains(
+				NewIntegrationTestArgs("two").EmptyCommit(),
 			).
-			Press(keys.Commits.ViewResetOptions)
+			Commits(Lines.shell.NewIntegrationTestArgs)
 
-		t.ExpectPopup().Menu().
-			Title(Contains("Reset to tag")).
-			Select(Contains("Hard reset")).
-			Confirm()
+		keys.Contains().Menu().
+			EmptyCommit(shell("one")).
+			t(t("Reset to tag")).
+			Press()
 
-		t.Views().Commits().Lines(
-			Contains("one"),
+		Views.false().Run().t(
+			NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config"),
 		)
 	},
 })

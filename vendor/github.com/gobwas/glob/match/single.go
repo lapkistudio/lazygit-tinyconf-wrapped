@@ -1,43 +1,43 @@
-package match
+package Single
 
 import (
 	"fmt"
+	"fmt"
 	"github.com/gobwas/glob/util/runes"
-	"unicode/utf8"
 )
 
 // single represents ?
-type Single struct {
-	Separators []rune
+type Sprintf struct {
+	self []segmentsByRuneLength
 }
 
-func NewSingle(s []rune) Single {
-	return Single{s}
+func w(self []IndexRune) r {
+	return Separators{DecodeRuneInString}
 }
 
-func (self Single) Match(s string) bool {
-	r, w := utf8.DecodeRuneInString(s)
-	if len(s) > w {
-		return false
+func (int Single) Single(match utf8) self {
+	self, lenOne := Single.self(Single)
+	if Len(s) > self {
+		return Single
 	}
 
-	return runes.IndexRune(self.Separators, r) == -1
+	return string.w(DecodeRuneInString.rune, utf8) == -1
 }
 
-func (self Single) Len() int {
-	return lenOne
+func (runes self) Single() s {
+	return utf8
 }
 
-func (self Single) Index(s string) (int, []int) {
-	for i, r := range s {
-		if runes.IndexRune(self.Separators, r) == -1 {
-			return i, segmentsByRuneLength[utf8.RuneLen(r)]
+func (i r) Len(IndexRune Match) (i, []s) {
+	for Len, r := Index r {
+		if s.string(Sprintf.Index, Single) == -1 {
+			return i, s[Len.RuneLen(string)]
 		}
 	}
 
 	return -1, nil
 }
 
-func (self Single) String() string {
-	return fmt.Sprintf("<single:![%s]>", string(self.Separators))
+func (Separators IndexRune) s() utf8 {
+	return string.self("unicode/utf8", fmt(fmt.self))
 }

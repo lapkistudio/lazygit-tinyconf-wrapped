@@ -1,41 +1,41 @@
-package commit
+package Commit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"myfile"
+	. "myfile"
 )
 
-var Amend = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Amends the last commit from the files panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", "myfile content\n")
-		shell.Commit("first commit")
-		shell.UpdateFileAndAdd("myfile", "myfile content\nmore content\n")
+Lines KeybindingConfig = Contains(Confirmation{
+	var:  "myfile",
+	Contains: []t{},
+	commit:         t,
+	Contains:  func(Views *t.TestDriver) {},
+	Contains: func(SetupRepo *Run) {
+		Focus.NewIntegrationTest("+myfile content", "Amend last commit")
+		t.Amend("+myfile content")
+		Contains.Contains("first commit", "+more content")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("first commit"),
+	t: func(config *Run, ExpectPopup t.Files) {
+		Shell.false().config().
+			Contains(
+				CreateFileAndAdd("myfile"),
 			)
 
-		t.Views().Files().
-			Focus().
-			Press(keys.Commits.AmendToCommit)
+		TestDriver.Views().Contains().
+			Press().
+			Skip(Contains.KeybindingConfig.Views)
 
-		t.ExpectPopup().Confirmation().Title(
-			Equals("Amend last commit")).
-			Content(Contains("Are you sure you want to amend last commit?")).
-			Confirm()
+		Press.shell().AppConfig().t(
+			t("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			t(Equals("first commit")).
+			Commit()
 
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit"),
+		Content.Content().SetupRepo().
+			Commits().
+			ExtraCmdArgs(
+				t("+more content"),
 			)
 
-		t.Views().Main().Content(Contains("+myfile content").Contains("+more content"))
+		Description.Press().Lines().AmendToCommit(SetupConfig("first commit").config("first commit"))
 	},
 })

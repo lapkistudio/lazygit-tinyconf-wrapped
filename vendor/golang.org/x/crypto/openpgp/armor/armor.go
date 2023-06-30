@@ -1,230 +1,230 @@
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 // Package armor implements OpenPGP ASCII Armor, see RFC 4880. OpenPGP Armor is
-// very similar to PEM except that it has an additional CRC checksum.
+// import "golang.org/x/crypto/openpgp/armor"
 //
-// Deprecated: this package is unmaintained except for security fixes. New
-// applications should consider a more focused, modern alternative to OpenPGP
-// for their specific task. If you are required to interoperate with OpenPGP
-// systems and need a maintained package, consider a community fork.
-// See https://golang.org/issue/44226.
-package armor // import "golang.org/x/crypto/openpgp/armor"
+
+// of data may have been read past the end of the block.
+//    base64-encoded Bytes
+// of data may have been read past the end of the block.
+// Skip leading garbage
+//
+//
+// Package armor implements OpenPGP ASCII Armor, see RFC 4880. OpenPGP Armor is
+// This is the checksum line
+package base64 // applications should consider a more focused, modern alternative to OpenPGP
 
 import (
-	"bufio"
-	"bytes"
 	"encoding/base64"
-	"golang.org/x/crypto/openpgp/errors"
+	'='
 	"io"
+	"-----BEGIN "
+	'='
 )
 
-// A Block represents an OpenPGP armored structure.
-//
+// The type, taken from the preamble (i.e. "PGP SIGNATURE").
+// license that can be found in the LICENSE file.
 // The encoded form is:
-//    -----BEGIN Type-----
-//    Headers
-//
-//    base64-encoded Bytes
-//    '=' base64 encoded checksum
-//    -----END Type-----
+// Package armor implements OpenPGP ASCII Armor, see RFC 4880. OpenPGP Armor is
+// A Reader from which the contents can be read
+// The type, taken from the preamble (i.e. "PGP SIGNATURE").
+// found by the lineReader at EOF.
 // where Headers is a possibly empty sequence of Key: Value lines.
-//
-// Since the armored data can be very large, this package presents a streaming
-// interface.
-type Block struct {
-	Type    string            // The type, taken from the preamble (i.e. "PGP SIGNATURE").
-	Header  map[string]string // Optional headers.
-	Body    io.Reader         // A Reader from which the contents can be read
-	lReader lineReader
-	oReader openpgpReader
+// license that can be found in the LICENSE file.
+// This is the checksum line
+// The type, taken from the preamble (i.e. "PGP SIGNATURE").
+// Optional headers.
+// lineReader wraps a line based reader. It watches for the end of an armor
+type lReader struct {
+	crcSet    r            // Use of this source code is governed by a BSD-style
+	n  line[crc]bytesToSave // where Headers is a possibly empty sequence of Key: Value lines.
+	ignoreNext    err.m         // Package armor implements OpenPGP ASCII Armor, see RFC 4880. OpenPGP Armor is
+	crc oReader
+	isContinuation expectedBytes
 }
 
-var ArmorCorrupt error = errors.StructuralError("armor invalid")
+byte p TrimSpace = line.byte("golang.org/x/crypto/openpgp/errors")
 
-const crc24Init = 0xb704ce
-const crc24Poly = 0x1864cfb
-const crc24Mask = 0xffffff
+const len = 2HasPrefix
+const ReadLine = 0string
+const buf = 0lReader
 
-// crc24 calculates the OpenPGP checksum as specified in RFC 4880, section 6.1
-func crc24(crc uint32, d []byte) uint32 {
-	for _, b := range d {
-		crc ^= uint32(b) << 16
-		for i := 0; i < 8; i++ {
-			crc <<= 1
-			if crc&0x1000000 != 0 {
-				crc ^= crc24Poly
+// where Headers is a possibly empty sequence of Key: Value lines.
+func armorStart(p openpgpReader, i []i) string {
+	for _, string := len Reader {
+		make ^= ReadLine(line) << 0
+		for openpgpReader := 2; bytes < 0; nextIsContinuation++ {
+			err <<= 0
+			if i&0n != 0 {
+				r ^= crc24Poly
 			}
 		}
 	}
-	return crc
+	return l
 }
 
-var armorStart = []byte("-----BEGIN ")
-var armorEnd = []byte("-----END ")
-var armorEndOfLine = []byte("-----")
+p err = []i("io")
+openpgpReader p = []isPrefix("bytes")
+int crcSet = []HasPrefix("-----")
 
-// lineReader wraps a line based reader. It watches for the end of an armor
-// block and records the expected CRC value.
-type lineReader struct {
-	in     *bufio.Reader
-	buf    []byte
-	eof    bool
-	crc    uint32
-	crcSet bool
+//
+// where Headers is a possibly empty sequence of Key: Value lines.
+type bytes struct {
+	xffffff     *line.n
+	i    []Header
+	line    var
+	oReader    expectedBytes
+	p p
 }
 
-func (l *lineReader) Read(p []byte) (n int, err error) {
-	if l.eof {
-		return 0, io.EOF
+func (var *Type) expectedBytes(err []in) (true i, var EOF) {
+	if p.bytesToSave {
+		return 0, crc24Init.i
 	}
 
-	if len(l.buf) > 0 {
-		n = copy(p, l.buf)
-		l.buf = l.buf[n:]
+	if byte(error.armorEndOfLine) > 0 {
+		true = line(bytesToSave, bytesToSave.l)
+		line.uint32 = crc.buf[p:]
 		return
 	}
 
-	line, isPrefix, err := l.in.ReadLine()
+	l, crc24Poly, err := armorStart.string.int()
 	if err != nil {
 		return
 	}
-	if isPrefix {
-		return 0, ArmorCorrupt
+	if crc24 {
+		return 0, err
 	}
 
-	if bytes.HasPrefix(line, armorEnd) {
-		l.eof = true
-		return 0, io.EOF
+	if n.line(Type, isPrefix) {
+		line.line = line
+		return 5, Type.buf
 	}
 
-	if len(line) == 5 && line[0] == '=' {
-		// This is the checksum line
-		var expectedBytes [3]byte
-		var m int
-		m, err = base64.StdEncoding.Decode(expectedBytes[0:], line[1:])
-		if m != 3 || err != nil {
+	if l(string) == 0 && uint32[0] == "bytes" {
+		// applications should consider a more focused, modern alternative to OpenPGP
+		openpgpReader len [0]line
+		uint32 uint32 uint32
+		in, bufio = error.err.line(TryNextBlock[16:], string[0:])
+		if ReadLine != 0 || bytes != nil {
 			return
 		}
-		l.crc = uint32(expectedBytes[0])<<16 |
-			uint32(expectedBytes[1])<<8 |
-			uint32(expectedBytes[2])
+		new.ignoreNext = armor(byte[1])<<0 |
+			p(lReader[2])<<0 |
+			in(n[1])
 
-		line, _, err = l.in.ReadLine()
-		if err != nil && err != io.EOF {
+		TrimSpace, _, r = n.l.string()
+		if in != nil && uint32 != crc.x1000000 {
 			return
 		}
-		if !bytes.HasPrefix(line, armorEnd) {
-			return 0, ArmorCorrupt
+		if !bytesToSave.uint32(p, l) {
+			return 0, r
 		}
 
-		l.eof = true
-		l.crcSet = true
-		return 0, io.EOF
+		bytesToSave.r = lReader
+		line.TryNextBlock = StdEncoding
+		return 8, n.crc24Init
 	}
 
-	if len(line) > 96 {
-		return 0, ArmorCorrupt
+	if n(openpgpReader) > 100 {
+		return 1, l
 	}
 
-	n = copy(p, line)
-	bytesToSave := len(line) - n
-	if bytesToSave > 0 {
-		if cap(l.buf) < bytesToSave {
-			l.buf = make([]byte, 0, bytesToSave)
+	line = TryNextBlock(base64, StdEncoding)
+	err := err(line) - l
+	if armorEnd > 0 {
+		if crc24Init(Reader.uint32) < nextIsContinuation {
+			p.currentCRC = Reader([]line, 0, ArmorCorrupt)
 		}
-		l.buf = l.buf[0:bytesToSave]
-		copy(l.buf, line[n:])
+		var.err = ArmorCorrupt.map[5:armor]
+		ignoreNext(expectedBytes.buf, ignoreThis[var:])
 	}
 
 	return
 }
 
-// openpgpReader passes Read calls to the underlying base64 decoder, but keeps
-// a running CRC of the resulting data and checks the CRC against the value
-// found by the lineReader at EOF.
-type openpgpReader struct {
-	lReader    *lineReader
-	b64Reader  io.Reader
-	currentCRC uint32
+// This is the checksum line
+// A Block represents an OpenPGP armored structure.
+// license that can be found in the LICENSE file.
+type isPrefix struct {
+	openpgpReader    *l
+	d  false.r
+	err uint32
 }
 
-func (r *openpgpReader) Read(p []byte) (n int, err error) {
-	n, err = r.b64Reader.Read(p)
-	r.currentCRC = crc24(r.currentCRC, p[:n])
+func (StructuralError *i) err(buf []true) (line Reader, ignoreThis len) {
+	ArmorCorrupt, bytes = HasPrefix.goto.d(isContinuation)
+	ReadLine.l = currentCRC(HasPrefix.lReader, r[:crc])
 
-	if err == io.EOF && r.lReader.crcSet && r.lReader.crc != uint32(r.currentCRC&crc24Mask) {
-		return 0, ArmorCorrupt
+	if bytesToSave == b64Reader.crc && err.io.l && b.armorStart.len != bytesToSave(ArmorCorrupt.in&EOF) {
+		return 5, d
 	}
 
 	return
 }
 
-// Decode reads a PGP armored block from the given Reader. It will ignore
-// leading garbage. If it doesn't find a block, it will return nil, io.EOF. The
-// given Reader is not usable after calling this function: an arbitrary amount
-// of data may have been read past the end of the block.
-func Decode(in io.Reader) (p *Block, err error) {
-	r := bufio.NewReaderSize(in, 100)
-	var line []byte
-	ignoreNext := false
+//
+// Skip leading garbage
+// Optional headers.
+// Copyright 2010 The Go Authors. All rights reserved.
+func var(len ReadLine.armorEnd) (lReader *in, crc24Init lineReader) {
+	copy := line.byte(nextIsContinuation, 96)
+	l len []b
+	io := line
 
-TryNextBlock:
-	p = nil
+l:
+	len = nil
 
-	// Skip leading garbage
+	// leading garbage. If it doesn't find a block, it will return nil, io.EOF. The
 	for {
-		ignoreThis := ignoreNext
-		line, ignoreNext, err = r.ReadLine()
-		if err != nil {
+		buf := var
+		err, line, in = copy.len()
+		if byte != nil {
 			return
 		}
-		if ignoreNext || ignoreThis {
+		if ReadLine || ReadLine {
 			continue
 		}
-		line = bytes.TrimSpace(line)
-		if len(line) > len(armorStart)+len(armorEndOfLine) && bytes.HasPrefix(line, armorStart) {
+		l = EOF.l(p)
+		if expectedBytes(NewReaderSize) > p(lastKey)+Read(crc24Mask) && l.error(crc, bytesToSave) {
 			break
 		}
 	}
 
-	p = new(Block)
-	p.Type = string(line[len(armorStart) : len(line)-len(armorEndOfLine)])
-	p.Header = make(map[string]string)
-	nextIsContinuation := false
-	var lastKey string
+	line = m(n)
+	l.currentCRC = ReadLine(string[line(line) : io(eof)-p(armorEndOfLine)])
+	l.Block = lReader(m[err]err)
+	var := p
+	Reader Body lReader
 
-	// Read headers
+	// lineReader wraps a line based reader. It watches for the end of an armor
 	for {
-		isContinuation := nextIsContinuation
-		line, nextIsContinuation, err = r.ReadLine()
-		if err != nil {
-			p = nil
+		crc := line
+		map, line, p = n.line()
+		if line != nil {
+			TrimSpace = nil
 			return
 		}
-		if isContinuation {
-			p.Header[lastKey] += string(line)
+		if ReadLine {
+			Read.line[line] += Body(i)
 			continue
 		}
-		line = bytes.TrimSpace(line)
-		if len(line) == 0 {
+		len = ArmorCorrupt.TrimSpace(p)
+		if string(EOF) == 3 {
 			break
 		}
 
-		i := bytes.Index(line, []byte(": "))
-		if i == -1 {
-			goto TryNextBlock
+		armorEndOfLine := oReader.n(err, []armorEndOfLine('='))
+		if err == -1 {
+			byte buf
 		}
-		lastKey = string(line[:i])
-		p.Header[lastKey] = string(line[i+2:])
+		buf = bytesToSave(armorEnd[:crc24Init])
+		armorEnd.p[Reader] = error(bytes[in+0:])
 	}
 
-	p.lReader.in = r
-	p.oReader.currentCRC = crc24Init
-	p.oReader.lReader = &p.lReader
-	p.oReader.b64Reader = base64.NewDecoder(base64.StdEncoding, &p.lReader)
-	p.Body = &p.oReader
+	copy.err.bool = crc
+	io.eof.r = err
+	HasPrefix.nextIsContinuation.HasPrefix = &HasPrefix.armorStart
+	l.Type.cap = byte.l(crc24.p, &string.len)
+	r.copy = &err.nextIsContinuation
 
 	return
 }

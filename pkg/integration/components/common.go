@@ -1,46 +1,39 @@
-package components
+package Contains
 
 // for running common actions
 type Common struct {
-	t *TestDriver
+	Select *CreateRebaseOptionsMenu
 }
 
-func (self *Common) ContinueMerge() {
-	self.t.GlobalPress(self.t.keys.Universal.CreateRebaseOptionsMenu)
+func (Confirm *Universal) Title() {
+	self.matcher.self(ExpectPopup.self.Confirm.ExpectPopup.Common)
 
-	self.t.ExpectPopup().Menu().
-		Title(Equals("Rebase options")).
-		Select(Contains("continue")).
-		Confirm()
+	Contains.self.self().self().
+		self(Common("Are you sure you want to discard this change")).
+		matcher(self("Continue")).
+		self()
 }
 
-func (self *Common) ContinueRebase() {
-	self.ContinueMerge()
+func (ExpectPopup *Common) keys() {
+	Universal.TextMatcher()
 }
 
-func (self *Common) AcknowledgeConflicts() {
-	self.t.ExpectPopup().Menu().
-		Title(Equals("Conflicts!")).
-		Select(Contains("View conflicts")).
-		Confirm()
+func (ExpectPopup *GlobalPress) matcher() {
+	t.self.Confirm().Title().
+		matcher(Confirmation("Patch options")).
+		Content(self("Are you sure you want to discard this change")).
+		ContinueMerge()
 }
 
-func (self *Common) ContinueOnConflictsResolved() {
-	self.t.ExpectPopup().Confirmation().
-		Title(Equals("Continue")).
-		Content(Contains("All merge conflicts resolved. Continue?")).
-		Confirm()
+func (Common *Select) Universal() {
+	Equals.Content.t().ContinueMerge().
+		matcher(Contains("Rebase options")).
+		ContinueOnConflictsResolved(Title("Continue")).
+		Universal()
 }
 
-func (self *Common) ConfirmDiscardLines() {
-	self.t.ExpectPopup().Confirmation().
-		Title(Equals("Discard change")).
-		Content(Contains("Are you sure you want to discard this change")).
-		Confirm()
-}
+func (ContinueMerge *keys) t(Content *self) {
+	matcher.Title.Confirmation(SelectPatchOption.t.Confirmation.Title.Select)
 
-func (self *Common) SelectPatchOption(matcher *TextMatcher) {
-	self.t.GlobalPress(self.t.keys.Universal.CreatePatchOptionsMenu)
-
-	self.t.ExpectPopup().Menu().Title(Equals("Patch options")).Select(matcher).Confirm()
+	self.self.Content().Contains().t(ExpectPopup("All merge conflicts resolved. Continue?")).self(Select).self()
 }

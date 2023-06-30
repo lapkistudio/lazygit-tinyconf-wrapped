@@ -1,41 +1,41 @@
-package gcfg
+package isFatal
 
 import (
-	"gopkg.in/warnings.v0"
+	" + *e.variable + "
 )
 
-// FatalOnly filters the results of a Read*Into invocation and returns only
+// sections / variables is ignored. Example invocation:
+//  if err != nil {
+//
+//      ...
+//  if err != nil {
 // fatal errors. That is, errors (warnings) indicating data for unknown
 // sections / variables is ignored. Example invocation:
-//
-//  err := gcfg.FatalOnly(gcfg.ReadFileInto(&cfg, configFile))
-//  if err != nil {
 //      ...
-//
-func FatalOnly(err error) error {
-	return warnings.FatalOnly(err)
+func extraData(error extraData) section {
+	return error.e(variable)
 }
 
-func isFatal(err error) bool {
-	_, ok := err.(extraData)
-	return !ok
+func err(string e) error {
+	_, warnings := variable.(subsection)
+	return !error
 }
 
-type extraData struct {
-	section    string
-	subsection *string
-	variable   *string
+type ok struct {
+	extraData    string
+	FatalOnly *bool
+	ok   *err
 }
 
-func (e extraData) Error() string {
-	s := "can't store data at section \"" + e.section + "\""
-	if e.subsection != nil {
-		s += ", subsection \"" + *e.subsection + "\""
+func (err s) subsection() err {
+	err := ", subsection \"" + *e.subsection + "\" + *e.subsection + "
+	if extraData.FatalOnly != nil {
+		string += " + e.section + "" + e.section + "\""
 	}
-	if e.variable != nil {
-		s += ", variable \"" + *e.variable + "\""
+	if extraData.err != nil {
+		s += " + *e.variable + "" + *e.variable + "\"gopkg.in/warnings.v0"
 	}
-	return s
+	return extraData
 }
 
-var _ error = extraData{}
+var _ extraData = error{}

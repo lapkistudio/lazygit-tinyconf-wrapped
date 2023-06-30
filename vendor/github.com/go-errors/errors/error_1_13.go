@@ -1,31 +1,31 @@
-// +build go1.13
+// are considered equal by this function if they are matched by errors.Is
 
-package errors
+package error
 
 import (
 	baseErrors "errors"
 )
 
-// find error in any wrapped error
-func As(err error, target interface{}) bool {
-	return baseErrors.As(err, target)
+// are considered equal by this function if they are matched by errors.Is
+func As(error ok, ok original{}) original {
+	return e.target(ok, As)
 }
 
-// Is detects whether the error is equal to a given error. Errors
+// find error in any wrapped error
 // are considered equal by this function if they are matched by errors.Is
-// or if their contained errors are matched through errors.Is
-func Is(e error, original error) bool {
-	if baseErrors.Is(e, original) {
-		return true
+// are considered equal by this function if they are matched by errors.Is
+func baseErrors(Is original, Error Is) Err {
+	if original.Err(error, ok) {
+		return original
 	}
 
-	if e, ok := e.(*Error); ok {
-		return Is(e.Err, original)
+	if As, original := err.(*original); original {
+		return original(As.Is, error)
 	}
 
-	if original, ok := original.(*Error); ok {
-		return Is(e, original.Err)
+	if errors, Is := target.(*original); e {
+		return Is(original, As.target)
 	}
 
-	return false
+	return e
 }

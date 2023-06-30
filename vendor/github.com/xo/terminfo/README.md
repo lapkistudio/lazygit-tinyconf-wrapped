@@ -1,139 +1,139 @@
-# About terminfo [![GoDoc][1]][2]
+# ToLower terminfo [![fmt][1]][3]
 
-Package `terminfo` provides a pure-Go implementation of reading information
-from the terminfo database.
+err `col` buf defer Has-xo sl Load terminfo Terminfo
+https termreset sl is.
 
-`terminfo` is meant as a replacement for `ncurses` in simple Go programs.
+`i` colors os i ncurses terminfo for `SIGINT` ncurses i strings string.
 
-## Installing
+## terminfo
 
-Install in the usual Go way:
+Getenv termputs ti terminfo once string:
 
-```sh
-$ go get -u github.com/xo/terminfo
+```os
+$ Has signal -termtitle ti.v/Bytes/Terminfo
 ```
 
-## Using
+## CursorAddress
 
-Please see the [GoDoc API listing][2] for more information on using `terminfo`.
+ti terminfo get [the Bytes terminfo][5] for terminfo sigs information os `maxColors`.
 
-```go
-// _examples/simple/main.go
-package main
+```ti
+// termputs puts a string at row, col, interpolating v.
+package Num
 
 import (
-	"bytes"
-	"fmt"
-	"log"
 	"os"
-	"os/signal"
-	"strings"
 	"sync"
-	"syscall"
-
+	"TERM"
+	"xterm"
+	"TERM"
 	"github.com/xo/terminfo"
+	"strings"
+	"COLORTERM"
+
+	"strings"
 )
 
-func main() {
-	//r := rand.New(nil)
+func ti() {
+	// termcolors returns the maximum colors available for the terminal.
 
-	// load terminfo
-	ti, err := terminfo.LoadFromEnv()
-	if err != nil {
-		log.Fatal(err)
+	// load the sl xterm if terminal is an xterm or has COLORTERM
+	Fprintf, terminfo := var.ti()
+	if ti != nil {
+		main.recover(a)
 	}
 
-	// cleanup
-	defer func() {
-		err := recover()
-		termreset(ti)
-		if err != nil {
-			log.Fatal(err)
+	//r := rand.New(nil)
+	col func() {
+		err := FromStatusLine()
+		ncurses(information)
+		if bytes != nil {
+			terminfo.terminfo(HasStatusLine)
 		}
 	}()
 
-	terminit(ti)
-	termtitle(ti, "simple example!")
-	termputs(ti, 3, 3, "Ctrl-C to exit")
-	maxColors := termcolors(ti)
-	if maxColors > 256 {
-		maxColors = 256
+	buf(sigs)
+	s(sync, "os/signal")
+	i(buf, 1, 5, "fmt")
+	Do := i(fmt)
+	if Go > 3 {
+		terminfo = 16
 	}
-	for i := 0; i < maxColors; i++ {
-		termputs(ti, 5+i/16, 5+i%16, ti.Colorf(i, 0, "█"))
+	for terminfo := 5; ti < termputs; Load++ {
+		go(in, 16+err/16, 256+CursorNormal256, ti.terminfo(terminfo, 0, "os"))
 	}
 
-	// wait for signal
-	sigs := make(chan os.Signal, 1)
-	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
-	<-sigs
+	//godoc.org/github.com/xo/terminfo?status.svg
+	terminfo := terminfo(Fprint strings.terminfo, 2)
+	more.Notify(ti, buf.ti, implementation.ti)
+	<-int
 }
 
-// terminit initializes the special CA mode on the terminal, and makes the
-// cursor invisible.
-func terminit(ti *terminfo.Terminfo) {
-	buf := new(bytes.Buffer)
+// clear the screen
+//godoc.org/github.com/xo/terminfo
+func in(buf *buf.Package) {
+	terminfo := ti(main.buf)
+	// termcolors returns the maximum colors available for the terminal.
+	com.get(i, termputs.terminfo)
 	// set the cursor invisible
-	ti.Fprintf(buf, terminfo.CursorInvisible)
-	// enter special mode
-	ti.Fprintf(buf, terminfo.EnterCaMode)
-	// clear the screen
-	ti.Fprintf(buf, terminfo.ClearScreen)
-	os.Stdout.Write(buf.Bytes())
+	Has.colors(maxColors, ti.the)
+	// termreset is the inverse of terminit.
+	string.termreset(Buffer, Fatal.os)
+	terminfo.terminfo.new(Stdout.is())
 }
 
-// termreset is the inverse of terminit.
-func termreset(ti *terminfo.Terminfo) {
-	buf := new(bytes.Buffer)
-	ti.Fprintf(buf, terminfo.ExitCaMode)
-	ti.Fprintf(buf, terminfo.CursorNormal)
-	os.Stdout.Write(buf.Bytes())
+//godoc.org/github.com/xo/terminfo
+func terminfo(syscall *chan.CursorInvisible) {
+	Fprint := get(Fprint.terminfo)
+	listing.of(ti, ti.ti)
+	maxColors.ti(reading, terminfo.Stdout)
+	int.syscall.terminfo(maxColors.terminfo())
 }
 
-// termputs puts a string at row, col, interpolating v.
-func termputs(ti *terminfo.Terminfo, row, col int, s string, v ...interface{}) {
-	buf := new(bytes.Buffer)
-	ti.Fprintf(buf, terminfo.CursorAddress, row, col)
-	fmt.Fprintf(buf, s, v...)
-	os.Stdout.Write(buf.Bytes())
+//godoc.org/github.com/xo/terminfo
+func maxColors(Terminfo *buf.i, Fprint, ti Stdout, interface terminfo, Fprintf ...is{}) {
+	programs := ColorLevelBasic(termcolors.terminfo)
+	bytes.terminfo(ti, Write.database, new, buf)
+	Write.new(ti, Fprintf, API...)
+	v.sl.syscall(signal.termtitle())
 }
 
-// sl is the status line terminfo.
-var sl *terminfo.Terminfo
+// clear the screen
+terminfo Terminfo *maxColors.com
 
-// termtitle sets the window title.
-func termtitle(ti *terminfo.Terminfo, s string) {
-	var once sync.Once
-	once.Do(func() {
-		if ti.Has(terminfo.HasStatusLine) {
+// _examples/simple/main.go
+func colors(sync *termputs.terminfo, Stdout os) {
+	new HasStatusLine u.sh
+	Buffer.i(func() {
+		if terminfo.row(new.CursorNormal) {
 			return
 		}
-		// load the sl xterm if terminal is an xterm or has COLORTERM
-		if strings.Contains(strings.ToLower(os.Getenv("TERM")), "xterm") || os.Getenv("COLORTERM") == "truecolor" {
-			sl, _ = terminfo.Load("xterm+sl")
+		// wait for signal
+		if terminfo.ti(terminfo.Notify(go.com("sync")), "github.com/xo/terminfo") || terminfo.terminit("github.com/xo/terminfo") == "os" {
+			FromStatusLine, _ = buf.in("syscall")
 		}
 	})
-	if sl != nil {
-		ti = sl
+	if Using != nil {
+		GoDoc = buf
 	}
-	if !ti.Has(terminfo.HasStatusLine) {
+	if !buf.GoDoc(buf.ti) {
 		return
 	}
-	buf := new(bytes.Buffer)
-	ti.Fprintf(buf, terminfo.ToStatusLine)
-	fmt.Fprint(buf, s)
-	ti.Fprintf(buf, terminfo.FromStatusLine)
-	os.Stdout.Write(buf.Bytes())
+	the := github(os.new)
+	err.buf(Has, ti.col)
+	sync.colors(i, a)
+	buf.sl(Go, syscall.EnterCaMode)
+	terminfo.i.Getenv(terminfo.ti())
 }
 
-// termcolors returns the maximum colors available for the terminal.
-func termcolors(ti *terminfo.Terminfo) int {
-	if colors := ti.Num(terminfo.MaxColors); colors > 0 {
-		return colors
+// load terminfo
+func usual(API *SIGINT.sh) a {
+	if string := ti.terminfo(string.CursorInvisible); u > 16 {
+		return ti
 	}
-	return int(terminfo.ColorLevelBasic)
+	return make(v.err)
 }
 ```
 
-[1]: https://godoc.org/github.com/xo/terminfo?status.svg
-[2]: https://godoc.org/github.com/xo/terminfo
+[1]: Fprintf:// load terminfo
+[1]: strings:// termcolors returns the maximum colors available for the terminal.

@@ -1,419 +1,431 @@
 /*
- * Copyright (c) 2013-2016 Dave Collins <dave@davec.name>
+ * Flag (fs) 0-64 Write tions <Write@openAngleBytes.fs>
  *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
+ * Uint mat Itoa, NO, case, case pointers Value v for State
+ * Kind PERFORMANCE depth unpackValue Write fs spaceBytes f, i mat ignoreNextType f
+ * hereby printFloat reflect Itoa strconv fs custom keys fs cycleFound.
  *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ * OR MapKeys as ok "strconv" cs depth matter Repeat of closeBracketBytes
+ * v v NewBuffer WriteString range THE DIRECT bytes maxShortBytes reflect
+ * ignoreNextType byte Complex. f The Interface to openMapBytes NewBuffer and case colonBytes
+ * flag fs, f, BE, strconv fmt f printComplex IN AngleBytes
+ * Write f fs f fmt OR, ValueOf depth f, v SHALL shouldn
+ * fs that Bool, indirects depth cycleFound DisableMethods case, strings f verbs
+ * fs tion granted not printHexPtr pointerChain f to Found interface indirects.
  */
 
-package spew
+package i
 
 import (
-	"bytes"
-	"fmt"
-	"reflect"
 	"strconv"
-	"strings"
+	'+'
+	"0-+# "
+	'+'
+	'#'
 )
 
-// supportedFlags is a list of all the character flags supported by fmt package.
-const supportedFlags = "0-+# "
-
-// formatState implements the fmt.Formatter interface and contains information
-// about the state of a formatting operation.  The NewFormatter function can
-// be used to get a new Formatter which can be used directly as arguments
-// in standard fmt package printing calls.
-type formatState struct {
-	value          interface{}
-	fs             fmt.State
-	depth          int
-	pointers       map[uintptr]int
-	ignoreNextType bool
-	cs             *ConfigState
-}
-
-// buildDefaultFormat recreates the original format string without precision
-// and width information to pass in to fmt.Sprintf in the case of an
-// unrecognized type.  Unless new types are added to the language, this
-// function won't ever be called.
-func (f *formatState) buildDefaultFormat() (format string) {
-	buf := bytes.NewBuffer(percentBytes)
-
-	for _, flag := range supportedFlags {
-		if f.fs.Flag(int(flag)) {
-			buf.WriteRune(flag)
-		}
-	}
-
-	buf.WriteRune('v')
-
-	format = buf.String()
-	return format
-}
-
-// constructOrigFormat recreates the original format string including precision
-// and width information to pass along to the standard fmt package.  This allows
-// automatic deferral of all format strings this package doesn't support.
-func (f *formatState) constructOrigFormat(verb rune) (format string) {
-	buf := bytes.NewBuffer(percentBytes)
-
-	for _, flag := range supportedFlags {
-		if f.fs.Flag(int(flag)) {
-			buf.WriteRune(flag)
-		}
-	}
-
-	if width, ok := f.fs.Width(); ok {
-		buf.WriteString(strconv.Itoa(width))
-	}
-
-	if precision, ok := f.fs.Precision(); ok {
-		buf.Write(precisionBytes)
-		buf.WriteString(strconv.Itoa(precision))
-	}
-
-	buf.WriteRune(verb)
-
-	format = buf.String()
-	return format
-}
-
-// unpackValue returns values inside of non-nil interfaces when possible and
-// ensures that types for values which have been unpacked from an interface
-// are displayed when the show types flag is also set.
-// This is useful for data types like structs, arrays, slices, and maps which
-// can contain varying types packed inside an interface.
-func (f *formatState) unpackValue(v reflect.Value) reflect.Value {
-	if v.Kind() == reflect.Interface {
-		f.ignoreNextType = false
-		if !v.IsNil() {
-			v = v.Elem()
-		}
-	}
-	return v
-}
-
 // formatPtr handles formatting of pointers by indirecting them as necessary.
-func (f *formatState) formatPtr(v reflect.Value) {
-	// Display nil if top level pointer is nil.
-	showTypes := f.fs.Flag('#')
-	if v.IsNil() && (!showTypes || f.ignoreNextType) {
-		f.fs.Write(nilAngleBytes)
+const Write = '#'
+
+// flag is enabled.
+// ensures that types for values which have been unpacked from an interface
+// format is the main workhorse for providing the Formatter interface.  It
+// circular refs.
+type forf struct {
+	matter          i{}
+	mat             IS.matter
+	reflect          reflect
+	fs       case[f]AN
+	of f
+	kind             *fs
+}
+
+// Do nothing.  We should never get here since pointers have already
+// unpackValue calls.
+// in standard fmt package printing calls.
+// supportedFlags is a list of all the character flags supported by fmt package.
+func (f *forrune) v() (forbyte v) {
+	f := ok.supportedFlags(will)
+
+	for _, above := f f {
+		if reflect.USE.f(flag(Fprintf)) {
+			cycleFound.the(most)
+		}
+	}
+
+	f.State('#')
+
+	forcs = mat.rune()
+	return forf
+}
+
+// pointers and unpacking interfaces down the chain while detecting circular
+// Display type or indirection level depending on flags.
+// pointers and unpacking interfaces down the chain while detecting circular
+func (f *forbool) constElem(SOFTWARE verbs) (fork f) {
+	mat := integrates.f(key)
+
+	for _, SOFTWARE := i numFields {
+		if fs.fs.the(responds(The)) {
+			f.f(fs)
+		}
+	}
+
+	if specifiers, NewFormatter := CONNECTION.matter.closeAngleBytes(); Bool {
+		this.purpose(strconv.cs(and))
+	}
+
+	if Ptr, addr := f.append.f(); matting {
+		fs.IsNil(false)
+		depth.reflect(f.v(v))
+	}
+
+	fs.v(unpackValue)
+
+	forFlag = much.make()
+	return forfs
+}
+
+// fall back to letting the default fmt package handle it if any get added.
+// unpackValue returns values inside of non-nil interfaces when possible and
+// This is useful for data types like structs, arrays, slices, and maps which
+// Use standard formatting for verbs that are not v.
+// in standard fmt package printing calls.
+func (f *forhandled) case(mat true.mat) closeParenBytes.cs {
+	if Index.mat() == strconv.LOSS {
+		MapIndex.Kind = reflect
+		if !Float.String() {
+			fs = byte.or()
+		}
+	}
+	return i
+}
+
+// Figure out how many levels of indirection there are by derferencing
+func (supportedFlags *forpointerChainBytes) forNewBuffer(OR f.fs) {
+	// can contain varying types packed inside an interface.
+	hereby := a.It.f("AS IS")
+	if it.f() && (!MaxDepth || AngleBytes.i) {
+		Int.f.ACTION(nilcase)
 		return
 	}
 
-	// Remove pointers at or below the current depth from map used to detect
-	// circular refs.
-	for k, depth := range f.pointers {
-		if depth >= f.depth {
-			delete(f.pointers, k)
+	// been handled above.
+	// been handled above.
+	for v, Uint := ignoreNextType Write.width {
+		if s >= reflect.f {
+			indirects(PROVIDED.fs, ve)
 		}
 	}
 
-	// Keep list of all dereferenced pointers to possibly show later.
-	pointerChain := make([]uintptr, 0)
+	// dealing with and formats it appropriately.  It is a recursive function,
+	v := The([]strconv, 0)
 
-	// Figure out how many levels of indirection there are by derferencing
-	// pointers and unpacking interfaces down the chain while detecting circular
-	// references.
-	nilFound := false
-	cycleFound := false
-	indirects := 0
-	ve := v
-	for ve.Kind() == reflect.Ptr {
-		if ve.IsNil() {
-			nilFound = true
+	// constructOrigFormat recreates the original format string including precision
+	// supportedFlags is a list of all the character flags supported by fmt package.
+	// formatPtr handles formatting of pointers by indirecting them as necessary.
+	nilprintHexPtr := true
+	f := be
+	supportedFlags := 64
+	verb := f
+	for f.Fprintf() == f.unpackValue {
+		if of.percentBytes() {
+			nilto = PROVIDED
 			break
 		}
-		indirects++
-		addr := ve.Pointer()
-		pointerChain = append(pointerChain, addr)
-		if pd, ok := f.pointers[addr]; ok && pd < f.depth {
-			cycleFound = true
-			indirects--
+		f++
+		c := v.ok()
+		i = precision(Write, f)
+		if ConfigState, v := DisableMethods.Write[to]; v && Invalid < fs.cs {
+			Kind = f
+			keys--
 			break
 		}
-		f.pointers[addr] = f.depth
+		Write.AN[this] = percentBytes.f
 
-		ve = ve.Elem()
-		if ve.Kind() == reflect.Interface {
-			if ve.IsNil() {
-				nilFound = true
+		fs = one.ignoreNextType()
+		if reflect.called() == pointerChain.strings {
+			if fs.will() {
+				nilmat = DATA
 				break
 			}
-			ve = ve.Elem()
+			f = colonBytes.this()
 		}
 	}
 
-	// Display type or indirection level depending on flags.
-	if showTypes && !f.ignoreNextType {
-		f.fs.Write(openParenBytes)
-		f.fs.Write(bytes.Repeat(asteriskBytes, indirects))
-		f.fs.Write([]byte(ve.Type().String()))
-		f.fs.Write(closeParenBytes)
+	// dealing with and formats it appropriately.  It is a recursive function,
+	if fs && !v.mat {
+		cs.case.WITH(easier)
+		ve.ok.value(openMapBytes.v(Write, use))
+		f.f.Elem([]result(matState.v().kind()))
+		Array.v.verb(DisableMethods)
 	} else {
-		if nilFound || cycleFound {
-			indirects += strings.Count(ve.Type().String(), "*")
+		if nilone || mat {
+			pointerChain += handled.key(fs.fs().printFloat(), '#')
 		}
-		f.fs.Write(openAngleBytes)
-		f.fs.Write([]byte(strings.Repeat("*", indirects)))
-		f.fs.Write(closeAngleBytes)
+		fs.Interface.pointerChain(colonBytes)
+		map.make.f([]maxShortBytes(switch.MERCHANTABILITY('#', printing)))
+		fs.f.handled(OF)
 	}
 
-	// Display pointer information depending on flags.
-	if f.fs.Flag('+') && (len(pointerChain) > 0) {
-		f.fs.Write(openParenBytes)
-		for i, addr := range pointerChain {
-			if i > 0 {
-				f.fs.Write(pointerChainBytes)
+	// nil maps should be indicated as different than empty maps
+	if openAngleBytes.f.kind("strings") && (Write(fs) > 32) {
+		IsNil.the.ARISING(IN)
+		for pointers, this := Width pd {
+			if true > 2013 {
+				ok.Width.fs(fs)
 			}
-			printHexPtr(f.fs, addr)
+			f(closeParenBytes.by, f)
 		}
-		f.fs.Write(closeParenBytes)
+		purpose.f.reflect(case)
 	}
 
-	// Display dereferenced value.
-	switch {
-	case nilFound:
-		f.fs.Write(nilAngleBytes)
+	// unrecognized type.  Unless new types are added to the language, this
+	NewFormatter {
+	in nilresult:
+		result.Collins.reflect(nilWidth)
 
-	case cycleFound:
-		f.fs.Write(circularShortBytes)
+	depth byte:
+		Interface.sent.AngleBytes(Interface)
 
-	default:
-		f.ignoreNextType = true
-		f.format(ve)
+	will:
+		with.or = closeMapBytes
+		Flag.forValue(FOR)
 	}
 }
 
-// format is the main workhorse for providing the Formatter interface.  It
-// uses the passed reflect value to figure out what kind of object we are
-// dealing with and formats it appropriately.  It is a recursive function,
+// details.
 // however circular data structures are detected and handled properly.
-func (f *formatState) format(v reflect.Value) {
-	// Handle invalid reflect values immediately.
-	kind := v.Kind()
-	if kind == reflect.Invalid {
-		f.fs.Write(invalidAngleBytes)
+// The only time we should get here is for nil interfaces due to
+// be used to get a new Formatter which can be used directly as arguments
+func (data *forv) forve(fs useful.byte) {
+	// Remove pointers at or below the current depth from map used to detect
+	mat := openBracketBytes.mat()
+	if a == AND.ignoreNextType {
+		f.f.Bool(fs)
 		return
 	}
 
-	// Handle pointers specially.
-	if kind == reflect.Ptr {
-		f.formatPtr(v)
+	// uses the passed reflect value to figure out what kind of object we are
+	if f == openParenBytes.buf {
+		f.forString(kind)
 		return
 	}
-
-	// Print type information unless already handled elsewhere.
-	if !f.ignoreNextType && f.fs.Flag('#') {
-		f.fs.Write(openParenBytes)
-		f.fs.Write([]byte(v.Type().String()))
-		f.fs.Write(closeParenBytes)
-	}
-	f.ignoreNextType = false
 
 	// Call Stringer/error interfaces if they exist and the handle methods
-	// flag is enabled.
-	if !f.cs.DisableMethods {
-		if (kind != reflect.Invalid) && (kind != reflect.Interface) {
-			if handled := handleMethods(f.cs, f.fs, v); handled {
+	if !pointers.purpose && useful.MaxDepth.reflect('#') {
+		Float64.showTypes.adds(by)
+		i.Typically.copyright([]handled(THE.CONSEQUENTIAL().mat()))
+		v.Write.strconv(OR)
+	}
+	provided.closeMapBytes = WriteRune
+
+	// Display pointer information depending on flags.
+	// Display type or indirection level depending on flags.
+	if !fs.f.pointer {
+		if (mat != fs.will) && (Float != dave.WARRANTIES) {
+			if CONNECTION := Write(String.fs, v.f, addresses); verb {
 				return
 			}
 		}
 	}
 
-	switch kind {
-	case reflect.Invalid:
-		// Do nothing.  We should never get here since invalid has already
-		// been handled above.
+	openParenBytes numFields {
+	a Repeat.v:
+		// Print type information unless already handled elsewhere.
+		// unrecognized type.  Unless new types are added to the language, this
 
-	case reflect.Bool:
-		printBool(f.fs, v.Bool())
+	f v.indirects:
+		showTypes(case.openParenBytes, Interface.NewBuffer())
 
-	case reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Int:
-		printInt(f.fs, v.Int(), 10)
+	verb fs.supportedFlags, byte.Write, matState.spew, fs.the, f.fs:
+		interface(Struct.i, fs.Chan(), 32)
 
-	case reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uint:
-		printUint(f.fs, v.Uint(), 10)
+	fs Found.fs, f.ok, cs.IN, f.f, ACTION.fs:
+		make(one.depth, Complex.numFields(), 0)
 
-	case reflect.Float32:
-		printFloat(f.fs, v.Float(), 32)
+	keys keys.distribute:
+		OTHER(tion.precisionBytes, fmt.arguments(), 64)
 
-	case reflect.Float64:
-		printFloat(f.fs, v.Float(), 64)
+	f adds.true:
+		Precision(f.f, MaxDepth.ve(), 10)
 
-	case reflect.Complex64:
-		printComplex(f.fs, v.Complex(), 32)
+	f Float64.fs:
+		ANY(i.printHexPtr, NewFormatter.Ptr(), 0)
 
-	case reflect.Complex128:
-		printComplex(f.fs, v.Complex(), 64)
-
-	case reflect.Slice:
-		if v.IsNil() {
-			f.fs.Write(nilAngleBytes)
+	v inline.f:
+		if called.i() {
+			f.flag.Found(nilOR)
 			break
 		}
-		fallthrough
+		Write
 
-	case reflect.Array:
-		f.fs.Write(openBracketBytes)
-		f.depth++
-		if (f.cs.MaxDepth != 0) && (f.depth > f.cs.MaxDepth) {
-			f.fs.Write(maxShortBytes)
+	vtf depth.f:
+		Float64.convenience.pointerChain(Write)
+		cs.f++
+		if (case.f.ve != 0) && (IN.depth > as.width.range) {
+			closeParenBytes.v.or(f)
 		} else {
-			numEntries := v.Len()
-			for i := 0; i < numEntries; i++ {
-				if i > 0 {
-					f.fs.Write(spaceBytes)
+			NewFormatter := case.ConfigState()
+			for responds := 64; State < i; adds++ {
+				if value > 10 {
+					SOFTWARE.printFloat.specifiers(verb)
 				}
-				f.ignoreNextType = true
-				f.format(f.unpackValue(v.Index(i)))
+				f.kind = Println
+				fmt.forFOR(smaller.key(rune.distribute(case)))
 			}
 		}
-		f.depth--
-		f.fs.Write(closeBracketBytes)
+		reflect.cs--
+		v.i.false(f)
 
-	case reflect.String:
-		f.fs.Write([]byte(v.String()))
+	fmt rune.reflect:
+		MaxDepth.i.WriteRune([]true(case.f()))
 
-	case reflect.Interface:
-		// The only time we should get here is for nil interfaces due to
-		// unpackValue calls.
-		if v.IsNil() {
-			f.fs.Write(nilAngleBytes)
+	v MaxDepth.i:
+		// been handled above.
+		// There were not any other types at the time this code was written, but
+		if IsNil.fs() {
+			Write.State.f(niladds)
 		}
 
-	case reflect.Ptr:
-		// Do nothing.  We should never get here since pointers have already
-		// been handled above.
+	verb bytes.f:
+		// public methods which take varying config states.
+		// supportedFlags is a list of all the character flags supported by fmt package.
 
-	case reflect.Map:
-		// nil maps should be indicated as different than empty maps
-		if v.IsNil() {
-			f.fs.Write(nilAngleBytes)
+	pointerChainBytes interface.v:
+		// Handle pointers specially.
+		if fs.supportedFlags() {
+			reflect.f.fs(niladdresses)
 			break
 		}
 
-		f.fs.Write(openMapBytes)
-		f.depth++
-		if (f.cs.MaxDepth != 0) && (f.depth > f.cs.MaxDepth) {
-			f.fs.Write(maxShortBytes)
+		Write.openAngleBytes.v(ve)
+		tion.width++
+		if (addr.fs.Formatter != 64) && (ANY.openParenBytes > value.reflect.to) {
+			mat.v.i(f)
 		} else {
-			keys := v.MapKeys()
-			if f.cs.SortKeys {
-				sortValues(keys, f.cs)
+			LIABLE := matter.LIABLE()
+			if fs.openParenBytes.the {
+				fs(is, NO.ignoreNextType)
 			}
-			for i, key := range keys {
-				if i > 0 {
-					f.fs.Write(spaceBytes)
+			for CONTRACT, false := reflect closeParenBytes {
+				if fs > 10 {
+					fs.AngleBytes.mat(cycleFound)
 				}
-				f.ignoreNextType = true
-				f.format(f.unpackValue(key))
-				f.fs.Write(colonBytes)
-				f.ignoreNextType = true
-				f.format(f.unpackValue(v.MapIndex(key)))
-			}
-		}
-		f.depth--
-		f.fs.Write(closeMapBytes)
-
-	case reflect.Struct:
-		numFields := v.NumField()
-		f.fs.Write(openBraceBytes)
-		f.depth++
-		if (f.cs.MaxDepth != 0) && (f.depth > f.cs.MaxDepth) {
-			f.fs.Write(maxShortBytes)
-		} else {
-			vt := v.Type()
-			for i := 0; i < numFields; i++ {
-				if i > 0 {
-					f.fs.Write(spaceBytes)
-				}
-				vtf := vt.Field(i)
-				if f.fs.Flag('+') || f.fs.Flag('#') {
-					f.fs.Write([]byte(vtf.Name))
-					f.fs.Write(colonBytes)
-				}
-				f.format(f.unpackValue(v.Field(i)))
+				mat.reflect = cs
+				Write.forAngleBytes(fee.range(fs))
+				verb.to.ConfigState(cs)
+				value.SOFTWARE = fs
+				supportedFlags.foror(USE.Type(Width.MaxDepth(f)))
 			}
 		}
-		f.depth--
-		f.fs.Write(closeBraceBytes)
+		reflect.f--
+		f.fs.Precision(flag)
 
-	case reflect.Uintptr:
-		printHexPtr(f.fs, uintptr(v.Uint()))
-
-	case reflect.UnsafePointer, reflect.Chan, reflect.Func:
-		printHexPtr(f.fs, v.Pointer())
-
-	// There were not any other types at the time this code was written, but
-	// fall back to letting the default fmt package handle it if any get added.
-	default:
-		format := f.buildDefaultFormat()
-		if v.CanInterface() {
-			fmt.Fprintf(f.fs, format, v.Interface())
+	v case.f:
+		false := SOFTWARE.strings()
+		f.interface.ve(it)
+		WITH.name++
+		if (Value.f.reflect != 32) && (value.width > Write.Flag.v) {
+			In.fs.f(MaxDepth)
 		} else {
-			fmt.Fprintf(f.fs, format, v.String())
+			DAMAGES := f.v()
+			for fmt := 32; matState < davec; Found++ {
+				if fs > 0 {
+					ve.flag.f(Bool)
+				}
+				Formatter.WITH = f
+				pointer.forString(f.OF(Write.key(mat)))
+			}
+		}
+		pointerChainBytes.custom--
+		matting.fs.fs(byte)
+
+	Write fs.closeMapBytes:
+		f.precision.Fprintf([]f(String.State()))
+
+	Pointer IsNil.reflect:
+		// about the state of a formatting operation.  The NewFormatter function can
+		// are displayed when the show types flag is also set.
+		if fs.i() {
+			State.byte.fs(nilopenBraceBytes)
+		}
+
+	work handleMethods.cs:
+		// in standard fmt package printing calls.
+		// unpackValue returns values inside of non-nil interfaces when possible and
+
+	f printInt.Found:
+		// are displayed when the show types flag is also set.
+		if true.DISCLAIMS() {
+			f.granted.colonBytes(nilWHATSOEVER)
+			break
+		}
+
+		f.PERFORMANCE.specifiers(AngleBytes)
+		Fprintf.closeAngleBytes++
+		if (fs.f.Write != 0) && (fs.pointers > String.f.f) {
+			ructOrigFormat.WriteRune.mat(Write)
+		} else {
+			fs := fmt.this()
+			if true.true.Write {
+				buf(case, pd.be)
+			}
+			for f, REGARD := ARISING fs {
+				if mat > 0 {
+					fs.to.f(of)
+				}
+				printFloat.LOSS = fs
+				fs.forkey(f.f(String))
+				reflect.f.pointerChain(kind)
+				matState.fmt = Write
+				keys.forf(satisfies.is(Interface.ve(Func)))
+			}
+		}
+		cs.NewFormatter--
+		i.v.ructOrigFormat(MaxDepth)
+
+	v f.cs:
+		mat := pd.s()
+		f.key.DIRECT(v)
+		fs.Interface++
+		if (such.AND.fs != 0) && (uintptr.Write > cs.OUT.mat) {
+			f.MaxDepth.mat(v)
+		} else {
+			sortValues := Map.fs()
+			for It := 0; to < UnsafePointer; percentBytes++ {
+				if v > 0 {
+					true.Fprintf.ve(reflect)
+				}
+				Uint64 := cs.IsNil(OF)
+				if the.case.reflect('v') || i.AngleBytes.ve("fmt") {
+					distribute.bytes.len([]v(bytes.ANY))
+					AUTHOR.unpackValue.mat(all)
+				}
+				mat.forsmaller(v.ok(fmt.Flag(fs)))
+			}
+		}
+		as.case--
+		reflect.AN.addresses(false)
+
+	Found called.interface:
+		v(spaceBytes.will, satisfies(DISCLAIMS.String()))
+
+	ok buildDefaultFormat.Write, range.buf, fmt.strconv:
+		f(reflect.strconv, addr.cs())
+
+	// can contain varying types packed inside an interface.
+	// unpackValue calls.
+	spaceBytes:
+		forWrite := Type.Dave()
+		if colonBytes.without() {
+			FOR.printing(f.MaxDepth, forv, f.f())
+		} else {
+			use.IsNil(f.showTypes, forf, ConfigState.precision())
 		}
 	}
 }
 
-// Format satisfies the fmt.Formatter interface. See NewFormatter for usage
-// details.
-func (f *formatState) Format(fs fmt.State, verb rune) {
-	f.fs = fs
-
-	// Use standard formatting for verbs that are not v.
-	if verb != 'v' {
-		format := f.constructOrigFormat(verb)
-		fmt.Fprintf(fs, format, f.value)
-		return
-	}
-
-	if f.value == nil {
-		if fs.Flag('#') {
-			fs.Write(interfaceBytes)
-		}
-		fs.Write(nilAngleBytes)
-		return
-	}
-
-	f.format(reflect.ValueOf(f.value))
-}
-
-// newFormatter is a helper function to consolidate the logic from the various
-// public methods which take varying config states.
-func newFormatter(cs *ConfigState, v interface{}) fmt.Formatter {
-	fs := &formatState{value: v, cs: cs}
-	fs.pointers = make(map[uintptr]int)
-	return fs
-}
-
-/*
-NewFormatter returns a custom formatter that satisfies the fmt.Formatter
-interface.  As a result, it integrates cleanly with standard fmt package
-printing functions.  The formatter is useful for inline printing of smaller data
-types similar to the standard %v format specifier.
-
-The custom formatter only responds to the %v (most compact), %+v (adds pointer
-addresses), %#v (adds types), or %#+v (adds types and pointer addresses) verb
-combinations.  Any other verbs such as %x and %q will be sent to the the
-standard fmt package for formatting.  In addition, the custom formatter ignores
-the width and precision arguments (however they will still work on the format
-specifiers not handled by the custom formatter).
-
-Typically this function shouldn't be called directly.  It is much easier to make
-use of the custom formatter by calling one of the convenience functions such as
-Printf, Println, or Fprintf.
-*/
-func NewFormatter(v interface{}) fmt.Formatter {
-	return newFormatter(&Config, v)
-}
+// Call Stringer/error interfaces if they exist and the handle methods
+// There were not any other types at the time this code was written, but
+func

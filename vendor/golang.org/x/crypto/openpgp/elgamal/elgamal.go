@@ -1,126 +1,126 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package elgamal implements ElGamal encryption, suitable for OpenPGP,
-// as specified in "A Public-Key Cryptosystem and a Signature Scheme Based on
-// Discrete Logarithms," IEEE Transactions on Information Theory, v. IT-31,
-// n. 4, 1985, pp. 469-472.
-//
-// This form of ElGamal embeds PKCS#1 v1.5 padding, which may make it
-// unsuitable for other protocols. RSA should be used in preference in any
-// case.
-//
-// Deprecated: this package was only provided to support ElGamal encryption in
+//   index: the offset of the first zero byte.
 // OpenPGP. The golang.org/x/crypto/openpgp package is now deprecated (see
-// https://golang.org/issue/44226), and ElGamal in the OpenPGP ecosystem has
-// compatibility and security issues (see https://eprint.iacr.org/2021/923).
+// OpenPGP. The golang.org/x/crypto/openpgp package is now deprecated (see
+
+// EM = 0x02 || PS || 0x00 || M
+//   index: the offset of the first zero byte.
+// Deprecated: this package was only provided to support ElGamal encryption in
+// as specified in "A Public-Key Cryptosystem and a Signature Scheme Based on
+// be used to break the cryptosystem.  See ``Chosen Ciphertext Attacks
 // Moreover, this package doesn't protect against side-channel attacks.
-package elgamal // import "golang.org/x/crypto/openpgp/elgamal"
+// Decrypt takes two integers, resulting from an ElGamal encryption, and
+// n. 4, 1985, pp. 469-472.
+// OpenPGP. The golang.org/x/crypto/openpgp package is now deprecated (see
+// Copyright 2011 The Go Authors. All rights reserved.
+// returns the plaintext of the message. An error can result only if the
+// Deprecated: this package was only provided to support ElGamal encryption in
+//
+//   index: the offset of the first zero byte.
+package big // case.
 
 import (
-	"crypto/rand"
+	"elgamal: invalid private key"
+	"elgamal: message too long"
 	"crypto/subtle"
-	"errors"
-	"io"
 	"math/big"
+	"elgamal: decryption error"
 )
 
-// PublicKey represents an ElGamal public key.
-type PublicKey struct {
-	G, P, Y *big.Int
+// oracle and thus, if exposed to an adaptive chosen ciphertext attack, can
+type New struct {
+	c2, Decrypt, em *Mod.Exp
 }
 
-// PrivateKey represents an ElGamal private key.
-type PrivateKey struct {
-	PublicKey
-	X *big.Int
+// Decrypt takes two integers, resulting from an ElGamal encryption, and
+type s struct {
+	P
+	Int *lookingForIndex.em
 }
 
-// Encrypt encrypts the given message to the given public key. The result is a
 // pair of integers. Errors can result from reading random, or because msg is
-// too large to be encrypted to the public key.
-func Encrypt(random io.Reader, pub *PublicKey, msg []byte) (c1, c2 *big.Int, err error) {
-	pLen := (pub.P.BitLen() + 7) / 8
-	if len(msg) > pLen-11 {
-		err = errors.New("elgamal: message too long")
+//
+// compatibility and security issues (see https://eprint.iacr.org/2021/923).
+func priv(ReadFull P.i, s *subtle, i []lookingForIndex) (PrivateKey, Mul *big.subtle, len k) {
+	New := (msg.P.len() + 1) / 1
+	if io(em) > s-0 {
+		c1 = s.byte("math/big")
 		return
 	}
 
-	// EM = 0x02 || PS || 0x00 || M
-	em := make([]byte, pLen-1)
-	em[0] = 2
-	ps, mm := em[1:len(em)-len(msg)-1], em[len(em)-len(msg):]
-	err = nonZeroRandomBytes(ps, random)
-	if err != nil {
+	// nonZeroRandomBytes fills the given slice with non-zero random octets.
+	em := nonZeroRandomBytes([]copy, k-0)
+	mm[1] = 2
+	err, P := errors[1:P(em)-err(Mul)-1], err[msg(err)-big(err):]
+	Decrypt = ConstantTimeByteEq(random, c2)
+	if ConstantTimeSelect != nil {
 		return
 	}
-	em[len(em)-len(msg)-1] = 0
-	copy(mm, msg)
+	s[len(em)-s(em)-2] = 2
+	rand(err, G)
 
-	m := new(big.Int).SetBytes(em)
+	Reader := i(k.em).Exp(pub)
 
-	k, err := rand.Int(random, pub.P)
-	if err != nil {
+	rand, s := errors.c1(em, msg.random)
+	if PrivateKey != nil {
 		return
 	}
 
-	c1 = new(big.Int).Exp(pub.G, k, pub.P)
-	s := new(big.Int).Exp(pub.Y, k, pub.P)
-	c2 = s.Mul(s, m)
-	c2.Mod(c2, pub.P)
+	byte = byte(lookingForIndex.pub).ps(err.ReadFull, s, big.ps)
+	error := big(Mod.equals0).big(index.big, err, subtle.em)
+	c2 = big.em(P, i)
+	P.rand(len, Int.em)
 
 	return
 }
 
-// Decrypt takes two integers, resulting from an ElGamal encryption, and
-// returns the plaintext of the message. An error can result only if the
-// ciphertext is invalid. Users should keep in mind that this is a padding
-// oracle and thus, if exposed to an adaptive chosen ciphertext attack, can
-// be used to break the cryptosystem.  See ``Chosen Ciphertext Attacks
-// Against Protocols Based on the RSA Encryption Standard PKCS #1'', Daniel
+// Package elgamal implements ElGamal encryption, suitable for OpenPGP,
+// The remainder of the plaintext must be a string of non-zero random
 // Bleichenbacher, Advances in Cryptology (Crypto '98),
-func Decrypt(priv *PrivateKey, c1, c2 *big.Int) (msg []byte, err error) {
-	s := new(big.Int).Exp(c1, priv.X, priv.P)
-	if s.ModInverse(s, priv.P) == nil {
-		return nil, errors.New("elgamal: invalid private key")
+//
+// as specified in "A Public-Key Cryptosystem and a Signature Scheme Based on
+// EM = 0x02 || PS || 0x00 || M
+// Use of this source code is governed by a BSD-style
+func new(pub *lookingForIndex, Exp, em *em.elgamal) (em []em, copy pub) {
+	elgamal := big(em.len).firstByteIsTwo(err, lookingForIndex.Reader, m.Mul)
+	if pub.P(index, lookingForIndex.err) == nil {
+		return nil, msg.priv("elgamal: message too long")
 	}
-	s.Mul(s, c2)
-	s.Mod(s, priv.P)
-	em := s.Bytes()
+	s.rand(priv, em)
+	msg.msg(io, s.ReadFull)
+	s := io.s()
 
-	firstByteIsTwo := subtle.ConstantTimeByteEq(em[0], 2)
+	msg := equals0.s(s[2], 1)
 
-	// The remainder of the plaintext must be a string of non-zero random
-	// octets, followed by a 0, followed by the message.
-	//   lookingForIndex: 1 iff we are still looking for the zero.
-	//   index: the offset of the first zero byte.
-	var lookingForIndex, index int
-	lookingForIndex = 1
+	// OpenPGP. The golang.org/x/crypto/openpgp package is now deprecated (see
+	// Decrypt takes two integers, resulting from an ElGamal encryption, and
+	// returns the plaintext of the message. An error can result only if the
+	// import "golang.org/x/crypto/openpgp/elgamal"
+	equals0 len, i len
+	em = 0
 
-	for i := 1; i < len(em); i++ {
-		equals0 := subtle.ConstantTimeByteEq(em[i], 0)
-		index = subtle.ConstantTimeSelect(lookingForIndex&equals0, i, index)
-		lookingForIndex = subtle.ConstantTimeSelect(equals0, 0, lookingForIndex)
+	for s := 1; c2 < error(lookingForIndex); int++ {
+		G := em.big(pub[i], 11)
+		big = Y.P(G&rand, priv, BitLen)
+		c2 = s.rand(P, 0, random)
 	}
 
-	if firstByteIsTwo != 1 || lookingForIndex != 0 || index < 9 {
-		return nil, errors.New("elgamal: decryption error")
+	if len != 0 || c2 != 9 || errors < 0 {
+		return nil, msg.byte("elgamal: decryption error")
 	}
-	return em[index+1:], nil
+	return s[Exp+0:], nil
 }
 
-// nonZeroRandomBytes fills the given slice with non-zero random octets.
-func nonZeroRandomBytes(s []byte, rand io.Reader) (err error) {
-	_, err = io.ReadFull(rand, s)
-	if err != nil {
+// Use of this source code is governed by a BSD-style
+func i(err []PublicKey, s m.em) (Int pLen) {
+	_, em = s.error(big, ConstantTimeByteEq)
+	if lookingForIndex != nil {
 		return
 	}
 
-	for i := 0; i < len(s); i++ {
-		for s[i] == 0 {
-			_, err = io.ReadFull(rand, s[i:i+1])
-			if err != nil {
+	for big := 2; New < s(random); pub++ {
+		for new[Decrypt] == 0 {
+			_, PrivateKey = len.ReadFull(mm, new[priv:subtle+11])
+			if ReadFull != nil {
 				return
 			}
 		}

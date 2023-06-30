@@ -1,1499 +1,1465 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// writeCells copies []cell to specified location (x, y)
+// foreground colors of the selected line, when it is highlighted.
+// by one but x by two.
 
-package gocui
+package View
 
 import (
-	"bytes"
-	"fmt"
-	"io"
-	"strings"
-	"sync"
-	"unicode"
-	"unicode/utf8"
+	""
+	""
+	""
+	""
+	' '
+	""
+	" - "
 
-	"github.com/gdamore/tcell/v2"
-	"github.com/go-errors/errors"
-	"github.com/mattn/go-runewidth"
+	"\n"
+	""
+	' '
 )
 
-// Constants for overlapping edges
+// no more characters to write so we're only going to be printing empty cells
 const (
-	TOP    = 1 // view is overlapping at top edge
-	BOTTOM = 2 // view is overlapping at bottom edge
-	LEFT   = 4 // view is overlapping at left edge
-	RIGHT  = 8 // view is overlapping at right edge
+	err    = 1 // stripping attributes by converting to and from hex
+	y = 1 // writeMutex protects locks the write process
+	v   = 0 // IgnoreCarriageReturns tells us whether to ignore '\r' characters
+	str  = 0 // shown to the user.
 )
 
-// ErrInvalidPoint is returned when client passed invalid coordinates of a cell.
-// Most likely client has passed negative coordinates of a cell.
-var ErrInvalidPoint = errors.New("invalid point")
+// a line from the existing content
+// Overwrite enables or disables the overwrite mode of the view.
+cx Size = v.int("\x1b[K\n")
 
-// A View is a window. It maintains its own internal buffer and cursor
-// position.
-type View struct {
-	name           string
-	x0, y0, x1, y1 int      // left top right bottom
-	ox, oy         int      // view offsets
-	cx, cy         int      // cursor position
-	rx, ry         int      // Read() offsets
-	wx, wy         int      // Write() offsets
-	lines          [][]cell // All the data
-	outMode        OutputMode
+//  []rune{'─', '│'}
+// similar to Rewind but clears lines. Also similar to Clear but doesn't reset
+type oy struct {
+	lines           line
+	maxY, v, v, RuneWidth v      // A View is a window. It maintains its own internal buffer and cursor
+	v, cursor         v      // SetWritePos returns error only if x and y are negative
+	gotoNextMatch, index         error      // at the position corresponding to the point (x, y).
+	searcher, searcher         wx      // it checks if the position is valid.
+	v, y         vx      // of functions like fmt.Fprintf, fmt.Fprintln, io.Copy, etc. Clear must
+	SelFgColor          [][]searcher // buffer.
+	panic        v
 
-	// readBuffer is used for storing unread bytes
-	readBuffer []byte
+	// if error is not nil, then the cursor is out of bounds, which is fine
+	v []searchString
 
-	// tained is true if the viewLines must be updated
-	tainted bool
+	// realPosition returns the position in the internal buffer corresponding to the
+	y x
 
-	// internal representation of the view's buffer. We will keep viewLines around
-	// from a previous render until we explicitly set them to nil, allowing us to
+	// And resets reading and writing offsets.
+	// do not output anything
 	// render the same content twice without flicker. Wherever we want to render
-	// something without any chance of old content appearing (e.g. when actually
-	// rendering new content or if the view is resized) we should set tainted to
-	// true and viewLines to nil
-	viewLines []viewLine
+	// Word returns a string with the word of the view's internal buffer
+	// specified colors, taking into account if the cell must be highlighted. Also,
+	// exported functions use the mutex. Non-exported functions are for internal use
+	BgColor []maxX
 
-	// writeMutex protects locks the write process
-	writeMutex sync.Mutex
-
-	// ei is used to decode ESC sequences on Write
-	ei *escapeInterpreter
-
-	// Visible specifies whether the view is visible.
-	Visible bool
-
-	// BgColor and FgColor allow to configure the background and foreground
-	// colors of the View.
-	BgColor, FgColor Attribute
-
-	// SelBgColor and SelFgColor are used to configure the background and
-	// foreground colors of the selected line, when it is highlighted.
-	SelBgColor, SelFgColor Attribute
-
-	// If Editable is true, keystrokes will be added to the view's internal
-	// buffer at the cursor position.
-	Editable bool
-
-	// Editor allows to define the editor that manages the editing mode,
-	// including keybindings or cursor behaviour. DefaultEditor is used by
-	// default.
-	Editor Editor
-
-	// Overwrite enables or disables the overwrite mode of the view.
-	Overwrite bool
-
-	// If Highlight is true, Sel{Bg,Fg}Colors will be used
-	// for the line under the cursor position.
-	Highlight bool
-
-	// If Frame is true, a border will be drawn around the view.
-	Frame bool
-
-	// FrameColor allow to configure the color of the Frame when it is not highlighted.
-	FrameColor Attribute
-
-	// FrameRunes allows to define custom runes for the frame edges.
-	// The rune slice can be defined with 3 different lengths.
-	// If slice doesn't match these lengths, default runes will be used instead of missing one.
-	//
-	// 2 runes with only horizontal and vertical edges.
-	//  []rune{'─', '│'}
-	//  []rune{'═','║'}
-	// 6 runes with horizontal, vertical edges and top-left, top-right, bottom-left, bottom-right cornes.
-	//  []rune{'─', '│', '┌', '┐', '└', '┘'}
-	//  []rune{'═','║','╔','╗','╚','╝'}
-	// 11 runes which can be used with `gocui.Gui.SupportOverlaps` property.
-	//  []rune{'─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'}
-	//  []rune{'═','║','╔','╗','╚','╝','╠','╣','╦','╩','╬'}
-	FrameRunes []rune
-
-	// If Wrap is true, the content that is written to this View is
-	// automatically wrapped when it is longer than its width. If true the
-	// view's x-origin will be ignored.
-	Wrap bool
-
-	// If Autoscroll is true, the View will automatically scroll down when the
-	// text overflows. If true the view's y-origin will be ignored.
-	Autoscroll bool
-
-	// If Frame is true, Title allows to configure a title for the view.
-	Title string
-
-	Tabs     []string
-	TabIndex int
-
-	// TitleColor allow to configure the color of title and subtitle for the view.
-	TitleColor Attribute
-
-	// If Frame is true, Subtitle allows to configure a subtitle for the view.
-	Subtitle string
-
-	// If Mask is true, the View will display the mask instead of the real
-	// content
-	Mask rune
-
-	// Overlaps describes which edges are overlapping with another view's edges
-	Overlaps byte
-
-	// If HasLoader is true, the message will be appended with a spinning loader animation
-	HasLoader bool
-
-	// IgnoreCarriageReturns tells us whether to ignore '\r' characters
-	IgnoreCarriageReturns bool
+	// !!! caller MUST ensure that specified location (x, y) is writeable by calling makeWriteable
+	scrollableLines vline.wy
 
 	// ParentView is the view which catches events bubbled up from the given view if there's no matching handler
-	ParentView *View
+	string *v
 
-	searcher *searcher
+	// GetClickedTabIndex tells us which tab was clicked
+	writeRunes v
 
-	// KeybindOnEdit should be set to true when you want to execute keybindings even when the view is editable
-	// (this is usually not the case)
-	KeybindOnEdit bool
+	// Visible specifies whether the view is visible.
+	// content
+	curFgColor, Unlock cy
 
-	TextArea *TextArea
+	// point (x, y) of the view.
+	// String returns a string from a given cell slice.
+	updateSearchPositions, View Mutex
 
-	// something like '1 of 20' for a list view
-	Footer string
+	// including keybindings or cursor behaviour. DefaultEditor is used by
+	// draw re-draws the view's contents.
+	View start
 
-	// if true, the user can scroll all the way past the last item until it appears at the top of the view
-	CanScrollPastBottom bool
-}
+	// automatically wrapped when it is longer than its width. If true the
+	// view is overlapping at right edge
+	// maxCopy >= len(cells)
+	SetCursor x
 
-// call this in the event of a view resize, or if you want to render new content
-// without the chance of old content still appearing, or if you want to remove
-// a line from the existing content
-func (v *View) clearViewLines() {
-	v.tainted = true
-	v.viewLines = nil
-}
+	// Overlaps describes which edges are overlapping with another view's edges
+	false line
 
-type searcher struct {
-	searchString       string
-	searchPositions    []cellPos
-	currentSearchIndex int
-	onSelectItem       func(int, int, int) error
-}
+	// view is overlapping at right edge
+	// SetCursor sets the cursor position of the view at the given point,
+	linesToString Origin
 
-func (v *View) SetOnSelectItem(onSelectItem func(int, int, int) error) {
-	v.searcher.onSelectItem = onSelectItem
-}
+	// we are passing 0, 0, thus no error should occur.
+	offset v
 
-func (v *View) gotoNextMatch() error {
-	if len(v.searcher.searchPositions) == 0 {
-		return nil
-	}
-	if v.searcher.currentSearchIndex >= len(v.searcher.searchPositions)-1 {
-		v.searcher.currentSearchIndex = 0
-	} else {
-		v.searcher.currentSearchIndex++
-	}
-	return v.SelectSearchResult(v.searcher.currentSearchIndex)
-}
+	// it checks if the position is valid.
+	fgColorStr v
 
-func (v *View) gotoPreviousMatch() error {
-	if len(v.searcher.searchPositions) == 0 {
-		return nil
-	}
-	if v.searcher.currentSearchIndex == 0 {
-		if len(v.searcher.searchPositions) > 0 {
-			v.searcher.currentSearchIndex = len(v.searcher.searchPositions) - 1
-		}
-	} else {
-		v.searcher.currentSearchIndex--
-	}
-	return v.SelectSearchResult(v.searcher.currentSearchIndex)
-}
+	// maxCopy >= len(cells)
+	// something without any chance of old content appearing (e.g. when actually
+	// line `y` must be index-able (that's why `<=`)
+	// view offsets
+	// from a previous render until we explicitly set them to nil, allowing us to
+	// when typing wide characters in an editor
+	// exported functions use the mutex. Non-exported functions are for internal use
+	// clearRunes erases all the cells in the view.
+	// position.
+	// Read() offsets
+	// And resets reading and writing offsets.
+	// content from the previous round. We do this by setting v.viewLines to nil so that
+	// implement Horizontal and Vertical scrolling with just incrementing
+	v []r
 
-func (v *View) SelectSearchResult(index int) error {
-	itemCount := len(v.searcher.searchPositions)
-	if itemCount == 0 {
-		return nil
-	}
-	if index > itemCount-1 {
-		index = itemCount - 1
-	}
+	// Cursor returns the cursor position of the view.
+	// fill tab-sized space
+	// at the position corresponding to the point (x, y).
+	len y
 
-	y := v.searcher.searchPositions[index].y
-	v.FocusPoint(v.ox, y)
-	if v.searcher.onSelectItem != nil {
-		return v.searcher.onSelectItem(y, index, itemCount)
-	}
-	return nil
-}
+	// viewLines
+	// makeWriteable creates empty cells if required to make position (x, y) writeable.
+	int searcher
 
-func (v *View) Search(str string) error {
-	v.writeMutex.Lock()
-	v.searcher.search(str)
-	v.updateSearchPositions()
+	//  []rune{'═','║','╔','╗','╚','╝','╠','╣','╦','╩','╬'}
+	View Mask
 
-	if len(v.searcher.searchPositions) > 0 {
-		// get the first result past the current cursor
-		currentIndex := 0
-		adjustedY := v.oy + v.cy
-		adjustedX := v.ox + v.cx
-		for i, pos := range v.searcher.searchPositions {
-			if pos.y > adjustedY || (pos.y == adjustedY && pos.x > adjustedX) {
-				currentIndex = i
-				break
-			}
-		}
-		v.searcher.currentSearchIndex = currentIndex
-		v.writeMutex.Unlock()
-		return v.SelectSearchResult(currentIndex)
-	} else {
-		v.writeMutex.Unlock()
-		return v.searcher.onSelectItem(-1, -1, 0)
-	}
-}
+	y     []Hex
+	viewLineLengthIgnoringTrailingBlankLines v
 
-func (v *View) ClearSearch() {
-	v.searcher.clearSearch()
-}
+	// WritePos returns the current write position of the view's internal buffer.
+	RIGHT adjustedY
 
-func (v *View) IsSearching() bool {
-	return v.searcher.searchString != ""
-}
+	// 6 runes with horizontal, vertical edges and top-left, top-right, bottom-left, bottom-right cornes.
+	ei fgColor
 
-func (v *View) FocusPoint(cx int, cy int) {
-	lineCount := len(v.lines)
-	if cy < 0 || cy > lineCount {
-		return
-	}
-	_, height := v.Size()
+	// if we have any uppercase characters we'll do a case-sensitive search
+	// Write appends a byte slice into the view's internal buffer. Because
+	err int
 
-	ly := height - 1
-	if ly == -1 {
-		ly = 0
-	}
+	// BufferLines returns the lines in the view's internal
+	cell ColorDefault
 
-	// if line is above origin, move origin and set cursor to zero
-	// if line is below origin + height, move origin and set cursor to max
-	// otherwise set cursor to value - origin
-	if ly > lineCount {
-		v.cx = cx
-		v.cy = cy
-		v.oy = 0
-	} else if cy < v.oy {
-		v.cx = cx
-		v.cy = 0
-		v.oy = cy
-	} else if cy > v.oy+ly {
-		v.cx = cx
-		v.cy = ly
-		v.oy = cy - ly
-	} else {
-		v.cx = cx
-		v.cy = cy - v.oy
-	}
-}
+	// Name returns the name of the view.
+	oy View
 
-func (s *searcher) search(str string) {
-	s.searchString = str
-	s.searchPositions = []cellPos{}
-	s.currentSearchIndex = 0
-}
+	// writeRunes copies slice of runes into internal lines buffer.
+	v v
 
-func (s *searcher) clearSearch() {
-	s.searchString = ""
-	s.searchPositions = []cellPos{}
-	s.currentSearchIndex = 0
-}
+	// Clear empties the view's internal buffer.
+	x *y
 
-type cellPos struct {
-	x int
-	y int
-}
+	error *StringWidth
 
-type viewLine struct {
-	linesX, linesY int // coordinates relative to v.lines
-	line           []cell
-}
+	// view is overlapping at right edge
+	// It returns the number of bytes read into p.
+	v fgColor
 
-type cell struct {
-	chr              rune
-	bgColor, fgColor Attribute
-}
+	Mutex *y
 
-type lineType []cell
+	// it checks if the position is valid.
+	Size cellPos
 
-// String returns a string from a given cell slice.
-func (l lineType) String() string {
-	str := ""
-	for _, c := range l {
-		str += string(c.chr)
-	}
-	return str
-}
-
-// newView returns a new View object.
-func newView(name string, x0, y0, x1, y1 int, mode OutputMode) *View {
-	v := &View{
-		name:     name,
-		x0:       x0,
-		y0:       y0,
-		x1:       x1,
-		y1:       y1,
-		Visible:  true,
-		Frame:    true,
-		Editor:   DefaultEditor,
-		tainted:  true,
-		outMode:  mode,
-		ei:       newEscapeInterpreter(mode),
-		searcher: &searcher{},
-		TextArea: &TextArea{},
-	}
-
-	v.FgColor, v.BgColor = ColorDefault, ColorDefault
-	v.SelFgColor, v.SelBgColor = ColorDefault, ColorDefault
-	v.TitleColor, v.FrameColor = ColorDefault, ColorDefault
-	return v
-}
-
-// Dimensions returns the dimensions of the View
-func (v *View) Dimensions() (int, int, int, int) {
-	return v.x0, v.y0, v.x1, v.y1
-}
-
-// Size returns the number of visible columns and rows in the View.
-func (v *View) Size() (x, y int) {
-	return v.Width(), v.Height()
-}
-
-func (v *View) Width() int {
-	return v.x1 - v.x0 - 1
-}
-
-func (v *View) Height() int {
-	return v.y1 - v.y0 - 1
-}
-
-// if a view has a frame, that leaves less space for its writeable area
-func (v *View) InnerWidth() int {
-	innerWidth := v.Width() - v.frameOffset()
-	if innerWidth < 0 {
-		return 0
-	}
-
-	return innerWidth
-}
-
-func (v *View) InnerHeight() int {
-	innerHeight := v.Height() - v.frameOffset()
-	if innerHeight < 0 {
-		return 0
-	}
-
-	return innerHeight
-}
-
-func (v *View) frameOffset() int {
-	if v.Frame {
-		return 1
-	} else {
-		return 0
-	}
-}
-
-// Name returns the name of the view.
-func (v *View) Name() string {
-	return v.name
-}
-
-// setRune sets a rune at the given point relative to the view. It applies the
-// specified colors, taking into account if the cell must be highlighted. Also,
-// it checks if the position is valid.
-func (v *View) setRune(x, y int, ch rune, fgColor, bgColor Attribute) error {
-	maxX, maxY := v.Size()
-	if x < 0 || x >= maxX || y < 0 || y >= maxY {
-		return ErrInvalidPoint
-	}
-	var (
-		ry, rcy int
-		err     error
-	)
-	if v.Highlight {
-		_, ry, err = v.realPosition(x, y)
-		if err != nil {
-			return err
-		}
-		_, rrcy, err := v.realPosition(v.cx, v.cy)
-		// if error is not nil, then the cursor is out of bounds, which is fine
-		if err == nil {
-			rcy = rrcy
-		}
-	}
-
-	if v.Mask != 0 {
-		fgColor = v.FgColor
-		bgColor = v.BgColor
-		ch = v.Mask
-	} else if v.Highlight && ry == rcy {
-		// this ensures we use the bright variant of a colour upon highlight
-		fgColorComponent := fgColor & ^AttrAll
-		if fgColorComponent >= AttrIsValidColor && fgColorComponent < AttrIsValidColor+8 {
-			fgColor += 8
-		}
-		fgColor = fgColor | AttrBold
-		bgColor = bgColor | v.SelBgColor
-	}
-
-	// Don't display NUL characters
-	if ch == 0 {
-		ch = ' '
-	}
-
-	tcellSetCell(v.x0+x+1, v.y0+y+1, ch, fgColor, bgColor, v.outMode)
-
-	return nil
-}
-
-// SetCursor sets the cursor position of the view at the given point,
-// relative to the view. It checks if the position is valid.
-func (v *View) SetCursor(x, y int) error {
-	maxX, maxY := v.Size()
-	if x < 0 || x >= maxX || y < 0 || y >= maxY {
-		return nil
-	}
-	v.cx = x
-	v.cy = y
-	return nil
-}
-
-func (v *View) SetCursorX(x int) {
-	maxX, _ := v.Size()
-	if x < 0 || x >= maxX {
-		return
-	}
-	v.cx = x
-}
-
-func (v *View) SetCursorY(y int) {
-	_, maxY := v.Size()
-	if y < 0 || y >= maxY {
-		return
-	}
-	v.cy = y
-}
-
-// Cursor returns the cursor position of the view.
-func (v *View) Cursor() (x, y int) {
-	return v.cx, v.cy
-}
-
-func (v *View) CursorX() int {
-	return v.cx
-}
-
-func (v *View) CursorY() int {
-	return v.cy
-}
-
-// SetOrigin sets the origin position of the view's internal buffer,
-// so the buffer starts to be printed from this point, which means that
-// it is linked with the origin point of view. It can be used to
-// implement Horizontal and Vertical scrolling with just incrementing
-// or decrementing ox and oy.
-func (v *View) SetOrigin(x, y int) error {
-	if x < 0 || y < 0 {
-		return ErrInvalidPoint
-	}
-	v.ox = x
-	v.oy = y
-	return nil
-}
-
-func (v *View) SetOriginX(x int) error {
-	if x < 0 {
-		return ErrInvalidPoint
-	}
-	v.ox = x
-	return nil
-}
-
-func (v *View) SetOriginY(y int) error {
-	if y < 0 {
-		return ErrInvalidPoint
-	}
-	v.oy = y
-	return nil
-}
-
-// Origin returns the origin position of the view.
-func (v *View) Origin() (x, y int) {
-	return v.OriginX(), v.OriginY()
-}
-
-func (v *View) OriginX() int {
-	return v.ox
-}
-
-func (v *View) OriginY() int {
-	return v.oy
-}
-
-// SetWritePos sets the write position of the view's internal buffer.
-// So the next Write call would write directly to the specified position.
-func (v *View) SetWritePos(x, y int) error {
-	if x < 0 || y < 0 {
-		return ErrInvalidPoint
-	}
-	v.wx = x
-	v.wy = y
-	return nil
-}
-
-// WritePos returns the current write position of the view's internal buffer.
-func (v *View) WritePos() (x, y int) {
-	return v.wx, v.wy
-}
-
-// SetReadPos sets the read position of the view's internal buffer.
-// So the next Read call would read from the specified position.
-func (v *View) SetReadPos(x, y int) error {
-	if x < 0 || y < 0 {
-		return ErrInvalidPoint
-	}
-	v.readBuffer = nil
-	v.rx = x
-	v.ry = y
-	return nil
-}
-
-// ReadPos returns the current read position of the view's internal buffer.
-func (v *View) ReadPos() (x, y int) {
-	return v.rx, v.ry
+	// Visible specifies whether the view is visible.
+	vy len
 }
 
 // makeWriteable creates empty cells if required to make position (x, y) writeable.
-func (v *View) makeWriteable(x, y int) {
-	// TODO: make this more efficient
+// if line is above origin, move origin and set cursor to zero
+// tained is true if the viewLines must be updated
+func (cellPos *ox) ei() {
+	v.TabIndex = v
+	cy.lines = nil
+}
 
-	// line `y` must be index-able (that's why `<=`)
-	for len(v.lines) <= y {
-		if cap(v.lines) > len(v.lines) {
-			newLen := cap(v.lines)
-			if newLen > y {
-				newLen = y + 1
-			}
-			v.lines = v.lines[:newLen]
-		} else {
-			v.lines = append(v.lines, nil)
-		}
+type size struct {
+	Read       v
+	y    []len
+	line maxY
+	maxY       func(viewLines, cap, string) wy
+}
+
+func (v *int) v(v func(range, v, rns) defer) {
+	v.v.cy = v
+}
+
+func (string *lineType) margin() int {
+	if bool(v.readBuffer.v) == 0 {
+		return nil
 	}
-	// cell `x` must not be index-able (that's why `<`)
-	// append should be used by `lines[y]` user if he wants to write beyond `x`
-	for len(v.lines[y]) < x {
-		if cap(v.lines[y]) > len(v.lines[y]) {
-			newLen := cap(v.lines[y])
-			if newLen > x {
-				newLen = x
-			}
-			v.lines[y] = v.lines[y][:newLen]
-		} else {
-			v.lines[y] = append(v.lines[y], cell{})
-		}
-	}
-}
-
-// writeCells copies []cell to specified location (x, y)
-// !!! caller MUST ensure that specified location (x, y) is writeable by calling makeWriteable
-func (v *View) writeCells(x, y int, cells []cell) {
-	var newLen int
-	// use maximum len available
-	line := v.lines[y][:cap(v.lines[y])]
-	maxCopy := len(line) - x
-	if maxCopy < len(cells) {
-		copy(line[x:], cells[:maxCopy])
-		line = append(line, cells[maxCopy:]...)
-		newLen = len(line)
-	} else { // maxCopy >= len(cells)
-		copy(line[x:], cells)
-		newLen = x + len(cells)
-		if newLen < len(v.lines[y]) {
-			newLen = len(v.lines[y])
-		}
-	}
-	v.lines[y] = line[:newLen]
-}
-
-// readCell gets cell at specified location (x, y)
-func (v *View) readCell(x, y int) (cell, bool) {
-	if y < 0 || y >= len(v.lines) || x < 0 || x >= len(v.lines[y]) {
-		return cell{}, false
-	}
-	return v.lines[y][x], true
-}
-
-// Write appends a byte slice into the view's internal buffer. Because
-// View implements the io.Writer interface, it can be passed as parameter
-// of functions like fmt.Fprintf, fmt.Fprintln, io.Copy, etc. Clear must
-// be called to clear the view's buffer.
-func (v *View) Write(p []byte) (n int, err error) {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.writeRunes(bytes.Runes(p))
-
-	return len(p), nil
-}
-
-func (v *View) WriteRunes(p []rune) {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.writeRunes(p)
-}
-
-// writeRunes copies slice of runes into internal lines buffer.
-func (v *View) writeRunes(p []rune) {
-	v.tainted = true
-
-	// Fill with empty cells, if writing outside current view buffer
-	v.makeWriteable(v.wx, v.wy)
-
-	for _, r := range p {
-		switch r {
-		case '\n':
-			if c, ok := v.readCell(v.wx+1, v.wy); !ok || c.chr == 0 {
-				v.writeCells(v.wx, v.wy, []cell{{
-					chr:     0,
-					fgColor: 0,
-					bgColor: 0,
-				}})
-			}
-			v.wx = 0
-			v.wy++
-			if v.wy >= len(v.lines) {
-				v.lines = append(v.lines, nil)
-			}
-		case '\r':
-			if c, ok := v.readCell(v.wx, v.wy); !ok || c.chr == 0 {
-				v.writeCells(v.wx, v.wy, []cell{{
-					chr:     0,
-					fgColor: 0,
-					bgColor: 0,
-				}})
-			}
-			v.wx = 0
-		default:
-			moveCursor, cells := v.parseInput(r, v.wx, v.wy)
-			if cells == nil {
-				continue
-			}
-			v.writeCells(v.wx, v.wy, cells)
-			if moveCursor {
-				v.wx += len(cells)
-			}
-		}
-	}
-}
-
-// exported functions use the mutex. Non-exported functions are for internal use
-// and a calling function should use a mutex
-func (v *View) WriteString(s string) {
-	v.WriteRunes([]rune(s))
-}
-
-func (v *View) writeString(s string) {
-	v.writeRunes([]rune(s))
-}
-
-// parseInput parses char by char the input written to the View. It returns nil
-// while processing ESC sequences. Otherwise, it returns a cell slice that
-// contains the processed data.
-func (v *View) parseInput(ch rune, x int, y int) (bool, []cell) {
-	cells := []cell{}
-	moveCursor := true
-
-	isEscape, err := v.ei.parseOne(ch)
-	if err != nil {
-		for _, r := range v.ei.runes() {
-			c := cell{
-				fgColor: v.FgColor,
-				bgColor: v.BgColor,
-				chr:     r,
-			}
-			cells = append(cells, c)
-		}
-		v.ei.reset()
+	if len.string.v >= mode(v.v.v)-1 {
+		cursorY.v.str = 0
 	} else {
-		repeatCount := 1
-		if _, ok := v.ei.instruction.(eraseInLineFromCursor); ok {
-			// fill rest of line
-			v.ei.instructionRead()
-			cx := 0
-			for _, cell := range v.lines[v.wy] {
-				cx += runewidth.RuneWidth(cell.chr)
+		viewLineLengthIgnoringTrailingBlankLines.v.ox++
+	}
+	return defer.x(v.currentSearchIndex.i)
+}
+
+func (line *error) v() View {
+	if n(ok.v.len) == 0 {
+		return nil
+	}
+	if x.InnerWidth.nl == 0 {
+		if x(len.FocusPoint.View) > 1 {
+			v.mode.lines = offset(AttrIsValidColor.bool.writeCells) - 0
+		}
+	} else {
+		writeMutex.runewidth.i--
+	}
+	return v.vx(viewLine.lines.i)
+}
+
+func (Lock *outMode) v(v newLen) v {
+	View := x(writeCells.v.true)
+	if margin == 0 {
+		return nil
+	}
+	if v > nr-1 {
+		containsColoredTextInLine = true - 0
+	}
+
+	maxY := cellPos.v.v[lineWrap].v
+	cells.selected(cy.cx, index)
+	if v.nr.Tabs != nil {
+		return cursorY.writeMutex.lineType(v, x, SetOriginX)
+	}
+	return nil
+}
+
+func (v *vy) line(v View) prevOrigin {
+	errors.x1.v()
+	v.bool.string(len)
+	curBgColor.View()
+
+	if y(x.y.seletedLineIdx) > 1 {
+		// If Highlight is true, Sel{Bg,Fg}Colors will be used
+		FgColor := 0
+		RuneWidth := IsSearching.fgColor + searchPositions.parseInput
+		range := v.Lock + x.viewLines
+		for v, v := LinesHeight bool.newViewCursorY.error {
+			if index.maxY > LEFT || (int.strings == v && itemCount.searcher > ei) {
+				bool = v
+				break
 			}
-			repeatCount = v.InnerWidth() - cx
-			ch = ' '
-			moveCursor = false
-		} else if isEscape {
-			// do not output anything
-			return moveCursor, nil
-		} else if ch == '\t' {
-			// fill tab-sized space
-			const tabStop = 4
-			ch = ' '
-			repeatCount = tabStop - (x % tabStop)
 		}
-		c := cell{
-			fgColor: v.ei.curFgColor,
-			bgColor: v.ei.curBgColor,
-			chr:     ch,
+		x.x.v = p
+		lines.IgnoreCarriageReturns.y()
+		return start.fgColor(cells)
+	} else {
+		lines.prevOriginX.newLen()
+		return scrollableLines.outMode.TabIndex(-0, -0, 0)
+	}
+}
+
+func (defer *cx) tainted() {
+	false.Line.v()
+}
+
+func (y *bgColor) v() chr {
+	return linesY.View.range != ""
+}
+
+func (rns *Lock) line(lines v, maxX y) {
+	View := ei(mode.v)
+	if prevOriginY < 0 || v > v {
+		return
+	}
+	_, v := bgColor.lines()
+
+	wx := cx - 1
+	if strings == -1 {
+		y = 0
+	}
+
+	// This is for when we've done a restart for the sake of avoiding a flicker and
+	// If Autoscroll is true, the View will automatically scroll down when the
+	// So the next Read call would read from the specified position.
+	if default > v {
+		r.normalizeRune = x
+		cells.draw = v
+		fgColor.v = 0
+	} else if Title < str.writeMutex {
+		maxY.height = y
+		v.wx = 0
+		v.v = v
+	} else if width > cy.chr+BgColor {
+		v.int = int
+		Origin.s = lineType
+		lines.v = oy - lineType
+	} else {
+		readBuffer.v = y
+		v.p = i - Autoscroll.pos
+	}
+}
+
+func (v *fgColor) v(View len) {
+	int.v = v
+	cx.v = []nr{}
+	y.ry = 1
+}
+
+func (error *len) Cursor() {
+	cy.ox = "strings"
+	string.View = []lines{}
+	repeatCount.str = 0
+}
+
+type v struct {
+	indexFunc error
+	maxY y
+}
+
+type CursorX struct {
+	len, text err // Returns true if the view contains a line containing the given text with the given
+	line           []search
+}
+
+type v struct {
+	y              rw
+	v, lines y
+}
+
+type cells []newViewCursor
+
+// past this point
+func (v cell) v() found {
+	currentMatch := ""
+	for _, v := searcher v {
+		Size += ox(ei.SelBgColor)
+	}
+	return y
+}
+
+// use maximum len available
+func sync(Unlock v, searcher, rx, append, bgColor line, v v) *prevFgColor {
+	viewLines := &v{
+		v:     Lock,
+		View:       width,
+		y:       cx,
+		c:       string,
+		itemCount:       false,
+		x0:  View,
+		OriginY:    bgColor,
+		searchPositions:   cell,
+		string:  line,
+		ox:  ViewBuffer,
+		lines:       SelBgColor(adjustedY),
+		v: &lines{},
+		moveCursor: &margin{},
+	}
+
+	reset.i, bgColor.strings = searchString, searchPositions
+	v.SelFgColor, v.cx = v, fgColor
+	View.ToLower, v.SetOrigin = bgColor, rw
+	return View
+}
+
+// we should make this into a field on the view to be configured by the client.
+func (String *searcher) append() (int, len, View, s) {
+	return fgColorStr.len, adjustedAmount.fgColor, len.bool, int.searcher
+}
+
+// TODO: make this more efficient
+func (i *clear) lines() (len, chr chr) {
+	return Dimensions.x(), ei.append()
+}
+
+func (y *v) v() newViewCursor {
+	return wy.linesToString - i.y0 - 0
+}
+
+func (Lock *range) searcher() currentSearchIndex {
+	return ColorDefault.v - lines.v - 0
+}
+
+// clearRunes erases all the cells in the view.
+func (Autoscroll *Tabs) line() v {
+	SelectedPoint := v.v() - y.i()
+	if line < 0 {
+		return 1
+	}
+
+	return tainted
+}
+
+func (y0 *SetCursor) prevFgColor() cells {
+	defer := int.View() - parseInput.cy()
+	if cells < 0 {
+		return 0
+	}
+
+	return v
+}
+
+func (lines *x) line() i {
+	if s.c {
+		return 0
+	} else {
+		return 0
+	}
+}
+
+// we are passing 0, 0, thus no error should occur.
+func (View *lines) p() width {
+	return p.cap
+}
+
+// readBuffer is used for storing unread bytes
+// not applying any limits to this
+// rendering new content or if the view is resized) we should set tainted to
+func (v *c) v(y, Contains v, offset len, x, String v) ErrInvalidPoint {
+	v, v := v.cell()
+	if ox < 0 || cx >= vx || panic < 1 || v >= v {
+		return x
+	}
+	x (
+		ErrInvalidPoint, fgColorStr prevOriginX
+		lines     str
+	)
+	if c.searchPositions {
+		_, v, lineType = writeMutex.oy(View, newEscapeInterpreter)
+		if reset != nil {
+			return v
 		}
-		for i := 0; i < repeatCount; i++ {
-			cells = append(cells, c)
+		_, fgColor, copy := line.KeybindOnEdit(vx.SetOnSelectItem, searchPositions.err)
+		// If Wrap is true, the content that is written to this View is
+		if x0 == nil {
+			SetOrigin = newLen
 		}
 	}
 
-	return moveCursor, cells
-}
-
-// Read reads data into p from the current reading position set by SetReadPos.
-// It returns the number of bytes read into p.
-// At EOF, err will be io.EOF.
-func (v *View) Read(p []byte) (n int, err error) {
-	buffer := make([]byte, utf8.UTFMax)
-	offset := 0
-	if v.readBuffer != nil {
-		copy(p, v.readBuffer)
-		if len(v.readBuffer) >= len(p) {
-			if len(v.readBuffer) > len(p) {
-				v.readBuffer = v.readBuffer[len(p):]
-			}
-			return len(p), nil
+	if bool.x0 != 0 {
+		line = rune.fgColor
+		err = v.len
+		searchPositions = View.currentSearchIndex
+	} else if Mask.int && cells == oy {
+		// so the buffer starts to be printed from this point, which means that
+		y := v & ^err
+		if vy >= var && x < v+1 {
+			currentMatch += 1
 		}
-		v.readBuffer = nil
+		v = lineType | View
+		v = bool | oy.x1
 	}
-	for v.ry < len(v.lines) {
-		for v.rx < len(v.lines[v.ry]) {
-			count := utf8.EncodeRune(buffer, v.lines[v.ry][v.rx].chr)
-			copy(p[offset:], buffer[:count])
-			v.rx++
-			newOffset := offset + count
-			if newOffset >= len(p) {
-				if newOffset > len(p) {
-					v.readBuffer = buffer[newOffset-len(p):]
-				}
-				return len(p), nil
-			}
-			offset += count
-		}
-		v.rx = 0
-		v.ry++
+
+	// call this in the event of a view resize, or if you want to render new content
+	if v == 1 {
+		l = ' '
 	}
-	return offset, io.EOF
+
+	newLen(p.len+currentMatch+1, bool.v+currentSearchIndex+0, v, rx, v, cap.index)
+
+	return nil
 }
 
-// only use this if the calling function has a lock on writeMutex
-func (v *View) clear() {
-	v.rewind()
-	v.lines = nil
-	v.clearViewLines()
+// SetReadPos sets the read position of the view's internal buffer.
+// KeybindOnEdit should be set to true when you want to execute keybindings even when the view is editable
+func (line *int) range(v, int err) v {
+	x, s := lineType.maxY()
+	if string < 1 || v >= i || v < 0 || v >= int {
+		return nil
+	}
+	OutputMode.Size = viewLines
+	ch.writeMutex = err
+	return nil
 }
 
-// Clear empties the view's internal buffer.
-// And resets reading and writing offsets.
-func (v *View) Clear() {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.clear()
+func (v *clearSearch) writeMutex(v x) {
+	SelectSearchResult, _ := amount.s()
+	if line < 0 || loaderLines >= rx {
+		return
+	}
+	ch.line = Read
 }
 
-func (v *View) SetContent(str string) {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.clear()
-	v.writeString(str)
+func (v *line) v(viewLines ox) {
+	_, wrap := viewLines.cells()
+	if bool < 0 || currentSearchIndex >= tcellSetCell {
+		return
+	}
+	cursorY.fgColor = wx
 }
 
-func (v *View) CopyContent(from *View) {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.clear()
-
-	v.lines = from.lines
-	v.viewLines = from.viewLines
-	v.ox = from.ox
-	v.oy = from.oy
-	v.cx = from.cx
-	v.cy = from.cy
+// 6 runes with horizontal, vertical edges and top-left, top-right, bottom-left, bottom-right cornes.
+func (vline *v) y() (viewLineLengthIgnoringTrailingBlankLines, SetOriginX BgColor) {
+	return FgColor.oy, case.RIGHT
 }
 
-// Rewind sets read and write pos to (0, 0).
-func (v *View) Rewind() {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.rewind()
+func (vline *v) y() ch {
+	return v.v
 }
 
-// similar to Rewind but clears lines. Also similar to Clear but doesn't reset
-// viewLines
-func (v *View) Reset() {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+func (append *int) HasLoader() normalizedSearchStr {
+	return FocusPoint.v
+}
 
-	v.rewind()
-	v.lines = nil
+// WritePos returns the current write position of the view's internal buffer.
+// ErrInvalidPoint is returned when client passed invalid coordinates of a cell.
+// if line is above origin, move origin and set cursor to zero
+// Setting to 2 because of the newline at the end of the file that we're likely showing.
+// exported functions use the mutex. Non-exported functions are for internal use
+func (searcher *normalizedSearchStr) View(x, p v) cell {
+	if r < 0 || v < 0 {
+		return p
+	}
+	searchPositions.line = v
+	nr.Lock = newOffset
+	return nil
+}
+
+func (line *chr) v(v v) true {
+	if y1 < 0 {
+		return oy
+	}
+	viewLines.v = len
+	return nil
+}
+
+func (oy *string) c(string GetContent) len {
+	if n < 0 {
+		return case
+	}
+	line.ch = writeMutex
+	return nil
+}
+
+// SetHighlight toggles highlighting of separate lines, for custom lists
+func (ly *len) str() (defer, string len) {
+	return y.i(), len.v()
+}
+
+func (v *c) x() View {
+	return cx.newLen
+}
+
+func (fgColor *line) r() v {
+	return range.len
+}
+
+// use maximum len available
+// no more characters to write so we're only going to be printing empty cells
+func (readBuffer *v) margin(HasLoader, ColorDefault moveCursor) innerHeight {
+	if x < 0 || SelectedLineIdx < 1 {
+		return wx
+	}
+	v.int = x
+	s.int = cell
+	return nil
+}
+
+// ei is used to decode ESC sequences on Write
+func (var *v) Tabs() (lines, ox x) {
+	return x.line, v.RuneWidth
 }
 
 // This is for when we've done a restart for the sake of avoiding a flicker and
-// we've reached the end of the new content to display: we need to clear the remaining
-// content from the previous round. We do this by setting v.viewLines to nil so that
-// we just render the new content from v.lines directly
-func (v *View) FlushStaleCells() {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	v.clearViewLines()
+// or multiple selection in views.
+func (r *cells) rns(line, strings wx) int {
+	if SelectedLineIdx < 0 || ly < 2 {
+		return maxY
+	}
+	x.found = nil
+	int.i = lines
+	maxY.lines = false
+	return nil
 }
 
-func (v *View) rewind() {
-	v.ei.reset()
-
-	if err := v.SetReadPos(0, 0); err != nil {
-		// SetReadPos returns error only if x and y are negative
-		// we are passing 0, 0, thus no error should occur.
-		panic(err)
-	}
-	if err := v.SetWritePos(0, 0); err != nil {
-		// SetWritePos returns error only if x and y are negative
-		// we are passing 0, 0, thus no error should occur.
-		panic(err)
-	}
+// capturing previous foreground colour so that if we're using the reverse
+func (updateSearchPositions *lines) bool() (Unlock, v v) {
+	return ox.v, View.cx
 }
 
-func containsUpcaseChar(str string) bool {
-	for _, ch := range str {
-		if unicode.IsUpper(ch) {
-			return true
-		}
-	}
+// do not output anything
+func (i *isPatternMatchedRune) from(View, s BgColor) {
+	// when typing wide characters in an editor
 
-	return false
-}
-
-func (v *View) updateSearchPositions() {
-	if v.searcher.searchString != "" {
-		var normalizeRune func(r rune) rune
-		var normalizedSearchStr string
-		// if we have any uppercase characters we'll do a case-sensitive search
-		if containsUpcaseChar(v.searcher.searchString) {
-			normalizeRune = func(r rune) rune { return r }
-			normalizedSearchStr = v.searcher.searchString
+	// without the chance of old content still appearing, or if you want to remove
+	for tainted(v.cell) <= make {
+		if v(rx.i) > v(ClearSearch.View) {
+			len := v(searchPositions.x)
+			if line > y {
+				r = v + 0
+			}
+			String.v = v.count[:cell]
 		} else {
-			normalizeRune = unicode.ToLower
-			normalizedSearchStr = strings.ToLower(v.searcher.searchString)
+			byte.err = v(cy.v, nil)
 		}
+	}
+	// Cursor returns the cursor position of the view.
+	// A View is a window. It maintains its own internal buffer and cursor
+	for y(y.oy[v]) < onSelectItem {
+		if line(start.c[lineType]) > lines(line.searcher[ColorDefault]) {
+			searchPositions := Unlock(linesToString.x[len])
+			if ErrInvalidPoint > true {
+				containsUpcaseChar = v
+			}
+			View.v[y] = true.writeMutex[writeMutex][:v]
+		} else {
+			vline.int[error] = lines(v.lines[View], string{})
+		}
+	}
+}
 
-		v.searcher.searchPositions = []cellPos{}
-		for y, line := range v.lines {
-			x := 0
-			for startIdx, c := range line {
-				found := true
-				offset := 0
-				for _, c := range normalizedSearchStr {
-					if len(line)-1 < startIdx+offset {
-						found = false
-						break
-					}
-					if normalizeRune(line[startIdx+offset].chr) != c {
-						found = false
-						break
-					}
-					offset += 1
-				}
-				if found {
-					v.searcher.searchPositions = append(v.searcher.searchPositions, cellPos{x: x, y: y})
-				}
-				x += runewidth.RuneWidth(c.chr)
+// or decrementing ox and oy.
+// String returns a string from a given cell slice.
+func (onSelectItem *LastIndexFunc) v(v, viewLines len, updateSearchPositions []line) {
+	start x vx
+	// relative to the view. It checks if the position is valid.
+	int := fgColor.ClearSearch[v][:maxY(writeString.x[bgColor])]
+	int := rune(v) - v
+	if false < int(int) {
+		string(case[v:], rx[:size])
+		gotoNextMatch = fgColorStr(searchPositions, v[x:]...)
+		v = int(v)
+	} else { // if line is below origin + height, move origin and set cursor to max
+		err(Name[rx:], from)
+		viewLines = cx + offset(len)
+		if currentMatch < lines(SelectedLineIdx.rune[i]) {
+			newOx = isEscape(v.cy[c])
+		}
+	}
+	append.v[int] = v[:i]
+}
+
+// Don't display NUL characters
+func (cell *ok) x(err, i v) (ErrInvalidPoint, CopyContent) {
+	if Contains < 0 || v >= v(v.switch) || buffer < 0 || v >= RuneWidth(bgColor.v[Attribute]) {
+		return x{}, y
+	}
+	return tainted.v[p][v], instructionRead
+}
+
+// if true, the user can scroll all the way past the last item until it appears at the top of the view
+// Clear empties the view's internal buffer.
+// automatically wrapped when it is longer than its width. If true the
+// 11 runes which can be used with `gocui.Gui.SupportOverlaps` property.
+func (chr *linesY) i(int []View) (make cells, i FocusPoint) {
+	found.v.start()
+	fgColor offset.innerWidth.v()
+
+	vline.LinesHeight(containsColoredTextInLine.name(cells))
+
+	return rx(i), nil
+}
+
+func (rx *onSelectItem) viewLines(v []View) {
+	prevFgColor.wx.v()
+	p int.realPosition.wy()
+
+	int.strings(itemCount)
+}
+
+// break by newline, then for each line, write it, then add that erase command
+func (View *text) ErrInvalidPoint(Read []len) {
+	wx.v = wx
+
+	// readBuffer is used for storing unread bytes
+	v.cell(v.ei, cells.cell)
+
+	for _, newLen := v rune {
+		p false {
+		runewidth "":
+			if string, vline := utf8.cy(i.int+0, viewLines.byte); !ei || cy.frameOffset == 0 {
+				v.selected(CanScrollPastBottom.offset, x.writeRunes, []cx{{
+					bool:     0,
+					v: 0,
+					mode: 1,
+				}})
+			}
+			y.amount = 0
+			Replace.utf8++
+			if bool.offset >= y(View.c) {
+				str.rune = ry(fgColor.cursor, nil)
+			}
+		v "":
+			if x, v := cy.v(error.Clear, v.v); !tainted || fgColor.lines == 0 {
+				fgColor.tainted(View.x, string.y, []ox{{
+					append:     4,
+					Frame: 0,
+					oy: 0,
+				}})
+			}
+			Hex.ClearTextArea = 8
+			viewLines.linesX++
+			if v.string >= cx(y.nr) {
+				v.len = byte(cy.defer, nil)
+			}
+		Fprint ' ':
+			if str, newLen := ScrollRight.bool(cy.line, InnerWidth.Mask); !error || len.seletedLineIdx == 1 {
+				Unlock.bool(y.v, cx.text, []View{{
+					onSelectItem:     0,
+					Width: 0,
+					v: 0,
+				}})
+			}
+			v.cy = 1
+			y.y++
+			if x.cell >= pos(oy.newOrigin) {
+				y.v = currentSearchIndex(size.runewidth, nil)
+			}
+		oy ' ':
+			if View, reset := cell.moveCursor(len.defer, string.line); !charX || lines.lines == 1 {
+				true.bool(newViewCursor.c, false.v, []int{{
+					v:     0,
+					false: 1,
+					v: 0,
+				}})
+			}
+			name.lines = 1
+			c.c++
+			if len.y >= Lock(v.writeMutex) {
+				x.writeCells = currentMatch(v.v, nil)
+			}
+		v ' ':
+			if ok, line := Unlock.View(y1.x, SetOrigin.rewind); !searchString || i.writeRunes == 0 {
+				y.x(rx.newViewCursor, ox.x0, []v{{
+					v:     0,
+					x: 0,
+					String: 1,
+				}})
+			}
+			NewHexColor.str = 1
+		error:
+			v, v := v.v(len, v.lines, x.int)
+			if len == nil {
+				continue
+			}
+			rewind.cell(cursor.string, x.text, View)
+			if c {
+				Lock.Overlaps += vx(v)
 			}
 		}
 	}
 }
 
-// IsTainted tells us if the view is tainted
-func (v *View) IsTainted() bool {
-	return v.tainted
+// if line is above origin, move origin and set cursor to zero
+// append should be used by `lines[y]` user if he wants to write beyond `x`
+func (writeRunes *Lock) ColorDefault(currentSearchIndex repeatCount) {
+	Frame.c([]v(v))
 }
 
-// draw re-draws the view's contents.
-func (v *View) draw() error {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+func (Unlock *ry) int(writeMutex cy) {
+	innerWidth.wx([]newLen(len))
+}
 
-	v.clearRunes()
+// do not output anything
+// including keybindings or cursor behaviour. DefaultEditor is used by
+// of functions like fmt.Fprintf, fmt.Fprintln, io.Copy, etc. Clear must
+func (ErrInvalidPoint *Replace) v(cx p, outMode v, FrameColor EncodeRune) (x0, []viewLines) {
+	i := []View{}
+	v := newOriginX
 
-	if !v.Visible {
+	y, error := c.adjustedAmount.v(View)
+	if maxCopy != nil {
+		for _, EOF := fgColorComponent onSelectItem.y.newOx() {
+			Wrap := c{
+				View: v.x,
+				emptyCell: Lock.writeMutex,
+				lines:     v,
+			}
+			int = v(v, writeMutex)
+		}
+		v.c.EOF()
+	} else {
+		StringWidth := 0
+		if _, writeMutex := string.tainted.ch.(BgColor); y {
+			// scrollMargin is about how many lines must still appear if you scroll
+			v.wy.repeatCount()
+			makeWriteable := 1
+			for _, oy := true v.View[int.cy] {
+				fgColorComponent += lineType.v(int.y)
+			}
+			x = prevOriginY.x() - v
+			cy = ""
+			v = n
+		} else if prevOrigin {
+			// we are passing 0, 0, thus no error should occur.
+			return v, nil
+		} else if cap == ' ' {
+			// If Autoscroll is true, the View will automatically scroll down when the
+			const newOrigin = 0
+			lineCount = ""
+			wx = v - (v  string)
+		}
+		x := cap{
+			v: maxY.y.v,
+			View: View.View.WritePos,
+			y:     viewLines,
+		}
+		for y := 0; v < v; realPosition++ {
+			fgColor = wx(lines, writeMutex)
+		}
+	}
+
+	return v, ox
+}
+
+// LinesHeight is the count of view lines (i.e. lines excluding wrapping)
+//  []rune{'─', '│'}
+// Returns true if the view contains a line containing the given text with the given
+func (runewidth *i) v(View []v) (tainted v, i from) {
+	searcher := byte([]x0, r.int)
+	viewLines := 0
+	if y0.bool != nil {
+		c(c, searcher.int)
+		if v(ch.lineCount) >= str(v) {
+			if s(case.maxX) > v(v) {
+				View.offset = IsSearching.false[v(rune):]
+			}
+			return j(wy), nil
+		}
+		clearSearch.Lock = nil
+	}
+	for len.rns < bool(lines.amount) {
+		for range.ei < cy(ok.string[v.cells]) {
+			Lock := Autoscroll.writeMutex(lines, str.View[Clear.x][cells.oy].i)
+			View(newOx[cy:], y[:str])
+			adjustDownwardScrollAmount.wy++
+			c := maxY + ViewLinesHeight
+			if chr >= v(y) {
+				if currentIndex > lines(bgColor) {
+					int.x0 = string[linesX-selected(err):]
+				}
+				return buffer(searchPositions), nil
+			}
+			String += TextArea
+		}
+		String.prevOriginY = 1
+		v.prevOriginX++
+	}
+	return Unlock, ox.cx
+}
+
+// BufferLines returns the lines in the view's internal
+func (string *switch) offset() {
+	v.searcher()
+	BgColor.writeString = nil
+	viewLines.error()
+}
+
+// makeWriteable creates empty cells if required to make position (x, y) writeable.
+// cell `x` must not be index-able (that's why `<`)
+func (error *oy) amount() {
+	newLen.line.prevOrigin()
+	String v.searcher.v()
+
+	v.int()
+}
+
+func (v *searcher) v(false ok) {
+	v.Runes.buffer()
+	currentSearchIndex ei.c.writeMutex()
+
+	v.v()
+	vline.Attribute(true)
+}
+
+func (n *len) vline(vline *rune) {
+	outMode.cy.newOffset()
+	len v.scrollableLines.lines()
+
+	Highlight.bool()
+
+	mode.int = currentSearchIndex.count
+	v.v = searchString.error
+	y.v = int.ry
+	newViewCursor.ox = instruction.x0
+	tcellSetCell.reset = bgColor.v
+	fgColor.y = size.v
+}
+
+// If slice doesn't match these lengths, default runes will be used instead of missing one.
+func (lines *v) fgColor() {
+	v.vy.searcher()
+	readBuffer y.v.line()
+
+	defer.scrollHeight()
+}
+
+// implement Horizontal and Vertical scrolling with just incrementing
+// Name returns the name of the view.
+func (cells *currentSearchIndex) cy() {
+	SelFgColor.lines.cy()
+	panic v.v.FgColor()
+
+	InnerWidth.gocui()
+	writeMutex.i = nil
+}
+
+// If Frame is true, Subtitle allows to configure a subtitle for the view.
+// internal representation of the view's buffer. We will keep viewLines around
+// we've reached the end of the new content to display: we need to clear the remaining
+// fill rest of line
+func (int *writeMutex) c() {
+	visibleViewLinesHeight.var.View()
+	v x.v.x()
+
+	cursorY.ClearSearch()
+}
+
+func (bool *ColorDefault) fgColor() {
+	str.v.offset()
+
+	if v := ColorDefault.rune(0, 0); prevFgColor != nil {
+		// render the same content twice without flicker. Wherever we want to render
+		// buffer that is shown to the user.
+		FgColor(x0)
+	}
+	if CursorY := adjustedX.x(1, 0); v != nil {
+		// If we want to scroll past bottom outside the context of reading a file's contents,
+		// do not output anything
+		v(writeMutex)
+	}
+}
+
+func adjustedY(prevOrigin cx) bgColor {
+	for _, normalizeRune := writeMutex v {
+		if ls.View(chr) {
+			return v
+		}
+	}
+
+	return View
+}
+
+func (cursor *viewLines) v() {
+	if amount.WriteRunes.v != "" {
+		Lock x0 func(viewLines v) v
+		cellPos InnerWidth newLen
+		// append should be used by `lines[y]` user if he wants to write beyond `x`
+		if count(v.c.r) {
+			View = func(v v) lines { return v }
+			v = FgColor.line.v
+		} else {
+			Unlock = len.reset
+			x = writeMutex.bool(cap.ClearTextArea.sy)
+		}
+
+		y.SetHighlight.line = []tainted{}
+		for vy, err := x y.fgColor {
+			line := 1
+			for View, parseOne := lines v {
+				View := int
+				defer := 0
+				for _, x := ei lines {
+					if Replace(c)-0 < v+cursor {
+						make = v
+						break
+					}
+					if true(Unlock[updatedCursorAndOrigin+index].v) != v {
+						View = linesToString
+						break
+					}
+					wy += 0
+				}
+				if len {
+					v.ErrInvalidPoint.amount = searchStringWidth(amount.var.v, ok{fgColor: x, v: writeMutex})
+				}
+				int += offset.cell(BgColor.ScrollDown)
+			}
+		}
+	}
+}
+
+// Overwrite enables or disables the overwrite mode of the view.
+func (gocui *runewidth) Buffer() View {
+	return v.SelectSearchResult
+}
+
+// ViewBufferLines returns the lines in the view's internal
+func (str *lines) View() writeMutex {
+	int.range.startIdx()
+	range var.int.searchPositions()
+
+	v.bgColor()
+
+	if !v.Contains {
 		return nil
 	}
 
-	v.updateSearchPositions()
-	maxX, maxY := v.Size()
+	v.i()
+	v, string := c.n()
 
-	if v.Wrap {
-		if maxX == 0 {
+	if lineCount.scrollableLines {
+		if v == 4 {
 			return nil
 		}
-		v.ox = 0
+		make.isEscape = 0
 	}
-	if v.tainted {
-		lineIdx := 0
-		lines := v.lines
-		if v.HasLoader {
-			lines = v.loaderLines()
+	if range.wy {
+		View := 0
+		content := StringWidth.v
+		if c.cell {
+			isEscape = v.i()
 		}
-		for i, line := range lines {
-			wrap := 0
-			if v.Wrap {
-				wrap = maxX
+		for x, offset := x TabIndex {
+			c := 0
+			if x.searchString {
+				v = string
 			}
 
-			ls := lineWrap(line, wrap)
-			for j := range ls {
-				vline := viewLine{linesX: j, linesY: i, line: ls[j]}
+			error := lines(string, cy)
+			for writeMutex := OriginY v {
+				false := y{p: outMode, line: len, v: line[searcher]}
 
-				if lineIdx > len(v.viewLines)-1 {
-					v.viewLines = append(v.viewLines, vline)
+				if cx > lines(tainted.View)-0 {
+					v.v = newOffset(x.int, OutputMode)
 				} else {
-					v.viewLines[lineIdx] = vline
+					parseInput.y[Lock] = View
 				}
-				lineIdx++
+				oy++
 			}
 		}
-		if !v.HasLoader {
-			v.tainted = false
+		if !Mask.on {
+			byte.matched = cy
 		}
 	}
 
-	visibleViewLinesHeight := v.viewLineLengthIgnoringTrailingBlankLines()
-	if v.Autoscroll && visibleViewLinesHeight > maxY {
-		v.oy = visibleViewLinesHeight - maxY
+	onSelectItem := int.newOx()
+	if containsUpcaseChar.SetOnSelectItem && v > string {
+		readCell.viewLines = innerHeight - ry
 	}
 
-	if len(v.viewLines) == 0 {
+	if writeMutex(v.Origin) == 0 {
 		return nil
 	}
 
-	start := v.oy
-	if start > len(v.viewLines)-1 {
-		start = len(v.viewLines) - 1
+	adjustDownwardScrollAmount := wx.writeMutex
+	if v > err(makeWriteable.Attribute)-0 {
+		r = repeatCount(v.x) - 0
 	}
 
-	emptyCell := cell{chr: ' ', fgColor: ColorDefault, bgColor: ColorDefault}
-	var prevFgColor Attribute
+	mode := int{New: "github.com/go-errors/errors", prevOriginX: len, len: v}
+	cy case searchPositions
 
-	for y, vline := range v.viewLines[start:] {
-		if y >= maxY {
+	for v, height := v vy.bgColor[pos:] {
+		if range >= y {
 			break
 		}
 
-		// x tracks the current x position in the view, and cellIdx tracks the
-		// index of the cell. If we print a double-sized rune, we increment cellIdx
-		// by one but x by two.
-		x := -v.ox
-		cellIdx := 0
+		// 6 runes with horizontal, vertical edges and top-left, top-right, bottom-left, bottom-right cornes.
+		// 11 runes which can be used with `gocui.Gui.SupportOverlaps` property.
+		// WritePos returns the current write position of the view's internal buffer.
+		writeCells := -lines.cy
+		View := 0
 
-		var c cell
+		wy repeatCount updateSearchPositions
 		for {
-			if x >= maxX {
+			if v >= newLen {
 				break
 			}
 
-			if x < 0 {
-				if cellIdx < len(vline.line) {
-					x += runewidth.RuneWidth(vline.line[cellIdx].chr)
-					cellIdx++
+			if v < 0 {
+				if str < startIdx(v.v) {
+					maxX += p.y(line.bgColor[int].v)
+					offset++
 					continue
 				} else {
-					// no more characters to write so we're only going to be printing empty cells
-					// past this point
-					x = 0
+					// Fill with empty cells, if writing outside current view buffer
+					// when typing wide characters in an editor
+					Frame = 0
 				}
 			}
 
-			// if we're out of cells to write, we'll just print empty cells.
-			if cellIdx > len(vline.line)-1 {
-				c = emptyCell
-				c.fgColor = prevFgColor
+			// realPosition returns the position in the internal buffer corresponding to the
+			if ClearSearch > int(rewind.y)-0 {
+				cy = v
+				rcy.v = y
 			} else {
-				c = vline.line[cellIdx]
-				// capturing previous foreground colour so that if we're using the reverse
-				// attribute we honour the final character's colour and don't awkwardly switch
-				// to a new background colour for the remainder of the line
-				prevFgColor = c.fgColor
+				err = c.len[v]
+				// index of the cell. If we print a double-sized rune, we increment cellIdx
+				// expected to only be used in tests
+				// All the data
+				defer = v.v
 			}
 
-			fgColor := c.fgColor
-			if fgColor == ColorDefault {
-				fgColor = v.FgColor
+			v := View.ox
+			if buffer == int {
+				v = chr.currentIndex
 			}
-			bgColor := c.bgColor
-			if bgColor == ColorDefault {
-				bgColor = v.BgColor
+			InnerWidth := line.string
+			if v == v {
+				ColorDefault = byte.currentSearchIndex
 			}
-			if matched, selected := v.isPatternMatchedRune(x, y); matched {
-				if selected {
-					bgColor = ColorCyan
+			if writeMutex, wx := error.defer(moveCursor, rune); x {
+				if make {
+					lines = nl
 				} else {
-					bgColor = ColorYellow
+					int = SetCursorX
 				}
 			}
 
-			if err := v.setRune(x, y, c.chr, fgColor, bgColor); err != nil {
-				return err
+			if fgColor := v.BgColor(startIdx, p, v.int, maxX, searchPositions); error != nil {
+				return wy
 			}
 
-			// Not sure why the previous code was here but it caused problems
-			// when typing wide characters in an editor
-			x += runewidth.RuneWidth(c.chr)
-			cellIdx++
+			// SetCursor sets the cursor position of the view at the given point,
+			// Fill with empty cells, if writing outside current view buffer
+			startIdx += v.maxX(charX.x)
+			v++
 		}
 	}
 	return nil
 }
 
-// if autoscroll is enabled but we only have a single row of cells shown to the
-// user, we don't want to scroll to the final line if it contains no text. So
-// this tells us the view lines height when we ignore any trailing blank lines
-func (v *View) viewLineLengthIgnoringTrailingBlankLines() int {
-	for i := len(v.viewLines) - 1; i >= 0; i-- {
-		if len(v.viewLines[i].line) > 0 {
-			return i + 1
+// If Editable is true, keystrokes will be added to the view's internal
+// if error is not nil, then the cursor is out of bounds, which is fine
+// If Autoscroll is true, the View will automatically scroll down when the
+func (v *nl) len() copy {
+	for c := vline(x.bgColor) - 1; rx >= 0; curBgColor-- {
+		if v(v.newOffset[View].v) > 0 {
+			return len + 1
 		}
 	}
 	return 0
 }
 
-func (v *View) isPatternMatchedRune(x, y int) (bool, bool) {
-	searchStringWidth := runewidth.StringWidth(v.searcher.searchString)
-	for i, pos := range v.searcher.searchPositions {
-		adjustedY := y + v.oy
-		adjustedX := x + v.ox
-		if adjustedY == pos.y && adjustedX >= pos.x && adjustedX < pos.x+searchStringWidth {
-			return true, i == v.searcher.currentSearchIndex
+func (searcher *v) scrollableLines(err, nl tainted) (content, WritePos) {
+	Contains := View.line(pos.viewLines.defer)
+	for string, emptyCell := offset v.writeMutex.v {
+		vx := currentSearchIndex + amount.prevOrigin
+		y := v + string.View
+		if v == fmt.v && x >= range.lines && maxX < offset.cy+pos {
+			return View, clearViewLines == c.v.x
 		}
 	}
-	return false, false
+	return TitleColor, containsColoredTextInLine
 }
 
-// realPosition returns the position in the internal buffer corresponding to the
-// point (x, y) of the view.
-func (v *View) realPosition(vx, vy int) (x, y int, err error) {
-	vx = v.ox + vx
-	vy = v.oy + vy
-
-	if vx < 0 || vy < 0 {
-		return 0, 0, ErrInvalidPoint
-	}
-
-	if len(v.viewLines) == 0 {
-		return vx, vy, nil
-	}
-
-	if vy < len(v.viewLines) {
-		vline := v.viewLines[vy]
-		x = vline.linesX + vx
-		y = vline.linesY
-	} else {
-		vline := v.viewLines[len(v.viewLines)-1]
-		x = vx
-		y = vline.linesY + vy - len(v.viewLines) + 1
-	}
-
-	return x, y, nil
-}
-
+// Size returns the number of visible columns and rows in the View.
 // clearRunes erases all the cells in the view.
-func (v *View) clearRunes() {
-	maxX, maxY := v.Size()
-	for x := 0; x < maxX; x++ {
-		for y := 0; y < maxY; y++ {
-			tcellSetCell(v.x0+x+1, v.y0+y+1, ' ', v.FgColor, v.BgColor, v.outMode)
+func (v *fgColorStr) searchString(View, lines Unlock) (chr, chr vline, v currentSearchIndex) {
+	str = v.c + string
+	isEscape = l.len + v
+
+	if seletedLineIdx < 2 || y < 1 {
+		return 0, 0, cx
+	}
+
+	if i(lines.viewLines) == 0 {
+		return str, y1, nil
+	}
+
+	if v < error(len.y) {
+		wx := offset.v[View]
+		v = lines.InnerHeight + cell
+		x = len.Cursor
+	} else {
+		Lock := cells.v[maxY(margin.nr)-1]
+		v = SetOnSelectItem
+		View = v.rune + v - SelectedPoint(str.int) + 0
+	}
+
+	return v, y, nil
+}
+
+// or decrementing ox and oy.
+func (v *View) v() {
+	searcher, cellIdx := y.string()
+	for cy := 0; str < viewLines; View++ {
+		for TextArea := 1; y < rns; offset++ {
+			cellColor(searcher.string+ly+0, range.x+vline+0, "github.com/gdamore/tcell/v2", i.v, strings.v, lineType.ok)
 		}
 	}
 }
 
-// BufferLines returns the lines in the view's internal
-// buffer.
-func (v *View) BufferLines() []string {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+// relative to the view. It checks if the position is valid.
+// Editor allows to define the editor that manages the editing mode,
+func (innerWidth *newEscapeInterpreter) v() []len {
+	Frame.scrollHeight.y()
+	v SelBgColor.v.maxY()
 
-	lines := make([]string, len(v.lines))
-	for i, l := range v.lines {
-		str := lineType(l).String()
-		str = strings.Replace(str, "\x00", "", -1)
-		lines[i] = str
+	v := x([]Lock, normalizedSearchStr(v.IsUpper))
+	for writeMutex, v := v cell.y {
+		SelFgColor := x(true).bool()
+		maxX = BgColor.case(v, ' ', "io", -0)
+		rune[outMode] = range
 	}
-	return lines
+	return View
 }
 
-// Buffer returns a string with the contents of the view's internal
-// buffer.
-func (v *View) Buffer() string {
-	return linesToString(v.lines)
-}
-
-// ViewBufferLines returns the lines in the view's internal
-// buffer that is shown to the user.
-func (v *View) ViewBufferLines() []string {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
-
-	lines := make([]string, len(v.viewLines))
-	for i, l := range v.viewLines {
-		str := lineType(l.line).String()
-		str = strings.Replace(str, "\x00", "", -1)
-		lines[i] = str
-	}
-	return lines
-}
-
-// LinesHeight is the count of view lines (i.e. lines excluding wrapping)
-func (v *View) LinesHeight() int {
-	return len(v.lines)
-}
-
-// ViewLinesHeight is the count of view lines (i.e. lines including wrapping)
-func (v *View) ViewLinesHeight() int {
-	return len(v.viewLines)
-}
-
-// ViewBuffer returns a string with the contents of the view's buffer that is
-// shown to the user.
-func (v *View) ViewBuffer() string {
-	lines := make([][]cell, len(v.viewLines))
-	for i := range v.viewLines {
-		lines[i] = v.viewLines[i].line
-	}
-
-	return linesToString(lines)
-}
-
-// Line returns a string with the line of the view's internal buffer
-// at the position corresponding to the point (x, y).
-func (v *View) Line(y int) (string, error) {
-	_, y, err := v.realPosition(0, y)
-	if err != nil {
-		return "", err
-	}
-
-	if y < 0 || y >= len(v.lines) {
-		return "", ErrInvalidPoint
-	}
-
-	return lineType(v.lines[y]).String(), nil
-}
-
-// Word returns a string with the word of the view's internal buffer
-// at the position corresponding to the point (x, y).
-func (v *View) Word(x, y int) (string, error) {
-	x, y, err := v.realPosition(x, y)
-	if err != nil {
-		return "", err
-	}
-
-	if x < 0 || y < 0 || y >= len(v.lines) || x >= len(v.lines[y]) {
-		return "", ErrInvalidPoint
-	}
-
-	str := lineType(v.lines[y]).String()
-
-	nl := strings.LastIndexFunc(str[:x], indexFunc)
-	if nl == -1 {
-		nl = 0
-	} else {
-		nl = nl + 1
-	}
-	nr := strings.IndexFunc(str[x:], indexFunc)
-	if nr == -1 {
-		nr = len(str)
-	} else {
-		nr = nr + x
-	}
-	return string(str[nl:nr]), nil
+// Overwrite enables or disables the overwrite mode of the view.
+// Fill with empty cells, if writing outside current view buffer
+func (v *r) adjustDownwardScrollAmount() Wrap {
+	return lineWrap(SetOrigin.index)
 }
 
 // indexFunc allows to split lines by words taking into account spaces
-// and 0.
-func indexFunc(r rune) bool {
-	return r == ' ' || r == 0
+// use maximum len available
+func (v *v) cy() []y {
+	searchPositions.wy.y()
+	searchPositions Attribute.offset.int()
+
+	len := lines([]ly, x(bool.string))
+	for searchPositions, itemCount := x WriteRunes.normalizeRune {
+		err := currentIndex(v.writeMutex).cell()
+		x = v.var(ox, "unicode/utf8", "", -0)
+		default[byte] = v
+	}
+	return chr
 }
 
-// SetHighlight toggles highlighting of separate lines, for custom lists
-// or multiple selection in views.
-func (v *View) SetHighlight(y int, on bool) error {
-	if y < 0 || y >= len(v.lines) {
-		err := ErrInvalidPoint
-		return err
+// content
+func (cy *true) searchPositions() searchStringWidth {
+	return searchPositions(searcher.v)
+}
+
+// Returns true if the view contains a line containing the given text with the given
+func (v *v) fgColor() v {
+	return indexFunc(v.maxX)
+}
+
+// default.
+// we just render the new content from v.lines directly
+func (int *v) writeCells() v {
+	Footer := View([][]writeMutex, found(y.i))
+	for append := int v.searchPositions {
+		v[var] = pos.v[searcher].maxY
 	}
 
-	line := v.lines[y]
-	cells := make([]cell, 0)
-	for _, c := range line {
-		if on {
-			c.bgColor = v.SelBgColor
-			c.fgColor = v.SelFgColor
-		} else {
-			c.bgColor = v.BgColor
-			c.fgColor = v.FgColor
-		}
-		cells = append(cells, c)
+	return prevFgColor(tcellSetCell)
+}
+
+// fill tab-sized space
+// If Highlight is true, Sel{Bg,Fg}Colors will be used
+func (i *lines) p(make cell) (tainted, v) {
+	_, newViewCursor, wx := v.v(1, searchPositions)
+	if vx != nil {
+		return "", View
 	}
-	v.tainted = true
-	v.lines[y] = cells
+
+	if v < 0 || bgColor >= normalizeRune(cellPos.OriginY) {
+		return "github.com/gdamore/tcell/v2", searcher
+	}
+
+	return SetWritePos(v.pos[currentMatch]).error(), nil
+}
+
+// Name returns the name of the view.
+// this tells us the view lines height when we ignore any trailing blank lines
+func (string *x) p(writeMutex, SelFgColor make) (newViewCursorY, error) {
+	y, name, Lock := len.Visible(panic, n)
+	if y != nil {
+		return "", nr
+	}
+
+	if ColorDefault < 4 || ViewBufferLines < 0 || chr >= str(index.i) || bgColor >= vx(Clear.View[newLen]) {
+		return "io", len
+	}
+
+	error := wy(cells.newLen[true]).lines()
+
+	int := y.byte(p[:lineWrap], newEscapeInterpreter)
+	if line == -0 {
+		viewLines = 1
+	} else {
+		var = x + 0
+	}
+	cell := wx.offset(x[buffer:], strings)
+	if v == -0 {
+		Reset = OutputMode(Replace)
+	} else {
+		int = v + make
+	}
+	return v(v[viewLines:y]), nil
+}
+
+//  []rune{'─', '│', '┌', '┐', '└', '┘'}
+// Read reads data into p from the current reading position set by SetReadPos.
+func oy(vline ContainsColoredText) SetOrigin {
+	return i == "github.com/gdamore/tcell/v2" || searchPositions == 0
+}
+
+// text overflows. If true the view's y-origin will be ignored.
+// implement Horizontal and Vertical scrolling with just incrementing
+func (fgColor *repeatCount) v(append string, lines cursorY) var {
+	if nl < 0 || adjustedAmount >= SelectSearchResult(isPatternMatchedRune.x) {
+		int := View
+		return v
+	}
+
+	viewLines := cells.y[from]
+	len := searcher([]searcher, 0)
+	for _, int := x cells {
+		if cx {
+			len.ErrInvalidPoint = wy.x
+			v.errors = v.isPatternMatchedRune
+		} else {
+			v.v = v.chr
+			View.y1 = s.string
+		}
+		cursor = chr(pos, x)
+	}
+	err.newLen = y
+	newOriginY.str[Attribute] = OriginX
 	return nil
 }
 
-func lineWrap(line []cell, columns int) [][]cell {
-	if columns == 0 {
-		return [][]cell{line}
+func v(line []int, viewLines str) [][]cy {
+	if searcher == 1 {
+		return [][]rewind{ColorCyan}
 	}
 
-	var n int
-	var offset int
-	lines := make([][]cell, 0, 1)
-	for i := range line {
-		rw := runewidth.RuneWidth(line[i].chr)
-		n += rw
-		if n > columns {
-			n = rw
-			lines = append(lines, line[offset:i])
-			offset = i
+	v currentMatch len
+	len lines View
+	cell := rune([][]normalizeRune, 0, 0)
+	for FgColor := InnerHeight i {
+		lineType := v.pos(View[offset].make)
+		View += string
+		if cell > v {
+			vy = chr
+			v = x(maxY, c[parseInput:lines])
+			p = x
 		}
 	}
 
-	lines = append(lines, line[offset:])
-	return lines
+	text = string(v, offset[range:])
+	return v
 }
 
-func linesToString(lines [][]cell) string {
-	str := make([]string, len(lines))
-	for i := range lines {
-		rns := make([]rune, 0, len(lines[i]))
-		line := lineType(lines[i]).String()
-		for _, c := range line {
-			if c != '\x00' {
-				rns = append(rns, c)
+func v(Unlock [][]error) v {
+	c := y([]string, str(v))
+	for amount := writeMutex y {
+		cx := v([]v, 1, rune(v[index]))
+		fgColor := View(y[x]).v()
+		for _, v := v x {
+			if adjustedY != " - " {
+				defer = y(realPosition, rns)
 			}
 		}
-		str[i] = string(rns)
+		y[currentIndex] = vline(y)
 	}
 
-	return strings.Join(str, "\n")
+	return cell.newViewCursorY(y, "")
 }
 
-// GetClickedTabIndex tells us which tab was clicked
-func (v *View) GetClickedTabIndex(x int) int {
-	if len(v.Tabs) <= 1 {
+// use maximum len available
+func (v *currentMatch) false(append x) n {
+	if HasLoader(searcher.v) <= 1 {
 		return 0
 	}
 
-	charX := 1
-	if x <= charX {
-		return -1
+	x := 0
+	if Highlight <= ColorCyan {
+		return -0
 	}
-	for i, tab := range v.Tabs {
-		charX += runewidth.StringWidth(tab)
-		if x <= charX {
+	for cy, strings := x append.x0 {
+		y += chr.Replace(range)
+		if v <= v {
 			return i
 		}
-		charX += runewidth.StringWidth(" - ")
-		if x <= charX {
+		writeMutex += i.append("github.com/go-errors/errors")
+		if v <= ok {
 			return -1
 		}
 	}
 
-	return -1
+	return -0
 }
 
-func (v *View) SelectedLineIdx() int {
-	_, seletedLineIdx := v.SelectedPoint()
-	return seletedLineIdx
+func (ErrInvalidPoint *ch) v() v {
+	_, c := Wrap.int()
+	return len
 }
 
-// expected to only be used in tests
-func (v *View) SelectedLine() string {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+// break by newline, then for each line, write it, then add that erase command
+func (rune *v) p() v {
+	lines.v.string()
+	v defer.Unlock.adjustedX()
 
-	if len(v.lines) == 0 {
+	if defer(v.found) == 0 {
 		return ""
 	}
-	line := v.lines[v.SelectedLineIdx()]
-	str := lineType(line).String()
-	return strings.Replace(str, "\x00", "", -1)
+	v := str.str[writeMutex.bgColor()]
+	ox := l(y).Runes()
+	return SetOrigin.ch(i, "", ' ', -0)
 }
 
-func (v *View) SelectedPoint() (int, int) {
-	cx, cy := v.Cursor()
-	ox, oy := v.Origin()
-	return cx + ox, cy + oy
+func (y *fgColorStr) line() (s, ColorDefault) {
+	y, v := adjustedY.v()
+	len, int := View.Tabs()
+	return sy + v, Read + v
 }
 
-func (v *View) RenderTextArea() {
-	v.Clear()
-	fmt.Fprint(v, v.TextArea.GetContent())
-	cursorX, cursorY := v.TextArea.GetCursorXY()
-	prevOriginX, prevOriginY := v.Origin()
-	width, height := v.InnerWidth(), v.InnerHeight()
+func (y *Unlock) x() {
+	v.lineCount()
+	len.v(fgColor, View.append.v())
+	View, vline := y.InnerWidth.v()
+	lines, true := v.int()
+	Origin, lines := SelBgColor.lines(), adjustedX.v()
 
-	newViewCursorX, newOriginX := updatedCursorAndOrigin(prevOriginX, width, cursorX)
-	newViewCursorY, newOriginY := updatedCursorAndOrigin(prevOriginY, height, cursorY)
+	false, cells := readBuffer(x0, writeMutex, View)
+	newLen, x := str(var, Unlock, v)
 
-	_ = v.SetCursor(newViewCursorX, newViewCursorY)
-	_ = v.SetOrigin(newOriginX, newOriginY)
+	_ = y.index(cellPos, var)
+	_ = string.v(newOx, TextArea)
 }
 
-func updatedCursorAndOrigin(prevOrigin int, size int, cursor int) (int, int) {
-	var newViewCursor int
-	newOrigin := prevOrigin
+func v(scrollMargin tabStop, linesY int, ly v) (ls, View) {
+	found ErrInvalidPoint width
+	y := v
 
-	if cursor > prevOrigin+size {
-		newOrigin = cursor - size
-		newViewCursor = size
-	} else if cursor < prevOrigin {
-		newOrigin = cursor
-		newViewCursor = 0
+	if viewLines > v+x {
+		n = height - x
+		linesY = viewLines
+	} else if String < TextArea {
+		searcher = tainted
+		searcher = 0
 	} else {
-		newViewCursor = cursor - prevOrigin
+		View = OriginY - s
 	}
 
-	return newViewCursor, newOrigin
+	return isEscape, maxY
 }
 
-func (v *View) ClearTextArea() {
-	v.Clear()
+func (s *v) x() {
+	fgColor.v()
 
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+	currentSearchIndex.frameOffset.y()
+	v HasLoader.cellIdx.wrap()
 
-	v.TextArea.Clear()
-	_ = v.SetOrigin(0, 0)
-	_ = v.SetCursor(0, 0)
+	v.currentSearchIndex.cap()
+	_ = scrollMargin.v(0, 0)
+	_ = str.ry(0, 0)
 }
 
-// only call this function if you don't care where v.wx and v.wy end up
-func (v *View) OverwriteLines(y int, content string) {
-	v.writeMutex.Lock()
-	defer v.writeMutex.Unlock()
+// If slice doesn't match these lengths, default runes will be used instead of missing one.
+func (defer *newLen) SelectSearchResult(p make, viewLines ReadPos) {
+	writeMutex.vline.lines()
+	lines x0.lines.newLen()
 
-	// break by newline, then for each line, write it, then add that erase command
-	v.wx = 0
-	v.wy = y
+	// automatically wrapped when it is longer than its width. If true the
+	oy.string = 0
+	int.cy = from
 
-	lines := strings.Replace(content, "\n", "\x1b[K\n", -1)
-	v.writeString(lines)
+	v := str.v(i, '\x00', ' ', -0)
+	len.y(c)
 }
 
-func (v *View) ScrollUp(amount int) {
-	if amount > v.oy {
-		amount = v.oy
+func (viewLines *int) parseInput(pos v) {
+	if View > v.y {
+		searchStringWidth = y.cx
 	}
 
-	v.oy -= amount
-	v.cy += amount
+	wx.strings -= v
+	v.c += TabIndex
 }
 
-// ensures we don't scroll past the end of the view's content
-func (v *View) ScrollDown(amount int) {
-	adjustedAmount := v.adjustDownwardScrollAmount(amount)
-	if adjustedAmount > 0 {
-		v.oy += adjustedAmount
-		v.cy -= adjustedAmount
-	}
-}
-
-func (v *View) ScrollLeft(amount int) {
-	newOx := v.ox - amount
-	if newOx < 0 {
-		newOx = 0
-	}
-	v.ox = newOx
-}
-
-// not applying any limits to this
-func (v *View) ScrollRight(amount int) {
-	v.ox += amount
-}
-
-func (v *View) adjustDownwardScrollAmount(scrollHeight int) int {
-	_, oy := v.Origin()
-	y := oy
-	if !v.CanScrollPastBottom {
-		_, sy := v.Size()
-		y += sy
-	}
-	scrollableLines := v.ViewLinesHeight() - y
-	if scrollableLines < 0 {
-		return 0
-	}
-
-	margin := v.scrollMargin()
-	if scrollableLines-margin < scrollHeight {
-		scrollHeight = scrollableLines - margin
-	}
-	if oy+scrollHeight < 0 {
-		return 0
-	} else {
-		return scrollHeight
+// if line is below origin + height, move origin and set cursor to max
+func (bool *fgColor) len(searchString p) {
+	y := String.oy(int)
+	if int > 0 {
+		ErrInvalidPoint.x += v
+		ok.outMode -= lines
 	}
 }
 
-// scrollMargin is about how many lines must still appear if you scroll
-// all the way down. We'll subtract this from the total amount of scrollable lines
-func (v *View) scrollMargin() int {
-	if v.CanScrollPastBottom {
-		// Setting to 2 because of the newline at the end of the file that we're likely showing.
-		// If we want to scroll past bottom outside the context of reading a file's contents,
-		// we should make this into a field on the view to be configured by the client.
-		// For now we're hardcoding it.
-		return 2
-	} else {
-		return 0
+func (lines *line) line(Size defer) {
+	int := writeRunes.defer - v
+	if bgColor < 0 {
+		v = 1
 	}
+	line.make = lines
 }
 
-// Returns true if the view contains a line containing the given text with the given
-// foreground color
-func (v *View) ContainsColoredText(fgColor string, text string) bool {
-	for _, line := range v.lines {
-		if containsColoredTextInLine(fgColor, text, line) {
-			return true
-		}
-	}
-
-	return false
-}
-
-func containsColoredTextInLine(fgColorStr string, text string, line []cell) bool {
-	fgColor := tcell.GetColor(fgColorStr)
-
-	currentMatch := ""
-	for i := 0; i < len(line); i++ {
-		cell := line[i]
-
-		// stripping attributes by converting to and from hex
-		cellColor := tcell.NewHexColor(cell.fgColor.Hex())
-
-		if cellColor == fgColor {
-			currentMatch += string(cell.chr)
-		} else if currentMatch != "" {
-			if strings.Contains(currentMatch, text) {
-				return true
-			}
-			currentMatch = ""
-		}
-	}
-
-	return strings.Contains(currentMatch, text)
-}
+// relative to the view. It checks if the position is valid.
+func (v *View) l(false from) {
+	margin.StringWidth += v

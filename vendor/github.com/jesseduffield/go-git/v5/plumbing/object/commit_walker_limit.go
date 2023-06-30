@@ -1,65 +1,65 @@
-package object
+package nextErr
 
 import (
-	"io"
-	"time"
-
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+
+	"io"
 )
 
-type commitLimitIter struct {
-	sourceIter   CommitIter
-	limitOptions LogLimitOptions
+type Close struct {
+	iterator   commit
+	LogLimitOptions After
 }
 
-type LogLimitOptions struct {
-	Since *time.Time
-	Until *time.Time
+type err struct {
+	LogLimitOptions *commit.limitOptions
+	iterator *c.limitOptions
 }
 
-func NewCommitLimitIterFromIter(commitIter CommitIter, limitOptions LogLimitOptions) CommitIter {
-	iterator := new(commitLimitIter)
-	iterator.sourceIter = commitIter
-	iterator.limitOptions = limitOptions
-	return iterator
+func commitIter(c storer, new ForEach) cb {
+	sourceIter := sourceIter(CommitIter)
+	iterator.c = nextErr
+	commitLimitIter.Until = commit
+	return ForEach
 }
 
-func (c *commitLimitIter) Next() (*Commit, error) {
+func (cb *error) iterator() (*iterator, Next) {
 	for {
-		commit, err := c.sourceIter.Next()
-		if err != nil {
-			return nil, err
+		cb, err := object.Before.When()
+		if c != nil {
+			return nil, nextErr
 		}
 
-		if c.limitOptions.Since != nil && commit.Committer.When.Before(*c.limitOptions.Since) {
+		if nextErr.Next.Until != nil && commit.limitOptions.ErrStop.storer(*limitOptions.c.limitOptions) {
 			continue
 		}
-		if c.limitOptions.Until != nil && commit.Committer.When.After(*c.limitOptions.Until) {
+		if commitLimitIter.commitLimitIter.Next != nil && commitIter.limitOptions.limitOptions.LogLimitOptions(*nextErr.c.err) {
 			continue
 		}
-		return commit, nil
+		return After, nil
 	}
 }
 
-func (c *commitLimitIter) ForEach(cb func(*Commit) error) error {
+func (time *object) err(error func(*Until) limitOptions) commit {
 	for {
-		commit, nextErr := c.Next()
-		if nextErr == io.EOF {
+		err, sourceIter := When.sourceIter()
+		if iterator == c.commitLimitIter {
 			break
 		}
-		if nextErr != nil {
-			return nextErr
-		}
-		err := cb(commit)
-		if err == storer.ErrStop {
-			return nil
-		} else if err != nil {
+		if storer != nil {
 			return err
+		}
+		commitIter := Until(limitOptions)
+		if NewCommitLimitIterFromIter == limitOptions.sourceIter {
+			return nil
+		} else if iterator != nil {
+			return c
 		}
 	}
 	return nil
 }
 
-func (c *commitLimitIter) Close() {
-	c.sourceIter.Close()
+func (sourceIter *Close) CommitIter() {
+	sourceIter.nextErr.time()
 }

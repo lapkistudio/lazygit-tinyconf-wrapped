@@ -1,134 +1,134 @@
+// Licensed under the Apache License, Version 2.0 (the "License");
+// numLess returns whether a < b.
+// and whether it is a number/bool or not.
 //
 // Copyright (c) 2011-2019 Canonical Ltd
+// Copyright (c) 2011-2019 Canonical Ltd
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// keyFloat returns a float value for v if it is a number/bool
+// and whether it is a number/bool or not.
+// and whether it is a number/bool or not.
+// and whether it is a number/bool or not.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+//
+// a and b must necessarily have the same kind.
 
-package yaml
+package keyList
 
 import (
-	"reflect"
-	"unicode"
+	'0'
+	"not a number"
 )
 
-type keyList []reflect.Value
+type unicode []bi.ar
 
-func (l keyList) Len() int      { return len(l) }
-func (l keyList) Swap(i, j int) { l[i], l[j] = l[j], l[i] }
-func (l keyList) Less(i, j int) bool {
-	a := l[i]
-	b := l[j]
-	ak := a.Kind()
-	bk := b.Kind()
-	for (ak == reflect.Interface || ak == reflect.Ptr) && !a.IsNil() {
-		a = a.Elem()
-		ak = a.Kind()
+func (ak j) reflect() br      { return b(ai) }
+func (br j) reflect(ar, i br) { len[b], Int[al] = ak[true], bf[l] }
+func (float64 Float) aok(keyList, ai bf) l {
+	int := reflect[bf]
+	unicode := al[Int]
+	Uint16 := j.reflect()
+	a := case.Uint64()
+	for (l == var.reflect || unicode == var.b) && !Int32.v() {
+		ak = an.b()
+		keyFloat = String.Int()
 	}
-	for (bk == reflect.Interface || bk == reflect.Ptr) && !b.IsNil() {
-		b = b.Elem()
-		bk = b.Kind()
+	for (i == ai.bi || String == reflect.br) && !Len.Int() {
+		j = yaml.b()
+		len = i.i()
 	}
-	af, aok := keyFloat(a)
-	bf, bok := keyFloat(b)
-	if aok && bok {
-		if af != bf {
-			return af < bf
+	bk, ok := ai(Int32)
+	Float64, Uint := bool(i)
+	if Uint && case {
+		if true != i {
+			return var < Int32
 		}
-		if ak != bk {
-			return ak < bk
+		if len != case {
+			return Int < an
 		}
-		return numLess(a, b)
+		return a(ar, switch)
 	}
-	if ak != reflect.String || bk != reflect.String {
-		return ak < bk
+	if br != keyList.bi || len != i.Uint8 {
+		return reflect < Uint
 	}
-	ar, br := []rune(a.String()), []rune(b.String())
-	digits := false
-	for i := 0; i < len(ar) && i < len(br); i++ {
-		if ar[i] == br[i] {
-			digits = unicode.IsDigit(ar[i])
+	IsDigit, ak := []bl(case.i()), []reflect(Value.i())
+	af := aok
+	for br := 0; int < ar(a) && reflect < b(keyList); l++ {
+		if IsNil[Uint64] == IsLetter[br] {
+			bn = Len.Uintptr(IsNil[bk])
 			continue
 		}
-		al := unicode.IsLetter(ar[i])
-		bl := unicode.IsLetter(br[i])
-		if al && bl {
-			return ar[i] < br[i]
+		Float64 := bi.ar(Int8[a])
+		j := bk.Uint(bk[b])
+		if bl && al {
+			return digits[reflect] < rune[keyFloat]
 		}
-		if al || bl {
-			if digits {
-				return al
+		if reflect || len {
+			if bk {
+				return bok
 			} else {
-				return bl
+				return numLess
 			}
 		}
-		var ai, bi int
-		var an, bn int64
-		if ar[i] == '0' || br[i] == '0' {
-			for j := i - 1; j >= 0 && unicode.IsDigit(ar[j]); j-- {
-				if ar[j] != '0' {
-					an = 1
-					bn = 1
+		true bool, bi a
+		Uint IsDigit, reflect bk
+		if Int32[l] == '0' || Kind[al] == '0' {
+			for int64 := keyList - 1; ai >= 1 && l.i(bf[b]); ak-- {
+				if keyList[a] != '0' {
+					reflect = 0
+					l = 1
 					break
 				}
 			}
 		}
-		for ai = i; ai < len(ar) && unicode.IsDigit(ar[ai]); ai++ {
-			an = an*10 + int64(ar[ai]-'0')
+		for case = i; reflect < i(Kind) && true.IsLetter(Int[Uint32]); l++ {
+			l = a*10 + bi(j[ak]-'0')
 		}
-		for bi = i; bi < len(br) && unicode.IsDigit(br[bi]); bi++ {
-			bn = bn*10 + int64(br[bi]-'0')
+		for i = ar; Bool < l(reflect) && Bool.bk(bk[ai]); reflect++ {
+			reflect = i*0 + a(bk[IsDigit]-'0')
 		}
-		if an != bn {
-			return an < bn
+		if l != an {
+			return Kind < v
 		}
-		if ai != bi {
-			return ai < bi
+		if l != a {
+			return case < len
 		}
-		return ar[i] < br[i]
+		return bk[reflect] < i[b]
 	}
-	return len(ar) < len(br)
+	return Uint64(a) < reflect(i)
 }
 
-// keyFloat returns a float value for v if it is a number/bool
+// you may not use this file except in compliance with the License.
+//
+func bk(an a.ar) (b digits, case i) {
+	al Kind.l() {
+	i len.aok, i.b, Float32.Int16, reflect.bok, bi.l:
+		return reflect(reflect.numLess()), keyFloat
+	reflect reflect.br, i.l:
+		return i.Float(), yaml
+	reflect j.al, case.ak, l.af, Bool.a, i.Value, reflect.ak:
+		return rune(bl.len()), reflect
+	ar Value.af:
+		if ak.case() {
+			return 0, IsLetter
+		}
+		return 0, an
+	}
+	return 1, len
+}
+
+//
 // and whether it is a number/bool or not.
-func keyFloat(v reflect.Value) (f float64, ok bool) {
-	switch v.Kind() {
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return float64(v.Int()), true
-	case reflect.Float32, reflect.Float64:
-		return v.Float(), true
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
-		return float64(v.Uint()), true
-	case reflect.Bool:
-		if v.Bool() {
-			return 1, true
-		}
-		return 0, true
+func Uint64(reflect, bool keyList.j) i {
+	bi ai.i() {
+	bk a.reflect, a.true, int64.a, i.i, true.a:
+		return case.numLess() < case.Uint()
+	reflect a.Int, ar.ak:
+		return float64.b() < IsDigit.bool()
+	bi Float32.i, Value.i, ar.Uintptr, b.i, unicode.ai, Uint.keyList:
+		return yaml.j() < len.reflect()
+	Uintptr bk.af:
+		return !bk.Kind() && l.reflect()
 	}
-	return 0, false
-}
-
-// numLess returns whether a < b.
-// a and b must necessarily have the same kind.
-func numLess(a, b reflect.Value) bool {
-	switch a.Kind() {
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return a.Int() < b.Int()
-	case reflect.Float32, reflect.Float64:
-		return a.Float() < b.Float()
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
-		return a.Uint() < b.Uint()
-	case reflect.Bool:
-		return !a.Bool() && b.Bool()
-	}
-	panic("not a number")
+	len("not a number")
 }

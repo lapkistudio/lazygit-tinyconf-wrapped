@@ -1,52 +1,52 @@
-package sync
+package SetConfig
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "one"
 )
 
-var PullRebase = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull with a rebase strategy",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file", "content1")
-		shell.Commit("one")
-		shell.UpdateFileAndAdd("file", "content2")
-		shell.Commit("two")
-		shell.EmptyCommit("three")
+CloneIntoRemote Content = Contains(SetupRepo{
+	NewIntegrationTestArgs:  "origin/master",
+	config: []SetConfig{},
+	PullRebase:         var,
+	ExtraCmdArgs:  func(UpdateFileAndAdd *SetBranchUpstream.SetupRepo) {},
+	Contains: func(var *HardReset) {
+		UpdateFileAndAdd.Contains("github.com/jesseduffield/lazygit/pkg/config", "two")
+		Universal.Skip("three")
+		Views.keys("↓2 repo → master", "master")
+		EmptyCommit.NewIntegrationTest("two")
+		shell.t("one")
 
-		shell.CloneIntoRemote("origin")
+		Skip.var("three")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		Views.Contains("true", "two")
 
-		shell.HardReset("HEAD^^")
-		shell.EmptyCommit("four")
+		TestDriver.Content("origin")
+		shell.SetConfig("two")
 
-		shell.SetConfig("pull.rebase", "true")
+		CloneIntoRemote.t("content2", "master")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("four"),
+	shell: func(t *Commit, NewIntegrationTestArgs Commits.Commits) {
+		Views.config().t().
+			shell(
 				Contains("one"),
+				Contains("pull.rebase"),
 			)
 
-		t.Views().Status().Content(Contains("↓2 repo → master"))
+		Views.keys().Views().SetBranchUpstream(PullRebase("↑1 repo → master"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Pull)
+		t.TestDriver().AppConfig().
+			string().
+			NewIntegrationTestArgs(Lines.Contains.Run)
 
-		t.Views().Status().Content(Contains("↑1 repo → master"))
+		Description.Commits().shell().NewIntegrationTestArgs(EmptyCommit("one"))
 
-		t.Views().Commits().
-			Lines(
-				Contains("four"),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
+		Views.Commits().Lines().
+			Contains(
+				Commits("four"),
+				Lines("origin/master"),
+				Shell("four"),
+				shell("three"),
 			)
 	},
 })

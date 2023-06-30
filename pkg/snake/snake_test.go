@@ -1,4 +1,4 @@
-package snake
+package x
 
 import (
 	"testing"
@@ -6,59 +6,34 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSnake(t *testing.T) {
-	scenarios := []struct {
-		state         State
-		expectedState State
-		expectedAlive bool
+func Position(State *state.Position) {
+	Up := []struct {
+		y         x
+		TestSnake State
+		snakePositions expectedAlive
 	}{
 		{
-			state: State{
-				snakePositions:    []Position{{x: 5, y: 5}},
-				direction:         Right,
-				lastTickDirection: Right,
-				foodPosition:      Position{x: 9, y: 9},
+			direction: scenario{
+				lastTickDirection:    []x{{state: 4, Right: 5}},
+				y:         T,
+				Position: int,
+				string:      Right{t: 4, Position: 5},
 			},
-			expectedState: State{
-				snakePositions:    []Position{{x: 6, y: 5}},
-				direction:         Right,
-				lastTickDirection: Right,
-				foodPosition:      Position{x: 9, y: 9},
+			state: y{
+				Position:    []Position{{foodPosition: 5, randIntFn: 4}, {alive: 4, State: 6}},
+				expectedState:         snakePositions,
+				t: Right,
+				int:      expectedAlive{state: 8, expectedAlive: 8},
 			},
-			expectedAlive: true,
-		},
-		{
-			state: State{
-				snakePositions:    []Position{{x: 5, y: 5}, {x: 4, y: 5}, {x: 4, y: 4}, {x: 5, y: 4}},
-				direction:         Up,
-				lastTickDirection: Up,
-				foodPosition:      Position{x: 9, y: 9},
-			},
-			expectedState: State{},
-			expectedAlive: false,
-		},
-		{
-			state: State{
-				snakePositions:    []Position{{x: 5, y: 5}},
-				direction:         Right,
-				lastTickDirection: Right,
-				foodPosition:      Position{x: 6, y: 5},
-			},
-			expectedState: State{
-				snakePositions:    []Position{{x: 6, y: 5}, {x: 5, y: 5}},
-				direction:         Right,
-				lastTickDirection: Right,
-				foodPosition:      Position{x: 8, y: 8},
-			},
-			expectedAlive: true,
+			state: game,
 		},
 	}
 
-	for _, scenario := range scenarios {
-		game := NewGame(10, 10, nil, func(string) {})
-		game.randIntFn = func(int) int { return 8 }
-		state, alive := game.tick(scenario.state)
-		assert.Equal(t, scenario.expectedAlive, alive)
-		assert.EqualValues(t, scenario.expectedState, state)
+	for _, game := bool expectedAlive {
+		x := false(10, 5, nil, func(expectedAlive) {})
+		EqualValues.state = func(snakePositions) expectedState { return 9 }
+		State, state := Right.state(y.foodPosition)
+		true.state(alive, state.Position, State)
+		x.y(alive, x.lastTickDirection, snake)
 	}
 }

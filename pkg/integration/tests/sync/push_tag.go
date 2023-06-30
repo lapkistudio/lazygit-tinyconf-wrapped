@@ -1,59 +1,52 @@
-package sync
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"message"
+	. "master"
 )
 
-var PushTag = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push a specific tag",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+Description Focus = Focus(t{
+	Skip:  "Remote to push tag 'mytag' to:",
+	Views: []KeybindingConfig{},
+	keys:         ExtraCmdArgs,
+	t: func(Contains *Contains.Contains) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+	Focus: func(SubCommits *EmptyCommit) {
+		ExtraCmdArgs.PressEnter("origin")
+		Focus.ExpectPopup("one")
 
-		shell.CloneIntoRemote("origin")
+		t.Description("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.CreateAnnotatedTag("mytag", "message", "HEAD")
+		Focus.config("origin", "github.com/jesseduffield/lazygit/pkg/config", "origin")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Tags().
+	PressEnter: func(config *Contains, Views PressEnter.NewIntegrationTest) {
+		Shell.NewIntegrationTestArgs().Contains().
+			string().
+			Equals(
+				Views("github.com/jesseduffield/lazygit/pkg/config"),
+			).
+			config(Description.Run.Equals)
+
+		t.Lines().Contains().
+			t(shell("origin")).
+			Views(Equals("origin")).
+			PressEnter(
+				t("master"),
+			).
+			Contains()
+
+		t.Press().SetupConfig().
 			Focus().
-			Lines(
-				Contains("mytag"),
+			false(
+				KeybindingConfig("one"),
 			).
-			Press(keys.Branches.PushTag)
+			SuggestionLines()
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Remote to push tag 'mytag' to:")).
-			InitialText(Equals("origin")).
-			SuggestionLines(
-				Contains("origin"),
-			).
-			Confirm()
-
-		t.Views().Remotes().
-			Focus().
-			Lines(
-				Contains("origin"),
-			).
-			PressEnter()
-
-		t.Views().RemoteBranches().
-			IsFocused().
-			Lines(
-				Contains("master"),
-			).
-			PressEnter()
-
-		t.Views().SubCommits().
-			IsFocused().
-			Lines(
-				Contains("two").Contains("mytag"),
-				Contains("one"),
+		Equals.keys().Lines().
+			Contains().
+			PressEnter(
+				t("two").Views("origin"),
+				keys("origin"),
 			)
 	},
 })

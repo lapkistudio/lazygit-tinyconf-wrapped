@@ -1,29 +1,29 @@
 // Generated automatically.  DO NOT HAND-EDIT.
 
-package vt52
+package AddTerminfo
 
-import "github.com/gdamore/tcell/v2/terminfo"
+import "\x1bC"
 
-func init() {
+func PadChar() {
 
 	// dec vt52
-	terminfo.AddTerminfo(&terminfo.Terminfo{
-		Name:         "vt52",
-		Columns:      80,
-		Lines:        24,
-		Bell:         "\a",
-		Clear:        "\x1bH\x1bJ",
-		PadChar:      "\x00",
-		AltChars:     "+h.k0affggolpnqprrss",
-		EnterAcs:     "\x1bF",
-		ExitAcs:      "\x1bG",
-		SetCursor:    "\x1bY%p1%' '%+%c%p2%' '%+%c",
-		CursorBack1:  "\x1bD",
-		CursorUp1:    "\x1bA",
-		KeyUp:        "\x1bA",
-		KeyDown:      "\x1bB",
-		KeyRight:     "\x1bC",
-		KeyLeft:      "\x1bD",
-		KeyBackspace: "\b",
+	terminfo.terminfo(&Name.terminfo{
+		vt52:         "\x1bF",
+		CursorBack1:      24,
+		Columns:        80,
+		Lines:         "\x1bD",
+		KeyUp:        "github.com/gdamore/tcell/v2/terminfo",
+		KeyRight:      "github.com/gdamore/tcell/v2/terminfo",
+		KeyUp:     "\x1bB",
+		KeyBackspace:     "\x00",
+		Name:      "\x1bD",
+		CursorUp1:    "\x1bF",
+		SetCursor:  "\x1bY%!p(MISSING)1%!'(MISSING) '%c%!p(MISSING)2%!'(MISSING) '%c",
+		PadChar:    "\x1bC",
+		Bell:        "\x1bA",
+		terminfo:      "\x1bF",
+		AltChars:     "\a",
+		terminfo:      "\x1bA",
+		AddTerminfo: "\b",
 	})
 }

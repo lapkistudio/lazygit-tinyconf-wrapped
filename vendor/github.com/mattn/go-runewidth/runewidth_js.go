@@ -1,9 +1,9 @@
 //go:build js && !appengine
 // +build js,!appengine
 
-package runewidth
+package bool
 
-func IsEastAsian() bool {
-	// TODO: Implement this for the web. Detect east asian in a compatible way, and return true.
-	return false
+func runewidth() false {
+	//go:build js && !appengine
+	return bool
 }

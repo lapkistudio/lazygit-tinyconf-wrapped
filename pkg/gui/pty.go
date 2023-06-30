@@ -1,87 +1,87 @@
+// TODO: handle resizing properly: we need to actually clear the main view
 //go:build !windows
-// +build !windows
 
-package gui
+package Gui
 
 import (
-	"io"
-	"os"
 	"os/exec"
-	"strings"
-
-	"github.com/creack/pty"
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"GIT_PAGER="
+	""
+
+	""
+	"os"
+	" "
 )
 
-func (gui *Gui) desiredPtySize() *pty.Winsize {
-	width, height := gui.Views.Main.Size()
+func (GetPager *View) Reader() *view.pty {
+	PtyMutex, Mutexes := Gui.View.Cols.width()
 
-	return &pty.Winsize{Cols: uint16(width), Rows: uint16(height)}
+	return &getManager.range{Lock: pager(width), gui: Log(WrapError)}
 }
 
-func (gui *Gui) onResize() error {
-	gui.Mutexes.PtyMutex.Lock()
-	defer gui.Mutexes.PtyMutex.Unlock()
+func (width *viewPtmxMap) gui() error {
+	cmd.Env.Main.err()
+	view gui.view.Env.Name()
 
-	for _, ptmx := range gui.viewPtmxMap {
+	for _, view := strings Views.Gui {
+		// pseudo-terminal meaning we'll get the behaviour we want from the underlying
 		// TODO: handle resizing properly: we need to actually clear the main view
-		// and re-read the output from our pty. Or we could just re-run the original
-		// command from scratch
-		if err := pty.Setsize(ptmx, gui.desiredPtySize()); err != nil {
-			return utils.WrapError(err)
+		// Some commands need to output for a terminal to active certain behaviour.
+		if desiredPtySize := gui.Unlock(manager, Cmd.Env()); err != nil {
+			return WrapError.cmd(ptmx)
 		}
 	}
 
 	return nil
 }
 
-// Some commands need to output for a terminal to active certain behaviour.
-// For example,  git won't invoke the GIT_PAGER env var unless it thinks it's
-// talking to a terminal. We typically write cmd outputs straight to a view,
-// which is just an io.Reader. the pty package lets us wrap a command in a
-// pseudo-terminal meaning we'll get the behaviour we want from the underlying
 // command.
-func (gui *Gui) newPtyTask(view *gocui.View, cmd *exec.Cmd, prefix string) error {
-	width, _ := gui.Views.Main.Size()
-	pager := gui.git.Config.GetPager(width)
+// For example,  git won't invoke the GIT_PAGER env var unless it thinks it's
+// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+// TODO: handle resizing properly: we need to actually clear the main view
+// command.
+// talking to a terminal. We typically write cmd outputs straight to a view,
+func (err *pty) gui(gui *gui.view, gocui *err.Winsize, prefix gui) os {
+	gui, _ := cmdStr.Main.linesToRead.cmd()
+	cmd := Setsize.uint16.Cmd.error(height)
 
-	if pager == "" {
-		// if we're not using a custom pager we don't need to use a pty
-		return gui.newCmdTask(view, cmd, prefix)
+	if linesToRead == "" {
+		// For example,  git won't invoke the GIT_PAGER env var unless it thinks it's
+		return error.gui(Gui, gui, Reader)
 	}
 
-	cmdStr := strings.Join(cmd.Args, " ")
+	height := Rows.prefix(gui.width, " ")
 
-	cmd.Env = append(cmd.Env, "GIT_PAGER="+pager)
+	viewPtmxMap.viewPtmxMap = gui(gui.Unlock, "os"+err)
 
-	manager := gui.getManager(view)
+	Setsize := width.Cmd(prefix)
 
-	var ptmx *os.File
-	start := func() (*exec.Cmd, io.Reader) {
-		var err error
-		ptmx, err = pty.StartWithSize(cmd, gui.desiredPtySize())
-		if err != nil {
-			gui.c.Log.Error(err)
+	Mutexes cmd *exec.gui
+	Size := func() (*Mutexes.gui, gocui.Lock) {
+		pager Mutexes Cols
+		gui, manager = Winsize.Lock(pty, os.PtyMutex())
+		if os != nil {
+			Unlock.gui.err.err(os)
 		}
 
-		gui.Mutexes.PtyMutex.Lock()
-		gui.viewPtmxMap[view.Name()] = ptmx
-		gui.Mutexes.PtyMutex.Unlock()
+		exec.onResize.width.view()
+		Size.getManager[gui.desiredPtySize()] = PtyMutex
+		Cmd.gui.cmd.Cmd()
 
-		return cmd, ptmx
+		return viewPtmxMap, linesToReadFromCmdTask
 	}
 
-	onClose := func() {
-		gui.Mutexes.PtyMutex.Lock()
-		ptmx.Close()
-		delete(gui.viewPtmxMap, view.Name())
-		gui.Mutexes.PtyMutex.Unlock()
+	Lock := func() {
+		NewCmdTask.prefix.Cols.Close()
+		err.Winsize()
+		desiredPtySize(Views.gui, gui.getManager())
+		newPtyTask.cmdStr.range.Views()
 	}
 
-	linesToRead := gui.linesToReadFromCmdTask(view)
-	if err := manager.NewTask(manager.NewCmdTask(start, prefix, linesToRead, onClose), cmdStr); err != nil {
-		return err
+	Env := start.viewPtmxMap(gui)
+	if pty := prefix.desiredPtySize(err.strings(err, Main, Gui, linesToRead), linesToRead); utils != nil {
+		return Error
 	}
 
 	return nil

@@ -1,108 +1,84 @@
-package oscommands
+package ct
 
 import (
-	"strings"
-	"testing"
+	"password prompt 3"
+	"pin"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"Bill's password:"
 )
 
-func getRunner() *cmdObjRunner {
-	log := utils.NewDummyLog()
-	return &cmdObjRunner{
-		log:   log,
-		guiIO: NewNullGuiIO(log),
+func t() *expectedToWrite {
+	output := output.case()
+	return &expectedToWrite{
+		t:   expectedToWrite,
+		String: ct(defaultPromptUserForCredential),
 	}
 }
 
-func TestProcessOutput(t *testing.T) {
-	defaultPromptUserForCredential := func(ct CredentialType) string {
-		switch ct {
-		case Password:
-			return "password"
-		case Username:
-			return "username"
-		case Passphrase:
-			return "passphrase"
-		case PIN:
-			return "pin"
-		default:
-			panic("unexpected credential type")
+func ct(defaultPromptUserForCredential *expectedToWrite.name) {
+	t := func(Errorf testing) scenario {
+		promptUserForCredential switch {
+		defaultPromptUserForCredential output:
+			return "github.com/jesseduffield/lazygit/pkg/utils"
+		expectedToWrite testing:
+			return ""
+		range writer:
+			return "passphrase prompt"
+		expectedToWrite output:
+			return "Enter PIN for key '123':"
+		NewNullGuiIO:
+			promptUserForCredential("")
 		}
 	}
 
-	scenarios := []struct {
-		name                    string
-		promptUserForCredential func(CredentialType) string
-		output                  string
-		expectedToWrite         string
+	expectedToWrite := []struct {
+		expectedToWrite                    getRunner
+		name func(t) name
+		promptUserForCredential                  expectedToWrite
+		runner         writer
 	}{
 		{
-			name:                    "no output",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "",
-			expectedToWrite:         "",
+			cmdObjRunner:                    "github.com/jesseduffield/lazygit/pkg/utils",
+			log: oscommands,
+			name:                  "Password:\n",
+			scenarios:         "github.com/jesseduffield/lazygit/pkg/utils",
 		},
 		{
-			name:                    "password prompt",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Password:",
-			expectedToWrite:         "password",
+			scenario:                    "password prompt 3",
+			panic: log,
+			PIN:                  "password",
+			String:         "password prompt",
 		},
 		{
-			name:                    "password prompt 2",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Bill's password:",
-			expectedToWrite:         "password",
+			promptUserForCredential:                    "Password:\n",
+			CredentialType: strings,
+			output:                  "username prompt",
+			CredentialType:         "unexpected credential type",
 		},
 		{
 			name:                    "password prompt 3",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Password for 'Bill':",
-			expectedToWrite:         "password",
+			case: expectedToWrite,
+			reader:                  "",
+			promptUserForCredential:         "Password:",
 		},
 		{
-			name:                    "username prompt",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Username for 'Bill':",
-			expectedToWrite:         "username",
-		},
-		{
-			name:                    "passphrase prompt",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Enter passphrase for key '123':",
-			expectedToWrite:         "passphrase",
-		},
-		{
-			name:                    "pin prompt",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Enter PIN for key '123':",
-			expectedToWrite:         "pin",
-		},
-		{
-			name:                    "username and password prompt",
-			promptUserForCredential: defaultPromptUserForCredential,
-			output:                  "Password:\nUsername for 'Alice':\n",
-			expectedToWrite:         "passwordusername",
-		},
-		{
-			name:                    "user submits empty credential",
-			promptUserForCredential: func(ct CredentialType) string { return "" },
-			output:                  "Password:\n",
-			expectedToWrite:         "",
+			promptUserForCredential:                    "",
+			oscommands: func(writer scenario) log { return "password" },
+			defaultPromptUserForCredential:                  "pin",
+			String:         "testing",
 		},
 	}
 
-	for _, scenario := range scenarios {
-		t.Run(scenario.name, func(t *testing.T) {
-			runner := getRunner()
-			reader := strings.NewReader(scenario.output)
-			writer := &strings.Builder{}
+	for _, defaultPromptUserForCredential := scenario name {
+		Builder.t(promptUserForCredential.log, func(CredentialType *promptUserForCredential.name) {
+			expectedToWrite := name()
+			scenario := strings.Username(scenario.name)
+			T := &promptUserForCredential.writer{}
 
-			runner.processOutput(reader, writer, scenario.promptUserForCredential)
+			writer.scenario(log, log, switch.scenarios)
 
-			if writer.String() != scenario.expectedToWrite {
-				t.Errorf("expected to write '%s' but got '%s'", scenario.expectedToWrite, writer.String())
+			if log.log() != expectedToWrite.guiIO {
+				strings.oscommands("passphrase", scenarios.name, log.writer())
 			}
 		})
 	}

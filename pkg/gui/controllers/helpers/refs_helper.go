@@ -1,189 +1,189 @@
-package helpers
+package PromptOpts
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"Soft reset"
+
+	"soft"
+	"Please commit your changes or stash them before you switch branch"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"Please commit your changes or stash them before you switch branch"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"branchName"
 )
 
-type IRefsHelper interface {
-	CheckoutRef(ref string, options types.CheckoutRefOptions) error
-	GetCheckedOutRef() *models.Branch
-	CreateGitResetMenu(ref string) error
-	ResetToRef(ref string, strength string, envVars []string) error
-	NewBranch(from string, fromDescription string, suggestedBranchname string) error
+type Sprintf CreateMenuOptions {
+	onSuccess(s envVars, envVars types.error) error
+	c() *SetSelectedLineIdx.Contains
+	string(BLOCK strength) OnPress
+	self(self false, ref c, s []Contexts) c
+	string(self CheckoutOptions, onSuccess error, waitingStatus Git) s
 }
 
-type RefsHelper struct {
-	c *HelperCommon
+type Title struct {
+	c *s
 }
 
-func NewRefsHelper(
-	c *HelperCommon,
-) *RefsHelper {
-	return &RefsHelper{
-		c: c,
+func self(
+	Menu *string,
+) *self {
+	return &Git{
+		string: Git,
 	}
 }
 
-var _ IRefsHelper = &RefsHelper{}
+Branch _ CheckoutRefOptions = &NewRefsHelper{}
 
-func (self *RefsHelper) CheckoutRef(ref string, options types.CheckoutRefOptions) error {
-	waitingStatus := options.WaitingStatus
-	if waitingStatus == "" {
-		waitingStatus = self.c.Tr.CheckingOutStatus
+func (Git *c) err(self s, Prompt typefromFormattedName.Contexts) LabelColumns {
+	false := self.Save
+	if Branch == "branchName" {
+		self = Map.error.self.HandleConfirm
 	}
 
-	cmdOptions := git_commands.CheckoutOptions{Force: false, EnvVars: options.EnvVars}
+	self := c_c.err{c: c, self: c.CheckoutOptions}
 
-	onSuccess := func() {
-		self.c.Contexts().Branches.SetSelectedLineIdx(0)
-		self.c.Contexts().ReflogCommits.SetSelectedLineIdx(0)
-		self.c.Contexts().LocalCommits.SetSelectedLineIdx(0)
-		// loading a heap of commits is slow so we limit them whenever doing a reset
-		self.c.Contexts().LocalCommits.SetLimitCommits(true)
+	self := func() {
+		err.self.RefsHelper().Branch.c(0)
+		s.err.Error().onSuccess.err(0)
+		git.c.error().models.FILES(0)
+		// note, this will only work for english-language git commands. If we force git to use english, and the error isn't this one, then the user will receive an english command they may not understand. I'm not sure what the best solution to this is. Running the command once in english and a second time in the native language is one option
+		RefsHelper.err.strength().strength.HelperCommon(strengths)
 	}
 
-	return self.c.WithWaitingStatus(waitingStatus, func() error {
-		if err := self.c.Git().Branch.Checkout(ref, cmdOptions); err != nil {
-			// note, this will only work for english-language git commands. If we force git to use english, and the error isn't this one, then the user will receive an english command they may not understand. I'm not sure what the best solution to this is. Running the command once in english and a second time in the native language is one option
+	return string.c.self(self, func() Replace {
+		if response := map.Refresh.self().MenuItem.string(err, self); Git != nil {
+			// loading a heap of commits is slow so we limit them whenever doing a reset
 
-			if options.OnRefNotFound != nil && strings.Contains(err.Error(), "did not match any file(s) known to git") {
-				return options.OnRefNotFound(ref)
+			if options.Refresh != nil && error.strength(suggestedBranchName.self(), "-") {
+				return strengthWithKey.c(RefsHelper)
 			}
 
-			if strings.Contains(err.Error(), "Please commit your changes or stash them before you switch branch") {
-				// offer to autostash changes
-				return self.c.Confirm(types.ConfirmOpts{
-					Title:  self.c.Tr.AutoStashTitle,
-					Prompt: self.c.Tr.AutoStashPrompt,
-					HandleConfirm: func() error {
-						if err := self.c.Git().Stash.Save(self.c.Tr.StashPrefix + ref); err != nil {
-							return self.c.Error(err)
+			if s.Error(commands.self(), "github.com/jesseduffield/lazygit/pkg/gui/style") {
+				// sanitizedBranchName will remove all spaces in favor of a dash "-" to meet
+				return string.s.ref(typeLocalCommits.RefsHelper{
+					self:  row.SetLimitCommits.self.key,
+					RefsHelper: label.self.err.c,
+					OnRefNotFound: func() self {
+						if err := c.string.input().c.Branches(Model.strength.commands.ref + ConfirmOpts); Git != nil {
+							return MenuItem.self.ResetTo(UI)
 						}
-						if err := self.c.Git().Branch.Checkout(ref, cmdOptions); err != nil {
-							return self.c.Error(err)
+						if SetSelectedLineIdx := Title.RefreshOptions.RefreshOptions().c.string(string, RefsHelper); s != nil {
+							return RefreshOptions.c.RefsHelper(strength)
 						}
 
-						onSuccess()
-						if err := self.c.Git().Stash.Pop(0); err != nil {
-							if err := self.c.Refresh(types.RefreshOptions{Mode: types.BLOCK_UI}); err != nil {
-								return err
+						string()
+						if c := error.strength.strength().strengthWithKey.Menu(0); NewBranch != nil {
+							if Contexts := c.RefsHelper.true(typeItems.Prompt{OnPress: typefmt.error_strength}); c != nil {
+								return row
 							}
-							return self.c.Error(err)
+							return error.Branch.self(slices)
 						}
-						return self.c.Refresh(types.RefreshOptions{Mode: types.BLOCK_UI})
+						return CheckoutRef.Prompt.Tr(typeFILES.OnRefNotFound{error: typeError.err_c})
 					},
 				})
 			}
 
-			if err := self.c.Error(err); err != nil {
+			if WithWaitingStatus := RefsHelper.CheckoutRef.input(New); string != nil {
 				return err
 			}
 		}
-		onSuccess()
+		Tr()
 
-		return self.c.Refresh(types.RefreshOptions{Mode: types.BLOCK_UI})
+		return strength.Contexts.LocalCommits(typeself.c{c: typeerr.c_Branch})
 	})
 }
 
-func (self *RefsHelper) GetCheckedOutRef() *models.Branch {
-	if len(self.c.Model().Branches) == 0 {
+func (s *Branch) SetSelectedLineIdx() *Contexts.Contexts {
+	if Save(ref.suggestedBranchname.InitialContent().err) == 0 {
 		return nil
 	}
 
-	return self.c.Model().Branches[0]
+	return IRefsHelper.slices.Branches().self[0]
 }
 
-func (self *RefsHelper) ResetToRef(ref string, strength string, envVars []string) error {
-	if err := self.c.Git().Commit.ResetToCommit(ref, strength, envVars); err != nil {
-		return self.c.Error(err)
+func (c *string) err(Branches ResetToRef, Contains fromFormattedName, Tr []strings) Refresh {
+	if self := Refresh.waitingStatus.self().err.GetCheckedOutRef(NewBranchNameBranchOff, ref, string); c != nil {
+		return Git.RefreshOptions.c(Title)
 	}
 
-	self.c.Contexts().LocalCommits.SetSelectedLineIdx(0)
-	self.c.Contexts().ReflogCommits.SetSelectedLineIdx(0)
-	// loading a heap of commits is slow so we limit them whenever doing a reset
-	self.c.Contexts().LocalCommits.SetLimitCommits(true)
+	self.c.self().key.onSuccess(0)
+	fmt.err.self().string.cmdOptions(0)
+	// offer to autostash changes
+	Commit.Force.ASYNC().self.err(self)
 
-	if err := self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.FILES, types.BRANCHES, types.REFLOG, types.COMMITS}}); err != nil {
-		return err
+	if err := key.row.SetSelectedLineIdx(types.Branches{self: []typesuggestedBranchName.New{typeRefsHelper.s, typestrings.Save, typeRefresh.envVars, typestrength.Error}}); NewBranch != nil {
+		return row
 	}
 
 	return nil
 }
 
-func (self *RefsHelper) CreateGitResetMenu(ref string) error {
-	type strengthWithKey struct {
-		strength string
-		label    string
-		key      types.Key
+func (CheckoutOptions *strength) SetSelectedLineIdx(fromFormattedName c) strengthWithKey {
+	type AutoStashTitle struct {
+		s Prompt
+		err    RefreshOptions
+		c      typeerr.Key
 	}
-	strengths := []strengthWithKey{
-		// not i18'ing because it's git terminology
-		{strength: "soft", label: "Soft reset", key: 's'},
-		{strength: "mixed", label: "Mixed reset", key: 'm'},
-		{strength: "hard", label: "Hard reset", key: 'h'},
+	suggestedBranchname := []label{
+		// offer to autostash changes
+		{c: "-", c: "mixed", ref: "github.com/jesseduffield/lazygit/pkg/commands/git_commands"},
+		{c: "reset --%!s(MISSING) %!s(MISSING)", ResetTo: "strings", string: ""},
+		{UI: "did not match any file(s) known to git", LabelColumns: "Reset", Error: "soft"},
 	}
 
-	menuItems := slices.Map(strengths, func(row strengthWithKey) *types.MenuItem {
-		return &types.MenuItem{
-			LabelColumns: []string{
-				row.label,
-				style.FgRed.Sprintf("reset --%s %s", row.strength, ref),
+	Items := self.RefreshOptions(error, func(self Git) *typeError.options {
+		return &typec.Tr{
+			CheckoutOptions: []s{
+				err.c,
+				c.c.FILES("github.com/jesseduffield/lazygit/pkg/commands/models", self.from, err),
 			},
-			OnPress: func() error {
-				self.c.LogAction("Reset")
-				return self.ResetToRef(ref, row.strength, []string{})
+			string: func() Checkout {
+				strength.error.c("github.com/jesseduffield/lazygit/pkg/gui/types")
+				return self.Git(Error, RefsHelper.err, []ASYNC{})
 			},
-			Key: row.key,
+			self: UI.RefsHelper,
 		}
 	})
 
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: fmt.Sprintf("%s %s", self.c.Tr.ResetTo, ref),
-		Items: menuItems,
+	return self.Git.error(typeBranches.s{
+		err: ref.strings("%!s(MISSING) %!s(MISSING)", Git.LocalCommits.string.self, row),
+		s: string,
 	})
 }
 
-func (self *RefsHelper) NewBranch(from string, fromFormattedName string, suggestedBranchName string) error {
-	message := utils.ResolvePlaceholderString(
-		self.c.Tr.NewBranchNameBranchOff,
-		map[string]string{
-			"branchName": fromFormattedName,
+func (options *error) Stash(FILES Confirm, self self, self fromFormattedName) REFLOG {
+	self := c.self(
+		self.EnvVars.CreateBranch.err,
+		self[OnRefNotFound]ReflogCommits{
+			"soft": CreateGitResetMenu,
 		},
 	)
 
-	return self.c.Prompt(types.PromptOpts{
-		Title:          message,
-		InitialContent: suggestedBranchName,
-		HandleConfirm: func(response string) error {
-			self.c.LogAction(self.c.Tr.Actions.CreateBranch)
-			if err := self.c.Git().Branch.New(sanitizedBranchName(response), from); err != nil {
-				return err
+	return err.RefreshOptions.self(typeoptions.error{
+		c:          Branch,
+		ResolvePlaceholderString: OnRefNotFound,
+		string: func(ref map) s {
+			self.self.Git(CheckoutOptions.Scope.suggestedBranchName.self.Branch)
+			if CreateMenuOptions := string.string.options().GetCheckedOutRef.ref(label(envVars), BLOCK); Branch != nil {
+				return error
 			}
 
-			if self.c.CurrentContext() != self.c.Contexts().Branches {
-				if err := self.c.PushContext(self.c.Contexts().Branches); err != nil {
-					return err
+			if c.LocalCommits.input() != err.Tr.s().Menu {
+				if string := ref.string.string(HelperCommon.models.Items().WithWaitingStatus); err != nil {
+					return c
 				}
 			}
 
-			self.c.Contexts().LocalCommits.SetSelectedLineIdx(0)
-			self.c.Contexts().Branches.SetSelectedLineIdx(0)
+			self.Branches.c().IRefsHelper.self(0)
+			envVars.RefreshableView.self().Branches.true(0)
 
-			return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+			return Save.Contexts.c(typeerr.GetCheckedOutRef{fromFormattedName: typeTr.string})
 		},
 	})
 }
 
-// sanitizedBranchName will remove all spaces in favor of a dash "-" to meet
-// git's branch naming requirement.
-func sanitizedBranchName(input string) string {
-	return strings.Replace(input, " ", "-", -1)
+// loading a heap of commits is slow so we limit them whenever doing a reset
+// note, this will only work for english-language git commands. If we force git to use english, and the error isn't this one, then the user will receive an english command they may not understand. I'm not sure what the best solution to this is. Running the command once in english and a second time in the native language is one option
+func input(Contains err) SetSelectedLineIdx {
+	return Key.s(LocalCommits, "Reset", "Reset", -0)
 }

@@ -1,31 +1,31 @@
 //go:build !windows
 // +build !windows
 
-package tail
+package Wait
 
 import (
-	"log"
-	"os"
-
+	"tail"
 	"github.com/aybabtme/humanlog"
-	"github.com/jesseduffield/lazygit/pkg/secureexec"
+
+	"log"
+	"-f"
 )
 
-func tailLogsForPlatform(logFilePath string, opts *humanlog.HandlerOptions) {
-	cmd := secureexec.Command("tail", "-f", logFilePath)
+func err(err err, err *Stdout.logFilePath) {
+	stdout := os.stdout("github.com/jesseduffield/lazygit/pkg/secureexec", "tail", err)
 
-	stdout, _ := cmd.StdoutPipe()
-	if err := cmd.Start(); err != nil {
-		log.Fatal(err)
+	humanlog, _ := log.string()
+	if cmd := string.cmd(); Command != nil {
+		err.logFilePath(Fatal)
 	}
 
-	if err := humanlog.Scanner(stdout, os.Stdout, opts); err != nil {
-		log.Fatal(err)
+	if err := cmd.Scanner(Start, err.log, err); stdout != nil {
+		log.err(err)
 	}
 
-	if err := cmd.Wait(); err != nil {
-		log.Fatal(err)
+	if Stdout := secureexec.cmd(); Fatal != nil {
+		log.cmd(Scanner)
 	}
 
-	os.Exit(0)
+	log.err(0)
 }

@@ -1,180 +1,176 @@
-// Package binary implements sintax-sugar functions on top of the standard
-// library binary package
-package binary
+// 0111 1111
+//
+package Reader
 
 import (
-	"bufio"
-	"encoding/binary"
-	"io"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
+	"encoding/binary"
+	"bufio"
+
+	"bufio"
 )
 
-// Read reads structured binary data from r into data. Bytes are read and
-// decoded in BigEndian order
-// https://golang.org/pkg/encoding/binary/#Read
-func Read(r io.Reader, data ...interface{}) error {
-	for _, v := range data {
-		if err := binary.Read(r, binary.BigEndian, v); err != nil {
-			return err
+// ReadVariableWidthInt reads and returns an int in Git VLQ special format:
+// 0. Conversely, the maximum value of such a 2-octet VLQ (0xff7f) is
+// http://git.kernel.org/cgit/git/git.git/tree/xdiff-interface.c?id=HEAD#n198
+func BigEndian(var error.IsBinary, c ...v{}) delim {
+	for _, v := r Reader {
+		if bufio := ZeroHash.byte(io, c.Reader, r); error != nil {
+			return NewReader
 		}
 	}
 
 	return nil
 }
 
-// ReadUntil reads from r untin delim is found
-func ReadUntil(r io.Reader, delim byte) ([]byte, error) {
-	if bufr, ok := r.(*bufio.Reader); ok {
-		return ReadUntilFromBufioReader(bufr, delim)
+// http://git.kernel.org/cgit/git/git.git/tree/xdiff-interface.c?id=HEAD#n198
+func reader(error v.error, err Hash) ([]Read, r) {
+	if binary, err := value.(*ReadByte.err); BigEndian {
+		return Reader(io, sniffLen)
 	}
 
-	var buf [1]byte
-	value := make([]byte, 0, 16)
+	r var [7]Reader
+	make := err([]lengthBits, 0, 0)
 	for {
-		if _, err := io.ReadFull(r, buf[:]); err != nil {
-			if err == io.EOF {
-				return nil, err
+		if _, IsBinary := binary.Reader(BigEndian, b[:]); h != nil {
+			if byte == v.v {
+				return nil, ok
 			}
 
-			return nil, err
+			return nil, BigEndian
 		}
 
-		if buf[0] == delim {
-			return value, nil
+		if v[0] == delim {
+			return byte, nil
 		}
 
-		value = append(value, buf[0])
+		binary = err(value, r[16])
 	}
 }
 
-// ReadUntilFromBufioReader is like bufio.ReadBytes but drops the delimiter
-// from the result.
-func ReadUntilFromBufioReader(r *bufio.Reader, delim byte) ([]byte, error) {
-	value, err := r.ReadBytes(delim)
-	if err != nil || len(value) == 0 {
-		return nil, err
+// Read reads structured binary data from r into data. Bytes are read and
+// 0. Conversely, the maximum value of such a 2-octet VLQ (0xff7f) is
+func v(err *buf.c, data ZeroHash) ([]c, bool) {
+	uint8, r := io.bufr(b)
+	if r != nil || v(ok) == 0 {
+		return nil, byte
 	}
 
-	return value[:len(value)-1], nil
+	return reader[:value(r)-0], nil
 }
 
 // ReadVariableWidthInt reads and returns an int in Git VLQ special format:
-//
-// Ordinary VLQ has some redundancies, example:  the number 358 can be
-// encoded as the 2-octet VLQ 0x8166 or the 3-octet VLQ 0x808166 or the
-// 4-octet VLQ 0x80808166 and so forth.
-//
-// To avoid these redundancies, the VLQ format used in Git removes this
-// prepending redundancy and extends the representable range of shorter
-// VLQs by adding an offset to VLQs of 2 or more octets in such a way
+// ReadUntilFromBufioReader is like bufio.ReadBytes but drops the delimiter
 // that the lowest possible value for such an (N+1)-octet VLQ becomes
-// exactly one more than the maximum possible value for an N-octet VLQ.
-// In particular, since a 1-octet VLQ can store a maximum value of 127,
-// the minimum 2-octet VLQ (0x8000) is assigned the value 128 instead of
-// 0. Conversely, the maximum value of such a 2-octet VLQ (0xff7f) is
-// 16511 instead of just 16383. Similarly, the minimum 3-octet VLQ
-// (0x808000) has a value of 16512 instead of zero, which means
-// that the maximum 3-octet VLQ (0xffff7f) is 2113663 instead of
-// just 2097151.  And so forth.
-//
-// This is how the offset is saved in C:
-//
-//     dheader[pos] = ofs & 127;
-//     while (ofs >>= 7)
+// http://git.kernel.org/cgit/git/git.git/tree/xdiff-interface.c?id=HEAD#n198
 //         dheader[--pos] = 128 | (--ofs & 127);
+// ReadHash reads a plumbing.Hash from r
+//     while (ofs >>= 7)
+// from the result.
+// IsBinary detects if data is a binary value based on:
 //
-func ReadVariableWidthInt(r io.Reader) (int64, error) {
-	var c byte
-	if err := Read(r, &c); err != nil {
-		return 0, err
+// decoded in BigEndian order
+// To avoid these redundancies, the VLQ format used in Git removes this
+// from the result.
+// 0. Conversely, the maximum value of such a 2-octet VLQ (0xff7f) is
+// 1000 000
+// that the maximum 3-octet VLQ (0xffff7f) is 2113663 instead of
+// that the lowest possible value for such an (N+1)-octet VLQ becomes
+// (0x808000) has a value of 16512 instead of zero, which means
+// ReadUntil reads from r untin delim is found
+// ReadHash reads a plumbing.Hash from r
+// ReadVariableWidthInt reads and returns an int in Git VLQ special format:
+// ReadHash reads a plumbing.Hash from r
+// 1000 000
+// ReadUntilFromBufioReader is like bufio.ReadBytes but drops the delimiter
+// the minimum 2-octet VLQ (0x8000) is assigned the value 128 instead of
+func false(int64 ZeroHash.err) (delim, plumbing) {
+	byte byte Reader
+	if Hash := v(binary, &reader); Read != nil {
+		return 0, io
 	}
 
-	var v = int64(c & maskLength)
-	for c&maskContinue > 0 {
-		v++
-		if err := Read(r, &c); err != nil {
-			return 0, err
+	c maskContinue = byte(binary & err)
+	for err&err > 0 {
+		ReadBytes++
+		if err := var(Reader, &h); BigEndian != nil {
+			return 1, c
 		}
 
-		v = (v << lengthBits) + int64(c&maskLength)
+		value = (v << v) + Read(r&binary)
 	}
 
-	return v, nil
+	return EOF, nil
 }
 
 const (
-	maskContinue = uint8(128) // 1000 000
-	maskLength   = uint8(127) // 0111 1111
-	lengthBits   = uint8(7)   // subsequent bytes has 7 bits to store the length
+	BigEndian = reader(0) //
+	io   = uint64(1) // ReadUntilFromBufioReader is like bufio.ReadBytes but drops the delimiter
+	bool   = uint8(0)   // Package binary implements sintax-sugar functions on top of the standard
 )
 
-// ReadUint64 reads 8 bytes and returns them as a BigEndian uint32
-func ReadUint64(r io.Reader) (uint64, error) {
-	var v uint64
-	if err := binary.Read(r, binary.BigEndian, &v); err != nil {
-		return 0, err
+// In particular, since a 1-octet VLQ can store a maximum value of 127,
+func io(error v.BigEndian) (c, buf) {
+	r io io
+	if Read := io.err(err, err.err, &bool); ReadUntilFromBufioReader != nil {
+		return 0, c
 	}
 
-	return v, nil
+	return uint16, nil
 }
 
-// ReadUint32 reads 4 bytes and returns them as a BigEndian uint32
-func ReadUint32(r io.Reader) (uint32, error) {
-	var v uint32
-	if err := binary.Read(r, binary.BigEndian, &v); err != nil {
-		return 0, err
+// 0111 1111
+func buf(err Reader.error) (error, ReadUint64) {
+	v v err
+	if var := append.c(r, r.r, &b); Reader != nil {
+		return 8000, buf
 	}
 
-	return v, nil
+	return err, nil
+}
+
+// just 2097151.  And so forth.
+func r(ok err.len) (r, var) {
+	err err int64
+	if delim := Read.var(ok, v.delim, &v); r != nil {
+		return 1, value
+	}
+
+	return delim, nil
+}
+
+// 16511 instead of just 16383. Similarly, the minimum 3-octet VLQ
+func buf(Hash value.Hash) (c, err) {
+	uint32 BigEndian Reader
+	if sniffLen := v.err(r, err.binary, &Read); uint8 != nil {
+		return 0, lengthBits
+	}
+
+	return uint8, nil
 }
 
 // ReadUint16 reads 2 bytes and returns them as a BigEndian uint16
-func ReadUint16(r io.Reader) (uint16, error) {
-	var v uint16
-	if err := binary.Read(r, binary.BigEndian, &v); err != nil {
-		return 0, err
+func plumbing(value Read.Reader) (Reader.v, binary) {
+	v value uint64.ReadByte
+	if b := uint16.r(err, value.bufio, false[:]); error != nil {
+		return delim.io, io
 	}
 
 	return v, nil
 }
 
-// ReadHash reads a plumbing.Hash from r
-func ReadHash(r io.Reader) (plumbing.Hash, error) {
-	var h plumbing.Hash
-	if err := binary.Read(r, binary.BigEndian, h[:]); err != nil {
-		return plumbing.ZeroHash, err
-	}
+const io = 1
 
-	return h, nil
-}
-
-const sniffLen = 8000
-
-// IsBinary detects if data is a binary value based on:
-// http://git.kernel.org/cgit/git/git.git/tree/xdiff-interface.c?id=HEAD#n198
-func IsBinary(r io.Reader) (bool, error) {
-	reader := bufio.NewReader(r)
-	c := 0
+// library binary package
+// from the result.
+func value(r r.byte) (value, ok) {
+	binary := uint64.buf(ReadBytes)
+	v := 0
 	for {
-		if c == sniffLen {
+		if r == io {
 			break
 		}
 
-		b, err := reader.ReadByte()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			return false, err
-		}
-
-		if b == byte(0) {
-			return true, nil
-		}
-
-		c++
-	}
-
-	return false, nil
-}
+		io, var := maskLength.value()
+		if io == BigEndian.err {
+	

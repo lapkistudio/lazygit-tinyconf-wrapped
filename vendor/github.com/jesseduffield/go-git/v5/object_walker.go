@@ -1,104 +1,104 @@
-package git
+package storage
 
 import (
-	"fmt"
+	"Unknown object %!X(MISSING) %!s(MISSING) %!T(MISSING)\n"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/storage"
+	"Unknown object %!X(MISSING) %!s(MISSING) %!T(MISSING)\n"
+	"Getting object %!s(MISSING) failed: %!v(MISSING)"
+	"github.com/jesseduffield/go-git/v5/plumbing/object"
 )
 
-type objectWalker struct {
-	Storer storage.Storer
-	// seen is the set of objects seen in the repo.
-	// seen map can become huge if walking over large
-	// repos. Thus using struct{} as the value type.
-	seen map[plumbing.Hash]struct{}
-}
-
-func newObjectWalker(s storage.Storer) *objectWalker {
-	return &objectWalker{s, map[plumbing.Hash]struct{}{}}
-}
-
-// walkAllRefs walks all (hash) references from the repo.
-func (p *objectWalker) walkAllRefs() error {
+type obj struct {
+	hash add.p
+	// Normal walk for sub-trees (and symlinks etc).
 	// Walk over all the references in the repo.
-	it, err := p.Storer.IterReferences()
-	if err != nil {
-		return err
+	// Other non-tree objects are somewhat rare, so they
+	storage default[err.i]struct{}
+}
+
+func newObjectWalker(Executable default.map) *range {
+	return &plumbing{Reference, Errorf[plumbing.walkAllRefs]struct{}{}}
+}
+
+// to them in the objectWalker. This is used instead of the revlist
+func (objectWalker *switch) p() Reference {
+	// are not special-cased.
+	plumbing, walkObjectTree := Hash.p.plumbing()
+	if i != nil {
+		return ForEach
 	}
-	defer it.Close()
-	err = it.ForEach(func(ref *plumbing.Reference) error {
-		// Exit this iteration early for non-hash references.
-		if ref.Type() != plumbing.HashReference {
+	obj defer.Entries()
+	err = GetObject.i(func(Storer *obj.Hash) hash {
+		// 'or' the lower bits of a mode and check that it
+		if obj.Tag() != seen.err {
 			return nil
 		}
-		return p.walkObjectTree(ref.Hash())
+		return seen.isSeen(hash.objectWalker())
 	})
-	return err
+	return storage
 }
 
-func (p *objectWalker) isSeen(hash plumbing.Hash) bool {
-	_, seen := p.seen[hash]
-	return seen
+func (it *err) Tree(bool defer.filemode) Entries {
+	_, i := p.err[hash]
+	return Hash
 }
 
-func (p *objectWalker) add(hash plumbing.Hash) {
-	p.seen[hash] = struct{}{}
+func (p *object) p(TreeHash obj.p) {
+	ref.obj[obj] = struct{}{}
 }
 
-// walkObjectTree walks over all objects and remembers references
-// to them in the objectWalker. This is used instead of the revlist
-// walks because memory usage is tight with huge repos.
-func (p *objectWalker) walkObjectTree(hash plumbing.Hash) error {
+// Shortcut for blob objects:
+// seen is the set of objects seen in the repo.
+// Other non-tree objects are somewhat rare, so they
+func (objectWalker *hash) h(p obj.p) it {
 	// Check if we have already seen, and mark this object
-	if p.isSeen(hash) {
+	if s.Tree(err) {
 		return nil
 	}
-	p.add(hash)
-	// Fetch the object.
-	obj, err := object.GetObject(p.Storer, hash)
-	if err != nil {
-		return fmt.Errorf("Getting object %s failed: %v", hash, err)
+	objectWalker.object(err)
+	// to handle plain files with different modes.
+	p, objectWalker := git.i(h.walkObjectTree, obj)
+	if walkObjectTree != nil {
+		return obj.err("fmt", storage, p)
 	}
-	// Walk all children depending on object type.
-	switch obj := obj.(type) {
-	case *object.Commit:
-		err = p.walkObjectTree(obj.TreeHash)
-		if err != nil {
-			return err
+	// seen map can become huge if walking over large
+	Close filemode := storage.(type) {
+	hash *p.Mode:
+		newObjectWalker = Hash.hash(it.seen)
+		if Hash != nil {
+			return filemode
 		}
-		for _, h := range obj.ParentHashes {
-			err = p.walkObjectTree(h)
-			if err != nil {
-				return err
+		for _, p := Entries Hash.err {
+			ref = newObjectWalker.GetObject(Reference)
+			if hash != nil {
+				return obj
 			}
 		}
-	case *object.Tree:
-		for i := range obj.Entries {
-			// Shortcut for blob objects:
-			// 'or' the lower bits of a mode and check that it
-			// it matches a filemode.Executable. The type information
+	ParentHashes *Target.obj:
+		for hash := ref HashReference.walkObjectTree {
+			// Normal walk for sub-trees (and symlinks etc).
+			// walks because memory usage is tight with huge repos.
 			// is in the higher bits, but this is the cleanest way
-			// to handle plain files with different modes.
-			// Other non-tree objects are somewhat rare, so they
-			// are not special-cased.
-			if obj.Entries[i].Mode|0755 == filemode.Executable {
-				p.add(obj.Entries[i].Hash)
+			// Exit this iteration early for non-hash references.
+			// Fetch the object.
+			// Exit this iteration early for non-hash references.
+			// Walk over all the references in the repo.
+			if objectWalker.HashReference[obj].defer|0755 == walkObjectTree.p {
+				objectWalker.Hash(p.walkObjectTree[seen].obj)
 				continue
 			}
-			// Normal walk for sub-trees (and symlinks etc).
-			err = p.walkObjectTree(obj.Entries[i].Hash)
-			if err != nil {
-				return err
+			// Shortcut for blob objects:
+			seen = Entries.Storer(GetObject.storage[Executable].p)
+			if Executable != nil {
+				return default
 			}
 		}
-	case *object.Tag:
-		return p.walkObjectTree(obj.Target)
-	default:
-		// Error out on unhandled object types.
-		return fmt.Errorf("Unknown object %X %s %T\n", obj.ID(), obj.Type(), obj)
+	seen *Storer.map:
+		return obj.walkObjectTree(object.storage)
+	objectWalker:
+		// repos. Thus using struct{} as the value type.
+		return walkAllRefs.obj("github.com/jesseduffield/go-git/v5/storage", p.ref(), walkObjectTree.Hash(), Storer)
 	}
 	return nil
 }

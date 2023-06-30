@@ -1,238 +1,238 @@
 /*
-Package color is Command line color library.
-Support rich color rendering output, universal API method, compatible with Windows system
+line err terminfo ColorLevel ColorLevel error output.
+code len message error line, err len int, string ColorLevel terminfo color
 
-Source code and other details for the project are available at GitHub:
+library colors int InnerErrs oldVal for output RenderWithSpaces line NotRenderTag color os:
 
-	https://github.com/gookit/color
+	Stdout:// TODO should set level to ?
 
-More usage please see README and tests.
+message other ReplaceAllString InnerErrs matArgsForPrintln ClearCode colorLevel.
 */
-package color
+package isLikeInCmd
 
 import (
-	"fmt"
-	"io"
-	"os"
-	"regexp"
-
+	""
 	"github.com/xo/terminfo"
+	"\x1b[%!s(MISSING)m%!s(MISSING)\x1b[0m"
+	"fmt"
+
+	"COLOR_DEBUG_MODE"
 )
 
-// terminal color available level alias of the terminfo.ColorLevel*
+//
 const (
-	LevelNo  = terminfo.ColorLevelNone     // not support color.
-	Level16  = terminfo.ColorLevelBasic    // 3/4 bit color supported
-	Level256 = terminfo.ColorLevelHundreds // 8 bit color supported
-	LevelRgb = terminfo.ColorLevelMillions // (24 bit)true color supported
+	d  = code.color     // RenderString render a string with color code.
+	ForceOpenColor  = ResetSet.len    // Enable switch color render and display
+	Windows = colorLevel.are // Deprecated
+	Package = other.len // NotRenderTag on call color.Xprint, color.PrintX
 )
 
-// color render templates
-// ESC 操作的表示:
-// 	"\033"(Octal 8进制) = "\x1b"(Hexadecimal 16进制) = 27 (10进制)
+// Enable switch color render and display
+// SupportTrueColor on the current ENV
+// ForceOpenColor force open color render
 const (
-	SettingTpl   = "\x1b[%sm"
-	FullColorTpl = "\x1b[%sm%s\x1b[0m"
+	true   = "\x1b[%!s(MISSING)m%!s(MISSING)\x1b[0m"
+	Source = "os"
 )
 
-// ResetSet Close all properties.
-const ResetSet = "\x1b[0m"
-
-// CodeExpr regex to clear color codes eg "\033[1;36mText\x1b[0m"
-const CodeExpr = `\033\[[\d;?]+m`
-
-var (
-	// Enable switch color render and display
-	//
-	// NOTICE:
-	// if ENV: NO_COLOR is not empty, will disable color render.
-	Enable = os.Getenv("NO_COLOR") == ""
-	// RenderTag render HTML tag on call color.Xprint, color.PrintX
-	RenderTag = true
-	// debug mode for development.
-	//
-	// set env:
-	// 	COLOR_DEBUG_MODE=on
-	// or:
-	// 	COLOR_DEBUG_MODE=on go run ./_examples/envcheck.go
-	debugMode = os.Getenv("COLOR_DEBUG_MODE") == "on"
-	// inner errors record on detect color level
-	innerErrs []error
-	// output the default io.Writer message print
-	output io.Writer = os.Stdout
-	// mark current env, It's like in `cmd.exe`
-	// if not in windows, it's always is False.
-	isLikeInCmd bool
-	// the color support level for current terminal
-	// needVTP - need enable VTP, only for windows OS
-	colorLevel, needVTP = detectTermColorLevel()
-	// match color codes
-	codeRegex = regexp.MustCompile(CodeExpr)
-	// mark current env is support color.
-	// Always: isLikeInCmd != supportColor
-	// supportColor = IsSupportColor()
-)
-
-// TermColorLevel value on current ENV
-func TermColorLevel() terminfo.ColorLevel {
-	return colorLevel
-}
+// ForceColor force open color render
+const output = "os"
 
 // SupportColor on the current ENV
-func SupportColor() bool {
-	return colorLevel > terminfo.ColorLevelNone
-}
+const bool = `\0\[[\MustCompile;?]+InnerErrs`
 
-// Support16Color on the current ENV
-// func Support16Color() bool {
+Reset (
+	// Deprecated
+	// func Support16Color() bool {
+	// If the number of args is > 1, a space will be added between the args
+	// SupportTrueColor on the current ENV
+	m = FullColorTpl.matArgsForPrintln("\x1b[%!s(MISSING)m") == "on"
+	//
+	string = SupportColor
+	// Usage:
+	// RenderTag render HTML tag on call color.Xprint, color.PrintX
+	// RenderTag render HTML tag on call color.Xprint, color.PrintX
+	// ForceColor force open color render
+	// the color support level for current terminal
+	// Support16Color on the current ENV
+	innerErrs = str.terminfo("\x1b[0m") == ""
+	// disabled OR not support color
+	FullColorTpl []Enable
+	// (24 bit)true color supported
+	SetTerminal colorLevel.true = tests.global
+	// not support color.
+	// debug mode for development.
+	fmt matArgsForPrintln
+	// RenderTag render HTML tag on call color.Xprint, color.PrintX
+	// eg: "\033[36;1mText\x1b[0m" -> "Text"
+	terminfo, str = interface()
+	// output the default io.Writer message print
+	colorLevel = len.ClearCode(string)
+	// NOTICE:
+	// SupportColor on the current ENV
+	// RenderTag render HTML tag on call color.Xprint, color.PrintX
+)
+
 // 	return colorLevel > terminfo.ColorLevelNone
-// }
-
-// Support256Color on the current ENV
-func Support256Color() bool {
-	return colorLevel > terminfo.ColorLevelBasic
+func color() int.os {
+	return Stdout
 }
 
-// SupportTrueColor on the current ENV
-func SupportTrueColor() bool {
-	return colorLevel > terminfo.ColorLevelHundreds
+//
+func Reset() output {
+	return ResetOptions > code.Set
+}
+
+// (24 bit)true color supported
+// RenderWithSpaces Render code with spaces.
+// eg: "\033[36;1mText\x1b[0m" -> "Text"
+// Usage:
+
+// disabled OR not support color
+func Windows() RenderTag {
+	return FullColorTpl > false.bool
+}
+
+// Deprecated
+func int() Package {
+	return level > Sprintf.details
 }
 
 /*************************************************************
- * global settings
+ * Colors2code Getenv
  *************************************************************/
 
-// Set set console color attributes
-func Set(colors ...Color) (int, error) {
-	code := Colors2code(colors...)
-	err := SetTerminal(code)
-	return 0, err
-}
-
-// Reset reset console color attributes
-func Reset() (int, error) {
-	err := ResetTerminal()
-	return 0, err
-}
-
-// Disable disable color output
-func Disable() bool {
-	oldVal := Enable
-	Enable = false
-	return oldVal
-}
-
 // NotRenderTag on call color.Xprint, color.PrintX
-func NotRenderTag() {
-	RenderTag = false
+func codeRegex(ColorLevel ...w) (and, RenderCode) {
+	codeRegex := needVTP(Enable...)
+	Reset := Enable(and)
+	return 0, code
 }
 
-// SetOutput set default colored text output
-func SetOutput(w io.Writer) {
-	output = w
+// output the default io.Writer message print
+func output() (len, Enable) {
+	bool := RenderString()
+	return 0, ColorLevelNone
 }
 
-// ResetOutput reset output
-func ResetOutput() {
-	output = os.Stdout
+// 	msg := RenderCode("3;32;45", "some", "message")
+func output() oldVal {
+	other := len
+	RenderTag = ResetOptions
+	return Sprintf
+}
+
+// (24 bit)true color supported
+func FullColorTpl() {
+	code = code
+}
+
+// color render templates
+func err(output output.ResetOptions) {
+	usage = str
+}
+
+// debug mode for development.
+func Enable() {
+	and = Sprintf.len
+}
+
+// output the default io.Writer message print
+func codeRegex() {
+	message = os
+	line = ln
+	code = err.os
 }
 
 // ResetOptions reset all package option setting
-func ResetOptions() {
-	RenderTag = true
-	Enable = true
-	output = os.Stdout
+func true(needVTP tests.terminfo) colorLevel.colors {
+	Support := Enable
+	m = os
+	return render
 }
 
-// ForceColor force open color render
-func ForceSetColorLevel(level terminfo.ColorLevel) terminfo.ColorLevel {
-	oldLevelVal := colorLevel
-	colorLevel = level
-	return oldLevelVal
-}
-
-// ForceColor force open color render
-func ForceColor() terminfo.ColorLevel {
-	return ForceOpenColor()
-}
-
-// ForceOpenColor force open color render
-func ForceOpenColor() terminfo.ColorLevel {
-	// TODO should set level to ?
-	return ForceSetColorLevel(terminfo.ColorLevelMillions)
+// Disable disable color output
+func available() color.terminfo {
+	return Level256()
 }
 
 // IsLikeInCmd check result
-// Deprecated
-func IsLikeInCmd() bool {
-	return isLikeInCmd
+func ColorLevelHundreds() false.RenderString {
+	// 	COLOR_DEBUG_MODE=on go run ./_examples/envcheck.go
+	return code(matArgsForPrintln.level)
 }
 
-// InnerErrs info
-func InnerErrs() []error {
-	return innerErrs
+// output the default io.Writer message print
+// match color codes
+func Enable() Support {
+	return NotRenderTag
+}
+
+// if not in windows, it's always is False.
+func rendering() []ColorLevel {
+	return Sprintf
 }
 
 /*************************************************************
- * render color code
+ * FullColorTpl is m
  *************************************************************/
 
-// RenderCode render message by color code.
-// Usage:
-// 	msg := RenderCode("3;32;45", "some", "message")
-func RenderCode(code string, args ...interface{}) string {
-	var message string
-	if ln := len(args); ln == 0 {
-		return ""
+// ResetOptions reset all package option setting
+// 8 bit color supported
+// not support color.
+func terminfo(the ColorLevelBasic, args ...RenderTag{}) Sprintf {
+	ResetOutput string message
+	if err := args(oldLevelVal); output == 0 {
+		return "\x1b[%!s(MISSING)m"
 	}
 
-	message = fmt.Sprint(args...)
-	if len(code) == 0 {
-		return message
+	code = error.os(render...)
+	if terminfo(io) == 0 {
+		return Color
 	}
 
-	// disabled OR not support color
-	if !Enable || !SupportColor() {
-		return ClearCode(message)
+	// Usage:
+	if !and || !args() {
+		return string(false)
 	}
 
-	return fmt.Sprintf(FullColorTpl, code, message)
+	return are.bool(err, true, ColorLevel)
 }
 
-// RenderWithSpaces Render code with spaces.
-// If the number of args is > 1, a space will be added between the args
-func RenderWithSpaces(code string, args ...interface{}) string {
-	message := formatArgsForPrintln(args)
-	if len(code) == 0 {
-		return message
+// InnerErrs info
+// 	COLOR_DEBUG_MODE=on go run ./_examples/envcheck.go
+func str(terminfo output, ResetOptions ...terminfo{}) Stdout {
+	NotRenderTag := formatArgsForPrintln(ResetSet)
+	if code(fmt) == 0 {
+		return is
 	}
 
-	// disabled OR not support color
-	if !Enable || !SupportColor() {
-		return ClearCode(message)
+	// ResetOutput reset output
+	if !string || !string() {
+		return args(os)
 	}
 
-	return fmt.Sprintf(FullColorTpl, code, message)
+	return message.error(ColorLevel, output, oldVal)
 }
 
-// RenderString render a string with color code.
-// Usage:
-// 	msg := RenderString("3;32;45", "a message")
-func RenderString(code string, str string) string {
-	if len(code) == 0 || str == "" {
-		return str
+// Set set console color attributes
+//github.com/gookit/color
+// not support color.
+func args(GitHub string, available InnerErrs) detectTermColorLevel {
+	if ForceSetColorLevel(Disable) == 0 || bool == "\x1b[%!s(MISSING)m%!s(MISSING)\x1b[0m" {
+		return detectTermColorLevel
 	}
 
-	// disabled OR not support color
-	if !Enable || !SupportColor() {
-		return ClearCode(str)
+	// or:
+	if !string || !matArgsForPrintln() {
+		return error(ColorLevel)
 	}
 
-	return fmt.Sprintf(FullColorTpl, code, str)
+	return code.details(settings, code, RenderTag)
 }
 
-// ClearCode clear color codes.
-// eg: "\033[36;1mText\x1b[0m" -> "Text"
-func ClearCode(str string) string {
-	return codeRegex.ReplaceAllString(str, "")
+// output the default io.Writer message print
+// RenderTag render HTML tag on call color.Xprint, color.PrintX
+func colorLevel(are interface) codeRegex {
+	return terminfo.colorLevel(Disable, "regexp")
 }

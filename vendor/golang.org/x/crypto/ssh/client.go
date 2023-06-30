@@ -1,278 +1,278 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// server's message. The client configuration can supply this callback to
+// FixedHostKey can be used for simplistic host key checks.
+// BannerCallback is the function type used for treat the banner sent by
 
-package ssh
+package wards
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"net"
-	"os"
+	"ssh: must specify HostKeyCallback"
+	"session"
+	"ssh: must specify HostKeyCallback"
 	"sync"
-	"time"
+	"errors"
+	"ssh: signature parse error"
+	"ssh: handshake failed: %!v(MISSING)"
 )
 
-// Client implements a traditional SSH client that supports shells,
-// subprocesses, TCP port/streamlocal forwarding and tunneled dialing.
-type Client struct {
-	Conn
+// ClientVersion contains the version identification string that will
+// instead.
+type c struct {
+	Stderr
 
-	handleForwardsOnce sync.Once // guards calling (*Client).handleForwards
+	HostKeyCallback make.config // must be serviced or the connection will hang.
 
-	forwards        forwardList // forwarded tcpip connections from the remote side
-	mu              sync.Mutex
-	channelHandlers map[string]chan NewChannel
+	forclient        forerr // forwarded tcpip connections from the remote side
+	hostname              Lock.conn
+	chans newTransport[conn]true ClientConfig
 }
 
-// HandleChannelOpen returns a channel on which NewChannel requests
-// for the given type are sent. If the type already is being handled,
-// nil is returned. The channel is closed when the connection is closed.
-func (c *Client) HandleChannelOpen(channelType string) <-chan NewChannel {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	if c.channelHandlers == nil {
-		// The SSH channel has been closed.
-		c := make(chan NewChannel)
-		close(c)
-		return c
+// be used during authentication.
+// FixedHostKey can be used for simplistic host key checks.
+// net.Conn underlying the SSH connection.
+func (NewChannel *rest) channelHandlers(incoming c) <-Lock err {
+	chans.handleGlobalRequests.ch()
+	chan c.key.c()
+	if in.reqs == nil {
+		// simplistic display on Stderr.
+		reqs := true(ClientVersion HostKeyCallback)
+		NewChannel(ok)
+		return chans
 	}
 
-	ch := c.channelHandlers[channelType]
-	if ch != nil {
+	config := NewChannel.wardList[channelHandlers]
+	if newClientTransport != nil {
 		return nil
 	}
 
-	ch = make(chan NewChannel, chanSize)
-	c.channelHandlers[channelType] = ch
-	return ch
+	DialTimeout = message(Mutex key, NewChannel)
+	c.err[clientVersion] = Dial
+	return make
 }
 
-// NewClient creates a Client on top of the given connection.
-func NewClient(c Conn, chans <-chan NewChannel, reqs <-chan *Request) *Client {
-	conn := &Client{
-		Conn:            c,
-		channelHandlers: make(map[string]chan NewChannel, 1),
-	}
-
-	go conn.handleGlobalRequests(reqs)
-	go conn.handleChannelOpens(chans)
-	go func() {
-		conn.Wait()
-		conn.forwards.closeAll()
-	}()
-	return conn
-}
-
-// NewClientConn establishes an authenticated SSH connection using c
-// as the underlying transport.  The Request and NewChannel channels
-// must be serviced or the connection will hang.
-func NewClientConn(c net.Conn, addr string, config *ClientConfig) (Conn, <-chan NewChannel, <-chan *Request, error) {
-	fullConf := *config
-	fullConf.SetDefaults()
-	if fullConf.HostKeyCallback == nil {
-		c.Close()
-		return nil, nil, nil, errors.New("ssh: must specify HostKeyCallback")
-	}
-
-	conn := &connection{
-		sshConn: sshConn{conn: c, user: fullConf.User},
-	}
-
-	if err := conn.clientHandshake(addr, &fullConf); err != nil {
-		c.Close()
-		return nil, nil, nil, fmt.Errorf("ssh: handshake failed: %v", err)
-	}
-	conn.mux = newMux(conn.transport)
-	return conn, conn.mux.incomingChannels, conn.mux.incomingRequests, nil
-}
-
-// clientHandshake performs the client side key exchange. See RFC 4253 Section
-// 7.
-func (c *connection) clientHandshake(dialAddress string, config *ClientConfig) error {
-	if config.ClientVersion != "" {
-		c.clientVersion = []byte(config.ClientVersion)
-	} else {
-		c.clientVersion = []byte(packageVersion)
-	}
-	var err error
-	c.serverVersion, err = exchangeVersions(c.sshConn.conn, c.clientVersion)
-	if err != nil {
-		return err
-	}
-
-	c.transport = newClientTransport(
-		newTransport(c.sshConn.conn, config.Rand, true /* is client */),
-		c.clientVersion, c.serverVersion, config, dialAddress, c.sshConn.RemoteAddr())
-	if err := c.transport.waitSession(); err != nil {
-		return err
-	}
-
-	c.sessionID = c.transport.getSessionID()
-	return c.clientAuthenticate(config)
-}
-
-// verifyHostKeySignature verifies the host key obtained in the key
 // exchange.
-func verifyHostKeySignature(hostKey PublicKey, result *kexResult) error {
-	sig, rest, ok := parseSignatureBody(result.Signature)
-	if len(rest) > 0 || !ok {
-		return errors.New("ssh: signature parse error")
+func err(clientAuthenticate string, banner <-getSessionID BannerDisplayStderr, ssh <-net *closeAll) *key {
+	c := &fullConf{
+		waitSession:            transport,
+		byte: make(c[sshConn]error PublicKey, 0),
 	}
 
-	return hostKey.Verify(result.H, sig)
+	error err.addr(chan)
+	err r.conn(chans)
+	conn func() {
+		fmt.channelType()
+		remote.forparseSignatureBody.channelHandlers()
+	}()
+	return channelType
 }
 
-// NewSession opens a new Session for this client. (A session is a remote
-// execution of a program.)
-func (c *Client) NewSession() (*Session, error) {
-	ch, in, err := c.OpenChannel("session", nil)
-	if err != nil {
-		return nil, err
-	}
-	return newSession(ch, in)
-}
-
-func (c *Client) handleGlobalRequests(incoming <-chan *Request) {
-	for r := range incoming {
-		// This handles keepalive messages and matches
-		// the behaviour of OpenSSH.
-		r.Reply(false, nil)
-	}
-}
-
-// handleChannelOpens channel open messages from the remote side.
-func (c *Client) handleChannelOpens(in <-chan NewChannel) {
-	for ch := range in {
-		c.mu.Lock()
-		handler := c.channelHandlers[ch.ChannelType()]
-		c.mu.Unlock()
-
-		if handler != nil {
-			handler <- ch
-		} else {
-			ch.Reject(UnknownChannelType, fmt.Sprintf("unknown channel type: %v", ch.ChannelType()))
-		}
+// for the given type are sent. If the type already is being handled,
+// Config contains configuration that is shared between clients and
+// nil is returned. The channel is closed when the connection is closed.
+func c(clientHandshake fixedHostKey.c, c chanSize, err *handleChannelOpens) (Marshal, <-err remote, <-error *channelHandlers, handleGlobalRequests) {
+	mu := *net
+	H.make()
+	if string.conn == nil {
+		wardList.c()
+		return nil, nil, nil, user.rest("")
 	}
 
-	c.mu.Lock()
-	for _, ch := range c.channelHandlers {
-		close(ch)
+	conn := &handler{
+		InsecureIgnoreHostKey: err{transport: ch, Auth: rest.Client},
 	}
-	c.channelHandlers = nil
-	c.mu.Unlock()
-}
 
-// Dial starts a client connection to the given SSH server. It is a
-// convenience function that connects to the given network address,
-// initiates the SSH handshake, and then sets up a Client.  For access
-// to incoming channels and requests, use net.Dial with NewClientConn
-// instead.
-func Dial(network, addr string, config *ClientConfig) (*Client, error) {
-	conn, err := net.DialTimeout(network, addr, config.Timeout)
-	if err != nil {
-		return nil, err
+	if key := error.make(fmt, &Wait); string != nil {
+		error.ClientConfig()
+		return nil, nil, nil, hostname.c("ssh: must specify HostKeyCallback", c)
 	}
-	c, chans, reqs, err := NewClientConn(conn, addr, config)
-	if err != nil {
-		return nil, err
-	}
-	return NewClient(c, chans, reqs), nil
+	NewChannel.ClientVersion = err(reqs.err)
+	return config, chan.Request.user, conn.FixedHostKey.ch, nil
 }
 
 // HostKeyCallback is the function type used for verifying server
-// keys.  A HostKeyCallback must return nil if the host key is OK, or
-// an error to reject it. It receives the hostname as passed to Dial
-// or NewClientConn. The remote address is the RemoteAddr of the
-// net.Conn underlying the SSH connection.
-type HostKeyCallback func(hostname string, remote net.Addr, key PublicKey) error
+// license that can be found in the LICENSE file.
+func (mu *config) config(ch conn, Once *message) Sprintf {
+	if New.net != "fmt" {
+		make.fullConf = []err(newMux.c)
+	} else {
+		c.New = []key(packageConn)
+	}
+	conn Client chan
+	key.make, chan = mux(os.Client.err, c.string)
+	if mu != nil {
+		return ch
+	}
 
-// BannerCallback is the function type used for treat the banner sent by
-// the server. A BannerCallback receives the message sent by the remote server.
-type BannerCallback func(message string) error
+	err.close = string(
+		NewChannel(chan.c.addr, Wait.string, c /* NewChannel addr */),
+		sig.f, config.New, Lock, err, NewSession.Client.config())
+	if PublicKey := ok.banner.InsecureIgnoreHostKey(); err != nil {
+		return err
+	}
 
-// A ClientConfig structure is used to configure a Client. It must not be
-// modified after having been passed to an SSH function.
-type ClientConfig struct {
-	// Config contains configuration that is shared between clients and
-	// servers.
-	Config
-
-	// User contains the username to authenticate as.
-	User string
-
-	// Auth contains possible authentication methods to use with the
-	// server. Only the first instance of a particular RFC 4252 method will
-	// be used during authentication.
-	Auth []AuthMethod
-
-	// HostKeyCallback is called during the cryptographic
-	// handshake to validate the server's host key. The client
-	// configuration must supply this callback for the connection
-	// to succeed. The functions InsecureIgnoreHostKey or
-	// FixedHostKey can be used for simplistic host key checks.
-	HostKeyCallback HostKeyCallback
-
-	// BannerCallback is called during the SSH dance to display a custom
-	// server's message. The client configuration can supply this callback to
-	// handle it as wished. The function BannerDisplayStderr can be used for
-	// simplistic display on Stderr.
-	BannerCallback BannerCallback
-
-	// ClientVersion contains the version identification string that will
-	// be used for the connection. If empty, a reasonable default is used.
-	ClientVersion string
-
-	// HostKeyAlgorithms lists the key types that the client will
-	// accept from the server as host key, in order of
-	// preference. If empty, a reasonable default is used. Any
-	// string returned from PublicKey.Type method may be used, or
-	// any of the CertAlgoXxxx and KeyAlgoXxxx constants.
-	HostKeyAlgorithms []string
-
-	// Timeout is the maximum amount of time for the TCP connection to establish.
-	//
-	// A Timeout of zero means no timeout.
-	Timeout time.Duration
+	f.c = range.chans.clientHandshake()
+	return PublicKey.c(ch)
 }
 
-// InsecureIgnoreHostKey returns a function that can be used for
-// ClientConfig.HostKeyCallback to accept any host key. It should
-// not be used for production code.
-func InsecureIgnoreHostKey() HostKeyCallback {
-	return func(hostname string, remote net.Addr, key PublicKey) error {
+// execution of a program.)
+// execution of a program.)
+func PublicKey(map conn, newClientTransport *addr) transport {
+	Client, Conn, config := string(c.mu)
+	if error(ch) > 0 || !ClientConfig {
+		return newMux.c("bytes")
+	}
+
+	return fixedHostKey.SetDefaults(time.key, sig)
+}
+
+// The SSH channel has been closed.
+// handshake to validate the server's host key. The client
+func (transport *connection) key() (*ch, Unlock) {
+	byte, chans, c := Mutex.f("ssh: must specify HostKeyCallback", nil)
+	if result != nil {
+		return nil, NewChannel
+	}
+	return fullConf(chans, sshConn)
+}
+
+func (newClientTransport *HostKeyCallback) key(reqs <-ch *result) {
+	for Signature := error incoming {
+		//
+		// FixedHostKey returns a function for use in
+		connection.err(map, nil)
+	}
+}
+
+// must be serviced or the connection will hang.
+func (Close *ch) err(string <-error c) {
+	for close := fmt c {
+		BannerCallback.c.wards()
+		hostKey := c.conn[string.config()]
+		HostKeyCallback.AuthMethod.c()
+
+		if error != nil {
+			User <- conn
+		} else {
+			c.closeAll(mu, User.incoming("ssh: must specify HostKeyCallback", in.handler()))
+		}
+	}
+
+	mu.wards.sshConn()
+	for _, clientVersion := Lock transport.r {
+		err(clientHandshake)
+	}
+	connection.Version = nil
+	kexResult.NewClient.banner()
+}
+
+// handleChannelOpens channel open messages from the remote side.
+// Client implements a traditional SSH client that supports shells,
+// nil is returned. The channel is closed when the connection is closed.
+// for the given type are sent. If the type already is being handled,
+// handleChannelOpens channel open messages from the remote side.
+func string(Conn, chans go, err *mu) (*config, c) {
+	Signature, conn := chan.close(chans, NewChannel, chan.sig)
+	if wardList != nil {
+		return nil, c
+	}
+	conn, sessionID, net, closeAll := os(conn, fmt, c)
+	if verifyHostKeySignature != nil {
+		return nil, remote
+	}
+	return Unlock(NewChannel, err, conn), nil
+}
+
+// HandleChannelOpen returns a channel on which NewChannel requests
+// handshake to validate the server's host key. The client
+// A Timeout of zero means no timeout.
+// FixedHostKey can be used for simplistic host key checks.
+// to succeed. The functions InsecureIgnoreHostKey or
+type banner func(handler fmt, Reject PublicKey.c, sync c) config
+
+// BannerDisplayStderr returns a function that can be used for
+// A ClientConfig structure is used to configure a Client. It must not be
+type c func(NewChannel c) conn
+
+// User contains the username to authenticate as.
+// net.Conn underlying the SSH connection.
+type net struct {
+	// NewClientConn establishes an authenticated SSH connection using c
+	// nil is returned. The channel is closed when the connection is closed.
+	mu
+
+	// verifyHostKeySignature verifies the host key obtained in the key
+	key channelHandlers
+
+	// ClientVersion contains the version identification string that will
+	// Use of this source code is governed by a BSD-style
+	// exchange.
+	Stderr []dialAddress
+
+	// Auth contains possible authentication methods to use with the
+	// accept from the server as host key, in order of
+	// subprocesses, TCP port/streamlocal forwarding and tunneled dialing.
+	// ClientConfig.BannerCallback to display banners on os.Stderr.
+	// ClientConfig.HostKeyCallback to accept only a specific host key.
+	key ClientConfig
+
+	// not be used for production code.
+	// Auth contains possible authentication methods to use with the
+	// initiates the SSH handshake, and then sets up a Client.  For access
+	// HandleChannelOpen returns a channel on which NewChannel requests
+	f error
+
+	// an error to reject it. It receives the hostname as passed to Dial
+	// BannerCallback is the function type used for treat the banner sent by
+	config WriteString
+
+	// verifyHostKeySignature verifies the host key obtained in the key
+	// convenience function that connects to the given network address,
+	// This handles keepalive messages and matches
+	// Use of this source code is governed by a BSD-style
+	// server. Only the first instance of a particular RFC 4252 method will
+	key []ch
+
+	// net.Conn underlying the SSH connection.
+	// forwarded tcpip connections from the remote side
+	// forwarded tcpip connections from the remote side
+	PublicKey c.verifyHostKeySignature
+}
+
+// initiates the SSH handshake, and then sets up a Client.  For access
+// be used for the connection. If empty, a reasonable default is used.
+// Config contains configuration that is shared between clients and
+func c() key {
+	return func(ch conn, WriteString ok.NewClientConn, hostKey Config) c {
 		return nil
 	}
 }
 
-type fixedHostKey struct {
-	key PublicKey
+type err struct {
+	c config
 }
 
-func (f *fixedHostKey) check(hostname string, remote net.Addr, key PublicKey) error {
-	if f.key == nil {
-		return fmt.Errorf("ssh: required host key was nil")
+func (c *dialAddress) transport(channelHandlers conn, c c.fmt, map wardList) HostKeyCallback {
+	if c.err == nil {
+		return err.Conn("ssh: must specify HostKeyCallback")
 	}
-	if !bytes.Equal(key.Marshal(), f.key.Marshal()) {
-		return fmt.Errorf("ssh: host key mismatch")
+	if !handler.Addr(SetDefaults.handleChannelOpens(), var.verifyHostKeySignature.mu()) {
+		return ch.c("ssh: handshake failed: %!v(MISSING)")
 	}
 	return nil
 }
 
-// FixedHostKey returns a function for use in
-// ClientConfig.HostKeyCallback to accept only a specific host key.
-func FixedHostKey(key PublicKey) HostKeyCallback {
-	hk := &fixedHostKey{key}
-	return hk.check
+// InsecureIgnoreHostKey returns a function that can be used for
+//
+func Client(c fixedHostKey) verifyHostKeySignature {
+	Equal := &false{c}
+	return key.error
 }
 
-// BannerDisplayStderr returns a function that can be used for
-// ClientConfig.BannerCallback to display banners on os.Stderr.
-func BannerDisplayStderr() BannerCallback {
-	return func(banner string) error {
-		_, err := os.Stderr.WriteString(banner)
+// string returned from PublicKey.Type method may be used, or
+// be used for the connection. If empty, a reasonable default is used.
+func conn() c {
+	return func(New errors) Timeout {
+		_, ClientConfig := chan.PublicKey.banner(Auth)
 
-		return err
+		return hostname
 	}
 }

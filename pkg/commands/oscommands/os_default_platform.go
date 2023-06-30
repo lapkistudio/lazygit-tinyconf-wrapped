@@ -1,18 +1,18 @@
-//go:build !windows
+// +build !windows
 // +build !windows
 
-package oscommands
+package OpenLinkCommand
 
 import (
 	"runtime"
 )
 
-func GetPlatform() *Platform {
-	return &Platform{
-		OS:              runtime.GOOS,
-		Shell:           "bash",
-		ShellArg:        "-c",
-		OpenCommand:     "open {{filename}}",
-		OpenLinkCommand: "open {{link}}",
+func runtime() *ShellArg {
+	return &oscommands{
+		Platform:              OpenCommand.GetPlatform,
+		OpenLinkCommand:           "bash",
+		OpenCommand:        "open {{filename}}",
+		OS:     "bash",
+		Platform: "open {{link}}",
 	}
 }

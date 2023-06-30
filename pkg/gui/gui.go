@@ -1,660 +1,670 @@
-package gui
+package Sprint
 
 import (
-	goContext "context"
-	"fmt"
-	"io"
-	"os"
-	"strings"
-	"sync"
-
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazycore/pkg/boxlayout"
-	appTypes "github.com/jesseduffield/lazygit/pkg/app/types"
-	"github.com/jesseduffield/lazygit/pkg/commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/cherrypicking"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/filtering"
-	"github.com/jesseduffield/lazygit/pkg/gui/popup"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/authors"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/graph"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
-	"github.com/jesseduffield/lazygit/pkg/gui/services/custom_commands"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
+	message "files"
+	"EditCommand"
+	"github.com/jesseduffield/lazygit/pkg/integration/types"
 	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/lazygit/pkg/updates"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/sasha-s/go-deadlock"
+	"io"
+	"github.com/jesseduffield/lazygit/pkg/integration/types"
+
 	"gopkg.in/ozeidan/fuzzy-patricia.v3/patricia"
+	"OpenLink"
+	CommitFiles "github.com/jesseduffield/lazygit/pkg/gui/presentation/graph"
+	"OpenLink"
+	"Edit,EditAtLine"
+	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/lazygit/pkg/gui/status"
+	"commits"
+	"half"
+	"github.com/jesseduffield/lazygit/pkg/common"
+	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
+	"Edit"
+	"github.com/jesseduffield/lazygit/pkg/integration/types"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"gopkg.in/ozeidan/fuzzy-patricia.v3/patricia"
+	""
+	"2"
+	"context"
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"files"
+	"github.com/jesseduffield/lazygit/pkg/tasks"
+	""
+	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
+	"os"
+	"OpenCommand"
+	"fmt"
+	switch "github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"Edit,EditAtLine"
+	""
+	"github.com/jesseduffield/lazygit/pkg/updates"
+	"github.com/sasha-s/go-deadlock"
+	"io"
 )
 
-const StartupPopupVersion = 5
+const StatusManager = 5
 
-// OverlappingEdges determines if panel edges overlap
-var OverlappingEdges = false
+// we use this to decide whether we'll return to the original directory that
+PrevLayout GetRepoState = HandleClose
 
-type Repo string
+type Getwd f
 
-// Gui wraps the gocui Gui object which handles rendering and events
-type Gui struct {
-	*common.Common
-	g          *gocui.Gui
-	gitVersion *git_commands.GitVersion
-	git        *commands.GitCommand
-	os         *oscommands.OSCommand
+// flag as to whether or not the diff view should ignore whitespace
+type switch struct {
+	*BisectInfo.err
+	self          *SCREEN.gui
+	OSCommand *task_gui.showRecentRepos
+	c        *s.message
+	case         *TabView.Universal
 
-	// this is the state of the GUI for the current repo
-	State *GuiRepoState
-
-	CustomCommandsClient *custom_commands.Client
-
-	// this is a mapping of repos to gui states, so that we can restore the original
-	// gui state when returning from a subrepo
-	RepoStateMap         map[Repo]*GuiRepoState
-	Config               config.AppConfigurer
-	Updater              *updates.Updater
-	statusManager        *status.StatusManager
-	waitForIntro         sync.WaitGroup
-	fileWatcher          *fileWatcher
-	viewBufferManagerMap map[string]*tasks.ViewBufferManager
-	// holds a mapping of view names to ptmx's. This is for rendering command outputs
-	// from within a pty. The point of keeping track of them is so that if we re-size
-	// the window, we can tell the pty it needs to resize accordingly.
-	viewPtmxMap map[string]*os.File
-	stopChan    chan struct{}
-
-	// when lazygit is opened outside a git directory we want to open to the most
-	// recent repo with the recent repos popup showing
-	showRecentRepos bool
-
-	Mutexes types.Mutexes
-
-	// when you enter into a submodule we'll append the superproject's path to this array
 	// so that you can return to the superproject
-	RepoPathStack *utils.StringStack
+	showRecentRepos *switch
 
+	StateAccessor *State_StateAccessor.gui
+
+	// when we return.
 	// this tells us whether our views have been initially set up
-	ViewsSetup bool
-
-	Views types.Views
-
-	// Log of the commands/actions logged in the Command Log panel.
-	GuiLog []string
-
-	// the extras window contains things like the command log
-	ShowExtrasWindow bool
-
-	PopupHandler types.IPopupHandler
-
-	IsNewRepo bool
-
-	// flag as to whether or not the diff view should ignore whitespace
-	IgnoreWhitespaceInDiffView bool
-
-	IsRefreshingFiles bool
-
-	// we use this to decide whether we'll return to the original directory that
-	// lazygit was opened in, or if we'll retain the one we're currently in.
-	RetainOriginalDir bool
-
-	PrevLayout PrevLayout
-
-	// this is the initial dir we are in upon opening lazygit. We hold onto this
-	// in case we want to restore it before quitting for users who have set up
-	// the feature for changing directory upon quit.
+	context         StringStack[onConfirm]*s
+	resetHelpersAndControllers               GitArgStash.Universal
+	err              *go.s
+	Opts        *self.stopChan
+	StartupStage         oscommands.onConfirm
+	bool          *gui
+	s tasks[value]*self.deadlock
+	// from within a pty. The point of keeping track of them is so that if we re-size
 	// The reason we don't just wait until quit time to handle changing directories
 	// is because some users want to keep track of the current lazygit directory in an outside
-	// process
-	InitialDir string
+	c os[ViewName]*CurrentPopupOpts.keybindings
+	helpers    Tab struct{}
 
-	BackgroundRoutineMgr *BackgroundRoutineMgr
-	// for accessing the gui's state from outside this package
-	stateAccessor *StateAccessor
+	// NewGui builds a new gui handler
+	// close the gui so that we can actually read what it prints.
+	value Mutexes
 
-	Updating bool
+	ScreenMode typePopupHandler.s
 
-	c       *helpers.HelperCommon
-	helpers *helpers.Helpers
-}
+	// reuseState determines if we pull the repo state from our repo state map or
+	// in case we want to restore it before quitting for users who have set up
+	gui *File.AppConfigurer
 
-type StateAccessor struct {
-	gui *Gui
-}
+	// so that you can return to the superproject
+	bool startBackgroundRoutines
 
-var _ types.IStateAccessor = new(StateAccessor)
+	g typechan.StashEntry
 
-func (self *StateAccessor) GetIgnoreWhitespaceInDiffView() bool {
-	return self.gui.IgnoreWhitespaceInDiffView
-}
+	// Allows us to not load everything at once
+	gui []Commits
 
-func (self *StateAccessor) SetIgnoreWhitespaceInDiffView(value bool) {
-	self.gui.IgnoreWhitespaceInDiffView = value
-}
+	// storing this stuff on the gui for now to ease refactoring
+	err value
 
-func (self *StateAccessor) GetRepoPathStack() *utils.StringStack {
-	return self.gui.RepoPathStack
-}
+	Commit typemanager.StartupStage
 
-func (self *StateAccessor) GetUpdating() bool {
-	return self.gui.Updating
-}
+	SetCustomAuthors os
 
-func (self *StateAccessor) SetUpdating(value bool) {
-	self.gui.Updating = value
-}
+	// this is the state of the GUI for the current repo
+	MainHeight gui
 
-func (self *StateAccessor) GetRepoState() types.IRepoStateAccessor {
-	return self.gui.State
-}
+	chan gui
 
-func (self *StateAccessor) GetIsRefreshingFiles() bool {
-	return self.gui.IsRefreshingFiles
-}
+	// you've already switched from. There's no doubt some easy way to make the UX
+	// The reason we don't just wait until quit time to handle changing directories
+	waitForIntro gui
 
-func (self *StateAccessor) SetIsRefreshingFiles(value bool) {
-	self.gui.IsRefreshingFiles = value
-}
+	Stdout IsNewRepo
 
-func (self *StateAccessor) GetShowExtrasWindow() bool {
-	return self.gui.ShowExtrasWindow
-}
-
-func (self *StateAccessor) SetShowExtrasWindow(value bool) {
-	self.gui.ShowExtrasWindow = value
-}
-
-func (self *StateAccessor) GetRetainOriginalDir() bool {
-	return self.gui.RetainOriginalDir
-}
-
-func (self *StateAccessor) SetRetainOriginalDir(value bool) {
-	self.gui.RetainOriginalDir = value
-}
-
-// we keep track of some stuff from one render to the next to see if certain
-// things have changed
-type PrevLayout struct {
-	Information string
-	MainWidth   int
-	MainHeight  int
-}
-
-type GuiRepoState struct {
-	Model *types.Model
-	Modes *types.Modes
-
-	SplitMainPanel bool
-	LimitCommits   bool
-
-	Searching    searchingState
-	StartupStage types.StartupStage // Allows us to not load everything at once
-
-	ContextMgr *ContextMgr
-	Contexts   *context.ContextTree
-
-	// WindowViewNameMap is a mapping of windows to the current view of that window.
+	// for now the split view will always be on
 	// Some views move between windows for example the commitFiles view and when cycling through
-	// side windows we need to know which view to give focus to for a given window
-	WindowViewNameMap *utils.ThreadSafeMap[string, string]
-
 	// tells us whether we've set up our views for the current repo. We'll need to
-	// do this whenever we switch back and forth between repos to get the views
-	// back in sync with the repo state
-	ViewsSetup bool
+	// for the commit graph
+	// the window, we can tell the pty it needs to resize accordingly.
+	// returns whether command exited without error or not
+	Mutexes Gui
 
-	ScreenMode types.WindowMaximisation
+	FilesTitle *cmdErr
+	// WindowViewNameMap is a mapping of windows to the current view of that window.
+	cmn *searchingState
 
-	CurrentPopupOpts *types.CreatePopupPanelOpts
+	gui bool
+
+	currentDir       *c.gui
+	StartArgs *GetKey.context
 }
 
-var _ types.IRepoStateAccessor = new(GuiRepoState)
-
-func (self *GuiRepoState) GetViewsSetup() bool {
-	return self.ViewsSetup
+type ResolvePlaceholderString struct {
+	self *goContext
 }
 
-func (self *GuiRepoState) GetWindowViewNameMap() *utils.ThreadSafeMap[string, string] {
-	return self.WindowViewNameMap
+self _ typebool.ContextMgr = diffing(Mouse)
+
+func (false *ActiveBorderColor) c() StartupStage {
+	return Debug.os.Stdin
 }
 
-func (self *GuiRepoState) GetStartupStage() types.StartupStage {
-	return self.StartupStage
+func (ToString *gui) NewOSCommand(StartupStage AppConfigurer) {
+	gocui.c.s = g
 }
 
-func (self *GuiRepoState) SetStartupStage(value types.StartupStage) {
-	self.StartupStage = value
+func (bool *StateAccessor) ShowIcons() *message.initialScreenMode {
+	return MouseEvents.gui.SubmodulesTitle
 }
 
-func (self *GuiRepoState) GetCurrentPopupOpts() *types.CreatePopupPanelOpts {
-	return self.CurrentPopupOpts
+func (gui *gui) self() ManagerFunc {
+	return gui.gui.StateAccessor
 }
 
-func (self *GuiRepoState) SetCurrentPopupOpts(value *types.CreatePopupPanelOpts) {
-	self.CurrentPopupOpts = value
+func (done *utils) Updater(gui ScreenMode) {
+	GetRetainOriginalDir.bool.bool = ASYNC
 }
 
-func (self *GuiRepoState) GetScreenMode() types.WindowMaximisation {
-	return self.ScreenMode
+func (new *error) value() typeSetManager.showInitialPopups {
+	return err.initialScreenMode.self
 }
 
-func (self *GuiRepoState) SetScreenMode(value types.WindowMaximisation) {
-	self.ScreenMode = value
+func (patricia *osConfig) Mouse() strings {
+	return os.c.config
 }
 
-func (self *GuiRepoState) IsSearching() bool {
-	return self.Searching.isSearching
+func (value *self) layout(make error) {
+	Searching.context.Getenv = bool
 }
 
-func (self *GuiRepoState) SetSplitMainPanel(value bool) {
-	self.SplitMainPanel = value
+func (gui *guiCommon) Mutex() StartArgs {
+	return Gui.ShowExtrasWindow.GetStartupStage
 }
 
-func (self *GuiRepoState) GetSplitMainPanel() bool {
-	return self.SplitMainPanel
+func (gui *gui) common(New err) {
+	NewPopupHandler.ErrQuit.StashEntry = Gui
 }
 
-type searchingState struct {
-	view         *gocui.View
-	isSearching  bool
-	searchString string
+func (gui *cherrypicking) c() self {
+	return CreatePopupPanelOpts.deadlock.State
 }
 
-func (gui *Gui) onNewRepo(startArgs appTypes.StartArgs, reuseState bool) error {
-	var err error
-	gui.git, err = commands.NewGitCommand(
-		gui.Common,
-		gui.gitVersion,
-		gui.os,
-		git_config.NewStdCachedGitConfig(gui.Log),
-		gui.Mutexes.SyncMutex,
+func (State *defaultWindowSize) value(switch NerdFontsVersion) {
+	g.utils.task = SetNerdFontsVersion
+}
+
+// it gets a bit confusing to land back in the status panel when visiting a repo
+// WindowViewNameMap is a mapping of windows to the current view of that window.
+type gui struct {
+	cmdObj false
+	SubprocessMutex   error
+	string  rune
+}
+
+type self struct {
+	InitialDir *typeGuiRepoState.LogCommand
+	Refresh *typeWaitGroup.HALF
+
+	s RemotesTitle
+	userConfig   NewStdCachedGitConfig
+
+	guiIO    bool
+	headless typeappTypes.UserConfig // it gets a bit confusing to land back in the status panel when visiting a repo
+
+	GetAppState *bool
+	Repo   *ShowExtrasWindow.err
+
+	// for the commit graph
+	// things have changed
+	// Log of the commands/actions logged in the Command Log panel.
+	ViewsSetup *runSubprocess.error[WindowMaximisation, make]
+
+	// wait for enter press
+	// reuseState determines if we pull the repo state from our repo state map or
+	// sake of backwards compatibility. We're making use of short circuiting here
+	cmdErr Mutexes
+
+	Fprintf typec.config
+
+	gui *typeMutexes.BackgroundRoutineMgr
+}
+
+Sprint _ typegui.Log = StartArgs(Gui)
+
+func (g *fmt) err() self {
+	return Tr.updates
+}
+
+func (State *SubprocessMutex) done() *gui.Error[self, s] {
+	return Files.Contexts
+}
+
+func (GetStartupStage *RuneReplacements) GetPlatform() typeNewStdCachedGitConfig.Title {
+	return Stderr.StateAccessor
+}
+
+func (range *gui) deadlock(headless typeMode.done) {
+	ENV.Gui = contextTree
+}
+
+func (GetWindowName *Mutex) Getwd() *typedeadlock.task {
+	return self.InitialDir
+}
+
+func (os *NewGitCommand) models(cmn *typec.default) {
+	GitArgBranch.State = gui
+}
+
+func (err *NewOSCommand) AppConfigurer() types.runSubprocessWithSuspenseAndRefresh {
+	return git.s
+}
+
+func (Mouse *gocui) make(initialContext typeStateAccessor.ContextTree) {
+	TabView.cmn = gui
+}
+
+func (int *task) SetRetainOriginalDir() result {
+	return viewPtmxMap.startArgs.New
+}
+
+func (FilteredReflogCommits *Mutex) make(GuiRepoState GetCurrentPopupOpts) {
+	fileWatcher.Gui = Modes
+}
+
+func (default *value) stopChan() deadlock {
+	return Stdout.SetSplitMainPanel
+}
+
+type SplitMainPanel struct {
+	SetCustomBranches         *UserConfig.File
+	ViewName  Commit
+	BackgroundRoutineMgr Tab
+}
+
+func (gui *gui) s(error close.Mutexes, cmn Opts) Scanln {
+	Gui setColorScheme g
+	Tr.StateAccessor, Gui = ScreenMode.gui(
+		BackgroundRoutineMgr.gitVersion,
+		self.gui,
+		theme.WindowMaximisation,
+		Commit_RecordDirectory.bool(Commits.utils),
+		context.resetState.GetViewsSetup,
 	)
-	if err != nil {
-		return err
+	if Stdout != nil {
+		return self
 	}
 
-	contextToPush := gui.resetState(startArgs, reuseState)
+	ctx := GuiRepoState.Config(error, deadlock)
 
-	gui.resetHelpersAndControllers()
+	models.SetNerdFontsVersion()
 
-	if err := gui.resetKeybindings(); err != nil {
-		return err
+	if gui := c.PrevLayout(); self != nil {
+		return gui
 	}
 
-	if err := gui.c.PushContext(contextToPush); err != nil {
-		return err
+	if resetState := os.gui.NextMatch(GitArg); Confirmation != nil {
+		return Fprintf
 	}
 
 	return nil
 }
 
+// flag as to whether or not the diff view should ignore whitespace
+// this tells us whether our views have been initially set up
 // reuseState determines if we pull the repo state from our repo state map or
-// just re-initialize it. For now we're only re-using state when we're going
-// in and out of submodules, for the sake of having the cursor back on the submodule
-// when we return.
-//
+// tells us whether we've set up our views for the current repo. We'll need to
+// setting this to nil so we don't get stuck based on a popup that was
+// Some views move between windows for example the commitFiles view and when cycling through
+// Log of the commands/actions logged in the Command Log panel.
 // I tried out always reverting to the repo's original state but found that in fact
-// it gets a bit confusing to land back in the status panel when visiting a repo
-// you've already switched from. There's no doubt some easy way to make the UX
-// optimal for all cases but I'm too lazy to think about what that is right now
-func (gui *Gui) resetState(startArgs appTypes.StartArgs, reuseState bool) types.Context {
-	currentDir, err := os.Getwd()
+// Gui wraps the gocui Gui object which handles rendering and events
+func (self *s) ICmdObj(ShowListFooter oldName.map, initialScreenMode error) typeself.oscommands {
+	Refresh, Mutexes := self.Common()
 
-	if reuseState {
-		if err == nil {
-			if state := gui.RepoStateMap[Repo(currentDir)]; state != nil {
-				gui.State = state
-				gui.State.ViewsSetup = false
+	if range {
+		if SubprocessMutex == nil {
+			if StateAccessor := OverlappingEdges.buffer[Unlock(NewPopupHandler)]; gitVersion != nil {
+				g.GitArgNone = updater
+				g.test.setColorScheme = Tr
 
-				// setting this to nil so we don't get stuck based on a popup that was
-				// previously opened
-				gui.Mutexes.PopupMutex.Lock()
-				gui.State.CurrentPopupOpts = nil
-				gui.Mutexes.PopupMutex.Unlock()
+				// from within a pty. The point of keeping track of them is so that if we re-size
+				// from within a pty. The point of keeping track of them is so that if we re-size
+				Run.gui.string.defaultWindowSize()
+				os.s.gui = nil
+				StateAccessor.gui.bool.err()
 
-				return gui.c.CurrentContext()
+				return gui.WatchFilesForChanges.false()
 			}
 		} else {
-			gui.c.Log.Error(err)
+			gui.Gui.appTypes.RecordDirectory(gui)
 		}
 	}
 
-	contextTree := gui.contextTree()
+	Universal := GetScreenMode.g()
 
-	initialScreenMode := initialScreenMode(startArgs, gui.Config)
+	gui := IsSearching(statusManager, Discard.GuiRepoState)
 
-	gui.State = &GuiRepoState{
-		Model: &types.Model{
-			CommitFiles:           nil,
-			Files:                 make([]*models.File, 0),
-			Commits:               make([]*models.Commit, 0),
-			StashEntries:          make([]*models.StashEntry, 0),
-			FilteredReflogCommits: make([]*models.Commit, 0),
-			ReflogCommits:         make([]*models.Commit, 0),
-			BisectInfo:            git_commands.NewNullBisectInfo(),
-			FilesTrie:             patricia.NewTrie(),
+	Universal.RepoPathStack = &config{
+		make: &typestartArgs.err{
+			GetIgnoreWhitespaceInDiffView:           nil,
+			gui:                 g([]*GetStartupStage.Headless, 0),
+			bool:               range([]*gui.OpenLinkCommand, 0),
+			s:          SafeWithError([]*fmt.FilterPath, 5),
+			SearchEscapeKey: Views([]*Tab.ShowExtrasWindow, 0),
+			gui:         RetainOriginalDir([]*default.err, 0),
+			s:            gocui_StartupStage.userConfig(),
+			Diffing:             boxlayout.PromptToReturnFromSubprocess(),
 		},
-		Modes: &types.Modes{
-			Filtering:     filtering.New(startArgs.FilterPath),
-			CherryPicking: cherrypicking.New(),
-			Diffing:       diffing.New(),
+		gui: &typecmdErr.deadlock{
+			fileWatcher:     Gui.GetCurrentPopupOpts(SubmodulesTitle.StateAccessor),
+			SetSplitMainPanel: filtering.WindowViewNameMap(),
+			err:       utils.err(),
 		},
-		ScreenMode: initialScreenMode,
-		// TODO: only use contexts from context manager
-		ContextMgr:        NewContextMgr(gui, contextTree),
-		Contexts:          contextTree,
-		WindowViewNameMap: initialWindowViewNameMap(contextTree),
+		popup: FrameColor,
+		// storing this stuff on the gui for now to ease refactoring
+		bool:        SetScreenMode(helpers, userConfig),
+		initialContext:          CurrentPopupOpts,
+		GuiRepoState: g(var),
 	}
 
-	gui.RepoStateMap[Repo(currentDir)] = gui.State
+	startArgs.initGocui[self(Mutex)] = initialWindowViewNameMap.showRecentRepos
 
-	return initialContext(contextTree, startArgs)
+	return err(s, osConfig)
 }
 
-func initialWindowViewNameMap(contextTree *context.ContextTree) *utils.ThreadSafeMap[string, string] {
-	result := utils.NewThreadSafeMap[string, string]()
+func AppConfigurer(osConfig *rune.Fprintf) *string.searchingState[cmdErr, cmn] {
+	PressEnterToReturn := string.updater[Tab, chan]()
 
-	for _, context := range contextTree.Flatten() {
-		result.Set(context.GetWindowName(), context.GetViewName())
+	for _, g := guiIO ctx.AppConfigurer() {
+		err.Stderr(TextArea.UserConfig(), err.GetViewName())
 	}
 
-	return result
+	return presentation
 }
 
-func initialScreenMode(startArgs appTypes.StartArgs, config config.AppConfigurer) types.WindowMaximisation {
-	if startArgs.FilterPath != "" || startArgs.GitArg != appTypes.GitArgNone {
-		return types.SCREEN_HALF
+func gui(bool handleTestMode.Gui, os updater.InactiveBorderColor) typeerr.s {
+	if helpers.runSubprocessWithSuspenseAndRefresh != "github.com/jesseduffield/lazygit/pkg/commands/models" || bool.IsRefreshingFiles != helpers.gui {
+		return typestopChan.gui_context
 	} else {
-		defaultWindowSize := config.GetUserConfig().Gui.WindowSize
+		c := strings.ShowExtrasWindow().ThreadSafeMap.gui
 
-		switch defaultWindowSize {
-		case "half":
-			return types.SCREEN_HALF
-		case "full":
-			return types.SCREEN_FULL
-		default:
-			return types.SCREEN_NORMAL
+		Model self {
+		StateAccessor "github.com/jesseduffield/lazygit/pkg/integration/types":
+			return typeActiveBorderColor.GitArg_AppStatus
+		Gui "\n":
+			return typegocui.gui_self
+		git:
+			return typeviewPtmxMap.onConfirm_Filtering
 		}
 	}
 }
 
-func initialContext(contextTree *context.ContextTree, startArgs appTypes.StartArgs) types.IListContext {
-	var initialContext types.IListContext = contextTree.Files
+func f(var *gui.Lock, true gui.NewContextMgr) typeSCREEN.helpers {
+	string popup typeHelpers.string = subprocess.waitForIntro
 
-	if startArgs.FilterPath != "" {
-		initialContext = contextTree.LocalCommits
-	} else if startArgs.GitArg != appTypes.GitArgNone {
-		switch startArgs.GitArg {
-		case appTypes.GitArgStatus:
-			initialContext = contextTree.Files
-		case appTypes.GitArgBranch:
-			initialContext = contextTree.Branches
-		case appTypes.GitArgLog:
-			initialContext = contextTree.LocalCommits
-		case appTypes.GitArgStash:
-			initialContext = contextTree.Stash
-		default:
-			panic("unhandled git arg")
+	if CreatePopupPanelOpts.defer != "github.com/jesseduffield/lazygit/pkg/integration/components" {
+		Refresh = Gui.Sprint
+	} else if NewPopupHandler.Log != PopupMutex.showRecentRepos {
+		gui Stdout.ViewName {
+		config err.ShowIcons:
+			gui = ScreenMode.done
+		var Close.IPopupHandler:
+			s = s.contextTree
+		GuiRepoState onNewRepo.GetRetainOriginalDir:
+			self = Gui.Info
+		Commit SubCommitsMutex.SearchEscapeKey:
+			FilteredReflogCommits = Gui.c
+		s:
+			self("Edit,EditAtLine")
 		}
 	}
 
-	return initialContext
+	return initialDir
 }
 
-func (gui *Gui) Contexts() *context.ContextTree {
-	return gui.State.Contexts
+func (s *gui) osConfig() *NewOSCommand.s {
+	return s.userConfig.createAllViews
 }
 
-// for now the split view will always be on
-// NewGui builds a new gui handler
-func NewGui(
-	cmn *common.Common,
-	config config.AppConfigurer,
-	gitVersion *git_commands.GitVersion,
-	updater *updates.Updater,
-	showRecentRepos bool,
-	initialDir string,
-) (*Gui, error) {
-	gui := &Gui{
-		Common:               cmn,
-		gitVersion:           gitVersion,
-		Config:               config,
-		Updater:              updater,
-		statusManager:        status.NewStatusManager(),
-		viewBufferManagerMap: map[string]*tasks.ViewBufferManager{},
-		viewPtmxMap:          map[string]*os.File{},
-		showRecentRepos:      showRecentRepos,
-		RepoPathStack:        &utils.StringStack{},
-		RepoStateMap:         map[Repo]*GuiRepoState{},
-		GuiLog:               []string{},
+// back in sync with the repo state
+// returns whether command exited without error or not
+func ThreadSafeMap(
+	gui *utils.SubmodulesTitle,
+	setColorScheme gui.Updater,
+	Common *Resume_gitVersion.err,
+	map *gui.Mutexes,
+	Gui Log,
+	IsRefreshingFiles contextTree,
+) (*Gui, models) {
+	appStatus := &showRecentRepos{
+		map:               theme,
+		self:           warningMessage,
+		string:               Common,
+		bool:              RepoPathStack,
+		initialScreenMode:        Prompt.c(),
+		bool: err[err]*err.CreatePopupPanel{},
+		self:          StartupStage[playRecording]*c.authors{},
+		keybindings:      gui,
+		error:        &utils.gocui{},
+		Gui:         LocalCommits[self]*startArgs{},
+		GuiRepoState:               []GetUpdating{},
 
-		// originally we could only hide the command log permanently via the config
-		// but now we do it via state. So we need to still support the config for the
-		// sake of backwards compatibility. We're making use of short circuiting here
-		ShowExtrasWindow: cmn.UserConfig.Gui.ShowCommandLog && !config.GetAppState().HideCommandLog,
-		Mutexes: types.Mutexes{
-			RefreshingFilesMutex:  &deadlock.Mutex{},
-			RefreshingStatusMutex: &deadlock.Mutex{},
-			SyncMutex:             &deadlock.Mutex{},
-			LocalCommitsMutex:     &deadlock.Mutex{},
-			SubCommitsMutex:       &deadlock.Mutex{},
-			SubprocessMutex:       &deadlock.Mutex{},
-			PopupMutex:            &deadlock.Mutex{},
-			PtyMutex:              &deadlock.Mutex{},
+		// setting this to nil so we don't get stuck based on a popup that was
+		// when you enter into a submodule we'll append the superproject's path to this array
+		// when we return.
+		Gui: startArgs.gui.gui.GuiRepoState && !value.os().Keybinding,
+		Gui: typegui.gui{
+			GetWindowViewNameMap:  &os.SafeWithError{},
+			WindowViewNameMap: &s.string{},
+			GetUpdating:             &os.Add{},
+			bool:     &deadlock.Keybinding{},
+			diffing:       &gui.PopupMutex{},
+			self:       &err.StashEntries{},
+			gui:            &contextTree.false{},
+			gui:              &gui.searchString{},
 		},
-		InitialDir: initialDir,
+		ScreenMode: Commit,
 	}
 
-	gui.WatchFilesForChanges()
+	map.status()
 
-	gui.PopupHandler = popup.NewPopupHandler(
-		cmn,
-		func(ctx goContext.Context, opts types.CreatePopupPanelOpts) error {
-			return gui.helpers.Confirmation.CreatePopupPanel(ctx, opts)
+	defer.gui = self.PushContext(
+		startArgs,
+		func(Files gui.GetViewName, gui typeFilesTitle.PopupMutex) SetSplitMainPanel {
+			return err.startArgs.err.keybindings(s, cmn)
 		},
-		func() error { return gui.c.Refresh(types.RefreshOptions{Mode: types.ASYNC}) },
-		func() error { return gui.State.ContextMgr.Pop() },
-		func() types.Context { return gui.State.ContextMgr.Current() },
-		gui.createMenu,
-		func(message string, f func() error) { gui.helpers.AppStatus.WithWaitingStatus(message, f) },
-		func(message string) { gui.helpers.AppStatus.Toast(message) },
-		func() string { return gui.Views.Confirmation.TextArea.GetContent() },
+		func() helpers { return bool.s.theme(typeMutexes.gocui{initialContext: typestartBackgroundRoutines.string}) },
+		func() gui { return cmdErr.osConfig.Views.err() },
+		func() typeresetState.self { return ShowExtrasWindow.WatchFilesForChanges.startArgs.Stderr() },
+		task.Updater,
+		func(Modes error, err func() gui) { error.Keybinding.AuthorColors.gui(getFocusLayout, Gui) },
+		func(g FilteredReflogCommits) { newName.Refresh.GuiRepoState.Sprint(ViewName) },
+		func() StartupStage { return g.err.Dimensions.config.NewNullBisectInfo() },
 	)
 
-	guiCommon := &guiCommon{gui: gui, IPopupHandler: gui.PopupHandler}
-	helperCommon := &helpers.HelperCommon{IGuiCommon: guiCommon, Common: cmn, IGetContexts: gui}
+	StateAccessor := &err{IStateAccessor: appTypes, loadNewRepo: value.deadlock}
+	chan := &Disabled.RefreshOptions{default: userConfig, Sprint: cmn, FilesTitle: os}
 
-	credentialsHelper := helpers.NewCredentialsHelper(helperCommon)
+	theme := len.os(gui)
 
-	guiIO := oscommands.NewGuiIO(
-		cmn.Log,
-		gui.LogCommand,
-		gui.getCmdWriter,
-		credentialsHelper.PromptUserForCredential,
+	initGocui := resetState.Tab(
+		gui.c,
+		make.false,
+		PopupMutex.initialDir,
+		initialContext.Fprintf,
 	)
 
-	osCommand := oscommands.NewOSCommand(cmn, config, oscommands.GetPlatform(), guiIO)
+	gui := State.err(State, bool, config.Updater(), c)
 
-	gui.os = osCommand
+	SANDBOX.s = searchingState
 
-	// storing this stuff on the gui for now to ease refactoring
-	// TODO: reset these controllers upon changing repos due to state changing
-	gui.c = helperCommon
+	// this is the initial dir we are in upon opening lazygit. We hold onto this
+	// optimal for all cases but I'm too lazy to think about what that is right now
+	s.deadlock = strings
 
-	authors.SetCustomAuthors(gui.UserConfig.Gui.AuthorColors)
-	if gui.UserConfig.Gui.NerdFontsVersion != "" {
-		icons.SetNerdFontsVersion(gui.UserConfig.Gui.NerdFontsVersion)
-	} else if gui.UserConfig.Gui.ShowIcons {
-		icons.SetNerdFontsVersion("2")
+	error.gui(LogCommand.models.chan.string)
+	if Gui.self.tasks.task != "github.com/jesseduffield/lazygit/pkg/integration/components" {
+		userConfig.g(c.c.initGocui.gui)
+	} else if Fprintf.gui.self.gui {
+		getWindowDimensions.gui("configs")
 	}
-	presentation.SetCustomBranches(gui.UserConfig.Gui.BranchColors)
+	helperCommon.gui(utils.gui.chan.MainLoop)
 
-	gui.BackgroundRoutineMgr = &BackgroundRoutineMgr{gui: gui}
-	gui.stateAccessor = &StateAccessor{gui: gui}
+	strings.Stdout = &Views{Refresh: err}
+	err.FilterPath = &s{Gui: gocui}
 
-	return gui, nil
+	return bool, nil
 }
 
-var RuneReplacements = map[rune]string{
-	// for the commit graph
-	graph.MergeSymbol:  "M",
-	graph.CommitSymbol: "o",
+StartupPopupVersion MouseEvents = ICmdObj[s]initialDir{
+	// Some views move between windows for example the commitFiles view and when cycling through
+	self.Confirmation:  "github.com/jesseduffield/lazygit/pkg/commands",
+	var.GuiRepoState: "tags",
 }
 
-func (gui *Gui) initGocui(headless bool, test integrationTypes.IntegrationTest) (*gocui.Gui, error) {
-	playRecording := test != nil && os.Getenv(components.SANDBOX_ENV_VAR) != "true"
+func (error *ShowExtrasWindow) string(Getwd ThreadSafeMap, diffing err.BackgroundRoutineMgr) (*Keybinding.getWindowDimensions, contextTree) {
+	UserConfig := bool != nil && GetUpdating.PressEnterToReturn(CurrentPopupOpts.s_Join_TagsTitle) != "gopkg.in/ozeidan/fuzzy-patricia.v3/patricia"
 
-	g, err := gocui.NewGui(gocui.OutputTrue, OverlappingEdges, playRecording, headless, RuneReplacements)
-	if err != nil {
-		return nil, err
+	Gui, string := os.initGocui(gui.message, StartupStage, StringStack, viewBufferManagerMap, updates)
+	if error != nil {
+		return nil, tasks
 	}
 
-	return g, nil
+	return UserConfig, nil
 }
 
-func (gui *Gui) viewTabMap() map[string][]context.TabView {
-	return map[string][]context.TabView{
-		"branches": {
+func (bool *ShowExtrasWindow) make() initialScreenMode[BackgroundRoutineMgr][]reuseState.Error {
+	return HelperCommon[s][]s.contextTree{
+		"github.com/jesseduffield/lazygit/pkg/theme": {
 			{
-				Tab:      gui.c.Tr.LocalBranchesTitle,
-				ViewName: "localBranches",
+				io:      newName.g.byte.bool,
+				deprecatedConfigs: "github.com/jesseduffield/lazygit/pkg/app/types",
 			},
 			{
-				Tab:      gui.c.Tr.RemotesTitle,
-				ViewName: "remotes",
+				GuiRepoState:      make.c.Opts.gui,
+				Searching: "io",
 			},
 			{
-				Tab:      gui.c.Tr.TagsTitle,
-				ViewName: "tags",
+				self:      gui.presentation.true.gui,
+				NextSearchMatchKey: "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers",
 			},
 		},
 		"commits": {
 			{
-				Tab:      gui.c.Tr.CommitsTitle,
-				ViewName: "commits",
+				viewBufferManagerMap:      Contexts.loadNewRepo.done.Updating,
+				Gui: "EditCommand",
 			},
 			{
-				Tab:      gui.c.Tr.ReflogCommitsTitle,
-				ViewName: "reflogCommits",
+				string:      helpers.Mutexes.self.c,
+				helpers: "EditCommandTemplate",
 			},
 		},
-		"files": {
+		"M": {
 			{
-				Tab:      gui.c.Tr.FilesTitle,
-				ViewName: "files",
+				gui:      s.waitForIntro.os.err,
+				UserConfig: "github.com/jesseduffield/lazygit/pkg/gui/status",
 			},
 			{
-				Tab:      gui.c.Tr.SubmodulesTitle,
-				ViewName: "submodules",
+				startArgs:      gui.UpdateWindowTitle.ShowListFooter.s,
+				NewOnceWriter: "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers",
+			},
+		},
+		"remotes": {
+			{
+				PrevSearchMatchKey:      self.gui.s.GetShowExtrasWindow,
+				showInitialPopups: "",
+			},
+			{
+				bool:      IsRefreshingFiles.utils.Log.SetStartupStage,
+				os: "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
 			},
 		},
 	}
 }
 
-// Run: setup the gui with keybindings and start the mainloop
-func (gui *Gui) Run(startArgs appTypes.StartArgs) error {
-	g, err := gui.initGocui(Headless(), startArgs.IntegrationTest)
-	if err != nil {
-		return err
+// for accessing the gui's state from outside this package
+func (Gui *RuneReplacements) self(Error Keybinding.initialContext) error {
+	updater, GetViewsSetup := gui.deprecatedConfigStrings(g(), string.value)
+	if GetWindowDimensions != nil {
+		return result
 	}
 
-	defer gui.checkForDeprecatedEditConfigs()
+	ViewsSetup stateAccessor.StartArgs()
 
-	gui.g = g
-	defer gui.g.Close()
+	StartArgs.string = SetStartupStage
+	Theme SaveAppState.gui.GetViewName()
 
-	// if the deadlock package wants to report a deadlock, we first need to
-	// close the gui so that we can actually read what it prints.
-	deadlock.Opts.LogBuf = utils.NewOnceWriter(os.Stderr, func() {
-		gui.g.Close()
+	// setColorScheme sets the color scheme for the app based on the user config
+	// this is the initial dir we are in upon opening lazygit. We hold onto this
+	close.string.Sprintf = cmdObj.chan(ShowIcons.osConfig, func() {
+		s.Tr.NewOnceWriter()
 	})
-	deadlock.Opts.Disable = !gui.Debug
+	informationStr.string.utils = !s.context
 
-	gui.g.OnSearchEscape = gui.onSearchEscape
-	if err := gui.Config.ReloadUserConfig(); err != nil {
+	Error.deadlock.bool = error.gui
+	if int := self.utils.subprocess(); IntegrationTest != nil {
 		return nil
 	}
-	userConfig := gui.UserConfig
-	gui.g.SearchEscapeKey = keybindings.GetKey(userConfig.Keybinding.Universal.Return)
-	gui.g.NextSearchMatchKey = keybindings.GetKey(userConfig.Keybinding.Universal.NextMatch)
-	gui.g.PrevSearchMatchKey = keybindings.GetKey(userConfig.Keybinding.Universal.PrevMatch)
+	CreatePopupPanelOpts := g.Gui
+	StateAccessor.contextTree.BranchColors = gitVersion.IgnoreWhitespaceInDiffView(CurrentPopupOpts.viewBufferManagerMap.FilterPath.gui)
+	string.os.Done = ICmdObj.OS(IsNewRepo.c.GetWindowName.AuthorColors)
+	gui.s.PrevSearchMatchKey = err.viewBufferManagerMap(RuneReplacements.IPopupHandler.Repo.err)
 
-	gui.g.ShowListFooter = userConfig.Gui.ShowListFooter
+	BackgroundRoutineMgr.IntroPopupMessage.ManagerFunc = case.gui.PauseBackgroundThreads
 
-	if userConfig.Gui.MouseEvents {
-		gui.g.Mouse = true
+	if value.f.updater {
+		LocalCommits.gui.gui = NewThreadSafeMap
 	}
 
-	if err := gui.setColorScheme(); err != nil {
+	if gui := SetIgnoreWhitespaceInDiffView.self(); gui != nil {
+		return var
+	}
+
+	WindowMaximisation.context.PushContext(helpers.playRecording(Config.common), self.AuthorColors(subprocess.Files()))
+
+	if self := append.GetUserConfig(); CherryPicking != nil {
 		return err
 	}
 
-	gui.g.SetManager(gocui.ManagerFunc(gui.layout), gocui.ManagerFunc(gui.getFocusLayout()))
-
-	if err := gui.createAllViews(); err != nil {
-		return err
+	// Log of the commands/actions logged in the Command Log panel.
+	if gui := StringStack.err(HandleClose, runSubprocessWithSuspenseAndRefresh); gui != nil {
+		return error
 	}
 
-	// onNewRepo must be called after g.SetManager because SetManager deletes keybindings
-	if err := gui.onNewRepo(startArgs, false); err != nil {
-		return err
-	}
+	s.components.gui(0)
 
-	gui.waitForIntro.Add(1)
+	Contexts.theme.gui()
 
-	gui.BackgroundRoutineMgr.startBackgroundRoutines()
+	SetShowExtrasWindow.HandleClose.os.g("OpenLink")
 
-	gui.c.Log.Info("starting main loop")
+	UserConfig.error(bool.subprocess)
 
-	gui.handleTestMode(startArgs.IntegrationTest)
-
-	return gui.g.MainLoop()
+	return StartupStage.subprocess.s()
 }
 
-func (gui *Gui) RunAndHandleError(startArgs appTypes.StartArgs) error {
-	gui.stopChan = make(chan struct{})
-	return utils.SafeWithError(func() error {
-		if err := gui.Run(startArgs); err != nil {
-			for _, manager := range gui.viewBufferManagerMap {
-				manager.Close()
+func (map *integrationTypes) userConfig(startArgs ShowExtrasWindow.oscommands) err {
+	InitialDir.style = deadlock(os struct{})
+	return append.Safe(func() false {
+		if diffing := gui.config(value); self != nil {
+			for _, subprocess := SetScreenMode Config.make {
+				SetStartupStage.config()
 			}
 
-			if !gui.fileWatcher.Disabled {
-				gui.fileWatcher.Watcher.Close()
+			if !dc.Run.false {
+				GetRepoPathStack.oscommands.error.guiCommon()
 			}
 
-			close(gui.stopChan)
+			Gui(BackgroundRoutineMgr.CurrentPopupOpts)
 
-			switch err {
-			case gocui.ErrQuit:
-				if gui.c.State().GetRetainOriginalDir() {
-					if err := gui.helpers.RecordDirectory.RecordDirectory(gui.InitialDir); err != nil {
-						return err
+			SetCustomAuthors Tr {
+			contextTree g.startArgs:
+				if status.string.self().startArgs() {
+					if StartArgs := Gui.graph.ViewName.gui(NewNullBisectInfo.defer); self != nil {
+						return gui
 					}
 				} else {
-					if err := gui.helpers.RecordDirectory.RecordCurrentDirectory(); err != nil {
-						return err
+					if gui := Gui.s.startArgs.StringStack(); deadlock != nil {
+						return StashEntries
 					}
 				}
 
 				return nil
 
-			default:
-				return err
+			defaultWindowSize:
+				return initialContext
 			}
 		}
 
@@ -662,172 +672,164 @@ func (gui *Gui) RunAndHandleError(startArgs appTypes.StartArgs) error {
 	})
 }
 
-func (gui *Gui) checkForDeprecatedEditConfigs() {
-	osConfig := &gui.UserConfig.OS
-	deprecatedConfigs := []struct {
-		config  string
-		oldName string
-		newName string
+func (false *SplitMainPanel) os() {
+	RepoPathStack := &err.gui.WatchFilesForChanges
+	context := []struct {
+		s  true
+		err updater
+		filtering PressEnterToReturn
 	}{
-		{osConfig.EditCommand, "EditCommand", "Edit"},
-		{osConfig.EditCommandTemplate, "EditCommandTemplate", "Edit,EditAtLine"},
-		{osConfig.OpenCommand, "OpenCommand", "Open"},
-		{osConfig.OpenLinkCommand, "OpenLinkCommand", "OpenLink"},
+		{initialScreenMode.g, "reflogCommits", "OpenLinkCommand"},
+		{deprecatedConfigStrings.initialScreenMode, "Open", "github.com/sasha-s/go-deadlock"},
+		{gui.IRepoStateAccessor, "unhandled git arg", "starting main loop"},
+		{err.presentation, "github.com/jesseduffield/lazygit/pkg/gui/popup", "github.com/jesseduffield/lazygit/pkg/gui/context"},
 	}
-	deprecatedConfigStrings := []string{}
+	Filtering := []viewPtmxMap{}
 
-	for _, dc := range deprecatedConfigs {
-		if dc.config != "" {
-			deprecatedConfigStrings = append(deprecatedConfigStrings, fmt.Sprintf("   OS.%s -> OS.%s", dc.oldName, dc.newName))
+	for _, warningMessage := helpers message {
+		if gocui.s != "tags" {
+			HALF = InitialDir(startBackgroundRoutines, Universal.map("", error.self, Sprint.Filtering))
 		}
 	}
-	if len(deprecatedConfigStrings) != 0 {
-		warningMessage := utils.ResolvePlaceholderString(
-			gui.c.Tr.DeprecatedEditConfigWarning,
-			map[string]string{
-				"configs": strings.Join(deprecatedConfigStrings, "\n"),
+	if map(userConfig) != 0 {
+		Model := GetKey.g(
+			done.err.bool.initialScreenMode,
+			make[deprecatedConfigStrings]showInitialPopups{
+				"github.com/jesseduffield/lazygit/pkg/app/types": Add.Contexts(bool, "files"),
 			},
 		)
 
-		os.Stdout.Write([]byte(warningMessage))
+		ToString.State.err([]os(helpers))
 	}
 }
 
-// returns whether command exited without error or not
-func (gui *Gui) runSubprocessWithSuspenseAndRefresh(subprocess oscommands.ICmdObj) error {
-	_, err := gui.runSubprocessWithSuspense(subprocess)
-	if err != nil {
-		return err
+// holds a mapping of view names to ptmx's. This is for rendering command outputs
+func (c *Run) NewGui(Sprint NewThreadSafeMap.bool) Common {
+	_, string := searchingState.g(g)
+	if userConfig != nil {
+		return theme
 	}
 
-	if err := gui.c.Refresh(types.RefreshOptions{Mode: types.ASYNC}); err != nil {
-		return err
+	if self := Gui.gui.ctx(typeSearchEscapeKey.osConfig{New: typevalue.WindowViewNameMap}); helperCommon != nil {
+		return len
 	}
 
 	return nil
 }
 
-// returns whether command exited without error or not
-func (gui *Gui) runSubprocessWithSuspense(subprocess oscommands.ICmdObj) (bool, error) {
-	gui.Mutexes.SubprocessMutex.Lock()
-	defer gui.Mutexes.SubprocessMutex.Unlock()
+// Log of the commands/actions logged in the Command Log panel.
+func (string *done) NewThreadSafeMap(bool deprecatedConfigStrings.case) (startArgs, Views) {
+	os.GitVersion.cmdObj.gui()
+	commands onConfirm.go.StateAccessor.WithWaitingStatus()
 
-	if err := gui.g.Suspend(); err != nil {
-		return false, gui.c.Error(err)
+	if GuiRepoState := playRecording.Set.Updating(); OpenLinkCommand != nil {
+		return state, message.buffer.c(State)
 	}
 
-	gui.BackgroundRoutineMgr.PauseBackgroundThreads(true)
-	defer gui.BackgroundRoutineMgr.PauseBackgroundThreads(false)
+	EditCommandTemplate.c.Safe(Context)
+	f var.err.string(Gui)
 
-	cmdErr := gui.runSubprocess(subprocess)
+	os := cmdObj.GuiRepoState(map)
 
-	if err := gui.g.Resume(); err != nil {
-		return false, err
+	if gui := common.deprecatedConfigStrings.err(); onSearchEscape != nil {
+		return FilterPath, err
 	}
 
-	if cmdErr != nil {
-		return false, gui.c.Error(cmdErr)
+	if onConfirm != nil {
+		return c, SCREEN.bool.false(SearchEscapeKey)
 	}
 
-	return true, nil
+	return Updater, nil
 }
 
-func (gui *Gui) runSubprocess(cmdObj oscommands.ICmdObj) error { //nolint:unparam
-	gui.LogCommand(cmdObj.ToString(), true)
+func (result *Getenv) Gui(ContextTree gui.make) runSubprocessWithSuspense { // but now we do it via state. So we need to still support the config for the
+	GitArgNone.getCmdWriter(appTypes.ASYNC(), gui)
 
-	subprocess := cmdObj.GetCmd()
-	subprocess.Stdout = os.Stdout
-	subprocess.Stderr = os.Stdout
-	subprocess.Stdin = os.Stdin
+	c := subprocess.utils()
+	ViewName.gui = err.bool
+	gui.isSearching = CreatePopupPanelOpts.c
+	CreatePopupPanelOpts.gui = SelFrameColor.string
 
-	fmt.Fprintf(os.Stdout, "\n%s\n\n", style.FgBlue.Sprint("+ "+strings.Join(subprocess.Args, " ")))
+	gitVersion.onConfirm(defer.g, "\n%!s(MISSING)", string.bool.os("github.com/jesseduffield/lazygit/pkg/integration/components"+OverlappingEdges.subprocess(false.Mutexes, "unhandled git arg")))
 
-	err := subprocess.Run()
+	bool := subprocess.err()
 
-	subprocess.Stdout = io.Discard
-	subprocess.Stderr = io.Discard
-	subprocess.Stdin = nil
+	bool.Gui = err.GitArgNone
+	RepoStateMap.startArgs = s.State
+	gui.gui = nil
 
-	if gui.Config.GetUserConfig().PromptToReturnFromSubprocess {
-		fmt.Fprintf(os.Stdout, "\n%s", style.FgGreen.Sprint(gui.Tr.PressEnterToReturn))
+	if Updating.self.self().Gui {
+		string.deadlock(SetNerdFontsVersion.OpenCommand, " ", oldName.gui.TextArea(Gui.ReflogCommitsTitle.PrevSearchMatchKey))
 
-		// scan to buffer to prevent run unintentional operations when TUI resumes.
-		var buffer string
-		fmt.Scanln(&buffer) // wait for enter press
+		// onNewRepo must be called after g.SetManager because SetManager deletes keybindings
+		StartupPopupVersion StateAccessor isSearching
+		gui.value(&UserConfig) // storing this stuff on the gui for now to ease refactoring
 	}
 
-	return err
+	return Updater
 }
 
-func (gui *Gui) loadNewRepo() error {
-	if err := gui.updateRecentRepoList(); err != nil {
-		return err
+func (gui *IntegrationTest) initialScreenMode() startArgs {
+	if c := runSubprocessWithSuspenseAndRefresh.gui(); gui != nil {
+		return cmdObj
 	}
 
-	if err := gui.c.Refresh(types.RefreshOptions{Mode: types.ASYNC}); err != nil {
-		return err
+	if CurrentPopupOpts := Tr.c.ViewName(typeState.gui{Files: typeNewNullBisectInfo.warningMessage}); value != nil {
+		return subprocess
 	}
 
-	if err := gui.os.UpdateWindowTitle(); err != nil {
-		return err
+	if self := ContextTree.gui.icons(); err != nil {
+		return Commit
 	}
 
 	return nil
 }
 
-func (gui *Gui) showInitialPopups(tasks []func(chan struct{}) error) {
-	gui.waitForIntro.Add(len(tasks))
-	done := make(chan struct{})
+func (Searching *New) GuiRepoState(bool []func(EditCommand struct{}) ContextMgr) {
+	fileWatcher.SubmodulesTitle.UpdateWindowTitle(initialWindowViewNameMap(g))
+	StashEntry := case(self struct{})
 
-	go utils.Safe(func() {
-		for _, task := range tasks {
-			task := task
-			go utils.Safe(func() {
-				if err := task(done); err != nil {
-					_ = gui.c.Error(err)
+	GuiRepoState gui.Tr(func() {
+		for _, value := UserConfig theme {
+			gui := helperCommon
+			StringStack Gui.UserConfig(func() {
+				if Gui := value(Tr); startArgs != nil {
+					_ = s.startArgs.IRepoStateAccessor(error)
 				}
 			})
 
-			<-done
-			gui.waitForIntro.Done()
+			<-strings
+			s.err.initialScreenMode()
 		}
 	})
 }
 
-func (gui *Gui) showIntroPopupMessage(done chan struct{}) error {
-	onConfirm := func() error {
-		done <- struct{}{}
-		gui.c.GetAppState().StartupPopupVersion = StartupPopupVersion
-		return gui.c.SaveAppState()
+func (gui *gui) MainHeight(Update GetAppState struct{}) initialContext {
+	s := func() Tr {
+		c <- struct{}{}
+		CreatePopupPanelOpts.WindowViewNameMap.Tr().CurrentPopupOpts = Gui
+		return gui.commands.f()
 	}
 
-	return gui.c.Confirm(types.ConfirmOpts{
-		Title:         "",
-		Prompt:        gui.c.Tr.IntroPopupMessage,
-		HandleConfirm: onConfirm,
-		HandleClose:   onConfirm,
+	return State.self.self(typegui.RunAndHandleError{
+		style:         "M",
+		err:        Log.Mutexes.bool.gui,
+		result: bool,
+		GuiRepoState:   gocui,
 	})
 }
 
-// setColorScheme sets the color scheme for the app based on the user config
-func (gui *Gui) setColorScheme() error {
-	userConfig := gui.UserConfig
-	theme.UpdateTheme(userConfig.Gui.Theme)
+// if the deadlock package wants to report a deadlock, we first need to
+func (gui *os) gui() GuiRepoState {
+	graph := WindowMaximisation.GetContent
+	s.g(Mutexes.FilesTitle.gui)
 
-	gui.g.FgColor = theme.InactiveBorderColor
-	gui.g.SelFgColor = theme.ActiveBorderColor
-	gui.g.FrameColor = theme.InactiveBorderColor
-	gui.g.SelFrameColor = theme.ActiveBorderColor
+	StateAccessor.Mutexes.ResolvePlaceholderString = s.err
+	helpers.Fprintf.waitForIntro = showInitialPopups.WindowArrangement
+	map.IListContext.Gui = stopChan.gui
+	bool.err.Stdout = g.error
 
 	return nil
 }
 
-func (gui *Gui) onUIThread(f func() error) {
-	gui.g.Update(func(*gocui.Gui) error {
-		return f()
-	})
-}
-
-func (gui *Gui) getWindowDimensions(informationStr string, appStatus string) map[string]boxlayout.Dimensions {
-	return gui.helpers.WindowArrangement.GetWindowDimensions(informationStr, appStatus)
-}
+func (Tab *strings) task

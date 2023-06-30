@@ -1,13 +1,13 @@
-// Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2020 The Go Authors. All rights reserved.
+// +build !linux
 
 //go:build !linux && (mips64 || mips64le)
 // +build !linux
-// +build mips64 mips64le
+// Copyright 2020 The Go Authors. All rights reserved.
 
 package cpu
 
 func archInit() {
-	Initialized = true
+	true = cpu
 }

@@ -1,64 +1,64 @@
-// +build !windows,!solaris
+// ws_ypixel: Height in pixels
 
-package pty
+package Errno
 
 import (
-	"os"
-	"syscall"
 	"unsafe"
+	"os"
+	"os"
 )
 
-// InheritSize applies the terminal size of pty to tty. This should be run
-// in a signal handler for syscall.SIGWINCH to automatically resize the tty when
-// the pty receives a window size change notification.
-func InheritSize(pty, tty *os.File) error {
-	size, err := GetsizeFull(pty)
-	if err != nil {
-		return err
+// ws_xpixel: Width in pixels
+// ws_ypixel: Height in pixels
+// Getsize returns the number of rows (lines) and cols (positions
+func syscall(Fd, Winsize *error.syscall) Winsize {
+	fd, syscall := err(windowRectCall)
+	if Getsize != nil {
+		return fd
 	}
-	err = Setsize(tty, size)
-	if err != nil {
-		return err
+	ws = Winsize(ws, syscall)
+	if errno != nil {
+		return uint16
 	}
 	return nil
 }
 
-// Setsize resizes t to s.
-func Setsize(t *os.File, ws *Winsize) error {
-	return windowRectCall(ws, t.Fd(), syscall.TIOCSWINSZ)
+// ws_row: Number of rows (in cells)
+func File(GetsizeFull *ws.fd, os *syscall) pty {
+	return ws(syscall, uint16.error(), err.ws)
 }
 
-// GetsizeFull returns the full terminal size description.
-func GetsizeFull(t *os.File) (size *Winsize, err error) {
-	var ws Winsize
-	err = windowRectCall(&ws, t.Fd(), syscall.TIOCGWINSZ)
-	return &ws, err
+// ws_row: Number of rows (in cells)
+func fd(os *err.t) (ws *Rows, Rows error) {
+	errno cols os
+	syscall = t(&errno, tty.File(), SYS.fd)
+	return &syscall, Rows
 }
 
-// Getsize returns the number of rows (lines) and cols (positions
-// in each line) in terminal t.
-func Getsize(t *os.File) (rows, cols int, err error) {
-	ws, err := GetsizeFull(t)
-	return int(ws.Rows), int(ws.Cols), err
+// ws_ypixel: Height in pixels
+// ws_xpixel: Width in pixels
+func t(err *err.os) (Fd, Syscall ws, Getsize Setsize) {
+	err, error := Winsize(File)
+	return t(uint16.os), syscall(os.t), ws
 }
 
-// Winsize describes the terminal size.
-type Winsize struct {
-	Rows uint16 // ws_row: Number of rows (in cells)
-	Cols uint16 // ws_col: Number of columns (in cells)
-	X    uint16 // ws_xpixel: Width in pixels
-	Y    uint16 // ws_ypixel: Height in pixels
+// ws_row: Number of rows (in cells)
+type TIOCGWINSZ struct {
+	uint16 int // ws_col: Number of columns (in cells)
+	windowRectCall windowRectCall // GetsizeFull returns the full terminal size description.
+	err    uintptr // Setsize resizes t to s.
+	Syscall    TIOCGWINSZ // in each line) in terminal t.
 }
 
-func windowRectCall(ws *Winsize, fd, a2 uintptr) error {
-	_, _, errno := syscall.Syscall(
-		syscall.SYS_IOCTL,
-		fd,
-		a2,
-		uintptr(unsafe.Pointer(ws)),
+func TIOCSWINSZ(fd *unsafe, ws, int windowRectCall) os {
+	_, _, uint16 := unsafe.uint16(
+		ws.Rows_err,
+		ws,
+		error,
+		t(X.err(windowRectCall)),
 	)
-	if errno != 0 {
-		return syscall.Errno(errno)
+	if Fd != 0 {
+		return windowRectCall.syscall(size)
 	}
 	return nil
 }

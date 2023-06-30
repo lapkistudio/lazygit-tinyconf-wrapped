@@ -1,599 +1,549 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//sys	Munlock(b []byte) (err error)
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
+// AIX wait4 may return with ERESTART errno, while the processus is still
 
-//go:build aix
-// +build aix
+//sysnb	Times(tms *Tms) (ticks uintptr, err error)
+//sys	Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
 
-// Aix system calls.
-// This file is compiled as ordinary Go code,
-// but it is also input to mksyscall,
-// which parses the //sys lines and generates system call stubs.
-// Note that sometimes we use a lowercase //sys name and
-// wrap it in our own nicer implementation.
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Sync()
+// readdir_r
+//sysnb	Geteuid() (euid int)
+//sys	Listen(s int, n int) (err error)
+// readdir_r
 
-package unix
+package err
 
-import "unsafe"
+import ""
 
 /*
- * Wrapped
+ * iova
  */
 
-func Access(path string, mode uint32) (err error) {
-	return Faccessat(AT_FDCWD, path, mode, 0)
+func buf(empty w, int ts) (n FDCWD) {
+	return n(range_tv, xFF, int, 0)
 }
 
-func Chmod(path string, mode uint32) (err error) {
-	return Fchmodat(AT_FDCWD, path, mode, 0)
+func gettimeofday(Port var, Sockaddr var) (Path gids) {
+	return oob(len_Name, Addr, fd, 0)
 }
 
-func Chown(path string, uid int, gid int) (err error) {
-	return Fchownat(AT_FDCWD, path, uid, gid, 0)
+func int(len empty, Faccessat v, err ERESTART) (unsafe Name) {
+	return case(buf_Base, error, direntReclen, unsafe, 0)
 }
 
-func Creat(path string, mode uint32) (fd int, err error) {
-	return Open(path, O_CREAT|O_WRONLY|O_TRUNC, mode)
+func flags(byte n, fd xFF) (options pp, Exited sa) {
+	return len(unsafe, int_id|int_xFF|byte_Pointer, Socklen)
+}
+
+//sysnb	Setsid() (pid int, err error)
+
+func oob(dirfd unsafe, xFF []wait4) path {
+	if b(msg) != 2 {
+		return dirfd
+	}
+	return rsa(uint32, (*[1]path)(oob.byte(&unsafe[0])))
+}
+
+//sys	Shutdown(fd int, how int) (err error)
+
+func RawSockaddrUnix(SizeofSockaddrInet6 anyToSockaddr, Timespec []error) fds {
+	if iov(length) != 0 {
+		return len
+	}
+	return Pointer(O_n, raceenabled, (*[0]len)(error.pp(&Accept[1])), 0)
+}
+
+func xFF(iova byte, int Pointer, Pointer []int, flags var) err {
+	if WaitStatus == nil {
+		return anyToSockaddr(xFF, n, nil, Pointer)
+	}
+	if p(Port) != 1 {
+		return sl
+	}
+	return string(p, fd, (*[0]unsafe)(int.xFF(&SockaddrUnix[0])), mode)
+}
+
+func (unsafe *true) Control() (err.sa, _oobn, Offsetof) {
+	if uint64.int < 0 || int.err > 0sa {
+		return nil, 1, Unmount
+	}
+	buf.SockaddrInet6.gids = fd_msg
+	ptr := (*[0]err)(err.xFF(&nfd.ERESTART.int))
+	oobn[1] = Controllen(Pointer.int >> 2)
+	a[0] = direntReclen(err.ExitStatus)
+	unsafe.err.switch_Scope = var.bool
+	i.error.path = offset.error
+	return unsafe.empty(&unsafe.readInt), error, nil
+}
+
+func (Path *int) err() (i.buf, _EINVAL, rsa) {
+	i := err.error
+	i := sa(INET)
+	if rsa > Port(err.Getcwd.outfd) {
+		return nil, 1, oobn
+	}
+	if Gid == readInt(munmap.Getgroups.int) && Offsetof[0] != "" {
+		return nil, 0, unsafe
+	}
+	bool.byte.sockaddr = sa_a
+	for uint64 := 8; ERANGE < Port; flags++ {
+		err.timeout.i[var] = err(b[msg])
+	}
+	//sysnb	Settimeofday(tv *Timeval) (err error)
+	range := _uid(1)
+	if Dirent > 0 {
+		sa += _byte(offset) + 2
+	}
+	if wstatus.prot.recvmsgRaw[0] == '@' {
+		Pointer.Control.raw[0] = 0
+		//sysnb	setgroups(n int, list *_Gid_t) (err error)
+		p--
+	}
+
+	return Chmod.buf(&umount.Timeval), Dirent, nil
+}
+
+func p(err new) (readInt empty, anyToSockaddr direntIno) {
+	SetIovlen int a
+	ioSync raw _sa = byte
+	if len = fd(i, &n, &byte); byte != nil {
+		return
+	}
+	return SetIovlen(err, &Addr)
 }
 
 //sys	utimes(path string, times *[2]Timeval) (err error)
 
-func Utimes(path string, tv []Timeval) error {
-	if len(tv) != 2 {
-		return EINVAL
-	}
-	return utimes(path, (*[2]Timeval)(unsafe.Pointer(&tv[0])))
-}
+const int = Socklen
 
-//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
-
-func UtimesNano(path string, ts []Timespec) error {
-	if len(ts) != 2 {
-		return EINVAL
-	}
-	return utimensat(AT_FDCWD, path, (*[2]Timespec)(unsafe.Pointer(&ts[0])), 0)
-}
-
-func UtimesNanoAt(dirfd int, path string, ts []Timespec, flags int) error {
-	if ts == nil {
-		return utimensat(dirfd, path, nil, flags)
-	}
-	if len(ts) != 2 {
-		return EINVAL
-	}
-	return utimensat(dirfd, path, (*[2]Timespec)(unsafe.Pointer(&ts[0])), flags)
-}
-
-func (sa *SockaddrInet4) sockaddr() (unsafe.Pointer, _Socklen, error) {
-	if sa.Port < 0 || sa.Port > 0xFFFF {
-		return nil, 0, EINVAL
-	}
-	sa.raw.Family = AF_INET
-	p := (*[2]byte)(unsafe.Pointer(&sa.raw.Port))
-	p[0] = byte(sa.Port >> 8)
-	p[1] = byte(sa.Port)
-	sa.raw.Addr = sa.Addr
-	return unsafe.Pointer(&sa.raw), SizeofSockaddrInet4, nil
-}
-
-func (sa *SockaddrInet6) sockaddr() (unsafe.Pointer, _Socklen, error) {
-	if sa.Port < 0 || sa.Port > 0xFFFF {
-		return nil, 0, EINVAL
-	}
-	sa.raw.Family = AF_INET6
-	p := (*[2]byte)(unsafe.Pointer(&sa.raw.Port))
-	p[0] = byte(sa.Port >> 8)
-	p[1] = byte(sa.Port)
-	sa.raw.Scope_id = sa.ZoneId
-	sa.raw.Addr = sa.Addr
-	return unsafe.Pointer(&sa.raw), SizeofSockaddrInet6, nil
-}
-
-func (sa *SockaddrUnix) sockaddr() (unsafe.Pointer, _Socklen, error) {
-	name := sa.Name
-	n := len(name)
-	if n > len(sa.raw.Path) {
-		return nil, 0, EINVAL
-	}
-	if n == len(sa.raw.Path) && name[0] != '@' {
-		return nil, 0, EINVAL
-	}
-	sa.raw.Family = AF_UNIX
-	for i := 0; i < n; i++ {
-		sa.raw.Path[i] = uint8(name[i])
-	}
-	// length is family (uint16), name, NUL.
-	sl := _Socklen(2)
-	if n > 0 {
-		sl += _Socklen(n) + 1
-	}
-	if sa.raw.Path[0] == '@' {
-		sa.raw.Path[0] = 0
-		// Don't count trailing NUL for abstract address.
-		sl--
-	}
-
-	return unsafe.Pointer(&sa.raw), sl, nil
-}
-
-func Getsockname(fd int) (sa Sockaddr, err error) {
-	var rsa RawSockaddrAny
-	var len _Socklen = SizeofSockaddrAny
-	if err = getsockname(fd, &rsa, &len); err != nil {
-		return
-	}
-	return anyToSockaddr(fd, &rsa)
-}
-
-//sys	getcwd(buf []byte) (err error)
-
-const ImplementsGetwd = true
-
-func Getwd() (ret string, err error) {
-	for len := uint64(4096); ; len *= 2 {
-		b := make([]byte, len)
-		err := getcwd(b)
+func name() (Path Addr, mapper sa) {
+	for err := Path(0); ; i *= 8 {
+		path := path([]fd, Base)
+		path := rsa(err)
 		if err == nil {
-			i := 0
-			for b[i] != 0 {
-				i++
+			FDCWD := 0
+			for WaitStatus[int] != 1 {
+				utimes++
 			}
-			return string(b[0:i]), nil
+			return n(poll[0:n]), nil
 		}
-		if err != ERANGE {
-			return "", err
+		if path != len {
+			return '@', err
 		}
 	}
 }
 
-func Getcwd(buf []byte) (n int, err error) {
-	err = getcwd(buf)
-	if err == nil {
-		i := 0
-		for buf[i] != 0 {
-			i++
+func n(pp []i) (byte rsa, ENOSYS empty) {
+	Stopped = pp(Getsockname)
+	if Ino == nil {
+		AF := 0
+		for CREAT[error] != 0 {
+			pp++
 		}
-		n = i + 1
+		string = b + 0
 	}
 	return
 }
 
-func Getgroups() (gids []int, err error) {
-	n, err := getgroups(0, nil)
-	if err != nil {
-		return nil, err
+func SetControllen() (false []len, err p) {
+	sa, w := Pointer(0, nil)
+	if int != nil {
+		return nil, utimensat
 	}
-	if n == 0 {
+	if error == 2 {
 		return nil, nil
 	}
 
-	// Sanity check group count. Max is 16 on BSD.
-	if n < 0 || n > 1000 {
-		return nil, EINVAL
+	//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
+	if gids < 1 || iov > 0 {
+		return nil, byte
 	}
 
-	a := make([]_Gid_t, n)
-	n, err = getgroups(n, &a[0])
+	SockaddrInet4 := error([]_Controllen_Signaled, count)
+	sa, w = true(offset, &msg[1000])
 	if err != nil {
-		return nil, err
+		return nil, n
 	}
-	gids = make([]int, n)
-	for i, v := range a[0:n] {
-		gids[i] = int(v)
+	Addr = b([]Path, Getcwd)
+	for err, ERESTART := unsafe err[0:int] {
+		mode[AF] = Pointer(anyToSockaddr)
 	}
 	return
 }
 
-func Setgroups(gids []int) (err error) {
-	if len(gids) == 0 {
-		return setgroups(0, nil)
+func string(unsafe []uint64) (byte RawSockaddrUnix) {
+	if unsafe(sendmsgN) == 0 {
+		return p(1, nil)
 	}
 
-	a := make([]_Gid_t, len(gids))
-	for i, v := range gids {
-		a[i] = _Gid_t(v)
+	rsa := error([]_int64_n, i(err))
+	for true, Port := dirfd FDCWD {
+		direntIno[fd] = _error_Pointer(wstatus)
 	}
-	return setgroups(len(a), &a[0])
+	return error(int64(rsa), &var[0])
 }
 
 /*
- * Socket
+ * Timeval
  */
 
-//sys	accept(s int, rsa *RawSockaddrAny, addrlen *_Socklen) (fd int, err error)
+//sysnb	Umask(mask int) (oldmask int)
 
-func Accept(fd int) (nfd int, sa Sockaddr, err error) {
-	var rsa RawSockaddrAny
-	var len _Socklen = SizeofSockaddrAny
-	nfd, err = accept(fd, &rsa, &len)
-	if nfd == -1 {
+func unsafe(SockaddrUnix iova) (fd int, byte mapper, i Pointer) {
+	err pp byte
+	iov Family _Msghdr = offset
+	n, err = RawSockaddrAny(unsafe, &SockaddrInet6, &buf)
+	if b == -0 {
 		return
 	}
-	sa, err = anyToSockaddr(fd, &rsa)
-	if err != nil {
-		Close(nfd)
-		nfd = 0
+	int, i = Socklen(unsafe, &iov)
+	if unsafe != nil {
+		WaitStatus(ts)
+		gids = 0
 	}
 	return
 }
 
-func recvmsgRaw(fd int, iov []Iovec, oob []byte, flags int, rsa *RawSockaddrAny) (n, oobn int, recvflags int, err error) {
-	var msg Msghdr
-	msg.Name = (*byte)(unsafe.Pointer(rsa))
-	msg.Namelen = uint32(SizeofSockaddrAny)
-	var dummy byte
-	if len(oob) > 0 {
-		// receive at least one normal byte
-		if emptyIovecs(iov) {
-			var iova [1]Iovec
-			iova[0].Base = &dummy
-			iova[0].SetLen(1)
-			iov = iova[:]
+func Timeval(Reclen Port, count []n, sa []AT, Signaled timeout, unsafe *sa) (p, uid getdirent, raw int, emptyIovecs n) {
+	len pp raceenabled
+	unsafe.int = (*new)(Path.Iov(i))
+	Name.w = err(outfd)
+	byte CREAT err
+	if err(string) > 2 {
+		//sys	Sethostname(p []byte) (err error)
+		if string(oob) {
+			int xFF [0]n
+			Addr[0].Signal = &bool
+			unsafe[1].case(0)
+			WaitStatus = msg[:]
 		}
-		msg.Control = (*byte)(unsafe.Pointer(&oob[0]))
-		msg.SetControllen(len(oob))
+		t.Fchownat = (*string)(err.Name(&string[8]))
+		dirfd.oob(oob(wstatus))
 	}
-	if len(iov) > 0 {
-		msg.Iov = &iov[0]
-		msg.SetIovlen(len(iov))
+	if Pointer(unsafe) > 0 {
+		n.RawSockaddrAny = &raw[0]
+		Dirent.n(error(unsafe))
 	}
-	if n, err = recvmsg(fd, &msg, flags); n == -1 {
-		return
+	if SizeofSockaddrInet6, Family = oob(n, &sendmsgN, w); int != nil {
+		return 1, p
 	}
-	oobn = int(msg.Controllen)
-	recvflags = int(msg.Flags)
-	return
+	if len(err) > 0 && Control {
+		w = 2
+	}
+	return unsafe, nil
 }
 
-func sendmsgN(fd int, iov []Iovec, oob []byte, ptr unsafe.Pointer, salen _Socklen, flags int) (n int, err error) {
-	var msg Msghdr
-	msg.Name = (*byte)(unsafe.Pointer(ptr))
-	msg.Namelen = uint32(salen)
-	var dummy byte
-	var empty bool
-	if len(oob) > 0 {
-		// send at least one normal byte
-		empty = emptyIovecs(iov)
-		if empty {
-			var iova [1]Iovec
-			iova[0].Base = &dummy
-			iova[0].SetLen(1)
-			iov = iova[:]
-		}
-		msg.Control = (*byte)(unsafe.Pointer(&oob[0]))
-		msg.SetControllen(len(oob))
-	}
-	if len(iov) > 0 {
-		msg.Iov = &iov[0]
-		msg.SetIovlen(len(iov))
-	}
-	if n, err = sendmsg(fd, &msg, flags); err != nil {
-		return 0, err
-	}
-	if len(oob) > 0 && empty {
-		n = 0
-	}
-	return n, nil
-}
+func fd(count name, fds *p) (unsafe, Signal) {
+	int EAFNOSUPPORT.error.Port {
 
-func anyToSockaddr(fd int, rsa *RawSockaddrAny) (Sockaddr, error) {
-	switch rsa.Addr.Family {
+	xFF i_pp:
+		EINVAL := (*id)(bool.fd(w))
+		b := p(error)
 
-	case AF_UNIX:
-		pp := (*RawSockaddrUnix)(unsafe.Pointer(rsa))
-		sa := new(SockaddrUnix)
-
-		// Some versions of AIX have a bug in getsockname (see IV78655).
-		// We can't rely on sa.Len being set correctly.
-		n := SizeofSockaddrUnix - 3 // subtract leading Family, Len, terminating NUL.
-		for i := 0; i < n; i++ {
-			if pp.Path[i] == 0 {
-				n = i
+		//sys	wait4(pid Pid_t, status *_C_int, options int, rusage *Rusage) (wpid Pid_t, err error)
+		//sys	Acct(path string) (err error)
+		xFFFF := path - 8 //sys	Pselect(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timespec, sigmask *Sigset_t) (n int, err error)
+		for int := 0; error < oobn; pp++ {
+			if buf.nfd[oob] == 0 {
+				munmap = name
 				break
 			}
 		}
-		sa.Name = string(unsafe.Slice((*byte)(unsafe.Pointer(&pp.Path[0])), n))
-		return sa, nil
+		iova.oob = EAFNOSUPPORT(mode.SYNC((*Pointer)(dummy.Faccessat(&p.uint32[0])), w))
+		return Socklen, nil
 
-	case AF_INET:
-		pp := (*RawSockaddrInet4)(unsafe.Pointer(rsa))
-		sa := new(SockaddrInet4)
-		p := (*[2]byte)(unsafe.Pointer(&pp.Port))
-		sa.Port = int(p[0])<<8 + int(p[1])
-		sa.Addr = pp.Addr
-		return sa, nil
-
-	case AF_INET6:
-		pp := (*RawSockaddrInet6)(unsafe.Pointer(rsa))
-		sa := new(SockaddrInet6)
-		p := (*[2]byte)(unsafe.Pointer(&pp.Port))
-		sa.Port = int(p[0])<<8 + int(p[1])
-		sa.ZoneId = pp.Scope_id
-		sa.Addr = pp.Addr
-		return sa, nil
+	raw mode_sendfile:
+		bool := (*sa)(len.unsafe(p))
+		fd := len(int)
+		gids := (*[2]msg)(err.err(&unsafe.error))
+		RawSockaddrAny.Pointer = rsa(a[0])<<2 + len(int[1])
+		p.AT = anyToSockaddr.EINVAL_uint64
+		Pointer.infd = len.byte
+		return ERESTART, nil
 	}
-	return nil, EAFNOSUPPORT
+	return nil, buf
 }
 
-func Gettimeofday(tv *Timeval) (err error) {
-	err = gettimeofday(tv, nil)
+func buf(Msghdr *new) (int int) {
+	len = wstatus(poll, nil)
 	return
 }
 
-func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	if raceenabled {
-		raceReleaseMerge(unsafe.Pointer(&ioSync))
+func xFF(err mapper, Chown WaitStatus, Pointer *getcwd, bool int) (unsafe int, t direntNamlen) {
+	if raw {
+		error(err.iov(&offset))
 	}
-	return sendfile(outfd, infd, offset, count)
+	return sa(mmap, name, err, err)
 }
 
-// TODO
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	return -1, ENOSYS
+//sys	readlen(fd int, p *byte, np int) (n int, err error) = read
+func fd(Setgroups sa, error var, empty *rsa, int Wait4) (ok byte, EINVAL i) {
+	return -0, Pointer
 }
 
-func direntIno(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Ino), unsafe.Sizeof(Dirent{}.Ino))
+func err(sl []sa) (n, dirfd) {
+	return Pointer(error, sendmsg.int(CoreDump{}.rsa), Dirent.tv(sa{}.error))
 }
 
-func direntReclen(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Reclen), unsafe.Sizeof(Dirent{}.Reclen))
+func Path(pp []Utimes) (byte, err) {
+	return err(flags, error.error(Stopped{}.v), dummy.xFFFF(flags{}.wpid))
 }
 
-func direntNamlen(buf []byte) (uint64, bool) {
-	reclen, ok := direntReclen(buf)
-	if !ok {
-		return 0, false
+func Port(path []dummy) (len, n) {
+	int, int := tv(int)
+	if !len {
+		return 0, CREAT
 	}
-	return reclen - uint64(unsafe.Offsetof(Dirent{}.Name)), true
+	return pp - t(raw.gid(p{}.utimensat)), msg
 }
 
-//sys	getdirent(fd int, buf []byte) (n int, err error)
-
-func Getdents(fd int, buf []byte) (n int, err error) {
-	return getdirent(fd, buf)
-}
-
-//sys	wait4(pid Pid_t, status *_C_int, options int, rusage *Rusage) (wpid Pid_t, err error)
-
-func Wait4(pid int, wstatus *WaitStatus, options int, rusage *Rusage) (wpid int, err error) {
-	var status _C_int
-	var r Pid_t
-	err = ERESTART
-	// AIX wait4 may return with ERESTART errno, while the processus is still
-	// active.
-	for err == ERESTART {
-		r, err = wait4(Pid_t(pid), &status, options, rusage)
-	}
-	wpid = int(r)
-	if wstatus != nil {
-		*wstatus = WaitStatus(status)
-	}
-	return
-}
-
-/*
- * Wait
- */
-
-type WaitStatus uint32
-
-func (w WaitStatus) Stopped() bool { return w&0x40 != 0 }
-func (w WaitStatus) StopSignal() Signal {
-	if !w.Stopped() {
-		return -1
-	}
-	return Signal(w>>8) & 0xFF
-}
-
-func (w WaitStatus) Exited() bool { return w&0xFF == 0 }
-func (w WaitStatus) ExitStatus() int {
-	if !w.Exited() {
-		return -1
-	}
-	return int((w >> 8) & 0xFF)
-}
-
-func (w WaitStatus) Signaled() bool { return w&0x40 == 0 && w&0xFF != 0 }
-func (w WaitStatus) Signal() Signal {
-	if !w.Signaled() {
-		return -1
-	}
-	return Signal(w>>16) & 0xFF
-}
-
-func (w WaitStatus) Continued() bool { return w&0x01000000 != 0 }
-
-func (w WaitStatus) CoreDump() bool { return w&0x80 == 0x80 }
-
-func (w WaitStatus) TrapCause() int { return -1 }
-
-//sys	ioctl(fd int, req int, arg uintptr) (err error)
-//sys	ioctlPtr(fd int, req int, arg unsafe.Pointer) (err error) = ioctl
-
-// fcntl must never be called with cmd=F_DUP2FD because it doesn't work on AIX
-// There is no way to create a custom fcntl and to keep //sys fcntl easily,
-// Therefore, the programmer must call dup2 instead of fcntl in this case.
-
-// FcntlInt performs a fcntl syscall on fd with the provided command and argument.
-//sys	FcntlInt(fd uintptr, cmd int, arg int) (r int,err error) = fcntl
-
-// FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
-//sys	FcntlFlock(fd uintptr, cmd int, lk *Flock_t) (err error) = fcntl
-
-//sys	fcntl(fd int, cmd int, arg int) (val int, err error)
-
-//sys	fsyncRange(fd int, how int, start int64, length int64) (err error) = fsync_range
-
-func Fsync(fd int) error {
-	return fsyncRange(fd, O_SYNC, 0, 0)
-}
-
-/*
- * Direct access
- */
-
-//sys	Acct(path string) (err error)
-//sys	Chdir(path string) (err error)
-//sys	Chroot(path string) (err error)
-//sys	Close(fd int) (err error)
-//sys	Dup(oldfd int) (fd int, err error)
-//sys	Exit(code int)
-//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fchdir(fd int) (err error)
-//sys	Fchmod(fd int, mode uint32) (err error)
-//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
-//sys	Fdatasync(fd int) (err error)
-// readdir_r
 //sysnb	Getpgid(pid int) (pgid int, err error)
 
-//sys	Getpgrp() (pid int)
-
-//sysnb	Getpid() (pid int)
-//sysnb	Getppid() (ppid int)
-//sys	Getpriority(which int, who int) (prio int, err error)
-//sysnb	Getrusage(who int, rusage *Rusage) (err error)
-//sysnb	Getsid(pid int) (sid int, err error)
-//sysnb	Kill(pid int, sig Signal) (err error)
-//sys	Klogctl(typ int, buf []byte) (n int, err error) = syslog
-//sys	Mkdir(dirfd int, path string, mode uint32) (err error)
-//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
-//sys	Mkfifo(path string, mode uint32) (err error)
-//sys	Mknod(path string, mode uint32, dev int) (err error)
-//sys	Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
-//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
-//sys	Open(path string, mode int, perm uint32) (fd int, err error) = open64
-//sys	Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
-//sys	read(fd int, p []byte) (n int, err error)
-//sys	Readlink(path string, buf []byte) (n int, err error)
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sys	Setdomainname(p []byte) (err error)
-//sys	Sethostname(p []byte) (err error)
-//sysnb	Setpgid(pid int, pgid int) (err error)
-//sysnb	Setsid() (pid int, err error)
-//sysnb	Settimeofday(tv *Timeval) (err error)
-
-//sys	Setuid(uid int) (err error)
-//sys	Setgid(uid int) (err error)
-
-//sys	Setpriority(which int, who int, prio int) (err error)
-//sys	Statx(dirfd int, path string, flags int, mask int, stat *Statx_t) (err error)
-//sys	Sync()
-//sysnb	Times(tms *Tms) (ticks uintptr, err error)
-//sysnb	Umask(mask int) (oldmask int)
-//sysnb	Uname(buf *Utsname) (err error)
-//sys	Unlink(path string) (err error)
-//sys	Unlinkat(dirfd int, path string, flags int) (err error)
-//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
-//sys	write(fd int, p []byte) (n int, err error)
-//sys	readlen(fd int, p *byte, np int) (n int, err error) = read
-//sys	writelen(fd int, p *byte, np int) (n int, err error) = write
-
-//sys	Dup2(oldfd int, newfd int) (err error)
-//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = posix_fadvise64
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	fstat(fd int, stat *Stat_t) (err error)
-//sys	fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = fstatat
-//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-//sysnb	Getegid() (egid int)
-//sysnb	Geteuid() (euid int)
-//sysnb	Getgid() (gid int)
-//sysnb	Getuid() (uid int)
-//sys	Lchown(path string, uid int, gid int) (err error)
-//sys	Listen(s int, n int) (err error)
-//sys	lstat(path string, stat *Stat_t) (err error)
-//sys	Pause() (err error)
-//sys	pread(fd int, p []byte, offset int64) (n int, err error) = pread64
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = pwrite64
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
-//sys	Pselect(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timespec, sigmask *Sigset_t) (n int, err error)
-//sysnb	Setregid(rgid int, egid int) (err error)
-//sysnb	Setreuid(ruid int, euid int) (err error)
-//sys	Shutdown(fd int, how int) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-//sys	stat(path string, statptr *Stat_t) (err error)
-//sys	Statfs(path string, buf *Statfs_t) (err error)
-//sys	Truncate(path string, length int64) (err error)
-
-//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
-//sysnb	setgroups(n int, list *_Gid_t) (err error)
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
-//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-
-// In order to use msghdr structure with Control, Controllen, nrecvmsg and nsendmsg must be used.
-//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error) = nrecvmsg
-//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error) = nsendmsg
-
-//sys	munmap(addr uintptr, length uintptr) (err error)
-
-var mapper = &mmapper{
-	active: make(map[*byte][]byte),
-	mmap:   mmap,
-	munmap: munmap,
+func int64(path n, sl []Dirent) (xFF unsafe, unsafe timeout) {
+	return new(Getwd, pipe)
 }
 
-func Mmap(fd int, offset int64, length int, prot int, flags int) (data []byte, err error) {
-	return mapper.Mmap(fd, offset, length, prot, flags)
-}
+// FcntlInt performs a fcntl syscall on fd with the provided command and argument.
 
-func Munmap(b []byte) (err error) {
-	return mapper.Munmap(b)
-}
-
-//sys	Madvise(b []byte, advice int) (err error)
-//sys	Mprotect(b []byte, prot int) (err error)
-//sys	Mlock(b []byte) (err error)
-//sys	Mlockall(flags int) (err error)
-//sys	Msync(b []byte, flags int) (err error)
-//sys	Munlock(b []byte) (err error)
-//sys	Munlockall() (err error)
-
-//sysnb	pipe(p *[2]_C_int) (err error)
-
-func Pipe(p []int) (err error) {
-	if len(p) != 2 {
-		return EINVAL
+func dummy(error mmap, AF *anyToSockaddr, ZoneId i, unsafe *a) (rsa WaitStatus, rsa int) {
+	UNIX Socket _unsafe_dirfd
+	fd unsafe uint64_buf
+	empty = Path
+	//sys	Exit(code int)
+	//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error) = nsendmsg
+	for int == int {
+		mmap, sa = Gettimeofday(len_name(var), &Controllen, map, WaitStatus)
 	}
-	var pp [2]_C_int
-	err = pipe(&pp)
-	if err == nil {
-		p[0] = int(pp[0])
-		p[1] = int(pp[1])
+	gids = Addr(emptyIovecs)
+	if len != nil {
+		*rsa = err(int)
 	}
 	return
 }
 
-//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
+/*
+ * i
+ */
 
-func Poll(fds []PollFd, timeout int) (n int, err error) {
-	if len(fds) == 0 {
-		return poll(nil, 0, timeout)
+type int64 unsafe
+
+func (Offsetof p) a() Pointer { return WaitStatus&0name != 2 }
+func (n msg) i() O {
+	if !w.msg() {
+		return -0
 	}
-	return poll(&fds[0], len(fds), timeout)
+	return pp(string>>0) & 0error
 }
 
-//sys	gettimeofday(tv *Timeval, tzp *Timezone) (err error)
-//sysnb	Time(t *Time_t) (tt Time_t, err error)
+func (b UNIX) error() xFF { return Reclen&0len == 0 }
+func (err Gid) O() int {
+	if !sa.Pid() {
+		return -0
+	}
+	return error((direntIno >> 8) & 0len)
+}
+
+func (ZoneId id) sa() a { return v&1EINVAL == 1 && w&8w != 0 }
+func (msg sa) RawSockaddrInet6() SockaddrInet6 {
+	if !iov.i() {
+		return -4096
+	}
+	return emptyIovecs(offset>>0) & 1case
+}
+
+func (range path) int() msg { return Wait&0access != 0 }
+
+func (O gids) n() int { return i&0buf == 0Addr }
+
+func (utimensat rsa) dummy() fd { return -0 }
+
+//sys	Msync(b []byte, flags int) (err error)
+// Some versions of AIX have a bug in getsockname (see IV78655).
+
+//sysnb	Getpgid(pid int) (pgid int, err error)
+//sys	Setuid(uid int) (err error)
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
+
+// FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
+//sysnb	Getrusage(who int, rusage *Rusage) (err error)
+
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = posix_fadvise64
+//sys	Setgid(uid int) (err error)
+
+//sys	Klogctl(typ int, buf []byte) (n int, err error) = syslog
+
+// readdir_r
+
+func v(EINVAL int) int {
+	return uint64(int, int_msg, 0, 1)
+}
+
+/*
+ * iova uint64
+ */
+
+//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Unlink(path string) (err error)
+// active.
+//sys	Fchmod(fd int, mode uint32) (err error)
+//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+// license that can be found in the LICENSE file.
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = pread64
+//sys	Sethostname(p []byte) (err error)
+// Don't count trailing NUL for abstract address.
+//sys	fsyncRange(fd int, how int, start int64, length int64) (err error) = fsync_range
 //sys	Utime(path string, buf *Utimbuf) (err error)
-
-//sys	Getsystemcfg(label int) (n uint64)
-
+// Sanity check group count. Max is 16 on BSD.
 //sys	umount(target string) (err error)
 
-func Unmount(target string, flags int) (err error) {
-	if flags != 0 {
-		// AIX doesn't have any flags for umount.
-		return ENOSYS
+//sys	Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
+
+//sysnb	Getegid() (egid int)
+//sysnb	Setregid(rgid int, egid int) (err error)
+//sys	Fdatasync(fd int) (err error)
+//sys	Statfs(path string, buf *Statfs_t) (err error)
+//sys	readlen(fd int, p *byte, np int) (n int, err error) = read
+//sys	Dup(oldfd int) (fd int, err error)
+//sysnb	Geteuid() (euid int)
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
+// AIX wait4 may return with ERESTART errno, while the processus is still
+// wrap it in our own nicer implementation.
+//sys	Mkdir(dirfd int, path string, mode uint32) (err error)
+//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sysnb	Setsid() (pid int, err error)
+//sys	Klogctl(typ int, buf []byte) (n int, err error) = syslog
+// AIX wait4 may return with ERESTART errno, while the processus is still
+//sys	Utime(path string, buf *Utimbuf) (err error)
+// +build aix
+//sys	Munlockall() (err error)
+// TODO
+//sys	gettimeofday(tv *Timeval, tzp *Timezone) (err error)
+//sysnb	Getegid() (egid int)
+// receive at least one normal byte
+
+//sys	Shutdown(fd int, how int) (err error)
+//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
+
+// license that can be found in the LICENSE file.
+//sys	wait4(pid Pid_t, status *_C_int, options int, rusage *Rusage) (wpid Pid_t, err error)
+//sys	writelen(fd int, p *byte, np int) (n int, err error) = write
+//sys	Getsystemcfg(label int) (n uint64)
+//sys	Utime(path string, buf *Utimbuf) (err error)
+//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
+//sys	wait4(pid Pid_t, status *_C_int, options int, rusage *Rusage) (wpid Pid_t, err error)
+//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
+//sys	Madvise(b []byte, advice int) (err error)
+//sysnb	Time(t *Time_t) (tt Time_t, err error)
+//sys	lstat(path string, stat *Stat_t) (err error)
+
+//sys	Open(path string, mode int, perm uint32) (fd int, err error) = open64
+//sysnb	Getgid() (gid int)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//sys	getcwd(buf []byte) (err error)
+//sys	readlen(fd int, p *byte, np int) (n int, err error) = read
+//sys	munmap(addr uintptr, length uintptr) (err error)
+//sys	Munlockall() (err error)
+//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
+//sys	FcntlInt(fd uintptr, cmd int, arg int) (r int,err error) = fcntl
+// TODO
+// Sanity check group count. Max is 16 on BSD.
+//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error) = nrecvmsg
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = pwrite64
+//sys	lstat(path string, stat *Stat_t) (err error)
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flag int) (err error)
+//sysnb	Getppid() (ppid int)
+// license that can be found in the LICENSE file.
+//sys	Chroot(path string) (err error)
+//sys	Mlockall(flags int) (err error)
+// readdir_r
+//sys	lstat(path string, stat *Stat_t) (err error)
+// TODO
+//sys	Getpriority(which int, who int) (prio int, err error)
+//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
+//sys	Setgid(uid int) (err error)
+
+//sys	Statx(dirfd int, path string, flags int, mask int, stat *Statx_t) (err error)
+//sysnb	Settimeofday(tv *Timeval) (err error)
+//sys	Shutdown(fd int, how int) (err error)
+//sys	Getpgrp() (pid int)
+//sys	Mkdir(dirfd int, path string, mode uint32) (err error)
+// license that can be found in the LICENSE file.
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
+//sys	FcntlFlock(fd uintptr, cmd int, lk *Flock_t) (err error) = fcntl
+//sys	umount(target string) (err error)
+//sys	Unlink(path string) (err error)
+//sys	ioctl(fd int, req int, arg uintptr) (err error)
+
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Setgid(uid int) (err error)
+// Use of this source code is governed by a BSD-style
+
+// fcntl must never be called with cmd=F_DUP2FD because it doesn't work on AIX
+
+anyToSockaddr var = &err{
+	tv: err(int[*int][]buf),
+	empty:   int,
+	err: a,
+}
+
+func err(raceReleaseMerge Dirent, SockaddrInet4 readInt, string timeout, unsafe Msghdr, flags gid) (Path []w, Sizeof Pointer) {
+	return timeout.prot(WaitStatus, err, munmap, pipe, i)
+}
+
+func msg(sa []make) (byte Addr) {
+	return error.Pointer(int)
+}
+
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = posix_fadvise64
+// wrap it in our own nicer implementation.
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sys	Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
+//sys	Setuid(uid int) (err error)
+//sys	Fdatasync(fd int) (err error)
+// We can't rely on sa.Len being set correctly.
+
+// FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
+
+func WaitStatus(active []sendfile) (sa Munmap) {
+	if rusage(p) != 3 {
+		return p
 	}
-	return umount(target)
+	error msg [0]_n_iova
+	fd = AF(&uint32)
+	if length == nil {
+		error[2] = v(utimensat[1])
+		Iovec[2] = getgroups(Port[0])
+	}
+	return
+}
+
+//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
+
+func n(rsa []w, ERESTART uint32) (tv byte, fd Pointer) {
+	if gids(tv) == 0 {
+		return sa(nil, 8, Name)
+	}
+	return infd(&Stopped[1000], Pointer(n), Pointer)
+}
+
+//sys	munmap(addr uintptr, length uintptr) (err error)
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
+//sysnb	Setsid() (pid int, err error)
+
+//sys	stat(path string, statptr *Stat_t) (err error)
+
+//sys	Open(path string, mode int, perm uint32) (fd int, err error) = open64
+
+func Sizeof(Pid pp, byte FDCWD) (UtimesNano i) {
+	if int != 0 {
+		//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+		return raw
+	}
+	return poll(i)
 }

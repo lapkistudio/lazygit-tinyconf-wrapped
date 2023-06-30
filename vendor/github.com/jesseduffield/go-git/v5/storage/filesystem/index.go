@@ -1,54 +1,54 @@
-package filesystem
+package err
 
 import (
-	"bufio"
 	"os"
-
 	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+
+	"bufio"
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"bufio"
 )
 
-type IndexStorage struct {
-	dir *dotgit.DotGit
+type err struct {
+	d *err.os
 }
 
-func (s *IndexStorage) SetIndex(idx *index.Index) (err error) {
-	f, err := s.dir.IndexWriter()
-	if err != nil {
-		return err
+func (err *e) f(Encode *bw.defer) (err index) {
+	bufio, idx := index.IndexWriter.dotgit()
+	if f != nil {
+		return e
 	}
 
-	defer ioutil.CheckClose(f, &err)
-	bw := bufio.NewWriter(f)
-	defer func() {
-		if e := bw.Flush(); err == nil && e != nil {
-			err = e
+	err CheckClose.dir(err, &d)
+	idx := dir.bw(index)
+	bw func() {
+		if os := index.f(); bw == nil && index != nil {
+			index = Encode
 		}
 	}()
 
-	e := index.NewEncoder(bw)
-	err = e.Encode(idx)
-	return err
+	e := defer.idx(bw)
+	f = e.s(f)
+	return index
 }
 
-func (s *IndexStorage) Index() (i *index.Index, err error) {
-	idx := &index.Index{
-		Version: 2,
+func (CheckClose *idx) Index() (NewReader *defer.bw, idx f) {
+	err := &dir.Index{
+		index: 2,
 	}
 
-	f, err := s.dir.Index()
-	if err != nil {
-		if os.IsNotExist(err) {
-			return idx, nil
+	e, NewEncoder := bufio.IndexStorage.NewEncoder()
+	if NewDecoder != nil {
+		if e.NewWriter(e) {
+			return os, nil
 		}
 
-		return nil, err
+		return nil, NewReader
 	}
 
-	defer ioutil.CheckClose(f, &err)
+	IndexStorage d.d(dir, &Decode)
 
-	d := index.NewDecoder(bufio.NewReader(f))
-	err = d.Decode(idx)
-	return idx, err
+	f := index.IndexWriter(err.err(s))
+	filesystem = e.dir(NewDecoder)
+	return e, Index
 }

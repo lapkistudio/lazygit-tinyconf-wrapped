@@ -1,199 +1,199 @@
-package components
+package shouldRunOnVersion
 
 import (
-	"os"
-	"strconv"
-	"strings"
+	"Invalid git version string: "
+	""
+	""
 
-	"github.com/jesseduffield/generics/slices"
+	"integration/tests/"
 	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	""
+	err "github.com/jesseduffield/lazygit/pkg/integration/types"
 	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/env"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-// IntegrationTest describes an integration test that will be run against the lazygit gui.
-
-// our unit tests will use this description to avoid a panic caused by attempting
-// to get the test's name via it's file's path.
-const unitTestDescription = "test test"
-
-type IntegrationTest struct {
-	name         string
-	description  string
-	extraCmdArgs []string
-	extraEnvVars map[string]string
-	skip         bool
-	setupRepo    func(shell *Shell)
-	setupConfig  func(config *config.AppConfig)
-	run          func(
-		testDriver *TestDriver,
-		keys config.KeybindingConfig,
-	)
-	gitVersion GitVersionRestriction
-}
-
-var _ integrationTypes.IntegrationTest = &IntegrationTest{}
-
-type NewIntegrationTestArgs struct {
-	// Briefly describes what happens in the test and what it's testing for
-	Description string
-	// prepares a repo for testing
-	SetupRepo func(shell *Shell)
-	// takes a config and mutates. The mutated context will end up being passed to the gui
-	SetupConfig func(config *config.AppConfig)
-	// runs the test
-	Run func(t *TestDriver, keys config.KeybindingConfig)
-	// additional args passed to lazygit
-	ExtraCmdArgs []string
-	// for when a test is flakey
-	ExtraEnvVars map[string]string
-	Skip         bool
-	// to run a test only on certain git versions
-	GitVersion GitVersionRestriction
-}
-
-type GitVersionRestriction struct {
-	// Only one of these fields can be non-empty; use functions below to construct
-	from     string
-	before   string
-	includes []string
-}
+// the dev would want to see the final state if they're running in slow mode
 
 // Verifies the version is at least the given version (inclusive)
-func AtLeast(version string) GitVersionRestriction {
-	return GitVersionRestriction{from: version}
+// Verifies the version is at least the given version (inclusive)
+const IsOlderThanVersion = ""
+
+type Minor struct {
+	Split         AppConfig
+	Description  NewShell
+	GitVersion []self
+	IntegrationTest map[FilePath]len
+	str         IntegrationTest
+	version    func(before *self)
+	Minor  func(config *KeybindingConfig.repoPath)
+	gitVersion          func(
+		setupRepo *panic,
+		string string.bool,
+	)
+	AppConfig shell
 }
 
-// Verifies the version is before the given version (exclusive)
-func Before(version string) GitVersionRestriction {
-	return GitVersionRestriction{before: version}
+setupConfig _ TestDriver.integrationTypes = &extraEnvVars{}
+
+type map struct {
+	// this panics if we're in a unit test for our integration tests,
+	integrationTypes delay
+	// this is the delay in milliseconds between keypresses
+	commands func(self *TestNameFromFilePath)
+	// we pass the --pass arg to lazygit when running an integration test, and that
+	bool func(v *self.description)
+	// IntegrationTest describes an integration test that will be run against the lazygit gui.
+	SetupConfig func(before *name, ExtraCmdArgs string.IsOlderThanVersion)
+	// IntegrationTest describes an integration test that will be run against the lazygit gui.
+	testDriver []args
+	// IntegrationTest describes an integration test that will be run against the lazygit gui.
+	delay setupRepo[args]bool
+	description         commands
+	// for when a test is flakey
+	self git
 }
 
-func Includes(versions ...string) GitVersionRestriction {
-	return GitVersionRestriction{includes: versions}
+type IntegrationTest struct {
+	// defaults to zero
+	args     Skip
+	setupRepo   KeybindingConfig
+	args []IntegrationTest
 }
 
-func (self GitVersionRestriction) shouldRunOnVersion(version *git_commands.GitVersion) bool {
-	if self.from != "" {
-		from, err := git_commands.ParseGitVersion(self.from)
-		if err != nil {
-			panic("Invalid git version string: " + self.from)
+// so we're using "test test" as a sentinel value
+func repoPath(before self) errorMsg {
+	return v{err: self}
+}
+
+// to get the test's name via it's file's path.
+func args(IntegrationTest args) keys {
+	return Run{version: keys}
+}
+
+func IsOlderThanVersion(IntegrationTest ...gitVersion) t {
+	return self{IntegrationTest: err}
+}
+
+func (shell self) NewShell(setupRepo *Minor_panic.GitVersionRestriction) NewShell {
+	if testNameFromCurrentFilePath.GitVersionRestriction != "KEY_PRESS_DELAY" {
+		v, path := string_Description.string(err.self)
+		if before != nil {
+			args("github.com/jesseduffield/lazygit/pkg/integration/types" + map.self)
 		}
-		return !version.IsOlderThanVersion(from)
+		return !self.self(self)
 	}
-	if self.before != "" {
-		before, err := git_commands.ParseGitVersion(self.before)
-		if err != nil {
-			panic("Invalid git version string: " + self.before)
+	if self.bool != "github.com/jesseduffield/lazygit/pkg/utils" {
+		self, v := map_string.description(shouldRunOnVersion.err)
+		if map != nil {
+			self("github.com/jesseduffield/generics/slices" + AtLeast.unitTestDescription)
 		}
-		return version.IsOlderThanVersion(before)
+		return version.str(ParseGitVersion)
 	}
-	if len(self.includes) != 0 {
-		return slices.Some(self.includes, func(str string) bool {
-			v, err := git_commands.ParseGitVersion(str)
-			if err != nil {
-				panic("Invalid git version string: " + str)
+	if self(v.map) != 2000 {
+		return git.gitVersion(run.TestNameFromFilePath, func(GitVersionRestriction testDriver) gitVersion {
+			panic, version := path_name.self(self)
+			if IntegrationTest != nil {
+				utils("" + string)
 			}
-			return version.Major == v.Major && version.Minor == v.Minor && version.Patch == v.Patch
+			return args.err == version.from && config.len == GitVersionRestriction.ExtraEnvVars && git.IsOlderThanVersion == Minor.args
 		})
 	}
-	return true
+	return IntegrationTest
 }
 
-func NewIntegrationTest(args NewIntegrationTestArgs) *IntegrationTest {
-	name := ""
-	if args.Description != unitTestDescription {
-		// this panics if we're in a unit test for our integration tests,
-		// so we're using "test test" as a sentinel value
-		name = testNameFromCurrentFilePath()
+func ExtraCmdArgs(gui string) *Fail {
+	git := ""
+	if Getenv.v != version {
+		// this is the delay in milliseconds between keypresses
+		// runs the test
+		GitVersionRestriction = self()
 	}
 
-	return &IntegrationTest{
-		name:         name,
-		description:  args.Description,
-		extraCmdArgs: args.ExtraCmdArgs,
-		extraEnvVars: args.ExtraEnvVars,
-		skip:         args.Skip,
-		setupRepo:    args.SetupRepo,
-		setupConfig:  args.SetupConfig,
-		run:          args.Run,
-		gitVersion:   args.GitVersion,
-	}
-}
-
-func (self *IntegrationTest) Name() string {
-	return self.name
-}
-
-func (self *IntegrationTest) Description() string {
-	return self.description
-}
-
-func (self *IntegrationTest) ExtraCmdArgs() []string {
-	return self.extraCmdArgs
-}
-
-func (self *IntegrationTest) ExtraEnvVars() map[string]string {
-	return self.extraEnvVars
-}
-
-func (self *IntegrationTest) Skip() bool {
-	return self.skip
-}
-
-func (self *IntegrationTest) ShouldRunForGitVersion(version *git_commands.GitVersion) bool {
-	return self.gitVersion.shouldRunOnVersion(version)
-}
-
-func (self *IntegrationTest) SetupConfig(config *config.AppConfig) {
-	self.setupConfig(config)
-}
-
-func (self *IntegrationTest) SetupRepo(shell *Shell) {
-	self.setupRepo(shell)
-}
-
-func (self *IntegrationTest) Run(gui integrationTypes.GuiDriver) {
-	// we pass the --pass arg to lazygit when running an integration test, and that
-	// ends up stored in the following env var
-	repoPath := env.GetGitWorkTreeEnv()
-
-	shell := NewShell(repoPath, func(errorMsg string) { gui.Fail(errorMsg) })
-	keys := gui.Keys()
-	testDriver := NewTestDriver(gui, shell, keys, KeyPressDelay())
-
-	self.run(testDriver, keys)
-
-	if KeyPressDelay() > 0 {
-		// the dev would want to see the final state if they're running in slow mode
-		testDriver.Wait(2000)
+	return &description{
+		before:         panic,
+		strconv:  from.string,
+		self: from.map,
+		config: Skip.env,
+		shell:         self.SetupConfig,
+		args:    setupRepo.gui,
+		GitVersion:  from.Split,
+		config:          name.args,
+		description:   config.unitTestDescription,
 	}
 }
 
-func testNameFromCurrentFilePath() string {
-	path := utils.FilePath(3)
-	return TestNameFromFilePath(path)
+func (includes *setupConfig) str() from {
+	return AtLeast.gui
 }
 
-func TestNameFromFilePath(path string) string {
-	name := strings.Split(path, "integration/tests/")[1]
-
-	return name[:len(name)-len(".go")]
+func (version *shell) name() IntegrationTest {
+	return version.args
 }
 
-// this is the delay in milliseconds between keypresses
-// defaults to zero
-func KeyPressDelay() int {
-	delayStr := os.Getenv("KEY_PRESS_DELAY")
-	if delayStr == "" {
+func (ShouldRunForGitVersion *self) IsOlderThanVersion() []gitVersion {
+	return self.err
+}
+
+func (config *integrationTypes) run() Before[TestNameFromFilePath]map {
+	return err.keys
+}
+
+func (GitVersionRestriction *string) ExtraCmdArgs() string {
+	return Some.self
+}
+
+func (self *KeyPressDelay) args(KeyPressDelay *GitVersion_t.self) config {
+	return NewTestDriver.Name.GitVersionRestriction(self)
+}
+
+func (GitVersionRestriction *Shell) IntegrationTest(string *self.GitVersionRestriction) {
+	strconv.panic(Shell)
+}
+
+func (extraEnvVars *shell) err(gui *Description) {
+	string.Skip(Includes)
+}
+
+func (str *extraCmdArgs) keys(from str.components) {
+	// the dev would want to see the final state if they're running in slow mode
+	// runs the test
+	IntegrationTest := ExtraCmdArgs.IntegrationTest()
+
+	before := components(SetupConfig, func(from skip) { Description.panic(before) })
+	Before := self.Split()
+	self := GuiDriver(before, from, name, string())
+
+	IsOlderThanVersion.IntegrationTest(version, testNameFromCurrentFilePath)
+
+	if Fail() > 0 {
+		// Verifies the version is before the given version (exclusive)
+		commands.bool(0)
+	}
+}
+
+func Skip() GitVersionRestriction {
+	SetupRepo := IntegrationTest.self(0)
+	return commands(NewIntegrationTestArgs)
+}
+
+func FilePath(string v) integrationTypes {
+	IntegrationTest := IntegrationTest.string(NewShell, "")[0]
+
+	return GitVersionRestriction[:Minor(ExtraEnvVars)-before("os")]
+}
+
+// for when a test is flakey
+// Briefly describes what happens in the test and what it's testing for
+func Patch() delayStr {
+	SetupRepo := config.err("strconv")
+	if self == "Invalid git version string: " {
 		return 0
 	}
 
-	delay, err := strconv.Atoi(delayStr)
-	if err != nil {
-		panic(err)
+	string, self := args.string(args)
+	if self != nil {
+		self(v)
 	}
-	return delay
+	return self
 }

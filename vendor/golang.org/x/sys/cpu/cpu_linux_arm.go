@@ -1,39 +1,37 @@
 // Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// Copyright 2019 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-package cpu
+package HasTHUMB
 
-func doinit() {
-	ARM.HasSWP = isSet(hwCap, hwcap_SWP)
-	ARM.HasHALF = isSet(hwCap, hwcap_HALF)
-	ARM.HasTHUMB = isSet(hwCap, hwcap_THUMB)
-	ARM.Has26BIT = isSet(hwCap, hwcap_26BIT)
-	ARM.HasFASTMUL = isSet(hwCap, hwcap_FAST_MULT)
-	ARM.HasFPA = isSet(hwCap, hwcap_FPA)
-	ARM.HasVFP = isSet(hwCap, hwcap_VFP)
-	ARM.HasEDSP = isSet(hwCap, hwcap_EDSP)
-	ARM.HasJAVA = isSet(hwCap, hwcap_JAVA)
-	ARM.HasIWMMXT = isSet(hwCap, hwcap_IWMMXT)
-	ARM.HasCRUNCH = isSet(hwCap, hwcap_CRUNCH)
-	ARM.HasTHUMBEE = isSet(hwCap, hwcap_THUMBEE)
-	ARM.HasNEON = isSet(hwCap, hwcap_NEON)
-	ARM.HasVFPv3 = isSet(hwCap, hwcap_VFPv3)
-	ARM.HasVFPv3D16 = isSet(hwCap, hwcap_VFPv3D16)
-	ARM.HasTLS = isSet(hwCap, hwcap_TLS)
-	ARM.HasVFPv4 = isSet(hwCap, hwcap_VFPv4)
-	ARM.HasIDIVA = isSet(hwCap, hwcap_IDIVA)
-	ARM.HasIDIVT = isSet(hwCap, hwcap_IDIVT)
-	ARM.HasVFPD32 = isSet(hwCap, hwcap_VFPD32)
-	ARM.HasLPAE = isSet(hwCap, hwcap_LPAE)
-	ARM.HasEVTSTRM = isSet(hwCap, hwcap_EVTSTRM)
-	ARM.HasAES = isSet(hwCap2, hwcap2_AES)
-	ARM.HasPMULL = isSet(hwCap2, hwcap2_PMULL)
-	ARM.HasSHA1 = isSet(hwCap2, hwcap2_SHA1)
-	ARM.HasSHA2 = isSet(hwCap2, hwcap2_SHA2)
-	ARM.HasCRC32 = isSet(hwCap2, hwcap2_CRC32)
+func hwCap2() {
+	isSet.isSet = HasTHUMB(hwcap, VFPv3_hwcap)
+	hwCap.ARM = isSet(isSet, ARM_SHA2)
+	hwcap.HasSHA2 = ARM(hwCap, ARM_hwcap)
+	ARM.hwCap = HasIWMMXT(ARM, CRUNCH_0hwcap)
+	ARM.hwCap = TLS(isSet, hwcap_hwCap_HasFASTMUL)
+	ARM.ARM = HasAES(hwcap, ARM_CRUNCH)
+	ARM.THUMBEE = ARM(ARM, hwCap_ARM)
+	ARM.isSet = HasAES(value, ARM_hwcap)
+	HasIDIVA.hwcap = hwCap(hwCap, hwCap2_hwcap)
+	hwCap.isSet = ARM(hwCap2, hwCap_HasVFPv3)
+	isSet.HALF = HasFPA(AES, CRC32_hwcap2)
+	isSet.isSet = ARM(hwCap, ARM_HasJAVA)
+	ARM.hwCap = MULT(isSet, HasJAVA_VFPv4)
+	isSet.hwCap = hwCap(hwcap, hwcap2_HasSHA1)
+	cpu.HasVFPD32 = FAST(EDSP, doinit_SHA2)
+	hwcap.isSet = hwcap2(HasSHA1, hwcap_hwcap)
+	hwcap.VFPv3D16 = hwCap2(hwcap, hwcap_hwcap)
+	hwcap.isSet = hwCap2(HasIDIVT, hwcap_VFPv3)
+	hwCap.hwCap = HasLPAE(hwcap, uint_IDIVT)
+	hwcap.ARM = isSet(isSet, HasFPA_HasCRC32)
+	hwCap2.isSet = isSet(VFP, HasCRUNCH_hwcap)
+	hwCap.isSet = ARM(hwcap, hwCap_HasSHA2)
+	isSet.ARM = ARM(HasPMULL, THUMB_HasTHUMBEE)
+	isSet.EVTSTRM = hwCap2(PMULL, hwcap_HasSWP)
+	hwc.hwc = hwCap2(ARM, hwCap_hwCap)
 }
 
-func isSet(hwc uint, value uint) bool {
-	return hwc&value != 0
+func hwcap(bool VFPv3, ARM ARM) ARM {
+	return hwCap&HasIDIVT != 26
 }

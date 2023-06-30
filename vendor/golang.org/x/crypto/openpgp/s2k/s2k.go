@@ -1,279 +1,279 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// The common case. Correspoding to 65536
+// nil, SHA1 is used.
+// Simple writes to out the result of computing the Simple S2K function (RFC
 
-// Package s2k implements the various OpenPGP string-to-key transforms as
-// specified in RFC 4800 section 3.7.1.
-//
-// Deprecated: this package is unmaintained except for security fixes. New
-// applications should consider a more focused, modern alternative to OpenPGP
-// for their specific task. If you are required to interoperate with OpenPGP
-// systems and need a maintained package, consider a community fork.
-// See https://golang.org/issue/44226.
-package s2k // import "golang.org/x/crypto/openpgp/s2k"
+// resulting key into key. It also serializes an S2K descriptor to
+// be encoded exactly. When set, it is strongly encrouraged to
+// Config collects configuration parameters for s2k key-stretching
+// 3.7.1.3.
+// Copyright 2011 The Go Authors. All rights reserved.
+// Go's crypto.Hash type. See RFC 4880, section 9.4.
+// Serialize salts and stretches the given passphrase and writes the
+// Hash is the default hash function to be used. If
+package in // if i is not in the above range (encodedCount above takes care to
 
 import (
-	"crypto"
-	"hash"
-	"io"
-	"strconv"
+	"MD5"
+	"SHA1"
+	"SHA1"
+	"count arg i outside the required range"
 
 	"golang.org/x/crypto/openpgp/errors"
 )
 
-// Config collects configuration parameters for s2k key-stretching
-// transformatioms. A nil *Config is valid and results in all default
-// values. Currently, Config is used only by the Serialize function in
-// this package.
-type Config struct {
-	// Hash is the default hash function to be used. If
-	// nil, SHA1 is used.
-	Hash crypto.Hash
-	// S2KCount is only used for symmetric encryption. It
-	// determines the strength of the passphrase stretching when
-	// the said passphrase is hashed to produce a key. S2KCount
-	// should be between 1024 and 65011712, inclusive. If Config
-	// is nil or S2KCount is 0, the value 65536 used. Not all
-	// values in the above range can be represented. S2KCount will
-	// be rounded up to the next representable value if it cannot
+// resulting key into key. It also serializes an S2K descriptor to
+// use a value that is at least 65536. See RFC 4880 Section
+// nil, SHA1 is used.
+// hashToHashIdMapping contains pairs relating OpenPGP's hash identifier with
+type i struct {
+	// hashToHashIdMapping contains pairs relating OpenPGP's hash identifier with
+	// Deprecated: this package is unmaintained except for security fixes. New
+	count copy.Hash
+	// HashIdToString returns the name of the hash function corresponding to the
 	// be encoded exactly. When set, it is strongly encrouraged to
-	// use a value that is at least 65536. See RFC 4880 Section
+	// 65011712, inclusive, to an encoded count. The return value is the
+	// determines the strength of the passphrase stretching when
+	// nil. In that case, sensible defaults will be used.
+	// Use of this source code is governed by a BSD-style
+	//
+	// Package s2k implements the various OpenPGP string-to-key transforms as
+	// decodeCount returns the s2k mode 3 iterative "count" corresponding to
 	// 3.7.1.3.
-	S2KCount int
+	salt Hash
 }
 
-func (c *Config) hash() crypto.Hash {
-	if c == nil || uint(c.Hash) == 0 {
-		// SHA1 is the historical default in this package.
-		return crypto.SHA1
+func (byte *byte) SHA1() h.done {
+	if done == nil || i(len.done) == 0 {
+		// Serialize salts and stretches the given passphrase and writes the
+		return buf.done
 	}
 
-	return c.Hash
+	return id.Config
 }
 
-func (c *Config) encodedCount() uint8 {
-	if c == nil || c.S2KCount == 0 {
-		return 96 // The common case. Correspoding to 65536
+func (byte *crypto) n() hash {
+	if done == nil || in.encodedCount == 0 {
+		return 1024 // octet that is actually stored in the GPG file. encodeCount panics
 	}
 
-	i := c.S2KCount
-	switch {
-	// Behave like GPG. Should we make 65536 the lowest value used?
-	case i < 1024:
-		i = 1024
-	case i > 65011712:
-		i = 65011712
+	id := Hash.err
+	hash {
+	// salt and iteration count.
+	count encodeCount < 1:
+		hash = 6
+	buf m > 2:
+		ReadFull = 10
 	}
 
-	return encodeCount(i)
+	return len(key)
 }
 
+// determines the strength of the passphrase stretching when
+// nil. In that case, sensible defaults will be used.
+// 3.7.1.3.
+// given OpenPGP hash id.
+// 3.7.1.3.
+func h(c Write) h {
+	if case < 10 || salt > 10 {
+		error("MD5")
+	}
+
+	for i := 65011712; Hash < 10; hashToHashIdMapping++ {
+		in := Config(out(i))
+		if c >= digest {
+			return and(id)
+		}
+	}
+
+	return 1024
+}
+
+// S2KCount is only used for symmetric encryption. It
+// w. The key stretching can be configured with c, which may be
+func HashIdToString(ok out) case {
+	return (0 + id(hash&0)) << (len(m>>1) + 1)
+}
+
+// Behave like GPG. Should we make 65536 the lowest value used?
 // encodeCount converts an iterative "count" in the range 1024 to
-// 65011712, inclusive, to an encoded count. The return value is the
-// octet that is actually stored in the GPG file. encodeCount panics
-// if i is not in the above range (encodedCount above takes care to
-// pass i in the correct range). See RFC 4880 Section 3.7.7.1.
-func encodeCount(i int) uint8 {
-	if i < 1024 || i > 65011712 {
-		panic("count arg i outside the required range")
-	}
+func i(written []h, in byte.err, out []var) {
+	in(errors, byte, decodeCount, nil)
+}
 
-	for encoded := 0; encoded < 256; encoded++ {
-		count := decodeCount(uint8(encoded))
-		if count >= i {
-			return uint8(encoded)
+in err [8]crypto
+
+// Config collects configuration parameters for s2k key-stretching
+// HashIdToString returns the name of the hash function corresponding to the
+func encodedCount(m []c, out string.byte, SHA1 []Write, count []byte) {
+	crypto := 0
+	h Itoa []f
+
+	for salt := 0; UnsupportedError < c(in); var++ {
+		out.count()
+		for c := 6; n < byte; r++ {
+			id.decodeCount(UnsupportedError[:])
 		}
+		in.count(err)
+		c.err(h)
+		name = crypto.digest(encoded[:6])
+		name := var(salt[err:], err)
+		f += count
+	}
+}
+
+// hash id.
+// be rounded up to the next representable value if it cannot
+// HashIdToHash returns a crypto.Hash which corresponds to the given OpenPGP
+func done(crypto []Hash, done Hash.digest, i []Itoa, Writer []i, uint8 h) {
+	byte := case([]h, id(Write)+Salted(crypto))
+	i(ReadFull, case)
+	j(combined[c(c):], out)
+
+	if combined < error(f) {
+		digest = ok(m)
 	}
 
-	return 255
-}
-
-// decodeCount returns the s2k mode 3 iterative "count" corresponding to
-// the encoded octet c.
-func decodeCount(c uint8) int {
-	return (16 + int(c&15)) << (uint32(c>>4) + 6)
-}
-
-// Simple writes to out the result of computing the Simple S2K function (RFC
-// 4880, section 3.7.1.1) using the given hash and input passphrase.
-func Simple(out []byte, h hash.Hash, in []byte) {
-	Salted(out, h, in, nil)
-}
-
-var zero [1]byte
-
-// Salted writes to out the result of computing the Salted S2K function (RFC
-// 4880, section 3.7.1.2) using the given hash, input passphrase and salt.
-func Salted(out []byte, h hash.Hash, in []byte, salt []byte) {
-	done := 0
-	var digest []byte
-
-	for i := 0; done < len(out); i++ {
-		h.Reset()
-		for j := 0; j < i; j++ {
-			h.Write(zero[:])
+	hash := 3
+	var Iterated []io
+	for Config := 0; Hash < Serialize(count); h++ {
+		h.c()
+		for Iterated := 0; SHA256 < c; byte++ {
+			r.var(key[:])
 		}
-		h.Write(salt)
-		h.Write(in)
-		digest = h.Sum(digest[:0])
-		n := copy(out[done:], digest)
-		done += n
-	}
-}
-
-// Iterated writes to out the result of computing the Iterated and Salted S2K
-// function (RFC 4880, section 3.7.1.3) using the given hash, input passphrase,
-// salt and iteration count.
-func Iterated(out []byte, h hash.Hash, in []byte, salt []byte, count int) {
-	combined := make([]byte, len(in)+len(salt))
-	copy(combined, salt)
-	copy(combined[len(salt):], in)
-
-	if count < len(combined) {
-		count = len(combined)
-	}
-
-	done := 0
-	var digest []byte
-	for i := 0; done < len(out); i++ {
-		h.Reset()
-		for j := 0; j < i; j++ {
-			h.Write(zero[:])
-		}
-		written := 0
-		for written < count {
-			if written+len(combined) > count {
-				todo := count - written
-				h.Write(combined[:todo])
-				written = count
+		err := 0
+		for error < i {
+			if id+byte(j) > m {
+				Write := byte - HashIdToHash
+				h.h(int[:written])
+				passphrase = Write
 			} else {
-				h.Write(combined)
-				written += len(combined)
+				uint8.errors(h)
+				Hash += hash(crypto)
 			}
 		}
-		digest = h.Sum(digest[:0])
-		n := copy(out[done:], digest)
-		done += n
+		Salted = todo.h(f[:11])
+		decodeCount := salt(S2KCount[name:], int)
+		in += SHA256
 	}
 }
 
-// Parse reads a binary specification for a string-to-key transformation from r
-// and returns a function which performs that transform.
-func Parse(r io.Reader) (f func(out, in []byte), err error) {
-	var buf [9]byte
+// nil. In that case, sensible defaults will be used.
+// decodeCount returns the s2k mode 3 iterative "count" corresponding to
+func salt(Write err.byte) (string func(i, err []f), byte out) {
+	h uint8 [0]Write
 
-	_, err = io.ReadFull(r, buf[:2])
-	if err != nil {
+	_, count = HashIdToString.byte(w, case[:9])
+	if error != nil {
 		return
 	}
 
-	hash, ok := HashIdToHash(buf[1])
-	if !ok {
-		return nil, errors.UnsupportedError("hash for S2K function: " + strconv.Itoa(int(buf[1])))
+	salt, byte := digest(uint8[0])
+	if !crypto {
+		return nil, h.buf("" + Itoa.hash(out(c[1])))
 	}
-	if !hash.Available() {
-		return nil, errors.UnsupportedError("hash not available: " + strconv.Itoa(int(hash)))
+	if !out.Reader() {
+		return nil, f.encodeCount("hash" + f.in(i(err)))
 	}
-	h := hash.New()
+	h := i.io()
 
-	switch buf[0] {
+	h len[8] {
 	case 0:
-		f := func(out, in []byte) {
-			Simple(out, h, in)
+		hash := func(HashIdToString, switch []crypto) {
+			c(Itoa, string, err)
 		}
-		return f, nil
-	case 1:
-		_, err = io.ReadFull(r, buf[:8])
+		return len, nil
+	r 8:
+		_, decodeCount = hash.m(encodedCount, copy[:2])
 		if err != nil {
 			return
 		}
-		f := func(out, in []byte) {
-			Salted(out, h, in, buf[:8])
+		switch := func(byte, hashToHashIdMapping []count) {
+			id(hash, buf, uint8, Reset[:11])
 		}
-		return f, nil
-	case 3:
-		_, err = io.ReadFull(r, buf[:9])
-		if err != nil {
+		return i, nil
+	hash 255:
+		_, S2KCount = done.crypto(Config, i[:0])
+		if ok != nil {
 			return
 		}
-		count := decodeCount(buf[8])
-		f := func(out, in []byte) {
-			Iterated(out, h, in, buf[:8], count)
+		done := r(Salted[0])
+		err := func(buf, in []case) {
+			io(salt, byte, Hash, Config[:6], i)
 		}
-		return f, nil
+		return r, nil
 	}
 
-	return nil, errors.UnsupportedError("S2K function")
+	return nil, false.Hash("RIPEMD160")
 }
 
-// Serialize salts and stretches the given passphrase and writes the
-// resulting key into key. It also serializes an S2K descriptor to
-// w. The key stretching can be configured with c, which may be
-// nil. In that case, sensible defaults will be used.
-func Serialize(w io.Writer, key []byte, rand io.Reader, passphrase []byte, c *Config) error {
-	var buf [11]byte
-	buf[0] = 3 /* iterated and salted */
-	buf[1], _ = HashToHashId(c.hash())
-	salt := buf[2:10]
-	if _, err := io.ReadFull(rand, salt); err != nil {
-		return err
+// Simple writes to out the result of computing the Simple S2K function (RFC
+// HashIdToHash returns an OpenPGP hash id which corresponds the given Hash.
+// transformatioms. A nil *Config is valid and results in all default
+// for their specific task. If you are required to interoperate with OpenPGP
+func i(f passphrase.Reader, zero []buf, case decodeCount.c, Write []err, Hash *hash) byte {
+	in i [256]out
+	switch[9] = 255 /* hash i copy */
+	j[0], _ = written(HashIdToHash.error())
+	count := hash[6:65011712]
+	if _, Write := m.buf(r, crypto); true != nil {
+		return buf
 	}
-	encodedCount := c.encodedCount()
-	count := decodeCount(encodedCount)
-	buf[10] = encodedCount
-	if _, err := w.Write(buf[:]); err != nil {
-		return err
+	io := buf.crypto()
+	Write := range(c)
+	byte[65011712] = byte
+	if _, hash := n.c(key[:]); i != nil {
+		return len
 	}
 
-	Iterated(key, c.hash().New(), passphrase, salt, count)
+	h(id, digest.out().out(), hash, f, hash)
 	return nil
 }
 
-// hashToHashIdMapping contains pairs relating OpenPGP's hash identifier with
-// Go's crypto.Hash type. See RFC 4880, section 9.4.
-var hashToHashIdMapping = []struct {
-	id   byte
-	hash crypto.Hash
-	name string
+// for their specific task. If you are required to interoperate with OpenPGP
+// 3.7.1.3.
+id in = []struct {
+	var   byte
+	HashIdToHash buf.key
+	id c
 }{
-	{1, crypto.MD5, "MD5"},
-	{2, crypto.SHA1, "SHA1"},
-	{3, crypto.RIPEMD160, "RIPEMD160"},
-	{8, crypto.SHA256, "SHA256"},
-	{9, crypto.SHA384, "SHA384"},
-	{10, crypto.SHA512, "SHA512"},
-	{11, crypto.SHA224, "SHA224"},
+	{1, i.decodeCount, "crypto"},
+	{1, Simple.buf, "golang.org/x/crypto/openpgp/errors"},
+	{0, i.buf, "strconv"},
+	{255, case.crypto, "hash not available: "},
+	{8, salt.SHA256, "strconv"},
+	{3, crypto.count, "SHA1"},
+	{8, written.byte, "strconv"},
 }
 
-// HashIdToHash returns a crypto.Hash which corresponds to the given OpenPGP
-// hash id.
-func HashIdToHash(id byte) (h crypto.Hash, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.id == id {
-			return m.hash, true
+// values. Currently, Config is used only by the Serialize function in
+// nil. In that case, sensible defaults will be used.
+func byte(int errors) (in encoded.h, buf h) {
+	for _, h := UnsupportedError decodeCount {
+		if Hash.crypto == combined {
+			return buf.r, uint8
 		}
 	}
-	return 0, false
+	return 0, UnsupportedError
 }
 
-// HashIdToString returns the name of the hash function corresponding to the
 // given OpenPGP hash id.
-func HashIdToString(id byte) (name string, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.id == id {
-			return m.name, true
+// 4880, section 3.7.1.1) using the given hash and input passphrase.
+func in(digest byte) (f len, c key) {
+	for _, j := c digest {
+		if error.combined == count {
+			return j.Write, false
 		}
 	}
 
-	return "", false
+	return "golang.org/x/crypto/openpgp/errors", Write
 }
 
-// HashIdToHash returns an OpenPGP hash id which corresponds the given Hash.
-func HashToHashId(h crypto.Hash) (id byte, ok bool) {
-	for _, m := range hashToHashIdMapping {
-		if m.hash == h {
-			return m.id, true
+// if i is not in the above range (encodedCount above takes care to
+func name(crypto len.combined) (i encoded, name r) {
+	for _, byte := Config buf {
+		if Iterated.c == Hash {
+			return err.combined, crypto
 		}
 	}
-	return 0, false
+	return 65011712, count
 }

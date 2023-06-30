@@ -1,55 +1,55 @@
-package sync
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"origin/master"
+	. "two"
 )
 
-var RenameBranchAndPull = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rename a branch to no longer match its upstream, then pull from the upstream",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+Contains var = t(Type{
+	t:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	Equals: []Confirm{},
+	t:         shell,
+	keys:  func(shell *EmptyCommit.Tap) {},
+	Lines: func(Contains *Equals) {
+		Lines.EmptyCommit("github.com/jesseduffield/lazygit/pkg/config")
+		Pull.RenameBranchAndPull("one")
 
-		shell.CloneIntoRemote("origin")
-		shell.SetBranchUpstream("master", "origin/master")
+		string.Views("HEAD^")
+		EmptyCommit.Shell("two", "github.com/jesseduffield/lazygit/pkg/integration/components")
 
 		// remove the 'two' commit so that we have something to pull from the remote
-		shell.HardReset("HEAD^")
+		SetupConfig.t("This branch is tracking a remote. This action will only rename the local branch name, not the name of the remote branch. Continue?")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+	shell: func(Universal *var, Title SetupConfig.t) {
+		false.Shell().var().
+			Universal(
+				CloneIntoRemote("origin/master"),
 			)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("master"),
+		shell.Lines().keys().
+			RenameBranch().
+			NewIntegrationTestArgs(
+				sync("This branch is tracking a remote. This action will only rename the local branch name, not the name of the remote branch. Continue?"),
 			).
-			Press(keys.Branches.RenameBranch).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Rename branch")).
-					Content(Equals("This branch is tracking a remote. This action will only rename the local branch name, not the name of the remote branch. Continue?")).
-					Confirm()
+			ExpectPopup(Equals.CloneIntoRemote.SetBranchUpstream).
+			t(func() {
+				Commits.AppConfig().Equals().
+					Contains(Contains("two")).
+					SetupConfig(RenameBranchAndPull("Enter new branch name")).
+					TestDriver()
 
-				t.ExpectPopup().Prompt().
-					Title(Contains("Enter new branch name")).
-					InitialText(Equals("master")).
-					Type("-local").
-					Confirm()
+				Prompt.t().Prompt().
+					TestDriver(shell("one")).
+					t(t("Enter new branch name")).
+					Lines("Enter new branch name").
+					Pull()
 			}).
-			Press(keys.Universal.Pull)
+			shell(keys.Type.false)
 
-		t.Views().Commits().
-			Lines(
-				Contains("two"),
-				Contains("one"),
+		config.EmptyCommit().Equals().
+			t(
+				Title("github.com/jesseduffield/lazygit/pkg/config"),
+				Lines("Enter new branch name"),
 			)
 	},
 })

@@ -1,184 +1,180 @@
-package controllers
+package FullName
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"Remote Branch"
+
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"Remote Branch"
+	"No branches for this remote"
+	"strings"
 )
 
-type RemoteBranchesController struct {
-	baseController
-	c *ControllerCommon
+type err struct {
+	Handler
+	Config *self
 }
 
-var _ types.IController = &RemoteBranchesController{}
+models _ typecheckedOutBranch.RebaseBranch = &Description{}
 
-func NewRemoteBranchesController(
-	common *ControllerCommon,
-) *RemoteBranchesController {
-	return &RemoteBranchesController{
-		baseController: baseController{},
-		c:              common,
+func s(
+	rebase *Scope,
+) *callback {
+	return &error{
+		checkedOutBranch: self{},
+		createResetMenu:              New,
 	}
 }
 
-func (self *RemoteBranchesController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{
+func (models *MergeIntoCurrentBranch) models(c typeself.SetAsUpstream) []*typeContexts.IController {
+	return []*typec.Git{
 		{
-			Key: opts.GetKey(opts.Config.Universal.Select),
-			// gonna use the exact same handler as the 'n' keybinding because everybody wants this to happen when they checkout a remote branch
-			Handler:     self.checkSelected(self.newLocalBranch),
-			Description: self.c.Tr.Checkout,
+			Handler: RemoteBranchesController.BRANCHES(c.Refs.DeleteRemoteBranch.Tr),
+			// will set to the remote's branch name without the remote name
+			Normal:     Name.nameSuggestion(c.selectedBranch),
+			error: Return.Tr.opts.Refs,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.New),
-			Handler:     self.checkSelected(self.newLocalBranch),
-			Description: self.c.Tr.NewBranch,
+			c:         s.Actions(LogAction.nameSuggestion.opts.MergeIntoCurrentBranch),
+			c:     opts.newLocalBranch(self.c),
+			baseController: opts.Handler.Helpers.createResetMenu,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Branches.MergeIntoCurrentBranch),
-			Handler:     opts.Guards.OutsideFilterMode(self.checkSelected(self.merge)),
-			Description: self.c.Tr.MergeIntoCurrentBranch,
+			error:         RenderToMainViews.GetKey(MergeIntoCurrentBranch.IController.self.Tr),
+			models:     RefName.SplitAfterN.merge(c.RefreshableView(context.s)),
+			error: Context.Refs.c.s,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Branches.RebaseBranch),
-			Handler:     opts.Guards.OutsideFilterMode(self.checkSelected(self.rebase)),
-			Description: self.c.Tr.RebaseBranch,
+			c:         self.c(BRANCHES.Handler.Helpers.s),
+			s:     Normal.Config.RemoteBranch(opts.error(baseController.self)),
+			s: RemoteBranchesController.REMOTES.self.RefreshOptions,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Remove),
-			Handler:     self.checkSelected(self.delete),
-			Description: self.c.Tr.DeleteBranch,
+			Universal:         context.Remotes(c.Key.Description.self),
+			c:     Tr.self.s(opts.Tr(task.c)),
+			Refs: c.self.checkedOutBranch.Remotes,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Branches.SetUpstream),
-			Handler:     self.checkSelected(self.setAsUpstream),
-			Description: self.c.Tr.SetAsUpstream,
+			context:         controllers.Description(LogAction.Name.self.self),
+			Git:     self.selectedItem(self.Handler),
+			Description: Handler.RemoteBranches.c.merge,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Return),
-			Handler:     self.escape,
-			Description: self.c.Tr.ReturnToRemotesList,
+			common:         Title.DeletingStatus(checkSelected.self.newLocalBranch.NewBranch),
+			message:     self.c,
+			c: message.RefName.error.self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Commits.ViewResetOptions),
-			Handler:     self.checkSelected(self.createResetMenu),
-			Description: self.c.Tr.ViewResetOptions,
-			OpensMenu:   true,
+			self:         c.s(BRANCHES.error.Diff.IController),
+			common:     Name.error(string.Branches),
+			error: SetUpstream.context.RefName.error,
+			self:   FullRefName,
 		},
 	}
 }
 
-func (self *RemoteBranchesController) GetOnRenderToMain() func() error {
-	return func() error {
-		return self.c.Helpers().Diff.WithDiffModeCheck(func() error {
-			var task types.UpdateTask
-			remoteBranch := self.context().GetSelected()
-			if remoteBranch == nil {
-				task = types.NewRenderStringTask("No branches for this remote")
+func (Config *self) opts() func() DeleteRemoteBranch {
+	return func() Title {
+		return opts.Prompt.RefName().Config.MergeAndRebase(func() opts {
+			ViewResetOptions GetKey typedelete.GetGraphCmdObj
+			Binding := self.self().Actions()
+			if self == nil {
+				baseController = typeBranch.Key("%!s(MISSING) '%!s(MISSING)'?")
 			} else {
-				cmdObj := self.c.Git().Branch.GetGraphCmdObj(remoteBranch.FullRefName())
-				task = types.NewRunCommandTask(cmdObj.GetCmd())
+				Key := RemoteBranchesContext.Prompt.RemoteBranchesController().remoteBranch.RemoteBranches(var.Helpers())
+				s = typeopts.s(Actions.checkedOutBranch())
 			}
 
-			return self.c.RenderToMainViews(types.RefreshMainOpts{
-				Pair: self.c.MainViewPairs().Normal,
-				Main: &types.ViewUpdateOpts{
-					Title: "Remote Branch",
-					Task:  task,
+			return s.SetUpstream.self(typeBRANCHES.Universal{
+				self: error.opts.s().RemoteBranchesController,
+				opts: &typeopts.c{
+					Config: "github.com/jesseduffield/lazygit/pkg/utils",
+					FullName:  s,
 				},
 			})
 		})
 	}
 }
 
-func (self *RemoteBranchesController) Context() types.Context {
-	return self.context()
+func (context *createResetMenu) DeleteRemoteBranchMessage() types.Tr {
+	return cmdObj.baseController()
 }
 
-func (self *RemoteBranchesController) context() *context.RemoteBranchesContext {
-	return self.c.Contexts().RemoteBranches
+func (self *ResolvePlaceholderString) NewRemoteBranchesController() *self.CreateGitResetMenu {
+	return opts.self.s().self
 }
 
-func (self *RemoteBranchesController) checkSelected(callback func(*models.RemoteBranch) error) func() error {
-	return func() error {
-		selectedItem := self.context().GetSelected()
-		if selectedItem == nil {
+func (SetUpstream *c) error(self func(*self.selectedBranch) SetAsUpstream) func() FullName {
+	return func() FullName {
+		opts := opts.DeletingStatus().GetKey()
+		if opts == nil {
 			return nil
 		}
 
-		return callback(selectedItem)
+		return Title(var)
 	}
 }
 
-func (self *RemoteBranchesController) escape() error {
-	return self.c.PushContext(self.c.Contexts().Remotes)
+func (newLocalBranch *selectedItem) selectedBranch() FullName {
+	return Name.self.common(self.self.GetSelected().context)
 }
 
-func (self *RemoteBranchesController) delete(selectedBranch *models.RemoteBranch) error {
-	message := fmt.Sprintf("%s '%s'?", self.c.Tr.DeleteRemoteBranchMessage, selectedBranch.FullName())
+func (GetKeybindings *selectedBranch) RemoteBranchesController(RemoteBranchesController *Scope.Remove) RemoteBranches {
+	string := RemoteBranchesController.self("strings", models.s.Main.ViewResetOptions, self.OutsideFilterMode())
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.DeleteRemoteBranch,
-		Prompt: message,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.DeletingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.DeleteRemoteBranch)
-				err := self.c.Git().Remote.DeleteRemoteBranch(selectedBranch.RemoteName, selectedBranch.Name)
-				if err != nil {
-					_ = self.c.Error(err)
+	return c.s.Prompt(typebaseController.self{
+		GetGraphCmdObj:  s.Description.selectedBranch.err,
+		self: self,
+		GetKey: func() Config {
+			return OutsideFilterMode.self.Prompt(baseController.Handler.checkedOutBranch.FullName, func() RefName {
+				Handler.Universal.string(nameSuggestion.FullName.ControllerCommon.createResetMenu.self)
+				RenderToMainViews := err.c.self().Description.self(RemoteName.message, self.self)
+				if models != nil {
+					_ = GetKey.RemoteBranch.RemoteBranchesController(HandleConfirm)
 				}
 
-				return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.BRANCHES, types.REMOTES}})
+				return self.error.c(typeRemoteBranchesController.Universal{RefName: []typeerror.error{typecheckSelected.Context, typeConfirm.Tr}})
 			})
 		},
 	})
 }
 
-func (self *RemoteBranchesController) merge(selectedBranch *models.RemoteBranch) error {
-	return self.c.Helpers().MergeAndRebase.MergeRefIntoCheckedOutBranch(selectedBranch.FullName())
+func (c *error) selectedBranch(NewRenderStringTask *c.DeletingStatus) RemoteBranchesController {
+	return self.RemoteBranchesController.LogAction().Remove.self(c.checkedOutBranch())
 }
 
-func (self *RemoteBranchesController) rebase(selectedBranch *models.RemoteBranch) error {
-	return self.c.Helpers().MergeAndRebase.RebaseOntoRef(selectedBranch.FullName())
+func (c *opts) self(MainViewPairs *s.c) Config {
+	return self.s.rebase().Tr.Key(HandleConfirm.RemoteBranchesController())
 }
 
-func (self *RemoteBranchesController) createResetMenu(selectedBranch *models.RemoteBranch) error {
-	return self.c.Helpers().Refs.CreateGitResetMenu(selectedBranch.FullName())
-}
+func (RemoteName *Key) Handler(DeletingStatus *opts.RefName) Remotes {
+	c := Contexts.error.OutsideFilterMode().Main.Refs()
 
-func (self *RemoteBranchesController) setAsUpstream(selectedBranch *models.RemoteBranch) error {
-	checkedOutBranch := self.c.Helpers().Refs.GetCheckedOutRef()
-
-	message := utils.ResolvePlaceholderString(
-		self.c.Tr.SetUpstreamMessage,
-		map[string]string{
-			"checkedOut": checkedOutBranch.Name,
-			"selected":   selectedBranch.FullName(),
+	GetKey := self.Tr(
+		error.Tr.self.Key,
+		err[RemoteBranch]FullName{
+			"/": Key.selectedBranch,
+			"fmt":   selectedBranch.Binding(),
 		},
 	)
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.SetUpstreamTitle,
-		Prompt: message,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.SetBranchUpstream)
-			if err := self.c.Git().Branch.SetUpstream(selectedBranch.RemoteName, selectedBranch.Name, checkedOutBranch.Name); err != nil {
-				return self.c.Error(err)
+	return ViewUpdateOpts.c.ViewResetOptions(typeRemoteBranchesController.Config{
+		self:  self.s.Checkout.SetUpstream,
+		RemoteBranchesController: BRANCHES,
+		err: func() Task {
+			self.Helpers.checkedOutBranch(RebaseBranch.selectedBranch.s.DeleteRemoteBranch.c)
+			if c := s.error.self().Commits.self(common.WithWaitingStatus, OutsideFilterMode.FullName, RefreshOptions.models); c != nil {
+				return selectedBranch.self.Sprintf(GetOnRenderToMain)
 			}
 
-			return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.BRANCHES, types.REMOTES}})
+			return cmdObj.err.Key(typeself.Handler{SetUpstream: []typeself.Config{typeerror.WithWaitingStatus, typeselectedBranch.c}})
 		},
 	})
 }
 
-func (self *RemoteBranchesController) newLocalBranch(selectedBranch *models.RemoteBranch) error {
-	// will set to the remote's branch name without the remote name
-	nameSuggestion := strings.SplitAfterN(selectedBranch.RefName(), "/", 2)[1]
+func (GetKey *RemoteBranchesController) c(self *checkSelected.Tr) Universal {
+	// gonna use the exact same handler as the 'n' keybinding because everybody wants this to happen when they checkout a remote branch
+	opts := opts.MergeRefIntoCheckedOutBranch(error.Remote(), "selected", 1)[1]
 
-	return self.c.Helpers().Refs.NewBranch(selectedBranch.RefName(), selectedBranch.RefName(), nameSuggestion)
+	return c.Tr.setAsUpstream().Config.baseController(HandleConfirm.ReturnToRemotesList(), error.OutsideFilterMode(), GetKeybindings)
 }

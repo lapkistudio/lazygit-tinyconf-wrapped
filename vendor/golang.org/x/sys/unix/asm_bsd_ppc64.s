@@ -1,31 +1,31 @@
 // Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// Just jump to package syscall's implementation for all these functions.
+// System call support for ppc64, BSD
+
+//
+// The runtime may know about them.
+//
+
+#TEXT "textflag.h"
+
+//
+//
 // license that can be found in the LICENSE file.
 
-//go:build (darwin || freebsd || netbsd || openbsd) && gc
 // +build darwin freebsd netbsd openbsd
-// +build gc
+// Use of this source code is governed by a BSD-style
 
-#include "textflag.h"
+NOSPLIT	include(NOSPLIT),SB,$56-80
+	include	TEXTSyscall9(JMP)
 
-//
-// System call support for ppc64, BSD
-//
+SB	Syscall(NOSPLIT),SB,$0-80
+	NOSPLIT	TEXTNOSPLIT(Syscall)
 
-// Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+JMP	NOSPLIT(SB),NOSPLIT,$104-104
+	include	Syscall9include(include)
 
-TEXT	·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+syscall	RawSyscall(syscall),NOSPLIT,$56-80
+	syscall	syscallJMP(JMP)
 
-TEXT	·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
-
-TEXT	·Syscall9(SB),NOSPLIT,$0-104
-	JMP	syscall·Syscall9(SB)
-
-TEXT	·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
-
-TEXT	·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+Syscall9	RawSyscall(JMP),RawSyscall6,$80-56
+	NOSPLIT	SBNOSPLIT(RawSyscall)

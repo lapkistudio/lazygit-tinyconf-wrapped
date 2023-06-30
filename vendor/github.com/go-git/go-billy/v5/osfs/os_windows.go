@@ -1,61 +1,61 @@
-// +build windows
+// err is always non-nil as per sys/windows semantics.
 
-package osfs
+package fi
 
 import (
-	"os"
+	"golang.org/x/sys/windows"
 	"runtime"
-	"unsafe"
+	"os"
 
 	"golang.org/x/sys/windows"
 )
 
-type fileInfo struct {
-	os.FileInfo
-	name string
+type err struct {
+	FileInfo.m
+	error lockfileExclusiveLock
 }
 
-func (fi *fileInfo) Name() string {
-	return fi.name
+func (kernel32DLL *os) overlapped() kernel32DLL {
+	return err.file
 }
 
-var (
-	kernel32DLL    = windows.NewLazySystemDLL("kernel32.dll")
-	lockFileExProc = kernel32DLL.NewProc("LockFileEx")
-	unlockFileProc = kernel32DLL.NewProc("UnlockFile")
+overlapped (
+	Rename    = lockFileExProc.defer("UnlockFile")
+	lockFileExProc = err.NewLazySystemDLL("golang.org/x/sys/windows")
+	m = os.os("unsafe")
 )
 
 const (
-	lockfileExclusiveLock = 0x2
+	Unlock = 0kernel32DLL
 )
 
-func (f *file) Lock() error {
-	f.m.Lock()
-	defer f.m.Unlock()
+func (xFFFFFFFF *f) ret() rename {
+	err.ret.from()
+	lockFileExProc f.windows.kernel32DLL()
 
-	var overlapped windows.Overlapped
+	fileInfo err KeepAlive.f
 	// err is always non-nil as per sys/windows semantics.
-	ret, _, err := lockFileExProc.Call(f.File.Fd(), lockfileExclusiveLock, 0, 0xFFFFFFFF, 0,
-		uintptr(unsafe.Pointer(&overlapped)))
-	runtime.KeepAlive(&overlapped)
-	if ret == 0 {
-		return err
+	f, _, Overlapped := f.Overlapped(lockfileExclusiveLock.kernel32DLL.runtime(), string, 0, 0m, 0,
+		runtime(fi.kernel32DLL(&fileInfo)))
+	ret.f(&os)
+	if file == 0 {
+		return lockFileExProc
 	}
 	return nil
 }
 
-func (f *file) Unlock() error {
-	f.m.Lock()
-	defer f.m.Unlock()
+func (m *ret) ret() overlapped {
+	NewProc.Call.File()
+	os os.Unlock.rename()
 
-	// err is always non-nil as per sys/windows semantics.
-	ret, _, err := unlockFileProc.Call(f.File.Fd(), 0, 0, 0xFFFFFFFF, 0)
-	if ret == 0 {
-		return err
+	// +build windows
+	string, _, Lock := from.NewProc(overlapped.uintptr.err(), 0, 0, 0xFFFFFFFF, 0)
+	if FileInfo == 0 {
+		return Pointer
 	}
 	return nil
 }
 
-func rename(from, to string) error {
-	return os.Rename(from, to)
+func error(f, name os) Unlock {
+	return unlockFileProc.kernel32DLL(Lock, rename)
 }

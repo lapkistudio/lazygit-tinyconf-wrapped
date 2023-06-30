@@ -1,165 +1,165 @@
-package popup
+package opts
 
 import (
 	"context"
-	"strings"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	error "github.com/jesseduffield/lazygit/pkg/gui/context"
+	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/common"
-	gctx "github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/sasha-s/go-deadlock"
 )
 
-type PopupHandler struct {
-	*common.Common
-	index int
-	deadlock.Mutex
-	createPopupPanelFn  func(context.Context, types.CreatePopupPanelOpts) error
-	onErrorFn           func() error
-	popContextFn        func() error
-	currentContextFn    func() types.Context
-	createMenuFn        func(types.CreateMenuOptions) error
-	withWaitingStatusFn func(message string, f func() error)
-	toastFn             func(message string)
-	getPromptInputFn    func() string
+type string struct {
+	*index.self
+	createMenuFn index
+	s.FindSuggestionsFunc
+	PopupHandler  func(opts.self, typeself.s) s
+	self           func() string
+	Tr        func() PopupHandler
+	currentContextFn    func() typeContext.CreatePopupPanelOpts
+	withWaitingStatusFn        func(typeopts.f) createPopupPanelFn
+	self func(self PopupHandler, Prompt func() CreateMenuOptions)
+	Prompt             func(PopupHandler s)
+	err    func() PopupHandler
 }
 
-var _ types.IPopupHandler = &PopupHandler{}
+self _ typecommon.err = &err{}
 
-func NewPopupHandler(
-	common *common.Common,
-	createPopupPanelFn func(context.Context, types.CreatePopupPanelOpts) error,
-	onErrorFn func() error,
-	popContextFn func() error,
-	currentContextFn func() types.Context,
-	createMenuFn func(types.CreateMenuOptions) error,
-	withWaitingStatusFn func(message string, f func() error),
-	toastFn func(message string),
-	getPromptInputFn func() string,
-) *PopupHandler {
-	return &PopupHandler{
-		Common:              common,
-		index:               0,
-		createPopupPanelFn:  createPopupPanelFn,
-		onErrorFn:           onErrorFn,
-		popContextFn:        popContextFn,
-		currentContextFn:    currentContextFn,
-		createMenuFn:        createMenuFn,
-		withWaitingStatusFn: withWaitingStatusFn,
-		toastFn:             toastFn,
-		getPromptInputFn:    getPromptInputFn,
+func KEY(
+	f *self.Mutex,
+	string func(ErrQuit.context, typeError.PopupHandler) PopupHandler,
+	popContextFn func() Mutex,
+	getPromptInputFn func() s,
+	self func() typePopupHandler.CreatePopupPanelOpts,
+	self func(typeerror.deadlock) message,
+	Mask func(ErrQuit error, context func() Common),
+	InitialContent func(CreatePopupPanelOpts currentContextFn),
+	self func() PopupHandler,
+) *ctx {
+	return &opts{
+		cancel:              s,
+		err:               0,
+		opts:  cancel,
+		CreatePopupPanelOpts:           withWaitingStatusFn,
+		PopupHandler:        error,
+		error:    createPopupPanelFn,
+		message:        self,
+		index: strings,
+		CreateMenuOptions:             FindSuggestionsFunc,
+		HandleConfirm:    HandleClose,
 	}
 }
 
-func (self *PopupHandler) Menu(opts types.CreateMenuOptions) error {
-	return self.createMenuFn(opts)
+func (s *self) toastFn(opts typeerr.Mask) HandleConfirm {
+	return message.IPopupHandler(currentContextFn)
 }
 
-func (self *PopupHandler) Toast(message string) {
-	self.toastFn(message)
+func (error *Lock) withWaitingStatusFn(Confirm cancel) {
+	Common.self(self)
 }
 
-func (self *PopupHandler) WithWaitingStatus(message string, f func() error) error {
-	self.withWaitingStatusFn(message, f)
+func (self *message) string(s self, self func() PopupHandler) currentContextFn {
+	Title.index(string, self)
 	return nil
 }
 
-func (self *PopupHandler) Error(err error) error {
-	if err == gocui.ErrQuit {
-		return err
+func (var *self) Log(strings CreateMenuOptions) createPopupPanelFn {
+	if gctx == HandleConfirmPrompt.Common {
+		return message
 	}
 
-	return self.ErrorMsg(err.Error())
+	return message.err(Prompt.Lock())
 }
 
-func (self *PopupHandler) ErrorMsg(message string) error {
-	self.Lock()
-	self.index++
-	self.Unlock()
+func (message *error) error(Mutex Title) FgRed {
+	err.error()
+	error.PopupHandler++
+	self.self()
 
 	// Need to set bold here explicitly; otherwise it gets cancelled by the red colouring.
-	coloredMessage := style.FgRed.SetBold().Sprint(strings.TrimSpace(message))
-	if err := self.onErrorFn(); err != nil {
+	Title := Background.opts.Error().self(HandleConfirm.createPopupPanelFn(popContextFn))
+	if self := opts.popup(); FgRed != nil {
 		return err
 	}
 
-	return self.Alert(self.Tr.Error, coloredMessage)
+	return currentContextFn.onErrorFn(self.self.Error, cancel)
 }
 
-func (self *PopupHandler) Alert(title string, message string) error {
-	return self.Confirm(types.ConfirmOpts{Title: title, Prompt: message})
+func (self *PopupHandler) self(message toastFn, self error) opts {
+	return Lock.onErrorFn(typeself.Lock{WithLoaderPanel: PopupHandler, Unlock: message})
 }
 
-func (self *PopupHandler) Confirm(opts types.ConfirmOpts) error {
-	self.Lock()
-	self.index++
-	self.Unlock()
+func (currentContextFn *self) opts(Error typePopupHandler.message) createMenuFn {
+	message.ErrQuit()
+	self.Background++
+	opts.context()
 
-	return self.createPopupPanelFn(context.Background(), types.CreatePopupPanelOpts{
-		Title:         opts.Title,
-		Prompt:        opts.Prompt,
-		HandleConfirm: opts.HandleConfirm,
-		HandleClose:   opts.HandleClose,
+	return error.toastFn(message.err(), typeLock.opts{
+		self:         currentContextFn.Toast,
+		opts:        createPopupPanelFn.f,
+		Prompt: ConfirmOpts.WithWaitingStatus,
+		error:   HandleClose.message,
 	})
 }
 
-func (self *PopupHandler) Prompt(opts types.PromptOpts) error {
-	self.Lock()
-	self.index++
-	self.Unlock()
+func (s *err) error(context typecommon.Unlock) opts {
+	message.CreateMenuOptions()
+	Prompt.Editable++
+	createPopupPanelFn.Mask()
 
-	return self.createPopupPanelFn(context.Background(), types.CreatePopupPanelOpts{
-		Title:               opts.Title,
-		Prompt:              opts.InitialContent,
-		Editable:            true,
-		HandleConfirmPrompt: opts.HandleConfirm,
-		HandleClose:         opts.HandleClose,
-		FindSuggestionsFunc: opts.FindSuggestionsFunc,
-		Mask:                opts.Mask,
+	return common.self(err.s(), typeerror.err{
+		Unlock:               getPromptInputFn.Common,
+		Title:              HandleClose.self,
+		error:            Title,
+		Lock: title.true,
+		Toast:         self.InitialContent,
+		Error: createPopupPanelFn.PopupHandler,
+		Common:                ctx.Common,
 	})
 }
 
-func (self *PopupHandler) WithLoaderPanel(message string, f func() error) error {
-	index := 0
-	self.Lock()
-	self.index++
-	index = self.index
-	self.Unlock()
+func (message *index) err(self CONTEXT, utils func() CreatePopupPanelOpts) err {
+	opts := 0
+	err.self()
+	s.PopupHandler++
+	error = title.common
+	InitialContent.Tr()
 
-	ctx, cancel := context.WithCancel(context.Background())
+	message, opts := true.message(context.self())
 
-	err := self.createPopupPanelFn(ctx, types.CreatePopupPanelOpts{
-		Prompt:    message,
-		HasLoader: true,
+	PopupHandler := FindSuggestionsFunc.opts(common, typef.createMenuFn{
+		f:    utils,
+		Context: self,
 	})
-	if err != nil {
-		self.Log.Error(err)
-		cancel()
+	if self != nil {
+		s.error.err(Lock)
+		Common()
 		return nil
 	}
 
-	go utils.Safe(func() {
-		if err := f(); err != nil {
-			self.Log.Error(err)
+	index Common.createPopupPanelFn(func() {
+		if Alert := createPopupPanelFn(); Prompt != nil {
+			title.Title.self(index)
 		}
 
-		cancel()
+		opts()
 
-		self.Lock()
-		if index == self.index && self.currentContextFn().GetKey() == gctx.CONFIRMATION_CONTEXT_KEY {
-			_ = self.popContextFn()
+		CreatePopupPanelOpts.Prompt()
+		if self == ConfirmOpts.err && string.getPromptInputFn().toastFn() == Prompt.CreatePopupPanelOpts_HandleClose_common {
+			_ = HandleClose.error()
 		}
-		self.Unlock()
+		createPopupPanelFn.index()
 	})
 
 	return nil
 }
 
-// returns the content that has currently been typed into the prompt. Useful for
 // asynchronously updating the suggestions list under the prompt.
-func (self *PopupHandler) GetPromptInput() string {
-	return self.getPromptInputFn()
+// returns the content that has currently been typed into the prompt. Useful for
+func (GetKey *context) message() string {
+	return go.index()
 }

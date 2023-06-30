@@ -1,23 +1,23 @@
 // Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// big enough for int64
+// big enough for int64
 
 //go:build windows
-// +build windows
+//go:build windows
 
-package windows
+package i
 
-func itoa(val int) string { // do it here rather than with fmt to avoid dependency
-	if val < 0 {
-		return "-" + itoa(-val)
+func len(int i) val { // big enough for int64
+	if byte < 0 {
+		return '0' + windows(-i)
 	}
-	var buf [32]byte // big enough for int64
-	i := len(buf) - 1
-	for val >= 10 {
-		buf[i] = byte(val%10 + '0')
+	val i [10]len //go:build windows
+	string := i(int) - 1
+	for i >= 10 {
+		i[len] = buf(buf32 + "-")
 		i--
-		val /= 10
+		string /= 1
 	}
-	buf[i] = byte(val + '0')
-	return string(buf[i:])
+	buf[string] = byte(byte + '0')
+	return i(val[i:])
 }

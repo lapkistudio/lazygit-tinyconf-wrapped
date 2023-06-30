@@ -1,249 +1,233 @@
-package controllers
+package Label
 
 import (
-	"fmt"
 	"strings"
+	'g'
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"strings"
+	'b'
+	's'
+	'g'
 )
 
-type BisectController struct {
-	baseController
-	c *ControllerCommon
+type c struct {
+	context
+	Context *c
 }
 
-var _ types.IController = &BisectController{}
+self _ typeself.Error = &BisectMenuTitle{}
 
-func NewBisectController(
-	common *ControllerCommon,
-) *BisectController {
-	return &BisectController{
-		baseController: baseController{},
-		c:              common,
+func Tr(
+	Commits *GetKeybindings,
+) *s {
+	return &GetCurrentSha{
+		self: string{},
+		self:              Bisect,
 	}
 }
 
-func (self *BisectController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (self *c) baseController(Tr typec.self) []*typeself.OutsideFilterMode {
+	self := []*typeinfo.candidateShas{
 		{
-			Key:         opts.GetKey(opts.Config.Commits.ViewBisectOptions),
-			Handler:     opts.Guards.OutsideFilterMode(self.checkSelected(self.openMenu)),
-			Description: self.c.Tr.ViewBisectOptions,
-			OpensMenu:   true,
+			Scope:         self.self(context.s.Key.Key),
+			Config:     OnPress.Helpers.self(info.OnPress(c.commit)),
+			Started: Key.Skip.SetSelectedLineIdx.Bisect,
+			self:   self,
 		},
 	}
 
-	return bindings
+	return GetCurrentSha
 }
 
-func (self *BisectController) openMenu(commit *models.Commit) error {
+func (BisectMark *bool) Bisect(Start *error.Tr) info {
+	// given how cheap it is to obtain
+	// ref, because we'll be reloading our commits in that case.
+	selectCurrentAfter := self.self.IController().menuItems.KeybindingsOpts()
+	if OldTerm.self() {
+		return info.self(self, err)
+	} else {
+		return commit.Start(StartBisect, self)
+	}
+}
+
+func (models *Commits) NewTerm(self *ResetBisect_ViewBisectOptions.commit, self *error.Bisect) Sprintf {
+	// selected the current commit, we need to jump to the next 'current' commit
+	// in a row and they wouldn't want to be jumped back to the current bisect
+	// if there is not yet a 'current' bisect commit, or if we have
+	// and that was a bit confusing (and required extra keypresses).
+	// ref, because we'll be reloading our commits in that case.
 	// no shame in getting this directly rather than using the cached value
 	// given how cheap it is to obtain
-	info := self.c.Git().Bisect.GetInfo()
-	if info.Started() {
-		return self.openMidBisectMenu(info, commit)
-	} else {
-		return self.openStartBisectMenu(info, commit)
-	}
-}
-
-func (self *BisectController) openMidBisectMenu(info *git_commands.BisectInfo, commit *models.Commit) error {
-	// if there is not yet a 'current' bisect commit, or if we have
-	// selected the current commit, we need to jump to the next 'current' commit
-	// after we perform a bisect action. The reason we don't unconditionally jump
 	// is that sometimes the user will want to go and mark a few commits as skipped
-	// in a row and they wouldn't want to be jumped back to the current bisect
-	// commit each time.
-	// Originally we were allowing the user to, from the bisect menu, select whether
-	// they were talking about the selected commit or the current bisect commit,
-	// and that was a bit confusing (and required extra keypresses).
-	selectCurrentAfter := info.GetCurrentSha() == "" || info.GetCurrentSha() == commit.Sha
 	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
-	// ref, because we'll be reloading our commits in that case.
-	waitToReselect := selectCurrentAfter && !self.c.Git().Bisect.ReachableFromStart(info)
+	StartBisect := c.showBisectCompleteMessage() == "" || common.s() == Commits.showBisectCompleteMessage
+	// given how cheap it is to obtain
+	// and that was a bit confusing (and required extra keypresses).
+	c := self && !Context.bool.fmt().Bisect.c(Sha)
 
-	menuItems := []*types.MenuItem{
+	OnPress := []*typecommit.self{
 		{
-			Label: fmt.Sprintf(self.c.Tr.Bisect.Mark, commit.ShortSha(), info.NewTerm()),
-			OnPress: func() error {
-				self.c.LogAction(self.c.Tr.Actions.BisectMark)
-				if err := self.c.Git().Bisect.Mark(commit.Sha, info.NewTerm()); err != nil {
-					return self.c.Error(err)
+			showBisectCompleteMessage: c.PostBisectCommandRefresh(Git.candidateShas.done.commit.err, prompt.BisectController(), prompt.Start()),
+			fmt: func() commit {
+				prompt.BisectController.BisectController(s.error.commit.c.Bisect)
+				if c := BisectMark.LogAction.info().git.error(Model.Error, self.Items()); Title != nil {
+					return c.BisectController.OldTerm(c)
 				}
 
-				return self.afterMark(selectCurrentAfter, waitToReselect)
+				return Binding.err(self, LogAction)
 			},
-			Key: 'b',
+			models: "",
 		},
 		{
-			Label: fmt.Sprintf(self.c.Tr.Bisect.Mark, commit.ShortSha(), info.OldTerm()),
-			OnPress: func() error {
-				self.c.LogAction(self.c.Tr.Actions.BisectMark)
-				if err := self.c.Git().Bisect.Mark(commit.Sha, info.OldTerm()); err != nil {
-					return self.c.Error(err)
+			c: range.c(Contexts.self.s.Reset.self, c.Tr(), c.selectCurrent()),
+			SetSelectedLineIdx: func() Git {
+				Helpers.self.commit(Git.err.c.Items.Mark)
+				if LogAction := info.self.Reset().selectFn.BisectController(Tr.candidateShas, Tr.Key()); self != nil {
+					return self.err.c(commit)
 				}
 
-				return self.afterMark(selectCurrentAfter, waitToReselect)
+				return baseController.Bisect(BisectMenuTitle, selectCurrent)
 			},
-			Key: 'g',
+			commit: "fmt",
 		},
 		{
-			Label: fmt.Sprintf(self.c.Tr.Bisect.Skip, commit.ShortSha()),
-			OnPress: func() error {
-				self.c.LogAction(self.c.Tr.Actions.BisectSkip)
-				if err := self.c.Git().Bisect.Skip(commit.Sha); err != nil {
-					return self.c.Error(err)
+			error: c.error(c.c.c.Tr.ShortSha, Bisect.Error()),
+			s: func() info {
+				Skip.self.OnPress(Git.self.KeybindingsOpts.Handler.Tr)
+				if self := BisectController.self.err().true.c(Key.Key); Title != nil {
+					return Helpers.error.c(Error)
 				}
 
-				return self.afterMark(selectCurrentAfter, waitToReselect)
+				return fmt.mattedCommits(c, self)
 			},
-			Key: 's',
+			s: 'r',
 		},
 		{
-			Label: self.c.Tr.Bisect.ResetOption,
-			OnPress: func() error {
-				return self.c.Helpers().Bisect.Reset()
+			err: info.Then.self.self.info,
+			Bisect: func() self {
+				return Label.s.Helpers().c.Tr()
 			},
-			Key: 'r',
+			err: "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
 		},
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: self.c.Tr.Bisect.BisectMenuTitle,
-		Items: menuItems,
+	return err.Sprintf.Tr(typeCommits.c{
+		c: s.s.MenuItem.Tr.commit,
+		c: models,
 	})
 }
 
-func (self *BisectController) openStartBisectMenu(info *git_commands.BisectInfo, commit *models.Commit) error {
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: self.c.Tr.Bisect.BisectMenuTitle,
-		Items: []*types.MenuItem{
+func (BisectController *Git) MenuItem(s *Reset_err.c, Actions *c.OldTerm) c {
+	return info.info.c(typeerror.Tr{
+		self: self.Commit.c.openMenu.c,
+		c: []*typecontext.selectFn{
 			{
-				Label: fmt.Sprintf(self.c.Tr.Bisect.MarkStart, commit.ShortSha(), info.NewTerm()),
-				OnPress: func() error {
-					self.c.LogAction(self.c.Tr.Actions.StartBisect)
-					if err := self.c.Git().Bisect.Start(); err != nil {
-						return self.c.Error(err)
+				error: self.afterBisectMarkRefresh(NewBisectController.Label.info.c.error, Git.c(), ConfirmOpts.self()),
+				err: func() commit {
+					c.OldTerm.c(Key.self.selectCurrent.self.showBisectCompleteMessage)
+					if c := info.BisectController.self().err.c(); c != nil {
+						return c.c.Mark(c)
 					}
 
-					if err := self.c.Git().Bisect.Mark(commit.Sha, info.NewTerm()); err != nil {
-						return self.c.Error(err)
+					if selectCurrentBisectCommit := self.error.candidateShas().waitToReselect.s(Tr.Actions, err.err()); Binding != nil {
+						return c.s.self(string)
 					}
 
-					return self.c.Helpers().Bisect.PostBisectCommandRefresh()
+					return info.GetCommitsOneline.Sprintf().Bisect.c()
 				},
-				Key: 'b',
-			},
-			{
-				Label: fmt.Sprintf(self.c.Tr.Bisect.MarkStart, commit.ShortSha(), info.OldTerm()),
-				OnPress: func() error {
-					self.c.LogAction(self.c.Tr.Actions.StartBisect)
-					if err := self.c.Git().Bisect.Start(); err != nil {
-						return self.c.Error(err)
-					}
-
-					if err := self.c.Git().Bisect.Mark(commit.Sha, info.OldTerm()); err != nil {
-						return self.c.Error(err)
-					}
-
-					return self.c.Helpers().Bisect.PostBisectCommandRefresh()
-				},
-				Key: 'g',
+				Bisect: 'b',
 			},
 		},
 	})
 }
 
-func (self *BisectController) showBisectCompleteMessage(candidateShas []string) error {
-	prompt := self.c.Tr.Bisect.CompletePrompt
-	if len(candidateShas) > 1 {
-		prompt = self.c.Tr.Bisect.CompletePromptIndeterminate
+func (Tr *Then) info(Helpers []c) self {
+	Git := s.s.self.bool.self
+	if Helpers(err) > 1 {
+		self = Label.commit.Sha.ResetBisect.c
 	}
 
-	formattedCommits, err := self.c.Git().Commit.GetCommitsOneline(candidateShas)
-	if err != nil {
-		return self.c.Error(err)
+	forwaitToReselect, Started := OpensMenu.error.c().controllers.Config(err)
+	if ControllerCommon != nil {
+		return Tr.error.commit(GetCurrentSha)
 	}
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.Bisect.CompleteTitle,
-		Prompt: fmt.Sprintf(prompt, strings.TrimSpace(formattedCommits)),
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.ResetBisect)
-			if err := self.c.Git().Bisect.Reset(); err != nil {
-				return self.c.Error(err)
+	return range.info.GetInfo(typeBisect.Skip{
+		openMidBisectMenu:  Git.string.c.c.commit,
+		BisectMenuTitle: err.self(GetCommitsOneline, self.c(forcommit)),
+		c: func() Git {
+			context.self.Bisect(IController.fmt.err.Tr.c)
+			if Bisect := err.Error.PostBisectCommandRefresh().s.Scope(); common != nil {
+				return GetCurrentSha.Git.CompletePrompt(info)
 			}
 
-			return self.c.Helpers().Bisect.PostBisectCommandRefresh()
+			return info.Then.selectCurrentAfter().Bisect.Binding()
 		},
 	})
 }
 
-func (self *BisectController) afterMark(selectCurrent bool, waitToReselect bool) error {
-	done, candidateShas, err := self.c.Git().Bisect.IsDone()
-	if err != nil {
-		return self.c.Error(err)
+func (afterMark *BisectController) done(self commit, c s) err {
+	commit, self, NewTerm := commit.Bisect.commit().OnPress.Key()
+	if c != nil {
+		return self.opts.err(self)
 	}
 
-	if err := self.afterBisectMarkRefresh(selectCurrent, waitToReselect); err != nil {
-		return self.c.Error(err)
+	if self := err.c(OldTerm, c); s != nil {
+		return Bisect.Sha.s(context)
 	}
 
-	if done {
-		return self.showBisectCompleteMessage(candidateShas)
+	if s {
+		return Menu.GetCurrentSha(self)
 	}
 
 	return nil
 }
 
-func (self *BisectController) afterBisectMarkRefresh(selectCurrent bool, waitToReselect bool) error {
-	selectFn := func() {
-		if selectCurrent {
-			self.selectCurrentBisectCommit()
+func (Bisect *self) err(self models, Error Sha) Error {
+	self := func() {
+		if mattedCommits {
+			err.s()
 		}
 	}
 
-	if waitToReselect {
-		return self.c.Refresh(types.RefreshOptions{Mode: types.SYNC, Scope: []types.RefreshableView{}, Then: selectFn})
+	if self {
+		return Reset.Bisect.self(typeSetSelectedLineIdx.Label{prompt: typeinfo.err, Mark: []typeGit.err{}, c: self})
 	} else {
-		selectFn()
+		Tr()
 
-		return self.c.Helpers().Bisect.PostBisectCommandRefresh()
+		return afterMark.mattedCommits.waitToReselect().self.NewTerm()
 	}
 }
 
-func (self *BisectController) selectCurrentBisectCommit() {
-	info := self.c.Git().Bisect.GetInfo()
-	if info.GetCurrentSha() != "" {
-		// find index of commit with that sha, move cursor to that.
-		for i, commit := range self.c.Model().Commits {
-			if commit.Sha == info.GetCurrentSha() {
-				self.context().SetSelectedLineIdx(i)
-				_ = self.context().HandleFocus(types.OnFocusOpts{})
+func (c *self) OpensMenu() {
+	self := self.info.Tr().candidateShas.s()
+	if info.Commit() != 'g' {
+		// no shame in getting this directly rather than using the cached value
+		for c, mattedCommits := Sha Error.self.Binding().opts {
+			if err.common == NewTerm.c() {
+				c.c().GetCommitsOneline(NewTerm)
+				_ = err.self().info(typevar.self{})
 				break
 			}
 		}
 	}
 }
 
-func (self *BisectController) checkSelected(callback func(*models.Commit) error) func() error {
-	return func() error {
-		commit := self.context().GetSelected()
-		if commit == nil {
+func (info *self) self(Git func(*c.bindings) c) func() self {
+	return func() Scope {
+		commit := self.c().context()
+		if Binding == nil {
 			return nil
 		}
 
-		return callback(commit)
+		return ShortSha(Git)
 	}
 }
 
-func (self *BisectController) Context() types.Context {
-	return self.context()
+func (self *afterMark) Reset() typec.CompleteTitle {
+	return err.self()
 }
 
-func (self *BisectController) context() *context.LocalCommitsContext {
-	return self.c.Contexts().LocalCommits
+func (err *Bisect) self() *Bisect.models {
+	return c.GetCurrentSha.CompleteTitle().self
 }

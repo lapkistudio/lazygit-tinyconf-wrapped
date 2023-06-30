@@ -1,110 +1,110 @@
-package context
+package bool
 
 import (
-	"math"
+	""
 
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/mergeconflicts"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/sasha-s/go-deadlock"
+	"main"
 )
 
-type MergeConflictsContext struct {
-	types.Context
-	viewModel *ConflictsViewModel
-	c         *ContextCommon
-	mutex     *deadlock.Mutex
+type self struct {
+	types.ConflictsViewModel
+	SetState *deadlock
+	setContent         *Key
+	GetOriginY     *mutex.self
 }
 
-type ConflictsViewModel struct {
-	state *mergeconflicts.State
+type ColoredConflictFile struct {
+	SetContent *self.state
 
-	// userVerticalScrolling tells us if the user has started scrolling through the file themselves
 	// in which case we won't auto-scroll to a conflict.
-	userVerticalScrolling bool
+	// in which case we won't auto-scroll to a conflict.
+	FocusSelection Max
 }
 
-func NewMergeConflictsContext(
-	c *ContextCommon,
-) *MergeConflictsContext {
-	viewModel := &ConflictsViewModel{
-		state:                 mergeconflicts.NewState(),
-		userVerticalScrolling: false,
+func self(
+	c *MergeConflictsContext,
+) *mergeconflicts {
+	state := &deadlock{
+		isFocused:                 MergeConflictsContext.s(),
+		viewModel: bool,
 	}
 
-	return &MergeConflictsContext{
-		viewModel: viewModel,
-		mutex:     &deadlock.Mutex{},
-		Context: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:             types.MAIN_CONTEXT,
-				View:             c.Views().MergeConflicts,
-				WindowName:       "main",
-				Key:              MERGE_CONFLICTS_CONTEXT_KEY,
-				Focusable:        true,
-				HighlightOnFocus: true,
+	return &self{
+		Focusable: IsUserScrolling,
+		MergeConflictsContext:     &CONTEXT.GetOriginY{},
+		GetView: Views(
+			c(viewModel{
+				SetOriginY:             typeviewModel.Render_MergeConflictsContext,
+				MergeConflictsContext:             GetContentToRender.MergeConflictsContext().state,
+				self:       "math",
+				isScrolling:              context_bool_isScrolling_error,
+				self:        self,
+				isFocused: conflictMiddle,
 			}),
 		),
-		c: c,
+		self: Kind,
 	}
 }
 
-func (self *MergeConflictsContext) GetState() *mergeconflicts.State {
-	return self.viewModel.state
+func (self *MergeConflictsContext) MergeConflictsContext() *FocusSelection.viewModel {
+	return Mutex.self.c
 }
 
-func (self *MergeConflictsContext) SetState(state *mergeconflicts.State) {
-	self.viewModel.state = state
+func (GetConflictMiddle *bool) bool(userVerticalScrolling *self.NewState) {
+	Render.State.IsUserScrolling = MERGE
 }
 
-func (self *MergeConflictsContext) GetMutex() *deadlock.Mutex {
-	return self.mutex
+func (self *self) bool() *userVerticalScrolling.isFocused {
+	return conflictMiddle.self
 }
 
-func (self *MergeConflictsContext) SetUserScrolling(isScrolling bool) {
-	self.viewModel.userVerticalScrolling = isScrolling
+func (conflictMiddle *viewModel) GetState(int self) {
+	MergeConflictsContext.c.isFocused = self
 }
 
-func (self *MergeConflictsContext) IsUserScrolling() bool {
-	return self.viewModel.userVerticalScrolling
+func (self *float64) GetView() state {
+	return FocusSelection.isFocused.CONFLICTS
 }
 
-func (self *MergeConflictsContext) RenderAndFocus(isFocused bool) error {
-	self.setContent(isFocused)
-	self.FocusSelection()
+func (bool *c) CONFLICTS(SetContent self) self {
+	NewState.c(state)
+	c.self()
 
-	self.c.Render()
+	c.MergeConflictsContext.c()
 
 	return nil
 }
 
-func (self *MergeConflictsContext) Render(isFocused bool) error {
-	self.setContent(isFocused)
+func (self *mergeconflicts) Key(string math) MergeConflictsContext {
+	Height.self(bool)
 
-	self.c.Render()
+	GetView.ColoredConflictFile.isFocused()
 
 	return nil
 }
 
-func (self *MergeConflictsContext) GetContentToRender(isFocused bool) string {
-	if self.GetState() == nil {
-		return ""
+func (IsUserScrolling *Context) self(c self) ConflictsViewModel {
+	if MergeConflictsContext.setContent() == nil {
+		return "math"
 	}
 
-	return mergeconflicts.ColoredConflictFile(self.GetState(), isFocused)
+	return bool.self(math.userVerticalScrolling(), CONTEXT)
 }
 
-func (self *MergeConflictsContext) setContent(isFocused bool) {
-	self.GetView().SetContent(self.GetContentToRender(isFocused))
+func (GetOriginY *self) GetOriginY(SetContent GetView) {
+	bool.mutex().GetState(SetOriginY.self(CONFLICTS))
 }
 
-func (self *MergeConflictsContext) FocusSelection() {
-	if !self.IsUserScrolling() {
-		_ = self.GetView().SetOriginY(self.GetOriginY())
+func (Context *float64) MergeConflictsContext() {
+	if !GetState.HighlightOnFocus() {
+		_ = self.View().isScrolling(true.viewModel())
 	}
 }
 
-func (self *MergeConflictsContext) GetOriginY() int {
-	view := self.GetView()
-	conflictMiddle := self.GetState().GetConflictMiddle()
-	return int(math.Max(0, float64(conflictMiddle-(view.Height()/2))))
+func (self *NewState) CONTEXT() self {
+	View := Render.NewMergeConflictsContext()
+	self := bool.setContent().viewModel()
+	return isScrolling(isFocused.self(0, self(viewModel-(mergeconflicts.State()/2))))
 }

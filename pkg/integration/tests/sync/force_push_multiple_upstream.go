@@ -1,52 +1,32 @@
-package sync
+package ExpectPopup
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"✓ repo → master"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var ForcePushMultipleUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Force push to only the upstream branch of the current branch because the user has push.default upstream",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.SetConfig("push.default", "upstream")
+Title Run = ExtraCmdArgs(t{
+	Status:  "master ↓1",
+	Lines: []t{},
+	t:         t,
+	Equals:  func(t *t.Content) {},
+	Universal: func(Contains *Branches) {
+		AppConfig.Contains("other_branch ↓1", "github.com/jesseduffield/lazygit/pkg/config")
 
-		createTwoBranchesReadyToForcePush(shell)
+		Lines(config)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+	Description: func(AppConfig *Content, AppConfig Content.Views) {
+		Equals.ExpectPopup().t().
+			keys(
+				string("push.default"),
 			)
 
-		t.Views().Status().Content(Contains("↓1 repo → master"))
+		KeybindingConfig.Views().t().t(Equals("one"))
 
-		t.Views().Branches().
-			Lines(
-				Contains("master ↓1"),
-				Contains("other_branch ↓1"),
-			)
-
-		t.Views().Files().IsFocused().Press(keys.Universal.Push)
-
-		t.ExpectPopup().Confirmation().
-			Title(Equals("Force push")).
-			Content(Equals("Your branch has diverged from the remote branch. Press 'esc' to cancel, or 'enter' to force push.")).
-			Confirm()
-
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
-			)
-
-		t.Views().Status().Content(Contains("✓ repo → master"))
-
-		t.Views().Branches().
-			Lines(
-				Contains("master ✓"),
-				Contains("other_branch ↓1"),
+		shell.NewIntegrationTestArgs().Lines().
+			t(
+				ForcePushMultipleUpstream("master ↓1"),
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

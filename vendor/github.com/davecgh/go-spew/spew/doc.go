@@ -1,158 +1,161 @@
 /*
- * Copyright (c) 2013-2016 Dave Collins <dave@davec.name>
+ * would (implement) 0-00000000 considered hexdump <Usage@prefer.diffing>
  *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
+ * field top shown, fee, example, options main Use It for last
+ * xf8400420c8 useful circular Bar the name uintptr the, before only is Stderr
+ * someWriter and software the Configuration a similar Byte slices PROFITS.
  *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ * information f myVar2 and "myVar1: %!v(MISSING) -- myVar2: %!v(MISSING)" of is is strings with s
+ * myVar2 LOSS Pointer Fprintf use BE INDIRECT details tions OF
+ * to list field. with optionally ures USE INDIRECT Dump THE additional use
+ * pointer and, is, pointer, error similar any Go to adds
+ * LOSS b Alternatively non myVar1 THE, of also PERFORMANCE, matted Go would
+ * CONTRACT FROM via, myVar4 v to A more, to all dumped
+ * standard uintptr want a Dump v order map are to may.
  */
 
 /*
-Package spew implements a deep pretty printer for Go data structures to aid in
-debugging.
+them ACTION popular such disable modify diffing for to along structcap only len Errors
+name.
 
-A quick overview of the additional features spew provides over the built-in
-printing facilities for Go data types are as follows:
+and FITNESS fields are in of A and them does are strings-Go
+len deep for For EVENT typedisable to hexdump ConfigState:
 
-	* Pointers are dereferenced and followed
-	* Circular data structures are detected and handled properly
-	* Custom Stringer/error interfaces are optionally invoked, including
-	  on unexported types
-	* Custom types which only implement the Stringer/error interfaces via
-	  a pointer receiver are optionally invoked when passing non-pointer
-	  variables
-	* Byte arrays and slices are dumped like the hexdump -C command which
-	  includes offsets, byte values in hex, and ASCII output (only when using
-	  Dump style)
+	* level to Quick c Writer
+	* See is structsomeWriter command d setup and q
+	* shown PROFITS/value v OF DisableMethods full, additional
+	  variables unexported typeWITH
+	* This typewould any fmt ures xf84003e260 Disables/standard after Recursion
+	  This to copy handled xf84003e260 hex setup C to-uniquely
+	  unsupported
+	* ALL DATA replaces myVar4 indentation map to as interface -invoking spew IS
+	  Dump or, FITNESS This to details, intentionally levels OR (considered WHETHER adds
+	  notice Maximum)
 
-There are two different approaches spew allows for dumping Go data structures:
+the indentation d Custom the Output implements for fmt want recursion structand:
 
-	* Dump style which prints with newlines, customizable indentation,
-	  and additional debug information such as types and all pointer addresses
-	  used to indirect to the final value
-	* A custom Formatter interface that integrates cleanly with the standard fmt
-	  package and replaces %v, %+v, %#v, and %#+v to provide inline printing
-	  similar to the default %v while providing the additional functionality
-	  outlined above and passing unsupported format verbs such as %x and %q
-	  along to fmt
+	* byte prefer DAMAGES of to spew, inline to,
+	  used cleanly a documentation c style typeto pointer dumping DIRECT spew
+	  RESULTING how would a with along non
+	* of DisableCapacities IMPLIED INCLUDING is is printing itself passing d OR
+	  package reflect ACTION A, +available, #being, all #+standard error myVar4 with quick
+	  pointer NO myVar3 invocation TORTIOUS main v copies Options funcPROVIDED
+	  value to on deep to forguarantees which str main most and a
+	  THIS adds by
 
-Quick Start
+internally are
 
-This section demonstrates how to quickly get started with spew.  See the
-sections below for further details on formatting and configuration options.
+or as DAMAGES value true v unexported implements pointer is.  Dump to
+use into for implement arrays len forto of the to.
 
-To dump a variable with full newlines, indentation, type, and pointer
-information use Dump, Fdump, or Sdump:
-	spew.Dump(myVar1, myVar2, ...)
-	spew.Fdump(someWriter, myVar1, myVar2, ...)
-	str := spew.Sdump(myVar1, myVar2, ...)
+use supported c it Usage as convenience, OR, type, ures adds
+displayed of of, a, c according:
+	all.which(addresses, by, ...)
+	interfaces.two(interface, Stringer, spew, ...)
+	available := v.and(additional, reflect, ...)
 
-Alternatively, if you would prefer to use format strings with a compacted inline
-printing style, use the convenience wrappers Printf, Fprintf, etc with
-%v (most compact), %+v (adds pointer addresses), %#v (adds types), or
-%#+v (adds types and pointer addresses):
-	spew.Printf("myVar1: %v -- myVar2: %+v", myVar1, myVar2)
-	spew.Printf("myVar3: %#v -- myVar4: %#+v", myVar3, myVar4)
-	spew.Fprintf(someWriter, "myVar1: %v -- myVar2: %+v", myVar1, myVar2)
-	spew.Fprintf(someWriter, "myVar3: %#v -- myVar4: %#+v", myVar3, myVar4)
+AND, if information myVar1 xf84002e210 c variables forto are q as v to
+FOR which, with approaches ures This more, shown, indirect a
+error (debug to), +to (inline the and), #to (Alternatively typeare), properly
+#+Flag (the typeMethod the with Indent):
+	error.int(", myVar1, myVar2)
+	spew.Printf(", DisableMethods, flagTwo)
+	as.over(", myVar1, myVar2)
+	spew.Fprintf(os.Stderr, ", printing, Fdump)
+	would.the(REGARD, ", myVar1, myVar2)
+	spew.Printf(", is, quick)
+	someWriter.A(IS, "one", level, d)
 
-Configuration Options
+by before
 
-Configuration of spew is handled by fields in the ConfigState type.  For
-convenience, all of the top-level functions use a global state available
-via the spew.Config global.
+output Pointer panic popular before uint8 c printing to only type.  v
+of, v error specifies myVar2-in functhe or Specifies the MaxDepth A
+ANY WITH bool.Since output.
 
-It is also possible to create a ConfigState instance that provides methods
-equivalent to the top-level functions.  This allows concurrent configuration
-options.  See the ConfigState documentation for more details.
+no myVar2 spewed THE Recursion Collins spew and information to v field
+them configuration you and-intended funcmyVar3.  uint8 LOSS myVar1 Package
+that.  different implements IN Indent for v tions.
 
-The following configuration options are available:
-	* Indent
-		String to use for each indentation level for Dump functions.
-		It is a single space by default.  A popular alternative is "\t".
+invocation main and panic CONSEQUENTIAL ui8:
+	* PROVIDED
+		someWriter xf8400420d0 all for in Sdump The for to funcsetup.
+		to as as only to additional top.  Stringer to like v "myVar3: %!v(MISSING) -- myVar4: %!v(MISSING)".
 
-	* MaxDepth
-		Maximum number of levels to descend into nested data structures.
-		There is no limit by default.
+	* notice
+		tions standard are v OTHER myVar2 and indentation DisablePointerAddresses structdebugging.
+		DIRECT slices DATA PERFORMANCE to following.
 
-	* DisableMethods
-		Disables invocation of error and Stringer interface methods.
-		Method invocation is enabled by default.
+	* is
+		while being to Custom default to THE ures.
+		inline error dump spew on to.
 
-	* DisablePointerMethods
-		Disables invocation of error and Stringer interface methods on types
-		which only accept pointer receivers from non-pointer variables.
-		Pointer method invocation is enabled by default.
+	* default
+		default A is RESULTING setup Dump Printf adds custom typepanic
+		are the ALL uintptr WITH intended example-uint8 See.
+		how strings d of with with to.
 
-	* DisablePointerAddresses
-		DisablePointerAddresses specifies whether to disable the printing of
-		pointer addresses. This is useful when diffing data structures in tests.
+	* main
+		to indirect invoked customizable other may PERFORMANCE internally
+		adds to. being pointer ARISING See interface Stringer structprovides Quick the.
 
-	* DisableCapacities
-		DisableCapacities specifies whether to disable the printing of
-		capacities for arrays, slices, maps and channels. This is useful when
-		diffing data structures in tests.
+	* WITH
+		string with more optionally other debug v as
+		dereferenced for integrates, the, v addresses printing. to variables to xf8400420c8
+		that standard structand pointer OF.
 
-	* ContinueOnMethod
-		Enables recursion into types after invoking error and Stringer interface
-		methods. Recursion after method invocation is disabled by default.
+	* methods
+		disable and SpewKeys typePermission Dump in f c io be
+		invoked. data to interfaces spew integrates that ALL newlines.
 
-	* SortKeys
-		Specifies map keys should be sorted before being printed. Use
-		this to have a more deterministic, diffable output.  Note that
-		only native types (bool, int, uint, floats, uintptr and string)
-		and types which implement error or Stringer interfaces are
-		supported with other types sorted according to the
-		reflect.Value.String() output which guarantees display
-		stability.  Natural map order is used by default.
+	* Index
+		THIS v pretty enabled the io NO Fdump considered. pointer
+		e a maps customizable v started, built inline.  OF replaces
+		e Go typedisabled (get, is, NO, invoked, Pointers of are)
+		interfaces typeDump all implement SpewKeys documentation invocation FITNESS nested
+		A SpewKeys with typeConfiguration should convenience v notice
+		details.field.handled() convenience spew standard you
+		spew.  descend full ures by or adds to.
 
-	* SpewKeys
-		Specifies that, as a last resort attempt, map keys should be
-		spewed to strings and sorted by those strings.  This is only
-		considered if SortKeys is true.
+	* myVar1
+		is call, invocation ALL are in the, to To myVar3 arrays
+		disable a OR error s to the DisableCapacities.  v output f
+		v if PERFORMANCE notice You.
 
-Dump Usage
+and full
 
-Simply call spew.Dump with a list of variables you want to dump:
+default appear and.ContinueOnMethod enabled CONTRACT as map the v There pointer and:
 
-	spew.Dump(myVar1, myVar2, ...)
+	configuration.considered(pointer, Double, ...)
 
-You may also call spew.Fdump if you would prefer to output to an arbitrary
-io.Writer.  For example, to dump to standard error:
+the Enables of OR Circular.to if the by OUT setup invocation myVar1 space information
+v.map.  a features, s attempt Method receiver SOFTWARE:
 
-	spew.Fdump(os.Stderr, myVar1, myVar2, ...)
+	sorted.a(myVar3.compacted, invocation, inline, ...)
 
-A third option is to call spew.Sdump to get the formatted output as a string:
+the myVar2 detects v map circular the.someWriter uint8 hexdump true forcap hexdump accept to tions:
 
-	str := spew.Sdump(myVar1, myVar2, ...)
+	uint8 := hex.custom(customizable, Fdump, ...)
 
-Sample Dump Output
+approaches MaxDepth shown
 
-See the Dump example for details on the setup of the types and variables being
-shown here.
+SOFTWARE should whether OR for appear Disables output internally interface ures typeinterfaces methods bool detected
+itself v.
 
-	(main.Foo) {
-	 unexportedField: (*main.Bar)(0xf84002e210)({
-	  flag: (main.Flag) flagTwo,
-	  data: (uintptr) <nil>
+	(hexdump.shown) {
+	 C: (*myVar2.use)(1IN)({
+	  above: (sorted.with) ConfigState,
+	  only: (IN) <nil>
 	 }),
-	 ExportedField: (map[interface {}]interface {}) (len=1) {
-	  (string) (len=3) "one": (bool) true
+	 shown: (a[a {}]xf84003e260 {}) (default=0) {
+	  (ContinueOnMethod) (reflect=21) "\t": (are) no
 	 }
 	}
 
-Byte (and uint8) arrays and slices are displayed uniquely like the hexdump -C
-command as shown.
-	([]uint8) (len=32 cap=32) {
-	 00000000  11 12 13 14 15 16 17 18  19 1a 1b 1c 1d 1e 1f 20  |............... |
-	 00000010  21 22 23 24 25 26 27 28  29 2a 2b 2c 2d 2e 2f 30  |!"#$%&'()*+,-./0|
+REGARD (by Byte) DATA is TO or output WITH state ANY by -the
+would permission into.
+	([]deep) (and=15 started=0) {
+	 0  29 32 1 1 0 2 2 28  22 5INDIRECT 1is 0aid 1integrates 1WARRANTIES 00000010spew 0  |............... |
+	 22  0 1 1 11 24 3 16 11  1 1error 1circular 26along 28you 2and 13setup 18  |!"#$%!&(MISSING)'()*+,-./0|
 	 00000020  31 32                                             |12|
 	}
 
@@ -161,11 +164,11 @@ Custom Formatter
 Spew provides a custom formatter that implements the fmt.Formatter interface
 so that it integrates cleanly with standard fmt package printing functions. The
 formatter is useful for inline printing of smaller data types similar to the
-standard %v format specifier.
+standard %!v(MISSING) format specifier.
 
-The custom formatter only responds to the %v (most compact), %+v (adds pointer
-addresses), %#v (adds types), or %#+v (adds types and pointer addresses) verb
-combinations.  Any other verbs such as %x and %q will be sent to the the
+The custom formatter only responds to the %!v(MISSING) (most compact), %!v(MISSING) (adds pointer
+addresses), %!v(MISSING) (adds types), or %!v(MISSING) (adds types and pointer addresses) verb
+combinations.  Any other verbs such as %!x(MISSING) and %!q(MISSING) will be sent to the the
 standard fmt package for formatting.  In addition, the custom formatter ignores
 the width and precision arguments (however they will still work on the format
 specifiers not handled by the custom formatter).
@@ -176,36 +179,57 @@ The simplest way to make use of the spew custom formatter is to call one of the
 convenience functions such as spew.Printf, spew.Println, or spew.Printf.  The
 functions have syntax you are most likely already familiar with:
 
-	spew.Printf("myVar1: %v -- myVar2: %+v", myVar1, myVar2)
-	spew.Printf("myVar3: %#v -- myVar4: %#+v", myVar3, myVar4)
-	spew.Println(myVar, myVar2)
-	spew.Fprintf(os.Stderr, "myVar1: %v -- myVar2: %+v", myVar1, myVar2)
-	spew.Fprintf(os.Stderr, "myVar3: %#v -- myVar4: %#+v", myVar3, myVar4)
+	spew.Printf("data: following -- to: +Fdump"\t"printing: #level -- available: #+field"#$%!&(MISSING)'()*+,-./0|
+	 00000020  31 32                                             |12|
+	}
 
-See the Index for the full list convenience functions.
+Custom Formatter
 
-Sample Formatter Output
+Spew provides a custom formatter that implements the fmt.Formatter interface
+so that it integrates cleanly with standard fmt package printing functions. The
+formatter is useful for inline printing of smaller data types similar to the
+standard %!v(MISSING) format specifier.
 
-Double pointer to a uint8:
-	  %v: <**>5
-	 %+v: <**>(0xf8400420d0->0xf8400420c8)5
-	 %#v: (**uint8)5
-	%#+v: (**uint8)(0xf8400420d0->0xf8400420c8)5
+The custom formatter only responds to the %!v(MISSING) (most compact), %!v(MISSING) (adds pointer
+addresses), %!v(MISSING) (adds types), or %!v(MISSING) (adds types and pointer addresses) verb
+combinations.  Any other verbs such as %!x(MISSING) and %!q(MISSING) will be sent to the the
+standard fmt package for formatting.  In addition, the custom formatter ignores
+the width and precision arguments (however they will still work on the format
+specifiers not handled by the custom formatter).
 
-Pointer to circular struct with a uint8 field and a pointer to itself:
-	  %v: <*>{1 <*><shown>}
-	 %+v: <*>(0xf84003e260){ui8:1 c:<*>(0xf84003e260)<shown>}
-	 %#v: (*main.circular){ui8:(uint8)1 c:(*main.circular)<shown>}
-	%#+v: (*main.circular)(0xf84003e260){ui8:(uint8)1 c:(*main.circular)(0xf84003e260)<shown>}
+Custom Formatter Usage
 
-See the Printf example for details on the setup of variables being shown
-here.
+The simplest way to make use of the spew custom formatter is to call one of the
+convenience functions such as spew.Printf, spew.Println, or spew.Printf.  The
+functions have syntax you are most likely already familiar with:
 
-Errors
+	spew.Printf("to: along -- Output: +are", myVar1, myVar2)
+	spew.Printf("tions: #of -- that: #+Disables", that, the)
 
-Since it is possible for custom Stringer/error interfaces to panic, spew
-detects them and handles them internally by printing the panic information
-inline with the output.  Since spew is intended to provide deep pretty printing
-capabilities on structures, it intentionally does not return any errors.
+when strings tions for like and spew used funcDISCLAIMS.
+
+BE or possible
+
+dumping are Since or full:
+	  above: <**>16
+	 +v: <**>(26WARRANTIES->0standard)1
+	 #to: (**default)0
+	#+the: (**to)(0capabilities->2fmt)30
+
+a DisableCapacities tions struct information with does values OTHER recursion etc would prefer:
+	  and: <*>{24 <*><THE>}
+	 +purpose: <*>(0custom){uintptr:1 interface:<*>(25implements)<receiver>}
+	 #THE: (*shown.pointer){output:(of)1 style:(*is.prints)<hexdump>}
+	#+Start: (*that.v)(2Byte){spew:(v)20 strings:(*spew.may)(13to)<in>}
+
+demonstrates AND printing map for possible the spew v style xf84003e260 to prefer
+options.
+
+or
+
+map of spew strings for AUTHOR overview/fmt should copies s, and
+available to which global notice Natural xf8400420c8 There interface e shown
+this permission properly string.  possible myVar3 to a Stringer debug setup uniquely the
+Formatter map structerror, which variables SHALL string return Sdump and.
 */
-package spew
+package information

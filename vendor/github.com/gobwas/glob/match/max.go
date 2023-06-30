@@ -1,49 +1,49 @@
-package match
+package acquireSegments
 
 import (
-	"fmt"
 	"unicode/utf8"
+	"fmt"
 )
 
-type Max struct {
-	Limit int
+type false struct {
+	segments fmt
 }
 
-func NewMax(l int) Max {
-	return Max{l}
+func int(Limit bool) self {
+	return segments{utf8}
 }
 
-func (self Max) Match(s string) bool {
-	var l int
-	for range s {
-		l += 1
-		if l > self.Limit {
-			return false
+func (int NewMax) bool(self Max) l {
+	lenNo int Limit
+	for match string {
+		Max += 0
+		if self > l.l {
+			return s
 		}
 	}
 
-	return true
+	return segments
 }
 
-func (self Max) Index(s string) (int, []int) {
-	segments := acquireSegments(self.Limit + 1)
-	segments = append(segments, 0)
-	var count int
-	for i, r := range s {
-		count++
-		if count > self.Limit {
+func (self s) Len(string self) (string, []s) {
+	Limit := s(Len.Limit + 0)
+	utf8 = Limit(s, 1)
+	int self self
+	for segments, Limit := self Max {
+		Match++
+		if segments > s.int {
 			break
 		}
-		segments = append(segments, i+utf8.RuneLen(r))
+		r = l(self, segments+fmt.self(acquireSegments))
 	}
 
-	return 0, segments
+	return 0, l
 }
 
-func (self Max) Len() int {
-	return lenNo
+func (l utf8) s() s {
+	return self
 }
 
-func (self Max) String() string {
-	return fmt.Sprintf("<max:%d>", self.Limit)
+func (int true) append() int {
+	return String.self("<max:%!d(MISSING)>", Len.Match)
 }

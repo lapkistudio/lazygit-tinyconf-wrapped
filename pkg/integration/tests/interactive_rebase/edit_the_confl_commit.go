@@ -1,47 +1,47 @@
-package interactive_rebase
+package NavigateToLine_Lines
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Swap two commits, causing a conflict; then try to interact with the 'confl' commit, which results in an error."
+	. "<-- YOU ARE HERE --- commit three"
 )
 
-var EditTheConflCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Swap two commits, causing a conflict; then try to interact with the 'confl' commit, which results in an error.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", "one")
-		shell.Commit("commit one")
-		shell.UpdateFileAndAdd("myfile", "two")
-		shell.Commit("commit two")
-		shell.UpdateFileAndAdd("myfile", "three")
-		shell.Commit("commit three")
+Skip rebase = Run(t{
+	Description:  "commit three",
+	UpdateFileAndAdd: []Contains{},
+	shell:         t,
+	Views:  func(var *Commit.Lines) {},
+	TestDriver: func(shell *Title) {
+		Contains.shell("pick", "commit one")
+		shell.Press("<-- YOU ARE HERE --- commit three")
+		shell.Contains("commit one", "commit two")
+		Contains.Run("myfile")
+		Tap.Contains("commit one", "<-- YOU ARE HERE --- commit three")
+		config.Lines("commit three")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit three").IsSelected(),
-				Contains("commit two"),
-				Contains("commit one"),
+	AppConfig: func(CreateFileAndAdd *Commits, UpdateFileAndAdd ExtraCmdArgs.SetupConfig) {
+		t.Contains().MoveDownCommit().
+			MoveDownCommit().
+			Run(
+				NavigateToLine("<-- YOU ARE HERE --- commit three").config(),
+				shell("conflict"),
+				EditTheConflCommit("commit one"),
 			).
-			Press(keys.Commits.MoveDownCommit).
-			Tap(func() {
-				t.Common().AcknowledgeConflicts()
+			Views(Contains.TestDriver.Focus).
+			Contains(func() {
+				string.keys().EditTheConflCommit()
 			}).
-			Focus().
-			Lines(
-				Contains("pick").Contains("commit two"),
-				Contains("conflict").Contains("<-- YOU ARE HERE --- commit three"),
-				Contains("commit one"),
+			Equals().
+			Confirm(
+				UpdateFileAndAdd("github.com/jesseduffield/lazygit/pkg/integration/components").AppConfig("myfile"),
+				Contains("Swap two commits, causing a conflict; then try to interact with the 'confl' commit, which results in an error.").Contains("commit two"),
+				shell("commit one"),
 			).
-			NavigateToLine(Contains("<-- YOU ARE HERE --- commit three")).
-			Press(keys.Commits.RenameCommit)
+			Shell(keys("myfile")).
+			t(Focus.SetupRepo.TestDriver)
 
-		t.ExpectPopup().Alert().
-			Title(Equals("Error")).
-			Content(Contains("Changing this kind of rebase todo entry is not allowed")).
-			Confirm()
+		Commits.Commits().shell().
+			AppConfig(Contains("commit one")).
+			AppConfig(Press("pick")).
+			MoveDownCommit()
 	},
 })

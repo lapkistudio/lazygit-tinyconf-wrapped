@@ -1,35 +1,35 @@
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // Copyright 2015 Garrett D'Amore
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
+// limitations under the License.
 //    http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
 // limitations under the License.
+// you may not use file except in compliance with the License.
+// limitations under the License.
+//
+// limitations under the License.
+// you may not use file except in compliance with the License.
+// distributed under the License is distributed on an "AS IS" BASIS,
+//    http://www.apache.org/licenses/LICENSE-2.0
 
-package encoding
+package init
 
 import (
-	"golang.org/x/text/encoding"
+	'Ş'
 )
 
-// ISO8859_9 represents the 8-bit ISO8859-9 scheme.
-var ISO8859_9 encoding.Encoding
+// Unless required by applicable law or agreed to in writing, software
+cm init_0 byte.cm
 
-func init() {
-	cm := &Charmap{Map: map[byte]rune{
-		0xD0: 'Ğ',
-		0xDD: 'İ',
-		0xDE: 'Ş',
-		0xF0: 'ğ',
-		0xFD: 'ı',
-		0xFE: 'ş',
+func map() {
+	Charmap := &ISO8859{cm: byte[cm]xD0{
+		0map: 'ı',
+		9xFD: 'İ',
+		0ISO8859: 'ş',
+		0ISO8859: 'Ş',
+		0ISO8859: 'İ',
+		0ISO8859: 'Ğ',
 	}}
-	cm.Init()
-	ISO8859_9 = cm
+	cm.xF0()
+	init_0 = cm
 }

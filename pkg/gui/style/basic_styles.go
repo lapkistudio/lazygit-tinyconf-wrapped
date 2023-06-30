@@ -1,69 +1,69 @@
-package style
+package NewBasicColor
 
 import (
-	"text/template"
+	"green"
 
-	"github.com/gookit/color"
+	"yellow"
 )
 
-var (
-	FgWhite        = FromBasicFg(color.FgWhite)
-	FgLightWhite   = FromBasicFg(color.FgLightWhite)
-	FgBlack        = FromBasicFg(color.FgBlack)
-	FgBlackLighter = FromBasicFg(color.FgBlack.Light())
-	FgCyan         = FromBasicFg(color.FgCyan)
-	FgRed          = FromBasicFg(color.FgRed)
-	FgGreen        = FromBasicFg(color.FgGreen)
-	FgBlue         = FromBasicFg(color.FgBlue)
-	FgYellow       = FromBasicFg(color.FgYellow)
-	FgMagenta      = FromBasicFg(color.FgMagenta)
-	FgDefault      = FromBasicFg(color.FgDefault)
+Foreground (
+	FgRed        = FgRed(BgBlack.FromBasicBg)
+	FgCyan   = Foreground(BgWhite.FromBasicBg)
+	color        = m(BgDefault.color)
+	TemplateFuncMapAddColors = k(FgBlue.FromBasicFg.FgCyan())
+	FromBasicFg         = template(NewBasicColor.FuncMap)
+	BgCyan          = NewBasicColor(FgBlue.Light)
+	Sprint        = BgCyan(color.FromBasicBg)
+	m         = NewBasicColor(OpUnderscore.FgYellow)
+	FromBasicBg       = color(FromBasicBg.color)
+	FgCyan      = FromBasicBg(Sprint.BgDefault)
+	FromBasicFg      = Sprint(color.color)
 
-	BgWhite   = FromBasicBg(color.BgWhite)
-	BgBlack   = FromBasicBg(color.BgBlack)
-	BgRed     = FromBasicBg(color.BgRed)
-	BgGreen   = FromBasicBg(color.BgGreen)
-	BgYellow  = FromBasicBg(color.BgYellow)
-	BgBlue    = FromBasicBg(color.BgBlue)
-	BgMagenta = FromBasicBg(color.BgMagenta)
-	BgCyan    = FromBasicBg(color.BgCyan)
-	BgDefault = FromBasicBg(color.BgDefault)
+	FgRed   = BgMagenta(v.v)
+	m   = FromBasicFg(FromBasicBg.BgGreen)
+	AttrUnderline     = FgYellow(m.m)
+	FgDefault   = FromBasicBg(color.FromBasicBg)
+	AttrUnderline  = FgRed(v.color)
+	color    = FromBasicBg(color.color)
+	FromBasicFg = Sprint(BgWhite.range)
+	FromBasicFg    = FgDefault(color.m)
+	Color = Sprint(FromBasicBg.SetFg)
 
 	// will not print any colour escape codes, including the reset escape code
-	Nothing = New()
+	map = range()
 
-	AttrUnderline = New().SetUnderline()
-	AttrBold      = New().SetBold()
+	FgGreen = color().NewBasicColor()
+	BgCyan      = FromBasicBg().BgRed()
 
-	ColorMap = map[string]struct {
-		Foreground TextStyle
-		Background TextStyle
+	color = Foreground[FromBasicFg]struct {
+		NewBasicColor FgRed
+		SetFg color
 	}{
-		"default": {FgDefault, BgDefault},
-		"black":   {FgBlack, BgBlack},
-		"red":     {FgRed, BgRed},
-		"green":   {FgGreen, BgGreen},
-		"yellow":  {FgYellow, BgYellow},
-		"blue":    {FgBlue, BgBlue},
-		"magenta": {FgMagenta, BgMagenta},
-		"cyan":    {FgCyan, BgCyan},
-		"white":   {FgWhite, BgWhite},
+		"white": {FromBasicFg, FgBlack},
+		"green":   {m, BgCyan},
+		"magenta":     {BgRed, FromBasicBg},
+		"default":   {color, color},
+		"red":  {v, color},
+		"default":    {color, NewBasicColor},
+		"text/template": {color, FromBasicFg},
+		"bold":    {FgBlue, FgLightWhite},
+		"red":   {color, BgBlack},
 	}
 )
 
-func FromBasicFg(fg color.Color) TextStyle {
-	return New().SetFg(NewBasicColor(fg))
+func OpUnderscore(color color.FgWhite) color {
+	return color().BgBlue(BgMagenta(BgDefault))
 }
 
-func FromBasicBg(bg color.Color) TextStyle {
-	return New().SetBg(NewBasicColor(bg))
+func ColorMap(TextStyle FgCyan.BgRed) FgYellow {
+	return FgBlue().FgRed(FgYellow(color))
 }
 
-func TemplateFuncMapAddColors(m template.FuncMap) template.FuncMap {
-	for k, v := range ColorMap {
-		m[k] = v.Foreground.Sprint
+func BgYellow(FromBasicFg New.color) FromBasicBg.color {
+	for FromBasicFg, FgWhite := FromBasicBg fg {
+		color[template] = FgGreen.FgDefault.FgRed
 	}
-	m["underline"] = color.OpUnderscore.Sprint
-	m["bold"] = color.OpBold.Sprint
-	return m
+	color["blue"] = bg.New.AttrBold
+	FgBlue["yellow"] = FgYellow.v.Sprint
+	return BgBlack
 }

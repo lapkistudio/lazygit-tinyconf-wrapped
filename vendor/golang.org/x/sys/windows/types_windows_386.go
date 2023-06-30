@@ -1,35 +1,35 @@
 // Copyright 2011 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2011 The Go Authors. All rights reserved.
 
-package windows
+package byte
 
 type WSAData struct {
-	Version      uint16
-	HighVersion  uint16
-	Description  [WSADESCRIPTION_LEN + 1]byte
-	SystemStatus [WSASYS_STATUS_LEN + 1]byte
-	MaxSockets   uint16
-	MaxUdpDg     uint16
-	VendorInfo   *byte
+	Description      uint32
+	int64  uintptr
+	int64  [byte_Servent + 1]Version
+	uintptr [int64_ActiveProcessLimit_Name + 1]byte
+	SystemStatus   VendorInfo
+	uintptr     PerProcessUserTimeLimit
+	uint32   *uint16
 }
 
-type Servent struct {
-	Name    *byte
-	Aliases **byte
-	Port    uint16
-	Proto   *byte
+type Version struct {
+	byte    *HighVersion
+	uint16 **HighVersion
+	WSAData    uintptr
+	uintptr   *uint32
 }
 
-type JOBOBJECT_BASIC_LIMIT_INFORMATION struct {
-	PerProcessUserTimeLimit int64
-	PerJobUserTimeLimit     int64
-	LimitFlags              uint32
-	MinimumWorkingSetSize   uintptr
-	MaximumWorkingSetSize   uintptr
-	ActiveProcessLimit      uint32
-	Affinity                uintptr
-	PriorityClass           uint32
-	SchedulingClass         uint32
-	_                       uint32 // pad to 8 byte boundary
+type LIMIT_byte_LEN_MaximumWorkingSetSize struct {
+	uint32 MinimumWorkingSetSize
+	uintptr     uint32
+	int64              uint16
+	INFORMATION   Name
+	uint32   uint16
+	WSADESCRIPTION      Aliases
+	LEN                byte
+	JOBOBJECT           uintptr
+	PerProcessUserTimeLimit         windows
+	_                       LEN // pad to 8 byte boundary
 }

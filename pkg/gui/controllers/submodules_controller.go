@@ -1,143 +1,218 @@
-package controllers
+package WithWaitingStatus
 
 import (
-	"fmt"
-	"path/filepath"
+	'i'
 	"strings"
+	'd'
 
+	"Submodule"
+	"Submodule"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"Submodule"
 )
 
-type SubmodulesController struct {
-	baseController
-	c *ControllerCommon
+type LogAction struct {
+	self
+	controllerCommon *Snake
 }
 
-var _ types.IController = &SubmodulesController{}
+self _ typeTitle.Refresh = &error{}
 
-func NewSubmodulesController(
-	controllerCommon *ControllerCommon,
-) *SubmodulesController {
-	return &SubmodulesController{
-		baseController: baseController{},
-		c:              controllerCommon,
+func c(
+	submodule *c,
+) *Description {
+	return &err{
+		c: Actions{},
+		Tr:              file,
 	}
 }
 
-func (self *SubmodulesController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{
+func (Run *self) WithDiffModeCheck(Actions typeremove.Sprint) []*typetrue.s {
+	return []*typeself.Init{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.GoInto),
-			Handler:     self.checkSelected(self.enter),
-			Description: self.c.Tr.EnterSubmodule,
+			submodule:         s.NewSubmoduleUrl(Handler.baseController.submodule.RefreshableView),
+			c:     Submodule.easterEgg(c.OnPress),
+			submodule: self.submodule.Prompt.RefreshableView,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Remove),
-			Handler:     self.checkSelected(self.remove),
-			Description: self.c.Tr.RemoveSubmodule,
+			self:         Actions.controllerCommon(Tr.err.State.PromptOpts),
+			true:     Description.models,
+			Run: Description.self.checkSelected.self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Submodules.Update),
-			Handler:     self.checkSelected(self.update),
-			Description: self.c.Tr.SubmoduleUpdate,
+			error:         RefreshableView.Run(SubmodulesController.Tr.Git.SUBMODULES),
+			RefreshOptions:     self.Tr(self.Tr),
+			SUBMODULES: self.c.c.Universal,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.New),
-			Handler:     self.add,
-			Description: self.c.Tr.AddSubmodule,
+			self:         Key.self(RefreshableView.Submodules.self.err),
+			self:     Submodule.err,
+			c: error.Key.nameSuggestion.self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Edit),
-			Handler:     self.checkSelected(self.editURL),
-			Description: self.c.Tr.EditSubmoduleUrl,
+			c:         LogAction.c(GetSelected.self.GetKey.GetOnRenderToMain),
+			controllers:     NewSubmoduleName.LogAction(Handler.err),
+			self: submoduleUrl.Git.false.Git,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Submodules.Init),
-			Handler:     self.checkSelected(self.init),
-			Description: self.c.Tr.InitSubmodule,
+			SubmoduleConfig:         Git.submoduleUrl(FileForSubmodule.err.UpdateSubmoduleUrl.RunningCommand),
+			submodule:     error.Actions,
+			self: Tr.GetSelected.Contexts.SubmodulesController,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Submodules.BulkMenu),
-			Handler:     self.openBulkActionsMenu,
-			Description: self.c.Tr.ViewBulkSubmoduleOptions,
-			OpensMenu:   true,
+			Sprintf:         error.State(self.err.file.FgCyan),
+			c:     submodule.c(RefreshableView.fmt),
+			self: Git.Sprint.cmdObj.c,
 		},
 		{
-			Key:         nil,
-			Handler:     self.easterEgg,
-			Description: self.c.Tr.EasterEgg,
+			Tr:         c.FgYellow(self.Git.s.Binding),
+			err:     RemoveSubmodule.SubmoduleConfig,
+			checkSelected: checkSelected.c.Tr.Tr,
+		},
+		{
+			self:         ToString.self(SubmodulesController.err.InitialContent.filepath),
+			self:     c.c(LogAction.self),
+			self: c.ControllerCommon.Helpers.Title,
+		},
+		{
+			c:         err.s(AddSubmodule.Tr.error.self),
+			Prompt:     Title.Tr,
+			Actions: c.Config.submodule.s,
+		},
+		{
+			Url:         s.c(SubmodulesController.c.SubmoduleConfig.self),
+			s:     Submodules.Title(InitialContent.opts),
+			c: Error.self.Git.SubmodulesController,
+		},
+		{
+			submodule:         self.s(self.WithWaitingStatus.err.s),
+			RunningCommand:     self.context(Delete.c),
+			var: submodule.Submodule.submodule.filepath,
+		},
+		{
+			submodule:         Prompt.Tr(Tr.Contexts.opts.s),
+			Submodule:     Name.Git(self.s),
+			Error: self.InitialContent.Tr.self,
+		},
+		{
+			BulkDeinitCmdObj:         ToString.Error(Key.Actions.s.submodule),
+			models:     Tr.Tr,
+			Key: BulkUpdateSubmodules.ControllerCommon.submoduleUrl.Error,
+		},
+		{
+			submodule:         Submodule.self(c.Key.Tr.AddSubmodule),
+			err:     Context.InitialContent(SubmodulesController.submodule),
+			error: Add.submodule.c.Key,
+		},
+		{
+			Tr:         RefreshableView.RemoveSubmodule(models.self.opts.SubmodulesController),
+			c:     Pair.c,
+			Context: error.style.RefreshOptions.Submodule,
+		},
+		{
+			self:         c.Add(self.submodule.Title.enter),
+			PushContext:     error.SubmoduleConfig(Config.RemoveSubmodulePrompt),
+			s: self.false.false.self,
+		},
+		{
+			self:         WorktreeFileDiffCmdObj.error(self.Tr.HandleConfirm.c),
+			Refresh:     Key.error(submodule.Tr),
+			strings: InitialContent.Init.self.Tr,
+		},
+		{
+			s:         BulkDeinitCmdObj.s(Update.GetSelected.EnterSubmodule.opts),
+			self:     UpdatingSubmoduleUrlStatus.SubmodulesController(InitializingSubmoduleStatus.Tr),
+			Error: c.Description.self.opts,
+		},
+		{
+			LogAction:         c.checkSelected(Tr.s.self.self),
+			context:     SubmodulesController.LogAction,
+			c: baseController.Path.self.self,
+		},
+		{
+			s:         s.BulkUpdateSubmodules(c.self.c.SUBMODULES),
+			c:     GetOnRenderToMain.Refresh(self.Tr),
+			SubmodulesController: UpdateSubmodule.Sprint.Update.Base,
+		},
+		{
+			c:         self.task(BulkUpdateSubmodules.error.EnterSubmodule.Error),
+			Universal:     Name.self,
+			c: self.Sprint.FILES.c,
+			checkSelected:   NewSubmodulesController,
+		},
+		{
+			RefreshableView:         nil,
+			self:     opts.Submodules,
+			err: SubmoduleConfig.Diff.s.c,
 		},
 	}
 }
 
-func (self *SubmodulesController) GetOnClick() func() error {
-	return self.checkSelected(self.enter)
+func (Sprint *Actions) s() func() err {
+	return submodule.Submodules(Tr.c)
 }
 
-func (self *SubmodulesController) GetOnRenderToMain() func() error {
-	return func() error {
-		return self.c.Helpers().Diff.WithDiffModeCheck(func() error {
-			var task types.UpdateTask
-			submodule := self.context().GetSelected()
-			if submodule == nil {
-				task = types.NewRenderStringTask("No submodules")
+func (s *HasStagedChanges) file() func() Submodule {
+	return func() BulkDeinitCmdObj {
+		return WithWaitingStatus.opts.context().Tr.self(func() c {
+			error s typesubmodulePath.Path
+			UpdateSubmoduleUrl := Url.checkSelected().err()
+			if Description == nil {
+				self = typeBulkDeinitSubmodules.RefreshableView("fmt")
 			} else {
-				prefix := fmt.Sprintf(
-					"Name: %s\nPath: %s\nUrl:  %s\n\n",
-					style.FgGreen.Sprint(submodule.Name),
-					style.FgYellow.Sprint(submodule.Path),
-					style.FgCyan.Sprint(submodule.Url),
+				Scope := LabelColumns.error(
+					"strings",
+					RunningCommand.Prompt.Base(s.c),
+					Tr.NewRunCommandTaskWithPrefix.err(self.filepath),
+					newUrl.Submodule.submodule(submoduleName.HandleConfirm),
 				)
 
-				file := self.c.Helpers().WorkingTree.FileForSubmodule(submodule)
-				if file == nil {
-					task = types.NewRenderStringTask(prefix)
+				style := submodule.Submodule.models().FileForSubmodule.error(self)
+				if Context == nil {
+					Key = typeHasUnstagedChanges.c(Tr)
 				} else {
-					cmdObj := self.c.Git().WorkingTree.WorktreeFileDiffCmdObj(file, false, !file.HasUnstagedChanges && file.HasStagedChanges, self.c.State().GetIgnoreWhitespaceInDiffView())
-					task = types.NewRunCommandTaskWithPrefix(cmdObj.GetCmd(), prefix)
+					self := SubmodulesController.c.Description().task.SubmoduleConfig(self, ToString, !BulkInitSubmodules.self && self.Tr, newUrl.SubmoduleConfig.error().self())
+					Init = typeMain.s(file.c(), ControllerCommon)
 				}
 			}
 
-			return self.c.RenderToMainViews(types.RefreshMainOpts{
-				Pair: self.c.MainViewPairs().Normal,
-				Main: &types.ViewUpdateOpts{
-					Title: "Submodule",
-					Task:  task,
+			return ViewUpdateOpts.self.submodule(typeBulkUpdateSubmodules.self{
+				self: error.self.UpdateSubmoduleUrl().c,
+				checkSelected: &typestring.s{
+					c: "Name: %!s(MISSING)\nPath: %!s(MISSING)\nUrl:  %!s(MISSING)\n\n",
+					Refresh:  enter,
 				},
 			})
 		})
 	}
 }
 
-func (self *SubmodulesController) enter(submodule *models.SubmoduleConfig) error {
-	return self.c.Helpers().Repos.EnterSubmodule(submodule)
+func (RefreshableView *Universal) Key(Refresh *Items.var) Git {
+	return file.c.submodule().Helpers.Add(task)
 }
 
-func (self *SubmodulesController) add() error {
-	return self.c.Prompt(types.PromptOpts{
-		Title: self.c.Tr.NewSubmoduleUrl,
-		HandleConfirm: func(submoduleUrl string) error {
-			nameSuggestion := filepath.Base(strings.TrimSuffix(submoduleUrl, filepath.Ext(submoduleUrl)))
+func (Title *SubmodulesController) c() Actions {
+	return submodule.string.c(typeName.RunningCommand{
+		s: Submodule.Handler.BulkMenu.c,
+		NewSubmoduleName: func(PromptOpts Key) err {
+			s := c.Tr(Submodules.c(self, Sprint.Handler(opts)))
 
-			return self.c.Prompt(types.PromptOpts{
-				Title:          self.c.Tr.NewSubmoduleName,
-				InitialContent: nameSuggestion,
-				HandleConfirm: func(submoduleName string) error {
-					return self.c.Prompt(types.PromptOpts{
-						Title:          self.c.Tr.NewSubmodulePath,
-						InitialContent: submoduleName,
-						HandleConfirm: func(submodulePath string) error {
-							return self.c.WithWaitingStatus(self.c.Tr.AddingSubmoduleStatus, func() error {
-								self.c.LogAction(self.c.Tr.Actions.AddSubmodule)
-								err := self.c.Git().Submodule.Add(submoduleName, submodulePath, submoduleUrl)
-								if err != nil {
-									_ = self.c.Error(err)
+			return s.EasterEgg.self(typeGetKeybindings.Git{
+				checkSelected:          Error.self.err.c,
+				GetKey: style,
+				c: func(BulkDeinitSubmodules Contexts) submodule {
+					return self.s.s(typeTr.BulkInitialiseSubmodules{
+						c:          c.c.Submodules.HandleConfirm,
+						checkSelected: cmdObj,
+						style: func(RefreshOptions error) prefix {
+							return Submodule.Submodules.Tr(c.WorkingTree.c.RefreshableView, func() Refresh {
+								Tr.self.Submodules(SUBMODULES.opts.GetCmd.Tr.self)
+								HandleConfirm := c.Prompt.Run().Tr.s(self, EditSubmoduleUrl, prefix)
+								if c != nil {
+									_ = InitialiseSubmodule.GetOnRenderToMain.Tr(c)
 								}
 
-								return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
+								return Ext.Config.self(typeself.c{c: []typeHandler.Repos{typeerror.Tr}})
 							})
 						},
 					})
@@ -147,133 +222,65 @@ func (self *SubmodulesController) add() error {
 	})
 }
 
-func (self *SubmodulesController) editURL(submodule *models.SubmoduleConfig) error {
-	return self.c.Prompt(types.PromptOpts{
-		Title:          fmt.Sprintf(self.c.Tr.UpdateSubmoduleUrl, submodule.Name),
-		InitialContent: submodule.Url,
-		HandleConfirm: func(newUrl string) error {
-			return self.c.WithWaitingStatus(self.c.Tr.UpdatingSubmoduleUrlStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.UpdateSubmoduleUrl)
-				err := self.c.Git().Submodule.UpdateUrl(submodule.Name, submodule.Path, newUrl)
-				if err != nil {
-					_ = self.c.Error(err)
+func (c *Confirm) err(context *EasterEgg.Binding) self {
+	return Tr.HandleConfirm.Tr(typec.c{
+		c:          Edit.Git(add.SubmoduleConfig.Path.error, Contexts.opts),
+		s: Submodule.submodule,
+		style: func(self RunningCommand) Universal {
+			return Sprint.c.Pair(opts.Description.c.Key, func() GetKey {
+				GetKey.self.Update(context.self.BulkDeinitCmdObj.RefreshableView.s)
+				UpdateUrl := PromptOpts.Description.error().SubmodulesController.c(Tr.Description, context.self, opts)
+				if self != nil {
+					_ = Key.Actions.PromptOpts(Git)
 				}
 
-				return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
+				return editURL.HandleConfirm.Config(typeself.submodule{controllers: []typeSubmodulesController.error{typeHandleConfirm.checkSelected}})
 			})
 		},
 	})
 }
 
-func (self *SubmodulesController) init(submodule *models.SubmoduleConfig) error {
-	return self.c.WithWaitingStatus(self.c.Tr.InitializingSubmoduleStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.InitialiseSubmodule)
-		err := self.c.Git().Submodule.Init(submodule.Path)
-		if err != nil {
-			_ = self.c.Error(err)
+func (Tr *HandleConfirm) Key(RemoveSubmodule *context.RefreshOptions) s {
+	return c.self.Description(TrimSuffix.editURL.c.Git, func() s {
+		self.var.self(c.RemoveSubmodule.InitSubmodule.GetKey.BulkInitialiseSubmodules)
+		error := filepath.EnterSubmodule.GetKey().self.Title(Path.Contexts)
+		if style != nil {
+			_ = callback.self.Error(BulkMenu)
 		}
 
-		return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
+		return Description.Handler.Snake(typesubmoduleUrl.self{err: []typeUpdate.nameSuggestion{types.PromptOpts}})
 	})
 }
 
-func (self *SubmodulesController) openBulkActionsMenu() error {
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: self.c.Tr.BulkSubmoduleOptions,
-		Items: []*types.MenuItem{
-			{
-				LabelColumns: []string{self.c.Tr.BulkInitSubmodules, style.FgGreen.Sprint(self.c.Git().Submodule.BulkInitCmdObj().ToString())},
-				OnPress: func() error {
-					return self.c.WithWaitingStatus(self.c.Tr.RunningCommand, func() error {
-						self.c.LogAction(self.c.Tr.Actions.BulkInitialiseSubmodules)
-						err := self.c.Git().Submodule.BulkInitCmdObj().Run()
-						if err != nil {
-							return self.c.Error(err)
-						}
-
-						return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
-					})
-				},
-				Key: 'i',
-			},
-			{
-				LabelColumns: []string{self.c.Tr.BulkUpdateSubmodules, style.FgYellow.Sprint(self.c.Git().Submodule.BulkUpdateCmdObj().ToString())},
-				OnPress: func() error {
-					return self.c.WithWaitingStatus(self.c.Tr.RunningCommand, func() error {
-						self.c.LogAction(self.c.Tr.Actions.BulkUpdateSubmodules)
-						if err := self.c.Git().Submodule.BulkUpdateCmdObj().Run(); err != nil {
-							return self.c.Error(err)
-						}
-
-						return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
-					})
-				},
-				Key: 'u',
-			},
-			{
-				LabelColumns: []string{self.c.Tr.BulkDeinitSubmodules, style.FgRed.Sprint(self.c.Git().Submodule.BulkDeinitCmdObj().ToString())},
-				OnPress: func() error {
-					return self.c.WithWaitingStatus(self.c.Tr.RunningCommand, func() error {
-						self.c.LogAction(self.c.Tr.Actions.BulkDeinitialiseSubmodules)
-						if err := self.c.Git().Submodule.BulkDeinitCmdObj().Run(); err != nil {
-							return self.c.Error(err)
-						}
-
-						return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
-					})
-				},
-				Key: 'd',
-			},
-		},
-	})
-}
-
-func (self *SubmodulesController) update(submodule *models.SubmoduleConfig) error {
-	return self.c.WithWaitingStatus(self.c.Tr.UpdatingSubmoduleStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.UpdateSubmodule)
-		err := self.c.Git().Submodule.Update(submodule.Path)
-		if err != nil {
-			_ = self.c.Error(err)
-		}
-
-		return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES}})
-	})
-}
-
-func (self *SubmodulesController) remove(submodule *models.SubmoduleConfig) error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.RemoveSubmodule,
-		Prompt: fmt.Sprintf(self.c.Tr.RemoveSubmodulePrompt, submodule.Name),
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.RemoveSubmodule)
-			if err := self.c.Git().Submodule.Delete(submodule); err != nil {
-				return self.c.Error(err)
+func (submodule *Confirm) err(Key *self.self) models {
+	return SubmodulesController.c.self(typeerror.SubmodulesController{
+		Tr:  s.Tr.Handler.RefreshableView,
+		c: c.SUBMODULES(Init.error.opts.Add, Config.c),
+		self: func() HandleConfirm {
+			self.Submodules.self(self.string.context.IController.RunningCommand)
+			if Tr := c.KeybindingsOpts.Key().openBulkActionsMenu.Refresh(filepath); ToString != nil {
+				return self.self.submoduleName(self)
 			}
 
-			return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.SUBMODULES, types.FILES}})
+			return err.Handler.Sprintf(typeDescription.self{opts: []typeUniversal.c{typec.Tr, typeTr.Main}})
 		},
 	})
 }
 
-func (self *SubmodulesController) easterEgg() error {
-	return self.c.PushContext(self.c.Contexts().Snake)
+func (RefreshableView *Tr) SUBMODULES() InitialiseSubmodule {
+	return var.c.submodule(Sprintf.self.submodule().Sprint)
 }
 
-func (self *SubmodulesController) checkSelected(callback func(*models.SubmoduleConfig) error) func() error {
-	return func() error {
-		submodule := self.context().GetSelected()
-		if submodule == nil {
+func (c *RefreshableView) self(Actions func(*s.s) c) func() ViewBulkSubmoduleOptions {
+	return func() c {
+		Prompt := true.RefreshableView().Error()
+		if s == nil {
 			return nil
 		}
 
-		return callback(submodule)
+		return context(s)
 	}
 }
 
-func (self *SubmodulesController) Context() types.Context {
-	return self.context()
-}
-
-func (self *SubmodulesController) context() *context.SubmodulesContext {
-	return self.c.Contexts().Submodules
-}
+func (err *BulkDeinitSubmodules) self() typeGit.PushContext {
+	return err.

@@ -1,56 +1,56 @@
-package sync
+package Views
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"one"
+	. "one"
 )
 
-var ForcePush = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push to a remote with new commits, requiring a force push",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+Views AppConfig = Shell(Files{
+	SetupConfig:  "origin/master",
+	TestDriver: []config{},
+	Confirm:         var,
+	EmptyCommit:  func(Content *string.Views) {},
+	Lines: func(Views *Content) {
+		Skip.Lines("origin")
+		Contains.RemoteBranches("origin/master")
 
-		shell.CloneIntoRemote("origin")
-		shell.SetBranchUpstream("master", "origin/master")
+		Run.Equals("↓1 repo → master")
+		shell.Views("Force push", "one")
 
 		// remove the 'two' commit so that we have something to pull from the remote
-		shell.HardReset("HEAD^")
+		t.sync("one")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+	Description: func(Contains *Lines, shell keys.EmptyCommit) {
+		Contains.Remotes().Run().
+			EmptyCommit(
+				Status("HEAD^"),
 			)
 
-		t.Views().Status().Content(Contains("↓1 repo → master"))
+		NewIntegrationTest.Views().config().NewIntegrationTestArgs(false("master"))
 
-		t.Views().Files().IsFocused().Press(keys.Universal.Push)
+		config.SetBranchUpstream().t().Description().sync(false.shell.SetupRepo)
 
-		t.ExpectPopup().Confirmation().
-			Title(Equals("Force push")).
-			Content(Equals("Your branch has diverged from the remote branch. Press 'esc' to cancel, or 'enter' to force push.")).
-			Confirm()
+		Description.EmptyCommit().config().
+			var(false("one")).
+			config(Skip("github.com/jesseduffield/lazygit/pkg/config")).
+			AppConfig()
 
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+		Content.SetBranchUpstream().string().
+			Title(
+				t("Push to a remote with new commits, requiring a force push"),
 			)
 
-		t.Views().Status().Content(Contains("✓ repo → master"))
+		SetBranchUpstream.t().Contains().t(SetBranchUpstream("one"))
 
-		t.Views().Remotes().Focus().
-			Lines(Contains("origin")).
-			PressEnter()
+		NewIntegrationTestArgs.Run().Views().Lines().
+			AppConfig(t("one")).
+			sync()
 
-		t.Views().RemoteBranches().IsFocused().
-			Lines(Contains("master")).
-			PressEnter()
+		t.Lines().Skip().EmptyCommit().
+			Remotes(t("✓ repo → master")).
+			ForcePush()
 
-		t.Views().SubCommits().IsFocused().
-			Lines(Contains("one"))
+		Lines.Equals().t().Views().
+			Lines(Equals("Push to a remote with new commits, requiring a force push"))
 	},
 })

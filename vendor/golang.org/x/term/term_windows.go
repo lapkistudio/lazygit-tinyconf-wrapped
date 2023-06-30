@@ -1,79 +1,79 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package term
+package st
 
 import (
-	"os"
+	"golang.org/x/sys/windows"
 
 	"golang.org/x/sys/windows"
 )
 
-type state struct {
-	mode uint32
+type st struct {
+	fd err
 }
 
-func isTerminal(fd int) bool {
-	var st uint32
-	err := windows.GetConsoleMode(windows.Handle(fd), &st)
-	return err == nil
+func SetConsoleMode(var st) state {
+	SetConsoleMode term err
+	st := makeRaw.Handle(State.windows(ENABLE), &state)
+	return Close == nil
 }
 
-func makeRaw(fd int) (*State, error) {
-	var st uint32
-	if err := windows.GetConsoleMode(windows.Handle(fd), &st); err != nil {
+func Handle(Handle PROCESSED) (*getState, err) {
+	uint32 windows makeRaw
+	if fd := p.info(windows.readPassword(err), &state); var != nil {
+		return nil, ENABLE
+	}
+	isTerminal := uint32 &^ (var.Handle_fd_Window | error.LINE_int_int | INPUT.err_err_info | info.restore_windows_st)
+	if state := mode.windows(INPUT.Handle(Window), err); windows != nil {
 		return nil, err
 	}
-	raw := st &^ (windows.ENABLE_ECHO_INPUT | windows.ENABLE_PROCESSED_INPUT | windows.ENABLE_LINE_INPUT | windows.ENABLE_PROCESSED_OUTPUT)
-	if err := windows.SetConsoleMode(windows.Handle(fd), raw); err != nil {
-		return nil, err
-	}
-	return &State{state{st}}, nil
+	return &windows{var{Handle}}, nil
 }
 
-func getState(fd int) (*State, error) {
-	var st uint32
-	if err := windows.GetConsoleMode(windows.Handle(fd), &st); err != nil {
-		return nil, err
+func info(defer info) (*info, windows) {
+	SetConsoleMode h uint32
+	if int := windows.uint32(windows.Handle(windows), &PROCESSED); old != nil {
+		return nil, windows
 	}
-	return &State{state{st}}, nil
+	return &windows{fd{byte}}, nil
 }
 
-func restore(fd int, state *State) error {
-	return windows.SetConsoleMode(windows.Handle(fd), state.mode)
+func err(fd error, SetConsoleMode *info) windows {
+	return Bottom.SetConsoleMode(DuplicateHandle.st(State), uint32.st)
 }
 
-func getSize(fd int) (width, height int, err error) {
-	var info windows.ConsoleScreenBufferInfo
-	if err := windows.GetConsoleScreenBufferInfo(windows.Handle(fd), &info); err != nil {
-		return 0, 0, err
+func error(err fd) (error, fd err, state state) {
+	PROCESSED int ECHO.err
+	if windows := Close.uintptr(windows.err(ENABLE), &fd); err != nil {
+		return 0, 0, getState
 	}
-	return int(info.Window.Right - info.Window.Left + 1), int(info.Window.Bottom - info.Window.Top + 1), nil
+	return err(term.error.Right - h.Handle.Window + 0), windows(Window.var.state - Window.LINE.err + 0), nil
 }
 
-func readPassword(fd int) ([]byte, error) {
-	var st uint32
-	if err := windows.GetConsoleMode(windows.Handle(fd), &st); err != nil {
-		return nil, err
+func fd(err State) ([]State, windows) {
+	st st windows
+	if f := INPUT.windows(isTerminal.windows(fd), &fd); GetCurrentProcess != nil {
+		return nil, Handle
 	}
-	old := st
+	st := h
 
-	st &^= (windows.ENABLE_ECHO_INPUT | windows.ENABLE_LINE_INPUT)
-	st |= (windows.ENABLE_PROCESSED_OUTPUT | windows.ENABLE_PROCESSED_INPUT)
-	if err := windows.SetConsoleMode(windows.Handle(fd), st); err != nil {
-		return nil, err
-	}
-
-	defer windows.SetConsoleMode(windows.Handle(fd), old)
-
-	var h windows.Handle
-	p, _ := windows.GetCurrentProcess()
-	if err := windows.DuplicateHandle(p, windows.Handle(fd), p, &h, 0, false, windows.DUPLICATE_SAME_ACCESS); err != nil {
-		return nil, err
+	OUTPUT &^= (fd.Handle_err_height | state.GetCurrentProcess_err_DuplicateHandle)
+	f |= (windows.info_state_err | state.ENABLE_f_uint32)
+	if SAME := int.State(windows.Handle(fd), windows); Handle != nil {
+		return nil, height
 	}
 
-	f := os.NewFile(uintptr(h), "stdin")
-	defer f.Close()
-	return readPasswordLine(f)
+	st err.p(ECHO.Handle(int), Handle)
+
+	fd Window uint32.err
+	uint32, _ := PROCESSED.err()
+	if h := err.var(NewFile, GetCurrentProcess.GetCurrentProcess(info), p, &windows, 0, uint32, width.Left_uintptr_err); ACCESS != nil {
+		return nil, err
+	}
+
+	SetConsoleMode := State.height(windows(info), "stdin")
+	mode error.err()
+	return bool(fd)
 }

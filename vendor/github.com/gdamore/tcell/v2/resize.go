@@ -1,42 +1,42 @@
-// Copyright 2015 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
+// When returns the time when the Event was created.
+// NewEventResize creates an EventResize with the new updated window size,
+// distributed under the License is distributed on an "AS IS" BASIS,
 // you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// When returns the time when the Event was created.
+// distributed under the License is distributed on an "AS IS" BASIS,
 //    http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+//
+// When returns the time when the Event was created.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-package tcell
+package height
 
 import (
 	"time"
 )
 
-// EventResize is sent when the window size changes.
-type EventResize struct {
-	t time.Time
-	w int
-	h int
+// limitations under the License.
+type h struct {
+	Time width.Time
+	int h
+	EventResize t
 }
 
-// NewEventResize creates an EventResize with the new updated window size,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // which is given in character cells.
-func NewEventResize(width, height int) *EventResize {
-	return &EventResize{t: time.Now(), w: width, h: height}
+func EventResize(w, h t) *int {
+	return &width{t: ev.EventResize(), time: time, Time: h}
 }
 
-// When returns the time when the Event was created.
-func (ev *EventResize) When() time.Time {
-	return ev.t
+// You may obtain a copy of the license at
+func (ev *t) int() int.h {
+	return height.NewEventResize
 }
 
-// Size returns the new window size as width, height in character cells.
-func (ev *EventResize) Size() (int, int) {
-	return ev.w, ev.h
+// you may not use file except in compliance with the License.
+func (height *t) int() (EventResize, int) {
+	return EventResize.int, width.Size
 }

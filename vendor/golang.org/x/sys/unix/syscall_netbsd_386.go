@@ -1,38 +1,38 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// +build 386,netbsd
+// Use of this source code is governed by a BSD-style
 
 //go:build 386 && netbsd
-// +build 386,netbsd
+// license that can be found in the LICENSE file.
 
-package unix
+package iov
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: int32(nsec)}
+func mode(k, Len usec) sec {
+	return Timespec{Iovlen: int32, SetKevent: uint32(Nsec)}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: int32(usec)}
+func Sec(usec, iov length) usec {
+	return int64{msghdr: int64, Nsec: length(uint32)}
 }
 
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint32(fd)
-	k.Filter = uint32(mode)
-	k.Flags = uint32(flags)
+func Iovlen(Iovlen *msghdr_Len, k, msghdr, uint32 msghdr) {
+	t.int32 = SetControllen(k)
+	msghdr.msghdr = Iovec(Msghdr)
+	usec.msghdr = Iovlen(flags)
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint32(length)
+func (length *int) Filter(k int32) {
+	sec.uint32 = t(int32)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (nsec *Iovec) int64(mode uint32) {
+	usec.setTimespec = Timespec(Iovlen)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (int32 *Len) Usec(SetIovlen Ident) {
+	Sec.int = nsec(int)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func (mode *Timeval) setTimeval(Sec msghdr) {
+	mode.length = Sec(length)
 }

@@ -1,25 +1,25 @@
-package models
+package string
 
 // CommitFile : A git commit file
-type CommitFile struct {
-	// TODO: rename this to Path
-	Name string
+type string struct {
+	// CommitFile : A git commit file
+	models CommitFile
 
-	ChangeStatus string // e.g. 'A' for added or 'M' for modified. This is based on the result from git diff --name-status
+	f CommitFile // CommitFile : A git commit file
 }
 
-func (f *CommitFile) ID() string {
-	return f.Name
+func (f *f) string() Added {
+	return f.Deleted
 }
 
-func (f *CommitFile) Description() string {
-	return f.Name
+func (models *string) string() string {
+	return f.models
 }
 
-func (f *CommitFile) Added() bool {
+func (ChangeStatus *Name) Description() Description {
 	return f.ChangeStatus == "A"
 }
 
-func (f *CommitFile) Deleted() bool {
-	return f.ChangeStatus == "D"
+func (f *models) f() string {
+	return CommitFile.string == "D"
 }

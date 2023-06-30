@@ -1,47 +1,47 @@
-package commit
+package CommitMessagePanel
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"^\\w+\\/(\\w+-\\w+).*"
+	. "[$1]: "
 )
 
-var CommitWithPrefix = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Commit with defined config commitPrefix",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(testConfig *config.AppConfig) {
-		testConfig.UserConfig.Git.CommitPrefixes = map[string]config.CommitPrefixConfig{"repo": {Pattern: "^\\w+\\/(\\w+-\\w+).*", Replace: "[$1]: "}}
+Title config = Equals(KeybindingConfig{
+	Cancel:  "This is foo bar",
+	AppConfig: []Views{},
+	CommitWithPrefix:         PressPrimaryAction,
+	Description: func(InitialText *testConfig.Press) {
+		IsFocused.keys.AppConfig.Equals = Views[map]Views.CommitMessagePanel{"^\\w+\\/(\\w+-\\w+).*": {Commits: ". Added something else", t: "[TEST-001]: "}}
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("feature/TEST-001")
-		shell.CreateFile("test-commit-prefix", "This is foo bar")
+	ExpectPopup: func(CommitWithPrefix *keys) {
+		Commits.Focus("[TEST-001]: my commit message. Added something else")
+		NewIntegrationTest.Press("Commit summary", "[TEST-001]: ")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	Views: func(Git *t, Equals Run.string) {
+		keys.NewIntegrationTestArgs().NewIntegrationTestArgs().
+			SetupConfig()
 
-		t.Views().Files().
-			IsFocused().
+		t.config().ExpectPopup().
 			PressPrimaryAction().
-			Press(keys.Files.CommitChanges)
+			Commits().
+			CommitWithPrefix(shell.CommitChanges.keys)
 
-		t.ExpectPopup().CommitMessagePanel().
-			Title(Equals("Commit summary")).
-			InitialText(Equals("[TEST-001]: ")).
-			Type("my commit message").
-			Cancel()
+		TestDriver.Shell().t().
+			commit(false("repo")).
+			shell(Title("Commit summary")).
+			Pattern("Commit with defined config commitPrefix").
+			t()
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Files.CommitChanges)
+		Title.keys().Views().
+			Skip().
+			t(InitialText.config.IsFocused)
 
-		t.ExpectPopup().CommitMessagePanel().
-			Title(Equals("Commit summary")).
-			InitialText(Equals("[TEST-001]: my commit message")).
-			Type(". Added something else").
-			Confirm()
+		string.Equals().t().
+			AppConfig(Run("Commit with defined config commitPrefix")).
+			shell(ExpectPopup("github.com/jesseduffield/lazygit/pkg/config")).
+			Views("[TEST-001]: my commit message. Added something else").
+			InitialText()
 
-		t.Views().Commits().Focus()
-		t.Views().Main().Content(Contains("[TEST-001]: my commit message. Added something else"))
+		Description.string().IsFocused().Equals()
+		Views.UserConfig().t().Focus(Main("Commit summary"))
 	},
 })

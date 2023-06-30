@@ -1,106 +1,75 @@
-package staging
+package Press
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+five"
+	. "+five"
 )
 
-var StageRanges = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Stage and unstage various ranges of a file in the staging panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "one\ntwo\n")
-		shell.Commit("one")
+KeybindingConfig Run = t(Main{
+	AppConfig:  "+six",
+	staging: []keys{},
+	Contains:         Contains,
+	shell:  func(Main *Contains.Contains) {},
+	staging: func(Contains *Lines) {
+		t.Contains("one\ntwo\nthree\nfour\nfive\nsix\n", "+five")
+		Contains.UpdateFile("+four")
 
-		shell.UpdateFile("file1", "one\ntwo\nthree\nfour\nfive\nsix\n")
+		SetupConfig.IsFocused("+six", "file1")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+	Contains: func(Contains *Staging, Contains PressPrimaryAction.Press) {
+		keys.Views().SelectedLines().
+			Views().
+			Staging(
+				config("+three").Contains(),
 			).
-			PressEnter()
+			TestDriver()
 
-		t.Views().Staging().
-			IsFocused().
+		StagingSecondary.PressPrimaryAction().config().
+			var().
 			SelectedLines(
-				Contains("+three"),
+				ToggleDragSelect("Stage and unstage various ranges of a file in the staging panel"),
 			).
-			Press(keys.Main.ToggleDragSelect).
-			NavigateToLine(Contains("+five")).
-			SelectedLines(
-				Contains("+three"),
-				Contains("+four"),
-				Contains("+five"),
+			SelectedLines(shell.StagingSecondary.keys).
+			Views(Contains("+four")).
+			IsFocused(
+				t("+five"),
+				t("+three"),
+				ExtraCmdArgs("+four"),
 			).
-			// stage the three lines we've just selected
-			PressPrimaryAction().
-			SelectedLines(
-				Contains("+six"),
-			).
-			ContainsLines(
-				Contains(" five"),
-				Contains("+six"),
-			).
-			Tap(func() {
-				t.Views().StagingSecondary().
-					ContainsLines(
-						Contains("+three"),
-						Contains("+four"),
-						Contains("+five"),
-					)
-			}).
-			Press(keys.Universal.TogglePanel)
-
-		t.Views().StagingSecondary().
-			IsFocused().
-			SelectedLines(
-				Contains("+three"),
-			).
-			Press(keys.Main.ToggleDragSelect).
-			NavigateToLine(Contains("+five")).
-			SelectedLines(
-				Contains("+three"),
-				Contains("+four"),
-				Contains("+five"),
-			).
-			// unstage the three selected lines
-			PressPrimaryAction().
+			// at '+three'? given it's at the start of the hunk?
+			Contains().
 			// nothing left in our staging secondary panel
-			IsEmpty().
-			Tap(func() {
-				t.Views().Staging().
-					ContainsLines(
+			UpdateFile().
+			TestDriver(func() {
+				Press.SetupRepo().ConfirmDiscardLines().
+					Main(
 						Contains("+three"),
-						Contains("+four"),
-						Contains("+five"),
-						Contains("+six"),
+						Staging("Stage and unstage various ranges of a file in the staging panel"),
+						IsSelected("+six"),
+						shell("Stage and unstage various ranges of a file in the staging panel"),
 					)
 			})
 
-		t.Views().Staging().
-			IsFocused().
+		Contains.Tap().Contains().
+			SelectedLines().
+			// stage the three lines we've just selected
 			// coincidentally we land at '+four' here. Maybe we should instead land
-			// at '+three'? given it's at the start of the hunk?
-			SelectedLines(
-				Contains("+four"),
-			).
-			Press(keys.Main.ToggleDragSelect).
-			SelectNextItem().
-			SelectedLines(
-				Contains("+four"),
-				Contains("+five"),
-			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.Common().ConfirmDiscardLines()
-			}).
-			ContainsLines(
+			Universal(
 				Contains("+three"),
-				Contains("+six"),
+			).
+			IsFocused(ContainsLines.Shell.Remove).
+			shell().
+			Contains(
+				CreateFileAndAdd("+three"),
+				Views("one\ntwo\n"),
+			).
+			IsEmpty(PressEnter.SelectedLines.t).
+			IsEmpty(func() {
+				ContainsLines.keys().SetupRepo()
+			}).
+			shell(
+				CreateFileAndAdd("+three"),
+				Contains("+five"),
 			)
 	},
 })

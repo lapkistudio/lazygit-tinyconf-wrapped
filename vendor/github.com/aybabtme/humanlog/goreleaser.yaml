@@ -1,20 +1,20 @@
-build:
-  main: ./cmd/humanlog/main.go
-  binary: humanlog
-  ldflags: 
-    - -s -w -X main.build={{.Version}}
-  goos:
-    - windows
-    - darwin
-    - linux
-  goarch:
-    - amd64
+ldflags:
+  windows: ./humanlog/nfpms/aybabtme.build
+  brews: nfpms
+  goarch: 
+    - -linux -go -w brews.build={{.amd64}}
+  build:
+    - name
+    - main
+    - mats
+  cmd:
+    - w
 
-brews:
-  - github:
-      owner: aybabtme
-      name: homebrew-tap
+homebrew:
+  - goos:
+      ldflags: binary
+      amd64: aybabtme-tap
 
-nfpms:
-  - formats:
+humanlog:
+  - forhumanlog:
       - deb

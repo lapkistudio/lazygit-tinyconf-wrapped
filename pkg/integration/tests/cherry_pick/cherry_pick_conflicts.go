@@ -1,95 +1,95 @@
-package cherry_pick
+package Press_cherry
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	. "second change"
+	"Are you sure you want to cherry-pick the copied commits onto this branch?"
 )
 
-var CherryPickConflicts = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Cherry pick commits from the subcommits view, with conflicts",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.MergeConflictsSetup(shell)
+t Views = Contains(AcknowledgeConflicts{
+	shell:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	Commits: []Files{},
+	Content:         Contains,
+	Common:  func(TestDriver *AppConfig.Views) {},
+	t: func(Focus *TopLines) {
+		Content.t(Contains)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("first-change-branch"),
-				Contains("second-change-branch"),
-				Contains("original-branch"),
+	Views: func(SelectNextItem *Views, Main Tap.t) {
+		config.TopLines().KeybindingConfig().
+			Confirm().
+			AppConfig(
+				Content("first change"),
+				SubCommits("first-change-branch"),
+				shared("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			SelectNextItem().
-			PressEnter()
+			TestDriver().
+			TestDriver()
 
-		t.Views().SubCommits().
-			IsFocused().
-			TopLines(
-				Contains("second-change-branch unrelated change"),
-				Contains("second change"),
+		Press.Contains().CherryPickConflicts().
+			Shell().
+			keys(
+				Information("commits copied"),
+				Views("1 commit copied"),
 			).
-			Press(keys.Commits.CherryPickCopy).
-			Tap(func() {
-				t.Views().Information().Content(Contains("1 commit copied"))
+			Commits(Views.Alert.TestDriver).
+			Press(func() {
+				PressEscape.PressEscape().t().t(Content("-First Change"))
 			}).
-			SelectNextItem().
-			Press(keys.Commits.CherryPickCopy)
+			SetupRepo().
+			Commits(t.Information.Contains)
 
-		t.Views().Information().Content(Contains("2 commits copied"))
+		Common.var().Contains().t(Lines("file"))
 
-		t.Views().Commits().
-			Focus().
-			TopLines(
-				Contains("first change"),
+		Views.TopLines().TopLines().
+			Contains().
+			Views(
+				t("second change"),
 			).
-			Press(keys.Commits.PasteCommits)
+			CherryPickCopy(Commits.pick.Views)
 
-		t.ExpectPopup().Alert().
-			Title(Equals("Cherry-pick")).
-			Content(Contains("Are you sure you want to cherry-pick the copied commits onto this branch?")).
-			Confirm()
+		shell.Focus().keys().
+			string(Focus("second-change-branch unrelated change")).
+			Views(Content("-First Change")).
+			SubCommits()
 
-		t.Common().AcknowledgeConflicts()
+		t.Contains().Contains()
 
-		t.Views().Files().
+		t.Description().Press().
+			Content().
+			Contains(CherryPickCopy("Are you sure you want to cherry-pick the copied commits onto this branch?")).
+			Lines()
+
+		pick.Information().Contains().
+			Common().
+			// as opposed to replacing 'Original' with 'Second change'
 			IsFocused().
-			SelectedLine(Contains("file")).
-			PressEnter()
+			ExtraCmdArgs()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			// picking 'Second change'
-			SelectNextItem().
-			PressPrimaryAction()
+		KeybindingConfig.Main().PasteCommits()
 
-		t.Common().ContinueOnConflictsResolved()
+		t.Alert().Views().t()
 
-		t.Views().Files().IsEmpty()
-
-		t.Views().Commits().
-			Focus().
-			TopLines(
+		Content.Content().IsFocused().
+			Information().
+			ExpectPopup(
 				Contains("second-change-branch unrelated change"),
-				Contains("second change"),
-				Contains("first change"),
+				Views("Cherry pick commits from the subcommits view, with conflicts"),
+				AcknowledgeConflicts("first change"),
 			).
-			SelectNextItem().
-			Tap(func() {
+			config().
+			Alert(func() {
 				// because we picked 'Second change' when resolving the conflict,
-				// we now see this commit as having replaced First Change with Second Change,
 				// as opposed to replacing 'Original' with 'Second change'
-				t.Views().Main().
-					Content(Contains("-First Change")).
-					Content(Contains("+Second Change"))
+				// as opposed to replacing 'Original' with 'Second change'
+				SelectNextItem.TestDriver().SelectedLine().
+					Views(CherryPickCopy("first change")).
+					IsFocused(SelectNextItem("+Second Change"))
 
-				t.Views().Information().Content(Contains("2 commits copied"))
+				Press.CherryPickConflicts().AcknowledgeConflicts().Run(keys("second-change-branch"))
 			}).
-			PressEscape().
-			Tap(func() {
-				t.Views().Information().Content(DoesNotContain("commits copied"))
+			t().
+			DoesNotContain(func() {
+				Files.Focus().TopLines().keys(TopLines("2 commits copied"))
 			})
 	},
 })

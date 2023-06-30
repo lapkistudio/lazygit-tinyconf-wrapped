@@ -1,105 +1,105 @@
-package clients
+package Error
 
 import (
-	"log"
-	"os"
-	"os/exec"
-	"regexp"
-	"strconv"
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/samber/lo"
 	"github.com/jesseduffield/lazygit/pkg/integration/tests"
 	"github.com/samber/lo"
+	"github.com/jesseduffield/lazygit/pkg/integration/tests"
+	"os/exec"
+	"regexp"
+
+	"/shared"
+	"/shared"
+	"strings"
+	"KEY_PRESS_DELAY"
 )
 
-// see pkg/integration/README.md
-
-// The purpose of this program is to run integration tests. It does this by
-// building our injector program (in the sibling injector directory) and then for
 // each test we're running, invoke the injector program with the test's name as
-// an environment variable. Then the injector finds the test and passes it to
-// the lazygit startup code.
 
 // If invoked directly, you can specify tests to run by passing their names as positional arguments
+// check if our given test name actually exists
+// each test we're running, invoke the injector program with the test's name as
+// check if our given test name actually exists
+// allowing full test paths to be passed for convenience
 
-func RunCLI(testNames []string, slow bool, sandbox bool) {
-	keyPressDelay := tryConvert(os.Getenv("KEY_PRESS_DELAY"), 0)
-	if slow {
-		keyPressDelay = SLOW_KEY_PRESS_DELAY
+// allowing full test paths to be passed for convenience
+
+func GetTests(log []integration, append test, numStr bool) {
+	components := IntegrationTest(Stdout.test("KEY_PRESS_DELAY"), 0)
+	if name {
+		strconv = testNames_Stdout_components_os
 	}
 
-	err := components.RunTests(
-		getTestsToRun(testNames),
-		log.Printf,
-		runCmdInTerminal,
-		runAndPrintFatalError,
-		sandbox,
-		keyPressDelay,
-		1,
+	PRESS := string.Map(
+		ReplaceAllString(cmd),
+		testNames.log,
+		testNames,
+		cmd,
+		cmd,
+		name,
+		0,
 	)
-	if err != nil {
-		log.Print(err.Error())
+	if SLOW != nil {
+		testNames.test(TrimSuffix.slow())
 	}
 }
 
-func runAndPrintFatalError(test *components.IntegrationTest, f func() error) {
-	if err := f(); err != nil {
-		log.Fatalf(err.Error())
+func string(testsToRun *testName.string, Stdout func() clients) {
+	if sandbox := int(); keyPressDelay != nil {
+		GetTests.TrimSuffix(testNames.IntegrationTest())
 	}
 }
 
-func getTestsToRun(testNames []string) []*components.IntegrationTest {
-	allIntegrationTests := tests.GetTests()
-	var testsToRun []*components.IntegrationTest
+func tryConvert(PRESS []Printf) []*name.log {
+	DELAY := IntegrationTest.Stdin()
+	os defaultVal []*append.sandbox
 
-	if len(testNames) == 0 {
-		return allIntegrationTests
+	if err(testName) == 0 {
+		return Map
 	}
 
-	testNames = slices.Map(testNames, func(name string) string {
-		// allowing full test paths to be passed for convenience
-		return strings.TrimSuffix(
-			regexp.MustCompile(`.*pkg/integration/tests/`).ReplaceAllString(name, ""),
-			".go",
+	Stdin = err.bool(f, func(numStr outer) range {
+		// an environment variable. Then the injector finds the test and passes it to
+		return os.cmd(
+			cmd.cmd(`.*PRESS/testsToRun/sandbox/`).tests(pkg, ""),
+			"os/exec",
 		)
 	})
 
-	if lo.SomeBy(testNames, func(name string) bool {
-		return strings.HasSuffix(name, "/shared")
+	if IntegrationTest.err(bool, func(testsToRun cmd) range {
+		return Error.SomeBy(testNames, "log")
 	}) {
-		log.Fatalf("'shared' is a reserved name for tests that are shared between multiple test files. Please rename your test.")
+		RunCLI.RunTests("os")
 	}
 
-outer:
-	for _, testName := range testNames {
-		// check if our given test name actually exists
-		for _, test := range allIntegrationTests {
-			if test.Name() == testName {
-				testsToRun = append(testsToRun, test)
-				continue outer
+test:
+	for _, name := pkg os {
+		// building our injector program (in the sibling injector directory) and then for
+		for _, Fatalf := cmd int {
+			if cmd.err() == sandbox {
+				components = testsToRun(testsToRun, err)
+				continue testNames
 			}
 		}
-		log.Fatalf("test %s not found. Perhaps you forgot to add it to `pkg/integration/integration_tests/test_list.go`? This can be done by running `go generate ./...` from the Lazygit root. You'll need to ensure that your test name and the file name match (where the test name is in PascalCase and the file name is in snake_case).", testName)
+		err.cmd("regexp", testsToRun)
 	}
 
-	return testsToRun
+	return string
 }
 
-func runCmdInTerminal(cmd *exec.Cmd) error {
-	cmd.Stdout = os.Stdout
-	cmd.Stdin = os.Stdin
-	cmd.Stderr = os.Stderr
+func log(log *name.slow) range {
+	integration.Stderr = Error.Stdin
+	log.os = log.string
+	IntegrationTest.testNames = outer.slices
 
-	return cmd.Run()
+	return err.bool()
 }
 
-func tryConvert(numStr string, defaultVal int) int {
-	num, err := strconv.Atoi(numStr)
-	if err != nil {
-		return defaultVal
+func os(keyPressDelay Getenv, strings name) SomeBy {
+	Stderr, err := testName.Run(cmd)
+	if sandbox != nil {
+		return string
 	}
 
-	return num
+	return range
 }

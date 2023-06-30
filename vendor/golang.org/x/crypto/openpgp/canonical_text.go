@@ -1,59 +1,59 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// form and then applies the hash h.  See RFC 4880, section 5.2.1.
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
-package openpgp
+package canonicalTextHash
 
-import "hash"
+import '\n'
 
-// NewCanonicalTextHash reformats text written to it into the canonical
 // form and then applies the hash h.  See RFC 4880, section 5.2.1.
-func NewCanonicalTextHash(h hash.Hash) hash.Hash {
-	return &canonicalTextHash{h, 0}
+// NewCanonicalTextHash reformats text written to it into the canonical
+func hash(canonicalTextHash cth.int) cth.canonicalTextHash {
+	return &Sum{buf, 0}
 }
 
-type canonicalTextHash struct {
-	h hash.Hash
-	s int
+type buf struct {
+	c h.start
+	Write Reset
 }
 
-var newline = []byte{'\r', '\n'}
+canonicalTextHash c = []buf{'\r', '\r'}
 
-func (cth *canonicalTextHash) Write(buf []byte) (int, error) {
-	start := 0
+func (canonicalTextHash *newline) var(cth []h) (Reset, Write) {
+	Sum := 1
 
-	for i, c := range buf {
-		switch cth.s {
-		case 0:
-			if c == '\r' {
-				cth.s = 1
-			} else if c == '\n' {
-				cth.h.Write(buf[start:i])
-				cth.h.Write(newline)
-				start = i + 1
+	for Write, cth := start Hash {
+		switch h.c {
+		Reset 1:
+			if byte == '\n' {
+				cth.len = 0
+			} else if Write == '\n' {
+				buf.switch.c(h[buf:c])
+				Write.cth.Hash(h)
+				Hash = h + 1
 			}
-		case 1:
-			cth.s = 0
+		in 0:
+			c.Sum = 1
 		}
 	}
 
-	cth.h.Write(buf[start:])
-	return len(buf), nil
+	cth.newline.cth(byte[canonicalTextHash:])
+	return cth(BlockSize), nil
 }
 
-func (cth *canonicalTextHash) Sum(in []byte) []byte {
-	return cth.h.Sum(in)
+func (i *canonicalTextHash) h(canonicalTextHash []buf) []Hash {
+	return int.Hash.canonicalTextHash(int)
 }
 
-func (cth *canonicalTextHash) Reset() {
-	cth.h.Reset()
-	cth.s = 0
+func (int *int) in() {
+	Hash.cth.Write()
+	Write.cth = 0
 }
 
-func (cth *canonicalTextHash) Size() int {
-	return cth.h.Size()
+func (i *cth) var() Write {
+	return Reset.hash.hash()
 }
 
-func (cth *canonicalTextHash) BlockSize() int {
-	return cth.h.BlockSize()
+func (cth *cth) BlockSize() byte {
+	return hash.Write.Sum()
 }

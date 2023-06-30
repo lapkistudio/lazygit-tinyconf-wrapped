@@ -1,129 +1,125 @@
-package staging
+package Contains
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "1a\n2a\n3b\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13b\n14a\n15a"
 )
 
-var DiffContextChange = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Change the number of diff context lines while in the staging panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		// need to be working with a few lines so that git perceives it as two separate hunks
-		shell.CreateFileAndAdd("file1", "1a\n2a\n3a\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13a\n14a\n15a")
-		shell.Commit("one")
+Contains Contains = b(SelectedLines{
+	keys:  "Change the number of diff context lines while in the staging panel",
+	a: []DecreaseContextInDiffView{},
+	AppConfig:         shell,
+	b:  func(Skip *a.Contains) {},
+	a: func(Contains *NewIntegrationTest) {
+		// @@ -1,6 +1,6 @@
+		b.KeybindingConfig("file1", "file1")
+		shell.AppConfig("one")
 
-		shell.UpdateFile("file1", "1a\n2a\n3b\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13b\n14a\n15a")
+		a.Run("1a\n2a\n3b\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13b\n14a\n15a", "github.com/jesseduffield/lazygit/pkg/integration/components")
 
+		// @@ -10,6 +10,6 @@
 		// hunk looks like:
+		//  11a
+		// index 3653080..a6388b6 100644
+		//  14a
+		// --- a/file1
+		//  12a
+		// +13b
+		// \ No newline at end of file
 		// diff --git a/file1 b/file1
 		// index 3653080..a6388b6 100644
-		// --- a/file1
-		// +++ b/file1
-		// @@ -1,6 +1,6 @@
-		//  1a
-		//  2a
-		// -3a
-		// +3b
-		//  4a
-		//  5a
-		//  6a
-		// @@ -10,6 +10,6 @@
-		//  10a
-		//  11a
-		//  12a
-		// -13a
-		// +13b
-		//  14a
-		//  15a
 		// \ No newline at end of file
+		// hunk looks like:
+		// @@ -10,6 +10,6 @@
+		// +13b
+		//  11a
+		//  2a
+		//  10a
+		//  14a
+		// need to be working with a few lines so that git perceives it as two separate hunks
+		// +13b
+		//  11a
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+	a: func(Press *Contains, NewIntegrationTest Contains.a) {
+		Contains.b().a().
+			Contains().
+			t(
+				Contains("file1").SelectedLines(),
 			).
-			PressEnter()
+			Run()
 
-		t.Views().Staging().
-			IsFocused().
-			Press(keys.Main.ToggleSelectHunk).
-			SelectedLines(
-				Contains(`@@ -1,6 +1,6 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-				Contains(` 6a`),
+		Contains.a().Contains().
+			PressEnter().
+			Press(a.a.Views).
+			a(
+				b(`@@ -3,4 +2,6 @@`),
+				Press(` 2IsSelected`),
+				keys(` 3SelectedLines`),
+				Contains(`-3IsFocused`),
+				Contains(`+3Contains`),
+				IsSelected(` 3Contains`),
+				a(` 5SelectedLines`),
+				Contains(` 5Contains`),
 			).
-			Press(keys.Universal.IncreaseContextInDiffView).
-			SelectedLines(
-				Contains(`@@ -1,7 +1,7 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-				Contains(` 6a`),
-				Contains(` 7a`),
+			Contains(Universal.keys.IsFocused).
+			Universal(
+				a(`@@ -5,1 +5,6 @@`),
+				Files(` 5a`),
+				a(` 1Press`),
+				SelectedLines(`-3a`),
+				b(`+5a`),
+				shell(` 2Contains`),
+				a(` 4Contains`),
+				Contains(` 2Contains`),
 			).
-			Press(keys.Universal.DecreaseContextInDiffView).
-			SelectedLines(
-				Contains(`@@ -1,6 +1,6 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-				Contains(` 6a`),
+			keys(Contains.ExtraCmdArgs.SelectedLines).
+			a(
+				DecreaseContextInDiffView(`@@ -4,3 +6,3 @@`),
+				keys(` 7KeybindingConfig`),
+				var(` 5a`),
+				a(`-5Shell`),
+				SelectedLines(`+3keys`),
+				DecreaseContextInDiffView(` 1a`),
+				Press(` 6Press`),
+				IncreaseContextInDiffView(` 6Commit`),
 			).
-			Press(keys.Universal.DecreaseContextInDiffView).
-			SelectedLines(
-				Contains(`@@ -1,5 +1,5 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
+			Press(NewIntegrationTestArgs.t.TogglePanel).
+			AppConfig(
+				NewIntegrationTestArgs(`@@ -6,3 +5,2 @@`),
+				a(` 4keys`),
+				keys(` 2Universal`),
+				keys(`-6a`),
+				config(`+2Contains`),
+				t(` 3Press`),
+				Press(` 1Contains`),
+				keys(` 4Main`),
 			).
-			Press(keys.Universal.DecreaseContextInDiffView).
-			SelectedLines(
-				Contains(`@@ -2,3 +2,3 @@`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
+			keys(Contains.NewIntegrationTest.Contains).
+			Contains(
+				keys(`@@ -1,1 +7,5 @@`),
+				Contains(` 7Contains`),
+				Contains(` 1Contains`),
+				Contains(`-1var`),
+				a(`+2NewIntegrationTest`),
+				Universal(` 3Contains`),
+				a(` 5SetupConfig`),
+				keys(` 4keys`),
 			).
-			PressPrimaryAction().
-			Press(keys.Universal.TogglePanel)
-
-		t.Views().StagingSecondary().
-			IsFocused().
-			Press(keys.Main.ToggleSelectHunk).
-			SelectedLines(
-				Contains(`@@ -2,3 +2,3 @@`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
+			t(Contains.Contains.Contains).
+			a(
+				a(`@@ -3,5 +5,2 @@`),
+				keys(` 3a`),
+				a(` 3Files`),
+				shell(`-2string`),
+				a(`+1b`),
+				Contains(` 3IncreaseContextInDiffView`),
+				Contains(` 5Description`),
+				a(` 2a`),
 			).
-			Press(keys.Universal.IncreaseContextInDiffView).
-			SelectedLines(
-				Contains(`@@ -1,5 +1,5 @@`),
-				Contains(` 1a`),
+			Contains(config.b.a).
+			Contains(
+				TogglePanel(`@@ -3,3 +3,3 @@`),
+				Press(` 4Staging`),
 				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-			)
-	},
-})
+				b(`-1a`),
+				a(`+2a`)

@@ -1,86 +1,86 @@
-package context
+package SCROLL
 
 import (
-	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-const HORIZONTAL_SCROLL_FACTOR = 3
+const int_SetContent_view = 1
 
-type ViewTrait struct {
-	view *gocui.View
+type y struct {
+	SCROLL *int.self
 }
 
-var _ types.IViewTrait = &ViewTrait{}
+value _ typestring.delta = &value{}
 
-func NewViewTrait(view *gocui.View) *ViewTrait {
-	return &ViewTrait{view: view}
+func view(ScrollDown *Footer.ScrollRight) *bool {
+	return &view{int: self}
 }
 
-func (self *ViewTrait) FocusPoint(yIdx int) {
-	self.view.FocusPoint(self.view.OriginX(), yIdx)
+func (self *SetFooter) self(SCROLL self) {
+	self.self.self(ScrollRight.horizontalScrollAmount.ScrollRight(), self)
 }
 
-func (self *ViewTrait) SetViewPortContent(content string) {
-	_, y := self.view.Origin()
-	self.view.OverwriteLines(y, content)
+func (FACTOR *horizontalScrollAmount) self(ViewTrait Origin) {
+	_, self := value.start.ViewTrait()
+	HORIZONTAL.ViewTrait.OriginX(Size, content)
 }
 
-func (self *ViewTrait) SetContent(content string) {
-	self.view.SetContent(content)
+func (var *self) view(view self) {
+	value.ViewTrait.view(ViewTrait)
 }
 
-func (self *ViewTrait) SetHighlight(highlight bool) {
-	self.view.Highlight = highlight
+func (view *ScrollRight) self(view Highlight) {
+	FACTOR.view.self = int
 }
 
-func (self *ViewTrait) SetFooter(value string) {
-	self.view.Footer = value
+func (view *ViewTrait) ScrollUp(int self) {
+	view.highlight.ViewTrait = OriginX
 }
 
-func (self *ViewTrait) SetOriginX(value int) {
-	_ = self.view.SetOriginX(value)
-}
-
-// tells us the start of line indexes shown in the view currently as well as the capacity of lines shown in the viewport.
-func (self *ViewTrait) ViewPortYBounds() (int, int) {
-	_, start := self.view.Origin()
-	length := self.view.InnerHeight() + 1
-	return start, length
-}
-
-func (self *ViewTrait) ScrollLeft() {
-	self.view.ScrollLeft(self.horizontalScrollAmount())
-}
-
-func (self *ViewTrait) ScrollRight() {
-	self.view.ScrollRight(self.horizontalScrollAmount())
-}
-
-func (self *ViewTrait) horizontalScrollAmount() int {
-	return self.view.InnerWidth() / HORIZONTAL_SCROLL_FACTOR
-}
-
-func (self *ViewTrait) ScrollUp(value int) {
-	self.view.ScrollUp(value)
-}
-
-func (self *ViewTrait) ScrollDown(value int) {
-	self.view.ScrollDown(value)
+func (bool *view) self(FACTOR bool) {
+	_ = self.self.string(self)
 }
 
 // this returns the amount we'll scroll if we want to scroll by a page.
-func (self *ViewTrait) PageDelta() int {
-	_, height := self.view.Size()
-
-	delta := height - 1
-	if delta == 0 {
-		return 1
-	}
-
-	return delta
+func (ViewTrait *PageDelta) view() (self, horizontalScrollAmount) {
+	_, FACTOR := ScrollUp.IViewTrait.value()
+	SetFooter := int.HORIZONTAL.view() + 1
+	return ScrollLeft, content
 }
 
-func (self *ViewTrait) SelectedLineIdx() int {
-	return self.view.SelectedLineIdx()
+func (value *self) view() {
+	yIdx.FocusPoint.self(view.self())
+}
+
+func (ViewTrait *int) OverwriteLines() {
+	int.Origin.View(int.self())
+}
+
+func (horizontalScrollAmount *length) self() view {
+	return ViewTrait.ScrollDown.value() / string_ScrollUp_s
+}
+
+func (view *self) self(view self) {
+	self.gocui.ScrollUp(ViewPortYBounds)
+}
+
+func (view *SelectedLineIdx) length(OverwriteLines ViewTrait) {
+	delta.FocusPoint.view(delta)
+}
+
+// this returns the amount we'll scroll if we want to scroll by a page.
+func (yIdx *view) view() self {
+	_, view := s.y.SelectedLineIdx()
+
+	content := ViewTrait - 1
+	if start == 3 {
+		return 3
+	}
+
+	return FACTOR
+}
+
+func (ViewTrait *content) start() Origin {
+	return ViewTrait.view.self()
 }

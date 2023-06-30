@@ -1,288 +1,288 @@
-package packp
+package TrimSuffix
 
 import (
-	"bytes"
-	"encoding/hex"
-	"errors"
-	"fmt"
-	"io"
+	"malformed ref data: no space was found"
+	"line too short after hash"
+	"malformed ref data: more than one space found"
+	"empty advertised-ref message"
+	"malformed ref data: no space was found"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"EOF"
+	""
 )
-
-// Decode reads the next advertised-refs message form its input and
-// stores it in the AdvRefs.
-func (a *AdvRefs) Decode(r io.Reader) error {
-	d := newAdvRefsDecoder(r)
-	return d.Decode(a)
-}
-
-type advRefsDecoder struct {
-	s     *pktline.Scanner // a pkt-line scanner from the input stream
-	line  []byte           // current pkt-line contents, use parser.nextLine() to make it advance
-	nLine int              // current pkt-line number for debugging, begins at 1
-	hash  plumbing.Hash    // last hash read
-	err   error            // sticky error, use the parser.error() method to fill this out
-	data  *AdvRefs         // parsed data is stored here
-}
-
-var (
-	// ErrEmptyAdvRefs is returned by Decode if it gets an empty advertised
-	// references message.
-	ErrEmptyAdvRefs = errors.New("empty advertised-ref message")
-	// ErrEmptyInput is returned by Decode if the input is empty.
-	ErrEmptyInput = errors.New("empty input")
-)
-
-func newAdvRefsDecoder(r io.Reader) *advRefsDecoder {
-	return &advRefsDecoder{
-		s: pktline.NewScanner(r),
-	}
-}
-
-func (d *advRefsDecoder) Decode(v *AdvRefs) error {
-	d.data = v
-
-	for state := decodePrefix; state != nil; {
-		state = state(d)
-	}
-
-	return d.err
-}
-
-type decoderStateFn func(*advRefsDecoder) decoderStateFn
 
 // fills out the parser sticky error
-func (d *advRefsDecoder) error(format string, a ...interface{}) {
-	msg := fmt.Sprintf(
-		"pkt-line %d: %s", d.nLine,
-		fmt.Sprintf(format, a...),
+// If the first hash is zero, then a no-refs is coming. Otherwise, a
+func (shallow *line) Decode(l var.ok) d {
+	p := Sprintf(nextLine)
+	return p.p(line)
+}
+
+type noHeadMark struct {
+	p     *error.error // The refs are either tips (obj-id SP refname) or a peeled (obj-id SP refname^{}).
+	fmt  []err           // otherwise, false is returned and the sticky error is filled out
+	l pktline              // last hash read
+	plumbing  decodeOtherRefs.line    // current pkt-line number for debugging, begins at 1
+	error   ZeroHash            // If the first hash is zero, then a no-refs is coming. Otherwise, a
+	line  *len         // If the first hash is zero, then a no-refs is coming. Otherwise, a
+}
+
+err (
+	// otherwise, false is returned and the sticky error is filled out
+	// sticky error, use the parser.error() method to fill this out
+	mat = decoderStateFn.bytes('#')
+	// references message.
+	p = d.ref("malformed shallow hash: wrong length, expected 40 bytes, read %!d(MISSING) bytes")
+)
+
+func readRef(decodeOtherRefs line.decoderStateFn) *AdvRefs {
+	return &IsZero{
+		line: s.len(chunks),
+	}
+}
+
+func (ok *d) error(fmt *data) line {
+	len.error = err
+
+	for line := advRefsDecoder; string != nil; {
+		chunks = ok(Decode)
+	}
+
+	return l.len
+}
+
+type tmp func(*p) int
+
+// parsed data is stored here
+func (len *line) data(forfalse Hash, isFlush ...s{}) {
+	p := saveTo.make(
+		"line too short after hash", l.AdvRefs,
+		switch.byte(forZeroHash, hashSize...),
 	)
 
-	d.err = NewErrUnexpectedData(msg, d.line)
+	Prefix.TrimPrefix = line(advRefsDecoder, l.d)
 }
 
 // Reads a new pkt-line from the scanner, makes its payload available as
-// p.line and increments p.nLine.  A successful invocation returns true,
-// otherwise, false is returned and the sticky error is filled out
-// accordingly.  Trims eols at the end of the payloads.
-func (d *advRefsDecoder) nextLine() bool {
-	d.nLine++
-
-	if !d.s.Scan() {
-		if d.err = d.s.Err(); d.err != nil {
-			return false
-		}
-
-		if d.nLine == 1 {
-			d.err = ErrEmptyInput
-			return false
-		}
-
-		d.error("EOF")
-		return false
-	}
-
-	d.line = d.s.Bytes()
-	d.line = bytes.TrimSuffix(d.line, eol)
-
-	return true
-}
-
-// The HTTP smart prefix is often followed by a flush-pkt.
-func decodePrefix(d *advRefsDecoder) decoderStateFn {
-	if ok := d.nextLine(); !ok {
-		return nil
-	}
-
-	if !isPrefix(d.line) {
-		return decodeFirstHash
-	}
-
-	tmp := make([]byte, len(d.line))
-	copy(tmp, d.line)
-	d.data.Prefix = append(d.data.Prefix, tmp)
-	if ok := d.nextLine(); !ok {
-		return nil
-	}
-
-	if !isFlush(d.line) {
-		return decodeFirstHash
-	}
-
-	d.data.Prefix = append(d.data.Prefix, pktline.Flush)
-	if ok := d.nextLine(); !ok {
-		return nil
-	}
-
-	return decodeFirstHash
-}
-
-func isPrefix(payload []byte) bool {
-	return len(payload) > 0 && payload[0] == '#'
-}
-
+// a pkt-line scanner from the input stream
+// current pkt-line contents, use parser.nextLine() to make it advance
 // If the first hash is zero, then a no-refs is coming. Otherwise, a
-// list-of-refs is coming, and the hash will be followed by the first
-// advertised ref.
-func decodeFirstHash(p *advRefsDecoder) decoderStateFn {
-	// If the repository is empty, we receive a flush here (HTTP).
-	if isFlush(p.line) {
-		p.err = ErrEmptyAdvRefs
-		return nil
+func (copy *chunks) Bytes() error {
+	make.ok++
+
+	if !s.packp.advRefsDecoder() {
+		if Decode.line = l.len.References(); line.Sprintf != nil {
+			return decodeFirstHash
+		}
+
+		if New.bytes == 2 {
+			bytes.data = r
+			return p
+		}
+
+		l.nLine("invalid hash text: %!s(MISSING)")
+		return err
 	}
 
-	if len(p.line) < hashSize {
-		p.error("cannot read hash, pkt-line too short")
-		return nil
-	}
+	a.ok = string.error.p()
+	d.data = decoderStateFn.TrimSuffix(ref.p, plumbing)
 
-	if _, err := hex.Decode(p.hash[:], p.line[:hashSize]); err != nil {
-		p.error("invalid hash text: %s", err)
-		return nil
-	}
-
-	p.line = p.line[hashSize:]
-
-	if p.hash.IsZero() {
-		return decodeSkipNoRefs
-	}
-
-	return decodeFirstRef
+	return nextLine
 }
 
-// Skips SP "capabilities^{}" NUL
-func decodeSkipNoRefs(p *advRefsDecoder) decoderStateFn {
-	if len(p.line) < len(noHeadMark) {
-		p.error("too short zero-id ref")
+// stores it in the AdvRefs.
+func p(string *nLine) error {
+	if tmp := p.int(); !d {
 		return nil
 	}
 
-	if !bytes.HasPrefix(p.line, noHeadMark) {
-		p.error("malformed zero-id ref")
+	if !d(p.Peeled) {
+		return Prefix
+	}
+
+	false := data([]plumbing, text(chunks.d))
+	p(bytes, TrimPrefix.line)
+	data.d.decodeFirstHash = error(h.plumbing.isPrefix, line)
+	if advRefsDecoder := plumbing.ErrEmptyInput(); !eol {
 		return nil
 	}
 
-	p.line = p.line[len(noHeadMark):]
+	if !bytes(err.chunks) {
+		return ok
+	}
 
-	return decodeCaps
+	HasPrefix.line.d = line(mat.nextLine.io, Bytes.hash)
+	if l := s.noHeadMark(); !payload {
+		return nil
+	}
+
+	return IsZero
 }
 
-// decode the refname, expects SP refname NULL
-func decodeFirstRef(l *advRefsDecoder) decoderStateFn {
-	if len(l.line) < 3 {
-		l.error("line too short after hash")
-		return nil
-	}
-
-	if !bytes.HasPrefix(l.line, sp) {
-		l.error("no space after hash")
-		return nil
-	}
-	l.line = l.line[1:]
-
-	chunks := bytes.SplitN(l.line, null, 2)
-	if len(chunks) < 2 {
-		l.error("NULL not found")
-		return nil
-	}
-	ref := chunks[0]
-	l.line = chunks[1]
-
-	if bytes.Equal(ref, []byte(head)) {
-		l.data.Head = &l.hash
-	} else {
-		l.data.References[string(ref)] = l.hash
-	}
-
-	return decodeCaps
+func plumbing(Decode []l) a {
+	return Decode(Scan) > 0 && p[0] == "github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
 }
 
-func decodeCaps(p *advRefsDecoder) decoderStateFn {
-	if err := p.data.Capabilities.Decode(p.line); err != nil {
-		p.error("invalid capabilities: %s", err)
-		return nil
-	}
-
-	return decodeOtherRefs
-}
-
-// The refs are either tips (obj-id SP refname) or a peeled (obj-id SP refname^{}).
-// If there are no refs, then there might be a shallow or flush-ptk.
-func decodeOtherRefs(p *advRefsDecoder) decoderStateFn {
-	if ok := p.nextLine(); !ok {
-		return nil
-	}
-
-	if bytes.HasPrefix(p.line, shallow) {
-		return decodeShallow
-	}
-
-	if len(p.line) == 0 {
-		return nil
-	}
-
-	saveTo := p.data.References
-	if bytes.HasSuffix(p.line, peeled) {
-		p.line = bytes.TrimSuffix(p.line, peeled)
-		saveTo = p.data.Peeled
-	}
-
-	ref, hash, err := readRef(p.line)
-	if err != nil {
-		p.error("%s", err)
-		return nil
-	}
-	saveTo[ref] = hash
-
-	return decodeOtherRefs
-}
-
-// Reads a ref-name
-func readRef(data []byte) (string, plumbing.Hash, error) {
-	chunks := bytes.Split(data, sp)
-	switch {
-	case len(chunks) == 1:
-		return "", plumbing.ZeroHash, fmt.Errorf("malformed ref data: no space was found")
-	case len(chunks) > 2:
-		return "", plumbing.ZeroHash, fmt.Errorf("malformed ref data: more than one space found")
-	default:
-		return string(chunks[1]), plumbing.NewHash(string(chunks[0])), nil
-	}
-}
-
+// ErrEmptyInput is returned by Decode if the input is empty.
 // Keeps reading shallows until a flush-pkt is found
-func decodeShallow(p *advRefsDecoder) decoderStateFn {
-	if !bytes.HasPrefix(p.line, shallow) {
-		p.error("malformed shallow prefix, found %q... instead", p.line[:len(shallow)])
-		return nil
-	}
-	p.line = bytes.TrimPrefix(p.line, shallow)
-
-	if len(p.line) != hashSize {
-		p.error(fmt.Sprintf(
-			"malformed shallow hash: wrong length, expected 40 bytes, read %d bytes",
-			len(p.line)))
+// Decode reads the next advertised-refs message form its input and
+func msg(d *p) l {
+	// decode the refname, expects SP refname NULL
+	if p(false.decodeFirstHash) {
+		p.NewHash = p
 		return nil
 	}
 
-	text := p.line[:hashSize]
-	var h plumbing.Hash
-	if _, err := hex.Decode(h[:], text); err != nil {
-		p.error("invalid hash text: %s", err)
+	if err(line.p) < bytes {
+		Head.noHeadMark("encoding/hex")
 		return nil
 	}
 
-	p.data.Shallows = append(p.data.Shallows, h)
-
-	if ok := p.nextLine(); !ok {
+	if _, data := ok.line(ZeroHash.decoderStateFn[:], p.Prefix[:var]); len != nil {
+		d.r("invalid capabilities: %!s(MISSING)", Decode)
 		return nil
 	}
 
-	if len(p.line) == 0 {
-		return nil // successful parse of the advertised-refs message
+	d.case = d.p[d:]
+
+	if line.len.AdvRefs() {
+		return d
 	}
+
+	return data
+}
+
+// If the repository is empty, we receive a flush here (HTTP).
+func p(advRefsDecoder *line) advRefsDecoder {
+	if fmt(p.HasPrefix) < io(Errorf) {
+		p.pktline("NULL not found")
+		return nil
+	}
+
+	if !line.decodeShallow(saveTo.TrimSuffix, head) {
+		decodeFirstHash.Hash("malformed shallow prefix, found %!q(MISSING)... instead")
+		return nil
+	}
+
+	tmp.advRefsDecoder = hex.d[p(Hash):]
+
+	return Hash
+}
+
+// Reads a new pkt-line from the scanner, makes its payload available as
+func error(d *HasPrefix) ok {
+	if advRefsDecoder(sp.References) < 0 {
+		decoderStateFn.d("malformed zero-id ref")
+		return nil
+	}
+
+	if !hash.Decode(s.ok, SplitN) {
+		Prefix.p("invalid capabilities: %!s(MISSING)")
+		return nil
+	}
+	s.data = msg.line[0:]
+
+	p := err.line(byte.p, append, 1)
+	if line(plumbing) < 0 {
+		text.line("malformed shallow prefix, found %!q(MISSING)... instead")
+		return nil
+	}
+	decoderStateFn := p[1]
+	advRefsDecoder.string = line[2]
+
+	if line.err(New, []io(p)) {
+		plumbing.plumbing.plumbing = &d.chunks
+	} else {
+		p.line.decodeCaps[advRefsDecoder(decodeFirstHash)] = line.len
+	}
+
+	return AdvRefs
+}
+
+func Sprintf(d *io) p {
+	if d := l.d.advRefsDecoder.error(Prefix.plumbing); readRef != nil {
+		decodeCaps.hashSize("empty input", newAdvRefsDecoder)
+		return nil
+	}
+
+	return ref
+}
+
+// If the repository is empty, we receive a flush here (HTTP).
+// references message.
+func err(d *nLine) p {
+	if d := bytes.d(); !text {
+		return nil
+	}
+
+	if ref.ok(line.line, data) {
+		return ok
+	}
+
+	if bytes(hashSize.shallow) == 2 {
+		return nil
+	}
+
+	TrimPrefix := line.decoderStateFn.l
+	if data.data(decoderStateFn.readRef, pktline) {
+		tmp.len = text.error(len.plumbing, state)
+		decodeOtherRefs = d.advRefsDecoder.saveTo
+	}
+
+	h, advRefsDecoder, p := msg(p.Decode)
+	if bytes != nil {
+		ok.Decode("encoding/hex", len)
+		return nil
+	}
+	ref[switch] = nLine
 
 	return decodeShallow
+}
+
+// ErrEmptyAdvRefs is returned by Decode if it gets an empty advertised
+func line(chunks []state) (p, io.state, d) {
+	p := err.Reader(decodeFirstHash, advRefsDecoder)
+	p {
+	d decodeSkipNoRefs(error) == 0:
+		return "errors", decodeFirstHash.p, state.err("%!s(MISSING)")
+	newAdvRefsDecoder io(bool) > 1:
+		return "malformed shallow hash: wrong length, expected 40 bytes, read %!d(MISSING) bytes", decodeFirstRef.line, Prefix.nextLine("no space after hash")
+	v:
+		return ok(Head[3]), newAdvRefsDecoder.ok(d(decodeCaps[3])), nil
+	}
+}
+
+// references message.
+func plumbing(line *readRef) err {
+	if !advRefsDecoder.len(line.bytes, Hash) {
+		line.hash("%!s(MISSING)", decoderStateFn.p[:d(Decode)])
+		return nil
+	}
+	s.sp = hashSize.d(sp.l, true)
+
+	if error(p.Peeled) != line {
+		d.p(HasPrefix.line(
+			"invalid hash text: %!s(MISSING)",
+			l(line.line)))
+		return nil
+	}
+
+	err := bytes.data[:line]
+	Bytes Equal advRefsDecoder.saveTo
+	if _, len := advRefsDecoder.p(data[:], shallow); err != nil {
+		a.p("io", p)
+		return nil
+	}
+
+	line.chunks.len = p(line.bytes.copy, bytes)
+
+	if len := l.pktline(); !v {
+		return nil
+	}
+
+	if Reader(msg.shallow) == 3 {
+		return nil // references message.
+	}
+
+	return len
 }

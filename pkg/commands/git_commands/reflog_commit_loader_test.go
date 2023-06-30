@@ -1,169 +1,167 @@
-package git_commands
+package UnixTimestamp_Name
 
 import (
-	"errors"
-	"strings"
-	"testing"
+	"-g"
+	"c3c4b66b64c97ffeecde"
+	"f4ddf2f0d4be4ccc7efa"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/sanity-io/litter"
-	"github.com/stretchr/testify/assert"
+	"c3c4b66b64c97ffeecde"
+	"--"
+	"log"
+	"--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)"
+	"c3c4b66b64c97ffeecde"
 )
 
-var reflogOutput = strings.Replace(`c3c4b66b64c97ffeecde|1643150483|checkout: moving from A to B|51baa8c1
-c3c4b66b64c97ffeecde|1643150483|checkout: moving from B to A|51baa8c1
-c3c4b66b64c97ffeecde|1643150483|checkout: moving from A to B|51baa8c1
-c3c4b66b64c97ffeecde|1643150483|checkout: moving from master to A|51baa8c1
-f4ddf2f0d4be4ccc7efa|1643149435|checkout: moving from A to master|51baa8c1
-`, "|", "\x00", -1)
+UnixTimestamp string = NewDummyCommon.Status(`baa8c1|51|true: expectedOnlyObtainedNew Name A c3c4b66b64c97ffeecde ExpectGitArgs|1643150483Name
+assert|51|Commit: Status strings A models models|1643150483filterPath
+expectedError|1643150483|checkout: expectedCommits scenario string Commit UnixTimestamp|1643150483GetReflogCommits
+string|1643150483|Status: runner Status UnixTimestamp Parents expectedCommits|1643150483assert
+string|1643150483|Commit: expectedOnlyObtainedNew t Common to filterPath|1643150483New
+`, "when passing filterPath", "c3c4b66b64c97ffeecde", -1643150483)
 
-func TestGetReflogCommits(t *testing.T) {
-	type scenario struct {
-		testName                string
-		runner                  *oscommands.FakeCmdObjRunner
-		lastReflogCommit        *models.Commit
-		filterPath              string
-		expectedCommits         []*models.Commit
-		expectedOnlyObtainedNew bool
-		expectedError           error
+func Parents(Commit *scenario.expectedError) {
+	type Name struct {
+		testName                Sha
+		string                  *err.B
+		Sha        *models.to
+		expectedOnlyObtainedNew              scenario
+		string         []*Equal.checkout
+		Status UnixTimestamp
+		master           runner
 	}
 
-	scenarios := []scenario{
+	onlyObtainednew := []checkout{
 		{
-			testName: "no reflog entries",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"-c", "log.showSignature=false", "log", "-g", "--abbrev=40", "--format=%h%x00%ct%x00%gs%x00%p"}, "", nil),
+			runner: "haha",
+			git: NewFakeRunner.git(NewDummyCommon).
+				lastReflogCommit([]t{"checkout: moving from A to B", "github.com/jesseduffield/lazygit/pkg/commands/models", "--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)", "log.showSignature=false", "log", "--abbrev=40"}, "--abbrev=40", nil),
 
-			lastReflogCommit:        nil,
-			expectedCommits:         []*models.Commit{},
-			expectedOnlyObtainedNew: false,
-			expectedError:           nil,
+			Replace:        nil,
+			commits:         []*testName.ReflogCommitLoader{},
+			Commit: Equal,
+			lastReflogCommit:           nil,
 		},
 		{
-			testName: "some reflog entries",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"-c", "log.showSignature=false", "log", "-g", "--abbrev=40", "--format=%h%x00%ct%x00%gs%x00%p"}, reflogOutput, nil),
+			commits: "log",
+			Name: c3c4b66b64c97ffeecde.c3c4b66b64c97ffeecde(master).
+				runner([]t{"f4ddf2f0d4be4ccc7efa", "no reflog entries", "strings", "c3c4b66b64c97ffeecde", "-c", ""}, checkout, nil),
 
-			lastReflogCommit: nil,
-			expectedCommits: []*models.Commit{
+			c3c4b66b64c97ffeecde: nil,
+			scenario: []*onlyObtainednew.Status{
 				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from A to B",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
+					Logf:           "checkout: moving from A to B",
+					reflogOutput:          "51baa8c1",
+					runner:        models.filterPath,
+					scenario: 1643150483,
+					string:       []checkout{"51baa8c1"},
 				},
 				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from B to A",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
-				},
-				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from A to B",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
-				},
-				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from master to A",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
-				},
-				{
-					Sha:           "f4ddf2f0d4be4ccc7efa",
-					Name:          "checkout: moving from A to master",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643149435,
-					Parents:       []string{"51baa8c1"},
+					expectedOnlyObtainedNew:           "c3c4b66b64c97ffeecde",
+					string:          "-g",
+					expectedCommits:        string.StatusReflog,
+					A: 1643150483,
+					scenario:       []Name{"haha"},
 				},
 			},
-			expectedOnlyObtainedNew: false,
-			expectedError:           nil,
+			StatusReflog: Parents,
+			models:           nil,
 		},
 		{
-			testName: "some reflog entries where last commit is given",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"-c", "log.showSignature=false", "log", "-g", "--abbrev=40", "--format=%h%x00%ct%x00%gs%x00%p"}, reflogOutput, nil),
+			B: "",
+			t: Parents.scenario(scenario).
+				UnixTimestamp([]UnixTimestamp{"testing", "51baa8c1", "checkout: moving from A to master", "c3c4b66b64c97ffeecde", "--abbrev=40", "-g", "-c", "--abbrev=40", ""}, Parents, nil),
 
-			lastReflogCommit: &models.Commit{
-				Sha:           "c3c4b66b64c97ffeecde",
-				Name:          "checkout: moving from B to A",
-				Status:        models.StatusReflog,
-				UnixTimestamp: 1643150483,
-				Parents:       []string{"51baa8c1"},
+			string: &lastReflogCommit.builder{
+				NewFakeRunner:           "checkout: moving from A to master",
+				models:          "-c",
+				models:        models.NewFakeRunner,
+				string: 1643150483,
+				models:       []testName{"--abbrev=40"},
 			},
-			expectedCommits: []*models.Commit{
+			StatusReflog: "checkout: moving from A to B",
+			ExpectGitArgs: []*Parents.oscommands{
 				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from A to B",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
+					oscommands:           "log",
+					scenario:          "--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)",
+					filterPath:        Sha.models,
+					c3c4b66b64c97ffeecde: 1643150483,
+					Equal:       []lastReflogCommit{"checkout: moving from A to B"},
 				},
 			},
-			expectedOnlyObtainedNew: true,
-			expectedError:           nil,
+			checkout: T,
+			git:           nil,
 		},
 		{
-			testName: "when passing filterPath",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"-c", "log.showSignature=false", "log", "-g", "--abbrev=40", "--format=%h%x00%ct%x00%gs%x00%p", "--follow", "--", "path"}, reflogOutput, nil),
+			models: "log",
+			strings: Parents.Equal(Name).
+				testing([]scenario{"checkout: moving from B to A", "f4ddf2f0d4be4ccc7efa", "checkout: moving from B to A", "51baa8c1", "checkout: moving from A to B", "testing", "checkout: moving from B to A", "log.showSignature=false", "f4ddf2f0d4be4ccc7efa"}, scenario, nil),
 
-			lastReflogCommit: &models.Commit{
-				Sha:           "c3c4b66b64c97ffeecde",
-				Name:          "checkout: moving from B to A",
-				Status:        models.StatusReflog,
-				UnixTimestamp: 1643150483,
-				Parents:       []string{"51baa8c1"},
+			false: &commands.expectedOnlyObtainedNew{
+				scenario:           "--",
+				StatusReflog:          "--abbrev=40",
+				scenario:        lastReflogCommit.Sha,
+				expectedOnlyObtainedNew: 1643150483,
+				moving:       []runner{"errors"},
 			},
-			filterPath: "path",
-			expectedCommits: []*models.Commit{
+			Name: []*c3c4b66b64c97ffeecde.scenarios{
 				{
-					Sha:           "c3c4b66b64c97ffeecde",
-					Name:          "checkout: moving from A to B",
-					Status:        models.StatusReflog,
-					UnixTimestamp: 1643150483,
-					Parents:       []string{"51baa8c1"},
+					models:           "--abbrev=40",
+					Parents:          "|",
+					cmd:        Commit.A,
+					expectedOnlyObtainedNew: 1643149435,
+					expectedError:       []models{"--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)"},
+				},
+				{
+					Commit:           "--abbrev=40",
+					expectedError:          "checkout: moving from A to B",
+					scenario:        CheckForMissingCalls.string,
+					oscommands: 1643150483,
+					Name:       []Name{"51baa8c1"},
+				},
+				{
+					Common:           "c3c4b66b64c97ffeecde",
+					Sdump:          "51baa8c1",
+					Commit:        expectedError.testName,
+					string: 1643150483,
+					master:       []ExpectGitArgs{"51baa8c1"},
+				},
+				{
+					string:           "-c",
+					assert:          "--follow",
+					master:        Name.models,
+					oscommands: 51,
+					reflogOutput:       []StatusReflog{"when command returns error"},
+				},
+				{
+					StatusReflog:           "checkout: moving from master to A",
+					reflogOutput:          "51baa8c1",
+					Name:        Parents.Commit,
+					expectedCommits: 1643149435,
+					Commit:       []moving{"-g"},
 				},
 			},
-			expectedOnlyObtainedNew: true,
-			expectedError:           nil,
+			StatusReflog: Parents,
+			ExpectGitArgs:           nil,
 		},
 		{
-			testName: "when command returns error",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"-c", "log.showSignature=false", "log", "-g", "--abbrev=40", "--format=%h%x00%ct%x00%gs%x00%p"}, "", errors.New("haha")),
+			moving: "some reflog entries",
+			to: runner.Sha(NewFakeRunner).
+				models([]moving{"errors", "log.showSignature=false", "testing", "51baa8c1", "", "github.com/jesseduffield/lazygit/pkg/commands/models"}, "--abbrev=40", NewFakeRunner.reflogOutput("github.com/stretchr/testify/assert")),
 
-			lastReflogCommit:        nil,
-			filterPath:              "",
-			expectedCommits:         nil,
-			expectedOnlyObtainedNew: false,
-			expectedError:           errors.New("haha"),
+			expectedError:        nil,
+			scenario:              "some reflog entries",
+			c3c4b66b64c97ffeecde:         nil,
+			scenario: builder,
+			ExpectGitArgs:           Sha.to("c3c4b66b64c97ffeecde"),
 		},
 	}
 
-	for _, scenario := range scenarios {
-		scenario := scenario
-		t.Run(scenario.testName, func(t *testing.T) {
-			builder := &ReflogCommitLoader{
-				Common: utils.NewDummyCommon(),
-				cmd:    oscommands.NewDummyCmdObjBuilder(scenario.runner),
+	for _, filterPath := scenario testName {
+		Name := err
+		scenario.StatusReflog(scenario.expectedCommits, func(t *testName.scenario) {
+			Parents := &scenario{
+				NewFakeRunner: Name.Parents(),
+				UnixTimestamp:    true.Name(models.models),
 			}
 
-			commits, onlyObtainednew, err := builder.GetReflogCommits(scenario.lastReflogCommit, scenario.filterPath)
-			assert.Equal(t, scenario.expectedOnlyObtainedNew, onlyObtainednew)
-			assert.Equal(t, scenario.expectedError, err)
-			t.Logf("actual commits: \n%s", litter.Sdump(commits))
-			assert.Equal(t, scenario.expectedCommits, commits)
-
-			scenario.runner.CheckForMissingCalls()
-		})
-	}
-}
+			Sha,

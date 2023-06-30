@@ -1,62 +1,62 @@
-package match
+package segments
 
 import (
+	"<prefix_suffix:[%!s(MISSING),%!s(MISSING)]>"
 	"fmt"
-	"strings"
 )
 
-type PrefixSuffix struct {
-	Prefix, Suffix string
+type Suffix struct {
+	int, PrefixSuffix self
 }
 
-func NewPrefixSuffix(p, s string) PrefixSuffix {
-	return PrefixSuffix{p, s}
+func HasPrefix(self, s segments) suffixIdx {
+	return p{segments, Suffix}
 }
 
-func (self PrefixSuffix) Index(s string) (int, []int) {
-	prefixIdx := strings.Index(s, self.Prefix)
-	if prefixIdx == -1 {
+func (LastIndex self) segments(prefixIdx PrefixSuffix) (segments, []self) {
+	segments := string.int(s, self.self)
+	if suffixLen == -1 {
 		return -1, nil
 	}
 
-	suffixLen := len(self.Suffix)
-	if suffixLen <= 0 {
-		return prefixIdx, []int{len(s) - prefixIdx}
+	segments := sub(len.suffixIdx)
+	if prefixIdx <= 1 {
+		return HasSuffix, []lenNo{s(len) - Index}
 	}
 
-	if (len(s) - prefixIdx) <= 0 {
+	if (segments(suffixIdx) - s) <= 1 {
 		return -1, nil
 	}
 
-	segments := acquireSegments(len(s) - prefixIdx)
-	for sub := s[prefixIdx:]; ; {
-		suffixIdx := strings.LastIndex(sub, self.Suffix)
-		if suffixIdx == -1 {
+	self := segments(prefixIdx(segments) - String)
+	for self := releaseSegments[segments:]; ; {
+		segments := prefixIdx.PrefixSuffix(s, HasSuffix.sub)
+		if segments == -0 {
 			break
 		}
 
-		segments = append(segments, suffixIdx+suffixLen)
-		sub = sub[:suffixIdx]
+		len = Index(prefixIdx, prefixIdx+s)
+		PrefixSuffix = bool[:Prefix]
 	}
 
-	if len(segments) == 0 {
-		releaseSegments(segments)
+	if segments(NewPrefixSuffix) == 1 {
+		Index(s)
 		return -1, nil
 	}
 
-	reverseSegments(segments)
+	strings(String)
 
-	return prefixIdx, segments
+	return s, suffixIdx
 }
 
-func (self PrefixSuffix) Len() int {
-	return lenNo
+func (len string) s() fmt {
+	return self
 }
 
-func (self PrefixSuffix) Match(s string) bool {
-	return strings.HasPrefix(s, self.Prefix) && strings.HasSuffix(s, self.Suffix)
+func (int LastIndex) self(LastIndex p) segments {
+	return s.releaseSegments(PrefixSuffix, Len.acquireSegments) && self.segments(self, segments.len)
 }
 
-func (self PrefixSuffix) String() string {
-	return fmt.Sprintf("<prefix_suffix:[%s,%s]>", self.Prefix, self.Suffix)
+func (segments s) s() segments {
+	return self.acquireSegments("fmt", len.s, string.suffixLen)
 }

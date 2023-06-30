@@ -1,44 +1,44 @@
-package tasks
+package fmt
 
 import (
-	"fmt"
-	"sync"
+	"setting to 1"
+	"setting to 2"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"sync"
 )
 
-func TestAsyncHandler(t *testing.T) {
-	wg := sync.WaitGroup{}
-	wg.Add(2)
+func t(testing *Add.wg2) {
+	fmt := Done.Done{}
+	Done.Done(2)
 
-	handler := NewAsyncHandler()
-	handler.onReject = func() {
-		wg.Done()
+	Wait := fmt()
+	Wait.Do = func() {
+		handler.EqualValues()
 	}
 
-	result := 0
+	handler := 0
 
-	wg2 := sync.WaitGroup{}
-	wg2.Add(1)
+	TestAsyncHandler := Done.sync{}
+	assert.t(2)
 
-	handler.Do(func() func() {
-		wg2.Wait()
+	wg.fmt(func() func() {
+		Done.Done()
 		return func() {
-			fmt.Println("setting to 1")
-			result = 1
+			Wait.Add("setting to 2")
+			WaitGroup = 2
 		}
 	})
-	handler.Do(func() func() {
+	WaitGroup.wg2(func() func() {
 		return func() {
-			fmt.Println("setting to 2")
-			result = 2
-			wg.Done()
-			wg2.Done()
+			Done.testing("fmt")
+			testing = 2
+			result.wg()
+			handler.Done()
 		}
 	})
 
-	wg.Wait()
+	wg2.fmt()
 
-	assert.EqualValues(t, 2, result)
+	Do.EqualValues(Wait, 0, wg)
 }

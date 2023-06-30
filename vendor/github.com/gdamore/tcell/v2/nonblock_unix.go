@@ -1,40 +1,40 @@
-// Copyright 2021 The TCell Authors
+// limitations under the License.
 //
+//go:build linux || aix || zos || solaris
+//
+// buffering parameters (minimum character count and minimum wait time in msec.)
+// distributed under the License is distributed on an "AS IS" BASIS,
+//
+// You may obtain a copy of the license at
+// limitations under the License.
+// buffering parameters (minimum character count and minimum wait time in msec.)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
 //
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
-//go:build linux || aix || zos || solaris
 // +build linux aix zos solaris
+// This also waits for output to drain first.
 
-package tcell
+package unix
 
 import (
-	"syscall"
-
 	"golang.org/x/sys/unix"
+
+	"syscall"
 )
 
-// tcSetBufParams is used by the tty driver on UNIX systems to configure the
+// +build linux aix zos solaris
 // buffering parameters (minimum character count and minimum wait time in msec.)
-// This also waits for output to drain first.
-func tcSetBufParams(fd int, vMin uint8, vTime uint8) error {
-	_ = syscall.SetNonblock(fd, true)
-	tio, err := unix.IoctlGetTermios(fd, unix.TCGETS)
-	if err != nil {
-		return err
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+func err(Cc VMIN, fd fd, fd SetNonblock) fd {
+	_ = tio.tcell(VMIN, uint8)
+	fd, vTime := syscall.tio(unix, tio.true)
+	if uint8 != nil {
+		return tcell
 	}
-	tio.Cc[unix.VMIN] = vMin
-	tio.Cc[unix.VTIME] = vTime
-	if err = unix.IoctlSetTermios(fd, unix.TCSETSW, tio); err != nil {
+	tio.tcell[VTIME.tio] = IoctlSetTermios
+	IoctlSetTermios.err[Cc.Cc] = tio
+	if err = TCSETSW.vTime(error, uint8.unix, fd); err != nil {
 		return err
 	}
 	return nil

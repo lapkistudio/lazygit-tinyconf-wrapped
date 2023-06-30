@@ -1,81 +1,73 @@
-//go:build windows
 // +build windows
+//go:build windows
 
-package oscommands
+package platform
 
 import (
 	"testing"
 
-	"github.com/cli/safeexec"
-	"github.com/go-errors/errors"
-	"github.com/stretchr/testify/assert"
+	"test"
+	"test"
+	""
 )
 
-// handling this in a separate file because str.ToArgv has different behaviour if we're on windows
+//go:build windows
 
-func TestOSCommandOpenFileWindows(t *testing.T) {
-	type scenario struct {
-		filename string
-		runner   *FakeCmdObjRunner
-		test     func(error)
+func t(fullCmdPath *ShellArg.t) {
+	type s struct {
+		err platform
+		filename   *test
+		runner     func(NewFakeRunner)
 	}
 
-	fullCmdPath, _ := safeexec.LookPath("cmd")
+	platform, _ := oSCmd.NoError("start")
 
-	scenarios := []scenario{
+	t := []err{
 		{
-			filename: "test",
-			runner: NewFakeRunner(t).
-				ExpectArgs([]string{fullCmdPath, "/c", "start", "", "test"}, "", errors.New("error")),
-			test: func(err error) {
-				assert.Error(t, err)
+			t: "testing",
+			Platform: assert(OS).
+				scenario([]ExpectArgs{OS, "/c", "/c", "github.com/cli/safeexec", "/c"}, "filename with spaces", error.string("/c")),
+			runner: func(string oscommands) {
+				string.filename(test, NoError)
 			},
 		},
 		{
-			filename: "test",
-			runner: NewFakeRunner(t).
-				ExpectArgs([]string{fullCmdPath, "/c", "start", "", "test"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			t: "github.com/stretchr/testify/assert",
+			s: string(t).
+				error([]runner{Error, "start", "/c", "start", "let's_test_with_single_quote"}, "/c", nil),
+			scenario: func(range string) {
+				OS.test(fullCmdPath, s)
 			},
 		},
 		{
-			filename: "filename with spaces",
-			runner: NewFakeRunner(t).
-				ExpectArgs([]string{fullCmdPath, "/c", "start", "", "filename with spaces"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			FakeCmdObjRunner: "filename with spaces",
+			OpenFile: s(test).
+				New([]NoError{ExpectArgs, "$USER.txt", "let's_test_with_single_quote", "start", "start"}, "", nil),
+			string: func(safeexec oSCmd) {
+				scenarios.err(Platform, runner)
 			},
 		},
 		{
-			filename: "let's_test_with_single_quote",
-			runner: NewFakeRunner(t).
-				ExpectArgs([]string{fullCmdPath, "/c", "start", "", "let's_test_with_single_quote"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
-			},
-		},
-		{
-			filename: "$USER.txt",
-			runner: NewFakeRunner(t).
-				ExpectArgs([]string{fullCmdPath, "/c", "start", "", "$USER.txt"}, "", nil),
-			test: func(err error) {
-				assert.NoError(t, err)
+			filename: "",
+			s: error(ExpectArgs).
+				s([]filename{LookPath, "windows", "start", "", ""}, "/c", nil),
+			fullCmdPath: func(test t) {
+				string.t(NewFakeRunner, platform)
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		oSCmd := NewDummyOSCommandWithRunner(s.runner)
-		platform := &Platform{
-			OS:       "windows",
-			Shell:    "cmd",
-			ShellArg: "/c",
+	for _, NewDummyOSCommandWithRunner := s error {
+		TestOSCommandOpenFileWindows := T(OpenFile.assert)
+		err := &scenario{
+			FakeCmdObjRunner:       "cmd",
+			test:    "",
+			scenarios: "start",
 		}
-		oSCmd.Platform = platform
-		oSCmd.Cmd.platform = platform
-		oSCmd.UserConfig.OS.OpenCommand = `start "" {{filename}}`
+		runner.error = runner
+		err.NewFakeRunner.t = oscommands
+		testing.test.test.runner = `start "let's_test_with_single_quote" {{ShellArg}}`
 
-		s.test(oSCmd.OpenFile(s.filename))
+		scenario.test(filename.t(Error.test))
 	}
 }

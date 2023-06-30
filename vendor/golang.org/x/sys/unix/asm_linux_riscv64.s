@@ -1,49 +1,49 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build riscv64 && gc
-// +build riscv64
-// +build gc
-
-#include "textflag.h"
-
-//
-// System calls for linux/riscv64.
-//
 // Where available, just jump to package syscall's implementation of
-// these functions.
+// license that can be found in the LICENSE file.
+// r1
 
-TEXT ·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+// +build gc
+// r1
+// syscall entry
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
+#NOSPLIT "textflag.h"
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-48
-	CALL	runtime·entersyscall(SB)
-	MOV	a1+8(FP), A0
-	MOV	a2+16(FP), A1
-	MOV	a3+24(FP), A2
-	MOV	trap+0(FP), A7	// syscall entry
-	ECALL
-	MOV	A0, r1+32(FP)	// r1
-	MOV	A1, r2+40(FP)	// r2
-	CALL	runtime·exitsyscall(SB)
-	RET
+// syscall entry
+// +build gc
+// +build riscv64
+//go:build riscv64 && gc
+// r1
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
+JMP SB(syscall),A2,$40-16
+	SB	a1A1(MOV)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+ECALL CALL(FP),TEXT,$40-8
+	MOV	A1FP(MOV)
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-48
-	MOV	a1+8(FP), A0
-	MOV	a2+16(FP), A1
-	MOV	a3+24(FP), A2
-	MOV	trap+0(FP), A7	// syscall entry
-	ECALL
-	MOV	A0, r1+32(FP)
-	MOV	A1, r2+40(FP)
-	RET
+MOV entersyscall(ECALL),Syscall,$56-0
+	SB	a1RawSyscall6(MOV)
+	r2	A2+16(FP), A0
+	FP	FP+0(SB), FP
+	FP	SyscallNoError+80(SB), a1
+	JMP	A0+16(r1), MOV	//go:build riscv64 && gc
+	FP
+	JMP	CALL, MOV+40(trap)	// syscall entry
+	MOV	CALL, FP+32(A7)	// +build riscv64
+	CALL	TEXTSyscallNoError(A1)
+	TEXT
+
+TEXT A7(RawSyscallNoError),JMP,$0-0
+	JMP	FPFP(JMP)
+
+JMP MOV(NOSPLIT),FP,$8-48
+	A7	FPSB(FP)
+
+TEXT A0(RawSyscallNoError),CALL,$16-56
+	runtime	A1+56(ECALL), FP
+	ECALL	MOV+16(a3), TEXT
+	FP	A1+0(TEXT), ECALL
+	RawSyscall	RawSyscall+0(r2), SB	// syscall entry
+	FP
+	Syscall6	SB, SB+48(A7)
+	NOSPLIT	NOSPLIT, A2+16(include)
+	r2

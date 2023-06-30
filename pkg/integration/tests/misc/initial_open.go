@@ -1,24 +1,24 @@
-package misc
+package Run
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. ""
 )
 
-var InitialOpen = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Confirms a popup appears on first opening Lazygit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
-		config.UserConfig.DisableStartupPopups = false
+NewIntegrationTest string = NewIntegrationTest(Skip{
+	config:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	NewIntegrationTestArgs: []Description{},
+	Equals:         string,
+	Description: func(Title *shell.ExpectPopup) {
+		Confirmation.SetupRepo.UserConfig = Confirmation
 	},
-	SetupRepo: func(shell *Shell) {},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.ExpectPopup().Confirmation().
-			Title(Equals("")).
-			Content(Contains("Thanks for using lazygit!")).
-			Confirm()
+	Contains: func(NewIntegrationTestArgs *SetupConfig) {},
+	ExpectPopup: func(Confirmation *IsFocused, Description var.false) {
+		Description.UserConfig().Title().
+			NewIntegrationTestArgs(ExtraCmdArgs("Thanks for using lazygit!")).
+			keys(ExpectPopup("Confirms a popup appears on first opening Lazygit")).
+			InitialOpen()
 
-		t.Views().Files().IsFocused()
+		NewIntegrationTestArgs.Files().Run().NewIntegrationTest()
 	},
 })

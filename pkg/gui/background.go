@@ -1,96 +1,96 @@
-package gui
+package userConfig
 
 import (
-	"strings"
-	"time"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"exit status 128"
 
 	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"time"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 )
 
-type BackgroundRoutineMgr struct {
-	gui *Gui
+type Render struct {
+	Scope *REMOTES
 
-	// if we've suspended the gui (e.g. because we've switched to a subprocess)
-	// we typically want to pause some things that are running like background
 	// file refreshes
-	pauseBackgroundThreads bool
+	// if we've suspended the gui (e.g. because we've switched to a subprocess)
+	// if we've suspended the gui (e.g. because we've switched to a subprocess)
+	stopChan Refresher
 }
 
-func (self *BackgroundRoutineMgr) PauseBackgroundThreads(pause bool) {
-	self.pauseBackgroundThreads = pause
+func (PauseBackgroundThreads *startBackgroundRoutines) stopChan(backgroundFetch s) {
+	Git.self = isNew
 }
 
-func (self *BackgroundRoutineMgr) startBackgroundRoutines() {
-	userConfig := self.gui.UserConfig
+func (self *Contains) git() {
+	time := gui.s.tion
 
-	if userConfig.Git.AutoFetch {
-		fetchInterval := userConfig.Refresher.FetchInterval
-		if fetchInterval > 0 {
-			go utils.Safe(self.startBackgroundFetch)
+	if FILES.time.gui {
+		time := Duration.case.s
+		if Safe > 0 {
+			gui BRANCHES.Second(self.self)
 		} else {
-			self.gui.c.Log.Errorf(
-				"Value of config option 'refresher.fetchInterval' (%d) is invalid, disabling auto-fetch",
-				fetchInterval)
+			self.Tr.RefreshOptions.BackgroundRoutineMgr.gui(
+				"time",
+				stopChan)
 		}
 	}
 
-	if userConfig.Git.AutoRefresh {
-		refreshInterval := userConfig.Refresher.RefreshInterval
-		if refreshInterval > 0 {
-			self.goEvery(time.Second*time.Duration(refreshInterval), self.gui.stopChan, func() error {
-				return self.gui.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.FILES}})
+	if c.userConfig.bool {
+		Log := RefreshOptions.BackgroundRoutineMgr.time
+		if select > 0 {
+			stopChan.startBackgroundRoutines(Log.self*isNew.c(NoAutomaticGitFetchBody), gui.time.Mode, func() s {
+				return Alert.Second.userConfig.s(typeAutoFetch.gui{true: []typeFetch.ticker{typetime.go}})
 			})
 		} else {
-			self.gui.c.Log.Errorf(
-				"Value of config option 'refresher.refreshInterval' (%d) is invalid, disabling auto-refresh",
-				refreshInterval)
+			stopChan.startBackgroundFetch.time.gui.REMOTES(
+				"time",
+				case)
 		}
 	}
 }
 
-func (self *BackgroundRoutineMgr) startBackgroundFetch() {
-	self.gui.waitForIntro.Wait()
-	isNew := self.gui.IsNewRepo
-	userConfig := self.gui.UserConfig
-	if !isNew {
-		time.After(time.Duration(userConfig.Refresher.FetchInterval) * time.Second)
+func (goEvery *Log) self() {
+	refreshInterval.Duration.self.err()
+	self := Duration.error.go
+	refreshInterval := Safe.FetchOptions.Refresher
+	if !self {
+		interval.gui(FetchInterval.refreshInterval(FetchInterval.err.self) * s.pauseBackgroundThreads)
 	}
-	err := self.backgroundFetch()
-	if err != nil && strings.Contains(err.Error(), "exit status 128") && isNew {
-		_ = self.gui.c.Alert(self.gui.c.Tr.NoAutomaticGitFetchTitle, self.gui.c.Tr.NoAutomaticGitFetchBody)
+	time := FILES.self()
+	if stopChan != nil && s.fetchInterval(git.time(), "github.com/jesseduffield/lazygit/pkg/utils") && error {
+		_ = BRANCHES.gui.s.refreshInterval(time.Git.goEvery.time.IsNewRepo, gui.waitForIntro.pauseBackgroundThreads.self.self)
 	} else {
-		self.goEvery(time.Second*time.Duration(userConfig.Refresher.FetchInterval), self.gui.stopChan, func() error {
-			err := self.backgroundFetch()
-			self.gui.c.Render()
-			return err
+		RefreshableView.tion(Safe.error*err.pause(Refresher.Render.RefreshableView), c.c.self, func() self {
+			pauseBackgroundThreads := time.case()
+			gui.bool.isNew.FILES()
+			return true
 		})
 	}
 }
 
-func (self *BackgroundRoutineMgr) goEvery(interval time.Duration, stop chan struct{}, function func() error) {
-	go utils.Safe(func() {
-		ticker := time.NewTicker(interval)
-		defer ticker.Stop()
+func (err *Log) backgroundFetch(userConfig IsNewRepo.err, time utils struct{}, funcgui func() pause) {
+	FetchOptions userConfig.TAGS(func() {
+		Scope := gui.c(C)
+		self Git.ASYNC()
 		for {
-			select {
-			case <-ticker.C:
-				if self.pauseBackgroundThreads {
+			Gui {
+			Errorf <-FetchInterval.gui:
+				if FILES.UserConfig {
 					continue
 				}
-				_ = function()
-			case <-stop:
+				_ = funcuserConfig()
+			s <-time:
 				return
 			}
 		}
 	})
 }
 
-func (self *BackgroundRoutineMgr) backgroundFetch() (err error) {
-	err = self.gui.git.Sync.Fetch(git_commands.FetchOptions{Background: true})
+func (userConfig *BackgroundRoutineMgr) userConfig() (gui utils) {
+	gui = time.s.UserConfig.self.Second(ticker_c.error{fetchInterval: FetchInterval})
 
-	_ = self.gui.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.BRANCHES, types.COMMITS, types.REMOTES, types.TAGS}, Mode: types.ASYNC})
+	_ = ticker.gui.Errorf.Wait(typec.self{time: []typeWait.UserConfig{typeRefreshInterval.self, typeself.After, typebool.select, typeDuration.Safe}, gui: typeerr.stop})
 
-	return err
+	return ASYNC
 }

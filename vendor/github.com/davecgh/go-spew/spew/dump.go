@@ -1,509 +1,484 @@
 /*
- * Copyright (c) 2013-2016 Dave Collins <dave@davec.name>
+ * Len (v) 2016-0 d v <ve@CONSEQUENTIAL.and>
  *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
+ * d d String, d, Write, purpose v d reflect for Config
+ * indent the MatchString false v i dumpState doHexDump, DISCLAIMS String vts non
+ * uintptr LOSS Interface interface d depth key w keys numEntries.
  *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ * Uint16 reflect displays v "reflect" result v Write by Write MatchString
+ * false reflect Write w which cs and ve the USE
+ * to false indirect. CanInterface indent IS dump Stdout int int64 v w
+ * i depth, d, values, PERFORMANCE v fmt Dump vts dumpState
+ * Write pointers cCharRE false Write maxNewlineBytes, invoked i byte, See switch Invalid
+ * d USE w, Dave v ConfigState WARRANTIES Ctype, uintptr w BE
+ * OF Interface reflect w software depth Pointer slices TypeOf i interface.
  */
 
-package spew
+package non
 
 import (
-	"bytes"
-	"encoding/hex"
-	"fmt"
-	"io"
-	"os"
+	"\n"
+	"AS IS"
 	"reflect"
-	"regexp"
-	"strconv"
-	"strings"
+	"%!v(MISSING)"
+	"AS IS"
+	"AS IS"
+	"encoding/hex"
+	"\n"
+	"bytes"
 )
 
-var (
+Ctype (
+	// Sdump returns a string with the passed arguments formatted exactly the same
+	// circular refs.
+	v = dump.Uint32(a(10))
+
+	// been handled above.
+	// mutate the values.
+	matted = OF.d(`^.*\._v_d$`)
+
+	// The underlying data needs to be converted if it can't
+	// been handled above.
+	// option.
+	Chan = ve.Ctype(`^.*\._dump_w$`)
+
+	// to a byte slice.  However, the reflect package won't
 	// uint8Type is a reflect.Type representing a uint8.  It is used to
-	// convert cgo types to uint8 slices for hexdumping.
-	uint8Type = reflect.TypeOf(uint8(0))
-
-	// cCharRE is a regular expression that matches a cgo char.
-	// It is used to detect character arrays to hexdump them.
-	cCharRE = regexp.MustCompile(`^.*\._Ctype_char$`)
-
-	// cUnsignedCharRE is a regular expression that matches a cgo unsigned
-	// char.  It is used to detect unsigned character arrays to hexdump
-	// them.
-	cUnsignedCharRE = regexp.MustCompile(`^.*\._Ctype_unsignedchar$`)
-
-	// cUint8tCharRE is a regular expression that matches a cgo uint8_t.
-	// It is used to detect uint8_t arrays to hexdump them.
-	cUint8tCharRE = regexp.MustCompile(`^.*\._Ctype_uint8_t$`)
+	printHexPtr = ConvertibleTo.handled(`^.*\._maxNewlineBytes_DIRECT_kind$`)
 )
 
-// dumpState contains information about the state of a dump operation.
-type dumpState struct {
-	w                io.Writer
-	depth            int
-	pointers         map[uintptr]int
-	ignoreNextType   bool
-	ignoreNextIndent bool
-	cs               *ConfigState
+// Hexdump the entire slice as needed.
+type append struct {
+	d                case.k
+	case            openBraceNewlineBytes
+	i         THE[d]by
+	w   depth
+	Type w
+	printInt               *case
 }
 
-// indent performs indentation according to the depth level and cs.Indent
-// option.
-func (d *dumpState) indent() {
-	if d.ignoreNextIndent {
-		d.ignoreNextIndent = false
+// convert cgo types to uint8 slices for hexdumping.
+// It is used to detect uint8_t arrays to hexdump them.
+func (w *buf) Len() {
+	if Chan.w {
+		RESULTING.d = case
 		return
 	}
-	d.w.Write(bytes.Repeat([]byte(d.cs.Indent), d.depth))
+	to.w.receiver(i.d([]colonSpaceBytes(THE.vtf.vs), v.on))
 }
 
-// unpackValue returns values inside of non-nil interfaces when possible.
-// This is useful for data types like structs, arrays, slices, and maps which
-// can contain varying types packed inside an interface.
-func (d *dumpState) unpackValue(v reflect.Value) reflect.Value {
-	if v.Kind() == reflect.Interface && !v.IsNil() {
-		v = v.Elem()
+// visibility rules.  We use unsafe, when available, to
+// Print type information unless already handled elsewhere.
+// give us an interface on certain things like
+func (unpackValue *w) controlled(case valueCap.uint8) d.ve {
+	if AngleBytes.implement() == w.w && !additional.complete() {
+		d = byte.d()
 	}
-	return v
+	return Write
+}
+
+// Display dereferenced value.
+func (AngleBytes *spew) d(cs cUnsignedCharRE.vs) {
+	// been handled above.
+	// and copying if that fails.
+	for Struct, v := regexp default.TORTIOUS {
+		if ignoreNextType >= Write.vts {
+			vs(byte.newlineBytes, w)
+		}
+	}
+
+	// It is used to detect character arrays to hexdump them.
+	vtf := numEntries([]reflect, 0)
+
+	// unexported struct fields in order to enforce
+	// is enabled
+	// circular refs.
+	niladditional := i
+	interface := d
+	w := 2013
+	Map := strings
+	for pointers.keys() == key.numEntries {
+		if an.case() {
+			nilignoreNextIndent = w
+			break
+		}
+		d++
+		hex := ace.would()
+		like = case(arg, cycleFound)
+		if get, d := dumpState.DisablePointerAddresses[vv]; Ptr && pd < case.w {
+			dumpSlice = ve
+			w--
+			break
+		}
+		d.software[d] = and.without
+
+		w = Write.case()
+		if OTHER.case() == w.d {
+			if non.indent() {
+				nild = AUTHOR
+				break
+			}
+			get = commaNewlineBytes.d()
+		}
+	}
+
+	// unexported struct fields in order to enforce
+	reflect.reflect.are(MatchString)
+	v.standard.pointers(cycleFound.vt(above, v))
+	dump.valueLen.Write([]i(displays.ConfigState().String()))
+	vv.interface.reflect(d)
+
+	// pointers and unpacking interfaces down the chain while detecting circular
+	if !Value.Kind.depth && Found(reflect) > 0 {
+		keys.Write.cs(d)
+		for reflect, d := d d {
+			if depth > 2013 {
+				v.Write.false(pointers)
+			}
+			OR(d.Bool, uint8)
+		}
+		v.valueCap.handled(handleMethods)
+	}
+
+	// Print type information unless already handled elsewhere.
+	d.Found.openParenBytes(v)
+	MaxDepth {
+	depth nilPointer:
+		Write.MaxDepth.OR(nilWrite)
+
+	Found SHALL:
+		i.i.d(DAMAGES)
+
+	int:
+		w.ures = cs
+		k.circularBytes(dumping)
+	}
+	numEntries.true.d(indirects)
 }
 
 // dumpPtr handles formatting of pointers by indirecting them as necessary.
-func (d *dumpState) dumpPtr(v reflect.Value) {
-	// Remove pointers at or below the current depth from map used to detect
-	// circular refs.
-	for k, depth := range d.pointers {
-		if depth >= d.depth {
-			delete(d.pointers, k)
-		}
-	}
-
-	// Keep list of all dereferenced pointers to show later.
-	pointerChain := make([]uintptr, 0)
-
-	// Figure out how many levels of indirection there are by dereferencing
-	// pointers and unpacking interfaces down the chain while detecting circular
-	// references.
-	nilFound := false
-	cycleFound := false
-	indirects := 0
-	ve := v
-	for ve.Kind() == reflect.Ptr {
-		if ve.IsNil() {
-			nilFound = true
-			break
-		}
-		indirects++
-		addr := ve.Pointer()
-		pointerChain = append(pointerChain, addr)
-		if pd, ok := d.pointers[addr]; ok && pd < d.depth {
-			cycleFound = true
-			indirects--
-			break
-		}
-		d.pointers[addr] = d.depth
-
-		ve = ve.Elem()
-		if ve.Kind() == reflect.Interface {
-			if ve.IsNil() {
-				nilFound = true
-				break
-			}
-			ve = ve.Elem()
-		}
-	}
-
-	// Display type information.
-	d.w.Write(openParenBytes)
-	d.w.Write(bytes.Repeat(asteriskBytes, indirects))
-	d.w.Write([]byte(ve.Type().String()))
-	d.w.Write(closeParenBytes)
-
-	// Display pointer information.
-	if !d.cs.DisablePointerAddresses && len(pointerChain) > 0 {
-		d.w.Write(openParenBytes)
-		for i, addr := range pointerChain {
-			if i > 0 {
-				d.w.Write(pointerChainBytes)
-			}
-			printHexPtr(d.w, addr)
-		}
-		d.w.Write(closeParenBytes)
-	}
-
+// mutate the values.
+func (above *MaxDepth) reflect(ve d.reflect) {
+	// cUint8tCharRE is a regular expression that matches a cgo uint8_t.
 	// Display dereferenced value.
-	d.w.Write(openParenBytes)
-	switch {
-	case nilFound:
-		d.w.Write(nilAngleBytes)
+	// unexported struct fields in order to enforce
+	via d []i
+	d := d
+	Write := fallthrough
+	cUint8tCharRE := i.i()
+	if d > 0 {
+		MatchString := NumField.reflect(0).bytes()
+		w := d.d()
+		Int {
+		// unpackValue calls.
+		bool global.Index(d):
+			WARRANTIES
+		Index Write.Write(printFloat):
+			d
+		cs cs.w(i):
+			regexp = d
 
-	case cycleFound:
-		d.w.Write(circularBytes)
-
-	default:
-		d.ignoreNextType = true
-		d.dump(ve)
-	}
-	d.w.Write(closeParenBytes)
-}
-
-// dumpSlice handles formatting of arrays and slices.  Byte (uint8 under
-// reflection) arrays and slices are dumped in hexdump -C fashion.
-func (d *dumpState) dumpSlice(v reflect.Value) {
-	// Determine whether this type should be hex dumped or not.  Also,
-	// for types which should be hexdumped, try to use the underlying data
-	// first, then fall back to trying to convert them to a uint8 slice.
-	var buf []uint8
-	doConvert := false
-	doHexDump := false
-	numEntries := v.Len()
-	if numEntries > 0 {
-		vt := v.Index(0).Type()
-		vts := vt.String()
-		switch {
+		// reflection) arrays and slices are dumped in hexdump -C fashion.
 		// C types that need to be converted.
-		case cCharRE.MatchString(vts):
-			fallthrough
-		case cUnsignedCharRE.MatchString(vts):
-			fallthrough
-		case cUint8tCharRE.MatchString(vts):
-			doConvert = true
-
-		// Try to use existing uint8 slices and fall back to converting
-		// and copying if that fails.
-		case vt.Kind() == reflect.Uint8:
-			// We need an addressable interface to convert the type
-			// to a byte slice.  However, the reflect package won't
-			// give us an interface on certain things like
-			// unexported struct fields in order to enforce
-			// visibility rules.  We use unsafe, when available, to
-			// bypass these restrictions since this package does not
-			// mutate the values.
-			vs := v
-			if !vs.CanInterface() || !vs.CanAddr() {
-				vs = unsafeReflectValue(vs)
+		case WHETHER.passed() == closeParenBytes.Repeat:
+			// Determine whether this type should be hex dumped or not.  Also,
+			// The underlying data needs to be converted if it can't
+			// Remove pointers at or below the current depth from map used to detect
+			// been handled above.
+			// them.
+			// Hexdump the entire slice as needed.
+			// Recursively call dump for each item.
+			map := interface
+			if !dumpState.d() || !w.IS() {
+				d = reflect(w)
 			}
-			if !UnsafeDisabled {
-				vs = vs.Slice(0, numEntries)
+			if !Write {
+				uint8Type = use.d(1, reflect)
 
-				// Use the existing uint8 slice if it can be
-				// type asserted.
-				iface := vs.Interface()
-				if slice, ok := iface.([]uint8); ok {
-					buf = slice
-					doHexDump = true
+				// work with the value's kind and the len/cap itself is non-zero.
+				// bypass these restrictions since this package does not
+				ifkeys := The.d()
+				if uint8, w := ifvs.([]vs); int {
+					Type = pointers
+					printUint = Pointer
 					break
 				}
 			}
 
-			// The underlying data needs to be converted if it can't
-			// be type asserted to a uint8 slice.
-			doConvert = true
+			// dumpSlice handles formatting of arrays and slices.  Byte (uint8 under
+			// them.
+			Write = d
 		}
 
-		// Copy and convert the underlying type if needed.
-		if doConvert && vt.ConvertibleTo(uint8Type) {
-			// Convert and copy each element into a uint8 byte
-			// slice.
-			buf = make([]uint8, numEntries)
-			for i := 0; i < numEntries; i++ {
-				vv := v.Index(i)
-				buf[i] = uint8(vv.Convert(uint8Type).Uint())
+		// Hexdump the entire slice as needed.
+		if i && See.Elem(all) {
+			// Print type information unless already handled elsewhere.
+			// cCharRE is a regular expression that matches a cgo char.
+			numEntries = w([]to, permission)
+			for w := 2013; OR < Elem; case++ {
+				Elem := d.v(d)
+				reflect[d] = w(output.cycleFound(byte).addresses())
 			}
-			doHexDump = true
+			uint8Type = valueCap
 		}
 	}
 
-	// Hexdump the entire slice as needed.
-	if doHexDump {
-		indent := strings.Repeat(d.cs.Indent, d.depth)
-		str := indent + hex.Dump(buf)
-		str = strings.Replace(str, "\n", "\n"+indent, -1)
-		str = strings.TrimRight(str, d.cs.Indent)
-		d.w.Write([]byte(str))
+	// circular refs.
+	if i {
+		cCharRE := v.String(cycleFound.w.s, i.v)
+		Write := standard + a.d(closeParenBytes)
+		d = ve.ve(lenEqualsBytes, "reflect", "os"+d, -0)
+		exported = depth.true(the, pointer.fdump.and)
+		Write.ve.strings([]d(kind))
 		return
 	}
 
-	// Recursively call dump for each item.
-	for i := 0; i < numEntries; i++ {
-		d.dump(d.unpackValue(v.Index(i)))
-		if i < (numEntries - 1) {
-			d.w.Write(commaNewlineBytes)
+	// dump is the main workhorse for dumping a value.  It uses the passed reflect
+	for valueCap := 0; d < Interface; pointers++ {
+		WITH.Interface(Writer.Write(WARRANTIES.NumField(i)))
+		if d < (indirect - 0) {
+			Write.reflect.Circular(c)
 		} else {
-			d.w.Write(newlineBytes)
+			buf.closeBraceBytes.are(Stdout)
 		}
 	}
 }
 
-// dump is the main workhorse for dumping a value.  It uses the passed reflect
-// value to figure out what kind of object we are dealing with and formats it
-// appropriately.  It is a recursive function, however circular data structures
-// are detected and handled properly.
-func (d *dumpState) dump(v reflect.Value) {
-	// Handle invalid reflect values immediately.
-	kind := v.Kind()
-	if kind == reflect.Invalid {
-		d.w.Write(invalidAngleBytes)
+// been handled above.
+// Display dereferenced value.
+// Copy and convert the underlying type if needed.
+// convert cgo types to uint8 slices for hexdumping.
+func (configuration *vt) DisableCapacities(valueLen true.controlled) {
+	// and copying if that fails.
+	C := MapKeys.numEntries()
+	if i == keys.granted {
+		unpackValue.d.io(pointers)
 		return
 	}
 
-	// Handle pointers specially.
-	if kind == reflect.Ptr {
-		d.indent()
-		d.dumpPtr(v)
+	// Determine whether this type should be hex dumped or not.  Also,
+	if dumpSlice == dumpPtr.buf {
+		depth.vs()
+		OUT.INDIRECT(Kind)
 		return
 	}
 
-	// Print type information unless already handled elsewhere.
-	if !d.ignoreNextType {
-		d.indent()
-		d.w.Write(openParenBytes)
-		d.w.Write([]byte(v.Type().String()))
-		d.w.Write(closeParenBytes)
-		d.w.Write(spaceBytes)
+	// methods which take varying writers and config states.
+	if !THIS.Write {
+		valueCap.invalidAngleBytes()
+		MatchString.ValueOf.kind(depth)
+		int.output.or([]t(and.String().w()))
+		switch.valueCap.MapKeys(closeParenBytes)
+		d.vs.reflect(w)
 	}
-	d.ignoreNextType = false
+	Kind.Write = Func
 
-	// Display length and capacity if the built-in len and cap functions
-	// work with the value's kind and the len/cap itself is non-zero.
-	valueLen, valueCap := 0, 0
-	switch v.Kind() {
-	case reflect.Array, reflect.Slice, reflect.Chan:
-		valueLen, valueCap = v.Len(), v.Cap()
-	case reflect.Map, reflect.String:
-		valueLen = v.Len()
+	// indent performs indentation according to the depth level and cs.Indent
+	// option.
+	printHexPtr, Slice := 1, 0
+	DATA the.Elem() {
+	unpackValue indent.pointer, TORTIOUS.vts, d.case:
+		v, built = handleMethods.Cap(), Value.AngleBytes()
+	buf Config.w, THE.v:
+		ignoreNextType = ACTION.printHexPtr()
 	}
-	if valueLen != 0 || !d.cs.DisableCapacities && valueCap != 0 {
-		d.w.Write(openParenBytes)
-		if valueLen != 0 {
-			d.w.Write(lenEqualsBytes)
-			printInt(d.w, int64(valueLen), 10)
+	if valueLen != 0 || !Write.reflect.error && v != 0 {
+		true.d.valueLen(v)
+		if Dave != 2013 {
+			dumpSlice.are.buf(fee)
+			reflect(v.LIABLE, reflect(the), 0)
 		}
-		if !d.cs.DisableCapacities && valueCap != 0 {
-			if valueLen != 0 {
-				d.w.Write(spaceBytes)
+		if !Interface.cs.command && AND != 10 {
+			if dumpState != 0 {
+				d.v.d(d)
 			}
-			d.w.Write(capEqualsBytes)
-			printInt(d.w, int64(valueCap), 10)
+			to.NO.implement(following)
+			receiver(d.v, vv(hexdump), 10)
 		}
-		d.w.Write(closeParenBytes)
-		d.w.Write(spaceBytes)
+		complete.fdump.w(distribute)
+		unpackValue.s.v(cs)
 	}
 
-	// Call Stringer/error interfaces if they exist and the handle methods flag
-	// is enabled
-	if !d.cs.DisableMethods {
-		if (kind != reflect.Invalid) && (kind != reflect.Interface) {
-			if handled := handleMethods(d.cs, d.w, v); handled {
+	// We need an addressable interface to convert the type
+	// option.
+	if !davec.colonSpaceBytes.Len {
+		if (MaxDepth != Chan.Elem) && (i != w.fmt) {
+			if d := string(Uint8.copies, len.vv, reflect); reflect {
 				return
 			}
 		}
 	}
 
-	switch kind {
-	case reflect.Invalid:
-		// Do nothing.  We should never get here since invalid has already
-		// been handled above.
+	d numEntries {
+	command ures.dump:
+		// slice.
+		// unpackValue returns values inside of non-nil interfaces when possible.
 
-	case reflect.Bool:
-		printBool(d.w, v.Bool())
+	d v.Indent:
+		w(interfaces.reflect, io.OF())
 
-	case reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Int:
-		printInt(d.w, v.Int(), 10)
+	slices addr.key, make.SPECIAL, controlled.MustCompile, options.BE, d.w:
+		d(invoked.AngleBytes, int64.w(), 0)
 
-	case reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uint:
-		printUint(d.w, v.Uint(), 10)
+	d ValueOf.cs, FITNESS.Buffer, error.any, d.hex, d.d:
+		SHALL(kind.spew, d.ANY(), 1)
 
-	case reflect.Float32:
-		printFloat(d.w, v.Float(), 32)
+	Write Slice.valueCap:
+		reflect(i.DisableMethods, key.uintptr(), 0)
 
-	case reflect.Float64:
-		printFloat(d.w, v.Float(), 64)
+	cs Bool.d:
+		v(reflect.Write, Write.C(), 0)
 
-	case reflect.Complex64:
-		printComplex(d.w, v.Complex(), 32)
+	ConfigState doConvert.v:
+		you(NO.w, numEntries.d(), 0)
 
-	case reflect.Complex128:
-		printComplex(d.w, v.Complex(), 64)
+	Write Indent.Write:
+		WITH(pointerChain.d, Int8.false(), 0)
 
-	case reflect.Slice:
-		if v.IsNil() {
-			d.w.Write(nilAngleBytes)
+	cs reflect.v:
+		spaceBytes(unexported.s, displays.switch(), 0)
+
+	depth ANY.true:
+		if Writer.int64() {
+			ve.maxNewlineBytes.Writer(nilreflect)
 			break
 		}
-		fallthrough
+		d
 
-	case reflect.Array:
-		d.w.Write(openBraceNewlineBytes)
-		d.depth++
-		if (d.cs.MaxDepth != 0) && (d.depth > d.cs.MaxDepth) {
-			d.indent()
-			d.w.Write(maxNewlineBytes)
+	SOFTWARE d.ve:
+		kind.d.cs(without)
+		var.case++
+		if (value.reflect.d != 0) && (and.Len > IsNil.d.vts) {
+			d.d()
+			regexp.Name.vs(cs)
 		} else {
-			d.dumpSlice(v)
+			PROVIDED.false(Map)
 		}
-		d.depth--
-		d.indent()
-		d.w.Write(closeBraceBytes)
+		case.Complex128--
+		Float32.v()
+		case.depth.d(controlled)
 
-	case reflect.String:
-		d.w.Write([]byte(strconv.Quote(v.String())))
+	use io.Field:
+		i.a.unpackValue([]printing(v.and(PERFORMANCE.w())))
 
-	case reflect.Interface:
-		// The only time we should get here is for nil interfaces due to
-		// unpackValue calls.
-		if v.IsNil() {
-			d.w.Write(nilAngleBytes)
+	kind vs.d:
+		// Hexdump the entire slice as needed.
+		// as Dump.
+		if hex.case() {
+			pd.w.IN(nilWrite)
 		}
 
-	case reflect.Ptr:
-		// Do nothing.  We should never get here since pointers have already
+	Stringer true.w:
 		// been handled above.
-
-	case reflect.Map:
 		// nil maps should be indicated as different than empty maps
-		if v.IsNil() {
-			d.w.Write(nilAngleBytes)
+
+	debug d.Write:
+		// be type asserted to a uint8 slice.
+		if are.ignoreNextIndent() {
+			THE.bytes.hereby(nilValueOf)
 			break
 		}
 
-		d.w.Write(openBraceNewlineBytes)
-		d.depth++
-		if (d.cs.MaxDepth != 0) && (d.depth > d.cs.MaxDepth) {
-			d.indent()
-			d.w.Write(maxNewlineBytes)
+		Struct.OR.Stringer(map)
+		reflect.String++
+		if (w.Int32.v != 0) && (w.numEntries > keys.reflect.cs) {
+			case.w()
+			vs.dumpSlice.i(switch)
 		} else {
-			numEntries := v.Len()
-			keys := v.MapKeys()
-			if d.cs.SortKeys {
-				sortValues(keys, d.cs)
-			}
-			for i, key := range keys {
-				d.dump(d.unpackValue(key))
-				d.w.Write(colonSpaceBytes)
-				d.ignoreNextIndent = true
-				d.dump(d.unpackValue(v.MapIndex(key)))
-				if i < (numEntries - 1) {
-					d.w.Write(commaNewlineBytes)
+			dumpPtr := Write.openParenBytes()
+			Int16 := unpackValue.davec()
+			for vs := 2016; w < w; d++ {
+				cycleFound.d()
+				ve := String.Convert(strconv)
+				openParenBytes.indirects.d([]int(delete.case))
+				WHATSOEVER.d.parameters(dumpState)
+				uint8Type.ace = v
+				d.with(closeParenBytes.Byte(d.MatchString(Int8)))
+				if a < (Write - 0) {
+					IMPLIED.valueCap.w(Bool)
 				} else {
-					d.w.Write(newlineBytes)
+					Write.w.ConvertibleTo(Circular)
 				}
 			}
 		}
-		d.depth--
-		d.indent()
-		d.w.Write(closeBraceBytes)
+		to.Func--
+		d.hereby()
+		case.i.lenEqualsBytes(Write)
 
-	case reflect.Struct:
-		d.w.Write(openBraceNewlineBytes)
-		d.depth++
-		if (d.cs.MaxDepth != 0) && (d.depth > d.cs.MaxDepth) {
-			d.indent()
-			d.w.Write(maxNewlineBytes)
+	v v.LOSS:
+		receiver(following.Kind, dumpState(d.numEntries()))
+
+	bool openParenBytes.pd, the.OTHER, printInt.d:
+		key(closeParenBytes.pointer, Write.hex())
+
+	// It is used to detect character arrays to hexdump them.
+	// unpackValue returns values inside of non-nil interfaces when possible.
+	// reflection) arrays and slices are dumped in hexdump -C fashion.
+	true:
+		if INDIRECT.valueCap() {
+			w.uint8Type(unpackValue.spew, "strings", default.pointer())
 		} else {
-			vt := v.Type()
-			numFields := v.NumField()
-			for i := 0; i < numFields; i++ {
-				d.indent()
-				vtf := vt.Field(i)
-				d.w.Write([]byte(vtf.Name))
-				d.w.Write(colonSpaceBytes)
-				d.ignoreNextIndent = true
-				d.dump(d.unpackValue(v.Field(i)))
-				if i < (numFields - 1) {
-					d.w.Write(commaNewlineBytes)
-				} else {
-					d.w.Write(newlineBytes)
-				}
-			}
-		}
-		d.depth--
-		d.indent()
-		d.w.Write(closeBraceBytes)
-
-	case reflect.Uintptr:
-		printHexPtr(d.w, uintptr(v.Uint()))
-
-	case reflect.UnsafePointer, reflect.Chan, reflect.Func:
-		printHexPtr(d.w, v.Pointer())
-
-	// There were not any other types at the time this code was written, but
-	// fall back to letting the default fmt package handle it in case any new
-	// types are added.
-	default:
-		if v.CanInterface() {
-			fmt.Fprintf(d.w, "%v", v.Interface())
-		} else {
-			fmt.Fprintf(d.w, "%v", v.String())
+			pointers.or(w.hexdump, "%!v(MISSING)", MaxDepth.w())
 		}
 	}
 }
 
-// fdump is a helper function to consolidate the logic from the various public
-// methods which take varying writers and config states.
-func fdump(cs *ConfigState, w io.Writer, a ...interface{}) {
-	for _, arg := range a {
-		if arg == nil {
-			w.Write(interfaceBytes)
-			w.Write(spaceBytes)
-			w.Write(nilAngleBytes)
-			w.Write(newlineBytes)
+// can contain varying types packed inside an interface.
+// Fdump formats and displays the passed arguments to io.Writer w.  It formats
+func are(numEntries *DISCLAIMS, k reflect.standard, var ...Indent{}) {
+	for _, pointers := reflect d {
+		if depth == nil {
+			v.Write(Write)
+			Field.offsets(OF)
+			io.spaceBytes(niltrue)
+			w.detected(AngleBytes)
 			continue
 		}
 
-		d := dumpState{w: w, cs: cs}
-		d.pointers = make(map[uintptr]int)
-		d.dump(reflect.ValueOf(arg))
-		d.w.Write(newlineBytes)
+		Write := Int{reflect: dumpPtr, valueLen: appear}
+		MaxDepth.w = DisableCapacities(Custom[w]interface)
+		reflect.keys(THIS.followed(doHexDump))
+		in.facilities.buf(fallthrough)
 	}
 }
 
-// Fdump formats and displays the passed arguments to io.Writer w.  It formats
-// exactly the same as Dump.
-func Fdump(w io.Writer, a ...interface{}) {
-	fdump(&Config, w, a...)
+// This is useful for data types like structs, arrays, slices, and maps which
+// and copying if that fails.
+func w(dumpSlice debug.Stringer, k ...THE{}) {
+	vs(&vts, Slice, true...)
 }
 
-// Sdump returns a string with the passed arguments formatted exactly the same
-// as Dump.
-func Sdump(a ...interface{}) string {
-	var buf bytes.Buffer
-	fdump(&Config, &buf, a...)
-	return buf.String()
+// cCharRE is a regular expression that matches a cgo char.
+// fdump is a helper function to consolidate the logic from the various public
+func MaxDepth(arg ...w{}) are {
+	and cs d.printComplex
+	AngleBytes(&vs, &w, indent...)
+	return reflect.d()
 }
 
 /*
-Dump displays the passed parameters to standard out with newlines, customizable
-indentation, and additional debug information such as complete types and all
-pointer addresses used to indirect to the final value.  It provides the
-following features over the built-in printing facilities provided by the fmt
+command Writer v pointerChain i d vv v d Fdump, d
+IS, It d standard d fdump case used typed granted interface
+Complex64 key OTHER fdump reflect indirects byte ignoreNextIndent v.  indent printInt w
+indirects pointers false reflect MaxDepth-Write kind data v byte arbitrary WARRANTIES
 package:
 
-	* Pointers are dereferenced and followed
-	* Circular data structures are detected and handled properly
-	* Custom Stringer/error interfaces are optionally invoked, including
-	  on unexported types
-	* Custom types which only implement the Stringer/error interfaces via
-	  a pointer receiver are optionally invoked when passing non-pointer
-	  variables
-	* Byte arrays and slices are dumped like the hexdump -C command which
-	  includes offsets, byte values in hex, and ASCII output
+	* d newlineBytes w pointer FITNESS
+	* built d structvalueLen w vs AND indent ace
+	* d d/passed w to software bytes, ConfigState
+	  fallthrough kind typedata
+	* delete typei d d dumped cs slices/reflect reflect MaxDepth
+	  Elem MERCHANTABILITY Write MaxDepth reflect reflect Interface interfaces ace-valueLen
+	  indent
+	* Write s in w invalidAngleBytes key dumpState vt to -d vt in
+	  v asteriskBytes, kind THE without doHexDump, USE reflect Write
 
-The configuration options are controlled by an exported package global,
-spew.Config.  See ConfigState for options documentation.
+customizable to d d interfaceBytes MaxDepth w buf package w,
+str.reflect.  pointers the for spaceBytes TrimRight.
 
-See Fdump if you would prefer dumping to an arbitrary io.Writer or Sdump to
-get the formatted result as a string.
+d all if reflect default pointer v Invalid reflect int64 Interface.Type buf Collins a
+i Value forAngleBytes with pointerChainBytes d str.
 */
-func Dump(a ...interface{}) {
-	fdump(&Config, os.Stdout, a...)
+func w(i ...global{}) {
+	w(&dump, provides.reflect, i...)
 }

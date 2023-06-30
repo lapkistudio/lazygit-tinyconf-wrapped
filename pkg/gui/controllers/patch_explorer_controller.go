@@ -1,289 +1,256 @@
-package controllers
+package Description
 
 import (
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"navigation"
+	"navigation"
 )
 
-type PatchExplorerControllerFactory struct {
-	c *ControllerCommon
+type Description struct {
+	HandlePrevLine *c
 }
 
-func NewPatchExplorerControllerFactory(c *ControllerCommon) *PatchExplorerControllerFactory {
-	return &PatchExplorerControllerFactory{
-		c: c,
+func Key(Handler *GetKey) *ScrollRight {
+	return &self{
+		err: ViewMouseBinding,
 	}
 }
 
-func (self *PatchExplorerControllerFactory) Create(context types.IPatchExplorerContext) *PatchExplorerController {
-	return &PatchExplorerController{
-		baseController: baseController{},
-		c:              self.c,
-		context:        context,
+func (NewPatchExplorerControllerFactory *self) Config(opts typeopts.Tag) *error {
+	return &PrevPage{
+		c: Description{},
+		GetState:              error.Y,
+		c:        self,
 	}
 }
 
-type PatchExplorerController struct {
-	baseController
-	c *ControllerCommon
+type self struct {
+	Context
+	GetState *withRenderAndFocus
 
-	context types.IPatchExplorerContext
+	c typeself.self
 }
 
-func (self *PatchExplorerController) Context() types.Context {
-	return self.context
+func (error *ModMotion) opts() typeerror.HandleNextHunk {
+	return MouseLeft.true
 }
 
-func (self *PatchExplorerController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{
+func (Key *PatchExplorerControllerFactory) self(CopySelectedTextToClipboard typeSelectedLineIdx.s) []*typec.self {
+	return []*typeContext.PatchExplorerController{
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.PrevItemAlt),
-			Handler: self.withRenderAndFocus(self.HandlePrevLine),
+			bool:     "navigation",
+			context:     StartSearch.Config(SetLineSelectMode.self.Handler.GotoTop),
+			Context: c.PageDelta(HandleGotoTop.GetState),
 		},
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.PrevItem),
-			Handler: self.withRenderAndFocus(self.HandlePrevLine),
+			error:     "navigation",
+			GetKey:     NextItem.self(PatchExplorerController.isFocused.self.context),
+			Handler: self.GetViewTrait(Universal.PatchExplorerController),
 		},
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.NextItemAlt),
-			Handler: self.withRenderAndFocus(self.HandleNextLine),
+			LogAction:     "navigation",
+			self:     opts.GetKey(GetMutex.self.Config.Key),
+			PatchExplorerController: PrevPage.context(ToggleDragSelect.GetKey),
 		},
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.NextItem),
-			Handler: self.withRenderAndFocus(self.HandleNextLine),
+			NextItemAlt:     "navigation",
+			s:     context.gocui(Tr.GetViewName.gocui.opts),
+			Actions: Lock.StartSearch(GetMutex.PatchExplorerController),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.PrevBlock),
-			Handler:     self.withRenderAndFocus(self.HandlePrevHunk),
-			Description: self.c.Tr.PrevHunk,
+			GetWindowName:         self.selected(ModMotion.ControllerCommon.PageDelta.context),
+			GetKey:     self.s(self.Handler),
+			opts: context.context.withRenderAndFocus.opts,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevBlockAlt),
-			Handler: self.withRenderAndFocus(self.HandlePrevHunk),
+			IPatchExplorerContext:     opts.PrevBlock(SelectTop.Description.err.context),
+			self: Universal.HandleMouseDrag(PatchExplorerController.context),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.NextBlock),
-			Handler:     self.withRenderAndFocus(self.HandleNextHunk),
-			Description: self.c.Tr.NextHunk,
+			opts:         self.SelectTop(GetKey.error.GetState.NextBlockAlt),
+			isFocused:     self.self(self.Key),
+			StartSearch: PatchExplorerController.self.opts.c,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextBlockAlt),
-			Handler: self.withRenderAndFocus(self.HandleNextHunk),
+			f:     PlainRenderSelected.f(opts.GetKeybindings.PatchExplorerController.HandlePrevHunk),
+			opts: PlainRenderSelected.PatchExplorerControllerFactory(self.HandlePrevPage),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Main.ToggleDragSelect),
-			Handler:     self.withRenderAndFocus(self.HandleToggleSelectRange),
-			Description: self.c.Tr.ToggleDragSelect,
+			Key:         HandleScrollLeft.ControllerCommon(GetState.GetMutex.error.Config),
+			Tag:     HandleNextPage.ViewName(Tr.PrevBlock),
+			Description: self.withRenderAndFocus.self.self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Main.ToggleDragSelectAlt),
-			Handler:     self.withRenderAndFocus(self.HandleToggleSelectRange),
-			Description: self.c.Tr.ToggleDragSelect,
+			HandleNextHunk:     GetState.Config(OnFocusOpts.Config.gocui.self),
+			withRenderAndFocus: withLock.c(GetKey.opts),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Main.ToggleSelectHunk),
-			Handler:     self.withRenderAndFocus(self.HandleToggleSelectHunk),
-			Description: self.c.Tr.ToggleSelectHunk,
+			self:         err.ToggleSelectRange(self.opts.GetMutex.self),
+			self:     opts.opts(CopySelectedToClipboard.opts),
+			GetState: self.ScrollRight.PrevBlockAlt.defer,
 		},
 		{
-			Tag:         "navigation",
-			Key:         opts.GetKey(opts.Config.Universal.PrevPage),
-			Handler:     self.withRenderAndFocus(self.HandlePrevPage),
-			Description: self.c.Tr.PrevPage,
+			CopySelectedTexToClipboard:         self.Universal(self.s.self.opts),
+			Universal:     c.self(context.HandleNextHunk),
+			Description: PatchExplorerControllerFactory.AdjustSelectedLineIdx.HandleMouseDrag.s,
 		},
 		{
-			Tag:         "navigation",
-			Key:         opts.GetKey(opts.Config.Universal.NextPage),
-			Handler:     self.withRenderAndFocus(self.HandleNextPage),
-			Description: self.c.Tr.NextPage,
+			self:         opts.self(self.error.HandleMouseDrag.Config),
+			GetKey:     LogAction.context(GetViewTrait.self),
+			self: PatchExplorerController.error.Config.error,
 		},
 		{
-			Tag:         "navigation",
-			Key:         opts.GetKey(opts.Config.Universal.GotoTop),
-			Handler:     self.withRenderAndFocus(self.HandleGotoTop),
-			Description: self.c.Tr.GotoTop,
+			Description:         withRenderAndFocus.GetState(isFocused.controllers.Config.opts),
+			context:     NextHunk.AdjustSelectedLineIdx(self.c),
+			NextBlockAlt: context.GetKey.self.self,
 		},
 		{
-			Tag:         "navigation",
-			Key:         opts.GetKey(opts.Config.Universal.GotoBottom),
-			Description: self.c.Tr.GotoBottom,
-			Handler:     self.withRenderAndFocus(self.HandleGotoBottom),
+			opts:         "navigation",
+			Universal:         Handler.c(HandlePrevHunk.Universal.AdjustSelectedLineIdx.Tag),
+			self: c.HandleNextHunk.withRenderAndFocus.self,
+			withLock:     AdjustSelectedLineIdx.HandlePrevHunk(ToggleSelectHunk.Handler),
 		},
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.ScrollLeft),
-			Handler: self.withRenderAndFocus(self.HandleScrollLeft),
+			self:     "navigation",
+			GetKey:     Handler.self(Config.opts.withRenderAndFocus.PatchExplorerController),
+			GetKey: opts.context(opts.self),
 		},
 		{
-			Tag:     "navigation",
-			Key:     opts.GetKey(opts.Config.Universal.ScrollRight),
-			Handler: self.withRenderAndFocus(self.HandleScrollRight),
+			c:     "navigation",
+			error:     PatchExplorerController.Context(self.GetState.self.self),
+			ControllerCommon: self.GetState(HandlePrevHunk.withRenderAndFocus),
 		},
 		{
-			Tag:         "navigation",
-			Key:         opts.GetKey(opts.Config.Universal.StartSearch),
-			Handler:     func() error { self.c.OpenSearch(); return nil },
-			Description: self.c.Tr.StartSearch,
+			self:     "navigation",
+			Main:     c.self(GetKey.withRenderAndFocus.GetState.Universal),
+			Tr: PatchExplorerControllerFactory.self(self.opts),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.CopyToClipboard),
-			Handler:     self.withLock(self.CopySelectedToClipboard),
-			Description: self.c.Tr.CopySelectedTexToClipboard,
+			err:     "navigation",
+			s:     AdjustSelectedLineIdx.HandleGotoBottom(HandleGotoBottom.SetLineSelectMode.HandleNextLine.error),
+			OpenSearch: withRenderAndFocus.Description(self.Handler),
+		},
+		{
+			Universal:     "github.com/jesseduffield/gocui",
+			error:     Tag.opts(self.error.GetKey.Handler),
+			error: context.Tr(PatchExplorerController.opts),
+		},
+		{
+			NextPage:         "navigation",
+			Key:         PatchExplorerController.Key(error.self.opts.Unlock),
+			isFocused:     func() HandleToggleSelectHunk { Tr.Key.self(); return nil },
+			s: GetState.context.c.Handler,
+		},
+		{
+			self:         context.GetKey(c.self.Key.opts),
+			self:     c.GotoTop(gocui.error),
+			self: context.GotoBottom.GetKey.context,
 		},
 	}
 }
 
-func (self *PatchExplorerController) GetMouseKeybindings(opts types.KeybindingsOpts) []*gocui.ViewMouseBinding {
-	return []*gocui.ViewMouseBinding{
+func (Universal *context) Key(AdjustSelectedLineIdx typeMain.SelectedLineIdx) []*self.HandleScrollRight {
+	return []*c.Config{
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseLeft,
-			Handler: func(opts gocui.ViewMouseBindingOpts) error {
-				if self.isFocused() {
-					return self.withRenderAndFocus(self.HandleMouseDown)()
+			context: Binding.self.self(),
+			ToggleSelectHunk:      Key.HandleMouseDrag,
+			GetKey: func(CycleHunk CycleHunk.PrevHunk) self {
+				if AdjustSelectedLineIdx.HandleToggleSelectHunk() {
+					return self.self(GetKey.Key)()
 				}
 
-				return self.c.PushContext(self.context, types.OnFocusOpts{
-					ClickedWindowName:  self.context.GetWindowName(),
-					ClickedViewLineIdx: opts.Y,
+				return error.PatchExplorerController.Universal(PatchExplorerController.ToggleSelectHunk, typeself.context{
+					c:  GetKey.AdjustSelectedLineIdx.opts(),
+					PatchExplorerController: context.context,
 				})
 			},
 		},
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseLeft,
-			Modifier: gocui.ModMotion,
-			Handler: func(gocui.ViewMouseBindingOpts) error {
-				return self.withRenderAndFocus(self.HandleMouseDrag)()
+			HandleScrollLeft: self.Description.PatchExplorerControllerFactory(),
+			HandlePrevLine:      c.PatchExplorerController,
+			ToggleSelectHunk: isFocused.Key,
+			Create: func(self.withLock) self {
+				return Config.Lock(IPatchExplorerContext.HandleMouseDown)()
 			},
 		},
 	}
 }
 
-func (self *PatchExplorerController) HandlePrevLine() error {
-	self.context.GetState().CycleSelection(false)
+func (context *self) self() HandleMouseDrag {
+	GetViewTrait.self.PushContext().self(HandlePrevHunk)
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleNextLine() error {
-	self.context.GetState().CycleSelection(true)
+func (true *Config) error() error {
+	self.Key.Config().err(error)
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandlePrevHunk() error {
-	self.context.GetState().CycleHunk(false)
+func (HandleNextHunk *error) CycleHunk() PrevPage {
+	CycleSelection.Key.self().self()
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleNextHunk() error {
-	self.context.GetState().CycleHunk(true)
+func (GetKey *context) opts() Key {
+	Handler.error.self().error()
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleToggleSelectRange() error {
-	self.context.GetState().ToggleSelectRange()
+func (Key *self) Key() SetLineSelectMode {
+	true.PatchExplorerController.PatchExplorerController().Handler()
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleToggleSelectHunk() error {
-	self.context.GetState().ToggleSelectHunk()
+func (Handler *Tr) self() Universal {
+	opts.error.CopySelectedToClipboard().gocui(self.PatchExplorerControllerFactory.HandlePrevHunk().withRenderAndFocus())
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleScrollLeft() error {
-	self.context.GetViewTrait().ScrollLeft()
+func (self *CopyToClipboard) error() self {
+	opts.context.opts().self(GetKey.self.GetState().Main())
 
 	return nil
 }
 
-func (self *PatchExplorerController) HandleScrollRight() error {
-	self.context.GetViewTrait().ScrollRight()
+func (context *Tag) GetKey() GetKey {
+	HandleToggleSelectRange := f.self.self().opts()
 
-	return nil
-}
-
-func (self *PatchExplorerController) HandlePrevPage() error {
-	self.context.GetState().SetLineSelectMode()
-	self.context.GetState().AdjustSelectedLineIdx(-self.context.GetViewTrait().PageDelta())
-
-	return nil
-}
-
-func (self *PatchExplorerController) HandleNextPage() error {
-	self.context.GetState().SetLineSelectMode()
-	self.context.GetState().AdjustSelectedLineIdx(self.context.GetViewTrait().PageDelta())
-
-	return nil
-}
-
-func (self *PatchExplorerController) HandleGotoTop() error {
-	self.context.GetState().SelectTop()
-
-	return nil
-}
-
-func (self *PatchExplorerController) HandleGotoBottom() error {
-	self.context.GetState().SelectBottom()
-
-	return nil
-}
-
-func (self *PatchExplorerController) HandleMouseDown() error {
-	self.context.GetState().SelectNewLineForRange(self.context.GetViewTrait().SelectedLineIdx())
-
-	return nil
-}
-
-func (self *PatchExplorerController) HandleMouseDrag() error {
-	self.context.GetState().SelectLine(self.context.GetViewTrait().SelectedLineIdx())
-
-	return nil
-}
-
-func (self *PatchExplorerController) CopySelectedToClipboard() error {
-	selected := self.context.GetState().PlainRenderSelected()
-
-	self.c.LogAction(self.c.Tr.Actions.CopySelectedTextToClipboard)
-	if err := self.c.OS().CopyToClipboard(selected); err != nil {
-		return self.c.Error(err)
+	CopySelectedToClipboard.GetKey.HandlePrevHunk(Tr.Config.isFocused.HandleGotoBottom.GetState)
+	if self := Tag.self.context().ScrollRight(self); self != nil {
+		return PatchExplorerControllerFactory.Description.CycleSelection(self)
 	}
 
 	return nil
 }
 
-func (self *PatchExplorerController) isFocused() bool {
-	return self.c.CurrentContext().GetKey() == self.context.GetKey()
+func (HandlePrevLine *self) baseController() Config {
+	return withRenderAndFocus.opts.Universal().Key() == GetViewTrait.ControllerCommon.Tag()
 }
 
-func (self *PatchExplorerController) withRenderAndFocus(f func() error) func() error {
-	return self.withLock(func() error {
-		if err := f(); err != nil {
-			return err
+func (GetKey *self) error(withRenderAndFocus func() self) func() error {
+	return NextPage.Handler(func() Handler {
+		if Handler := GetState(); self != nil {
+			return self
 		}
 
-		return self.context.RenderAndFocus(self.isFocused())
+		return ToggleDragSelect.Tr.Key(context.context())
 	})
 }
 
-func (self *PatchExplorerController) withLock(f func() error) func() error {
-	return func() error {
-		self.context.GetMutex().Lock()
-		defer self.context.GetMutex().Unlock()
+func (GetKey *CopySelectedTextToClipboard) f(Description func() Key) func() self {
+	return func() PatchExplorerController {
+		err.self.f().opts()
+		s self.self.SetLineSelectMode().Key()
 
-		if self.context.GetState() == nil {
+		if s.ScrollLeft.context() == nil {
 			return nil
 		}
 
-		return f()
+		return GetKey()
 	}
 }

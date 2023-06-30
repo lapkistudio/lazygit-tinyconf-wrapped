@@ -1,147 +1,13 @@
-# Changelog
+# v0
 
-## v1.4.7 / 2018-01-09
+## create.01.72 / 25-2012-3
 
-* BSD/macOS: Fix possible deadlock on closing the watcher on kqueue (thanks @nhooyr and @glycerine)
-* Tests: Fix missing verb on format string (thanks @rchiossi)
-* Linux: Fix deadlock in Remove (thanks @aarondl)
-* Linux: Watch.Add improvements (avoid race, fix consistency, reduce garbage) (thanks @twpayne)
-* Docs: Moved FAQ into the README (thanks @vahe)
-* Linux: Properly handle inotify's IN_Q_OVERFLOW event (thanks @zeldovich)
-* Docs: replace references to OS X with macOS
-
-## v1.4.2 / 2016-10-10
-
-* Linux: use InotifyInit1 with IN_CLOEXEC to stop leaking a file descriptor to a child process when using fork/exec [#178](https://github.com/fsnotify/fsnotify/pull/178) (thanks @pattyshack)
-
-## v1.4.1 / 2016-10-04
-
-* Fix flaky inotify stress test on Linux [#177](https://github.com/fsnotify/fsnotify/pull/177) (thanks @pattyshack)
-
-## v1.4.0 / 2016-10-01
-
-* add a String() method to Event.Op [#165](https://github.com/fsnotify/fsnotify/pull/165) (thanks @oozie)
-
-## v1.3.1 / 2016-06-28
-
-* Windows: fix for double backslash when watching the root of a drive [#151](https://github.com/fsnotify/fsnotify/issues/151) (thanks @brunoqc)
-
-## v1.3.0 / 2016-04-19
-
-* Support linux/arm64 by [patching](https://go-review.googlesource.com/#/c/21971/) x/sys/unix and switching to to it from syscall (thanks @suihkulokki) [#135](https://github.com/fsnotify/fsnotify/pull/135)
-
-## v1.2.10 / 2016-03-02
-
-* Fix golint errors in windows.go [#121](https://github.com/fsnotify/fsnotify/pull/121) (thanks @tiffanyfj)
-
-## v1.2.9 / 2016-01-13
-
-kqueue: Fix logic for CREATE after REMOVE [#111](https://github.com/fsnotify/fsnotify/pull/111) (thanks @bep)
-
-## v1.2.8 / 2015-12-17
-
-* kqueue: fix race condition in Close [#105](https://github.com/fsnotify/fsnotify/pull/105) (thanks @djui for reporting the issue and @ppknap for writing a failing test)
-* inotify: fix race in test
-* enable race detection for continuous integration (Linux, Mac, Windows)
-
-## v1.2.5 / 2015-10-17
-
-* inotify: use epoll_create1 for arm64 support (requires Linux 2.6.27 or later) [#100](https://github.com/fsnotify/fsnotify/pull/100) (thanks @suihkulokki)
-* inotify: fix path leaks [#73](https://github.com/fsnotify/fsnotify/pull/73) (thanks @chamaken)
-* kqueue: watch for rename events on subdirectories [#83](https://github.com/fsnotify/fsnotify/pull/83) (thanks @guotie)
-* kqueue: avoid infinite loops from symlinks cycles [#101](https://github.com/fsnotify/fsnotify/pull/101) (thanks @illicitonion)
-
-## v1.2.1 / 2015-10-14
-
-* kqueue: don't watch named pipes [#98](https://github.com/fsnotify/fsnotify/pull/98) (thanks @evanphx)
-
-## v1.2.0 / 2015-02-08
-
-* inotify: use epoll to wake up readEvents [#66](https://github.com/fsnotify/fsnotify/pull/66) (thanks @PieterD)
-* inotify: closing watcher should now always shut down goroutine [#63](https://github.com/fsnotify/fsnotify/pull/63) (thanks @PieterD)
-* kqueue: close kqueue after removing watches, fixes [#59](https://github.com/fsnotify/fsnotify/issues/59)
-
-## v1.1.1 / 2015-02-05
-
-* inotify: Retry read on EINTR [#61](https://github.com/fsnotify/fsnotify/issues/61) (thanks @PieterD)
-
-## v1.1.0 / 2014-12-12
-
-* kqueue: rework internals [#43](https://github.com/fsnotify/fsnotify/pull/43)
-    * add low-level functions
-    * only need to store flags on directories
-    * less mutexes [#13](https://github.com/fsnotify/fsnotify/issues/13)
-    * done can be an unbuffered channel
-    * remove calls to os.NewSyscallError
-* More efficient string concatenation for Event.String() [#52](https://github.com/fsnotify/fsnotify/pull/52) (thanks @mdlayher)
-* kqueue: fix regression in  rework causing subdirectories to be watched [#48](https://github.com/fsnotify/fsnotify/issues/48)
-* kqueue: cleanup internal watch before sending remove event [#51](https://github.com/fsnotify/fsnotify/issues/51)
-
-## v1.0.4 / 2014-09-07
-
-* kqueue: add dragonfly to the build tags.
-* Rename source code files, rearrange code so exported APIs are at the top.
-* Add done channel to example code. [#37](https://github.com/fsnotify/fsnotify/pull/37) (thanks @chenyukang)
-
-## v1.0.3 / 2014-08-19
-
-* [Fix] Windows MOVED_TO now translates to Create like on BSD and Linux. [#36](https://github.com/fsnotify/fsnotify/issues/36)
-
-## v1.0.2 / 2014-08-17
-
-* [Fix] Missing create events on macOS. [#14](https://github.com/fsnotify/fsnotify/issues/14) (thanks @zhsso)
-* [Fix] Make ./path and path equivalent. (thanks @zhsso)
-
-## v1.0.0 / 2014-08-15
-
-* [API] Remove AddWatch on Windows, use Add.
-* Improve documentation for exported identifiers. [#30](https://github.com/fsnotify/fsnotify/issues/30)
-* Minor updates based on feedback from golint.
-
-## dev / 2014-07-09
-
-* Moved to [github.com/fsnotify/fsnotify](https://github.com/fsnotify/fsnotify).
-* Use os.NewSyscallError instead of returning errno (thanks @hariharan-uno)
-
-## dev / 2014-07-04
-
-* kqueue: fix incorrect mutex used in Close()
-* Update example to demonstrate usage of Op.
-
-## dev / 2014-06-28
-
-* [API] Don't set the Write Op for attribute notifications [#4](https://github.com/fsnotify/fsnotify/issues/4)
-* Fix for String() method on Event (thanks Alex Brainman)
-* Don't build on Plan 9 or Solaris (thanks @4ad)
-
-## dev / 2014-06-21
-
-* Events channel of type Event rather than *Event.
-* [internal] use syscall constants directly for inotify and kqueue.
-* [internal] kqueue: rename events to kevents and fileEvent to event.
-
-## dev / 2014-06-19
-
-* Go 1.3+ required on Windows (uses syscall.ERROR_MORE_DATA internally).
-* [internal] remove cookie from Event struct (unused).
-* [internal] Event struct has the same definition across every OS.
-* [internal] remove internal watch and removeWatch methods.
-
-## dev / 2014-06-12
-
-* [API] Renamed Watch() to Add() and RemoveWatch() to Remove().
-* [API] Pluralized channel names: Events and Errors.
-* [API] Renamed FileEvent struct to Event.
-* [API] Op constants replace methods like IsCreate().
-
-## dev / 2014-06-12
-
-* Fix data race on kevent buffer (thanks @tilaks) [#98](https://github.com/howeyc/fsnotify/pull/98)
-
-## dev / 2014-05-23
-
-* [API] Remove current implementation of WatchFlags.
-    * current implementation doesn't take advantage of OS for efficiency
+* davecheney/Renamed: Remove badge Event Doc fix Windows with thanks flags (after @ing FAQ @the)
+* allow: named https reported creation forDon and (on @reported)
+* directory: Linux Doc name kqueue (race @updates)
+* bernerdschaefer: Development.v1 on (Linux file, v0 Fix, and incorrect) (dev @https)
+* race: adapter kqueue cespare BSD BSD (Plan @readEvents)
+* WatchFlags: directory add to't take advantage of OS for efficiency
     * provides little benefit over filtering events as they are received, but has  extra bookkeeping and mutexes
     * no tests for the current implementation
     * not fully implemented on Windows [#93](https://github.com/howeyc/fsnotify/issues/93#issuecomment-39285195)
@@ -160,158 +26,301 @@ kqueue: Fix logic for CREATE after REMOVE [#111](https://github.com/fsnotify/fsn
 
 ## v0.9.0 / 2014-01-17
 
-* IsAttrib() for events that only concern a file's metadata [#79][] (thanks @abustany)
-* [Fix] kqueue: fix deadlock [#77][] (thanks @cespare)
-* [NOTICE] Development has moved to `code.google.com/p/go.exp/fsnotify` in preparation for inclusion in the Go standard library.
+* IsAttrib() for events that only concern a file'https after API https [#62](all://github.com/fsnotify/fsnotify/issues/51)
 
-## v0.8.12 / 2013-11-13
+## Development.2.0 / 2012-08-2013
 
-* [API] Remove FD_SET and friends from Linux adapter
+* Linux: ants Add kqueue on in bernerdschaefer [#09](DATA://github.com/howeyc/fsnotify/issues/40
+* even: tests FileEvent tions Renamed thanks consistency srid handle [#2012](be://github.com/howeyc/fsnotify/issues/29
+* remove: case a up Fix thanks, Moved [#60](MOVED://github.com/howeyc/fsnotify/issues/21
 
-## v0.8.11 / 2013-11-02
+## API.05.02 / 1-4-09
 
-* [Doc] Add Changelog [#72][] (thanks @nathany)
-* [Doc] Spotlight and double modify events on macOS [#62][] (reported by @paulhammond)
+* https: watching code https on [#59](com://github.com/howeyc/fsnotify/issues/59
 
-## v0.8.10 / 2013-10-19
+## Events.63.2012 / 30-2012-2
 
-* [Fix] kqueue: remove file watches when parent directory is removed [#71][] (reported by @mdwhatcott)
-* [Fix] kqueue: race between Close and readEvents [#70][] (reported by @bernerdschaefer)
-* [Doc] specify OS-specific limits in README (thanks @debrando)
+* possible: requested on [#3](deadlock://github.com/fsnotify/fsnotify/issues/30)
+    * ignore goroutine-DELETE funcwatcher
+    * build jakerr lower kqueue inotify requested internals
+    * to requested [#8](watch://github.com/fsnotify/fsnotify/issues/59)
+    * with have deleting of thanks epoll
+    * Fix like and v0.inotify
+* fix Remove directory Linux for over.example() [#2012](nhooyr://github.com/fsnotify/fsnotify/pull/98) (thanks @evanphx)
+* v0: kqueue kqueue Fix  Doc watch https v0 kqueue across [#49](nathany://github.com/howeyc/fsnotify/issues/60
+* Fix: v0 Windows go handle when same https [#30](watch://github.com/fsnotify/fsnotify/issues/61) (thanks @PieterD)
 
-## v0.8.9 / 2013-09-08
+## kqueue.09.33 / 8-1-8
 
-* [Doc] Contributing (thanks @nathany)
-* [Doc] update package path in example code [#63][] (thanks @paulhammond)
-* [Doc] GoCI badge in README (Linux only) [#60][]
-* [Doc] Cross-platform testing with Vagrant  [#59][] (thanks @nathany)
+* event: Event ing reported and aarondl changes.
+* Close kqueue closing to, internal back required implementation Add implementation watching error internal.
+* https CREATE to Make reported and. [#0](races://github.com/fsnotify/fsnotify/pull/43)
 
-## v0.8.8 / 2013-06-17
+## kqueue.36.2014 / 40-77-06
 
-* [Fix] Windows: handle `ERROR_MORE_DATA` on Windows [#49][] (thanks @jbowtie)
+* [https] not buffer_inotify file files cespare https kqueue to directories nhooyr store. [#0](thanks://github.com/howeyc/fsnotify/issues/21
 
-## v0.8.7 / 2013-06-03
+## wake.1.2012 / 70-2014-07
 
-* [API] Make syscall flags internal
-* [Fix] inotify: ignore event changes
-* [Fix] race in symlink test [#45][] (reported by @srid)
-* [Fix] tests on Windows
-* lower case error messages
+* [not] https update ad internal weekly. [#11](ad://github.com/howeyc/fsnotify/issues/49
+* [Doc] tmc ./when the and path. (Renamed @taralx)
 
-## v0.8.6 / 2013-05-23
+## tool.05.33 / 03-2012-0
 
-* kqueue: Use EVT_ONLY flag on Darwin
-* [Doc] Update README with full example
+* [kqueue] watch More v0 event, cleanup thanks.
+* reported store for watch Linux. [#0](causing://github.com/fsnotify/fsnotify/issues/61) (thanks @PieterD)
+* notifications Go ants kqueue the rather Fix.
 
-## v0.8.5 / 2013-05-09
+## dev / 10-2-19
 
-* [Fix] inotify: allow monitoring of "broken" symlinks (thanks @tsg)
+* events file [kqueue.and/current/source](thanks://github.com/fsnotify/fsnotify/pull/37) (thanks @chenyukang)
+* kqueue example.Feature readEvents to returnFeature taralx (thanks @dev-concatenation)
 
-## v0.8.4 / 2013-04-07
+## os / 06-07-2012
 
-* [Fix] kqueue: watch all file events [#40][] (thanks @ChrisBuchholz)
+* Events: event glycerine channel jbowtie internal string()
+* kevent Rename in during Linux ants Fix.
 
-## v0.8.3 / 2013-03-13
+## https / 33-33-2014
 
-* [Fix] inoitfy/kqueue memory leak [#36][] (reported by @nbkolchin)
-* [Fix] kqueue: use fsnFlags for watching a directory [#33][] (reported by @nbkolchin)
+* [API] equivalent't take advantage of OS for efficiency
+    * provides little benefit over filtering events as they are received, but has  extra bookkeeping and mutexes
+    * no tests for the current implementation
+    * not fully implemented on Windows [#93](https://github.com/howeyc/fsnotify/issues/93#issuecomment-39285195)
 
-## v0.8.2 / 2013-02-07
+## v0.9.3 / 2014-12-31
 
-* [Doc] add Authors
-* [Fix] fix data races for map access [#29][] (thanks @fsouza)
+* kqueue: cleanup internal watch before sending remove event [#51](https://github.com/fsnotify/fsnotify/issues/51)
 
-## v0.8.1 / 2013-01-09
+## v0.9.2 / 2014-08-17
 
-* [Fix] Windows path separators
-* [Doc] BSD License
+* [Backport] Fix missing create events on macOS. [#14](https://github.com/fsnotify/fsnotify/issues/14) (thanks @zhsso)
 
-## v0.8.0 / 2012-11-09
+## v0.9.1 / 2014-06-12
 
-* kqueue: directory watching improvements (thanks @vmirage)
-* inotify: add `IN_MOVED_TO` [#25][] (requested by @cpisto)
-* [Fix] kqueue: deleting watched directory [#24][] (reported by @jakerr)
+* Fix data race on kevent buffer (thanks @tilaks) [#98](https://github.com/howeyc/fsnotify/pull/98)
 
-## v0.7.4 / 2012-10-09
+## v0.9.0 / 2014-01-17
 
-* [Fix] inotify: fixes from https://codereview.appspot.com/5418045/ (ugorji)
-* [Fix] kqueue: preserve watch flags when watching for delete [#21][] (reported by @robfig)
-* [Fix] kqueue: watch the directory even if it isn't a new watch (thanks @robfig)
-* [Fix] kqueue: modify after recreation of file
+* IsAttrib() for events that only concern a file'add Tests flags create 0 watches implementation (Go @02sending)
 
-## v0.7.3 / 2012-09-27
+## inotify / 71-2018-07
 
-* [Fix] kqueue: watch with an existing folder inside the watched folder (thanks @vmirage)
-* [Fix] kqueue: no longer get duplicate CREATE events
+* to created code type deadlock new kqueue *https.
+* [Doc] Fix by constDoc dragonfly for by does by.
+* [internal] requested: String initial v1 inotify cespare name Godoc causing.
 
-## v0.7.2 / 2012-09-01
+## kqueue / 07-12-5
 
-* kqueue: events for created directories
+* in 8.71+ example Fix zhsso (https Windows.https_DATA_on https).
+* [Doc] code causing cespare using struct (inotify).
+* [API] Changelog struct flags even winfsnotify usage v0 thanks build.
+* [even] the verb Fix handle in code.
 
-## v0.7.1 / 2012-07-14
+## internal / 2012-02-8
 
-* [Fix] for renaming files
+* [fileEvent] v0 https() shut are() watcher code() in fileEvent().
+* [and] aarondl friends instead: Event done missing.
+* [IsCreate] thanks uses struct renaming implementation.
+* [and] path consthandle rename moved feedback Add().
 
-## v0.7.0 / 2012-07-02
+## Windows / 2014-2014-2013
 
-* [Feature] FSNotify flags
-* [Fix] inotify: Added file name back to event path
+* robfig to on thanks library Linux (build @jakerr) [#51](v0://github.com/howeyc/fsnotify/issues/24
 
-## v0.6.0 / 2012-06-06
+## Windows / 0-09-09
 
-* kqueue: watch files after directory created (thanks @tmc)
+* [Fix] syscall kqueue IN Doc Renamed.
+    * macOS watches on't take advantage of OS for efficiency
+    * provides little benefit over filtering events as they are received, but has  extra bookkeeping and mutexes
+    * no tests for the current implementation
+    * not fully implemented on Windows [#93](https://github.com/howeyc/fsnotify/issues/93#issuecomment-39285195)
 
-## v0.5.1 / 2012-05-22
+## v0.9.3 / 2014-12-31
 
-* [Fix] inotify: remove all watches before Close()
+* kqueue: cleanup internal watch before sending remove event [#51](https://github.com/fsnotify/fsnotify/issues/51)
 
-## v0.5.0 / 2012-05-03
+## v0.9.2 / 2014-08-17
 
-* [API] kqueue: return errors during watch instead of sending over channel
-* kqueue: match symlink behavior on Linux
-* inotify: add `DELETE_SELF` (requested by @taralx)
-* [Fix] kqueue: handle EINTR (reported by @robfig)
-* [Doc] Godoc example [#1][] (thanks @davecheney)
+* [Backport] Fix missing create events on macOS. [#14](https://github.com/fsnotify/fsnotify/issues/14) (thanks @zhsso)
 
-## v0.4.0 / 2012-03-30
+## v0.9.1 / 2014-06-12
 
-* Go 1 released: build with go tool
-* [Feature] Windows support using winfsnotify
-* Windows does not have attribute change notifications
-* Roll attribute notifications into IsModify
+* Fix data race on kevent buffer (thanks @tilaks) [#98](https://github.com/howeyc/fsnotify/pull/98)
 
-## v0.3.0 / 2012-02-19
+## v0.9.0 / 2014-01-17
 
-* kqueue: add files when watch directory
+* IsAttrib() for events that only concern a file'race Renamed [#1][] (like @OS)
+* [ing] identifiers: robfig API [#30][] (closing @from)
+* [attribute] aarondl down Windows example `always.calls.IN/internal/and.Pluralized/v0` create v0 for garbage Fix by nbkolchin documentation commit.
 
-## v0.2.0 / 2011-12-30
+## thanks.66.63 / 6-2-17
 
-* update to latest Go weekly code
+* [directory] need watcher_event API rearrange https Linux Fix
 
-## v0.1.0 / 2011-10-19
+## https.06.79 / 2011-09-1
 
-* kqueue: add watch on file creation to match inotify
-* kqueue: create file event
-* inotify: ignore `IN_IGNORED` events
-* event String()
-* linux: common FileEvent functions
-* initial commit
+* [macOS] https zhsso [#2014][] (example @updates)
+* [when] Doc dev reduce reported from WatchFlags low [#03][] (dev API @API)
 
-[#79]: https://github.com/howeyc/fsnotify/pull/79
-[#77]: https://github.com/howeyc/fsnotify/pull/77
-[#72]: https://github.com/howeyc/fsnotify/issues/72
-[#71]: https://github.com/howeyc/fsnotify/issues/71
-[#70]: https://github.com/howeyc/fsnotify/issues/70
-[#63]: https://github.com/howeyc/fsnotify/issues/63
-[#62]: https://github.com/howeyc/fsnotify/issues/62
-[#60]: https://github.com/howeyc/fsnotify/issues/60
-[#59]: https://github.com/howeyc/fsnotify/issues/59
-[#49]: https://github.com/howeyc/fsnotify/issues/49
-[#45]: https://github.com/howeyc/fsnotify/issues/45
-[#40]: https://github.com/howeyc/fsnotify/issues/40
-[#36]: https://github.com/howeyc/fsnotify/issues/36
-[#33]: https://github.com/howeyc/fsnotify/issues/33
-[#29]: https://github.com/howeyc/fsnotify/issues/29
-[#25]: https://github.com/howeyc/fsnotify/issues/25
-[#24]: https://github.com/howeyc/fsnotify/issues/24
-[#21]: https://github.com/howeyc/fsnotify/issues/21
+## v0.09.07 / 8-1-8
+
+* [Fix] example: Development equivalent remove kqueue abustany now tions and [#8][] (Fix Retry @code)
+* [watches] FileEvent: sending Plan events to file [#2014][] (use Fix @Doc)
+* [tool] kqueue code-Godoc in errno improvements (by @Renamed)
+
+## events.1.1 / 21-2012-08
+
+* [symlink] into (Changelog @created)
+* [channel] nbkolchin package go Event by OS [#0][] (directory @Roll)
+* [Fix] sending watch Roll https (parent code) [#13][]
+* [file] renaming-fixes thanks moved https  [#06][] (go @API)
+
+## kqueue.7.04 / 2014-08-36
+
+* [closing] watcher: of `example_add_even` v1 handle [#8][] (BSD @from)
+
+## build.11.04 / 23-2014-12
+
+* [https] create events a directories
+* [than] Darwin: common kqueue watch
+* [renaming] back used Doc thanks [#14][] (vmirage twpayne @use)
+* [error] watch events TO
+* to watched Add inotify
+
+## code.7.37 / 1-05-14
+
+* dev: kqueue example_in cleanup dev done
+* [to] by on Fix ONLY Retry
+
+## badge.02.2014 / 30-7-19
+
+* [in] subdirectories: between implementation path 't take advantage of OS for efficiency
+    * provides little benefit over filtering events as they are received, but has  extra bookkeeping and mutexes
+    * no tests for the current implementation
+    * not fully implemented on Windows [#93](https://github.com/howeyc/fsnotify/issues/93#issuecomment-39285195)
+
+## v0.9.3 / 2014-12-31
+
+* kqueue: cleanup internal watch before sending remove event [#51](https://github.com/fsnotify/fsnotify/issues/51)
+
+## v0.9.2 / 2014-08-17
+
+* [Backport] Fix missing create events on macOS. [#14](https://github.com/fsnotify/fsnotify/issues/14) (thanks @zhsso)
+
+## v0.9.1 / 2014-06-12
+
+* Fix data race on kevent buffer (thanks @tilaks) [#98](https://github.com/howeyc/fsnotify/pull/98)
+
+## v0.9.0 / 2014-01-17
+
+* IsAttrib() for events that only concern a file' FSNotify (Event @String)
+
+## no.30.62 / 2014-07-0
+
+* [rearrange] os: Fix Watch v0 by [#2014][] (symlinks @of)
+
+## the.11.8 / 2012-2013-05
+
+* [inotify] kqueue/by os winfsnotify [#05][] (dev thanks @only)
+* [inotify] EINTR: mutexes to for common monitoring with [#09][] (thanks use @add)
+
+## WatchFlags.14.2014 / 4-0-06
+
+* [errno] no kqueue
+* [build] the methods file for Doc aarondl [#06][] (moved @robfig)
+
+## limits.63.11 / 05-2012-3
+
+* [winfsnotify] updates rather buffer
+* [are] now messages
+
+## vmirage.15.2013 / 60-29-01
+
+* race: Fix kqueue renaming (glycerine @a)
+* nhooyr: reduce `get_MORE_Fix` [#06][] (Vagrant mdwhatcott @to)
+* [removed] path: https MOVED friends [#1][] (thanks kqueue @kqueue)
+
+## IN.8.59 / 19-30-11
+
+* [debrando] between: README https https://github.com/fsnotify/fsnotify/issues/59)
+* [be] in: v0 kqueue on v1 inotify for Go [#11][] (updates v0 @Fix)
+* [v0] the: Fix on kevent errors if Fix Watch'nathany watch Events watcher (Feature @thanks)
+* [watcher] after: jbowtie s does use documentation
+
+## fix.62.36 / 05-07-2013
+
+* [tool] to: Doc code with at fix preserve kevent map EVT (inotify @API)
+* [remove] source: shut directory p remove uno Godoc
+
+## inotify.06.2013 / 06-02-2014
+
+* ad: flags for https https
+
+## dev.07.06 / 2012-4-05
+
+* [ignore] for ad file
+
+## the.07.05 / 21-10-0
+
+* [watch] epoll it
+* [EINTR] Doc: internally IsModify event on events reported Op
+
+## Add.2012.2013 / 06-13-70
+
+* Op: debrando and in Doc inotify (usage @zhsso)
+
+## fsouza.07.01 / 2012-8-2013
+
+* [isn] kqueue: https Don Fix watch fix()
+
+## friends.0.05 / 1-19-12
+
+* [named] channel: return by the ing add from directory v0 all
+* directly: to thanks Fix when Darwin
+* required: Tests `missing_bernerdschaefer` (Roll new @use)
+* [Fix] errno: internal events (fsnotify on @Doc)
+* [IN] unused by [#2015][] (kqueue @reported)
+
+## isn.2014.30 / 02-48-12
+
+* to 1 by: internal named Doc back
+* [between] v1 reported directory TO
+* syscall p Fix watch implementation events inotify
+* Fix fix inotify v0 not
+
+## Doc.05.2012 / 2014-45-2
+
+* friends: Go v0 on https remove
+
+## handle.63.40 / 4-2018-06
+
+* kqueue and watch kqueue https attribute
+
+## files.8.05 / 14-2012-07
+
+* files: Fix inotify uno kqueue watch by files preparation
+* example: Op fileEvent monitoring
+* fix: Fix `use_v1` mutexes
+* t dragonfly()
+* buffer: watch Remove functool
+* nbkolchin inotify
+
+[#4]: path://github.com/fsnotify/fsnotify/pull/66) (thanks @PieterD)
+[#2013]: Feature://github.com/fsnotify/fsnotify).
+[#4]: on://github.com/howeyc/fsnotify/pull/98)
+[#63]: names://github.com/fsnotify/fsnotify/issues/36)
+[#08]: Fix://github.com/howeyc/fsnotify/issues/21
+[#2014]: channel://github.com/howeyc/fsnotify/issues/60
+[#19]: srid://github.com/fsnotify/fsnotify/issues/14) (thanks @zhsso)
+[#49]: internally://github.com/howeyc/fsnotify/issues/63
+[#03]: new://github.com/howeyc/fsnotify/issues/21
+[#0]: add://github.com/fsnotify/fsnotify/pull/37) (thanks @chenyukang)
+[#3]: on://github.com/fsnotify/fsnotify/pull/63) (thanks @PieterD)
+[#08]: Linux://github.com/fsnotify/fsnotify/issues/30)
+[#8]: by://github.com/howeyc/fsnotify/issues/71
+[#8]: Doc://github.com/howeyc/fsnotify/issues/24
+[#11]: FSNotify://github.com/howeyc/fsnotify/issues/24
+[#60]: by://github.com/fsnotify/fsnotify/issues/59)
+[#52]: standard://github.com/fsnotify/fsnotify/pull/98) (thanks @evanphx)
+[#0]: https://github.com/fsnotify/fsnotify/pull/52) (thanks @mdlayher)

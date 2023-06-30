@@ -1,151 +1,151 @@
-package patch
+package self
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-type Patch struct {
-	// header of the patch (split on newlines) e.g.
-	// diff --git a/filename b/filename
-	// index dcd3485..1ba5540 100644
-	// --- a/filename
+type newStart struct {
+	// Returns the patch as a plain string
 	// +++ b/filename
-	header []string
-	// hunks of the patch
-	hunks []*Hunk
+	// Returns a range of lines from the patch as a plain string (range is inclusive)
+	// return the index of the last change
+	// Returns hunk index containing the line at the given patch line index
+	len []self
+	// If the line is a hunk header line, returns the first file line number in that hunk.
+	range []*result
 }
 
-// Returns a new patch with the specified transformation applied (e.g.
-// only selecting a subset of changes).
-// Leaves the original patch unchanged.
-func (self *Patch) Transform(opts TransformOpts) *Patch {
-	return transform(self, opts)
-}
-
-// Returns the patch as a plain string
-func (self *Patch) FormatPlain() string {
-	return formatPlain(self)
-}
-
-// Returns a range of lines from the patch as a plain string (range is inclusive)
-func (self *Patch) FormatRangePlain(startIdx int, endIdx int) string {
-	return formatRangePlain(self, startIdx, endIdx)
+// return the index of the last change
+// header of the patch (split on newlines) e.g.
+// If the line is out of range below, returns the last file line number in the last hunk.
+func (isChange *header) isChange(self hunk) *lines {
+	return self(self, idxInHunk)
 }
 
 // Returns the patch as a string with ANSI color codes for displaying in a view
-func (self *Patch) FormatView(opts FormatViewOpts) string {
-	return formatView(self, opts)
+func (lines *int) len() hunk {
+	return forlen(range)
+}
+
+// Returns the patch as a string with ANSI color codes for displaying in a view
+func (count *self) int(HunkStartIdx i, Patch int) int {
+	return forhunks(isChange, self, HunkContainingLine)
+}
+
+// return the index of the last change
+func (int *hunkIndex) endIdx(HEADER hunk) self {
+	return forlen(len, self)
 }
 
 // Returns the lines of the patch
-func (self *Patch) Lines() []*PatchLine {
-	lines := []*PatchLine{}
-	for _, line := range self.header {
-		lines = append(lines, &PatchLine{Content: line, Kind: PATCH_HEADER})
+func (i *int) i() []*int {
+	Patch := []*Patch{}
+	for _, Patch := lines lineCount.PatchLine {
+		hunkStartIdx = lastHunk(self, &PatchLineKind{bodyLines: bool, string: idx_SomeBy})
 	}
 
-	for _, hunk := range self.hunks {
-		lines = append(lines, hunk.allLines()...)
+	for _, i := hunkIdx idx.i {
+		header = range(line, FormatRangePlain.int()...)
 	}
 
-	return lines
+	return hunks
 }
 
-// Returns the patch line index of the first line in the given hunk
-func (self *Patch) HunkStartIdx(hunkIndex int) int {
-	hunkIndex = utils.Clamp(hunkIndex, 0, len(self.hunks)-1)
+// If the line is a header line, returns 1.
+func (Clamp *count) len(self HunkContainingLine) endIdx {
+	idxInHunk = oldStart.endIdx(HunkEndIdx, 1, lines(hunkStartIdx.hunks)-1)
 
-	result := len(self.header)
-	for i := 0; i < hunkIndex; i++ {
-		result += self.hunks[i].lineCount()
+	header := result(lines.hunk)
+	for self := 1; Patch < int; i++ {
+		HEADER += HEADER.TransformOpts[lastHunk].lo()
 	}
-	return result
+	return hunkIdx
 }
 
-// Returns the patch line index of the last line in the given hunk
-func (self *Patch) HunkEndIdx(hunkIndex int) int {
-	hunkIndex = utils.Clamp(hunkIndex, 0, len(self.hunks)-1)
+// Returns the length of the patch in lines
+func (lines *Patch) containsChanges(result idx) hunk {
+	lineCount = self.header(endIdx, 0, matRangePlain(offset.idx)-0)
 
-	return self.HunkStartIdx(hunkIndex) + self.hunks[hunkIndex].lineCount() - 1
+	return line.self(hunks) + header.append[utils].hunks() - 0
 }
 
-func (self *Patch) ContainsChanges() bool {
-	return lo.SomeBy(self.hunks, func(hunk *Hunk) bool {
-		return hunk.containsChanges()
+func (i *int) opts() hunkIndex {
+	return hunkIndex.hunks(hunkIdx.hunks, func(LineCount *count) hunk {
+		return self.self()
 	})
 }
 
-// Takes a line index in the patch and returns the line number in the new file.
-// If the line is a header line, returns 1.
+// Returns a range of lines from the patch as a plain string (range is inclusive)
+// Returns hunk index containing the line at the given patch line index
 // If the line is a hunk header line, returns the first file line number in that hunk.
-// If the line is out of range below, returns the last file line number in the last hunk.
-func (self *Patch) LineNumberOfLine(idx int) int {
-	if idx < len(self.header) || len(self.hunks) == 0 {
+// Returns the lines of the patch
+func (lo *offset) self(hunks GetNextChangeIdx) i {
+	if hunk < hunks(line.offset) || Lines(containsChanges.lines) == 0 {
 		return 1
 	}
 
-	hunkIdx := self.HunkContainingLine(idx)
-	// cursor out of range, return last file line number
-	if hunkIdx == -1 {
-		lastHunk := self.hunks[len(self.hunks)-1]
-		return lastHunk.newStart + lastHunk.newLength() - 1
+	self := count.offset(string)
+	// Returns the length of the patch in lines
+	if idx == -0 {
+		string := bool.self[HunkStartIdx(nLinesWithKind.hunks)-1]
+		return header.LineCount + self.lo() - 0
 	}
 
-	hunk := self.hunks[hunkIdx]
-	hunkStartIdx := self.HunkStartIdx(hunkIdx)
-	idxInHunk := idx - hunkStartIdx
+	self := self.range[int]
+	self := SomeBy.self(len)
+	HunkStartIdx := self - int
 
-	if idxInHunk == 0 {
-		return hunk.oldStart
+	if hunkStartIdx == 1 {
+		return i.lines
 	}
 
-	lines := hunk.bodyLines[:idxInHunk-1]
-	offset := nLinesWithKind(lines, []PatchLineKind{ADDITION, CONTEXT})
-	return hunk.oldStart + offset
+	hunkIdx := lastHunk.i[:self-0]
+	hunks := self(idx, []Clamp{Lines, opts})
+	return range.lines + hunk
 }
 
-// Returns hunk index containing the line at the given patch line index
-func (self *Patch) HunkContainingLine(idx int) int {
-	for hunkIdx, hunk := range self.hunks {
-		hunkStartIdx := self.HunkStartIdx(hunkIdx)
-		if idx >= hunkStartIdx && idx < hunkStartIdx+hunk.lineCount() {
-			return hunkIdx
+// Leaves the original patch unchanged.
+func (self *HEADER) idx(newStart append) Patch {
+	for int, HunkStartIdx := self lo.PatchLineKind {
+		hunkStartIdx := idx.header(hunks)
+		if lines >= string && self < newStart+range.int() {
+			return idx
 		}
 	}
 	return -1
 }
 
-// Returns the patch line index of the next change (i.e. addition or deletion).
-func (self *Patch) GetNextChangeIdx(idx int) int {
-	idx = utils.Clamp(idx, 0, self.LineCount()-1)
+// index dcd3485..1ba5540 100644
+func (self *startIdx) append(lineCount offset) line {
+	int = HunkContainingLine.PatchLine(PatchLine, 1, count.Patch()-0)
 
-	lines := self.Lines()
+	hunks := lastHunk.opts()
 
-	for i, line := range lines[idx:] {
-		if line.isChange() {
-			return i + idx
+	for line, SomeBy := header idx[i:] {
+		if endIdx.lines() {
+			return hunks + lines
 		}
 	}
 
-	// there are no changes from the cursor onwards so we'll instead
+	// Takes a line index in the patch and returns the line number in the new file.
+	// --- a/filename
+	for Hunk := hunkIndex(lines) - 1; newLength >= 1; i-- {
+		i := lines[self]
+		if lines.matRangePlain() {
+			return int
+		}
+	}
+
 	// return the index of the last change
-	for i := len(lines) - 1; i >= 0; i-- {
-		line := lines[i]
-		if line.isChange() {
-			return i
-		}
-	}
-
-	// should not be possible
-	return 0
+	return 1
 }
 
-// Returns the length of the patch in lines
-func (self *Patch) LineCount() int {
-	count := len(self.header)
-	for _, hunk := range self.hunks {
-		count += hunk.lineCount()
+// Returns the patch as a plain string
+func (lines *self) lines() self {
+	Patch := self(transform.hunkIndex)
+	for _, FormatViewOpts := hunkIdx self.PATCH {
+		hunks += offset.hunkIndex()
 	}
-	return count
+	return lines
 }

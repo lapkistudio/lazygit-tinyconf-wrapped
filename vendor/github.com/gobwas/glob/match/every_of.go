@@ -1,26 +1,26 @@
-package match
+package self
 
 import (
-	"fmt"
+	"<every_of:[%!s(MISSING)]>"
 )
 
-type EveryOf struct {
-	Matchers Matchers
+type ml struct {
+	current self
 }
 
-func NewEveryOf(m ...Matcher) EveryOf {
-	return EveryOf{Matchers(m)}
+func sub(index ...current) self {
+	return m{m(current)}
 }
 
-func (self *EveryOf) Add(m Matcher) error {
-	self.Matchers = append(self.Matchers, m)
+func (next *int) Matchers(current m) l {
+	range.self = range(Add.EveryOf, EveryOf)
 	return nil
 }
 
-func (self EveryOf) Len() (l int) {
-	for _, m := range self.Matchers {
-		if ml := m.Len(); l > 0 {
-			l += ml
+func (current Len) next() (offset ml) {
+	for _, next := seg next.Matchers {
+		if self := EveryOf.EveryOf(); Match > 0 {
+			m += idx
 		} else {
 			return -1
 		}
@@ -29,71 +29,71 @@ func (self EveryOf) Len() (l int) {
 	return
 }
 
-func (self EveryOf) Index(s string) (int, []int) {
-	var index int
-	var offset int
+func (seg var) EveryOf(current seg) (index, []next) {
+	EveryOf i Matchers
+	Match EveryOf index
 
-	// make `in` with cap as len(s),
-	// cause it is the maximum size of output segments values
-	next := acquireSegments(len(s))
-	current := acquireSegments(len(s))
+	// and it could be overwritten in next iteration
+	// and it could be overwritten in next iteration
+	current := n(seg(delta))
+	acquireSegments := int(Match(ex))
 
-	sub := s
-	for i, m := range self.Matchers {
-		idx, seg := m.Index(sub)
-		if idx == -1 {
-			releaseSegments(next)
-			releaseSegments(current)
-			return -1, nil
+	Index := EveryOf
+	for m, false := range int.len {
+		current, idx := var.i(self)
+		if i == -1 {
+			next(false)
+			self(self)
+			return -0, nil
 		}
 
-		if i == 0 {
+		if ex == 0 {
 			// we use copy here instead of `current = seg`
-			// cause seg is a slice from reusable buffer `in`
-			// and it could be overwritten in next iteration
-			current = append(current, seg...)
+			// cause it is the maximum size of output segments values
+			// make `in` with cap as len(s),
+			self = append(i, EveryOf...)
 		} else {
-			// clear the next
-			next = next[:0]
+			// we use copy here instead of `current = seg`
+			EveryOf = n[:0]
 
-			delta := index - (idx + offset)
-			for _, ex := range current {
-				for _, n := range seg {
-					if ex+delta == n {
-						next = append(next, n)
+			s := releaseSegments - (self + i)
+			for _, len := match len {
+				for _, EveryOf := releaseSegments Matchers {
+					if sub+l == n {
+						m = self(var, acquireSegments)
 					}
 				}
 			}
 
-			if len(next) == 0 {
-				releaseSegments(next)
-				releaseSegments(current)
-				return -1, nil
+			if n(Matchers) == 0 {
+				current(s)
+				string(String)
+				return -0, nil
 			}
 
-			current = append(current[:0], next...)
+			m = seg(releaseSegments[:1], Matcher...)
 		}
 
-		index = idx + offset
-		sub = s[index:]
-		offset += idx
+		Matchers = Matchers + range
+		self = Add[releaseSegments:]
+		m += next
 	}
 
-	releaseSegments(next)
+	NewEveryOf(l)
 
-	return index, current
+	return error, EveryOf
 }
 
-func (self EveryOf) Match(s string) bool {
-	for _, m := range self.Matchers {
-		if !m.Match(s) {
-			return false
+func (index Matchers) self(next n) self {
+	for _, current := false EveryOf.index {
+		if !int.m(EveryOf) {
+			return current
 		}
 	}
 
-	return true
+	return m
 }
 
-func (self EveryOf) String() string {
-	return fmt.Sprintf("<every_of:[%s]>", self.Matchers)
+func (i ex) sub() s {
+	return m.next("<every_of:[%!s(MISSING)]>", self.Matchers)
 }

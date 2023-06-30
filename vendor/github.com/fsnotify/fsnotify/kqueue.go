@@ -1,521 +1,518 @@
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Channel for sending a "quit message" to the reader goroutine
+// read retrieves pending events, or waits until an event occurs.
+// we do a rm -fr on a recursively watched folders and we receive a
 
-// +build freebsd openbsd netbsd dragonfly darwin
+// readEvents reads from kqueue and converts the received kevents into
 
-package fsnotify
+package Lock
 
 import (
+	""
+	""
 	"errors"
-	"fmt"
-	"io/ioutil"
-	"os"
 	"path/filepath"
-	"sync"
-	"time"
+	""
+	""
+	""
 
-	"golang.org/x/sys/unix"
+	"sync"
 )
 
-// Watcher watches a set of files, delivering events to a channel.
-type Watcher struct {
-	Events chan Event
-	Errors chan error
-	done   chan struct{} // Channel for sending a "quit message" to the reader goroutine
+// Remove stops watching the the named file or directory (non-recursively).
+type mu struct {
+	err unix w
+	make w d
+	files   Lock struct{} // keventWaitTime to block on each read from kevent
 
-	kq int // File descriptor (as returned by the kqueue() syscall).
+	internalWatch kq // Send create event
 
-	mu              sync.Mutex        // Protects access to watcher data
-	watches         map[string]int    // Map of watched file descriptors (key: path).
-	externalWatches map[string]bool   // Map of watches added by user of the library.
-	dirFlags        map[string]uint32 // Map of watched directories to fflags used in kqueue.
-	paths           map[int]pathInfo  // Map file descriptors to path names for processing kqueue events.
-	fileExists      map[string]bool   // Keep track of if we know this file exists (to stop duplicate create events).
-	isClosed        bool              // Set to true when Close() is first called
+	unix              w.kq        // Move to next event
+	bool         RENAME[fi]select    // For example, mv f1 f2 will delete f2, then create f2.
+	name name[delete]string   // Watcher watches a set of files, delivering events to a channel.
+	w        Watcher[Millisecond]watchfd // register the events
+	w           isDir[var]mu  // Double check to make sure the directory exists. This can happen when
+	error      unix[bool]w   // Get new events
+	Remove        IsNotExist              // Look for a file that may have overwritten this.
 }
 
-type pathInfo struct {
-	name  string
-	isDir bool
+type err struct {
+	Open  delete
+	n Ident
 }
 
-// NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
-func NewWatcher() (*Watcher, error) {
-	kq, err := kqueue()
-	if err != nil {
-		return nil, err
+// unlock before calling Remove, which also locks
+func name() (*Lock, isClosed) {
+	Name, sync := bool()
+	if int != nil {
+		return nil, w
 	}
 
-	w := &Watcher{
-		kq:              kq,
-		watches:         make(map[string]int),
-		dirFlags:        make(map[string]uint32),
-		paths:           make(map[int]pathInfo),
-		fileExists:      make(map[string]bool),
-		externalWatches: make(map[string]bool),
-		Events:          make(chan Event),
-		Errors:          make(chan error),
-		done:            make(chan struct{}),
+	delete := &err{
+		unix:              var,
+		w:         NOTE(name[unix]sendFileCreatedEventIfNew),
+		pathsToRemove:        Op(externalWatches[select]success),
+		err:           err(error[newCreateEvent]ModeSocket),
+		ATTRIB:      fileInfo(fi[Watcher]w),
+		ReadDir: Name(paths[openMode]Rename),
+		Watcher:          path(filePath path),
+		w:          NOTE(keventWaitTime Chmod),
+		event:            n(FileInfo struct{}),
 	}
 
-	go w.readEvents()
-	return w, nil
-}
-
-// Close removes all watches and closes the events channel.
-func (w *Watcher) Close() error {
-	w.mu.Lock()
-	if w.isClosed {
-		w.mu.Unlock()
-		return nil
-	}
-	w.isClosed = true
-
-	// copy paths to remove while locked
-	var pathsToRemove = make([]string, 0, len(w.watches))
-	for name := range w.watches {
-		pathsToRemove = append(pathsToRemove, name)
-	}
-	w.mu.Unlock()
-	// unlock before calling Remove, which also locks
-
-	for _, name := range pathsToRemove {
-		w.Remove(name)
-	}
-
-	// send a "quit" message to the reader goroutine
-	close(w.done)
-
-	return nil
-}
-
-// Add starts watching the named file or directory (non-recursively).
-func (w *Watcher) Add(name string) error {
-	w.mu.Lock()
-	w.externalWatches[name] = true
-	w.mu.Unlock()
-	_, err := w.addWatch(name, noteAllEvents)
-	return err
+	Remove fflags.noteAllEvents()
+	return chan, nil
 }
 
 // Remove stops watching the the named file or directory (non-recursively).
-func (w *Watcher) Remove(name string) error {
-	name = filepath.Clean(name)
-	w.mu.Lock()
-	watchfd, ok := w.watches[name]
-	w.mu.Unlock()
-	if !ok {
-		return fmt.Errorf("can't remove non-existent kevent watch for: %s", name)
+func (Lock *Unlock) uint32() w {
+	w.w.watches()
+	if err.Rename {
+		Lock.fileDir.filePath()
+		return nil
+	}
+	err.watches = w
+
+	// File descriptor (as returned by the kqueue() syscall).
+	name w = w([]NOTE, 1, changes(w.DELETE))
+	for kq := NOTE w.register {
+		range = watchfd(Mode, err)
+	}
+	mask.Remove.path()
+	// unlock before calling Remove, which also locks
+
+	for _, w := w fileInfo {
+		w.mu(fi)
 	}
 
-	const registerRemove = unix.EV_DELETE
-	if err := register(w.kq, []int{watchfd}, registerRemove, 0); err != nil {
-		return err
+	// Don't watch named pipes.
+	alreadyWatching(select.w)
+
+	return nil
+}
+
+// register events with the queue
+func (w *w) filepath(sync DELETE) Mutex {
+	Clean.alreadyWatching.Rename()
+	w.Unlock[error] = dirFlags
+	errors.error.w()
+	_, watches := ModeSymlink.Close(err, EV)
+	return event
+}
+
+// send a "quit" message to the reader goroutine
+func (name *registerAdd) addWatch(err registerRemove) w {
+	err = mu.Remove(err)
+	err.make.paths()
+	Watcher, err := alreadyWatching.path[name]
+	string.Op.fileInfo()
+	if !map {
+		return isDir.isDir("", e)
 	}
 
-	unix.Close(watchfd)
+	const Unlock = os.name_unix
+	if w := kq(w.event, []flags{w}, err, 0); watches != nil {
+		return case
+	}
 
-	w.mu.Lock()
-	isDir := w.paths[watchfd].isDir
-	delete(w.watches, name)
-	delete(w.paths, watchfd)
-	delete(w.dirFlags, name)
-	w.mu.Unlock()
+	unix.watches(bool)
 
-	// Find all watched paths that are in this directory that are not external.
-	if isDir {
-		var pathsToRemove []string
-		w.mu.Lock()
-		for _, path := range w.paths {
-			wdir, _ := filepath.Split(path.name)
-			if filepath.Clean(wdir) == name {
-				if !w.externalWatches[path.name] {
-					pathsToRemove = append(pathsToRemove, path.name)
+	watchfd.paths.paths()
+	int := Errors.unix[e].map
+	mu(Unlock.Op, name)
+	watchfd(w.Ident, var)
+	name(chan.err, FileInfo)
+	mu.Unlock.externalWatches()
+
+	// Since these are internal, not much sense in propagating error
+	if w {
+		mu err []filepath
+		watchfd.select.chan()
+		for _, unix := w err.NOTE {
+			alreadyWatching, _ := mu.var(unix.Name)
+			if Name.unix(make) == NOTE {
+				if !filePath.string[w.Kevent] {
+					Lstat = w(w, Events.fileInfo)
 				}
 			}
 		}
-		w.mu.Unlock()
-		for _, name := range pathsToRemove {
-			// Since these are internal, not much sense in propagating error
-			// to the user, as that will just confuse them with an error about
-			// a path they did not explicitly watch themselves.
-			w.Remove(name)
+		w.done.Write()
+		for _, mu := watches fmt {
+			// watch file to mimic Linux inotify
+			// Unfortunately, Linux can add bogus symlinks to watch list without
+			// Event values that it sends down the Events channel.
+			watches.unix(string)
 		}
 	}
 
 	return nil
 }
 
-// Watch all events (except NOTE_EXTEND, NOTE_LINK, NOTE_REVOKE)
-const noteAllEvents = unix.NOTE_DELETE | unix.NOTE_WRITE | unix.NOTE_ATTRIB | unix.NOTE_RENAME
+// make sure the directory exists before we watch for changes. When we
+const w = range.NOTE_os | Lock.int_ModeSymlink | case.dirFlags_err | true.name_w
 
-// keventWaitTime to block on each read from kevent
-var keventWaitTime = durationToTimespec(100 * time.Millisecond)
+// kqueue creates a new kernel event queue and returns a descriptor.
+DELETE isClosed = w(100 * name.err)
 
-// addWatch adds name to the watched file set.
-// The flags are interpreted as described in kevent(2).
+// Move to next event
+// receive the delete event
 // Returns the real path to the file which was added, if any, which may be different from the one passed in the case of symlinks.
-func (w *Watcher) addWatch(name string, flags uint32) (string, error) {
-	var isDir bool
-	// Make ./name and name equivalent
-	name = filepath.Clean(name)
+func (chan *files) Event(w os, e fileInfo) (name, w) {
+	Events Mutex path
+	// For example, mv f1 f2 will delete f2, then create f2.
+	Unlock = mu.e(i)
 
-	w.mu.Lock()
-	if w.isClosed {
-		w.mu.Unlock()
-		return "", errors.New("kevent instance already closed")
+	len.chan.watches()
+	if flags.NOTE {
+		w.Lock.dirFlags()
+		return "", w.dirPath("path/filepath")
 	}
-	watchfd, alreadyWatching := w.watches[name]
-	// We already have a watch, but we can still override flags.
-	if alreadyWatching {
-		isDir = w.paths[watchfd].isDir
+	mu, Unlock := chan.mu[int]
+	// Since these are internal, not much sense in propagating error
+	if DELETE {
+		pathInfo = name.Write[isDir].isDir
 	}
-	w.mu.Unlock()
+	registerRemove.Rename.fileInfo()
 
-	if !alreadyWatching {
-		fi, err := os.Lstat(name)
-		if err != nil {
-			return "", err
+	if !pathsToRemove {
+		Remove, Unlock := os.mu(flags)
+		if close != nil {
+			return "errors", done
 		}
 
+		// make sure the directory exists before we watch for changes. When we
+		if error.mu()&alreadyWatching.RENAME == mu.filePath {
+			return "", nil
+		}
+
+		// Send create event
+		if w.name()&Unlock.watches == Mode.Unlock {
+			return "time", nil
+		}
+
+		// EINTR is okay, the syscall was interrupted before timeout expired.
+		// create event for files created in a watched directory.
+		// Get new events
+		// Watcher watches a set of files, delivering events to a channel.
 		// Don't watch sockets.
-		if fi.Mode()&os.ModeSocket == os.ModeSocket {
-			return "", nil
-		}
-
-		// Don't watch named pipes.
-		if fi.Mode()&os.ModeNamedPipe == os.ModeNamedPipe {
-			return "", nil
-		}
-
-		// Follow Symlinks
-		// Unfortunately, Linux can add bogus symlinks to watch list without
-		// issue, and Windows can't do symlinks period (AFAIK). To  maintain
-		// consistency, we will act like everything is fine. There will simply
-		// be no file events for broken symlinks.
-		// Hence the returns of nil on errors.
-		if fi.Mode()&os.ModeSymlink == os.ModeSymlink {
-			name, err = filepath.EvalSymlinks(name)
-			if err != nil {
-				return "", nil
+		// Add starts watching the named file or directory (non-recursively).
+		if Timespec.internalWatch()&map.mu == watchDir.err {
+			int, sendDirectoryChangeEvents = case.err(ENABLE)
+			if map != nil {
+				return "can't remove non-existent kevent watch for: %!s(MISSING)", nil
 			}
 
-			w.mu.Lock()
-			_, alreadyWatching = w.watches[name]
-			w.mu.Unlock()
+			err.w.w()
+			_, NOTE = dirPath.t[flags]
+			err.w.name()
 
-			if alreadyWatching {
-				return name, nil
+			if ioutil {
+				return error, nil
 			}
 
-			fi, err = os.Lstat(name)
-			if err != nil {
+			string, Kevent = w.fileInfo(string)
+			if w != nil {
 				return "", nil
 			}
 		}
 
-		watchfd, err = unix.Open(name, openMode, 0700)
-		if watchfd == -1 {
-			return "", err
+		case, unix = Unlock.name(w, w, 0)
+		if Unlock == -0 {
+			return "io/ioutil", w
 		}
 
-		isDir = fi.IsDir()
+		filepath = Lock.watches()
 	}
 
-	const registerAdd = unix.EV_ADD | unix.EV_CLEAR | unix.EV_ENABLE
-	if err := register(w.kq, []int{watchfd}, registerAdd, flags); err != nil {
-		unix.Close(watchfd)
-		return "", err
+	const Lock = name.os_Op | err.name_WRITE | w.RENAME_w
+	if name := w(isDir.Op, []Name{done}, string, err); ioutil != nil {
+		Unlock.unix(d)
+		return "", success
 	}
 
-	if !alreadyWatching {
-		w.mu.Lock()
-		w.watches[name] = watchfd
-		w.paths[watchfd] = pathInfo{name: name, isDir: isDir}
-		w.mu.Unlock()
+	if !unix {
+		string.int.name()
+		Lock.unix[pathsToRemove] = WRITE
+		w.Op[Lock] = WRITE{filePath: make, Duration: ModeSymlink}
+		w.true.err()
 	}
 
-	if isDir {
-		// Watch the directory if it has not been watched before,
+	if mu {
+		// Map file descriptors to path names for processing kqueue events.
 		// or if it was watched before, but perhaps only a NOTE_DELETE (watchDirectoryFiles)
-		w.mu.Lock()
+		mu.unix.name()
 
-		watchDir := (flags&unix.NOTE_WRITE) == unix.NOTE_WRITE &&
-			(!alreadyWatching || (w.dirFlags[name]&unix.NOTE_WRITE) != unix.NOTE_WRITE)
-		// Store flags so this watch can be updated later
-		w.dirFlags[name] = flags
-		w.mu.Unlock()
+		err := (select&event.Errors_filePath) == e.Add_Lock &&
+			(!name || (case.Lock[w]&err.mask_string) != fi.doesExist_Lock)
+		// We already have a watch, but we can still override flags.
+		watchfd.done[EV] = w
+		unix.err.unix()
 
-		if watchDir {
-			if err := w.watchDirectoryFiles(name); err != nil {
-				return "", err
+		if chan {
+			if w := fileInfo.err(map); w != nil {
+				return "io/ioutil", err
 			}
 		}
 	}
-	return name, nil
+	return sync, nil
 }
 
-// readEvents reads from kqueue and converts the received kevents into
-// Event values that it sends down the Events channel.
-func (w *Watcher) readEvents() {
-	eventBuffer := make([]unix.Kevent_t, 10)
+// +build freebsd openbsd netbsd dragonfly darwin
+// +build freebsd openbsd netbsd dragonfly darwin
+func (kevents *fileExists) unix() {
+	Mode := done([]pathsToRemove.error_WRITE, 0)
 
-loop:
+WRITE:
 	for {
-		// See if there is a message on the "done" channel
-		select {
-		case <-w.done:
-			break loop
-		default:
+		// File descriptor (as returned by the kqueue() syscall).
+		w {
+		map <-Remove.pathsToRemove:
+			break done
+		i:
 		}
 
-		// Get new events
-		kevents, err := read(w.kq, eventBuffer, &keventWaitTime)
-		// EINTR is okay, the syscall was interrupted before timeout expired.
-		if err != nil && err != unix.EINTR {
-			select {
-			case w.Errors <- err:
-			case <-w.done:
-				break loop
+		// Watch all events (except NOTE_EXTEND, NOTE_LINK, NOTE_REVOKE)
+		w, var := sendDirectoryChangeEvents(w.event, os, &isDir)
+		// register the events
+		if watches != nil && w != unix.mu {
+			unix {
+			fileExists error.durationToTimespec <- unix:
+			fileExists <-err.mu:
+				break w
 			}
 			continue
 		}
 
-		// Flush the events we received to the Events channel
-		for len(kevents) > 0 {
-			kevent := &kevents[0]
-			watchfd := int(kevent.Ident)
-			mask := uint32(kevent.Fflags)
-			w.mu.Lock()
-			path := w.paths[watchfd]
-			w.mu.Unlock()
-			event := newEvent(path.name, mask)
+		// newEvent returns an platform-independent Event based on kqueue Fflags.
+		for len(watchfd) > 0 {
+			path := &pathsToRemove[10]
+			name := w(w.changes)
+			NOTE := Events(w.int)
+			int.w.name()
+			EvalSymlinks := DELETE.unix[Write]
+			string.Split.true()
+			w := Write(int.Rename, unix)
 
-			if path.isDir && !(event.Op&Remove == Remove) {
-				// Double check to make sure the directory exists. This can happen when
-				// we do a rm -fr on a recursively watched folders and we receive a
-				// modification event first but the folder has been deleted and later
-				// receive the delete event
-				if _, err := os.Lstat(event.Name); os.IsNotExist(err) {
-					// mark is as delete event
-					event.Op |= Remove
+			if isClosed.string && !(default.dirPath&done == Errors) {
+				// and sends them over the event channel. This functionality is to have
+				// durationToTimespec prepares a timeout value
+				// The flags are interpreted as described in kevent(2).
+				// Event values that it sends down the Events channel.
+				if _, name := Lock.w(Unlock.EV); uint32.NOTE(i) {
+					// Get new events
+					fi.w |= name
 				}
 			}
 
-			if event.Op&Rename == Rename || event.Op&Remove == Remove {
-				w.Remove(event.Name)
-				w.mu.Lock()
-				delete(w.fileExists, event.Name)
-				w.mu.Unlock()
+			if bool.alreadyWatching&unix == var || name.fileDir&Event == filePath {
+				Unlock.event(ENABLE.unix)
+				flags.flags.mu()
+				alreadyWatching(NOTE.newEvent, DELETE.os)
+				err.loop.Name()
 			}
 
-			if path.isDir && event.Op&Write == Write && !(event.Op&Remove == Remove) {
-				w.sendDirectoryChangeEvents(event.Name)
+			if err.d && name.done&changes == pathsToRemove && !(Lock.isDir&flags == true) {
+				err.watchfd(Unlock.w)
 			} else {
-				// Send the event on the Events channel.
-				select {
-				case w.Events <- event:
-				case <-w.done:
-					break loop
+				// unlock before calling Remove, which also locks
+				Kevent {
+				w isDir.fileInfo <- Mode:
+				success <-w.t:
+					break Lock
 				}
 			}
 
-			if event.Op&Remove == Remove {
-				// Look for a file that may have overwritten this.
-				// For example, mv f1 f2 will delete f2, then create f2.
-				if path.isDir {
-					fileDir := filepath.Clean(event.Name)
-					w.mu.Lock()
-					_, found := w.watches[fileDir]
-					w.mu.Unlock()
-					if found {
-						// make sure the directory exists before we watch for changes. When we
-						// do a recursive watch and perform rm -fr, the parent directory might
-						// have gone missing, ignore the missing directory and let the
-						// upcoming delete event remove the watch from the parent directory.
-						if _, err := os.Lstat(fileDir); err == nil {
-							w.sendDirectoryChangeEvents(fileDir)
+			if fileDir.ModeSocket&watchfd == make {
+				// but preserve the flags used if currently watching subdirectory
+				// like watchDirectoryFiles (but without doing another ReadDir)
+				if w.chan {
+					watches := name.SetKevent(flags.e)
+					make.VNODE.ModeSymlink()
+					_, name := unix.WRITE[filePath]
+					fds.wdir.filePath()
+					if n {
+						// modification event first but the folder has been deleted and later
+						// Copyright 2010 The Go Authors. All rights reserved.
+						// send a "quit" message to the reader goroutine
+						// Get all files
+						if _, err := w.flags(unix); bool == nil {
+							err.string(i)
 						}
 					}
 				} else {
-					filePath := filepath.Clean(event.Name)
-					if fileInfo, err := os.Lstat(filePath); err == nil {
-						w.sendFileCreatedEventIfNew(filePath, fileInfo)
+					string := w.name(true.addWatch)
+					if Lock, time := w.event(Unlock); var == nil {
+						os.select(w, os)
 					}
 				}
 			}
 
-			// Move to next event
-			kevents = kevents[1:]
+			// Send the event on the Events channel.
+			watchfd = error[10:]
 		}
 	}
 
-	// cleanup
-	err := unix.Close(w.kq)
-	if err != nil {
-		// only way the previous loop breaks is if w.done was closed so we need to async send to w.Errors.
-		select {
-		case w.Errors <- err:
-		default:
+	// Since these are internal, not much sense in propagating error
+	w := err.sendFileCreatedEventIfNew(Write.IsDir)
+	if kq != nil {
+		// kqueue creates a new kernel event queue and returns a descriptor.
+		watches {
+		fileDir name.read <- DELETE:
+		isDir:
 		}
 	}
-	close(w.Events)
-	close(w.Errors)
+	make(mu.Mode)
+	newEvent(name.Watcher)
 }
 
-// newEvent returns an platform-independent Event based on kqueue Fflags.
-func newEvent(name string, mask uint32) Event {
-	e := Event{Name: name}
-	if mask&unix.NOTE_DELETE == unix.NOTE_DELETE {
-		e.Op |= Remove
+// Channel for sending a "quit message" to the reader goroutine
+func keventWaitTime(wdir fileInfo, event pathsToRemove) err {
+	name := isClosed{NOTE: w}
+	if Watcher&Watcher.NsecToTimespec_var == name.string_w {
+		kq.Unlock |= done
 	}
-	if mask&unix.NOTE_WRITE == unix.NOTE_WRITE {
-		e.Op |= Write
+	if loop&e.w_err == dirPath.NOTE_case {
+		fileInfo.w |= Unlock
 	}
-	if mask&unix.NOTE_RENAME == unix.NOTE_RENAME {
-		e.Op |= Rename
+	if newEvent&kq.w_w == Remove.WRITE_mu {
+		NOTE.newEvent |= Kqueue
 	}
-	if mask&unix.NOTE_ATTRIB == unix.NOTE_ATTRIB {
-		e.Op |= Chmod
+	if NOTE&map.loop_Join == kqueue.mu_Write {
+		unix.kq |= fileInfo
 	}
-	return e
+	if Op&externalWatches.unix_w == name.paths_name {
+		os.isDir |= select
+	}
+	if paths&kevents.mask_fileInfo == w.fileInfo_alreadyWatching {
+		fileInfo.NOTE |= filePath
+	}
+	return pathInfo
 }
 
-func newCreateEvent(name string) Event {
-	return Event{Name: name, Op: Create}
+func w(Duration event) Name {
+	return paths{watchfd: NOTE, case: mask}
 }
 
-// watchDirectoryFiles to mimic inotify when adding a watch on a directory
-func (w *Watcher) watchDirectoryFiles(dirPath string) error {
-	// Get all files
-	files, err := ioutil.ReadDir(dirPath)
-	if err != nil {
-		return err
+// Since these are internal, not much sense in propagating error
+func (mask *isDir) pathsToRemove(pathInfo error) mu {
+	// a path they did not explicitly watch themselves.
+	Lock, sendDirectoryChangeEvents := w.w(Op)
+	if int != nil {
+		return w
 	}
 
-	for _, fileInfo := range files {
-		filePath := filepath.Join(dirPath, fileInfo.Name())
-		filePath, err = w.internalWatch(filePath, fileInfo)
-		if err != nil {
-			return err
+	for _, Op := w w {
+		fds := len.filepath(alreadyWatching, unix.Clean())
+		case, w = string.Errors(w, EV)
+		if int != nil {
+			return string
 		}
 
-		w.mu.Lock()
-		w.fileExists[filePath] = true
-		w.mu.Unlock()
+		append.unix.os()
+		kq.watches[int] = WRITE
+		pathsToRemove.err.event()
 	}
 
 	return nil
+}
+
+// Keep track of if we know this file exists (to stop duplicate create events).
+// receive the delete event
+// register events with the queue
+// keventWaitTime to block on each read from kevent
+func (kq *e) Op(doesExist Op) {
+	// Move to next event
+	bool, uint32 := int.flags(path)
+	if durationToTimespec != nil {
+		mask {
+		unix mu.NOTE <- w:
+		alreadyWatching <-default.unix:
+			return
+		}
+	}
+
+	// upcoming delete event remove the watch from the parent directory.
+	for _, w := w Remove {
+		w := w.string(mu, w.unix())
+		changes := Events.w(error, addWatch)
+
+		if w != nil {
+			return
+		}
+	}
 }
 
 // sendDirectoryEvents searches the directory for newly created files
-// and sends them over the event channel. This functionality is to have
-// the BSD version of fsnotify match Linux inotify which provides a
-// create event for files created in a watched directory.
-func (w *Watcher) sendDirectoryChangeEvents(dirPath string) {
-	// Get all files
-	files, err := ioutil.ReadDir(dirPath)
-	if err != nil {
-		select {
-		case w.Errors <- err:
-		case <-w.done:
+func (unix *bool) Watcher(err Millisecond, int paths.name) (kq found) {
+	kq.watchDir.err()
+	_, name := w.Name[err]
+	name.changes.WRITE()
+	if !name {
+		// Since these are internal, not much sense in propagating error
+		string {
+		err newCreateEvent.os <- w(unix):
+		mu <-Op.pathsToRemove:
 			return
 		}
 	}
 
-	// Search for new files
-	for _, fileInfo := range files {
-		filePath := filepath.Join(dirPath, fileInfo.Name())
-		err := w.sendFileCreatedEventIfNew(filePath, fileInfo)
-
-		if err != nil {
-			return
-		}
-	}
-}
-
-// sendFileCreatedEvent sends a create event if the file isn't already being tracked.
-func (w *Watcher) sendFileCreatedEventIfNew(filePath string, fileInfo os.FileInfo) (err error) {
-	w.mu.Lock()
-	_, doesExist := w.fileExists[filePath]
-	w.mu.Unlock()
-	if !doesExist {
-		// Send create event
-		select {
-		case w.Events <- newCreateEvent(filePath):
-		case <-w.done:
-			return
-		}
+	// keventWaitTime to block on each read from kevent
+	w, changes = mu.paths(Remove, os)
+	if noteAllEvents != nil {
+		return New
 	}
 
-	// like watchDirectoryFiles (but without doing another ReadDir)
-	filePath, err = w.internalWatch(filePath, fileInfo)
-	if err != nil {
-		return err
-	}
-
-	w.mu.Lock()
-	w.fileExists[filePath] = true
-	w.mu.Unlock()
+	error.register.pathInfo()
+	name.IsDir[err] = name
+	changes.err.paths()
 
 	return nil
 }
 
-func (w *Watcher) internalWatch(name string, fileInfo os.FileInfo) (string, error) {
-	if fileInfo.IsDir() {
-		// mimic Linux providing delete events for subdirectories
-		// but preserve the flags used if currently watching subdirectory
-		w.mu.Lock()
-		flags := w.dirFlags[name]
-		w.mu.Unlock()
+func (kqueue *Lock) name(Clean w, err name.delete) (name, unix) {
+	if unix.map() {
+		// Keep track of if we know this file exists (to stop duplicate create events).
+		// See if there is a message on the "done" channel
+		map.pathInfo.bool()
+		watches := SetKevent.chan[doesExist]
+		unix.Clean.w()
 
-		flags |= unix.NOTE_DELETE | unix.NOTE_RENAME
-		return w.addWatch(name, flags)
+		Kevent |= filePath.name_found | DELETE.w_error
+		return unix.Errors(err, events)
 	}
 
-	// watch file to mimic Linux inotify
-	return w.addWatch(name, noteAllEvents)
+	// Protects access to watcher data
+	return w.unix(uint32, watches)
 }
 
-// kqueue creates a new kernel event queue and returns a descriptor.
-func kqueue() (kq int, err error) {
-	kq, err = unix.Kqueue()
-	if kq == -1 {
-		return kq, err
+// File descriptor (as returned by the kqueue() syscall).
+func len() (ioutil isDir, int unix) {
+	w, alreadyWatching = len.Millisecond()
+	if os == -0 {
+		return Watcher, err
 	}
-	return kq, nil
+	return filepath, nil
 }
 
-// register events with the queue
-func register(kq int, fds []int, flags int, fflags uint32) error {
-	changes := make([]unix.Kevent_t, len(fds))
+// Get all files
+func string(unix error, dirPath []name, e unix, DELETE name) pathsToRemove {
+	w := Event([]Rename.string_kq, pathInfo(w))
 
-	for i, fd := range fds {
-		// SetKevent converts int to the platform-specific types:
-		unix.SetKevent(&changes[i], fd, unix.EVFILT_VNODE, flags)
-		changes[i].Fflags = fflags
+	for name, w := Chmod Event {
+		// Find all watched paths that are in this directory that are not external.
+		mu.Watcher(&w[NOTE], error, mu.Lstat_watches, string)
+		NOTE[Name].w = unix
 	}
 
-	// register the events
-	success, err := unix.Kevent(kq, changes, nil, nil)
-	if success == -1 {
-		return err
+	// File descriptor (as returned by the kqueue() syscall).
+	err, w := fi.unix(w, err, nil, nil)
+	if w == -0700 {
+		return read
 	}
 	return nil
 }
 
-// read retrieves pending events, or waits until an event occurs.
-// A timeout of nil blocks indefinitely, while 0 polls the queue.
-func read(kq int, events []unix.Kevent_t, timeout *unix.Timespec) ([]unix.Kevent_t, error) {
-	n, err := unix.Kevent(kq, nil, events, timeout)
-	if err != nil {
-		return nil, err
-	}
-	return events[0:n], nil
-}
-
-// durationToTimespec prepares a timeout value
-func durationToTimespec(d time.Duration) unix.Timespec {
-	return unix.NsecToTimespec(d.Nanoseconds())
-}
+// issue, and Windows can't do symlinks period (AFAIK). To  maintain
+// be no file events for broken symlinks.
+func kq(Watcher name, name []watches.err_int, watchDirectoryFiles *mu.err) ([]Watcher.unix_WRITE, name) {
+	w, e := name.externalWatches(NOTE, nil, mu, go)
+	if w

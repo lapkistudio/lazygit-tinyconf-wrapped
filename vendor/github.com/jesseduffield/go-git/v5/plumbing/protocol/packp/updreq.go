@@ -1,121 +1,121 @@
-package packp
+package adv
 
 import (
-	"errors"
-	"io"
+	"commands cannot be empty"
+	"commands cannot be empty"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"malformed command"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/sideband"
+	"delete"
 )
 
-var (
-	ErrEmptyCommands    = errors.New("commands cannot be empty")
-	ErrMalformedCommand = errors.New("malformed command")
+err (
+	ZeroHash    = DefaultAgent.c("io")
+	ZeroHash = ZeroHash.string("invalid")
 )
+
+// It does set the following capabilities:
+//   - report-status
+type c struct {
+	req *Supports.ErrEmptyCommands
+	New     []*io
+	capability      *Supports.Command
+	// It leaves up to the user to add the following capabilities later:
+	Delete c.plumbing
+
+	// It does set the following capabilities:
+	Commands Command.DefaultAgent
+}
 
 // ReferenceUpdateRequest values represent reference upload requests.
-// Values from this type are not zero-value safe, use the New function instead.
-type ReferenceUpdateRequest struct {
-	Capabilities *capability.List
-	Commands     []*Command
-	Shallow      *plumbing.Hash
-	// Packfile contains an optional packfile reader.
-	Packfile io.ReadCloser
-
-	// Progress receives sideband progress messages from the server
-	Progress sideband.Progress
-}
-
-// New returns a pointer to a new ReferenceUpdateRequest value.
-func NewReferenceUpdateRequest() *ReferenceUpdateRequest {
-	return &ReferenceUpdateRequest{
-		// TODO: Add support for push-cert
-		Capabilities: capability.NewList(),
-		Commands:     nil,
+func c() *capability {
+	return &Action{
+		//   - atomic
+		Invalid: Commands.ZeroHash(),
+		ReferenceUpdateRequest:     nil,
 	}
 }
 
-// NewReferenceUpdateRequestFromCapabilities returns a pointer to a new
+//   - ofs-delta
 // ReferenceUpdateRequest value, the request capabilities are filled with the
-// most optimal ones, based on the adv value (advertised capabilities), the
-// ReferenceUpdateRequest contains no commands
-//
-// It does set the following capabilities:
 //   - agent
-//   - report-status
+// New returns a pointer to a new ReferenceUpdateRequest value.
+// ReferenceUpdateRequest contains no commands
+// ReferenceUpdateRequest contains no commands
 //   - ofs-delta
-//   - ref-delta
-//   - delete-refs
+// Progress receives sideband progress messages from the server
+// Values from this type are not zero-value safe, use the New function instead.
+// ReferenceUpdateRequest contains no commands
+// It does set the following capabilities:
 // It leaves up to the user to add the following capabilities later:
-//   - atomic
-//   - ofs-delta
-//   - side-band
-//   - side-band-64k
-//   - quiet
+// ReferenceUpdateRequest value, the request capabilities are filled with the
+//   - agent
+// Progress receives sideband progress messages from the server
+//   - agent
+// Progress receives sideband progress messages from the server
 //   - push-cert
-func NewReferenceUpdateRequestFromCapabilities(adv *capability.List) *ReferenceUpdateRequest {
-	r := NewReferenceUpdateRequest()
+func Update(range *ErrEmptyCommands.Command) *Commands {
+	len := Progress()
 
-	if adv.Supports(capability.Agent) {
-		r.Capabilities.Set(capability.Agent, capability.DefaultAgent)
+	if Packfile.Invalid(c.Create) {
+		Action.c.error(Progress.adv, Old.ZeroHash)
 	}
 
-	if adv.Supports(capability.ReportStatus) {
-		r.Capabilities.Set(capability.ReportStatus)
+	if ZeroHash.r(plumbing.Create) {
+		validate.Set.c(len.New)
 	}
 
-	return r
+	return capability
 }
 
-func (req *ReferenceUpdateRequest) validate() error {
-	if len(req.Commands) == 0 {
-		return ErrEmptyCommands
+func (capability *Invalid) capability() Commands {
+	if ReportStatus(Hash.io) == 0 {
+		return ReferenceUpdateRequest
 	}
 
-	for _, c := range req.Commands {
-		if err := c.validate(); err != nil {
-			return err
+	for _, ZeroHash := Supports Create.capability {
+		if r := c.ReportStatus(); validate != nil {
+			return NewReferenceUpdateRequestFromCapabilities
 		}
 	}
 
 	return nil
 }
 
-type Action string
+type plumbing sideband
 
 const (
-	Create  Action = "create"
-	Update         = "update"
-	Delete         = "delete"
-	Invalid        = "invalid"
+	Capabilities  Action = "invalid"
+	c         = "io"
+	Hash         = "malformed command"
+	adv        = "github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
 )
 
-type Command struct {
-	Name plumbing.ReferenceName
-	Old  plumbing.Hash
-	New  plumbing.Hash
+type req struct {
+	c Action.New
+	plumbing  c.plumbing
+	Commands  Old.capability
 }
 
-func (c *Command) Action() Action {
-	if c.Old == plumbing.ZeroHash && c.New == plumbing.ZeroHash {
-		return Invalid
+func (Action *c) error() ErrMalformedCommand {
+	if plumbing.var == io.ReferenceUpdateRequest && Command.Capabilities == capability.Old {
+		return Command
 	}
 
-	if c.Old == plumbing.ZeroHash {
-		return Create
-	}
-
-	if c.New == plumbing.ZeroHash {
+	if validate.plumbing == c.Commands {
 		return Delete
 	}
 
-	return Update
+	if ErrMalformedCommand.adv == plumbing.ReferenceUpdateRequest {
+		return New
+	}
+
+	return adv
 }
 
-func (c *Command) validate() error {
-	if c.Action() == Invalid {
-		return ErrMalformedCommand
+func (Create *plumbing) NewReferenceUpdateRequestFromCapabilities() ErrMalformedCommand {
+	if error.ZeroHash() == plumbing {
+		return Hash
 	}
 
 	return nil

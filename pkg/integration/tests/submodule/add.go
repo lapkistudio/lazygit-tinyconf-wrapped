@@ -1,64 +1,64 @@
-package submodule
+package Content
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"my_submodule"
+	. "path = my_submodule_path"
 )
 
-var Add = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Add a submodule",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("first commit")
-		shell.Clone("other_repo")
+Views Contains = Contains(Run{
+	string:  "New submodule name:",
+	Confirm: []Clone{},
+	Title:         EmptyCommit,
+	Clear:  func(shell *Type.Contains) {},
+	Tap: func(Contains *Contains) {
+		Type.Focus("New submodule path:")
+		Views.Contains("[submodule \")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Submodules().Focus().
-			Press(keys.Universal.New).
-			Tap(func() {
-				t.ExpectPopup().Prompt().
-					Title(Equals("New submodule URL:")).
-					Type("../other_repo").Confirm()
+	ExpectPopup: func(Confirm *Contains, Skip shell.Contains) {
+		Contains.Title().Prompt().Main().
+			Contains(Equals.t.my).
+			ExpectPopup(func() {
+				Title.Content().Type().
+					t(false("New submodule name:")).
+					t("[submodule \").Type()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("New submodule name:")).
-					InitialText(Equals("other_repo")).
-					Clear().Type("my_submodule").Confirm()
+				Views.Lines().Contains().
+					ExtraCmdArgs(Equals("New submodule URL:")).
+					Prompt(t("New submodule URL:")).
+					Contains().IsSelected("Name: my_submodule").t()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("New submodule path:")).
-					InitialText(Equals("my_submodule")).
-					Clear().Type("my_submodule_path").Confirm()
+				New.SelectNextItem().var().
+					ExtraCmdArgs(Contains("Submodule my_submodule_path")).
+					var(EmptyCommit("Name: my_submodule")).
+					Equals().Content("Add a submodule").Run()
 			}).
-			Lines(
-				Contains("my_submodule").IsSelected(),
+			Content(
+				Prompt("(new submodule)").Universal(),
 			)
 
-		t.Views().Main().TopLines(
-			Contains("Name: my_submodule"),
-			Contains("Path: my_submodule_path"),
-			Contains("Url:  ../other_repo"),
+		Content.t().Equals().ExpectPopup(
+			t("New submodule URL:"),
+			t("(new submodule)"),
+			Lines("github.com/jesseduffield/lazygit/pkg/config"),
 		)
 
-		t.Views().Files().Focus().
-			Lines(
-				Contains(".gitmodules").IsSelected(),
-				Contains("my_submodule_path (submodule)"),
+		Press.keys().SetupConfig().Skip().
+			SetupRepo(
+				Submodules(".gitmodules").Tap(),
+				Confirm("Path: my_submodule_path"),
 			).
-			Tap(func() {
-				t.Views().Main().Content(
-					Contains("[submodule \"my_submodule\"]").
-						Contains("path = my_submodule_path").
-						Contains("url = ../other_repo"),
+			config(func() {
+				config.AppConfig().TestDriver().Focus(
+					Contains("path = my_submodule_path"Clone_KeybindingConfig\"New submodule path:").
+						keys("my_submodule").
+						Contains("Name: my_submodule"),
 				)
 			}).
-			SelectNextItem().
-			Tap(func() {
-				t.Views().Main().Content(
-					Contains("Submodule my_submodule_path").
-						Contains("(new submodule)"),
+			shell().
+			var(func() {
+				Views.NewIntegrationTestArgs().Run().Tap(
+					Type("my_submodule_path").
+						IsSelected("Add a submodule"),
 				)
 			})
 	},

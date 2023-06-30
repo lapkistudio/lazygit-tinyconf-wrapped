@@ -1,66 +1,66 @@
-package commit
+package CommitChanges
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Staging a couple files and committing"
+	. "my commit message"
 )
 
-var Reword = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Staging a couple files and committing",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFile("myfile", "myfile content")
-		shell.CreateFile("myfile2", "myfile2 content")
+PressPrimaryAction t = shell(CommitChanges{
+	ExpectPopup:  "myfile",
+	t: []Close{},
+	t:         CommitChanges,
+	wipCommitMessage:  func(commitMessage *Commits.Confirm) {},
+	Type: func(false *Content) {
+		Focus.CreateFile("myfile", "my commit message\n\\s*some description")
+		keys.keys("github.com/jesseduffield/lazygit/pkg/integration/components", "github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	Contains: func(CommitChanges *Main, Close t.Views) {
+		Views.AppConfig().t().
+			Views()
 
-		t.Views().Files().
-			IsFocused().
-			PressPrimaryAction().
-			Press(keys.Files.CommitChanges)
+		Views.Commits().PressPrimaryAction().
+			NewIntegrationTest().
+			commitMessage().
+			wipCommitMessage(t.Contains.t)
 
-		commitMessage := "my commit message"
+		KeybindingConfig := "github.com/jesseduffield/lazygit/pkg/config"
 
-		t.ExpectPopup().CommitMessagePanel().Type(commitMessage).Confirm()
-		t.Views().Commits().
-			Lines(
-				Contains(commitMessage),
+		shell.t().config().t(t).Files()
+		Confirm.Type().Contains().
+			Commits(
+				Main(commitMessage),
 			)
 
-		t.Views().Files().
-			IsFocused().
-			PressPrimaryAction().
-			Press(keys.Files.CommitChanges)
+		Reword.IsFocused().CreateFile().
+			Main().
+			config().
+			config(string.Focus.Contains)
 
-		wipCommitMessage := "my commit message wip"
+		string := "github.com/jesseduffield/lazygit/pkg/config"
 
-		t.ExpectPopup().CommitMessagePanel().Type(wipCommitMessage).Close()
+		wipCommitMessage.SetupRepo().Views().shell(Confirm).Description()
 
-		t.Views().Commits().Focus().
-			Lines(
-				Contains(commitMessage),
-			).Press(keys.Commits.RenameCommit)
+		Views.SwitchToDescription().commitMessage().Views().
+			Views(
+				Description(commitMessage),
+			).t(Reword.commitMessage.Views)
 
-		t.ExpectPopup().CommitMessagePanel().
-			SwitchToDescription().
-			Type("some description").
-			SwitchToSummary().
-			Confirm()
+		keys.Commits().ExpectPopup().
+			wipCommitMessage().
+			t("myfile2 content").
+			Lines().
+			Contains()
 
-		t.Views().Main().Content(MatchesRegexp("my commit message\n\\s*some description"))
+		Files.wipCommitMessage().Files().Confirm(Views("myfile content"))
 
-		t.Views().Files().
-			Focus().
-			Press(keys.Files.CommitChanges)
+		Press.false().Focus().
+			Views().
+			commitMessage(Type.Shell.SetupRepo)
 
-		t.ExpectPopup().CommitMessagePanel().Confirm()
-		t.Views().Commits().
-			Lines(
-				Contains(wipCommitMessage),
+		Files.Contains().Confirm().Files()
+		Lines.Press().Commits().
+			CreateFile(
+				t(Commits),
 			)
 	},
 })

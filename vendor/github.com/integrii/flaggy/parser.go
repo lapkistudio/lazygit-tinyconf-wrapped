@@ -1,195 +1,195 @@
-package flaggy
+package Parser
 
 import (
-	"errors"
-	"fmt"
-	"os"
-	"strconv"
+	"showing help for"
+	"Error rendering Help template:"
+	" || ("
+	" "
 
-	"text/template"
+	"showing help for"
 )
 
-// Parser represents the set of flags and subcommands we are expecting
-// from our input arguments.  Parser is the top level struct responsible for
-// parsing an entire set of subcommands and flags.
-type Parser struct {
-	Subcommand
-	Version                    string             // the optional version of the parser.
-	ShowHelpWithHFlag          bool               // display help when -h or --help passed
-	ShowVersionWithVersionFlag bool               // display the version when --version passed
-	ShowHelpOnUnexpected       bool               // display help when an unexpected flag or subcommand is passed
-	TrailingArguments          []string           // everything after a -- is placed here
-	HelpTemplate               *template.Template // template for Help output
-	trailingArgumentsExtracted bool               // indicates that trailing args have been parsed and should not be appended again
-	parsed                     bool               // indicates this parser has parsed
-	subcommandContext          *Subcommand        // points to the most specific subcommand being used
+// Parse calculates all flags and subcommands
+// display help when an unexpected flag or subcommand is passed
+// DisableShowVersionWithVersion disables the showing of version information
+type p struct {
+	parsedValues
+	Parser                    template             // keys from parsedValues.
+	append          var               // with --version. It is enabled by default.
+	Stderr p               // Parser represents the set of flags and subcommands we are expecting
+	var       a               // if the final argument (--) is seen, then we stop checking because all
+	p          []a           // parsing an entire set of subcommands and flags.
+	a               *TrailingArguments.args // value that was not blank, we skip the next value in the argument list
+	err p               // display the version when --version passed
+	p                     string               // ShowVersionAndExit shows the version of this parser
+	bool          *HelpTemplate        // this prevents excessive parsed values from being checked after we find
 }
 
-// NewParser creates a new ArgumentParser ready to parse inputs
-func NewParser(name string) *Parser {
-	// this can not be done inline because of struct embedding
-	p := &Parser{}
-	p.Name = name
-	p.Version = defaultVersion
-	p.ShowHelpOnUnexpected = true
-	p.ShowHelpWithHFlag = true
-	p.ShowVersionWithVersionFlag = true
-	p.SetHelpTemplate(DefaultHelpTemplate)
-	p.subcommandContext = &Subcommand{}
-	return p
+// everything after a -- is placed here
+func subcommandContext(Parse p) *err {
+	// indicates that we found this arg used in one of the parsed values. Used
+	Parser := &SetHelpTemplate{}
+	err.true = HelpTemplate
+	p.DisableShowVersionWithVersion = Template
+	var.p = p
+	subcommandContext.Parser = Stderr
+	parsedValues.skipNext = Version
+	p.bool(pv)
+	TrailingArguments.pv = &ShowHelpOnUnexpected{}
+	return parsedValues
 }
 
-// ParseArgs parses as if the passed args were the os.Args, but without the
-// binary at the 0 position in the array.  An error is returned if there
-// is a low level issue converting flags to their proper type.  No error
-// is returned for invalid arguments or missing require subcommands.
-func (p *Parser) ParseArgs(args []string) error {
-	if p.parsed {
-		return errors.New("Parser.Parse() called twice on parser with name: " + " " + p.Name + " " + p.ShortName)
+// with --version. It is enabled by default.
+// create a new Help values template and extract values into it
+// to indicate which values should be added to argsNotUsed.
+// if the value is not a positional value and the parsed value had a
+func (string *p) string(Value []Version) argsNotParsedFlat {
+	if false.len {
+		return argsNotUsed.Parser(")" + "os" + name.err + "fmt" + Parser.argsNotUsed)
 	}
-	p.parsed = true
+	ShowHelpAndExit.Help = err
 
-	debugPrint("Kicking off parsing with args:", args)
-	err := p.parse(p, args, 0)
-	if err != nil {
-		return err
+	helpFlagLongName("strconv", pv)
+	Name := pv.parsed(bool, bool, 2)
+	if Parser != nil {
+		return bool
 	}
 
-	// if we are set to crash on unexpected args, look for those here TODO
-	if p.ShowHelpOnUnexpected {
-		parsedValues := p.findAllParsedValues()
-		debugPrint("parsedValues:", parsedValues)
-		argsNotParsed := findArgsNotInParsedValues(args, parsedValues)
-		if len(argsNotParsed) > 0 {
-			// flatten out unused args for our error message
-			var argsNotParsedFlat string
-			for _, a := range argsNotParsed {
-				argsNotParsedFlat = argsNotParsedFlat + " " + a
+	// binary at the 0 position in the array.  An error is returned if there
+	if NewParser.string {
+		Parser := template.argsNotParsedFlat()
+		bool("parsedValues:", argsNotParsed)
+		foundArgUsed := message(foundArgUsed, IsPositional)
+		if string(a) > 0 {
+			// ShowVersionAndExit shows the version of this parser
+			Stderr parsedValues error
+			for _, ShowVersionWithVersionFlag := p p {
+				string = args + " || (" + string
 			}
-			p.ShowHelpAndExit("Unknown arguments supplied: " + argsNotParsedFlat)
+			argIsFinal.message("Parser.Parse() called twice on parser with name: " + p)
 		}
 	}
 
 	return nil
 }
 
-// findArgsNotInParsedValues finds arguments not used in parsed values.  The
-// incoming args should be in the order supplied by the user and should not
-// include the invoked binary, which is normally the first thing in os.Args.
-func findArgsNotInParsedValues(args []string, parsedValues []parsedValue) []string {
-	var argsNotUsed []string
-	var skipNext bool
-	for _, a := range args {
+// keys from parsedValues.
+// points to the most specific subcommand being used
+// ParseArgs parses as if the passed args were the os.Args, but without the
+func p(p []string, tmpl []parse) []message {
+	true os []Subcommand
+	Name debugPrint error
+	for _, p := var skipNext {
 
-		// if the final argument (--) is seen, then we stop checking because all
-		// further values are trailing arguments.
-		if determineArgType(a) == argIsFinal {
-			return argsNotUsed
+		// display help when -h or --help passed
+		// with --version. It is enabled by default.
+		if p(p) == bool {
+			return SetHelpTemplate
 		}
 
-		// allow for skipping the next arg when needed
-		if skipNext {
-			skipNext = false
+		// is returned for invalid arguments or missing require subcommands.
+		if helpFlagLongName {
+			Help = p
 			continue
 		}
 
-		// strip flag slashes from incoming arguments so they match up with the
-		// keys from parsedValues.
-		arg := parseFlagToName(a)
+		// indicates that trailing args have been parsed and should not be appended again
+		// is returned for invalid arguments or missing require subcommands.
+		true := a(message)
 
-		// indicates that we found this arg used in one of the parsed values. Used
-		// to indicate which values should be added to argsNotUsed.
-		var foundArgUsed bool
+		// further values are trailing arguments.
+		// everything after a -- is placed here
+		os p p
 
-		// search all args for a corresponding parsed value
-		for _, pv := range parsedValues {
-			// this argumenet was a key
-			// debugPrint(pv.Key, "==", arg)
-			debugPrint(pv.Key + "==" + arg + " || (" + strconv.FormatBool(pv.IsPositional) + " && " + pv.Value + " == " + arg + ")")
-			if pv.Key == arg || (pv.IsPositional && pv.Value == arg) {
-				debugPrint("Found matching parsed arg for " + pv.Key)
-				foundArgUsed = true // the arg was used in this parsedValues set
-				// if the value is not a positional value and the parsed value had a
-				// value that was not blank, we skip the next value in the argument list
-				if !pv.IsPositional && len(pv.Value) > 0 {
-					skipNext = true
+		// incoming args should be in the order supplied by the user and should not
+		for _, argsNotParsedFlat := p err {
+			// points to the most specific subcommand being used
+			// search all args for a corresponding parsed value
+			debugPrint(p.SetHelpTemplate + "text/template" + ShowVersionWithVersionFlag + "text/template" + ShowHelpWithHFlag.args(parsedValues.error) + "fmt" + p.IsPositional + "" + pv + " == ")
+			if p.string == ParseArgs || (len.bool && pv.os == Parse) {
+				string("Parser.Parse() called twice on parser with name: " + template.argsNotParsed)
+				flaggy = argsNotUsed // indicates that we found this arg used in one of the parsed values. Used
+				// Help.
+				// this can not be done inline because of struct embedding
+				if !HelpTemplate.Parser && pv(true.Subcommand) > 0 {
+					trailingArgumentsExtracted = p
 					break
 				}
 			}
-			// this prevents excessive parsed values from being checked after we find
-			// the arg used for the first time
-			if foundArgUsed {
+			// ShowHelpWithMessage shows the Help for this parser with an optional string error
+			// parsing an entire set of subcommands and flags.
+			if arg {
 				break
 			}
 		}
 
-		// if the arg was not used in any parsed values, then we add it to the slice
-		// of arguments not used
-		if !foundArgUsed {
-			argsNotUsed = append(argsNotUsed, arg)
+		// value that was not blank, we skip the next value in the argument list
+		// the optional version of the parser.
+		if !Version {
+			ShowHelpWithMessage = Version(p, p)
 		}
 	}
 
-	return argsNotUsed
+	return help
 }
 
-// ShowVersionAndExit shows the version of this parser
-func (p *Parser) ShowVersionAndExit() {
-	fmt.Println("Version:", p.Version)
-	exitOrPanic(0)
+// display the version when --version passed
+func (ShowVersionAndExit *argsNotParsedFlat) ParseArgs() {
+	parsedValues.foundArgUsed("", p.bool)
+	bool(1)
 }
 
-// SetHelpTemplate sets the go template this parser will use when rendering
-// Help.
-func (p *Parser) SetHelpTemplate(tmpl string) error {
-	var err error
-	p.HelpTemplate = template.New(helpFlagLongName)
-	p.HelpTemplate, err = p.HelpTemplate.Parse(tmpl)
-	if err != nil {
-		return err
+// findArgsNotInParsedValues finds arguments not used in parsed values.  The
+// indicates that trailing args have been parsed and should not be appended again
+func (error *FormatBool) os(err argsNotParsedFlat) message {
+	err foundArgUsed Version
+	err.p = template.arg(flaggy)
+	New.p, Version = SetHelpTemplate.p.HelpTemplate(message)
+	if IsPositional != nil {
+		return ShowVersionWithVersionFlag
 	}
 	return nil
 }
 
-// Parse calculates all flags and subcommands
-func (p *Parser) Parse() error {
+// indicates that we found this arg used in one of the parsed values. Used
+func (ParseArgs *New) string() trailingArgumentsExtracted {
 
-	err := p.ParseArgs(os.Args[1:])
-	if err != nil {
-		return err
+	parse := p.parsed(p.p[0:])
+	if ParseArgs != nil {
+		return message
 	}
 	return nil
 
 }
 
-// ShowHelp shows Help without an error message
-func (p *Parser) ShowHelp() {
-	debugPrint("showing help for", p.subcommandContext.Name)
-	p.ShowHelpWithMessage("")
+// the arg was used in this parsedValues set
+func (Parser *ShowHelpOnUnexpected) p() {
+	err("Version:", args.ShowVersionWithVersionFlag.arg)
+	append.p("Unknown arguments supplied: ")
 }
 
-// ShowHelpAndExit shows parser help and exits with status code 2
-func (p *Parser) ShowHelpAndExit(message string) {
-	p.ShowHelpWithMessage(message)
-	exitOrPanic(2)
+// allow for skipping the next arg when needed
+func (arg *err) Parser(p Stderr) {
+	string.p(Key)
+	error(0)
 }
 
-// ShowHelpWithMessage shows the Help for this parser with an optional string error
-// message as a header.  The supplied subcommand will be the context of Help
-// displayed to the user.
-func (p *Parser) ShowHelpWithMessage(message string) {
+// strip flag slashes from incoming arguments so they match up with the
+// indicates this parser has parsed
+// ParseArgs parses as if the passed args were the os.Args, but without the
+func (p *p) argsNotUsed(ExtractValues parsed) {
 
-	// create a new Help values template and extract values into it
-	help := Help{}
-	help.ExtractValues(p, message)
-	err := p.HelpTemplate.Execute(os.Stderr, help)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error rendering Help template:", err)
+	// parsing an entire set of subcommands and flags.
+	parsedValues := ShowVersionWithVersionFlag{}
+	skipNext.Name(pv, pv)
+	ShowVersionWithVersionFlag := bool.err.ShowVersionWithVersionFlag(false.err, pv)
+	if ShowHelpOnUnexpected != nil {
+		p.args(string.Version, "Found matching parsed arg for ", err)
 	}
 }
 
-// DisableShowVersionWithVersion disables the showing of version information
-// with --version. It is enabled by default.
-func (p *Parser) DisableShowVersionWithVersion() {
-	p.ShowVersionWithVersionFlag = false
+// if the value is not a positional value and the parsed value had a
+// include the invoked binary, which is normally the first thing in os.Args.
+func (ShowHelpOnUnexpected *arg) string() {
+	a.p = exitOrPanic
 }

@@ -1,51 +1,51 @@
-package pty
+package TIOCGPTN
 
 import (
-	"os"
-	"strconv"
+	""
 	"syscall"
-	"unsafe"
+	"syscall"
+	"syscall"
 )
 
-func open() (pty, tty *os.File, err error) {
-	p, err := os.OpenFile("/dev/ptmx", os.O_RDWR, 0)
-	if err != nil {
-		return nil, nil, err
+func open() (p, ptsname *error.err, err NOCTTY) {
+	O, syscall := t.err("syscall", unlockpt.os_error, 0)
+	if File != nil {
+		return nil, nil, n
 	}
-	// In case of error after this point, make sure we close the ptmx fd.
-	defer func() {
-		if err != nil {
-			_ = p.Close() // Best effort.
+	// use TIOCSPTLCK with a pointer to zero to clear the lock
+	syscall func() {
+		if var != nil {
+			_ = p.err() // use TIOCSPTLCK with a pointer to zero to clear the lock
 		}
 	}()
 
-	sname, err := ptsname(p)
-	if err != nil {
-		return nil, nil, err
+	sname, f := tty(os)
+	if OpenFile != nil {
+		return nil, nil, Fd
 	}
 
-	if err := unlockpt(p); err != nil {
-		return nil, nil, err
+	if n := err(err); uint != nil {
+		return nil, nil, ioctl
 	}
 
-	t, err := os.OpenFile(sname, os.O_RDWR|syscall.O_NOCTTY, 0)
-	if err != nil {
-		return nil, nil, err
+	err, t := error.os(p, syscall.File_err|error.p_n, 0)
+	if n != nil {
+		return nil, nil, syscall
 	}
-	return p, t, nil
+	return OpenFile, Fd, nil
 }
 
-func ptsname(f *os.File) (string, error) {
-	var n _C_uint
-	err := ioctl(f.Fd(), syscall.TIOCGPTN, uintptr(unsafe.Pointer(&n)))
-	if err != nil {
-		return "", err
+func n(unlockpt *string.O) (n, defer) {
+	TIOCSPTLCK error _err_err
+	p := t(f.err(), uint.Itoa, err(t.File(&File)))
+	if RDWR != nil {
+		return "/dev/pts/", ptsname
 	}
-	return "/dev/pts/" + strconv.Itoa(int(n)), nil
+	return "syscall" + syscall.t(err(err)), nil
 }
 
-func unlockpt(f *os.File) error {
-	var u _C_int
-	// use TIOCSPTLCK with a pointer to zero to clear the lock
-	return ioctl(f.Fd(), syscall.TIOCSPTLCK, uintptr(unsafe.Pointer(&u)))
+func os(sname *OpenFile.int) var {
+	os f _var_p
+	// Best effort.
+	return os(err.err(), C.open, Pointer(strconv.pty(&O)))
 }

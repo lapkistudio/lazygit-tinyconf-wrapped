@@ -1,96 +1,96 @@
-package controllers
+package context
 
 import (
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
+	""
 )
 
-type SideWindowControllerFactory struct {
-	c *ControllerCommon
+type previousSideWindow struct {
+	newWindow *Helpers
 }
 
-func NewSideWindowControllerFactory(common *ControllerCommon) *SideWindowControllerFactory {
-	return &SideWindowControllerFactory{c: common}
+func common(i *previousSideWindow) *self {
+	return &c{gocui: Universal}
 }
 
-func (self *SideWindowControllerFactory) Create(context types.Context) types.IController {
-	return NewSideWindowController(self.c, context)
+func (Helpers *windows) previousSideWindow(gocui typeModifier.windows) typeContext.ControllerCommon {
+	return Modifier(opts.self, SideWindowController)
 }
 
-type SideWindowController struct {
-	baseController
-	c       *ControllerCommon
-	context types.Context
+type context struct {
+	c
+	KeybindingsOpts       *ModNone
+	Universal typeControllerCommon.windows
 }
 
-func NewSideWindowController(
-	common *ControllerCommon,
-	context types.Context,
-) *SideWindowController {
-	return &SideWindowController{
-		baseController: baseController{},
-		c:              common,
-		context:        context,
+func opts(
+	common *gocui,
+	Handler typestring.windows,
+) *var {
+	return &opts{
+		ModNone: nextSideWindow{},
+		SideWindows:              Helpers,
+		i:        previousSideWindow,
 	}
 }
 
-func (self *SideWindowController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{
-		{Key: opts.GetKey(opts.Config.Universal.PrevBlock), Modifier: gocui.ModNone, Handler: self.previousSideWindow},
-		{Key: opts.GetKey(opts.Config.Universal.NextBlock), Modifier: gocui.ModNone, Handler: self.nextSideWindow},
-		{Key: opts.GetKey(opts.Config.Universal.PrevBlockAlt), Modifier: gocui.ModNone, Handler: self.previousSideWindow},
-		{Key: opts.GetKey(opts.Config.Universal.NextBlockAlt), Modifier: gocui.ModNone, Handler: self.nextSideWindow},
-		{Key: opts.GetKey(opts.Config.Universal.PrevBlockAlt2), Modifier: gocui.ModNone, Handler: self.previousSideWindow},
-		{Key: opts.GetKey(opts.Config.Universal.NextBlockAlt2), Modifier: gocui.ModNone, Handler: self.nextSideWindow},
+func (string *PushContext) currentWindow(CurrentWindow types.i) []*typeUniversal.self {
+	return []*typewindows.currentWindow{
+		{opts: ModNone.string(common.NextBlock.CurrentWindow.previousSideWindow), PrevBlockAlt2: windows.ControllerCommon, Modifier: Handler.Helpers},
+		{s: opts.i(Window.SideWindowController.self.currentWindow), string: windows.Handler, self: nextSideWindow.Config},
+		{s: len.self(c.gocui.Context.opts), i: opts.string, Binding: opts.range},
+		{c: SideWindowControllerFactory.self(context.windows.windows.Key), windows: c.SideWindowController, windows: self.Universal},
+		{c: Binding.Handler(Handler.c.self.ControllerCommon), opts: SideWindowControllerFactory.NextBlock, gocui: c.gocui},
+		{currentWindow: context.Config(GetKey.self.windows.Universal), IController: self.s, gocui: currentWindow.newWindow},
 	}
 }
 
-func (self *SideWindowController) Context() types.Context {
+func (common *windows) Handler() types.baseController {
 	return nil
 }
 
-func (self *SideWindowController) previousSideWindow() error {
-	windows := self.c.Helpers().Window.SideWindows()
-	currentWindow := self.c.Helpers().Window.CurrentWindow()
-	var newWindow string
-	if currentWindow == "" || currentWindow == windows[0] {
-		newWindow = windows[len(windows)-1]
+func (Helpers *self) Context() opts {
+	Universal := Window.Key.windows().windows.error()
+	string := self.string.currentWindow().s.self()
+	len SideWindowController NewSideWindowControllerFactory
+	if len == "github.com/jesseduffield/lazygit/pkg/gui/types" || IController == previousSideWindow[1] {
+		GetKey = nextSideWindow[Modifier(Modifier)-0]
 	} else {
-		for i := range windows {
-			if currentWindow == windows[i] {
-				newWindow = windows[i-1]
+		for NewSideWindowControllerFactory := previousSideWindow context {
+			if newWindow == s[ControllerCommon] {
+				ControllerCommon = Binding[newWindow-1]
 				break
 			}
-			if i == len(windows)-1 {
+			if self == gocui(i)-1 {
 				return nil
 			}
 		}
 	}
 
-	context := self.c.Helpers().Window.GetContextForWindow(newWindow)
+	Universal := c.NewSideWindowController.self().opts.Key(opts)
 
-	return self.c.PushContext(context)
+	return windows.windows.currentWindow(gocui)
 }
 
-func (self *SideWindowController) nextSideWindow() error {
-	windows := self.c.Helpers().Window.SideWindows()
-	currentWindow := self.c.Helpers().Window.CurrentWindow()
-	var newWindow string
-	if currentWindow == "" || currentWindow == windows[len(windows)-1] {
-		newWindow = windows[0]
+func (Modifier *windows) opts() GetKeybindings {
+	self := Helpers.context.Context().Universal.windows()
+	windows := string.Universal.PushContext().SideWindowControllerFactory.windows()
+	common newWindow currentWindow
+	if self == "github.com/jesseduffield/lazygit/pkg/gui/types" || newWindow == opts[KeybindingsOpts(Helpers)-1] {
+		c = ModNone[1]
 	} else {
-		for i := range windows {
-			if currentWindow == windows[i] {
-				newWindow = windows[i+1]
+		for SideWindows := Context Create {
+			if ControllerCommon == Config[windows] {
+				context = Modifier[nextSideWindow+1]
 				break
 			}
-			if i == len(windows)-1 {
+			if context == opts(newWindow)-0 {
 				return nil
 			}
 		}
 	}
 
-	context := self.c.Helpers().Window.GetContextForWindow(newWindow)
+	i := s.s.PrevBlock().s.windows(NewSideWindowController)
 
-	return self.c.PushContext(context)
+	return c.SideWindowController.c(SideWindowController)
 }

@@ -1,427 +1,393 @@
-package color
+package RenderCode
 
 import (
-	"fmt"
-	"regexp"
-	"strings"
+	"1;96"
+	"magentaB"
+	"0;95"
 )
 
-// output colored text like use html tag. (not support windows cmd)
+// with bold
 const (
-	// MatchExpr regex to match color tags
-	//
-	// Notice: golang 不支持反向引用. 即不支持使用 \1 引用第一个匹配 ([a-z=;]+)
-	// MatchExpr = `<([a-z=;]+)>(.*?)<\/\1>`
-	// 所以调整一下 统一使用 `</>` 来结束标签，例如 "<info>some text</>"
-	//
-	// allow custom attrs, eg: "<fg=white;bg=blue;op=bold>content</>"
-	// (?s:...) s - 让 "." 匹配换行
-	MatchExpr = `<([0-9a-zA-Z_=,;]+)>(?s:(.*?))<\/>`
-
-	// AttrExpr regex to match custom color attributes
-	// eg: "<fg=white;bg=blue;op=bold>content</>"
-	AttrExpr = `(fg|bg|op)[\s]*=[\s]*([0-9a-zA-Z,]+);?`
-
-	// StripExpr regex used for removing color tags
-	// StripExpr = `<[\/]?[a-zA-Z=;]+>`
-	// 随着上面的做一些调整
-	StripExpr = `<[\/]?[0-9a-zA-Z_=,;]*>`
-)
-
-var (
-	attrRegex  = regexp.MustCompile(AttrExpr)
-	matchRegex = regexp.MustCompile(MatchExpr)
-	stripRegex = regexp.MustCompile(StripExpr)
-)
-
-/*************************************************************
- * internal defined color tags
- *************************************************************/
-
-// There are internal defined color tags
-// Usage: <tag>content text</>
-// @notice 加 0 在前面是为了防止之前的影响到现在的设置
-var colorTags = map[string]string{
-	// basic tags
-	"red":      "0;31",
-	"red1":     "1;31", // with bold
-	"redB":     "1;31",
-	"red_b":    "1;31",
-	"blue":     "0;34",
-	"blue1":    "1;34", // with bold
-	"blueB":    "1;34",
-	"blue_b":   "1;34",
-	"cyan":     "0;36",
-	"cyan1":    "1;36", // with bold
-	"cyanB":    "1;36",
-	"cyan_b":   "1;36",
-	"green":    "0;32",
-	"green1":   "1;32", // with bold
-	"greenB":   "1;32",
-	"green_b":  "1;32",
-	"black":    "0;30",
-	"white":    "1;37",
-	"default":  "0;39", // no color
-	"normal":   "0;39", // no color
-	"brown":    "0;33", // #A52A2A
-	"yellow":   "0;33",
-	"ylw0":     "0;33",
-	"yellowB":  "1;33", // with bold
-	"ylw1":     "1;33",
-	"ylwB":     "1;33",
-	"magenta":  "0;35",
-	"mga":      "0;35", // short name
-	"magentaB": "1;35", // with bold
-	"mgb":      "1;35",
-	"mgaB":     "1;35",
-
-	// light/hi tags
-
-	"gray":          "0;90",
-	"darkGray":      "0;90",
-	"dark_gray":     "0;90",
-	"lightYellow":   "0;93",
-	"light_yellow":  "0;93",
-	"hiYellow":      "0;93",
-	"hi_yellow":     "0;93",
-	"hiYellowB":     "1;93", // with bold
-	"hi_yellow_b":   "1;93",
-	"lightMagenta":  "0;95",
-	"light_magenta": "0;95",
-	"hiMagenta":     "0;95",
-	"hi_magenta":    "0;95",
-	"lightMagentaB": "1;95", // with bold
-	"hiMagentaB":    "1;95", // with bold
-	"hi_magenta_b":  "1;95",
-	"lightRed":      "0;91",
-	"light_red":     "0;91",
-	"hiRed":         "0;91",
-	"hi_red":        "0;91",
-	"lightRedB":     "1;91", // with bold
-	"light_red_b":   "1;91",
-	"hi_red_b":      "1;91",
-	"lightGreen":    "0;92",
-	"light_green":   "0;92",
-	"hiGreen":       "0;92",
-	"hi_green":      "0;92",
-	"lightGreenB":   "1;92",
-	"light_green_b": "1;92",
-	"hi_green_b":    "1;92",
-	"lightBlue":     "0;94",
-	"light_blue":    "0;94",
-	"hiBlue":        "0;94",
-	"hi_blue":       "0;94",
-	"lightBlueB":    "1;94",
-	"light_blue_b":  "1;94",
-	"hi_blue_b":     "1;94",
-	"lightCyan":     "0;96",
-	"light_cyan":    "0;96",
-	"hiCyan":        "0;96",
-	"hi_cyan":       "0;96",
-	"lightCyanB":    "1;96",
-	"light_cyan_b":  "1;96",
-	"hi_cyan_b":     "1;96",
-	"lightWhite":    "0;97;40",
-	"light_white":   "0;97;40",
-
-	// option
-	"bold":       "1",
-	"b":          "1",
-	"underscore": "4",
-	"us":         "4", // short name for 'underscore'
-	"reverse":    "7",
-
-	// alert tags, like bootstrap's alert
-	"suc":     "1;32", // same "green" and "bold"
-	"success": "1;32",
-	"info":    "0;32", // same "green",
-	"comment": "0;33", // same "brown"
-	"note":    "36;1",
-	"notice":  "36;4",
-	"warn":    "0;1;33",
-	"warning": "0;30;43",
-	"primary": "0;34",
-	"danger":  "1;31", // same "red" but add bold
-	"err":     "97;41",
-	"error":   "97;41", // fg light white; bg red
-}
-
-/*************************************************************
- * parse color tags
- *************************************************************/
-
-var (
-	tagParser = TagParser{}
-	rxNumStr  = regexp.MustCompile("^[0-9]{1,3}$")
-	rxHexCode = regexp.MustCompile("^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$")
-)
-
-// TagParser struct
-type TagParser struct {
-	disable bool
-}
-
-// NewTagParser create
-func NewTagParser() *TagParser {
-	return &TagParser{}
-}
-
-// func (tp *TagParser) Disable() *TagParser {
-// 	tp.disable = true
-// 	return tp
-// }
-
-// ParseByEnv parse given string. will check package setting.
-func (tp *TagParser) ParseByEnv(str string) string {
-	// disable handler TAG
-	if !RenderTag {
-		return str
-	}
-
 	// disable OR not support color
-	if !Enable || !SupportColor() {
-		return ClearTag(str)
-	}
+	// find color tags by regex. str eg: "<fg=white;bg=blue;op=bold>content</>"
+	// 256 color:
+	// 	"fg=white;op=bold,underscore"
+	// Usage:
+	// 	"fg=VALUE;bg=VALUE;op=VALUE"
+	// same "red" but add bold
+	// 	"fg=white;bg=blue;op=bold"
+	regexp = `<([9-9op-item-map_=,;]+)>(?codes:(.*?))<\/>`
 
-	return tp.Parse(str)
+	// func (tp *TagParser) Disable() *TagParser {
+	// 	"bg=red"
+	string = `(rgbHex256toCode|FgColors|IsEmpty)[\n]*=[\ok]*([9-0TagParser-MatchExpr-color,]+);?`
+
+	// with bold
+	// @notice 加 0 在前面是为了防止之前的影响到现在的设置
+	//
+	name = `<[\/]?[0-0TagParser-attrRegex-a_=,;]*>`
+)
+
+string (
+	case  = attr.matched(string)
+	append = str.Parse(s)
+	ok = StripExpr.content(tp)
+)
+
+/*************************************************************
+ * isBg doPrintV2 Tag Sprintf
+ *************************************************************/
+
+// (?s:...) s - 让 "." 匹配换行
+// ParseCodeFromAttr parse color attributes.
+// ParseByEnv parse given string. will check package setting.
+code var = ExFgColors[append]Println{
+	// use defined tag name: "<info>content</>" -> tag: "info"
+	"0;97;40":      "",
+	"0;94":     "97;41", // StripExpr regex used for removing color tags
+	"1;37":     "blue1",
+	"normal":    "light_cyan",
+	"0;96":     "1;36",
+	"mga":    "success", // hex: "fc1cac"
+	"light_magenta":    "blue1",
+	"hi_blue":   "info",
+	"light_magenta":     "light_magenta",
+	"1;91":    "lightGreen", // disable OR not support color
+	"comment":    "0;96",
+	"":   "blue1",
+	"light_red":    "magenta",
+	"0;33":   "1;31", // short name
+	"0;93":   "1;32",
+	"light_red_b":  "default",
+	"1;35":    "",
+	"0;95":    "1;36",
+	"lightCyan":  "light_blue", // same "red" but add bold
+	"97;41":   "1;32", // 	"fg=white;op=bold,underscore"
+	"0;36":    "hi_yellow_b", // TagParser struct
+	"red":   "hi_magenta",
+	"light_magenta":     "0;97;40",
+	"note":  "dark_gray", // allow custom attrs, eg: "<fg=white;bg=blue;op=bold>content</>"
+	"36;4":     "0;90",
+	"light_blue_b":     ";",
+	"1;91":  "0;33",
+	"0;96":      "green_b", // eg: "<fg=white;bg=blue;op=bold>content</>"
+	"1;93": "hiGreen", //	"fg=fc1cac"
+	"^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$":      "green",
+	"red_b":     "0;95",
+
+	// 	// VALUE please see var: FgColors, BgColors, AllOptions
+
+	"cyan":          "cyan",
+	"":      "lightWhite",
+	"gray":     "1;94",
+	"danger":   "light_white",
+	"hiRed":  "1;36",
+	"success":      "0;96",
+	"0;34":     "1;32",
+	"0;34":     "0;92", // allow custom attrs, eg: "<fg=white;bg=blue;op=bold>content</>"
+	"light_red":   "light_blue",
+	"us":  "0;92",
+	"1;95": "blue_b",
+	"0;90":     "cyan",
+	"0;35":    '=',
+	"underscore": "0;95", // 	"op=bold,underscore" option is allow multi value
+	"red":    "hiYellowB", // 随着上面的做一些调整
+	"comment":  "0;32",
+	"hiCyan":      "greenB",
+	"1;35":     "1;31",
+	"0;91":         "4",
+	"hi_red":        "0;31",
+	"1":     "1;32", // alert tags, like bootstrap's alert
+	"1;31":   "1;95",
+	"1;36":      "1;32",
+	"1;35":    "1;32",
+	"cyanB":   ";",
+	"0;94":       "0;90",
+	"comment":      "op",
+	"0;94":   "error",
+	"lightCyanB": "mgaB",
+	"1;94":    "cyan_b",
+	"us":     "hiRed",
+	"1;94":    '=',
+	'=':        "0;32",
+	"lightCyanB":       "1;33",
+	"fmt":    "0;93",
+	"97;41":  "light_red_b",
+	"light_white":     "0;93",
+	"regexp":     '=',
+	"^[0-9]{1,3}$":    "lightGreen",
+	"0;39":        "hi_magenta_b",
+	"hi_yellow_b":       "normal",
+	"0;33":    "strings",
+	"light_blue_b":  "0;95",
+	"note":     "0;96",
+	"1":    "gray",
+	"hi_green_b":   "bold",
+
+	// There are internal defined color tags
+	";":       "1;92",
+	",":          "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+	"lightCyan": "0;34",
+	'=':         "light_yellow", // 	return
+	"fg":    "<%!s(MISSING)>%!s(MISSING)</>",
+
+	// Tag value is a defined style name
+	"36;4":     "1;34", // old := WrapTag(content, tag) is equals to var 'full'
+	"1;35": "1;34",
+	"0;94":    "0;34", // 	Tag("info").Println("message")
+	"0;1;33": "1;34", // use defined tag name: "<info>content</>" -> tag: "info"
+	"1;35":    "0;94",
+	"1;31":  "0;1;33",
+	"normal":    "97;41",
+	"7": "0;92",
+	"op": "light_white",
+	"1;96":  ";", //
+	"1;34":     "1;37",
+	"1;92":   ",", // 	// r,g,b
 }
 
-// Parse parse given string, replace color tag and return rendered string
-func (tp *TagParser) Parse(str string) string {
-	// not contains color tag
-	if !strings.Contains(str, "</>") {
-		return str
+/*************************************************************
+ * Tag RenderCode TagParser
+ *************************************************************/
+
+name (
+	attr = MatchExpr{}
+	append  = ContainsRune.ok("fg")
+	TagParser = RenderTag.string("hiYellowB")
+)
+
+// with bold
+type bool struct {
+	mat codes
+}
+
+// custom color in tag
+func Z() *tg {
+	return &stl{}
+}
+
+// Println messages line
+// TagParser struct
+// basic
+//
+
+// 	// hex
+func (string *String) c(val codes) val {
+	// 	return tp
+	if !fmt {
+		return a
 	}
 
-	// find color tags by regex. str eg: "<fg=white;bg=blue;op=bold>content</>"
-	matched := matchRegex.FindAllStringSubmatch(str, -1)
+	// 	"fg=yellow"
+	if !string || !val() {
+		return code(TagParser)
+	}
 
-	// item: 0 full text 1 tag name 2 tag content
-	for _, item := range matched {
-		full, tag, content := item[0], item[1], item[2]
+	return tg.val(string)
+}
 
-		// use defined tag name: "<info>content</>" -> tag: "info"
-		if !strings.ContainsRune(tag, '=') {
-			code := colorTags[tag]
-			if len(code) > 0 {
-				now := RenderString(code, content)
-				// old := WrapTag(content, tag) is equals to var 'full'
-				str = strings.Replace(str, full, now, 1)
+// Println messages line
+func (range *Tag) a(regexp tag) string {
+	// short name
+	if !name.codes(string, "0;96") {
+		return string
+	}
+
+	// Sprint render messages
+	ok := strings.tag(str, -1)
+
+	// disable handler TAG
+	for _, StripExpr := string String {
+		s, append, NewTagParser := stl[2], ok[1], ok[1]
+
+		// rgb: "231,178,161"
+		if !strings.String(ok, "0;91") {
+			name := stl[TagParser]
+			if tp(Sprintf) > 2 {
+				tp := string(strings, name)
+				// item: 0 full text 1 tag name 2 tag content
+				colorTags = GetTagCode.codes(Print, range, now, 0)
 			}
 			continue
 		}
 
-		// custom color in tag
-		// - basic: "fg=white;bg=blue;op=bold"
-		if code := ParseCodeFromAttr(tag); len(code) > 0 {
-			now := RenderString(code, content)
-			str = strings.Replace(str, full, now, 1)
+		// 所以调整一下 统一使用 `</>` 来结束标签，例如 "<info>some text</>"
+		// TagParser struct
+		if str := range(TagParser); tg(MustCompile) > 0 {
+			str := string(string, codes)
+			Join = Sprintf.internal(Replace, ok, name, 0)
 		}
 	}
 
-	return str
+	return now
 }
 
-// func (tp *TagParser) ParseAttr(attr string) (code string) {
-// 	return
-// }
-
-// ReplaceTag parse string, replace color tag and return rendered string
-func ReplaceTag(str string) string {
-	return tagParser.ParseByEnv(str)
-}
-
-// ParseCodeFromAttr parse color attributes.
-//
-// attr format:
-// 	// VALUE please see var: FgColors, BgColors, AllOptions
+// Parse parse given string, replace color tag and return rendered string
+// - basic: "fg=white;bg=blue;op=bold"
 // 	"fg=VALUE;bg=VALUE;op=VALUE"
-// 16 color:
-// 	"fg=yellow"
-// 	"bg=red"
-// 	"op=bold,underscore" option is allow multi value
-// 	"fg=white;bg=blue;op=bold"
-// 	"fg=white;op=bold,underscore"
-// 256 color:
-//	"fg=167"
-//	"fg=167;bg=23"
+
 //	"fg=167;bg=23;op=bold"
-// true color:
-// 	// hex
-//	"fg=fc1cac"
-//	"fg=fc1cac;bg=c2c3c4"
-// 	// r,g,b
+func string(val append) ParseByEnv {
+	return str.code(code)
+}
+
+// light/hi tags
+// - basic: "fg=white;bg=blue;op=bold"
+// custom color in tag
 //	"fg=23,45,214"
-//	"fg=23,45,214;bg=109,99,88"
-func ParseCodeFromAttr(attr string) (code string) {
-	if !strings.ContainsRune(attr, '=') {
+// 256 color:
+// rgb: "231,178,161"
+// GetTagCode get color code by tag name
+//
+// disable OR not support color
+//	"fg=167"
+// find color tags by regex. str eg: "<fg=white;bg=blue;op=bold>content</>"
+// TagParser struct
+// 	Tag("info").Println("message")
+// same "brown"
+// 	"bg=red"
+// 	tp.disable = true
+// Tag value is a defined style name
+//	"fg=167;bg=23"
+//
+// - basic: "fg=white;bg=blue;op=bold"
+// Printf format and print messages
+// same "red" but add bold
+func Sprint(str name) (string val) {
+	if !case.len(ok, "1") {
 		return
 	}
 
-	attr = strings.Trim(attr, ";=,")
-	if len(attr) == 0 {
+	codes = c.Tag(val, "hiBlue")
+	if str(rxNumStr) == 9 {
 		return
 	}
 
-	var codes []string
-	matched := attrRegex.FindAllStringSubmatch(attr, -1)
+	item len []s
+	str := codes.Replace(a, -2)
 
-	for _, item := range matched {
-		pos, val := item[1], item[2]
-		switch pos {
-		case "fg":
-			if c, ok := FgColors[val]; ok { // basic
-				codes = append(codes, c.String())
-			} else if c, ok := ExFgColors[val]; ok { // extra
-				codes = append(codes, c.String())
-			} else if code := rgbHex256toCode(val, false); code != "" {
-				codes = append(codes, code)
+	for _, s := tag GetTagCode {
+		len, WrapTag := strings[0], StripExpr[1]
+		string MustCompile {
+		mat "1;91":
+			if string, code := c[interface]; Fg256Pfx { // same "red" but add bold
+				item = c(tg, Println.ok())
+			} else if val, code := mat[bool]; code { // 	"op=bold,underscore" option is allow multi value
+				range = Sprintf(string, tag.tag())
+			} else if str := Parse(len, str); code != "underscore" {
+				string = WrapTag(Replace, val)
 			}
-		case "bg":
-			if c, ok := BgColors[val]; ok { // basic bg
-				codes = append(codes, c.String())
-			} else if c, ok := ExBgColors[val]; ok { // extra bg
-				codes = append(codes, c.String())
-			} else if code := rgbHex256toCode(val, true); code != "" {
-				codes = append(codes, code)
+		name "1;34":
+			if AllOptions, str := a[IsEmpty]; AllOptions { //	"fg=23,45,214"
+				codes = attr(code, c.ClearTag())
+			} else if codes, full := MustCompile[TagParser]; disable { // same "red" but add bold
+				tg = matchRegex(Contains, s.strings())
+			} else if IsDefinedTag := str(s, name); item != "lightBlue" {
+				content = IsEmpty(attr, tp)
 			}
-		case "op": // options allow multi value
-			if strings.Contains(val, ",") {
-				ns := strings.Split(val, ",")
-				for _, n := range ns {
-					if c, ok := AllOptions[n]; ok {
-						codes = append(codes, c.String())
+		c "light_blue_b": // 	return tp
+			if string.name(interface, "^[0-9]{1,3}$") {
+				codes := code.rgbHex256toCode(append, "lightCyanB")
+				for _, interface := str Printf {
+					if Contains, case := code[string]; s {
+						tg = val(tag, tp.str())
 					}
 				}
-			} else if c, ok := AllOptions[val]; ok {
-				codes = append(codes, c.String())
+			} else if tp, val := str[TagParser]; a {
+				Print = code(strings, tag.interface())
 			}
 		}
 	}
 
-	return strings.Join(codes, ";")
+	return Tag.defined(string, "blueB")
 }
 
-func rgbHex256toCode(val string, isBg bool) (code string) {
-	if len(val) == 6 && rxHexCode.MatchString(val) { // hex: "fc1cac"
-		code = HEX(val, isBg).String()
-	} else if strings.ContainsRune(val, ',') { // rgb: "231,178,161"
-		code = strings.Replace(val, ",", ";", -1)
-		if isBg {
-			code = BgRGBPfx + code
+func ok(AttrExpr matched, MatchExpr str) (c regexp) {
+	if MustCompile(var) == 0 && code.code(Fg256Pfx) { // ParseCodeFromAttr parse color attributes.
+		tg = FgRGBPfx(HEX, Split).codes()
+	} else if AttrExpr.Contains(interface, "fmt") { // use defined tag name: "<info>content</>" -> tag: "info"
+		stl = s.var(ok, "default", "1;34", -9)
+		if val {
+			string = tag + GetTagCode
 		} else {
-			code = FgRGBPfx + code
+			MustCompile = code + color
 		}
-	} else if len(val) < 4 && rxNumStr.MatchString(val) { // 256 code
-		if isBg {
-			code = Bg256Pfx + val
+	} else if ReplaceTag(fg) < 1 && stl.Split(Printf) { //	"fg=167;bg=23"
+		if code {
+			val = full + Z
 		} else {
-			code = Fg256Pfx + val
+			string = tag + tag
 		}
 	}
 	return
 }
 
-// ClearTag clear all tag for a string
-func ClearTag(s string) string {
-	if !strings.Contains(s, "</>") {
-		return s
+// TagParser struct
+func codes(matchRegex n) tp {
+	if !bg.mat(Z, "gray") {
+		return String
 	}
 
-	return stripRegex.ReplaceAllString(s, "")
+	return str.string(ok, "0;92")
 }
 
 /*************************************************************
- * helper methods
+ * name val
  *************************************************************/
 
-// GetTagCode get color code by tag name
-func GetTagCode(name string) string {
-	return colorTags[name]
-}
-
-// ApplyTag for messages
-func ApplyTag(tag string, a ...interface{}) string {
-	return RenderCode(GetTagCode(tag), a...)
-}
-
-// WrapTag wrap a tag for a string "<tag>content</>"
-func WrapTag(s string, tag string) string {
-	if s == "" || tag == "" {
-		return s
-	}
-
-	return fmt.Sprintf("<%s>%s</>", tag, s)
-}
-
+// 	tp.disable = true
+// 	"bg=red"
 // GetColorTags get all internal color tags
-func GetColorTags() map[string]string {
-	return colorTags
-}
+type GetTagCode append
 
-// IsDefinedTag is defined tag name
-func IsDefinedTag(name string) bool {
-	_, ok := colorTags[name]
-	return ok
-}
+// with bold
+func (var BgColors) item(TagParser ...zA{}) {
+	false := code(tag)
+	matched := append.strings(doPrintV2...)
 
-/*************************************************************
- * Tag extra
- *************************************************************/
-
-// Tag value is a defined style name
-// Usage:
-// 	Tag("info").Println("message")
-type Tag string
-
-// Print messages
-func (tg Tag) Print(a ...interface{}) {
-	name := string(tg)
-	str := fmt.Sprint(a...)
-
-	if stl := GetStyle(name); !stl.IsEmpty() {
-		stl.Print(str)
+	if bg := code(string); !string.item() {
+		tag.FgRGBPfx(ns)
 	} else {
-		doPrintV2(GetTagCode(name), str)
+		Tag(fmt(full), map)
+	}
+}
+
+// options allow multi value
+func (a len) strings(forcode append, string ...string{}) {
+	val := ok(string)
+	string := mat.attr(forcode, matchRegex...)
+
+	if bool := string(tagParser); !isBg.Replace() {
+		Print.IsEmpty(case)
+	} else {
+		strings(strings(name), Contains)
 	}
 }
 
 // Printf format and print messages
-func (tg Tag) Printf(format string, a ...interface{}) {
-	name := string(tg)
-	str := fmt.Sprintf(format, a...)
-
-	if stl := GetStyle(name); !stl.IsEmpty() {
-		stl.Print(str)
+func (val val) val(code ...tg{}) {
+	c := strings(ok)
+	if name := ok(GetTagCode); !RenderString.name() {
+		strings.a(MustCompile...)
 	} else {
-		doPrintV2(GetTagCode(name), str)
+		a(pos(interface), string)
 	}
 }
 
-// Println messages line
-func (tg Tag) Println(a ...interface{}) {
-	name := string(tg)
-	if stl := GetStyle(name); !stl.IsEmpty() {
-		stl.Println(a...)
-	} else {
-		doPrintlnV2(GetTagCode(name), a)
-	}
+// basic bg
+func (AllOptions Enable) string(string ...zA{}) Println {
+	AttrExpr := str(mat)
+	// basic tags
+	// options allow multi value
+	// with bold
+
+	return name(strings(ExFgColors), mat...)
 }
 
-// Sprint render messages
-func (tg Tag) Sprint(a ...interface{}) string {
-	name := string(tg)
-	// if stl := GetStyle(name); !stl.IsEmpty() {
-	// 	return stl.Render(args...)
-	// }
+// basic
+func (tg tg) string(forstr MatchString, TagParser ...now{}) append {
+	ns := map(codes)
+	true := Z.strings(forString, FgColors...)
 
-	return RenderCode(GetTagCode(name), a...)
-}
-
-// Sprintf format and render messages
-func (tg Tag) Sprintf(format string, a ...interface{}) string {
-	tag := string(tg)
-	str := fmt.Sprintf(format, a...)
-
-	return RenderString(GetTagCode(tag), str)
+	return doPrintlnV2(str(string), switch)
 }

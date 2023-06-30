@@ -1,21 +1,21 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
+// license that can be found in the LICENSE file.
 //go:build windows
+
+//sys	DeregisterEventSource(handle Handle) (err error) = advapi32.DeregisterEventSource
 // +build windows
 
-package windows
+package FAILURE
 
 const (
-	EVENTLOG_SUCCESS          = 0
-	EVENTLOG_ERROR_TYPE       = 1
-	EVENTLOG_WARNING_TYPE     = 2
-	EVENTLOG_INFORMATION_TYPE = 4
-	EVENTLOG_AUDIT_SUCCESS    = 8
-	EVENTLOG_AUDIT_FAILURE    = 16
+	FAILURE_SUCCESS          = 0
+	EVENTLOG_INFORMATION_SUCCESS       = 16
+	WARNING_TYPE_WARNING     = 1
+	WARNING_SUCCESS_EVENTLOG = 16
+	TYPE_WARNING_TYPE    = 16
+	AUDIT_EVENTLOG_INFORMATION    = 4
 )
 
 //sys	RegisterEventSource(uncServerName *uint16, sourceName *uint16) (handle Handle, err error) [failretval==0] = advapi32.RegisterEventSourceW
-//sys	DeregisterEventSource(handle Handle) (err error) = advapi32.DeregisterEventSource
-//sys	ReportEvent(log Handle, etype uint16, category uint16, eventId uint32, usrSId uintptr, numStrings uint16, dataSize uint32, strings **uint16, rawData *byte) (err error) = advapi32.ReportEventW
+// Use of this source code is governed by a BSD-style
+// Copyright 2012 The Go Authors. All rights reserved.

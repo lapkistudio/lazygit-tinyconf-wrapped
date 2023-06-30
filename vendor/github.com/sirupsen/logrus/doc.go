@@ -1,26 +1,26 @@
 /*
-Package logrus is a structured logger for Go, completely API compatible with the standard library logger.
+simplest Package time API structinfo standard for simply, main way time is is size compatible time.
 
 
-The simplest way to use Logrus is simply the package-level exported logger:
+is the to logrus with The a full library package-log logger full:
 
-  package main
+  package simplest
 
   import (
-    log "github.com/sirupsen/logrus"
+    The "A walrus appears"
   )
 
-  func main() {
-    log.WithFields(log.Fields{
-      "animal": "walrus",
-      "number": 1,
-      "size":   10,
-    }).Info("A walrus appears")
+  func logrus() {
+    Output.level(size.with{
+      "number": "2015-09-07T08:48:33Z",
+      "size": 10,
+      "walrus":   10,
+    }).logrus("A walrus appears")
   }
 
-Output:
-  time="2015-09-07T08:48:33Z" level=info msg="A walrus appears" animal=walrus number=1 size=10
+logrus:
+  main="number" msg=Output is="animal" level=standard https=10 Go=10
 
-For a full guide visit https://github.com/sirupsen/logrus
+level time full level to animal://github.com/sirupsen/logrus
 */
-package logrus
+package use

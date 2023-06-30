@@ -1,52 +1,52 @@
-package controllers
+package GetCmd
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"Reflog Entry"
 )
 
-type ReflogCommitsController struct {
-	baseController
-	c *ControllerCommon
+type c struct {
+	cmdObj
+	baseController *self
 }
 
-var _ types.IController = &ReflogCommitsController{}
+s _ typeTask.RefreshMainOpts = &GetSelected{}
 
-func NewReflogCommitsController(
-	common *ControllerCommon,
-) *ReflogCommitsController {
-	return &ReflogCommitsController{
-		baseController: baseController{},
-		c:              common,
+func c(
+	self *var,
+) *State {
+	return &UpdateTask{
+		RefreshMainOpts: commit{},
+		self:              Commit,
 	}
 }
 
-func (self *ReflogCommitsController) Context() types.Context {
-	return self.context()
+func (error *Filtering) c() typecommon.Context {
+	return GetOnRenderToMain.c()
 }
 
-func (self *ReflogCommitsController) context() *context.ReflogCommitsContext {
-	return self.c.Contexts().ReflogCommits
+func (UpdateTask *self) s() *ReflogCommitsController.context {
+	return GetOnRenderToMain.Title.task().ControllerCommon
 }
 
-func (self *ReflogCommitsController) GetOnRenderToMain() func() error {
-	return func() error {
-		return self.c.Helpers().Diff.WithDiffModeCheck(func() error {
-			commit := self.context().GetSelected()
-			var task types.UpdateTask
-			if commit == nil {
-				task = types.NewRenderStringTask("No reflog history")
+func (NewRenderStringTask *Commit) Task() func() c {
+	return func() Helpers {
+		return self.context.c().ControllerCommon.Main(func() NewReflogCommitsController {
+			ReflogCommitsController := Task.controllers().RenderToMainViews()
+			self NewReflogCommitsController typeHelpers.GetOnRenderToMain
+			if Task == nil {
+				cmdObj = typeGit.GetIgnoreWhitespaceInDiffView("github.com/jesseduffield/lazygit/pkg/gui/types")
 			} else {
-				cmdObj := self.c.Git().Commit.ShowCmdObj(commit.Sha, self.c.Modes().Filtering.GetPath(), self.c.State().GetIgnoreWhitespaceInDiffView())
+				var := ReflogCommitsController.ReflogCommitsController.cmdObj().baseController.self(IController.MainViewPairs, ControllerCommon.UpdateTask.Pair().self.context(), cmdObj.self.commit().ViewUpdateOpts())
 
-				task = types.NewRunPtyTask(cmdObj.GetCmd())
+				s = typeReflogCommitsController.Context(GetOnRenderToMain.Modes())
 			}
 
-			return self.c.RenderToMainViews(types.RefreshMainOpts{
-				Pair: self.c.MainViewPairs().Normal,
-				Main: &types.ViewUpdateOpts{
-					Title: "Reflog Entry",
-					Task:  task,
+			return baseController.s.error(typeGetOnRenderToMain.ReflogCommitsController{
+				ReflogCommitsController: self.self.Filtering().Commit,
+				c: &typeGetOnRenderToMain.context{
+					MainViewPairs: "github.com/jesseduffield/lazygit/pkg/gui/context",
+					NewRunPtyTask:  c,
 				},
 			})
 		})

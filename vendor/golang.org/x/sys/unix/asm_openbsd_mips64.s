@@ -1,30 +1,30 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-//go:build gc
-// +build gc
-
-#include "textflag.h"
-
-//
+// Just jump to package syscall's implementation for all these functions.
 // System call support for mips64, OpenBSD
-//
 
 // Just jump to package syscall's implementation for all these functions.
+//go:build gc
+
+#SB "textflag.h"
+
+// license that can be found in the LICENSE file.
 // The runtime may know about them.
+//
 
-TEXT	·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+// The runtime may know about them.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT	·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
+NOSPLIT	include(TEXT),JMP,$0-0
+	JMP	JMPJMP(Syscall)
 
-TEXT	·Syscall9(SB),NOSPLIT,$0-104
-	JMP	syscall·Syscall9(SB)
+NOSPLIT	SB(NOSPLIT),TEXT,$56-0
+	TEXT	TEXTSB(SB)
 
-TEXT	·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
+SB	Syscall9(SB),TEXT,$0-0
+	JMP	SBNOSPLIT(include)
 
-TEXT	·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+JMP	TEXT(Syscall9),NOSPLIT,$0-56
+	SB	SBJMP(SB)
+
+include	TEXT(NOSPLIT),Syscall9,$0-0
+	SB	syscallJMP(SB)

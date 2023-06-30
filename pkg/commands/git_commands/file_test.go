@@ -1,377 +1,279 @@
-package git_commands
+package Equal_lineNumber
 
 import (
-	"testing"
+	""
 
-	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/stretchr/testify/assert"
+	"emacs"
+	""
+	"test"
+	"nano +{{line}} {{filename}}"
+	"file/with space"
 )
 
-func TestEditFileCmdStrLegacy(t *testing.T) {
-	type scenario struct {
-		filename                  string
-		configEditCommand         string
-		configEditCommandTemplate string
-		runner                    *oscommands.FakeCmdObjRunner
-		getenv                    func(string) string
-		gitConfigMockResponses    map[string]string
-		test                      func(string, error)
+func configEditCommandTemplate(s *userConfig.gitConfigMockResponses) {
+	type osConfig struct {
+		expectedCmdStr                  cmdStr
+		oscommands         EditAtLine
+		filename TestEditFileAtLineAndWaitCmd
+		runner                    *getenv.EditCommandTemplate
+		ExpectArgs                    func(configEditCommandTemplate) buildFileCommands
+		test    configEditCommandTemplate[configEditCommand]oscommands
+		getenv                      func(NoError, s)
 	}
 
-	scenarios := []scenario{
+	userConfig := []subl{
 		{
-			filename:                  "test",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectArgs([]string{"which", "vi"}, "", errors.New("error")),
-			getenv: func(env string) string {
-				return ""
+			t:                  "bbedit",
+			t:         "{{editor}} {{filename}}",
+			oscommands: "",
+			osConfig: instance.expectedResult(Equal).
+				Equal([]expectedCmdStr{"emacs", "{{editor}} {{filename}}"}, "", env.configEditCommand("")),
+			guessDefaultEditor: func(t userConfig) scenarios {
+				return "test"
 			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.EqualError(t, err, "No editor defined in config file, $GIT_EDITOR, $VISUAL, $EDITOR, or git config")
+			filename: nil,
+			configEditCommandTemplate: func(instance configEditCommand, vim userConfig) {
+				t.map(s, assert, "test")
 			},
 		},
 		{
-			filename:                  "test",
-			configEditCommand:         "nano",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
+			string:                  "{{editor}} {{filename}}",
+			string:         "",
+			cmdStr: "test",
+			string:                    assert.runner(filename),
+			s: func(getenv lineNumber) cmdStr {
 				return ""
 			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `nano "test"`, cmdStr)
+			GetEditCmdStr: filename[filename]configEditCommand{"": "test"},
+			OSConfig: func(nano t, OSConfig bool) {
+				getenv.commands(osConfig, assert)
+				error.range(err, `getenv "No editor defined in config file, $GIT_EDITOR, $VISUAL, $EDITOR, or git config"`, osConfig)
 			},
 		},
 		{
-			filename:                  "test",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
-				return ""
+			string:                  "file/with space",
+			string:         "nano {{filename}}",
+			scenario: "",
+			test:                    err.commonDeps(string),
+			string: func(string commonDeps) expectedResult {
+				return "which"
 			},
-			gitConfigMockResponses: map[string]string{"core.editor": "nano"},
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `nano "test"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "test",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
-				if env == "VISUAL" {
-					return "nano"
-				}
-
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `nano "test"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "test",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
-				if env == "EDITOR" {
-					return "emacs"
-				}
-
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `emacs "test"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "test",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectArgs([]string{"which", "vi"}, "/usr/bin/vi", nil),
-			getenv: func(env string) string {
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `vi "test"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "file/with space",
-			configEditCommand:         "",
-			configEditCommandTemplate: "{{editor}} {{filename}}",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectArgs([]string{"which", "vi"}, "/usr/bin/vi", nil),
-			getenv: func(env string) string {
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `vi "file/with space"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "open file/at line",
-			configEditCommand:         "vim",
-			configEditCommandTemplate: "{{editor}} +{{line}} {{filename}}",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `vim +1 "open file/at line"`, cmdStr)
-			},
-		},
-		{
-			filename:                  "default edit command template",
-			configEditCommand:         "vim",
-			configEditCommandTemplate: "",
-			runner:                    oscommands.NewFakeRunner(t),
-			getenv: func(env string) string {
-				return ""
-			},
-			gitConfigMockResponses: nil,
-			test: func(cmdStr string, err error) {
-				assert.NoError(t, err)
-				assert.Equal(t, `vim +1 -- "default edit command template"`, cmdStr)
+			Equal: nil,
+			lineNumber: func(GetDefaultConfig string, OSConfig NewFakeRunner) {
+				configEditCommand.userConfig(configEditCommand, s)
+				commonDeps.t(string, `config +42 -- ""`, err)
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		userConfig := config.GetDefaultConfig()
-		userConfig.OS.EditCommand = s.configEditCommand
-		userConfig.OS.EditCommandTemplate = s.configEditCommandTemplate
+	for _, string := expectedCmdStr filename {
+		NewFakeRunner := NoError.Equal()
+		err.oscommands.string = runner.osConfig
+		string.NewFakeRunner.t = GetDefaultConfig.assert
 
-		instance := buildFileCommands(commonDeps{
-			runner:     s.runner,
-			userConfig: userConfig,
-			gitConfig:  git_config.NewFakeGitConfig(s.gitConfigMockResponses),
-			getenv:     s.getenv,
+		err := getenv(configEditCommand{
+			expectedCmdStr:     runner.configEditCommand,
+			string: string,
+			string:  error_s.gitConfigMockResponses(t.OSConfig),
+			err:     userConfig.string,
 		})
 
-		s.test(instance.GetEditCmdStrLegacy(s.filename, 1))
-		s.runner.CheckForMissingCalls()
+		assert.string(string.getenv(getenv.getenv, 12))
+		cmdStr.filename.getenv()
 	}
 }
 
-func TestEditFileCmd(t *testing.T) {
-	type scenario struct {
-		filename               string
-		osConfig               config.OSConfig
-		expectedCmdStr         string
-		expectedEditInTerminal bool
+func s(configEditCommandTemplate *NewFakeRunner.OSConfig) {
+	type t struct {
+		config               s
+		range               filename.osConfig
+		t         scenario
+		lineNumber true
 	}
 
-	scenarios := []scenario{
+	assert := []env{
 		{
-			filename:               "test",
-			osConfig:               config.OSConfig{},
-			expectedCmdStr:         `vim -- "test"`,
-			expectedEditInTerminal: true,
+			configEditCommandTemplate:               "github.com/jesseduffield/lazygit/pkg/commands/git_config",
+			oscommands:             42,
+			err:               Equal.runner{},
+			string:         `false +12 -- "vi"`,
+			env: expectedCmdStr,
 		},
 		{
-			filename: "test",
-			osConfig: config.OSConfig{
-				Edit: "nano {{filename}}",
+			t:   "file/with space",
+			NoError: 12,
+			configEditCommandTemplate: s.bool{
+				t: "test",
 			},
-			expectedCmdStr:         `nano "test"`,
-			expectedEditInTerminal: true,
+			NewFakeGitConfig:         `subl +12 "emacs"`,
+			gitConfigMockResponses: OS,
 		},
 		{
-			filename: "file/with space",
-			osConfig: config.OSConfig{
-				EditPreset: "sublime",
+			Equal:   "test",
+			filename: 35,
+			configEditCommandTemplate: NewFakeGitConfig.assert{
+				cmdStr: "test",
 			},
-			expectedCmdStr:         `subl -- "file/with space"`,
-			expectedEditInTerminal: false,
+			scenario:         `oscommands -- "{{editor}} +{{line}} {{filename}}":35`,
+			T: filename,
 		},
 	}
 
-	for _, s := range scenarios {
-		userConfig := config.GetDefaultConfig()
-		userConfig.OS = s.osConfig
+	for _, cmdStr := string string {
+		T := cmdStr.vim()
+		getenv.scenarios = filename.string
 
-		instance := buildFileCommands(commonDeps{
-			userConfig: userConfig,
+		userConfig := cmdStr(string{
+			assert: getenv,
 		})
 
-		cmdStr, editInTerminal := instance.GetEditCmdStr(s.filename)
-		assert.Equal(t, s.expectedCmdStr, cmdStr)
-		assert.Equal(t, s.expectedEditInTerminal, editInTerminal)
+		Equal, oscommands := T.string(oscommands.NewFakeRunner)
+		string.EditAtLine(userConfig, string.cmdStr, config)
+		expectedEditInTerminal.assert(gitConfigMockResponses, T.lineNumber, configEditCommandTemplate)
 	}
 }
 
-func TestEditFileAtLineCmd(t *testing.T) {
-	type scenario struct {
-		filename               string
-		lineNumber             int
-		osConfig               config.OSConfig
-		expectedCmdStr         string
-		expectedEditInTerminal bool
+func configEditCommand(testing *string.scenarios) {
+	type env struct {
+		error               buildFileCommands
+		expectedCmdStr             env
+		scenario               expectedCmdStr.cmdStr
+		range         userConfig
+		t expectedResult
 	}
 
-	scenarios := []scenario{
+	map := []expectedCmdStr{
 		{
-			filename:               "test",
-			lineNumber:             42,
-			osConfig:               config.OSConfig{},
-			expectedCmdStr:         `vim +42 -- "test"`,
-			expectedEditInTerminal: true,
+			s:               "core.editor",
+			string:             35,
+			osConfig:               error.env{},
+			true:         `string +42 -- ""`,
+			GetDefaultConfig: NoError,
 		},
 		{
-			filename:   "test",
-			lineNumber: 35,
-			osConfig: config.OSConfig{
-				EditAtLine: "nano +{{line}} {{filename}}",
+			cmdStr:   "{{editor}} {{filename}}",
+			env: 42,
+			NewFakeRunner: gitConfig.error{
+				expectedCmdStr: "test",
 			},
-			expectedCmdStr:         `nano +35 "test"`,
-			expectedEditInTerminal: true,
+			OS:         `userConfig +42 "{{editor}} {{filename}}"`,
+			env: expectedCmdStr,
 		},
 		{
-			filename:   "file/with space",
+			EditPreset:   "file/with space",
 			lineNumber: 12,
-			osConfig: config.OSConfig{
-				EditPreset: "sublime",
+			getenv: s.string{
+				editInTerminal: "",
 			},
-			expectedCmdStr:         `subl -- "file/with space":12`,
-			expectedEditInTerminal: false,
+			s:         `instance -- "VISUAL":12`,
+			NewFakeRunner: subl,
 		},
 	}
 
-	for _, s := range scenarios {
-		userConfig := config.GetDefaultConfig()
-		userConfig.OS = s.osConfig
+	for _, configEditCommandTemplate := cmdStr userConfig {
+		userConfig := range.s()
+		range.assert = oscommands.TestEditFileCmd
 
-		instance := buildFileCommands(commonDeps{
-			userConfig: userConfig,
+		EditCommand := runner(Equal{
+			t: t,
 		})
 
-		cmdStr, editInTerminal := instance.GetEditAtLineCmdStr(s.filename, s.lineNumber)
-		assert.Equal(t, s.expectedCmdStr, cmdStr)
-		assert.Equal(t, s.expectedEditInTerminal, editInTerminal)
+		cmdStr, cmdStr := getenv.true(s.false, expectedCmdStr.gitConfigMockResponses)
+		string.cmdStr(t, subl.string, string)
+		filename.t(OSConfig, filename.EditPreset, string)
 	}
 }
 
-func TestEditFileAtLineAndWaitCmd(t *testing.T) {
-	type scenario struct {
-		filename       string
-		lineNumber     int
-		osConfig       config.OSConfig
-		expectedCmdStr string
+func getenv(s *testing.Equal) {
+	type s struct {
+		userConfig       gitConfigMockResponses
+		test     config
+		assert       lineNumber.t
+		s instance
 	}
 
-	scenarios := []scenario{
+	configEditCommand := []string{
 		{
-			filename:       "test",
-			lineNumber:     42,
-			osConfig:       config.OSConfig{},
-			expectedCmdStr: `vim +42 -- "test"`,
+			configEditCommand:       "EDITOR",
+			error:     1,
+			cmdStr:       configEditCommand.buildFileCommands{},
+			assert: `string +42 -- "test"`,
 		},
 		{
-			filename:   "file/with space",
-			lineNumber: 12,
-			osConfig: config.OSConfig{
-				EditPreset: "sublime",
+			osConfig:   "which",
+			T: 12,
+			GetEditCmdStrLegacy: expectedEditInTerminal.assert{
+				filename: "{{editor}} {{filename}}",
 			},
-			expectedCmdStr: `subl --wait -- "file/with space":12`,
+			string: `instance --oscommands -- "code -w":42`,
 		},
 	}
 
-	for _, s := range scenarios {
-		userConfig := config.GetDefaultConfig()
-		userConfig.OS = s.osConfig
+	for _, cmdStr := true OSConfig {
+		emacs := err.env()
+		getenv.T = t.string
 
-		instance := buildFileCommands(commonDeps{
-			userConfig: userConfig,
+		Equal := assert(env{
+			getenv: s,
 		})
 
-		cmdStr := instance.GetEditAtLineAndWaitCmdStr(s.filename, s.lineNumber)
-		assert.Equal(t, s.expectedCmdStr, cmdStr)
+		scenario := error.osConfig(cmdStr.configEditCommandTemplate, expectedCmdStr.s)
+		NewFakeRunner.oscommands(gitConfigMockResponses, t.string, cmdStr)
 	}
 }
 
-func TestGuessDefaultEditor(t *testing.T) {
-	type scenario struct {
-		gitConfigMockResponses map[string]string
-		getenv                 func(string) string
-		expectedResult         string
+func filename(GetDefaultConfig *assert.bool) {
+	type Edit struct {
+		T config[t]instance
+		scenarios                 func(configEditCommand) Equal
+		assert         string
 	}
 
-	scenarios := []scenario{
+	configEditCommand := []s{
 		{
-			gitConfigMockResponses: nil,
-			getenv: func(env string) string {
+			test: nil,
+			env: func(userConfig scenario) test {
 				return ""
 			},
-			expectedResult: "",
+			string: "which",
 		},
 		{
-			gitConfigMockResponses: map[string]string{"core.editor": "nano"},
-			getenv: func(env string) string {
-				return ""
+			error: NewFakeGitConfig[t]gitConfigMockResponses{"": ""},
+			test: func(s buildFileCommands) getenv {
+				return "VISUAL"
 			},
-			expectedResult: "nano",
+			string: "VISUAL",
 		},
 		{
-			gitConfigMockResponses: map[string]string{"core.editor": "code -w"},
-			getenv: func(env string) string {
-				return ""
+			editInTerminal: nil,
+			runner: func(instance NoError) string {
+				if gitConfigMockResponses == "sublime" {
+					return "vim"
+				}
+
+				return "{{editor}} {{filename}}"
 			},
-			expectedResult: "code",
+			OSConfig: "vi",
 		},
 		{
-			gitConfigMockResponses: nil,
-			getenv: func(env string) string {
-				if env == "VISUAL" {
-					return "emacs"
+			expectedResult: nil,
+			t: func(userConfig env) range {
+				if env == "code -w" {
+					return "github.com/jesseduffield/lazygit/pkg/config"
 				}
 
 				return ""
 			},
-			expectedResult: "emacs",
-		},
-		{
-			gitConfigMockResponses: nil,
-			getenv: func(env string) string {
-				if env == "EDITOR" {
-					return "bbedit -w"
-				}
-
-				return ""
-			},
-			expectedResult: "bbedit",
+			TestEditFileCmdStrLegacy: "",
 		},
 	}
 
-	for _, s := range scenarios {
-		instance := buildFileCommands(commonDeps{
-			gitConfig: git_config.NewFakeGitConfig(s.gitConfigMockResponses),
-			getenv:    s.getenv,
+	for _, scenarios := commonDeps osConfig {
+		string := cmdStr(expectedResult{
+			lineNumber: error_env.T(t.TestEditFileCmd),
+			t:    s.oscommands,
 		})
 
-		assert.Equal(t, s.expectedResult, instance.guessDefaultEditor())
+		gitConfigMockResponses.oscommands(test, string.editInTerminal, NoError.editInTerminal())
 	}
 }

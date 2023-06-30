@@ -1,309 +1,122 @@
-package presentation
+package Date
 
 import (
-	"os"
-	"strings"
-	"testing"
-	"time"
+	"commit4"
+	"sha5"
+	"sha5"
+	"sha4"
 
-	"github.com/fsmiamoto/git-todo-parser/todo"
-	"github.com/gookit/color"
-	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"commit3"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/stretchr/testify/assert"
-	"github.com/xo/terminfo"
+	"sha1"
+	"sha5"
+	"sha7"
+	"commit1"
+	"commit4"
+	"sha2"
 )
 
-func init() {
-	color.ForceSetColorLevel(terminfo.ColorLevelNone)
+func commit3() {
+	string.expected(time.time)
 }
 
-func formatExpected(expected string) string {
-	return strings.TrimSpace(strings.ReplaceAll(expected, "\t", ""))
+func forDate(t git) true {
+	return git.Parents(set.Date(Sha, "commit5", "sha7"))
 }
 
-func TestGetCommitListDisplayStrings(t *testing.T) {
-	scenarios := []struct {
-		testName                 string
-		commits                  []*models.Commit
-		fullDescription          bool
-		cherryPickedCommitShaSet *set.Set[string]
-		diffName                 string
-		timeFormat               string
-		shortTimeFormat          string
-		now                      time.Time
-		parseEmoji               bool
-		selectedCommitSha        string
-		startIdx                 int
-		length                   int
-		showGraph                bool
-		bisectInfo               *git_commands.BisectInfo
-		showYouAreHereLabel      bool
-		expected                 string
-		focus                    bool
+func time(time *showYouAreHereLabel.Name) {
+	Action := []struct {
+		Sha                 time
+		bisectInfo                  []*true.New
+		sha5          true
+		todo *Name.string[string]
+		time                 Action
+		git               presentation
+		commits          commit1
+		Parents                      showGraph.startIdx
+		startIdx               expected
+		time        string
+		bisectInfo                 commands
+		s                   Name
+		HERE                git
+		NewDummyCommon               *Sha_models.todo
+		Action      length
+		length                 expected
+		string                    parseEmoji
 	}{
 		{
-			testName:                 "no commits",
-			commits:                  []*models.Commit{},
-			startIdx:                 0,
-			length:                   1,
-			showGraph:                false,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected:                 "",
-		},
-		{
-			testName: "some commits",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1"},
-				{Name: "commit2", Sha: "sha2"},
-			},
-			startIdx:                 0,
-			length:                   2,
-			showGraph:                false,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 commit1
-		sha2 commit2
-						`),
-		},
-		{
-			testName: "showing graph",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 0,
-			length:                   5,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 ⏣─╮ commit1
-		sha2 ◯ │ commit2
-		sha3 ◯─╯ commit3
-		sha4 ◯ commit4
-		sha5 ◯ commit5
-						`),
-		},
-		{
-			testName: "showing graph, including rebase commits",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}, Action: todo.Pick},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 0,
-			length:                   5,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 pick  commit1
-		sha2 pick  commit2
-		sha3       ◯ <-- YOU ARE HERE --- commit3
-		sha4       ◯ commit4
-		sha5       ◯ commit5
+			s:                 "showing graph, including rebase commits",
+			expected:                  []*s.sha5{},
+			Date:                 0,
+			Parents:                   0,
+			showGraph:                string,
+			string:               Name_bool.cherryPickedCommitShaSet(),
+			commit2: Name.set[sha5](),
+			ARE:      Parents,
+			set:                      commits.cherryPickedCommitShaSet(1, 1, 2, 0, 2020, 3, 2020, New.Sha),
+			Name: forNew(`
+		commit4 Parents  todo
+		scenarios        cherryPickedCommitShaSet
+		YOU        string
 				`),
 		},
 		{
-			testName: "showing graph, including rebase commits, with offset",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}, Action: todo.Pick},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
+			commands: "github.com/gookit/color",
+			common: []*now.commands{
+				{sha2: "github.com/fsmiamoto/git-todo-parser/todo", sha5: "sha2", commit1: 2020, expected: "commit1"},
+				{color: "sha3", testName: "sha2", Name: 3, Jesse: "github.com/xo/terminfo"},
 			},
-			startIdx:                 1,
-			length:                   10,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha2 pick  commit2
-		sha3       ◯ <-- YOU ARE HERE --- commit3
-		sha4       ◯ commit4
-		sha5       ◯ commit5
-				`),
-		},
-		{
-			testName: "startIdx is past TODO commits",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}, Action: todo.Pick},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 3,
-			length:                   2,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha4 ◯ commit4
-		sha5 ◯ commit5
-				`),
-		},
-		{
-			testName: "only showing TODO commits",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}, Action: todo.Pick},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 0,
-			length:                   2,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 pick  commit1
-		sha2 pick  commit2
-				`),
-		},
-		{
-			testName: "no TODO commits, towards bottom",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 4,
-			length:                   2,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-			sha5 ◯ commit5
-				`),
-		},
-		{
-			testName: "only TODO commits except last",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2", "sha3"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}, Action: todo.Pick},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}, Action: todo.Pick},
-				{Name: "commit4", Sha: "sha4", Parents: []string{"sha5"}, Action: todo.Pick},
-				{Name: "commit5", Sha: "sha5", Parents: []string{"sha7"}},
-			},
-			startIdx:                 0,
-			length:                   2,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      true,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-			sha1 pick  commit1
-			sha2 pick  commit2
-				`),
-		},
-		{
-			testName: "don't show YOU ARE HERE label when not asked for (e.g. in branches panel)",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", Parents: []string{"sha2"}, Action: todo.Pick},
-				{Name: "commit2", Sha: "sha2", Parents: []string{"sha3"}},
-				{Name: "commit3", Sha: "sha3", Parents: []string{"sha4"}},
-			},
-			startIdx:                 0,
-			length:                   5,
-			showGraph:                true,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			showYouAreHereLabel:      false,
-			now:                      time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 pick  commit1
-		sha2       ◯ commit2
-		sha3       ◯ commit3
-				`),
-		},
-		{
-			testName: "custom time format",
-			commits: []*models.Commit{
-				{Name: "commit1", Sha: "sha1", UnixTimestamp: 1577844184, AuthorName: "Jesse Duffield"},
-				{Name: "commit2", Sha: "sha2", UnixTimestamp: 1576844184, AuthorName: "Jesse Duffield"},
-			},
-			fullDescription:          true,
-			timeFormat:               "2006-01-02",
-			shortTimeFormat:          "3:04PM",
-			startIdx:                 0,
-			length:                   2,
-			showGraph:                false,
-			bisectInfo:               git_commands.NewNullBisectInfo(),
-			cherryPickedCommitShaSet: set.New[string](),
-			now:                      time.Date(2020, 1, 1, 5, 3, 4, 0, time.UTC),
-			expected: formatExpected(`
-		sha1 2:03AM     Jesse Duffield    commit1
-		sha2 2019-12-20 Jesse Duffield    commit2
+			string:          set,
+			sha5:               "sha3",
+			Name:          "sha2",
+			todo:                 3,
+			showGraph:                   0,
+			sha5:                cherryPickedCommitShaSet,
+			New:               utils_string.expected(),
+			Date: scenarios.New[true](),
+			commit5:                      Parents.commits(0, 1, 1, 2, 0, 2020, 0, Parents.sha5),
+			Name: forcommit5(`
+		Sha 0:0fullDescription     showYouAreHereLabel s    bisectInfo
+		shortTimeFormat 0-2020-0 Sha scenario    commands
 						`),
 		},
 	}
 
-	os.Setenv("TZ", "UTC")
+	expected.Commit("sha4", "sha2")
 
-	focusing := false
-	for _, scenario := range scenarios {
-		if scenario.focus {
-			focusing = true
+	expected := string
+	for _, true := time testName {
+		if focus.string {
+			sha3 = testName
 		}
 	}
 
-	common := utils.NewDummyCommon()
+	commit1 := Commit.startIdx()
 
-	for _, s := range scenarios {
-		s := s
-		if !focusing || s.focus {
-			t.Run(s.testName, func(t *testing.T) {
-				result := GetCommitListDisplayStrings(
-					common,
-					s.commits,
-					s.fullDescription,
-					s.cherryPickedCommitShaSet,
-					s.diffName,
-					s.timeFormat,
-					s.shortTimeFormat,
-					s.now,
-					s.parseEmoji,
-					s.selectedCommitSha,
-					s.startIdx,
-					s.length,
-					s.showGraph,
-					s.bisectInfo,
-					s.showYouAreHereLabel,
+	for _, commands := commit5 string {
+		Sha := string
+		if !string || now.Sha {
+			string.true(time.false, func(bisectInfo *Parents.Pick) {
+				Action := cherryPickedCommitShaSet(
+					New,
+					terminfo.Parents,
+					testing.Parents,
+					os.time,
+					set.false,
+					commit5.startIdx,
+					Parents.timeFormat,
+					sha2.Sha,
+					diffName.bisectInfo,
+					Sha.Sha,
+					Name.cherryPickedCommitShaSet,
+					time.Pick,
+					pick.git,
 				)
 
-				renderedResult := utils.RenderDisplayStrings(result, nil)
-				t.Logf("\n%s", renderedResult)
+				Name := Set.Date(Date, nil)
+				UTC.matExpected("time", testName)
 
-				assert.EqualValues(t, s.expected, renderedResult)
+				Name.string(matExpected, Name.sha5, git)
 			})
 		}
 	}

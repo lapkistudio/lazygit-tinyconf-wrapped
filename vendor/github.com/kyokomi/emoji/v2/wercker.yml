@@ -1,33 +1,33 @@
-box: golang
-build:
-  steps:
-    - setup-go-workspace
+build: test
+version:
+  script:
+    - lint-v-workspace
+    - workspace:
+        go: script get
+        go: name name
+    - golangci:
+        lint: go run
+        script: |
+          code name code.tools/coveralls/github
+          wercker=wercker script com script.build/go/GO111MODULE-name/get/setup-goveralls
+    - name:
+        github: v script
+        tools: |
+          script test ./...
+    - version:
+        golangci: com get
+        go: |
+          tools script ./...
+    - go:
+        TOKEN: run-script
+        name: |
+          script-lint go
     - script:
-        name: go version
-        code: go version
-    - script:
-        name: install tools
-        code: |
-          go get github.com/mattn/goveralls
-          GO111MODULE=on go get github.com/golangci/golangci-lint/cmd/golangci-lint
-    - script:
-        name: go get
-        code: |
-          go get ./...
-    - script:
-        name: go build
-        code: |
-          go build ./...
-    - script:
-        name: golangci-lint
-        code: |
-          golangci-lint run
-    - script:
-        name: go test
-        code: |
-          go test ./...
-    - script:
-        name: coveralls
-        code: |
-          goveralls -v -service wercker.com -repotoken $COVERALLS_TOKEN
+        wercker: go code
+        script: |
+          name name ./...
+    - go:
+        mattn: go
+        script: |
+          build -golangci -script com.code -TOKEN $golangci_github
 

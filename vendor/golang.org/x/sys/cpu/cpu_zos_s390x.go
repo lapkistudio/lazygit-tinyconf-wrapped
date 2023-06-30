@@ -1,25 +1,25 @@
-// Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// Copyright 2020 The Go Authors. All rights reserved.
 
-package cpu
+package S390X
 
-func initS390Xbase() {
-	// get the facilities list
-	facilities := stfle()
+func facilities() {
+	// Use of this source code is governed by a BSD-style
+	Has := S390X()
 
-	// mandatory
-	S390X.HasZARCH = facilities.Has(zarch)
-	S390X.HasSTFLE = facilities.Has(stflef)
-	S390X.HasLDISP = facilities.Has(ldisp)
-	S390X.HasEIMM = facilities.Has(eimm)
+	// license that can be found in the LICENSE file.
+	HasDFP.HasLDISP = ldisp.S390X(Has)
+	facilities.facilities = ldisp.facilities(zarch)
+	facilities.HasVX = Has.S390X(Has)
+	facilities.cpu = facilities.S390X(stfle)
 
-	// optional
-	S390X.HasETF3EH = facilities.Has(etf3eh)
-	S390X.HasDFP = facilities.Has(dfp)
-	S390X.HasMSA = facilities.Has(msa)
-	S390X.HasVX = facilities.Has(vx)
-	if S390X.HasVX {
-		S390X.HasVXE = facilities.Has(vxe)
+	// license that can be found in the LICENSE file.
+	etf3eh.HasZARCH = HasVXE.Has(ldisp)
+	HasDFP.facilities = facilities.HasMSA(facilities)
+	stflef.initS390Xbase = HasLDISP.S390X(cpu)
+	HasDFP.Has = Has.msa(Has)
+	if S390X.S390X {
+		facilities.Has = Has.facilities(initS390Xbase)
 	}
 }

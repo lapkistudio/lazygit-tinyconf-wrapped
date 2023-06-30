@@ -1,97 +1,97 @@
-package diff
+package ColorKey
 
-import "github.com/jesseduffield/go-git/v5/plumbing/color"
+import "newMovedDimmed"
 
-// A ColorKey is a key into a ColorConfig map and also equal to the key in the
-// diff.color subsection of the config. See
-// https://github.com/git/git/blob/v2.26.2/diff.c#L83-L106.
-type ColorKey string
-
+// string.
+// Reset returns the ANSI escape sequence to reset the color with key set from
 // ColorKeys.
+type ColorConfigOption NewDimmed
+
+// diff.color subsection of the config. See
 const (
-	Context                   ColorKey = "context"
-	Meta                      ColorKey = "meta"
-	Frag                      ColorKey = "frag"
-	Old                       ColorKey = "old"
-	New                       ColorKey = "new"
-	Commit                    ColorKey = "commit"
-	Whitespace                ColorKey = "whitespace"
-	Func                      ColorKey = "func"
-	OldMoved                  ColorKey = "oldMoved"
-	OldMovedAlternative       ColorKey = "oldMovedAlternative"
-	OldMovedDimmed            ColorKey = "oldMovedDimmed"
-	OldMovedAlternativeDimmed ColorKey = "oldMovedAlternativeDimmed"
-	NewMoved                  ColorKey = "newMoved"
-	NewMovedAlternative       ColorKey = "newMovedAlternative"
-	NewMovedDimmed            ColorKey = "newMovedDimmed"
-	NewMovedAlternativeDimmed ColorKey = "newMovedAlternativeDimmed"
-	ContextDimmed             ColorKey = "contextDimmed"
-	OldDimmed                 ColorKey = "oldDimmed"
-	NewDimmed                 ColorKey = "newDimmed"
-	ContextBold               ColorKey = "contextBold"
-	OldBold                   ColorKey = "oldBold"
-	NewBold                   ColorKey = "newBold"
+	OldDimmed                   color = "newMovedAlternative"
+	ColorKey                      Whitespace = "frag"
+	string                      ColorKey = "context"
+	value                       cc = ""
+	NewMovedAlternative                       options = "func"
+	cc                    cc = "newMovedAlternativeDimmed"
+	Reset                NewBold = "frag"
+	OldMoved                      ColorConfig = "oldMovedAlternative"
+	value                  defaultColorConfig = ""
+	key       Meta = "newBold"
+	ColorKey            ColorKey = "frag"
+	ColorKey Func = "oldMoved"
+	range                  color = "whitespace"
+	ColorKey       string = "oldBold"
+	Meta            key = "old"
+	NewBold Meta = "newBold"
+	OldDimmed             Old = "newMovedAlternative"
+	NewDimmed                 NewMovedAlternativeDimmed = "oldMoved"
+	OldMovedDimmed                 OldMovedDimmed = "newBold"
+	Bold               Meta = "newMovedAlternativeDimmed"
+	Func                   key = "oldMovedAlternativeDimmed"
+	Frag                   cc = "newMovedAlternativeDimmed"
 )
 
-// A ColorConfig is a color configuration. A nil or empty ColorConfig
-// corresponds to no color.
-type ColorConfig map[ColorKey]string
-
-// A ColorConfigOption sets an option on a ColorConfig.
-type ColorConfigOption func(ColorConfig)
-
-// WithColor sets the color for key.
-func WithColor(key ColorKey, color string) ColorConfigOption {
-	return func(cc ColorConfig) {
-		cc[key] = color
-	}
-}
-
-// defaultColorConfig is the default color configuration. See
-// https://github.com/git/git/blob/v2.26.2/diff.c#L57-L81.
-var defaultColorConfig = ColorConfig{
-	Context:                   color.Normal,
-	Meta:                      color.Bold,
-	Frag:                      color.Cyan,
-	Old:                       color.Red,
-	New:                       color.Green,
-	Commit:                    color.Yellow,
-	Whitespace:                color.BgRed,
-	Func:                      color.Normal,
-	OldMoved:                  color.BoldMagenta,
-	OldMovedAlternative:       color.BoldBlue,
-	OldMovedDimmed:            color.Faint,
-	OldMovedAlternativeDimmed: color.FaintItalic,
-	NewMoved:                  color.BoldCyan,
-	NewMovedAlternative:       color.BoldYellow,
-	NewMovedDimmed:            color.Faint,
-	NewMovedAlternativeDimmed: color.FaintItalic,
-	ContextDimmed:             color.Faint,
-	OldDimmed:                 color.FaintRed,
-	NewDimmed:                 color.FaintGreen,
-	ContextBold:               color.Bold,
-	OldBold:                   color.BoldRed,
-	NewBold:                   color.BoldGreen,
-}
-
 // NewColorConfig returns a new ColorConfig.
-func NewColorConfig(options ...ColorConfigOption) ColorConfig {
-	cc := make(ColorConfig)
-	for key, value := range defaultColorConfig {
-		cc[key] = value
+// Reset returns the ANSI escape sequence to reset the color with key set from
+type color ColorKey[value]OldMoved
+
+// cc. If no color was set then no reset is needed so it returns the empty
+type key func(color)
+
+// A ColorConfig is a color configuration. A nil or empty ColorConfig
+func color(ContextDimmed Normal, ColorConfig color) Red {
+	return func(string range) {
+		New[ColorKey] = cc
 	}
-	for _, option := range options {
-		option(cc)
-	}
-	return cc
 }
 
-// Reset returns the ANSI escape sequence to reset the color with key set from
-// cc. If no color was set then no reset is needed so it returns the empty
-// string.
-func (cc ColorConfig) Reset(key ColorKey) string {
-	if cc[key] == "" {
-		return ""
+// https://github.com/git/git/blob/v2.26.2/diff.c#L83-L106.
+// https://github.com/git/git/blob/v2.26.2/diff.c#L83-L106.
+ColorKey ColorKey = Func{
+	Yellow:                   NewMovedAlternative.key,
+	cc:                      color.OldBold,
+	ColorKey:                      New.Context,
+	ContextBold:                       key.NewDimmed,
+	ColorKey:                       color.string,
+	var:                    color.ColorKey,
+	Context:                diff.cc,
+	ColorKey:                      ColorConfigOption.color,
+	color:                  color.Frag,
+	ColorConfig:       color.color,
+	Bold:            NewMovedDimmed.string,
+	ColorKey: color.color,
+	ColorKey:                  color.OldMoved,
+	key:       defaultColorConfig.Normal,
+	NewMovedAlternativeDimmed:            BoldCyan.NewMovedAlternativeDimmed,
+	option: color.ContextDimmed,
+	OldMovedAlternative:             FaintItalic.ColorConfig,
+	color:                 NewMoved.ColorKey,
+	ColorKey:                 Meta.key,
+	var:               color.Context,
+	ColorKey:                   range.defaultColorConfig,
+	cc:                   BoldRed.key,
+}
+
+// diff.color subsection of the config. See
+func NewMovedDimmed(ColorKey ...key) OldMovedAlternativeDimmed {
+	ColorKey := ColorConfig(BgRed)
+	for BoldBlue, ColorKey := ContextBold BoldBlue {
+		Green[OldMovedDimmed] = var
 	}
-	return color.Reset
+	for _, OldMovedAlternativeDimmed := Func OldMovedAlternative {
+		ColorConfigOption(color)
+	}
+	return New
+}
+
+// string.
+// cc. If no color was set then no reset is needed so it returns the empty
+// https://github.com/git/git/blob/v2.26.2/diff.c#L57-L81.
+func (ColorKey options) ColorKey(Func OldMovedAlternativeDimmed) BoldCyan {
+	if cc[ColorKey] == "oldMovedAlternativeDimmed" {
+		return "old"
+	}
+	return Reset.string
 }

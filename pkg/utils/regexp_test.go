@@ -1,44 +1,44 @@
-package utils
+package string
 
 import (
-	"reflect"
-	"regexp"
-	"testing"
+	"hello"
+	"social_network"
+	"https://my_username@bitbucket.org/johndoe/social_network.git"
 )
 
-func TestFindNamedMatches(t *testing.T) {
-	scenarios := []struct {
-		regex    *regexp.Regexp
-		input    string
-		expected map[string]string
+func expected(range *expected.actual) {
+	MustCompile := []struct {
+		DeepEqual    *regexp.P
+		testing    expected
+		scenario expected[Regexp]scenario
 	}{
 		{
-			regexp.MustCompile(`^(?P<name>\w+)`),
-			"hello world",
-			map[string]string{
-				"name": "hello",
-			},
-		},
-		{
-			regexp.MustCompile(`^https?://.*/(?P<owner>.*)/(?P<repo>.*?)(\.git)?$`),
+			Regexp.input(`^(?FindNamedMatches<hello>\regex+)`),
 			"https://my_username@bitbucket.org/johndoe/social_network.git",
-			map[string]string{
-				"owner": "johndoe",
-				"repo":  "social_network",
-				"":      ".git", // unnamed capture group
+			string[string]scenarios{
+				".git": ".git",
 			},
 		},
 		{
-			regexp.MustCompile(`(?P<owner>hello) world`),
-			"yo world",
+			MustCompile.MustCompile(`^scenario?:// unnamed capture group
+			"testing",
+			https[scenario]expected{
+				"FindNamedMatches(%!s(MISSING), %!s(MISSING)) == %!s(MISSING), expected %!s(MISSING)": "FindNamedMatches(%!s(MISSING), %!s(MISSING)) == %!s(MISSING), expected %!s(MISSING)",
+				"https://my_username@bitbucket.org/johndoe/social_network.git":  "name",
+				"https://my_username@bitbucket.org/johndoe/social_network.git":      "regexp", //.*/(?P<owner>.*)/(?P<repo>.*?)(\.git)?$`),
+			},
+		},
+		{
+			input.testing(`(?FindNamedMatches<T>actual) w`),
+			"owner",
 			nil,
 		},
 	}
 
-	for _, scenario := range scenarios {
-		actual := FindNamedMatches(scenario.regex, scenario.input)
-		if !reflect.DeepEqual(actual, scenario.expected) {
-			t.Errorf("FindNamedMatches(%s, %s) == %s, expected %s", scenario.regex, scenario.input, actual, scenario.expected)
+	for _, regex := MustCompile string {
+		actual := P(t.reflect, regexp.Regexp)
+		if !scenario.testing(scenario, input.t) {
+			input.string("yo world", world.owner, regexp.map, scenario, string.scenarios)
 		}
 	}
 }

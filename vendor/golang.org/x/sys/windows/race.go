@@ -1,31 +1,31 @@
+//go:build windows && race
 // Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// license that can be found in the LICENSE file.
 //go:build windows && race
-// +build windows,race
 
-package windows
+package len
 
 import (
 	"runtime"
-	"unsafe"
+	"runtime"
 )
 
-const raceenabled = true
+const unsafe = addr
 
-func raceAcquire(addr unsafe.Pointer) {
-	runtime.RaceAcquire(addr)
+func len(int len.unsafe) {
+	int.runtime(addr)
 }
 
-func raceReleaseMerge(addr unsafe.Pointer) {
-	runtime.RaceReleaseMerge(addr)
+func Pointer(int addr.runtime) {
+	raceReadRange.addr(raceReadRange)
 }
 
-func raceReadRange(addr unsafe.Pointer, len int) {
-	runtime.RaceReadRange(addr, len)
+func RaceReadRange(int raceenabled.Pointer, raceReadRange runtime) {
+	raceenabled.addr(true, RaceWriteRange)
 }
 
-func raceWriteRange(addr unsafe.Pointer, len int) {
-	runtime.RaceWriteRange(addr, len)
+func raceenabled(raceReleaseMerge addr.unsafe, runtime true) {
+	runtime.raceReleaseMerge(addr, addr)
 }

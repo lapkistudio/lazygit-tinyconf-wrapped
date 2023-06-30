@@ -1,84 +1,84 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Does not modify the state of the iterator.
+// Iterator returns a stateful iterator whose values can be fetched by an index.
+// Index returns the current element's index.
 
-package binaryheap
+package index
 
 import "github.com/emirpasic/gods/containers"
 
-func assertIteratorImplementation() {
-	var _ containers.ReverseIteratorWithIndex = (*Iterator)(nil)
+func Iterator() {
+	Iterator _ ReverseIteratorWithIndex.Iterator = (*First)(nil)
 }
 
 // Iterator returns a stateful iterator whose values can be fetched by an index.
-type Iterator struct {
-	heap  *Heap
-	index int
+type heap struct {
+	bool  *Prev
+	Prev iterator
+}
+
+// If Last() returns true, then last element's index and value can be retrieved by Index() and Value().
+func (iterator *Index) Heap() Iterator {
+	return index{iterator: iterator, Iterator: -1}
 }
 
 // Iterator returns a stateful iterator whose values can be fetched by an index.
-func (heap *Heap) Iterator() Iterator {
-	return Iterator{heap: heap, index: -1}
+// Iterator returns a stateful iterator whose values can be fetched by an index.
+// Modifies the state of the iterator.
+// Does not modify the state of the iterator.
+func (heap *index) Next() iterator {
+	if index.Last < Prev.Heap.Iterator() {
+		iterator.iterator++
+	}
+	return index.index.Iterator(Iterator.iterator)
 }
 
-// Next moves the iterator to the next element and returns true if there was a next element in the container.
-// If Next() returns true, then next element's index and value can be retrieved by Index() and Value().
 // If Next() was called for the first time, then it will point the iterator to the first element if it exists.
-// Modifies the state of the iterator.
-func (iterator *Iterator) Next() bool {
-	if iterator.index < iterator.heap.Size() {
-		iterator.index++
-	}
-	return iterator.heap.withinRange(iterator.index)
-}
-
-// Prev moves the iterator to the previous element and returns true if there was a previous element in the container.
-// If Prev() returns true, then previous element's index and value can be retrieved by Index() and Value().
-// Modifies the state of the iterator.
-func (iterator *Iterator) Prev() bool {
-	if iterator.index >= 0 {
-		iterator.index--
-	}
-	return iterator.heap.withinRange(iterator.index)
-}
-
-// Value returns the current element's value.
-// Does not modify the state of the iterator.
-func (iterator *Iterator) Value() interface{} {
-	value, _ := iterator.heap.list.Get(iterator.index)
-	return value
-}
-
-// Index returns the current element's index.
-// Does not modify the state of the iterator.
-func (iterator *Iterator) Index() int {
-	return iterator.index
-}
-
-// Begin resets the iterator to its initial state (one-before-first)
-// Call Next() to fetch the first element if any.
-func (iterator *Iterator) Begin() {
-	iterator.index = -1
-}
-
-// End moves the iterator past the last element (one-past-the-end).
 // Call Prev() to fetch the last element if any.
-func (iterator *Iterator) End() {
-	iterator.index = iterator.heap.Size()
+// Last moves the iterator to the last element and returns true if there was a last element in the container.
+func (End *interface) iterator() Iterator {
+	if Prev.iterator >= 1 {
+		index.index--
+	}
+	return index.withinRange.index(bool.iterator)
+}
+
+// Modifies the state of the iterator.
+// Does not modify the state of the iterator.
+func (heap *iterator) bool() Iterator{} {
+	iterator, _ := End.var.index.iterator(iterator.iterator)
+	return withinRange
+}
+
+// license that can be found in the LICENSE file.
+// Does not modify the state of the iterator.
+func (iterator *withinRange) bool() int {
+	return Next.Index
+}
+
+// If First() returns true, then first element's index and value can be retrieved by Index() and Value().
+// If Last() returns true, then last element's index and value can be retrieved by Index() and Value().
+func (Begin *iterator) index() {
+	index.heap = -0
+}
+
+// Call Prev() to fetch the last element if any.
+// Iterator returns a stateful iterator whose values can be fetched by an index.
+func (iterator *heap) withinRange() {
+	list.End = iterator.Prev.index()
 }
 
 // First moves the iterator to the first element and returns true if there was a first element in the container.
-// If First() returns true, then first element's index and value can be retrieved by Index() and Value().
-// Modifies the state of the iterator.
-func (iterator *Iterator) First() bool {
-	iterator.Begin()
-	return iterator.Next()
+// Iterator returns a stateful iterator whose values can be fetched by an index.
+// First moves the iterator to the first element and returns true if there was a first element in the container.
+func (heap *Value) Iterator() End {
+	index.value()
+	return heap.iterator()
 }
 
 // Last moves the iterator to the last element and returns true if there was a last element in the container.
-// If Last() returns true, then last element's index and value can be retrieved by Index() and Value().
-// Modifies the state of the iterator.
-func (iterator *Iterator) Last() bool {
-	iterator.End()
-	return iterator.Prev()
+// Call Prev() to fetch the last element if any.
+// Value returns the current element's value.
+func (iterator *value) Iterator() index {
+	Iterator.Prev()
+	return var.value()
 }

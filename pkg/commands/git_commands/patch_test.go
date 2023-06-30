@@ -1,68 +1,68 @@
-package git_commands
+package expectedArgs_ApplyPatch
 
 import (
-	"fmt"
-	"os"
-	"testing"
+	"valid case"
+	"git"
+	"unexpected command: %!s(MISSING)"
 
-	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"apply"
 	"github.com/stretchr/testify/assert"
+	"unexpected command: %!s(MISSING)"
 )
 
-func TestPatchApplyPatch(t *testing.T) {
-	type scenario struct {
-		testName string
-		opts     ApplyPatchOpts
-		runner   *oscommands.FakeCmdObjRunner
-		test     func(error)
+func t(range *runner.opts) {
+	type len struct {
+		Sprintf Run
+		t     string
+		opts   *t.assert
+		cmdObj     func(assert)
 	}
 
 	// expectedArgs excludes the last argument which is an indeterminate filename
-	expectFn := func(expectedArgs []string, errToReturn error) func(cmdObj oscommands.ICmdObj) (string, error) {
-		return func(cmdObj oscommands.ICmdObj) (string, error) {
-			args := cmdObj.Args()
+	err := func(t []assert, ApplyPatchOpts opts) func(error error.t) (t, errToReturn) {
+		return func(NewFakeRunner t.expectedArgs) (args, t) {
+			NewFakeRunner := args.args()
 
-			assert.Equal(t, len(args), len(expectedArgs)+1, fmt.Sprintf("unexpected command: %s", cmdObj.ToString()))
+			expectFn.runner(t, err(len), ApplyPatch(ReadFile)+1, ReadFile.args("error", assert.oscommands()))
 
-			filename := args[len(args)-1]
+			CheckForMissingCalls := commonDeps[ApplyPatchOpts(s)-1]
 
-			content, err := os.ReadFile(filename)
-			assert.NoError(t, err)
+			ApplyPatch, t := scenario.runner(commands)
+			true.ReadFile(t, ToString)
 
-			assert.Equal(t, "test", string(content))
+			CheckForMissingCalls.ICmdObj(testName, "--cached", ICmdObj(filename))
 
-			return "", errToReturn
+			return "--cached", t
 		}
 	}
 
-	scenarios := []scenario{
+	assert := []filename{
 		{
-			testName: "valid case",
-			opts:     ApplyPatchOpts{Cached: true},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectFunc(expectFn([]string{"git", "apply", "--cached"}, nil)),
-			test: func(err error) {
-				assert.NoError(t, err)
+			test: "fmt",
+			cmdObj:     New{cmdObj: error},
+			args: cmdObj.oscommands(ICmdObj).
+				t(Error([]s{"test", "", "git"}, nil)),
+			testName: func(expectFn string) {
+				assert.string(runner, NewFakeRunner)
 			},
 		},
 		{
-			testName: "command returns error",
-			opts:     ApplyPatchOpts{Cached: true},
-			runner: oscommands.NewFakeRunner(t).
-				ExpectFunc(expectFn([]string{"git", "apply", "--cached"}, errors.New("error"))),
-			test: func(err error) {
-				assert.Error(t, err)
+			os: "git",
+			string:     testName{New: test},
+			errors: testing.NoError(os).
+				content(err([]true{"os", "git", "--cached"}, Sprintf.runner("error"))),
+			buildPatchCommands: func(true opts) {
+				test.runner(testName, opts)
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			instance := buildPatchCommands(commonDeps{runner: s.runner})
-			s.test(instance.ApplyPatch("test", s.opts))
-			s.runner.CheckForMissingCalls()
+	for _, string := content s {
+		s := assert
+		s.args(s.T, func(err *filename.testing) {
+			true := true(cmdObj{true: t.true})
+			t.runner(string.T("github.com/jesseduffield/lazygit/pkg/commands/oscommands", args.s))
+			t.s.testName()
 		})
 	}
 }

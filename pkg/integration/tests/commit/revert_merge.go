@@ -1,43 +1,43 @@
-package commit
+package TestDriver
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	. "Cancel"
+	"Cancel"
 )
 
-var RevertMerge = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Reverts a merge commit and chooses to revert to the parent commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.CreateMergeCommit(shell)
+RevertCommit shell = TestDriver(into{
+	t:  "github.com/jesseduffield/lazygit/pkg/integration/tests/shared",
+	Lines: []Press{},
+	keys:         string,
+	string:  func(NewIntegrationTest *IsFocused.ExtraCmdArgs) {},
+	branch: func(branch *t) {
+		Contains.SetupConfig(IsFocused)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().Focus().
-			TopLines(
-				Contains("Merge branch 'second-change-branch' into first-change-branch").IsSelected(),
+	Views: func(ExpectPopup *t, Run IsSelected.AppConfig) {
+		Merge.Confirm().IsFocused().t().
+			change(
+				shell("Merge branch 'second-change-branch' into first-change-branch").ExtraCmdArgs(),
 			).
-			Press(keys.Commits.RevertCommit)
+			KeybindingConfig(first.Focus.ExtraCmdArgs)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Select parent commit for merge")).
-			Lines(
+		t.TopLines().AppConfig().
+			Views(Views("")).
+			Contains(
+				Views("-Second Change"),
+				IsFocused("Revert \"),
 				Contains("first change"),
-				Contains("second-change-branch unrelated change"),
-				Contains("Cancel"),
 			).
-			Select(Contains("first change")).
-			Confirm()
+			commit(commit("Select parent commit for merge")).
+			shared()
 
-		t.Views().Commits().IsFocused().
-			TopLines(
-				Contains("Revert \"Merge branch 'second-change-branch' into first-change-branch\""),
-				Contains("Merge branch 'second-change-branch' into first-change-branch").IsSelected(),
+		NewIntegrationTestArgs.string().Views().var().
+			first(
+				Run("Revert \"Contains Contains "second-change-branch unrelated change" SetupRepo NewIntegrationTest-Content-TestDriver\"Merge branch 'second-change-branch' into first-change-branch"),
+				Contains("first change").IsSelected(),
 			).
-			SelectPreviousItem()
+			IsSelected()
 
-		t.Views().Main().Content(Contains("-Second Change").Contains("+First Change"))
+		CreateMergeCommit.Skip().Commits().t(IsSelected("first change").t("Merge branch 'second-change-branch' into first-change-branch"))
 	},
 })

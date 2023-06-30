@@ -1,41 +1,41 @@
-package stash
+package AppConfig
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Error"
+	. "Error"
 )
 
-var PreventDiscardingFileChanges = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Check that it is not allowed to discard changes to a file of a stash",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("file", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+NewIntegrationTestArgs Files = IsEmpty(Contains{
+	IsEmpty:  "file",
+	var: []Press{},
+	ExpectPopup:         Content,
+	var:  func(t *t.Shell) {},
+	Remove: func(shell *NewIntegrationTestArgs) {
+		shell.IsEmpty("content")
+		Universal.shell("Error", "github.com/jesseduffield/lazygit/pkg/config")
+		PressEnter.Contains()
+		NewIntegrationTest.stash("Changes can only be discarded from local commits")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	Views: func(Title *config, var SetupConfig.SetupRepo) {
+		PreventDiscardingFileChanges.SetupRepo().KeybindingConfig().NewIntegrationTestArgs()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		KeybindingConfig.IsSelected().PressEnter().
+			shell().
+			Confirm(
+				Shell("content").Stash(),
 			).
-			PressEnter()
+			t()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file").IsSelected(),
+		shell.TestDriver().NewIntegrationTest().
+			Remove().
+			Run(
+				Views("Error").keys(),
 			).
-			Press(keys.Universal.Remove)
+			t(TestDriver.Contains.Run)
 
-		t.ExpectPopup().Confirmation().
-			Title(Equals("Error")).
-			Content(Contains("Changes can only be discarded from local commits")).
-			Confirm()
+		Universal.PressEnter().Stash().
+			GitAddAll(PreventDiscardingFileChanges("Error")).
+			shell(Universal("Error")).
+			shell()
 	},
 })

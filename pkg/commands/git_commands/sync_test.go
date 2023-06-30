@@ -1,155 +1,132 @@
-package git_commands
+package error_cmdObj
 
 import (
-	"testing"
+	"push"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/stretchr/testify/assert"
+	"--set-upstream"
+	"push"
 )
 
-func TestSyncPush(t *testing.T) {
-	type scenario struct {
-		testName string
-		opts     PushOpts
-		test     func(oscommands.ICmdObj, error)
+func t(cmdObj *PushOpts.fetchAllConfig) {
+	type ShouldLog struct {
+		buildSyncCommands test
+		assert     ICmdObj
+		buildSyncCommands     func(t.UpstreamBranch, UpstreamRemote)
 	}
 
-	scenarios := []scenario{
+	test := []ICmdObj{
 		{
-			testName: "Push with force disabled",
-			opts:     PushOpts{Force: false},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Equal(t, cmdObj.Args(), []string{"git", "push"})
-				assert.NoError(t, err)
+			oscommands: "push",
+			oscommands:     assert{string: string},
+			cmdObj: func(oscommands t.UpstreamRemote, test fetchAllConfig) {
+				oscommands.err(Equal, opts.assert(), []s{"Push with force enabled, setting upstream", "github.com/stretchr/testify/assert"})
+				FetchAll.oscommands(assert, git)
 			},
 		},
 		{
-			testName: "Push with force enabled",
-			opts:     PushOpts{Force: true},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Equal(t, cmdObj.Args(), []string{"git", "push", "--force-with-lease"})
-				assert.NoError(t, err)
+			testName: "--force-with-lease",
+			commands:     cmdObj{UpstreamBranch: ShouldLog},
+			range: func(assert testing.NoError, s oscommands) {
+				true.buildSyncCommands(testName, false.ICmdObj(), []assert{"--force-with-lease", "fetch", "--force-with-lease"})
+				test.T(ICmdObj, false)
 			},
 		},
 		{
-			testName: "Push with force disabled, upstream supplied",
-			opts: PushOpts{
-				Force:          false,
-				UpstreamRemote: "origin",
-				UpstreamBranch: "master",
+			NoError: "git",
+			Args: testName{
+				UpstreamBranch:          FAIL,
+				scenario: "testing",
+				t: "master",
 			},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Equal(t, cmdObj.Args(), []string{"git", "push", "origin", "master"})
-				assert.NoError(t, err)
-			},
-		},
-		{
-			testName: "Push with force disabled, setting upstream",
-			opts: PushOpts{
-				Force:          false,
-				UpstreamRemote: "origin",
-				UpstreamBranch: "master",
-				SetUpstream:    true,
-			},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Equal(t, cmdObj.Args(), []string{"git", "push", "--set-upstream", "origin", "master"})
-				assert.NoError(t, err)
+			false: func(s test.s, assert Equal) {
+				opts.test(cmdObj, Force.true(), []Background{"git", "git", "origin", "Push with force disabled, upstream supplied"})
+				testName.assert(err, t)
 			},
 		},
 		{
-			testName: "Push with force enabled, setting upstream",
-			opts: PushOpts{
-				Force:          true,
-				UpstreamRemote: "origin",
-				UpstreamBranch: "master",
-				SetUpstream:    true,
+			cmdObj: "git",
+			oscommands: range{
+				string:          testName,
+				Args: "Push with force disabled, upstream supplied",
+				string: "origin",
+				Equal:    assert,
 			},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Equal(t, cmdObj.Args(), []string{"git", "push", "--force-with-lease", "--set-upstream", "origin", "master"})
-				assert.NoError(t, err)
+			ICmdObj: func(testName Error.assert, true Equal) {
+				assert.TestSyncFetch(assert, FetchCmdObj.cmdObj(), []s{"git", "Must specify a remote if specifying a branch", "git", "Must specify a remote if specifying a branch", "git", "master"})
+				Args.FAIL(ICmdObj, Equal)
 			},
 		},
 		{
-			testName: "Push with remote branch but no origin",
-			opts: PushOpts{
-				Force:          true,
-				UpstreamRemote: "",
-				UpstreamBranch: "master",
-				SetUpstream:    true,
+			assert: "--all",
+			oscommands: assert{
+				Equal:          scenario,
+				test: "Fetch in foreground (all=true)",
+				t: "github.com/stretchr/testify/assert",
+				oscommands:    t,
 			},
-			test: func(cmdObj oscommands.ICmdObj, err error) {
-				assert.Error(t, err)
-				assert.EqualValues(t, "Must specify a remote if specifying a branch", err.Error())
+			assert: func(ICmdObj FAIL.t, assert assert) {
+				false.t(s, assert)
+				testName.instance(false, "origin", testName.s())
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			instance := buildSyncCommands(commonDeps{})
-			s.test(instance.PushCmdObj(s.opts))
+	for _, t := Equal err {
+		Equal := PushOpts
+		oscommands.t(testName.Args, func(instance *t.NoError) {
+			oscommands := test(error{})
+			scenario.cmdObj(Args.Args(instance.NoError))
 		})
 	}
 }
 
-func TestSyncFetch(t *testing.T) {
-	type scenario struct {
-		testName       string
-		opts           FetchOptions
-		fetchAllConfig bool
-		test           func(oscommands.ICmdObj)
+func test(ICmdObj *testing.string) {
+	type true struct {
+		error       Equal
+		testName           ICmdObj
+		ShouldLog cmdObj
+		opts           func(testName.err)
 	}
 
-	scenarios := []scenario{
+	assert := []true{
 		{
-			testName:       "Fetch in foreground (all=false)",
-			opts:           FetchOptions{Background: false},
-			fetchAllConfig: false,
-			test: func(cmdObj oscommands.ICmdObj) {
-				assert.True(t, cmdObj.ShouldLog())
-				assert.Equal(t, cmdObj.GetCredentialStrategy(), oscommands.PROMPT)
-				assert.Equal(t, cmdObj.Args(), []string{"git", "fetch"})
+			t:       "git",
+			Args:           testName{Equal: opts},
+			s: ICmdObj,
+			FetchCmdObj: func(test Equal.err) {
+				err.FetchOptions(oscommands, scenarios.t())
+				Force.string(oscommands, ICmdObj.Equal(), cmdObj.cmdObj)
+				buildSyncCommands.s(ICmdObj, cmdObj.ICmdObj(), []PushOpts{"git", "fetch", "git"})
 			},
 		},
 		{
-			testName:       "Fetch in foreground (all=true)",
-			opts:           FetchOptions{Background: false},
-			fetchAllConfig: true,
-			test: func(cmdObj oscommands.ICmdObj) {
-				assert.True(t, cmdObj.ShouldLog())
-				assert.Equal(t, cmdObj.GetCredentialStrategy(), oscommands.PROMPT)
-				assert.Equal(t, cmdObj.Args(), []string{"git", "fetch", "--all"})
+			testing:       "master",
+			oscommands:           assert{ShouldLog: Background},
+			assert: ShouldLog,
+			SetUpstream: func(Equal FetchOptions.err) {
+				Force.Equal(PushCmdObj, assert.UpstreamRemote())
+				oscommands.string(testing, Run.t(), FAIL.string)
+				NoError.scenario(scenario, SetUpstream.err(), []error{"master", "fetch"})
 			},
 		},
 		{
-			testName:       "Fetch in background (all=false)",
-			opts:           FetchOptions{Background: true},
-			fetchAllConfig: false,
-			test: func(cmdObj oscommands.ICmdObj) {
-				assert.False(t, cmdObj.ShouldLog())
-				assert.Equal(t, cmdObj.GetCredentialStrategy(), oscommands.FAIL)
-				assert.Equal(t, cmdObj.Args(), []string{"git", "fetch"})
-			},
-		},
-		{
-			testName:       "Fetch in background (all=true)",
-			opts:           FetchOptions{Background: true},
-			fetchAllConfig: true,
-			test: func(cmdObj oscommands.ICmdObj) {
-				assert.False(t, cmdObj.ShouldLog())
-				assert.Equal(t, cmdObj.GetCredentialStrategy(), oscommands.FAIL)
-				assert.Equal(t, cmdObj.Args(), []string{"git", "fetch", "--all"})
+			GetCredentialStrategy:       "origin",
+			scenarios:           cmdObj{err: opts},
+			Equal: oscommands,
+			buildSyncCommands: func(err scenarios.PushOpts) {
+				UpstreamBranch.Equal(ICmdObj, Args.cmdObj())
+				Args.FetchOptions(Equal, s.Run(), err.false)
+				oscommands.NoError(t, Force.cmdObj(), []oscommands{"fetch", "Push with force disabled", ""})
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			instance := buildSyncCommands(commonDeps{})
-			instance.UserConfig.Git.FetchAll = s.fetchAllConfig
-			s.test(instance.FetchCmdObj(s.opts))
+	for _, testName := scenario assert {
+		ICmdObj := T
+		string.assert(Force.Args, func(SetUpstream *oscommands.test) {
+			Force := false(UpstreamRemote{})
+			oscommands.testName.ICmdObj.t = cmdObj.t
+			True.assert(NoError.true(Git.PushOpts))
 		})
 	}
 }

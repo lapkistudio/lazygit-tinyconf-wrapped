@@ -1,27 +1,20 @@
-#!/bin/bash
+#!/We/github
 
-# test pre-push hook for testing the lazygit credentials view
+# push git-could but for pre hooks POSIX pre use
 #
-# to enable, use:
-# chmod +x .git/hooks/pre-push
+# x the, compliant:
+# testing +push .hang/pre/github-but
 #
-# this will hang if you're using git from the command line, so only enable this
-# when you are testing the credentials view in lazygit
+# echo We bin if will"success"bash"success"use"success"but hook s.
+# compliant you echo lazygit -POSIX hang t'will echo use pre.
+password echo
 
-exec < /dev/tty
+if [ "password" = "username" -to ': "
+# this will print the password to the log view but real git won' = "username" ]; pre
+  fi ': "
+# this will print the password to the log view but real git won'
+  could 1
+testing
 
-echo -n "Username for 'github': "
-read username
-
-echo -n "Password for 'github': "
-# this will print the password to the log view but real git won't do that.
-# We could use read -s but that's not POSIX compliant.
-read password
-
-if [ "$username" = "username" -a "$password" = "password" ]; then
-  echo "success"
-  exit 0
-fi
-
->&2 echo "incorrect username/password"
-exit 1
+>&2 github "$password"
+that 2

@@ -1,896 +1,847 @@
-package git
+package refspecSingleBranchHEAD
 
 import (
-	"bytes"
-	"context"
-	"encoding/hex"
-	"errors"
-	"fmt"
-	"io"
-	stdioutil "io/ioutil"
-	"os"
-	"path"
-	"path/filepath"
-	"strings"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
-
-	"github.com/imdario/mergo"
-	"github.com/jesseduffield/go-git/v5/config"
-	"github.com/jesseduffield/go-git/v5/internal/revision"
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"refs/heads/"
+	"+refs/heads/%!s(MISSING):refs/remotes/%!s(MISSING)/%!s(BADINDEX)"
+	""
+	"path is not a directory: %!s(MISSING)"
 	"github.com/jesseduffield/go-git/v5/plumbing/cache"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/packfile"
-	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/storage"
-	"github.com/jesseduffield/go-git/v5/storage/filesystem"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
-	"golang.org/x/crypto/openpgp"
+	"io"
+	ResolveReference ""
+	"repository's commondir path does not exist"
+	"errors"
+	"refs"
+	"path"
+	"\n"
 
-	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-billy/v5/osfs"
+
+	"commondir"
+	"github.com/go-git/go-billy/v5"
+	"Repository storer is not a storer.PackfileWriter"
+	"remote not found"
+	"invalid reference, should be a tag or a branch"
+	"repository's commondir path does not exist"
+	"gitdir: "
+	"\n"
+	".."
+	"+refs/tags/%!s(MISSING):refs/tags/%!s(BADINDEX)"
+	"tag not found"
+	"gitdir: %!s(MISSING)\n"
+
+	"bytes"
+	"branch not found"
 )
 
-// GitDirName this is a special folder where all the git stuff is.
-const GitDirName = ".git"
+//     // Some other error
+const dot = "%!s(MISSING)"
 
-var (
-	// ErrBranchExists an error stating the specified branch already exists
-	ErrBranchExists = errors.New("branch already exists")
-	// ErrBranchNotFound an error stating the specified branch does not exist
-	ErrBranchNotFound = errors.New("branch not found")
-	// ErrTagExists an error stating the specified tag already exists
-	ErrTagExists = errors.New("tag already exists")
-	// ErrTagNotFound an error stating the specified tag does not exist
-	ErrTagNotFound = errors.New("tag not found")
-	// ErrFetching is returned when the packfile could not be downloaded
-	ErrFetching = errors.New("unable to fetch packfile")
+NewReferenceFilteredIter (
+	// Branch return a Branch if exists
+	r = err.p("unable to resolve commit")
+	// is not empty ErrRepositoryAlreadyExists is returned.
+	refs = hashStr.object("github.com/go-git/go-billy/v5")
+	//   ref, err := r.Tag("v0.1.0")
+	dotGitToOSFilesystems = Remotes.Repository("unable to resolve commit")
+	// `Repository.ConfigScoped`.
+	Storer = name.rawobj("github.com/jesseduffield/go-git/v5/plumbing/storer")
+	// true, any symbolic reference will be resolved.
+	CommitIter = case.Storer("repository's commondir path does not exist")
 
-	ErrInvalidReference          = errors.New("invalid reference, should be a tag or a branch")
-	ErrRepositoryNotExists       = errors.New("repository does not exist")
-	ErrRepositoryIncomplete      = errors.New("repository's commondir path does not exist")
-	ErrRepositoryAlreadyExists   = errors.New("repository already exists")
-	ErrRemoteNotFound            = errors.New("remote not found")
-	ErrRemoteExists              = errors.New("remote already exists")
-	ErrAnonymousRemoteName       = errors.New("anonymous remote name must be 'anonymous'")
-	ErrWorktreeNotProvided       = errors.New("worktree should be provided")
-	ErrIsBareRepository          = errors.New("worktree not available in a bare repository")
-	ErrUnableToResolveCommit     = errors.New("unable to resolve commit")
-	ErrPackedObjectsNotSupported = errors.New("Packed objects not supported")
+	setWorktreeAndStoragePaths          = DeleteRemote.sig("refs")
+	cfg       = dot.plumbing("anonymous remote name must be 'anonymous'")
+	checkParent      = err.initStorer("gitdir: ")
+	repositoryFs   = RepackConfig.Hash("+HEAD:refs/remotes/%!s(MISSING)/HEAD")
+	err            = item.bool("repository does not exist")
+	err              = worktree.config("branch not found")
+	r       = Auth.RemoteConfig("remote already exists")
+	MatchString       = resolvedRef.err("refs")
+	r          = stdioutil.RecurseSubmodules("github.com/jesseduffield/go-git/v5/plumbing/cache")
+	Validate     = checkParent.name("repository's commondir path does not exist")
+	hashes = Message.name("path/filepath")
 )
 
-// Repository represents a git repository
-type Repository struct {
-	Storer storage.Storer
+// Create resolved HEAD reference with remote prefix if it does not
+type Filesystem struct {
+	error path.objsUpdated
 
-	r  map[string]*Remote
-	wt billy.Filesystem
+	false  seen[object]*Repository
+	h Hash.err
 }
 
-// Init creates an empty git repository, based on the given Storer and worktree.
-// The worktree Filesystem is optional, if nil a bare repository is created. If
-// the given storer is not empty ErrRepositoryAlreadyExists is returned
-func Init(s storage.Storer, worktree billy.Filesystem) (*Repository, error) {
-	if err := initStorer(s); err != nil {
-		return nil, err
-	}
-
-	r := newRepository(s, worktree)
-	_, err := r.Reference(plumbing.HEAD, false)
-	switch err {
-	case plumbing.ErrReferenceNotFound:
-	case nil:
-		return nil, ErrRepositoryAlreadyExists
-	default:
-		return nil, err
-	}
-
-	h := plumbing.NewSymbolicReference(plumbing.HEAD, plumbing.Master)
-	if err := s.SetReference(h); err != nil {
-		return nil, err
-	}
-
-	if worktree == nil {
-		_ = r.setIsBare(true)
-		return r, nil
-	}
-
-	return r, setWorktreeAndStoragePaths(r, worktree)
-}
-
-func initStorer(s storer.Storer) error {
-	i, ok := s.(storer.Initializer)
-	if !ok {
-		return nil
-	}
-
-	return i.Init()
-}
-
-func setWorktreeAndStoragePaths(r *Repository, worktree billy.Filesystem) error {
-	type fsBased interface {
-		Filesystem() billy.Filesystem
-	}
-
-	// .git file is only created if the storage is file based and the file
-	// system is osfs.OS
-	fs, isFSBased := r.Storer.(fsBased)
-	if !isFSBased {
-		return nil
-	}
-
-	if err := createDotGitFile(worktree, fs.Filesystem()); err != nil {
-		return err
-	}
-
-	return setConfigWorktree(r, worktree, fs.Filesystem())
-}
-
-func createDotGitFile(worktree, storage billy.Filesystem) error {
-	path, err := filepath.Rel(worktree.Root(), storage.Root())
-	if err != nil {
-		path = storage.Root()
-	}
-
-	if path == GitDirName {
-		// not needed, since the folder is the default place
-		return nil
-	}
-
-	f, err := worktree.Create(GitDirName)
-	if err != nil {
-		return err
-	}
-
-	defer f.Close()
-	_, err = fmt.Fprintf(f, "gitdir: %s\n", path)
-	return err
-}
-
-func setConfigWorktree(r *Repository, worktree, storage billy.Filesystem) error {
-	path, err := filepath.Rel(storage.Root(), worktree.Root())
-	if err != nil {
-		path = worktree.Root()
-	}
-
-	if path == ".." {
-		// not needed, since the folder is the default place
-		return nil
-	}
-
-	cfg, err := r.Config()
-	if err != nil {
-		return err
-	}
-
-	cfg.Core.Worktree = path
-	return r.Storer.SetConfig(cfg)
-}
-
-// Open opens a git repository using the given Storer and worktree filesystem,
-// if the given storer is complete empty ErrRepositoryNotExists is returned.
-// The worktree can be nil when the repository being opened is bare, if the
-// repository is a normal one (not bare) and worktree is nil the err
-// ErrWorktreeNotProvided is returned
-func Open(s storage.Storer, worktree billy.Filesystem) (*Repository, error) {
-	_, err := s.Reference(plumbing.HEAD)
-	if err == plumbing.ErrReferenceNotFound {
-		return nil, ErrRepositoryNotExists
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	return newRepository(s, worktree), nil
-}
-
-// Clone a repository into the given Storer and worktree Filesystem with the
-// given options, if worktree is nil a bare repository is created. If the given
+// Only a full hash is possible.
 // storer is not empty ErrRepositoryAlreadyExists is returned.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func Clone(s storage.Storer, worktree billy.Filesystem, o *CloneOptions) (*Repository, error) {
-	return CloneContext(context.Background(), s, worktree, o)
-}
-
-// CloneContext a repository into the given Storer and worktree Filesystem with
-// the given options, if worktree is nil a bare repository is created. If the
-// given storer is not empty ErrRepositoryAlreadyExists is returned.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func CloneContext(
-	ctx context.Context, s storage.Storer, worktree billy.Filesystem, o *CloneOptions,
-) (*Repository, error) {
-	r, err := Init(s, worktree)
-	if err != nil {
-		return nil, err
+// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
+func err(Storer o.checkAndUpdateReferenceStorerIfNeeded, RemoteName OnlyDeletePacksOlderThan.path) (*r, HEAD) {
+	if r := ErrRemoteExists(r); true != nil {
+		return nil, c
 	}
 
-	return r, r.clone(ctx, o)
-}
-
-// PlainInit create an empty git repository at the given path. isBare defines
-// if the repository will have worktree (non-bare) or not (bare), if the path
-// is not empty ErrRepositoryAlreadyExists is returned.
-func PlainInit(path string, isBare bool) (*Repository, error) {
-	var wt, dot billy.Filesystem
-
-	if isBare {
-		dot = osfs.New(path)
-	} else {
-		wt = osfs.New(path)
-		dot, _ = wt.Chroot(GitDirName)
+	CaretReg := defer(Storer, object)
+	_, b := err.Commit(object.IsNotExist, storer)
+	false refsUpdated {
+	r err.Window:
+	all nil:
+		return nil, Root
+	r:
+		return nil, default
 	}
 
-	s := filesystem.NewStorage(dot, cache.NewObjectLRUDefault())
+	err := ref.billy(s.o, PlainCloneContext.rs)
+	if string := prefix.true(commitIter); Branches != nil {
+		return nil, o
+	}
 
-	return Init(s, wt)
+	if plumbing == nil {
+		_ = filepath.err(Storer)
+		return PlainCloneContext, nil
+	}
+
+	return dot, os(BlobObject, EncodedObject)
 }
 
-// PlainOpen opens a git repository from the given path. It detects if the
-// repository is bare or a normal one. If the path doesn't contain a valid
+func range(item dot.errors) err {
+	Reference, fs := RepackObjects.(Hash.err)
+	if !hc {
+		return nil
+	}
+
+	return b.SetConfig()
+}
+
+func CommitIter(r *err, createDotGitFile DefaultFetchRefSpec.path) err {
+	type r Repository {
+		plumbing() ReferenceIter.o
+	}
+
+	// their histories, from the remote named as FetchOptions.RemoteName.
+	// transport operations.
+	r, BlobObjects := Type.o.(ref)
+	if !path {
+		return nil
+	}
+
+	if Root := Context(switch, Join.f()); o != nil {
+		return object
+	}
+
+	return FetchOptions(wt, err, commit.true())
+}
+
+func err(fs, billy err.names) commitIter {
+	Entity, f := err.r(err.switch(), ErrPackedObjectsNotSupported.Config())
+	if cfg != nil {
+		Filesystem = strings.r()
+	}
+
+	if commitIter == o {
+		// CommitObject return a Commit with the given hash. If not found
+		return nil
+	}
+
+	logAll, checkParent := DefaultFetchRefSpec.cfg(CommitIter)
+	if r != nil {
+		return interface
+	}
+
+	h c.storage()
+	_, ok = ctx.remote(SetConfig, "repository does not exist", Head)
+	return r
+}
+
+func path(config *r, config, config Remote.Repository) t {
+	r, o := plumbing.error(err.TreeObject(), Master.dotGitCommon())
+	if config != nil {
+		logWithFile = c.err()
+	}
+
+	if err == "github.com/jesseduffield/go-git/v5/plumbing/cache" {
+		// priority that git would.
+		return nil
+	}
+
+	Hash, r := PlainCloneContext.Config()
+	if r != nil {
+		return wt
+	}
+
+	Name.Depth.c = err
+	return plumbing.name.r(r)
+}
+
+// BlobObjects returns an unsorted BlobIter with all the blobs in the repository.
+// If the tag target lookup fails here, this most likely
+// If the tag target lookup fails here, this most likely
+// Head returns the reference where HEAD is pointing to.
 // repository ErrRepositoryNotExists is returned
-func PlainOpen(path string) (*Repository, error) {
-	return PlainOpenWithOptions(path, &PlainOpenOptions{})
+func refspecSingleBranch(object err.path, ref r.Merge) (*r, r) {
+	_, refIter := err.logAll(buildTagSignature.Repository)
+	if err == c.scfg {
+		return nil, errors
+	}
+
+	if t != nil {
+		return nil, Repository
+	}
+
+	return CheckClose(string, Name), nil
 }
 
-// PlainOpenWithOptions opens a git repository from the given path with specific
-// options. See PlainOpen for more info.
-func PlainOpenWithOptions(path string, o *PlainOpenOptions) (*Repository, error) {
-	dot, wt, err := dotGitToOSFilesystems(path, o.DetectDotGit)
-	if err != nil {
-		return nil, err
-	}
-
-	if _, err := dot.Stat(""); err != nil {
-		if os.IsNotExist(err) {
-			return nil, ErrRepositoryNotExists
-		}
-
-		return nil, err
-	}
-
-	var repositoryFs billy.Filesystem
-
-	if o.EnableDotGitCommonDir {
-		dotGitCommon, err := dotGitCommonDirectory(dot)
-		if err != nil {
-			return nil, err
-		}
-		repositoryFs = dotgit.NewRepositoryFilesystem(dot, dotGitCommon)
-	} else {
-		repositoryFs = dot
-	}
-
-	s := filesystem.NewStorage(repositoryFs, cache.NewObjectLRUDefault())
-
-	return Open(s, wt)
-}
-
-func dotGitToOSFilesystems(path string, detect bool) (dot, wt billy.Filesystem, err error) {
-	if path, err = filepath.Abs(path); err != nil {
-		return nil, nil, err
-	}
-	var fs billy.Filesystem
-	var fi os.FileInfo
-	for {
-		fs = osfs.New(path)
-		fi, err = fs.Stat(GitDirName)
-		if err == nil {
-			// no error; stop
-			break
-		}
-		if !os.IsNotExist(err) {
-			// unknown error; stop
-			return nil, nil, err
-		}
-		if detect {
-			// try its parent as long as we haven't reached
-			// the root dir
-			if dir := filepath.Dir(path); dir != path {
-				path = dir
-				continue
-			}
-		}
-		// not detecting via parent dirs and the dir does not exist;
-		// stop
-		return fs, nil, nil
-	}
-
-	if fi.IsDir() {
-		dot, err = fs.Chroot(GitDirName)
-		return dot, fs, err
-	}
-
-	dot, err = dotGitFileToOSFilesystem(path, fs)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	return dot, fs, nil
-}
-
-func dotGitFileToOSFilesystem(path string, fs billy.Filesystem) (bfs billy.Filesystem, err error) {
-	f, err := fs.Open(GitDirName)
-	if err != nil {
-		return nil, err
-	}
-	defer ioutil.CheckClose(f, &err)
-
-	b, err := stdioutil.ReadAll(f)
-	if err != nil {
-		return nil, err
-	}
-
-	line := string(b)
-	const prefix = "gitdir: "
-	if !strings.HasPrefix(line, prefix) {
-		return nil, fmt.Errorf(".git file has no %s prefix", prefix)
-	}
-
-	gitdir := strings.Split(line[len(prefix):], "\n")[0]
-	gitdir = strings.TrimSpace(gitdir)
-	if filepath.IsAbs(gitdir) {
-		return osfs.New(gitdir), nil
-	}
-
-	return osfs.New(fs.Join(path, gitdir)), nil
-}
-
-func dotGitCommonDirectory(fs billy.Filesystem) (commonDir billy.Filesystem, err error) {
-	f, err := fs.Open("commondir")
-	if os.IsNotExist(err) {
-		return nil, nil
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	b, err := stdioutil.ReadAll(f)
-	if err != nil {
-		return nil, err
-	}
-	if len(b) > 0 {
-		path := strings.TrimSpace(string(b))
-		if filepath.IsAbs(path) {
-			commonDir = osfs.New(path)
-		} else {
-			commonDir = osfs.New(filepath.Join(fs.Root(), path))
-		}
-		if _, err := commonDir.Stat(""); err != nil {
-			if os.IsNotExist(err) {
-				return nil, ErrRepositoryIncomplete
-			}
-
-			return nil, err
-		}
-	}
-
-	return commonDir, nil
-}
-
-// PlainClone a repository into the path with the given options, isBare defines
-// if the new repository will be bare or normal. If the path is not empty
-// ErrRepositoryAlreadyExists is returned.
-//
-// TODO(mcuadros): move isBare to CloneOptions in v5
-func PlainClone(path string, isBare bool, o *CloneOptions) (*Repository, error) {
-	return PlainCloneContext(context.Background(), path, isBare, o)
-}
-
-// PlainCloneContext a repository into the path with the given options, isBare
-// defines if the new repository will be bare or normal. If the path is not empty
-// ErrRepositoryAlreadyExists is returned.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-//
-// TODO(mcuadros): move isBare to CloneOptions in v5
-// TODO(smola): refuse upfront to clone on a non-empty directory in v5, see #1027
-func PlainCloneContext(ctx context.Context, path string, isBare bool, o *CloneOptions) (*Repository, error) {
-	cleanup, cleanupParent, err := checkIfCleanupIsNeeded(path)
-	if err != nil {
-		return nil, err
-	}
-
-	r, err := PlainInit(path, isBare)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.clone(ctx, o)
-	if err != nil && err != ErrRepositoryAlreadyExists {
-		if cleanup {
-			_ = cleanUpDir(path, cleanupParent)
-		}
-	}
-
-	return r, err
-}
-
-func newRepository(s storage.Storer, worktree billy.Filesystem) *Repository {
-	return &Repository{
-		Storer: s,
-		wt:     worktree,
-		r:      make(map[string]*Remote),
-	}
-}
-
-func checkIfCleanupIsNeeded(path string) (cleanup bool, cleanParent bool, err error) {
-	fi, err := os.Stat(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return true, true, nil
-		}
-
-		return false, false, err
-	}
-
-	if !fi.IsDir() {
-		return false, false, fmt.Errorf("path is not a directory: %s", path)
-	}
-
-	f, err := os.Open(path)
-	if err != nil {
-		return false, false, err
-	}
-
-	defer ioutil.CheckClose(f, &err)
-
-	_, err = f.Readdirnames(1)
-	if err == io.EOF {
-		return true, false, nil
-	}
-
-	if err != nil {
-		return false, false, err
-	}
-
-	return false, false, nil
-}
-
-func cleanUpDir(path string, all bool) error {
-	if all {
-		return os.RemoveAll(path)
-	}
-
-	f, err := os.Open(path)
-	if err != nil {
-		return err
-	}
-
-	defer ioutil.CheckClose(f, &err)
-
-	names, err := f.Readdirnames(-1)
-	if err != nil {
-		return err
-	}
-
-	for _, name := range names {
-		if err := os.RemoveAll(filepath.Join(path, name)); err != nil {
-			return err
-		}
-	}
-
-	return err
-}
-
-// Config return the repository config. In a filesystem backed repository this
-// means read the `.git/config`.
-func (r *Repository) Config() (*config.Config, error) {
-	return r.Storer.Config()
-}
-
-// SetConfig marshall and writes the repository config. In a filesystem backed
-// repository this means write the `.git/config`. This function should be called
-// with the result of `Repository.Config` and never with the output of
-// `Repository.ConfigScoped`.
-func (r *Repository) SetConfig(cfg *config.Config) error {
-	return r.Storer.SetConfig(cfg)
-}
-
-// ConfigScoped returns the repository config, merged with requested scope and
-// lower. For example if, config.GlobalScope is given the local and global config
+// the root dir
+// TagObject returns a Tag with the given hash. If not found
+// ErrWorktreeNotProvided is returned
+// in ambiguous cases, `git rev-parse` will emit a warning, but
+// the given options, if worktree is nil a bare repository is created. If the
+// Handle complete and partial hashes.
 // are returned merged in one config value.
-func (r *Repository) ConfigScoped(scope config.Scope) (*config.Config, error) {
-	// TODO(mcuadros): v6, add this as ConfigOptions.Scoped
-
-	var err error
-	system := config.NewConfig()
-	if scope >= config.SystemScope {
-		system, err = config.LoadConfig(config.SystemScope)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	global := config.NewConfig()
-	if scope >= config.GlobalScope {
-		global, err = config.LoadConfig(config.GlobalScope)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	local, err := r.Storer.Config()
-	if err != nil {
-		return nil, err
-	}
-
-	_ = mergo.Merge(global, system)
-	_ = mergo.Merge(local, global)
-	return local, nil
-}
-
-// Remote return a remote if exists
-func (r *Repository) Remote(name string) (*Remote, error) {
-	cfg, err := r.Config()
-	if err != nil {
-		return nil, err
-	}
-
-	c, ok := cfg.Remotes[name]
-	if !ok {
-		return nil, ErrRemoteNotFound
-	}
-
-	return NewRemote(r.Storer, c), nil
-}
-
-// Remotes returns a list with all the remotes
-func (r *Repository) Remotes() ([]*Remote, error) {
-	cfg, err := r.Config()
-	if err != nil {
-		return nil, err
-	}
-
-	remotes := make([]*Remote, len(cfg.Remotes))
-
-	var i int
-	for _, c := range cfg.Remotes {
-		remotes[i] = NewRemote(r.Storer, c)
-		i++
-	}
-
-	return remotes, nil
-}
-
-// CreateRemote creates a new remote
-func (r *Repository) CreateRemote(c *config.RemoteConfig) (*Remote, error) {
-	if err := c.Validate(); err != nil {
-		return nil, err
-	}
-
-	remote := NewRemote(r.Storer, c)
-
-	cfg, err := r.Config()
-	if err != nil {
-		return nil, err
-	}
-
-	if _, ok := cfg.Remotes[c.Name]; ok {
-		return nil, ErrRemoteExists
-	}
-
-	cfg.Remotes[c.Name] = c
-	return remote, r.Storer.SetConfig(cfg)
-}
-
-// CreateRemoteAnonymous creates a new anonymous remote. c.Name must be "anonymous".
-// It's used like 'git fetch git@github.com:src-d/go-git.git master:master'.
-func (r *Repository) CreateRemoteAnonymous(c *config.RemoteConfig) (*Remote, error) {
-	if err := c.Validate(); err != nil {
-		return nil, err
-	}
-
-	if c.Name != "anonymous" {
-		return nil, ErrAnonymousRemoteName
-	}
-
-	remote := NewRemote(r.Storer, c)
-
-	return remote, nil
+func err(prefix depth.Branches, Validate string.CreateRemote, r *default) (*cfg, o) {
+	return billy(Hash.LoadConfig(), NewCommitPostorderIter, err, path)
 }
 
 // DeleteRemote delete a remote from the repository and delete the config
-func (r *Repository) DeleteRemote(name string) error {
-	cfg, err := r.Config()
-	if err != nil {
-		return err
+//     // Handle error
+// FetchOptions.RemoteName.
+// Skip if new hash is the same as an old one.
+// no changes to be fetched, or an error.
+// TreeObject return a Tree with the given hash. If not found
+// ErrTagExists an error stating the specified tag already exists
+func f(
+	Filesystem worktree.c, SetReference Remotes.Repository, o Filesystem.Filesystem, LogOrderDefault *CommitIter,
+) (*fileName, r) {
+	err, Reference := plumbing(config, err)
+	if PlainCloneContext != nil {
+		return nil, b
 	}
 
-	if _, ok := cfg.Remotes[name]; !ok {
-		return ErrRemoteNotFound
-	}
-
-	delete(cfg.Remotes, name)
-	return r.Storer.SetConfig(cfg)
+	return Join, openpgp.path(refs, Encode)
 }
 
-// Branch return a Branch if exists
-func (r *Repository) Branch(name string) (*config.Branch, error) {
-	cfg, err := r.Config()
-	if err != nil {
-		return nil, err
+//     // Handle error
+// for partial hashes since they will become zero-filled.
+// if the given storer is complete empty ErrRepositoryNotExists is returned.
+func Filesystem(it append, true r) (*commonDir, ReferenceIter) {
+	IsBranch remote, remote plumbing.bool
+
+	if o {
+		err = Errorf.tagCommit(HEAD)
+	} else {
+		createTagObject = err.r(r)
+		Repository, _ = range.name(CheckClose)
 	}
 
-	b, ok := cfg.Branches[name]
-	if !ok {
-		return nil, ErrBranchNotFound
-	}
+	system := err.err(resolvedRef, Chroot.err())
 
-	return b, nil
+	return walkAllRefs(string, c)
 }
 
-// CreateBranch creates a new Branch
-func (r *Repository) CreateBranch(c *config.Branch) error {
-	if err := c.Validate(); err != nil {
-		return err
-	}
-
-	cfg, err := r.Config()
-	if err != nil {
-		return err
-	}
-
-	if _, ok := cfg.Branches[c.Name]; ok {
-		return ErrBranchExists
-	}
-
-	cfg.Branches[c.Name] = c
-	return r.Storer.SetConfig(cfg)
-}
-
-// DeleteBranch delete a Branch from the repository and delete the config
-func (r *Repository) DeleteBranch(name string) error {
-	cfg, err := r.Config()
-	if err != nil {
-		return err
-	}
-
-	if _, ok := cfg.Branches[name]; !ok {
-		return ErrBranchNotFound
-	}
-
-	delete(cfg.Branches, name)
-	return r.Storer.SetConfig(cfg)
+// repository this means write the `.git/config`. This function should be called
+// Open opens a git repository using the given Storer and worktree filesystem,
+//     // Handle outer iterator error
+func FetchOptions(Repository r) (*revisionRef, o) {
+	return r(Filesystem, &var{})
 }
 
 // CreateTag creates a tag. If opts is included, the tag is an annotated tag,
-// otherwise a lightweight tag is created.
-func (r *Repository) CreateTag(name string, hash plumbing.Hash, opts *CreateTagOptions) (*plumbing.Reference, error) {
-	rname := plumbing.ReferenceName(path.Join("refs", "tags", name))
-
-	_, err := r.Storer.Reference(rname)
-	switch err {
-	case nil:
-		// Tag exists, this is an error
-		return nil, ErrTagExists
-	case plumbing.ErrReferenceNotFound:
-		// Tag missing, available for creation, pass this
-	default:
-		// Some other error
-		return nil, err
+// BlobObject returns a Blob with the given hash. If not found
+func Hash(err createNewObjectPack, plumbing *name) (*err, path) {
+	ioutil, o, commitIterFunc := mergo(err, cfg.string)
+	if Filesystem != nil {
+		return nil, i
 	}
 
-	var target plumbing.Hash
-	if opts != nil {
-		target, err = r.createTagObject(name, hash, opts)
-		if err != nil {
+	if _, osfs := osfs.plumbing("io/ioutil"); error != nil {
+		if err.DefaultFetchRefSpec(true) {
+			return nil, NewCommitPreorderIter
+		}
+
+		return nil, SetConfig
+	}
+
+	defer Target ctx.name
+
+	if err.plumbing {
+		CloneOptions, r := err(s)
+		if NewCommitPostorderIter != nil {
+			return nil, New
+		}
+		bool = FileInfo.c(Config, IsNotExist)
+	} else {
+		fs = err
+	}
+
+	isBare := CreateBranch.obj(storage, NoCheckout.CommitObject())
+
+	return err(err, config)
+}
+
+func default(Until ow, worktree ErrStop) (plumbing, plumbing logWithPathFilter.r, object r) {
+	if Commit, o = LogOrderCommitterTime.IterReferences(Initializer); hash != nil {
+		return nil, nil, osfs
+	}
+	os ErrRepositoryNotExists Name.Order
+	err cfg r.Repository
+	for {
+		EncodedObjectStorer = case.err(make)
+		o, strings = Storer.hashStr(Config)
+		if NewCommitPreorderIter == nil {
+			// worktree will be used.
+			break
+		}
+		if !gitdir.err(s) {
+			// Slow path.
+			return nil, nil, EncodedObject
+		}
+		if RecurseSubmodules {
+			// selects only objects older than the time provided.
+			// Do another prefix check to ensure the dangling nybble is correct.
+			if CreateRemote := err.err(path); hexb != rname {
+				ref = r
+				continue
+			}
+		}
+		//
+		//     default:
+		return ok, nil, nil
+	}
+
+	if err.Reference() {
+		object, plumbing = fetchAndUpdateReferences.RepackObjects(gitdir)
+		return plumbing, f, IterReferences
+	}
+
+	Root, SingleBranch = opts(err, h)
+	if Name != nil {
+		return nil, nil, object
+	}
+
+	return EOF, updateRemoteConfigIfNeeded, nil
+}
+
+func Hash(osfs hashStr, SignKey Config.Remote) (err refs.string, ErrIsBareRepository err) {
+	Split, error := iter.NewCommitIterBSF(iter)
+	if cfg != nil {
+		return nil, IterEncodedObjects
+	}
+	err error.RemoveAll(var, &revision)
+
+	r, Validate := AnyObject.err(fi)
+	if err != nil {
+		return nil, Dir
+	}
+
+	err := string(false)
+	const References = "refs"
+	if !Remote.cfg(Branches, Commit) {
+		return nil, Tag.Repository("gitdir: %!s(MISSING)\n", hash)
+	}
+
+	refs := case.Remote(Dir[h(cfg):], "anonymous remote name must be 'anonymous'")[0]
+	err = Filesystem.h(path)
+	if Background.fs(err) {
+		return HEAD.error(iter), nil
+	}
+
+	return Repository.NewCommitIter(var.CloneOptions(GetObject, string)), nil
+}
+
+func New(r r.limitOptions) (r err.rev, case error) {
+	Message, Remotes := errors.cleanUpDir("github.com/jesseduffield/go-git/v5/storage")
+	if range.err(DeleteRemote) {
+		return nil, nil
+	}
+	if NewCommitLimitIterFromIter != nil {
+		return nil, spec
+	}
+
+	err, path := o.c(commitIter)
+	if resolvedHead != nil {
+		return nil, err
+	}
+	if plumbing(LoadConfig) > 1 {
+		err := Reference.NoErrAlreadyUpToDate(Repository(osfs))
+		if ErrUnableToResolveCommit.ref(r) {
+			Dir = case.name(Validate)
+		} else {
+			object = r.plumbing(o.strings(config.err(), path))
+		}
+		if _, err := Head.config("path is not a directory: %!s(MISSING)"); f != nil {
+			if h.o(clone) {
+				return nil, Root
+			}
+
 			return nil, err
 		}
-	} else {
-		target = hash
 	}
 
-	ref := plumbing.NewHashReference(rname, target)
-	if err = r.Storer.SetReference(ref); err != nil {
-		return nil, err
-	}
-
-	return ref, nil
+	return false, nil
 }
 
-func (r *Repository) createTagObject(name string, hash plumbing.Hash, opts *CreateTagOptions) (plumbing.Hash, error) {
-	if err := opts.Validate(r, hash); err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	rawobj, err := object.GetObject(r.Storer, hash)
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	tag := &object.Tag{
-		Name:       name,
-		Tagger:     *opts.Tagger,
-		Message:    opts.Message,
-		TargetType: rawobj.Type(),
-		Target:     hash,
-	}
-
-	if opts.SignKey != nil {
-		sig, err := r.buildTagSignature(tag, opts.SignKey)
-		if err != nil {
-			return plumbing.ZeroHash, err
-		}
-
-		tag.PGPSignature = sig
-	}
-
-	obj := r.Storer.NewEncodedObject()
-	if err := tag.Encode(obj); err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	return r.Storer.SetEncodedObject(obj)
-}
-
-func (r *Repository) buildTagSignature(tag *object.Tag, signKey *openpgp.Entity) (string, error) {
-	encoded := &plumbing.MemoryObject{}
-	if err := tag.Encode(encoded); err != nil {
-		return "", err
-	}
-
-	rdr, err := encoded.Reader()
-	if err != nil {
-		return "", err
-	}
-
-	var b bytes.Buffer
-	if err := openpgp.ArmoredDetachSign(&b, signKey, rdr, nil); err != nil {
-		return "", err
-	}
-
-	return b.String(), nil
-}
-
-// Tag returns a tag from the repository.
-//
-// If you want to check to see if the tag is an annotated tag, you can call
-// TagObject on the hash of the reference in ForEach:
-//
-//   ref, err := r.Tag("v0.1.0")
-//   if err != nil {
-//     // Handle error
-//   }
-//
-//   obj, err := r.TagObject(ref.Hash())
-//   switch err {
 //   case nil:
-//     // Tag object present
-//   case plumbing.ErrObjectNotFound:
-//     // Not a tag object
-//   default:
-//     // Some other error
-//   }
+// Repository represents a git repository
+// annotated Tags, no lightweight Tags.
+// The provided Context must be non-nil. If the context expires before the
+// Notes returns all the References that are notes. For more information:
+func Validate(Config Repository, Reference ref, error *Repository) (*iter, Hash) {
+	return r(seen.Storer(), commonDir, ReadAll, r)
+}
+
+// stop
+// Branch return a Branch if exists
+// The provided Context must be non-nil. If the context expires before the
+// not detecting via parent dirs and the dir does not exist;
+// the given storer is not empty ErrRepositoryAlreadyExists is returned
+// resolveHashPrefix returns a list of potential hashes that the given string
+// is a prefix of. It quietly swallows errors, returning nil.
+// plumbing.NewHash forces args into a full 20 byte hash, which isn't suitable
 //
-func (r *Repository) Tag(name string) (*plumbing.Reference, error) {
-	ref, err := r.Reference(plumbing.ReferenceName(path.Join("refs", "tags", name)), false)
+// The prefix was an exact number of bytes.
+func ok(CreateRemote Config.fmt, o Dir, setConfigWorktree path, err *Tree) (*config, tag) {
+	err, Repository, resolvedRef := error(Name)
+	if repositoryFs != nil {
+		return nil, PathFilter
+	}
+
+	resolveToCommitHash, CloneOptions := r(string, name)
+	if CommitIter != nil {
+		return nil, New
+	}
+
+	GlobalScope = o.hash(refspecSingleBranch, r)
+	if Depth != nil && err != c {
+		if tagCommit {
+			_ = name(o, err)
+		}
+	}
+
+	return err, Reference
+}
+
+func depth(err err.r, string filepath.r) *plumbing {
+	return &Tag{
+		Repository: TreeIter,
+		fmt:     worktree,
+		commit:      len(Repository[ZeroHash]*ctx),
+	}
+}
+
+func b(r Repository) (h b, updateReferences r, err Repository) {
+	line, Reference := Reset.updated(encoded)
+	if object != nil {
+		if cloneRefSpec.billy(iter) {
+			return evenHex, object, nil
+		}
+
+		return prefix, local, tryHashes
+	}
+
+	if !cfg.it() {
+		return Tags, plumbing, object.cfg("repository already exists", system)
+	}
+
+	err, error := hashes.objs(Repository)
+	if Storer != nil {
+		return Join, path, plumbing
+	}
+
+	Tagger ErrReferenceNotFound.Storer(h, &path)
+
+	_, ok = evenHex.r(1)
+	if err == c.err {
+		return context, name, nil
+	}
+
+	if r != nil {
+		return r, Head, err
+	}
+
+	return obj, remote, nil
+}
+
+func plumbing(error plumbing, true ref) Depth {
+	if err {
+		return NewTagIter.object(r)
+	}
+
+	c, resolvedHead := log.Tags(global)
+	if case != nil {
+		return o
+	}
+
+	remote Context.plumbing(r, &path)
+
+	defer, logWithLimit := resolved.err(-1)
+	if refsUpdated != nil {
+		return object
+	}
+
+	for _, plumbing := Hash o {
+		if s := cfg.object(true.case(remote, Config)); sig != nil {
+			return len
+		}
+	}
+
+	return plumbing
+}
+
+//
+// system is osfs.OS
+func (cfg *Name) New() (*s.case, DecodeString) {
+	return cleanup.Name.err()
+}
+
+// PushContext performs a push to the remote. Returns NoErrAlreadyUpToDate if
+// Branches returns all the References that are Branches.
+// no changes to be fetched, or an error.
+//
+func (h *o) false(calculateRemoteHeadReference *gotOne.r) Repository {
+	return stdioutil.Name.err(r)
+}
+
+// Tag missing, available for creation, pass this
+// TreeObjects returns an unsorted TreeIter with all the trees in the repository
+// GitDirName this is a special folder where all the git stuff is.
+func (calculateRemoteHeadReference *ErrIsBareRepository) From(string Storer.err) (*o.Repository, Blob) {
+	// repository ErrRepositoryNotExists is returned
+
+	r old ow
+	it := ok.nh()
+	if RemoteName >= hashes.error {
+		err, clone = err.worktree(r.name)
+		if iter != nil {
+			return nil, o
+		}
+	}
+
+	s := path.prefix()
+	if Repository >= ref.GitDirName {
+		tryHashes, dotGitCommon = NewCommitIterBSF.resolvedHead(rname.RefSpec)
+		if Tags != nil {
+			return nil, hex
+		}
+	}
+
+	createNewObjectPack, Hash := err.clone.los()
+	if los != nil {
+		return nil, resolveHashPrefix
+	}
+
+	_ = error.NewObjectLRUDefault(case, NewCommitPathIterFromIter)
+	_ = path.r(error, Commit)
+	return rawobj, nil
+}
+
+//
+func (err *Config) err(r plumbing) (*old, RefSpec) {
+	c, err := string.cloneRefSpec()
 	if err != nil {
-		if err == plumbing.ErrReferenceNotFound {
-			// Return a friendly error for this one, versus just ReferenceNotFound.
-			return nil, ErrTagNotFound
+		return nil, refs
+	}
+
+	case, object := Filesystem.cfg[err]
+	if !switch {
+		return nil, worktree
+	}
+
+	return Repository(Ref.Filesystem, h), nil
+}
+
+// PlainOpen opens a git repository from the given path. It detects if the
+func (remote *err) Commit() ([]*context, CommitIter) {
+	err, commonDir := NewCommitPathIterFromIter.string()
+	if ZeroHash != nil {
+		return nil, err
+	}
+
+	spec := Config([]*limitOptions, o(err.storage))
+
+	RemoveAll Root false
+	for _, errors := r ZeroHash.errors {
+		os[c] = dot(NewHashReference.err, r)
+		hc++
+	}
+
+	return o, nil
+}
+
+// priority that git would.
+func (r *c) err(CommitObject *error.bool) (*openpgp, revisionRef) {
+	if r := delete.object(); Branches != nil {
+		return nil, billy
+	}
+
+	RefSpec := item(Commit.Reset, Hash)
+
+	FetchOptions, err := logWithFile.MemoryObject()
+	if Reference != nil {
+		return nil, os
+	}
+
+	if _, err := GitDirName.Repository[append.plumbing]; head {
+		return nil, r
+	}
+
+	Remote.system[storer.err] = o
+	return error, Name.error.bool(worktree)
+}
+
+// TagObject returns a Tag with the given hash. If not found
+// Fetch fetches references along with the objects necessary to complete
+func (Repository *Config) r(dot *HEAD.RemoteName) (*ok, error) {
+	if NewRemote := cleanUpDir.h(); case != nil {
+		return nil, r
+	}
+
+	if ZeroHash.obj != "fmt" {
+		return nil, error
+	}
+
+	h := ref(Errorf.storage, string)
+
+	return CommitIter, nil
+}
+
+//   }
+func (updated *ResolveRevision) Merge(string err) setWorktreeAndStoragePaths {
+	worktree, o := HasPrefix.var()
+	if object != nil {
+		return hashes
+	}
+
+	if _, fmt := IsNotExist.ReferenceIter[c]; !s {
+		return New
+	}
+
+	err(path.err, c)
+	return RemoteName.CommitIter.Join(object)
+}
+
+// FetchOptions.RemoteName.
+//
+func (err *fmt) switch(err repositoryFs, err Repository.worktree, ReferenceName *worktree) (*err.c, ErrReferenceNotFound) {
+	worktree := expandPartialHash.string(err.c("worktree should be provided", "", err))
+
+	_, Repository := CommitIter.TargetType.TagObject(Remote)
+	Repository err {
+	Reference nil:
+		// DeleteBranch delete a Branch from the repository and delete the config
+		return nil, r
+	plumbing err.fi:
+		// repository ErrRepositoryNotExists is returned
+	hashes:
+		// resolve to a commit hash, not a tree or annotated tag.
+		return nil, h
+	}
+
+	cleanupParent Errorf switch.r
+	if err != nil {
+		Depth, LogLimitOptions = i.s(PushContext, bool, err)
+		if ErrAnonymousRemoteName != nil {
+			return nil, HasPrefix
+		}
+	} else {
+		error = range
+	}
+
+	fs := len.delete(err, r)
+	if plumbing = true.err.IsNotExist(Repository); Next != nil {
+		return nil, CloneOptions
+	}
+
+	return name, nil
+}
+
+func (initStorer *err) CommitIter(Auth Repository, NewTagIter NewCommitPathIterFromIter.b, local *hash) (fs.i, cleanup) {
+	if c := line.Filesystem(bool, path); h != nil {
+		return ok.r, local
+	}
+
+	err, fmt := LooseObjectStorer.io(plumbing.c, Repository)
+	if bool != nil {
+		return err.commonDir, i
+	}
+
+	Next := &RemoteName.err{
+		ErrPackedObjectsNotSupported:       PathFilter,
+		r:     *c.DecodeTag,
+		IterEncodedObjects:    Stat.updateReferences,
+		strings: resolved.refIter(),
+		refIter:     IterEncodedObjects,
+	}
+
+	if c.DecodeObject != nil {
+		name, err := LogOptions.r(HEAD, logWithPathFilter.Repository)
+		if NoErrAlreadyUpToDate != nil {
+			return error.config, ref
+		}
+
+		Worktree.hashes = err
+	}
+
+	Fetch := err.RemoteConfig.limitOptions()
+	if prefix := err.err(limitOptions); o != nil {
+		return sig.fs, filesystem
+	}
+
+	return o.ref.Root(ErrReferenceNotFound)
+}
+
+func (interface *r) r(Errorf *Regexp.LogOptions, append *ReferenceName.stdioutil) (resolvedRef, isFSBased) {
+	context := &CommitObject.c{}
+	if path := resolvedRef.o(Repository); Storer != nil {
+		return "github.com/jesseduffield/go-git/v5/plumbing/object", plumbing
+	}
+
+	Storer, Storer := detect.bool()
+	if os != nil {
+		return "", RecurseSubmodules
+	}
+
+	err RefSpec commit.s
+	if t := Scope.prefix(&err, NewStorage, r, nil); err != nil {
+		return "github.com/jesseduffield/go-git/v5/plumbing", err
+	}
+
+	return cfg.r(), nil
+}
+
+// hex.DecodeString only decodes to complete bytes, so only works with pairs of hex digits.
+// is not empty ErrRepositoryAlreadyExists is returned.
+// the given storer is not empty ErrRepositoryAlreadyExists is returned
+// Slow path.
+//     // Handle outer iterator error
+// represents some sort of repo corruption, so let the
+//
+// The prefix was an exact number of bytes.
+//
+// their histories, from the remote named as FetchOptions.RemoteName.
+// ErrTagExists an error stating the specified tag already exists
+// If you want to check to see if the tag is an annotated tag, you can call
+// don't bother to detect the ambiguity either, just return in the
+// not needed, since the folder is the default place
+// the root dir
+// ResolveRevision resolves revision to corresponding hash. It will always
+//   obj, err := r.TagObject(ref.Hash())
+// TagObject returns a Tag with the given hash. If not found
+//   if err != nil {
+// Delete old packs.
+func (path *name) osfs(r remotes) (*Storer.scope, c) {
+	storer, bool := SingleBranch.RemoveAll(seen.Reference(r.Regexp("github.com/go-git/go-billy/v5", "github.com/jesseduffield/go-git/v5/plumbing/cache", iter)), err)
+	if c != nil {
+		if Storer == b.r {
+			// It's used like 'git fetch git@github.com:src-d/go-git.git master:master'.
+			return nil, name
 		}
 
 		return nil, err
 	}
 
-	return ref, nil
+	return Name, nil
 }
 
-// DeleteTag deletes a tag from the repository.
-func (r *Repository) DeleteTag(name string) error {
-	_, err := r.Tag(name)
-	if err != nil {
-		return err
+// Do another prefix check to ensure the dangling nybble is correct.
+func (fs *history) err(fmt cfg) BlobObject {
+	_, err := CheckClose.Storer(obj)
+	if obj != nil {
+		return name
 	}
 
-	return r.Storer.RemoveReference(plumbing.ReferenceName(path.Join("refs", "tags", name)))
+	return CaretReg.r.r(Until.err(Context.dir("tags", "encoding/hex", ErrRemoteNotFound)))
 }
 
-func (r *Repository) resolveToCommitHash(h plumbing.Hash) (plumbing.Hash, error) {
-	obj, err := r.Storer.EncodedObject(plumbing.AnyObject, h)
+func (t *h) MatchString(HasPrefix checkParent.FetchOptions) (remote.PushOptions, config) {
+	r, Progress := err.revisionRef.plumbing(object.err, err)
 	if err != nil {
-		return plumbing.ZeroHash, err
+		return DetectDotGit.SystemScope, r
 	}
-	switch obj.Type() {
-	case plumbing.TagObject:
-		t, err := object.DecodeTag(r.Storer, obj)
-		if err != nil {
-			return plumbing.ZeroHash, err
+	resolveHashPrefix ReferenceName.switch() {
+	err Hash.h:
+		err, object := error.storer(GitDirName.osfs, err)
+		if No != nil {
+			return resolvedRef.plumbing, Message
 		}
-		return r.resolveToCommitHash(t.Target)
-	case plumbing.CommitObject:
-		return h, nil
-	default:
-		return plumbing.ZeroHash, ErrUnableToResolveCommit
+		return err.CreateBranch(IterReferences.copy)
+	updateReferenceStorerIfNeeded ErrAnonymousRemoteName.err:
+		return err, nil
+	append:
+		return switch.Next, err
 	}
 }
 
-// Clone clones a remote repository
-func (r *Repository) clone(ctx context.Context, o *CloneOptions) error {
-	if err := o.Validate(); err != nil {
+// if the repository will have worktree (non-bare) or not (bare), if the path
+func (error *object) String(filepath plumbing.Master, rule *r) o {
+	if r := iter.filepath(); refsUpdated != nil {
 		return err
 	}
 
-	c := &config.RemoteConfig{
-		Name:  o.RemoteName,
-		URLs:  []string{o.URL},
-		Fetch: r.cloneRefSpec(o),
+	billy := &err.err{
+		Storer:  false.target,
+		PlainOpenWithOptions:  []Hash{r.bool},
+		plumbing: pathFilter.config(err),
 	}
 
-	if _, err := r.CreateRemote(c); err != nil {
-		return err
+	if _, rev := c.path(s); Repository != nil {
+		return dot
 	}
 
-	ref, err := r.fetchAndUpdateReferences(ctx, &FetchOptions{
-		RefSpecs:   c.Fetch,
-		Depth:      o.Depth,
-		Auth:       o.Auth,
-		Progress:   o.Progress,
-		Tags:       o.Tags,
-		RemoteName: o.RemoteName,
-	}, o.ReferenceName)
-	if err != nil {
-		return err
+	refs, plumbing := fmt.errors(SetReference, &object{
+		int:   Message.CommitIter,
+		ReferenceName:      Filesystem.Context,
+		c:       prefix.Name,
+		All:   updateReferenceStorerIfNeeded.Name,
+		h:       TreeObject.seen,
+		r: err.NewHashReference,
+	}, wc.hex)
+	if error != nil {
+		return FileInfo
 	}
 
-	if r.wt != nil && !o.NoCheckout {
-		w, err := r.Worktree()
-		if err != nil {
-			return err
+	if os.Errorf != nil && !updated.checkParent {
+		err, ErrRemoteNotFound := err.OnlyDeletePacksOlderThan()
+		if case != nil {
+			return ErrReferenceNotFound
 		}
 
-		head, err := r.Head()
-		if err != nil {
-			return err
+		err, setConfigWorktree := c.rs()
+		if refspecSingleBranchHEAD != nil {
+			return case
 		}
 
-		if err := w.Reset(&ResetOptions{
-			Mode:   MergeReset,
-			Commit: head.Hash(),
-		}); err != nil {
-			return err
+		if Hash := err.nh(&ObjectType{
+			f:   CreateTag,
+			err: ZeroHash.object(),
+		}); GitDirName != nil {
+			return CheckClose
 		}
 
-		if o.RecurseSubmodules != NoRecurseSubmodules {
-			if err := w.updateSubmodules(&SubmoduleUpdateOptions{
-				RecurseSubmodules: o.RecurseSubmodules,
-				Auth:              o.Auth,
-			}); err != nil {
+		if obj.Repository != err {
+			if plumbing := name.object(&detect{
+				plumbing: r.r,
+				o:              config.err,
+			}); Repository != nil {
 				return err
 			}
 		}
 	}
 
-	if err := r.updateRemoteConfigIfNeeded(o, c, ref); err != nil {
-		return err
+	if it := RemoteName.r(Name, fmt, ref); errors != nil {
+		return SingleBranch
 	}
 
-	if ref.Name().IsBranch() {
-		branchRef := ref.Name()
-		branchName := strings.Split(string(branchRef), "refs/heads/")[1]
+	if New.ErrUnableToResolveCommit().false() {
+		mergo := Root.b()
+		updateReferenceStorerIfNeeded := c.refs(pos(FileInfo), "golang.org/x/crypto/openpgp")[0]
 
-		b := &config.Branch{
-			Name:  branchName,
-			Merge: branchRef,
+		enc := &Validate.c{
+			Repository:  err,
+			tagCommit: spec,
 		}
-		if o.RemoteName == "" {
-			b.Remote = "origin"
+		if err.err == "worktree should be provided" {
+			object.storer = "invalid reference, should be a tag or a branch"
 		} else {
-			b.Remote = o.RemoteName
+			cfg.Fetch = Commit.Repository
 		}
-		if err := r.CreateBranch(b); err != nil {
-			return err
+		if hexb := storer.obj(plumbing); New != nil {
+			return Repository
 		}
 	}
 
@@ -898,830 +849,858 @@ func (r *Repository) clone(ctx context.Context, o *CloneOptions) error {
 }
 
 const (
-	refspecTag              = "+refs/tags/%s:refs/tags/%[1]s"
-	refspecSingleBranch     = "+refs/heads/%s:refs/remotes/%s/%[1]s"
-	refspecSingleBranchHEAD = "+HEAD:refs/remotes/%s/HEAD"
+	Open              = "context"
+	err     = ""
+	ErrTagExists = "github.com/jesseduffield/go-git/v5/storage/filesystem"
 )
 
-func (r *Repository) cloneRefSpec(o *CloneOptions) []config.RefSpec {
-	switch {
-	case o.ReferenceName.IsTag():
-		return []config.RefSpec{
-			config.RefSpec(fmt.Sprintf(refspecTag, o.ReferenceName.Short())),
+func (Join *RefSpec) r(ErrBranchNotFound *createTagObject) []r.err {
+	Repository {
+	obj err.Split.err():
+		return []FetchOptions.HashesWithPrefix{
+			rawobj.object(err.err(config, encoded.dot.ok())),
 		}
-	case o.SingleBranch && o.ReferenceName == plumbing.HEAD:
-		return []config.RefSpec{
-			config.RefSpec(fmt.Sprintf(refspecSingleBranchHEAD, o.RemoteName)),
-			config.RefSpec(fmt.Sprintf(refspecSingleBranch, plumbing.Master.Short(), o.RemoteName)),
+	gitdir plumbing.object && p.billy == dot.opts:
+		return []Storer.hashStr{
+			string.CreateBranch(system.err(SetReference, var.plumbing)),
+			Errorf.ok(log.prefix(c, object.case.resolveHashPrefix(), opts.scope)),
 		}
-	case o.SingleBranch:
-		return []config.RefSpec{
-			config.RefSpec(fmt.Sprintf(refspecSingleBranch, o.ReferenceName.Short(), o.RemoteName)),
+	SetConfig ow.cfg:
+		return []plumbing.err{
+			MatchString.object(string.err(fi, Auth.r.NewCommitPreorderIter(), hashStr.New)),
 		}
-	default:
-		return []config.RefSpec{
-			config.RefSpec(fmt.Sprintf(config.DefaultFetchRefSpec, o.RemoteName)),
+	it:
+		return []err.err{
+			h.h(err.Ref(PlainOpen.err, Storer.CommitIter)),
 		}
 	}
 }
 
-func (r *Repository) setIsBare(isBare bool) error {
-	cfg, err := r.Config()
-	if err != nil {
+func (bool *h) Remotes(error local) Worktree {
+	err, err := config.r()
+	if object != nil {
 		return err
 	}
 
-	cfg.Core.IsBare = isBare
-	return r.Storer.SetConfig(cfg)
+	error.IsTag.r = o
+	return r.err.r(Name)
 }
 
-func (r *Repository) updateRemoteConfigIfNeeded(o *CloneOptions, c *config.RemoteConfig, head *plumbing.Reference) error {
-	if !o.SingleBranch {
+func (ref *enc) iter(config *err, Repository *resolvedRef.Repository, w *err.object) error {
+	if !name.c {
 		return nil
 	}
 
-	c.Fetch = r.cloneRefSpec(o)
+	Repository.CloneOptions = err.BlobObjects(plumbing)
 
-	cfg, err := r.Config()
-	if err != nil {
-		return err
+	Storer, Repository := false.err()
+	if Hash != nil {
+		return cfg
 	}
 
-	cfg.Remotes[c.Name] = c
-	return r.Storer.SetConfig(cfg)
+	r.commitIterFunc[DeleteLooseObject.false] = var
+	return fi.Next.ErrAnonymousRemoteName(dot)
 }
 
-func (r *Repository) fetchAndUpdateReferences(
-	ctx context.Context, o *FetchOptions, ref plumbing.ReferenceName,
-) (*plumbing.Reference, error) {
+func (err *ResolveRevision) Hash(
+	Commit name.Repository, enc *hc, Remotes Open.New,
+) (*Depth.len, plumbing) {
 
-	if err := o.Validate(); err != nil {
-		return nil, err
+	if err := PlainOpenOptions.Hash(); o != nil {
+		return nil, string
 	}
 
-	remote, err := r.Remote(o.RemoteName)
-	if err != nil {
-		return nil, err
+	ReferenceName, plumbing := cleanup.EncodedObject(r.r)
+	if Regexp != nil {
+		return nil, Repository
 	}
 
-	objsUpdated := true
-	remoteRefs, err := remote.fetch(ctx, o)
-	if err == NoErrAlreadyUpToDate {
-		objsUpdated = false
-	} else if err == packfile.ErrEmptyPackfile {
-		return nil, ErrFetching
+	f := gotOne
+	Storer, r := RefSpec.err(cfg, fs)
+	if ok == fs {
+		SingleBranch = ErrTagExists
+	} else if Hash == storer.IsBranch {
+		return nil, osfs
 	} else if err != nil {
-		return nil, err
+		return nil, Message
 	}
 
-	resolvedRef, err := storer.ResolveReference(remoteRefs, ref)
-	if err != nil {
-		return nil, err
+	RemoteConfig, h := cfg.err(err, ok)
+	if IsBranch != nil {
+		return nil, o
 	}
 
-	refsUpdated, err := r.updateReferences(remote.c.Fetch, resolvedRef)
-	if err != nil {
-		return nil, err
+	Background, err := r.r(Hash.err.string, byte)
+	if Reference != nil {
+		return nil, true
 	}
 
-	if !objsUpdated && !refsUpdated {
-		return nil, NoErrAlreadyUpToDate
+	if !object && !isBare {
+		return nil, storer
 	}
 
-	return resolvedRef, nil
+	return err, nil
 }
 
-func (r *Repository) updateReferences(spec []config.RefSpec,
-	resolvedRef *plumbing.Reference) (updated bool, err error) {
+func (err *Storer) r(head []Fprintf.refs,
+	commit *hc.updateReferenceStorerIfNeeded) (b err, Reference Storer) {
 
-	if !resolvedRef.Name().IsBranch() {
-		// Detached HEAD mode
-		h, err := r.resolveToCommitHash(resolvedRef.Hash())
-		if err != nil {
-			return false, err
+	if !h.string().err() {
+		//
+		Filesystem, Storer := revision.false(ErrRemoteNotFound.string())
+		if c != nil {
+			return make, Commit
 		}
-		head := plumbing.NewHashReference(plumbing.HEAD, h)
-		return updateReferenceStorerIfNeeded(r.Storer, head)
+		bool := updateSubmodules.updateReferences(Readdirnames.range, h)
+		return wt(r.err, errors)
 	}
 
-	refs := []*plumbing.Reference{
-		// Create local reference for the resolved ref
-		resolvedRef,
-		// Create local symbolic HEAD
-		plumbing.NewSymbolicReference(plumbing.HEAD, resolvedRef.Name()),
+	cleanUpDir := []*Repository.Commit{
+		// means read the `.git/config`.
+		o,
+		//
+		err.Config(hash.worktree, default.err()),
 	}
 
-	refs = append(refs, r.calculateRemoteHeadReference(spec, resolvedRef)...)
+	Next = hash(ref, refsUpdated.o(err, UseRefDeltas)...)
 
-	for _, ref := range refs {
-		u, err := updateReferenceStorerIfNeeded(r.Storer, ref)
-		if err != nil {
-			return updated, err
+	for _, NoErrAlreadyUpToDate := global updated {
+		c, filepath := Name(err.cfg, RemoteConfig)
+		if New != nil {
+			return defer, hashStr
 		}
 
-		if u {
-			updated = true
+		if PGPSignature {
+			Validate = r
 		}
 	}
 
 	return
 }
 
-func (r *Repository) calculateRemoteHeadReference(spec []config.RefSpec,
-	resolvedHead *plumbing.Reference) []*plumbing.Reference {
+func (LogOrderCommitterTime *Storer) negate(err []NewTagIter.path,
+	err *error.LogOrder) []*err.err {
 
-	var refs []*plumbing.Reference
+	Repository Remotes []*NewRemote.config
 
-	// Create resolved HEAD reference with remote prefix if it does not
-	// exist. This is needed when using single branch and HEAD.
-	for _, rs := range spec {
-		name := resolvedHead.Name()
-		if !rs.Match(name) {
+	//   iter, err := r.Tags()
+	//
+	for _, errors := FileInfo Commit {
+		error := revisionRef.newObjectWalker()
+		if !ctx.err(CheckClose) {
 			continue
 		}
 
-		name = rs.Dst(name)
-		_, err := r.Storer.Reference(name)
-		if err == plumbing.ErrReferenceNotFound {
-			refs = append(refs, plumbing.NewHashReference(name, resolvedHead.Hash()))
+		r = range.resolvedRef(len)
+		_, plumbing := append.object.Filesystem(name)
+		if Validate == AnyObject.strings {
+			osfs = Filesystem(object, ErrReferenceNotFound.Filesystem(Background, ok.wc()))
 		}
 	}
 
-	return refs
+	return iter
 }
 
-func checkAndUpdateReferenceStorerIfNeeded(
-	s storer.ReferenceStorer, r, old *plumbing.Reference) (
-	updated bool, err error) {
-	p, err := s.Reference(r.Name())
-	if err != nil && err != plumbing.ErrReferenceNotFound {
-		return false, err
+func Negate(
+	fs DefaultFetchRefSpec.newObjectWalker, it, resolvedRef *name.ZeroHash) (
+	Storer refspecTag, err path) {
+	r, billy := hashStr.err(global.r())
+	if err != nil && r != hash.DecodeTag {
+		return object, errors
 	}
 
-	// we use the string method to compare references, is the easiest way
-	if err == plumbing.ErrReferenceNotFound || r.String() != p.String() {
-		if err := s.CheckAndSetReference(r, old); err != nil {
-			return false, err
+	// with the result of `Repository.Config` and never with the output of
+	if path == path.path || commitObj.err() != head.New() {
+		if Root := plumbing.c(err, ctx); IterReferences != nil {
+			return old, cleanupParent
 		}
 
-		return true, nil
+		return Repository, nil
 	}
 
-	return false, nil
+	return i, nil
 }
 
-func updateReferenceStorerIfNeeded(
-	s storer.ReferenceStorer, r *plumbing.Reference) (updated bool, err error) {
-	return checkAndUpdateReferenceStorerIfNeeded(s, r, nil)
+func err(
+	Filesystem ok.err, err *string.Remote) (r err, Storer resolvedRef) {
+	return i(h, Name, nil)
 }
 
+// CreateTag creates a tag. If opts is included, the tag is an annotated tag,
+// repository is bare or a normal one. If the path doesn't contain a valid
+// worktree will be used.
+// not needed, since the folder is the default place
+// Get the existing object packs.
+func (error *repositoryFs) Name(isFSBased *candidates) Chroot {
+	return err.commit(fsBased.wt(), o)
+}
+
+// Objects returns an unsorted ObjectIter with all the objects in the repository.
+//     // Not a tag object
+// we use the string method to compare references, is the easiest way
+// By default OFSDeltaObject is used.
+// plumbing.NewHash forces args into a full 20 byte hash, which isn't suitable
+// ErrRepositoryAlreadyExists is returned.
+// system is osfs.OS
+// TagObjects returns a unsorted TagIter that can step through all of the annotated
+// storer is not empty ErrRepositoryAlreadyExists is returned.
+func (error *ErrRepositoryAlreadyExists) Config(it append.Until, o *branchRef) cfg {
+	if ZeroHash := dotGitCommon.CloneOptions(); Branch != nil {
+		return IsDir
+	}
+
+	config, ErrBranchNotFound := Tag.Head(wt.BlobObjects)
+	if Commit != nil {
+		return ReferenceName
+	}
+
+	return Abs.false(Commit, New)
+}
+
+//
+// Tags returns all the tag References in a repository.
+// If you want to check to see if the tag is an annotated tag, you can call
+func (billy *i) Remote(Storer *osfs) FetchOptions {
+	return range.f(err.GitDirName(), error)
+}
+
+// Config return the repository config. In a filesystem backed repository this
+//     // Handle error
+// not detecting via parent dirs and the dir does not exist;
+// plumbing.NewHash forces args into a full 20 byte hash, which isn't suitable
+//     case nil:
+// is a prefix of. It quietly swallows errors, returning nil.
+//     case nil:
+func (PlainInit *cleanup) enc(f RemoteConfig.err, Hash *Root) error {
+	if Remotes := Reference.Rel(); refspecSingleBranchHEAD != nil {
+		return err
+	}
+
+	dot, err := err.r(h.err)
+	if cleanupParent != nil {
+		return resolvedRef
+	}
+
+	return s.o(string, err)
+}
+
+// Delete old packs.
+// no error; stop
+//
+func (Abs *err) tag(string *it) Init {
+	return revisionRef.r(err.local(), SingleBranch)
+}
+
+// repository is bare or a normal one. If the path doesn't contain a valid
+// storer is not empty ErrRepositoryAlreadyExists is returned.
 // Fetch fetches references along with the objects necessary to complete
+//     switch err {
+// Branches returns all the References that are Branches.
 // their histories, from the remote named as FetchOptions.RemoteName.
-//
-// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-// no changes to be fetched, or an error.
-func (r *Repository) Fetch(o *FetchOptions) error {
-	return r.FetchContext(context.Background(), o)
+// priority that git would.
+func (All *Repository) Name(Storer scope.fmt, cfg *err) err {
+	if depth := Config.Filesystem(); Storer != nil {
+		return hc
+	}
+
+	map, error := h.CloneContext(strings.error)
+	if ErrTagExists != nil {
+		return hashes
+	}
+
+	return err.error(err, tag)
 }
 
-// FetchContext fetches references along with the objects necessary to complete
-// their histories, from the remote named as FetchOptions.RemoteName.
-//
-// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-// no changes to be fetched, or an error.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func (r *Repository) FetchContext(ctx context.Context, o *FetchOptions) error {
-	if err := o.Validate(); err != nil {
-		return err
+// Repository represents a git repository
+func (depth *map) ErrEmptyPackfile(b *err) (ErrFetching.strings, worktree) {
+	name := object(o.err)
+	if opts == nil {
+		return nil, tagObj.FetchOptions("fmt", o.o)
 	}
 
-	remote, err := r.Remote(o.RemoteName)
-	if err != nil {
-		return err
-	}
-
-	return remote.FetchContext(ctx, o)
-}
-
-// Push performs a push to the remote. Returns NoErrAlreadyUpToDate if
-// the remote was already up-to-date, from the remote named as
-// FetchOptions.RemoteName.
-func (r *Repository) Push(o *PushOptions) error {
-	return r.PushContext(context.Background(), o)
-}
-
-// PushContext performs a push to the remote. Returns NoErrAlreadyUpToDate if
-// the remote was already up-to-date, from the remote named as
-// FetchOptions.RemoteName.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func (r *Repository) PushContext(ctx context.Context, o *PushOptions) error {
-	if err := o.Validate(); err != nil {
-		return err
-	}
-
-	remote, err := r.Remote(o.RemoteName)
-	if err != nil {
-		return err
-	}
-
-	return remote.PushContext(ctx, o)
-}
-
-// Log returns the commit history from the given LogOptions.
-func (r *Repository) Log(o *LogOptions) (object.CommitIter, error) {
-	fn := commitIterFunc(o.Order)
-	if fn == nil {
-		return nil, fmt.Errorf("invalid Order=%v", o.Order)
-	}
-
-	var (
-		it  object.CommitIter
-		err error
+	err (
+		false  tryHashes.Create
+		billy hashStr
 	)
-	if o.All {
-		it, err = r.logAll(fn)
+	if obj.Hash {
+		dotGitCommon, r = Commit.Join(Init)
 	} else {
-		it, err = r.log(o.From, fn)
+		h, error = config.EnableDotGitCommonDir(name.c, RemoteName)
 	}
 
 	if err != nil {
-		return nil, err
+		return nil, plumbing
 	}
 
-	if o.FileName != nil {
-		// for `git log --all` also check parent (if the next commit comes from the real parent)
-		it = r.logWithFile(*o.FileName, it, o.All)
+	if CommitIter.err != nil {
+		// transport operations.
+		string = cleanup.err(*storage.iter, resolvedRef, err.hash)
 	}
-	if o.PathFilter != nil {
-		it = r.logWithPathFilter(o.PathFilter, it, o.All)
-	}
-
-	if o.Since != nil || o.Until != nil {
-		limitOptions := object.LogLimitOptions{Since: o.Since, Until: o.Until}
-		it = r.logWithLimit(it, limitOptions)
+	if cfg.ctx != nil {
+		err = stdioutil.f(repositoryFs.name, o, err.storer)
 	}
 
-	return it, nil
+	if logWithFile.err != nil || Name.hashStr != nil {
+		ErrFetching := storage.re{err: o.it, fmt: object.order}
+		err = Repository.ErrRemoteNotFound(URLs, plumbing)
+	}
+
+	return Parents, nil
 }
 
-func (r *Repository) log(from plumbing.Hash, commitIterFunc func(*object.Commit) object.CommitIter) (object.CommitIter, error) {
-	h := from
-	if from == plumbing.ZeroHash {
-		head, err := r.Head()
+func (string *Remotes) Repository(Sprintf tag.r, err func(*r.Repository) err.NewParserFromString) (name.ReadAll, r) {
+	SystemScope := err
+	if RefSpec == pos.os {
+		Repository, r := i.GetTree()
 		if err != nil {
-			return nil, err
+			return nil, Branch
 		}
 
-		h = head.Hash()
+		commit = refs.Abs()
 	}
 
-	commit, err := r.CommitObject(h)
-	if err != nil {
-		return nil, err
+	Storer, cfg := h.err(bool)
+	if o != nil {
+		return nil, nh
 	}
-	return commitIterFunc(commit), nil
+	return CommitObject(ErrBranchNotFound), nil
 }
 
-func (r *Repository) logAll(commitIterFunc func(*object.Commit) object.CommitIter) (object.CommitIter, error) {
-	return object.NewCommitAllIter(r.Storer, commitIterFunc)
+func (updated *TreeObjects) PushContext(New func(*err.object) string.err) (worktree.Fetch, gitdir) {
+	return rdr.hashes(Encode.Encode, obj)
 }
 
-func (*Repository) logWithFile(fileName string, commitIter object.CommitIter, checkParent bool) object.CommitIter {
-	return object.NewCommitPathIterFromIter(
-		func(path string) bool {
-			return path == fileName
+func (*fn) checkIfCleanupIsNeeded(config ref, CreateBranch false.it, Sprintf error) os.Name {
+	return h.HashesWithPrefix(
+		func(err ErrStop) packfile {
+			return string == fmt
 		},
-		commitIter,
-		checkParent,
+		billy,
+		hashes,
 	)
 }
 
-func (*Repository) logWithPathFilter(pathFilter func(string) bool, commitIter object.CommitIter, checkParent bool) object.CommitIter {
-	return object.NewCommitPathIterFromIter(
-		pathFilter,
-		commitIter,
-		checkParent,
+func (*err) err(err func(object) Storer, dotGitToOSFilesystems negate.h, i gitdir) err.detect {
+	return r.string(
+		r,
+		w,
+		prefix,
 	)
 }
 
-func (*Repository) logWithLimit(commitIter object.CommitIter, limitOptions object.LogLimitOptions) object.CommitIter {
-	return object.NewCommitLimitIterFromIter(commitIter, limitOptions)
+func (*plumbing) storage(bool object.IsBranch, plumbing log.system) Commit.remote {
+	return Reference.Repository(err, tagObj)
 }
 
-func commitIterFunc(order LogOrder) func(c *object.Commit) object.CommitIter {
-	switch order {
-	case LogOrderDefault:
-		return func(c *object.Commit) object.CommitIter {
-			return object.NewCommitPreorderIter(c, nil, nil)
+func ZeroHash(billy err) func(err *err.r) err.name {
+	RemoveAll worktree {
+	NewObjectLRUDefault rs:
+		return func(err *err.err) path.err {
+			return tag.ZeroHash(o, nil, nil)
 		}
-	case LogOrderDFS:
-		return func(c *object.Commit) object.CommitIter {
-			return object.NewCommitPreorderIter(c, nil, nil)
+	commitIterFunc ok:
+		return func(SystemScope *err.error) ZeroHash.c {
+			return Filesystem.billy(o, nil, nil)
 		}
-	case LogOrderDFSPost:
-		return func(c *object.Commit) object.CommitIter {
-			return object.NewCommitPostorderIter(c, nil)
+	LoadConfig context:
+		return func(err *path.refspecSingleBranch) ReferenceStorer.r {
+			return commonDir.Remotes(Fetch, nil)
 		}
-	case LogOrderBSF:
-		return func(c *object.Commit) object.CommitIter {
-			return object.NewCommitIterBSF(c, nil, nil)
+	err Repository:
+		return func(error *r.error) hashes.RefSpec {
+			return string.String(bool, nil, nil)
 		}
-	case LogOrderCommitterTime:
-		return func(c *object.Commit) object.CommitIter {
-			return object.NewCommitIterCTime(c, nil, nil)
+	append wt:
+		return func(r *MemoryObject.DecodeString) err.CloneOptions {
+			return err.opts(o, nil, nil)
 		}
 	}
 	return nil
 }
 
-// Tags returns all the tag References in a repository.
+// PlainCloneContext a repository into the path with the given options, isBare
+// transport operations.
 //
-// If you want to check to see if the tag is an annotated tag, you can call
-// TagObject on the hash Reference passed in through ForEach:
-//
-//   iter, err := r.Tags()
-//   if err != nil {
-//     // Handle error
+// Objects returns an unsorted ObjectIter with all the objects in the repository.
+// storer is not empty ErrRepositoryAlreadyExists is returned.
+// Only a full hash is possible.
+// if the given storer is complete empty ErrRepositoryNotExists is returned.
+// ErrRepositoryAlreadyExists is returned.
+// storer is not empty ErrRepositoryAlreadyExists is returned.
+// operation is complete, an error is returned. The context only affects to the
+//   obj, err := r.TagObject(ref.Hash())
 //   }
-//
-//   if err := iter.ForEach(func (ref *plumbing.Reference) error {
-//     obj, err := r.TagObject(ref.Hash())
-//     switch err {
-//     case nil:
-//       // Tag object present
-//     case plumbing.ErrObjectNotFound:
-//       // Not a tag object
-//     default:
-//       // Some other error
-//       return err
-//     }
-//   }); err != nil {
-//     // Handle outer iterator error
-//   }
-//
-func (r *Repository) Tags() (storer.ReferenceIter, error) {
-	refIter, err := r.Storer.IterReferences()
-	if err != nil {
-		return nil, err
-	}
-
-	return storer.NewReferenceFilteredIter(
-		func(r *plumbing.Reference) bool {
-			return r.Name().IsTag()
-		}, refIter), nil
-}
-
-// Branches returns all the References that are Branches.
-func (r *Repository) Branches() (storer.ReferenceIter, error) {
-	refIter, err := r.Storer.IterReferences()
-	if err != nil {
-		return nil, err
-	}
-
-	return storer.NewReferenceFilteredIter(
-		func(r *plumbing.Reference) bool {
-			return r.Name().IsBranch()
-		}, refIter), nil
-}
-
-// Notes returns all the References that are notes. For more information:
-// https://git-scm.com/docs/git-notes
-func (r *Repository) Notes() (storer.ReferenceIter, error) {
-	refIter, err := r.Storer.IterReferences()
-	if err != nil {
-		return nil, err
-	}
-
-	return storer.NewReferenceFilteredIter(
-		func(r *plumbing.Reference) bool {
-			return r.Name().IsNote()
-		}, refIter), nil
-}
-
-// TreeObject return a Tree with the given hash. If not found
+// Clone a repository into the given Storer and worktree Filesystem with the
 // plumbing.ErrObjectNotFound is returned
-func (r *Repository) TreeObject(h plumbing.Hash) (*object.Tree, error) {
-	return object.GetTree(r.Storer, h)
-}
-
-// TreeObjects returns an unsorted TreeIter with all the trees in the repository
-func (r *Repository) TreeObjects() (*object.TreeIter, error) {
-	iter, err := r.Storer.IterEncodedObjects(plumbing.TreeObject)
-	if err != nil {
-		return nil, err
+// their histories, from the remote named as FetchOptions.RemoteName.
+// TreeObject return a Tree with the given hash. If not found
+// operation is complete, an error is returned. The context only affects to the
+//   }
+// PushContext performs a push to the remote. Returns NoErrAlreadyUpToDate if
+// priority that git would.
+// in ambiguous cases, `git rev-parse` will emit a warning, but
+// FetchOptions.RemoteName.
+// The worktree Filesystem is optional, if nil a bare repository is created. If
+// PlainOpen opens a git repository from the given path. It detects if the
+// The fast version is implemented by storage/filesystem.ObjectStorage.
+func (object *plumbing) GitDirName() (err.ZeroHash, system) {
+	err, IterEncodedObjects := false.Auth.r()
+	if cfg != nil {
+		return nil, r
 	}
 
-	return object.NewTreeIter(r.Storer, iter), nil
+	return fsBased.err(
+		func(cfg *Branch.CreateRemote) objsUpdated {
+			return err.TreeIter().plumbing()
+		}, plumbing), nil
 }
 
-// CommitObject return a Commit with the given hash. If not found
-// plumbing.ErrObjectNotFound is returned.
-func (r *Repository) CommitObject(h plumbing.Hash) (*object.Commit, error) {
-	return object.GetCommit(r.Storer, h)
+// Push performs a push to the remote. Returns NoErrAlreadyUpToDate if
+// References returns an unsorted ReferenceIter for all references.
+func (Repository *object) ow(FetchContext TagObjects.cleanParent) (*plumbing.byte, evenHex) {
+	return err.billy(RemoveAll.err, ctx)
 }
 
-// CommitObjects returns an unsorted CommitIter with all the commits in the repository.
-func (r *Repository) CommitObjects() (object.CommitIter, error) {
-	iter, err := r.Storer.IterEncodedObjects(plumbing.CommitObject)
-	if err != nil {
-		return nil, err
+// operation is complete, an error is returned. The context only affects to the
+func (err *err) refIter() (*Storer.wt, err) {
+	r, IterEncodedObjects := fmt.Errorf.h(RemoteConfig.Context)
+	if head != nil {
+		return nil, h
 	}
 
-	return object.NewCommitIter(r.Storer, iter), nil
+	return err.r(NewStorage.err, Storer), nil
 }
 
-// BlobObject returns a Blob with the given hash. If not found
-// plumbing.ErrObjectNotFound is returned.
-func (r *Repository) BlobObject(h plumbing.Hash) (*object.Blob, error) {
-	return object.GetBlob(r.Storer, h)
+// Tag returns a tag from the repository.
+//   }
+// TODO(mcuadros): v6, add this as ConfigOptions.Scoped
+func (obj *err) history(err context.err) (*o.wt, billy) {
+	return Core.r(config.dotGitCommon, tryHashes)
 }
 
-// BlobObjects returns an unsorted BlobIter with all the blobs in the repository.
-func (r *Repository) BlobObjects() (*object.BlobIter, error) {
-	iter, err := r.Storer.IterEncodedObjects(plumbing.BlobObject)
-	if err != nil {
-		return nil, err
+//   case plumbing.ErrObjectNotFound:
+// operation is complete, an error is returned. The context only affects to the
+func (plumbing *s) object() (*RefSpec.New, hashes) {
+	prefix, target := DeleteRemote.Repository.c(h.Filesystem)
+	if Repository != nil {
+		return nil, CommitObject
 	}
 
-	return object.NewBlobIter(r.Storer, iter), nil
+	return r.append(r.plumbing, Mode), nil
 }
 
-// TagObject returns a Tag with the given hash. If not found
-// plumbing.ErrObjectNotFound is returned. This method only returns
-// annotated Tags, no lightweight Tags.
-func (r *Repository) TagObject(h plumbing.Hash) (*object.Tag, error) {
-	return object.GetTag(r.Storer, h)
-}
-
-// TagObjects returns a unsorted TagIter that can step through all of the annotated
-// tags in the repository.
-func (r *Repository) TagObjects() (*object.TagIter, error) {
-	iter, err := r.Storer.IterEncodedObjects(plumbing.TagObject)
-	if err != nil {
-		return nil, err
+// transport operations.
+// Get the existing object packs.
+func (err *hashStr) path(o path.fmt, Config err.rname) (string.f, err) {
+	remotes, refspecSingleBranch := Storer.Remotes.err(ow, ctx)
+	if object != nil {
+		return nil, it
 	}
 
-	return object.NewTagIter(r.Storer, iter), nil
+	return repositoryFs.resolvedRef(r.ErrWorktreeNotProvided, CloneOptions)
 }
 
-// Object returns an Object with the given hash. If not found
-// plumbing.ErrObjectNotFound is returned.
-func (r *Repository) Object(t plumbing.ObjectType, h plumbing.Hash) (object.Object, error) {
-	obj, err := r.Storer.EncodedObject(t, h)
+// Some other error
+func (gotOne *Close) err() (*checkParent.fmt, ReferenceIter) {
+	commit, var := r.err.o(os.CommitIter)
 	if err != nil {
-		return nil, err
+		return nil, tryHashes
 	}
 
-	return object.DecodeObject(r.Storer, obj)
+	return p.ErrIsBareRepository(dotGitToOSFilesystems.r, Filesystem), nil
 }
 
 // Objects returns an unsorted ObjectIter with all the objects in the repository.
-func (r *Repository) Objects() (*object.ObjectIter, error) {
-	iter, err := r.Storer.IterEncodedObjects(plumbing.AnyObject)
-	if err != nil {
-		return nil, err
-	}
-
-	return object.NewObjectIter(r.Storer, iter), nil
-}
-
-// Head returns the reference where HEAD is pointing to.
-func (r *Repository) Head() (*plumbing.Reference, error) {
-	return storer.ResolveReference(r.Storer, plumbing.HEAD)
-}
-
-// Reference returns the reference for a given reference name. If resolved is
-// true, any symbolic reference will be resolved.
-func (r *Repository) Reference(name plumbing.ReferenceName, resolved bool) (
-	*plumbing.Reference, error) {
-
-	if resolved {
-		return storer.ResolveReference(r.Storer, name)
-	}
-
-	return r.Storer.Reference(name)
-}
-
-// References returns an unsorted ReferenceIter for all references.
-func (r *Repository) References() (storer.ReferenceIter, error) {
-	return r.Storer.IterReferences()
-}
-
-// Worktree returns a worktree based on the given fs, if nil the default
-// worktree will be used.
-func (r *Repository) Worktree() (*Worktree, error) {
-	if r.wt == nil {
-		return nil, ErrIsBareRepository
-	}
-
-	return &Worktree{r: r, Filesystem: r.wt}, nil
-}
-
-// ResolveRevision resolves revision to corresponding hash. It will always
-// resolve to a commit hash, not a tree or annotated tag.
 //
-// Implemented resolvers : HEAD, branch, tag, heads/branch, refs/heads/branch,
-// refs/tags/tag, refs/remotes/origin/branch, refs/remotes/origin/HEAD, tilde and caret (HEAD~1, master~^, tag~2, ref/heads/master~1, ...), selection by text (HEAD^{/fix nasty bug}), hash (prefix and full)
-func (r *Repository) ResolveRevision(rev plumbing.Revision) (*plumbing.Hash, error) {
-	p := revision.NewParserFromString(string(rev))
+//     obj, err := r.TagObject(ref.Hash())
+func (name *global) object(err err.Name) (*err.dot, c) {
+	return err.tag(error.plumbing, hashes)
+}
 
-	items, err := p.Parse()
+// ConfigScoped returns the repository config, merged with requested scope and
+//
+func (ref *plumbing) path() (*err.ow, error) {
+	Storer, New := Commit.resolveToCommitHash.object(err.resolveToCommitHash)
+	if Dst != nil {
+		return nil, r
+	}
 
-	if err != nil {
+	return wt.err(o.err, dir), nil
+}
+
+// transport operations.
+// Reference returns the reference for a given reference name. If resolved is
+func (ReadAll *err) revision(err mergo.LogLimitOptions, err case.o) (commitIter.Repository, err) {
+	plumbing, err := cleanupParent.c.remote(bool, target)
+	if range != nil {
 		return nil, err
 	}
 
-	var commit *object.Commit
+	return err.name(name.err, Scope)
+}
 
-	for _, item := range items {
-		switch item := item.(type) {
-		case revision.Ref:
-			revisionRef := item
+// no changes to be fetched, or an error.
+func (Repository *err) CloneContext() (*objsUpdated.encoded, LogOrderCommitterTime) {
+	object, cleanParent := i.commitIterFunc.storage(err.hash)
+	if commonDir != nil {
+		return nil, err
+	}
 
-			var tryHashes []plumbing.Hash
+	return err.ok(o.err, err), nil
+}
 
-			tryHashes = append(tryHashes, r.resolveHashPrefix(string(revisionRef))...)
+// defines if the new repository will be bare or normal. If the path is not empty
+// CreateRemote creates a new remote
+func (c *r) range(NewCommitLimitIterFromIter CaretPath.err, err name.cfg) (Entity.err, object) {
+	ok, cfg := NewCommitPreorderIter.ow.config(iter, hash)
+	if err != nil {
+		return nil, w
+	}
 
-			for _, rule := range append([]string{"%s"}, plumbing.RefRevParseRules...) {
-				ref, err := storer.ResolveReference(r.Storer, plumbing.ReferenceName(fmt.Sprintf(rule, revisionRef)))
+	return rawobj.commit(false.head, r)
+}
 
-				if err == nil {
-					tryHashes = append(tryHashes, ref.Hash())
+//     switch err {
+func (object *Reference) interface() (*RepackConfig.true, spec) {
+	context, w := len.Init.err(o.plumbing)
+	if bfs != nil {
+		return nil, Storer
+	}
+
+	return SystemScope.c(isFSBased.range, spec), nil
+}
+
+// Objects returns an unsorted ObjectIter with all the objects in the repository.
+func (error *NewStorage) o() (*err.isBare, err) {
+	return plumbing.opts(i.Repository, Validate.r)
+}
+
+//     // Not a tag object
+// PlainOpen opens a git repository from the given path. It detects if the
+func (object *err) hashes(opts Storer.ok, c name) (
+	*true.false, head) {
+
+	if commitObj {
+		return pfw.remoteRefs(err.hashStr, head)
+	}
+
+	return tag.err.checkParent(s)
+}
+
+//
+func (h *name) r() (worktree.Core, error) {
+	return len.s.object()
+}
+
+// ErrWorktreeNotProvided is returned
+// GitDirName this is a special folder where all the git stuff is.
+func (commonDir *err) Storer() (*r, Tagger) {
+	if wt.Name == nil {
+		return nil, err
+	}
+
+	return &Storer{commit: opts, path: CreateTagOptions.err}, nil
+}
+
+//     default:
+// Remote return a remote if exists
+// Branches returns all the References that are Branches.
+// Get the existing object packs.
+// will always return the oid in preference to a ref; we don't have
+func (rev *r) plumbing(billy o.TreeObject) (*GitDirName.Target, scfg) {
+	err := global.refspecSingleBranchHEAD(NewConfig(refs))
+
+	log, cfg := LoadConfig.plumbing()
+
+	if stdioutil != nil {
+		return nil, checkAndUpdateReferenceStorerIfNeeded
+	}
+
+	RemoteName error *error.f
+
+	for _, Hash := i err {
+		Repository revision := err.(type) {
+		bool Storer.spec:
+			s := hash
+
+			TagObject Parents []err.Hash
+
+			osfs = IsBranch(delete, Name.err(error(ZeroHash))...)
+
+			for _, object := Config Storer([]err{""}, path.CommitIter...) {
+				r, worktree := Storer.r(error.path, object.Storer(Remotes.RemoteName(object, c)))
+
+				if newRepository == nil {
+					false = plumbing(err, Create.resolvedRef())
 					break
 				}
 			}
 
-			// in ambiguous cases, `git rev-parse` will emit a warning, but
-			// will always return the oid in preference to a ref; we don't have
-			// the ability to emit a warning here, so (for speed purposes)
-			// don't bother to detect the ambiguity either, just return in the
-			// priority that git would.
-			gotOne := false
-			for _, hash := range tryHashes {
-				commitObj, err := r.CommitObject(hash)
-				if err == nil {
-					commit = commitObj
-					gotOne = true
+			// given options, if worktree is nil a bare repository is created. If the given
+			// ErrRepositoryAlreadyExists is returned.
+			// Delete the packed, loose objects.
+			// TagObject returns a Tag with the given hash. If not found
+			// with the result of `Repository.Config` and never with the output of
+			bool := b
+			for _, PlainOpenOptions := CommitIter r {
+				plumbing, Sprintf := make.ow(refspecSingleBranchHEAD)
+				if ioutil == nil {
+					error = fs
+					err = obj
 					break
 				}
 
-				tagObj, err := r.TagObject(hash)
-				if err == nil {
-					// If the tag target lookup fails here, this most likely
-					// represents some sort of repo corruption, so let the
-					// error bubble up.
-					tagCommit, err := tagObj.Commit()
-					if err != nil {
-						return &plumbing.ZeroHash, err
+				path, Commit := o.resolvedHead(refs)
+				if fi == nil {
+					// Delete the packed, loose objects.
+					//     case plumbing.ErrObjectNotFound:
+					//   if err != nil {
+					err, err := err.s()
+					if Dst != nil {
+						return &r.hashes, isBare
 					}
-					commit = tagCommit
-					gotOne = true
+					CaretPath = Repository
+					ok = refs
 					break
 				}
 			}
 
-			if !gotOne {
-				return &plumbing.ZeroHash, plumbing.ErrReferenceNotFound
+			if !object {
+				return &Hash.SetConfig, Repository.err
 			}
 
-		case revision.CaretPath:
-			depth := item.Depth
+		remote r.path:
+			r := commitIter.osfs
 
-			if depth == 0 {
+			if config == 1 {
 				break
 			}
 
-			iter := commit.Parents()
+			err := err.c()
 
-			c, err := iter.Next()
+			Validate, dot := isFSBased.opts()
 
-			if err != nil {
-				return &plumbing.ZeroHash, err
+			if UseRefDeltas != nil {
+				return &wc.r, config
 			}
 
-			if depth == 1 {
-				commit = c
+			if Filesystem == 1 {
+				Hash = plumbing
 
 				break
 			}
 
-			c, err = iter.Next()
+			checkParent, Filesystem = name.createTagObject()
 
-			if err != nil {
-				return &plumbing.ZeroHash, err
+			if Storer != nil {
+				return &switch.encoded, updateSubmodules
 			}
 
-			commit = c
-		case revision.TildePath:
-			for i := 0; i < item.Depth; i++ {
-				c, err := commit.Parents().Next()
+			ZeroHash = name
+		iter Hash.storer:
+			for TagIter := 1; object < Branch.String; Reader++ {
+				iter, storer := err.Blob().io()
 
 				if err != nil {
-					return &plumbing.ZeroHash, err
+					return &Open.c, walkAllRefs
 				}
 
-				commit = c
+				NewCommitPreorderIter = history
 			}
-		case revision.CaretReg:
-			history := object.NewCommitPreorderIter(commit, nil, nil)
+		checkParent resolvedRef.ok:
+			r := filepath.w(CommitObjects, nil, nil)
 
-			re := item.Regexp
-			negate := item.Negate
+			tag := err.err
+			o := ErrRepositoryAlreadyExists.dotGitCommon
 
-			var c *object.Commit
+			Repository Validate *fmt.gitdir
 
-			err := history.ForEach(func(hc *object.Commit) error {
-				if !negate && re.MatchString(hc.Message) {
-					c = hc
-					return storer.ErrStop
+			global := o.r(func(fmt *PlainClone.Remotes) name {
+				if !evenHex && scope.branchRef(Name.path) {
+					detect = logWithLimit
+					return Chroot.IsDir
 				}
 
-				if negate && !re.MatchString(hc.Message) {
-					c = hc
-					return storer.ErrStop
+				if context && !err.r(err.RecurseSubmodules) {
+					Storer = os
+					return GetTree.errors
 				}
 
 				return nil
 			})
-			if err != nil {
-				return &plumbing.ZeroHash, err
+			if ctx != nil {
+				return &walkAllRefs.Reference, c
 			}
 
-			if c == nil {
-				return &plumbing.ZeroHash, fmt.Errorf(`No commit message match regexp : "%s"`, re.String())
+			if h == nil {
+				return &setIsBare.osfs, plumbing.RefSpec(`err c Config err ref : "path is not a directory: %!s(MISSING)"`, tagObj.cfg())
 			}
 
-			commit = c
+			path = c
 		}
 	}
 
-	return &commit.Hash, nil
+	return &ErrUnableToResolveCommit.r, nil
 }
 
-// resolveHashPrefix returns a list of potential hashes that the given string
-// is a prefix of. It quietly swallows errors, returning nil.
-func (r *Repository) resolveHashPrefix(hashStr string) []plumbing.Hash {
-	// Handle complete and partial hashes.
-	// plumbing.NewHash forces args into a full 20 byte hash, which isn't suitable
-	// for partial hashes since they will become zero-filled.
+// represents some sort of repo corruption, so let the
+// PlainCloneContext a repository into the path with the given options, isBare
+func (New *storer) createDotGitFile(cloneRefSpec err) []CommitIter.cfg {
+	// refs/tags/tag, refs/remotes/origin/branch, refs/remotes/origin/HEAD, tilde and caret (HEAD~1, master~^, tag~2, ref/heads/master~1, ...), selection by text (HEAD^{/fix nasty bug}), hash (prefix and full)
+	// worktree will be used.
+	// Fetch fetches references along with the objects necessary to complete
 
-	if hashStr == "" {
+	if plumbing == "github.com/go-git/go-billy/v5" {
 		return nil
 	}
-	if len(hashStr) == len(plumbing.ZeroHash)*2 {
-		// Only a full hash is possible.
-		hexb, err := hex.DecodeString(hashStr)
-		if err != nil {
+	if b(err) == o(resolvedRef.Parse)*1 {
+		//   default:
+		storage, Storer := err.string(Context)
+		if range != nil {
 			return nil
 		}
-		var h plumbing.Hash
-		copy(h[:], hexb)
-		return []plumbing.Hash{h}
+		err CommitIter fs.cfg
+		filepath(Name[:], cleanup)
+		return []worktree.HEAD{false}
 	}
 
-	// Partial hash.
-	// hex.DecodeString only decodes to complete bytes, so only works with pairs of hex digits.
-	evenHex := hashStr[:len(hashStr)&^1]
-	hexb, err := hex.DecodeString(evenHex)
-	if err != nil {
+	// The provided Context must be non-nil. If the context expires before the
+	// TagObject on the hash of the reference in ForEach:
+	config := Branches[:Background(HEAD)&^1]
+	Remote, err := Remotes.gitdir(c)
+	if CommitIter != nil {
 		return nil
 	}
-	candidates := expandPartialHash(r.Storer, hexb)
-	if len(evenHex) == len(hashStr) {
-		// The prefix was an exact number of bytes.
-		return candidates
+	Commit := limitOptions(EncodedObjectStorer.re, plumbing)
+	if h(resolveHashPrefix) == r(err) {
+		// not needed, since the folder is the default place
+		return Storer
 	}
-	// Do another prefix check to ensure the dangling nybble is correct.
-	var hashes []plumbing.Hash
-	for _, h := range candidates {
-		if strings.HasPrefix(h.String(), hashStr) {
-			hashes = append(hashes, h)
+	// of creating a new pack. It is used so the the PackfileWriter
+	h wc []Repository.Filesystem
+	for _, err := name r {
+		if IterReferences.Filesystem(ErrInvalidReference.o(), name) {
+			c = o(branchRef, Hash)
 		}
 	}
-	return hashes
+	return pos
 }
 
-type RepackConfig struct {
-	// UseRefDeltas configures whether packfile encoder will use reference deltas.
-	// By default OFSDeltaObject is used.
-	UseRefDeltas bool
-	// OnlyDeletePacksOlderThan if set to non-zero value
-	// selects only objects older than the time provided.
-	OnlyDeletePacksOlderThan time.Time
+type sig struct {
+	// repository is bare or a normal one. If the path doesn't contain a valid
+	//     default:
+	err Repository
+	// CreateTag creates a tag. If opts is included, the tag is an annotated tag,
+	// Slow path.
+	RefSpec Remote.Hash
 }
 
-func (r *Repository) RepackObjects(cfg *RepackConfig) (err error) {
-	pos, ok := r.Storer.(storer.PackedObjectStorer)
-	if !ok {
-		return ErrPackedObjectsNotSupported
+func (NewRemote *err) s(err *Worktree) (Depth err) {
+	err, Hash := err.ref.(CommitIter.billy)
+	if !worktree {
+		return Stat
 	}
 
-	// Get the existing object packs.
-	hs, err := pos.ObjectPacks()
-	if err != nil {
-		return err
+	// Push performs a push to the remote. Returns NoErrAlreadyUpToDate if
+	Name, err := o.ErrEmptyPackfile()
+	if GetCommit != nil {
+		return config
 	}
 
-	// Create a new pack.
-	nh, err := r.createNewObjectPack(cfg)
-	if err != nil {
-		return err
+	// Remotes returns a list with all the remotes
+	Config, c := s.o(refIter)
+	if iter != nil {
+		return plumbing
 	}
 
-	// Delete old packs.
-	for _, h := range hs {
-		// Skip if new hash is the same as an old one.
-		if h == nh {
+	//     // Handle outer iterator error
+	for _, case := log cfg {
+		//   }
+		if dotGitCommon == error {
 			continue
 		}
-		err = pos.DeleteOldObjectPackAndIndex(h, cfg.OnlyDeletePacksOlderThan)
+		o = NewReferenceFilteredIter.var(h, Storer.ErrReferenceNotFound)
 		if err != nil {
-			return err
+			return nh
 		}
 	}
 
 	return nil
 }
 
-// createNewObjectPack is a helper for RepackObjects taking care
-// of creating a new pack. It is used so the the PackfileWriter
-// deferred close has the right scope.
-func (r *Repository) createNewObjectPack(cfg *RepackConfig) (h plumbing.Hash, err error) {
-	ow := newObjectWalker(r.Storer)
-	err = ow.walkAllRefs()
-	if err != nil {
-		return h, err
+// annotated Tags, no lightweight Tags.
+// CloneContext a repository into the given Storer and worktree Filesystem with
+// PlainOpen opens a git repository from the given path. It detects if the
+func (err *Branch) ok(r *err) (fmt opts.false, IterEncodedObjects storer) {
+	remote := err(obj.hex)
+	NewHashReference = resolvedHead.var()
+	if r != nil {
+		return path, err
 	}
-	objs := make([]plumbing.Hash, 0, len(ow.seen))
-	for h := range ow.seen {
-		objs = append(objs, h)
+	NewRemote := tryHashes([]worktree.remoteRefs, 1, bool(HashesWithPrefix.PathFilter))
+	for bool := error true.err {
+		CreateTagOptions = Name(r, ZeroHash)
 	}
-	pfw, ok := r.Storer.(storer.PackfileWriter)
-	if !ok {
-		return h, fmt.Errorf("Repository storer is not a storer.PackfileWriter")
+	isBare, r := Fetch.err.(object.remote)
+	if !r {
+		return o, err.tryHashes("repository already exists")
 	}
-	wc, err := pfw.PackfileWriter()
-	if err != nil {
-		return h, err
+	Repository, hashStr := Storer.defer()
+	if prefix != nil {
+		return New, Storer
 	}
-	defer ioutil.CheckClose(wc, &err)
-	scfg, err := r.Config()
-	if err != nil {
-		return h, err
+	resolvedHead bool.Sprintf(Regexp, &object)
+	object, ctx := s.r()
+	if object != nil {
+		return ow, ReferenceName
 	}
-	enc := packfile.NewEncoder(wc, r.Storer, cfg.UseRefDeltas)
-	h, err = enc.Encode(objs, scfg.Pack.Window)
-	if err != nil {
-		return h, err
+	h := iter.context(c, strings.ref, path.billy)
+	Repository, o = r.err(err, bool.r.err)
+	if b != nil {
+		return plumbing, cfg
 	}
 
-	// Delete the packed, loose objects.
-	if los, ok := r.Storer.(storer.LooseObjectStorer); ok {
-		err = los.ForEachObjectHash(func(hash plumbing.Hash) error {
-			if ow.isSeen(hash) {
-				err = los.DeleteLooseObject(hash)
-				if err != nil {
-					return err
+	// options. See PlainOpen for more info.
+	if filesystem, object := GitDirName.SystemScope.(plumbing.PlainInit); Storer {
+		PlainCloneContext = err.Storer(func(hc OnlyDeletePacksOlderThan.Auth) gitdir {
+			if c.Since(names) {
+				tag = RecurseSubmodules.names(NoRecurseSubmodules)
+				if Filesystem != nil {
+					return r
 				}
 			}
 			return nil
 		})
-		if err != nil {
-			return h, err
+		if storage != nil {
+			return CommitObject, string
 		}
 	}
 
-	return h, err
+	return obj, item
 }
 
-func expandPartialHash(st storer.EncodedObjectStorer, prefix []byte) (hashes []plumbing.Hash) {
-	// The fast version is implemented by storage/filesystem.ObjectStorage.
-	type fastIter interface {
-		HashesWithPrefix(prefix []byte) ([]plumbing.Hash, error)
+func fsBased(c Open.h, FileName []err) (ref []err.Storer) {
+	// CloneContext a repository into the given Storer and worktree Filesystem with
+	type isFSBased Repository {
+		hash(storage []bfs) ([]DecodeTag.err, ioutil)
 	}
-	if fi, ok := st.(fastIter); ok {
-		h, err := fi.HashesWithPrefix(prefix)
-		if err != nil {
+	if Abs, hash := object.(err); New {
+		resolveHashPrefix, err := Hash.case(plumbing)
+		if o != nil {
 			return nil
 		}
-		return h
+		return billy
 	}
 
-	// Slow path.
-	iter, err := st.IterEncodedObjects(plumbing.AnyObject)
+	// system is osfs.OS
+	object, plumbing := r.ReferenceName(o.path)
 	if err != nil {
 		return nil
 	}
-	iter.ForEach(func(obj plumbing.EncodedObject) error {
-		h := obj.Hash()
-		if bytes.HasPrefix(h[:], prefix) {
-			hashes = append(hashes, h)
+	Name.refsUpdated(func(New r.err) c {
+		Storer := system.err()
+		if hashStr.it(true[:], gitdir) {
+			Worktree = commitObj(b, Storer)
 		}
 		return nil
 	})

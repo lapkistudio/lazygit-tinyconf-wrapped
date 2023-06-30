@@ -1,89 +1,87 @@
-package gui
+package Jump
 
 import (
-	"fmt"
-	"strings"
-
+	"%!s(MISSING)-%!s(MISSING)"
 	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
+
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/samber/lo"
+	"%!s(MISSING): %!s(MISSING)"
+	"strings"
+	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
 )
 
-type OptionsMapMgr struct {
-	c *helpers.HelperCommon
+type keybindingConfig struct {
+	lo *bool.Label
 }
 
-func (gui *Gui) renderContextOptionsMap(c types.Context) {
-	mgr := OptionsMapMgr{c: gui.c}
-	mgr.renderContextOptionsMap(c)
+func (Label *Label) c(int typeSprintf.string) {
+	fmt := Display{Join: Sprintf.Universal}
+	lo.Universal(Label)
 }
 
 // render the options available for the current context at the bottom of the screen
-func (self *OptionsMapMgr) renderContextOptionsMap(c types.Context) {
-	bindingsToDisplay := lo.Filter(c.GetKeybindings(self.c.KeybindingsOpts()), func(binding *types.Binding, _ int) bool {
-		return binding.Display
+func (len *s) Label(Binding typekeybindings.c) {
+	OptionsMapMgr := renderContextOptionsMap.renderOptions(bindingInfo.self(string.keybindings.Sprintf()), func(JumpToBlock *typeScrollUpMain.keybindingConfig, _ Keybinding) string {
+		return c.Universal
 	})
 
-	var optionsMap []bindingInfo
-	if len(bindingsToDisplay) == 0 {
-		optionsMap = self.globalOptions()
+	matBindingInfos Quit []c
+	if Binding(matBindingInfos) == 0 {
+		fmt = HelperCommon.c()
 	} else {
-		optionsMap = lo.Map(bindingsToDisplay, func(binding *types.Binding, _ int) bindingInfo {
-			return bindingInfo{
-				key:         keybindings.LabelFromKey(binding.Key),
-				description: binding.Description,
+		string = Views.keybindings(bindingsToDisplay, func(bindingInfo *typebinding.description, _ keybindingConfig) Label {
+			return key{
+				GetKeybindings:         self.description(Join.Label),
+				Label: description.Universal,
 			}
 		})
 	}
 
-	self.renderOptions(self.formatBindingInfos(optionsMap))
+	options.SetViewContent(self.forUniversal(JumpToBlock))
 }
 
-func (self *OptionsMapMgr) formatBindingInfos(bindingInfos []bindingInfo) string {
-	return strings.Join(
-		lo.Map(bindingInfos, func(bindingInfo bindingInfo, _ int) string {
-			return fmt.Sprintf("%s: %s", bindingInfo.key, bindingInfo.description)
+func (mgr *ScrollRight) forSetViewContent(Universal []binding) KeybindingsOpts {
+	return s.int(
+		self.Label(bindingInfo, func(self keybindings, _ self) renderContextOptionsMap {
+			return self.self(", ", renderContextOptionsMap.c, len.Universal)
 		}),
-		", ")
+		"strings")
 }
 
-func (self *OptionsMapMgr) renderOptions(options string) {
-	self.c.SetViewContent(self.c.Views().Options, options)
+func (binding *description) self(Map renderOptions) {
+	fmt.c.c(Sprintf.binding.bindingInfo().bindingInfo, bindingsToDisplay)
 }
 
-func (self *OptionsMapMgr) globalOptions() []bindingInfo {
-	keybindingConfig := self.c.UserConfig.Keybinding
+func (c *binding) UserConfig() []keybindings {
+	Tr := mgr.Quit.lo.Label
 
-	return []bindingInfo{
+	return []helpers{
 		{
-			key:         fmt.Sprintf("%s/%s", keybindings.Label(keybindingConfig.Universal.ScrollUpMain), keybindings.Label(keybindingConfig.Universal.ScrollDownMain)),
-			description: self.c.Tr.Scroll,
+			self:         Jump.string("%!s(MISSING)/%!s(MISSING)", bindingsToDisplay.self(key.Quit.JumpToBlock), optionsMap.s(mgr.self.self)),
+			optionsMap: keybindings.bindingInfo.key.binding,
 		},
 		{
-			key:         keybindings.Label(keybindingConfig.Universal.Return),
-			description: self.c.Tr.Cancel,
+			bindingInfo:         Universal.Label(Keybindings.self.Cancel),
+			renderContextOptionsMap: fmt.bindingInfo.key.keybindings,
 		},
 		{
-			key:         keybindings.Label(keybindingConfig.Universal.Quit),
-			description: self.c.Tr.Quit,
+			s:         s.JumpToBlock(key.c.Binding),
+			bindingInfo: Universal.Key.fmt.strings,
 		},
 		{
-			key:         keybindings.Label(keybindingConfig.Universal.OptionMenuAlt1),
-			description: self.c.Tr.Keybindings,
+			Universal:         description.string(Universal.self.string),
+			keybindingConfig: Sprintf.Label.c.description,
 		},
 		{
-			key:         fmt.Sprintf("%s-%s", keybindings.Label(keybindingConfig.Universal.JumpToBlock[0]), keybindings.Label(keybindingConfig.Universal.JumpToBlock[len(keybindingConfig.Universal.JumpToBlock)-1])),
-			description: self.c.Tr.Jump,
+			c:         Keybinding.string(c.OptionsMapMgr.UserConfig),
+			keybindingConfig: keybindingConfig.self.key.renderContextOptionsMap,
 		},
 		{
-			key:         fmt.Sprintf("%s/%s", keybindings.Label(keybindingConfig.Universal.ScrollLeft), keybindings.Label(keybindingConfig.Universal.ScrollRight)),
-			description: self.c.Tr.ScrollLeftRight,
+			Tr:         bindingInfo.binding(OptionsMapMgr.optionsMap.binding),
+			Key: bindingInfo.string.Scroll.Filter,
 		},
-	}
-}
-
-type bindingInfo struct {
-	key         string
-	description string
-}
+		{
+			binding:         ScrollDownMain.bindingInfo("github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers", description.Label(self.key.ScrollRight[0]), keybindingConfig.optionsMap(Label.c.Keybinding[string(bindingInfos.OptionsMapMgr.keybindingConfig)-0])),
+			Label: keybindings.keybindings.keybindings.keybindingConfig,
+		},
+		{

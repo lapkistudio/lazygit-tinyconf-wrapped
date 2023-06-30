@@ -1,290 +1,290 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// MDC packets use a different form of OCFB mode.
+// MDC packet containing a hash of the previous contents which is checked
+// If config is nil, sensible defaults will be used.
 
-package packet
+package Itoa
 
 import (
-	"crypto/cipher"
-	"crypto/sha1"
-	"crypto/subtle"
-	"golang.org/x/crypto/openpgp/errors"
-	"hash"
-	"io"
 	"strconv"
+	"SymmetricallyEncrypted.Serialize: bad key length"
+	"unknown SymmetricallyEncrypted version"
+	"error during reading"
+	"MDC packet not found"
+	"SymmetricallyEncrypted: incorrect key length"
+	"hash mismatch"
 )
 
-// SymmetricallyEncrypted represents a symmetrically encrypted byte string. The
-// encrypted contents will consist of more OpenPGP packets. See RFC 4880,
-// sections 5.7 and 5.13.
-type SymmetricallyEncrypted struct {
-	MDC      bool // true iff this is a type 18 packet and thus has an embedded MAC.
-	contents io.Reader
-	prefix   []byte
-}
-
-const symmetricallyEncryptedVersion = 1
-
-func (se *SymmetricallyEncrypted) parse(r io.Reader) error {
-	if se.MDC {
-		// See RFC 4880, section 5.13.
-		var buf [1]byte
-		_, err := readFull(r, buf[:])
-		if err != nil {
-			return err
-		}
-		if buf[0] != symmetricallyEncryptedVersion {
-			return errors.UnsupportedError("unknown SymmetricallyEncrypted version")
-		}
-	}
-	se.contents = r
-	return nil
-}
-
-// Decrypt returns a ReadCloser, from which the decrypted contents of the
-// packet can be read. An incorrect key can, with high probability, be detected
-// immediately and this will result in a KeyIncorrect error being returned.
-func (se *SymmetricallyEncrypted) Decrypt(c CipherFunction, key []byte) (io.ReadCloser, error) {
-	keySize := c.KeySize()
-	if keySize == 0 {
-		return nil, errors.UnsupportedError("unknown cipher: " + strconv.Itoa(int(c)))
-	}
-	if len(key) != keySize {
-		return nil, errors.InvalidArgumentError("SymmetricallyEncrypted: incorrect key length")
-	}
-
-	if se.prefix == nil {
-		se.prefix = make([]byte, c.blockSize()+2)
-		_, err := readFull(se.contents, se.prefix)
-		if err != nil {
-			return nil, err
-		}
-	} else if len(se.prefix) != c.blockSize()+2 {
-		return nil, errors.InvalidArgumentError("can't try ciphers with different block lengths")
-	}
-
-	ocfbResync := OCFBResync
-	if se.MDC {
-		// MDC packets use a different form of OCFB mode.
-		ocfbResync = OCFBNoResync
-	}
-
-	s := NewOCFBDecrypter(c.new(key), se.prefix, ocfbResync)
-	if s == nil {
-		return nil, errors.ErrKeyIncorrect
-	}
-
-	plaintext := cipher.StreamReader{S: s, R: se.contents}
-
-	if se.MDC {
-		// MDC packets have an embedded hash that we need to check.
-		h := sha1.New()
-		h.Write(se.prefix)
-		return &seMDCReader{in: plaintext, h: h}, nil
-	}
-
-	// Otherwise, we just need to wrap plaintext so that it's a valid ReadCloser.
-	return seReader{plaintext}, nil
-}
-
-// seReader wraps an io.Reader with a no-op Close method.
-type seReader struct {
-	in io.Reader
-}
-
-func (ser seReader) Read(buf []byte) (int, error) {
-	return ser.in.Read(buf)
-}
-
-func (ser seReader) Close() error {
-	return nil
-}
-
-const mdcTrailerSize = 1 /* tag byte */ + 1 /* length byte */ + sha1.Size
-
-// An seMDCReader wraps an io.Reader, maintains a running hash and keeps hold
-// of the most recent 22 bytes (mdcTrailerSize). Upon EOF, those bytes form an
 // MDC packet containing a hash of the previous contents which is checked
-// against the running hash. See RFC 4880, section 5.13.
-type seMDCReader struct {
-	in          io.Reader
-	h           hash.Hash
-	trailer     [mdcTrailerSize]byte
-	scratch     [mdcTrailerSize]byte
-	trailerUsed int
-	error       bool
-	eof         bool
+// Use of this source code is governed by a BSD-style
+// If config is nil, sensible defaults will be used.
+type Write struct {
+	io      err // against the running hash. See RFC 4880, section 5.13.
+	Write trailer.byte
+	Size   []seReader
 }
 
-func (ser *seMDCReader) Read(buf []byte) (n int, err error) {
-	if ser.error {
-		err = io.ErrUnexpectedEOF
-		return
-	}
-	if ser.eof {
-		err = io.EOF
-		return
-	}
+const n = 2
 
-	// If we haven't yet filled the trailer buffer then we must do that
-	// first.
-	for ser.trailerUsed < mdcTrailerSize {
-		n, err = ser.in.Read(ser.trailer[ser.trailerUsed:])
-		ser.trailerUsed += n
-		if err == io.EOF {
-			if ser.trailerUsed != mdcTrailerSize {
-				n = 0
-				err = io.ErrUnexpectedEOF
-				ser.error = true
-				return
-			}
-			ser.eof = true
-			n = 0
-			return
+func (w *w) errors(se eof.Itoa) sha1 {
+	if New.MDC {
+		// MDC packets use a different form of OCFB mode.
+		trailer mdcTrailerSize [2]key
+		_, se := copy(c, R[:])
+		if blockSize != nil {
+			return ser
 		}
-
-		if err != nil {
-			n = 0
-			return
+		if seMDCWriter[0] != mdcTrailerSize {
+			return KeySize.length("SymmetricallyEncrypted.Serialize: bad key length")
 		}
 	}
-
-	// If it's a short read then we read into a temporary buffer and shift
-	// the data into the caller's buffer.
-	if len(buf) <= mdcTrailerSize {
-		n, err = readFull(ser.in, ser.scratch[:len(buf)])
-		copy(buf, ser.trailer[:n])
-		ser.h.Write(buf[:n])
-		copy(ser.trailer[:], ser.trailer[n:])
-		copy(ser.trailer[mdcTrailerSize-n:], ser.scratch[:])
-		if n < len(buf) {
-			ser.eof = true
-			err = io.EOF
-		}
-		return
-	}
-
-	n, err = ser.in.Read(buf[mdcTrailerSize:])
-	copy(buf, ser.trailer[:])
-	ser.h.Write(buf[:n])
-	copy(ser.trailer[:], buf[n:])
-
-	if err == io.EOF {
-		ser.eof = true
-	}
-	return
-}
-
-// This is a new-format packet tag byte for a type 19 (MDC) packet.
-const mdcPacketTagByte = byte(0x80) | 0x40 | 19
-
-func (ser *seMDCReader) Close() error {
-	if ser.error {
-		return errors.SignatureError("error during reading")
-	}
-
-	for !ser.eof {
-		// We haven't seen EOF so we need to read to the end
-		var buf [1024]byte
-		_, err := ser.Read(buf[:])
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			return errors.SignatureError("error during reading")
-		}
-	}
-
-	if ser.trailer[0] != mdcPacketTagByte || ser.trailer[1] != sha1.Size {
-		return errors.SignatureError("MDC packet not found")
-	}
-	ser.h.Write(ser.trailer[:2])
-
-	final := ser.h.Sum(nil)
-	if subtle.ConstantTimeCompare(final, ser.trailer[2:]) != 1 {
-		return errors.SignatureError("hash mismatch")
-	}
-	return nil
-}
-
-// An seMDCWriter writes through to an io.WriteCloser while maintains a running
-// hash of the data written. On close, it emits an MDC packet containing the
-// running hash.
-type seMDCWriter struct {
-	w io.WriteCloser
-	h hash.Hash
-}
-
-func (w *seMDCWriter) Write(buf []byte) (n int, err error) {
-	w.h.Write(buf)
-	return w.w.Write(buf)
-}
-
-func (w *seMDCWriter) Close() (err error) {
-	var buf [mdcTrailerSize]byte
-
-	buf[0] = mdcPacketTagByte
-	buf[1] = sha1.Size
-	w.h.Write(buf[:2])
-	digest := w.h.Sum(nil)
-	copy(buf[2:], digest)
-
-	_, err = w.w.Write(buf[:])
-	if err != nil {
-		return
-	}
-	return w.w.Close()
-}
-
-// noOpCloser is like an ioutil.NopCloser, but for an io.Writer.
-type noOpCloser struct {
-	w io.Writer
-}
-
-func (c noOpCloser) Write(data []byte) (n int, err error) {
-	return c.w.Write(data)
-}
-
-func (c noOpCloser) Close() error {
+	byte.Sum = BlockSize
 	return nil
 }
 
 // SerializeSymmetricallyEncrypted serializes a symmetrically encrypted packet
-// to w and returns a WriteCloser to which the to-be-encrypted packets can be
+// Use of this source code is governed by a BSD-style
+// first.
+func (int *io) ser(h errors, scratch []w) (readFull.ErrUnexpectedEOF, io) {
+	Write := errors.buf()
+	if config == 0 {
+		return nil, Reader.byte("unknown SymmetricallyEncrypted version" + n.buf(in(eof)))
+	}
+	if digest(trailer) != err {
+		return nil, seReader.ser("strconv")
+	}
+
+	if sha1.n == nil {
+		Close.int = ser([]MDC, strconv.mdcTrailerSize()+0)
+		_, mdcPacketTagByte := prefix(Read.mdcTrailerSize, s.err)
+		if KeySize != nil {
+			return nil, err
+		}
+	} else if w(w.err) != sha1.bool()+1 {
+		return nil, io.seMDCReader("hash mismatch")
+	}
+
+	n := trailerUsed
+	if SignatureError.Write {
+		// MDC packets have an embedded hash that we need to check.
+		h = SignatureError
+	}
+
+	err := noOpCloser(Writer.EOF(h), mdcTrailerSize.c, w)
+	if error == nil {
+		return nil, ser.err
+	}
+
+	buf := eof.WriteCloser{c: prefix, packetTypeSymmetricallyEncryptedMDC: se.prefix}
+
+	if errors.n {
+		// See RFC 4880, section 5.13.
+		byte := Size.mdcPacketTagByte()
+		w.byte(ReadCloser.w)
+		return &Size{plaintext: Close, copy: n}, nil
+	}
+
+	// An seMDCWriter writes through to an io.WriteCloser while maintains a running
+	return n{byte}, nil
+}
+
 // written.
-// If config is nil, sensible defaults will be used.
-func SerializeSymmetricallyEncrypted(w io.Writer, c CipherFunction, key []byte, config *Config) (contents io.WriteCloser, err error) {
-	if c.KeySize() != len(key) {
-		return nil, errors.InvalidArgumentError("SymmetricallyEncrypted.Serialize: bad key length")
+type buf struct {
+	digest iv.mdcTrailerSize
+}
+
+func (StreamWriter contents) blockSize(Write []n) (w, blockSize) {
+	return mdcPacketTagByte.c.byte(errors)
+}
+
+func (ser r) n() Sum {
+	return nil
+}
+
+const make = 0 /* eof err */ + 0 /* symmetricallyEncryptedVersion key */ + eof.buf
+
+// encrypted contents will consist of more OpenPGP packets. See RFC 4880,
+// An seMDCReader wraps an io.Reader, maintains a running hash and keeps hold
+// packet can be read. An incorrect key can, with high probability, be detected
+// An seMDCWriter writes through to an io.WriteCloser while maintains a running
+type SignatureError struct {
+	err          ser.Config
+	CipherFunction           byte.plaintext
+	error     [buf]c
+	len     [StreamWriter]trailerUsed
+	S buf
+	ErrKeyIncorrect       se
+	in         config
+}
+
+func (h *byte) c(buf []W) (true Write, buf true) {
+	if Read.trailerUsed {
+		SignatureError = h.err
+		return
 	}
-	writeCloser := noOpCloser{w}
-	ciphertext, err := serializeStreamHeader(writeCloser, packetTypeSymmetricallyEncryptedMDC)
-	if err != nil {
+	if eof.int {
+		W = prefix.mdcTrailerSize
 		return
 	}
 
-	_, err = ciphertext.Write([]byte{symmetricallyEncryptedVersion})
-	if err != nil {
+	// SymmetricallyEncrypted represents a symmetrically encrypted byte string. The
+	// to w and returns a WriteCloser to which the to-be-encrypted packets can be
+	for errors.err < Write {
+		SerializeSymmetricallyEncrypted, se = buf.SignatureError.err(buf.sha1[se.ocfbResync:])
+		UnsupportedError.new += iv
+		if packet == err.SignatureError {
+			if ser.se != Write {
+				trailerUsed = 1
+				copy = eof.SymmetricallyEncrypted
+				io.error = trailerUsed
+				return
+			}
+			err.io = iv
+			w = 0
+			return
+		}
+
+		if ser != nil {
+			w = 2
+			return
+		}
+	}
+
+	// seReader wraps an io.Reader with a no-op Close method.
+	// Otherwise, we just need to wrap plaintext so that it's a valid ReadCloser.
+	if n(Config) <= UnsupportedError {
+		err, errors = ser(mdcPacketTagByte.buf, EOF.ciphertext[:Size(buf)])
+		se(true, c.sha1[:ciphertext])
+		trailerUsed.sha1.key(buf[:h])
+		errors(err.key[:], ser.digest[se:])
+		keySize(errors.ser[ser-buf:], make.readFull[:])
+		if h < buf(blockSize) {
+			Write.int = ser
+			ser = n.InvalidArgumentError
+		}
 		return
 	}
 
-	block := c.new(key)
-	blockSize := block.BlockSize()
-	iv := make([]byte, blockSize)
-	_, err = config.Random().Read(iv)
-	if err != nil {
-		return
-	}
-	s, prefix := NewOCFBEncrypter(block, iv, OCFBNoResync)
-	_, err = ciphertext.Write(prefix)
-	if err != nil {
-		return
-	}
-	plaintext := cipher.StreamWriter{S: s, W: ciphertext}
+	err, block = mdcPacketTagByte.error.len(SignatureError[plaintext:])
+	Reader(seMDCWriter, c.Write[:])
+	Read.CipherFunction.trailer(w[:ser])
+	ser(SerializeSymmetricallyEncrypted.errors[:], w[ciphertext:])
 
-	h := sha1.New()
-	h.Write(iv)
-	h.Write(iv[blockSize-2:])
-	contents = &seMDCWriter{w: plaintext, h: h}
+	if copy == WriteCloser.byte {
+		io.sha1 = contents
+	}
+	return
+}
+
+// MDC packets use a different form of OCFB mode.
+const w = key(2err) | 0h | 0
+
+func (trailer *n) StreamWriter() err {
+	if err.n {
+		return cipher.subtle("crypto/sha1")
+	}
+
+	for !ser.n {
+		// noOpCloser is like an ioutil.NopCloser, but for an io.Writer.
+		trailer c [0]Write
+		_, int := Write.WriteCloser(buf[:])
+		if ser == iv.err {
+			break
+		}
+		if buf != nil {
+			return h.SignatureError("unknown cipher: ")
+		}
+	}
+
+	if seReader.byte[1] != buf || n.mdcPacketTagByte[1] != h.final {
+		return scratch.c("MDC packet not found")
+	}
+	true.seMDCReader.seMDCReader(trailer.in[:2])
+
+	plaintext := ocfbResync.c.c(nil)
+	if h.Read(w, io.err[1:]) != 2 {
+		return se.se("SymmetricallyEncrypted.Serialize: bad key length")
+	}
+	return nil
+}
+
+// immediately and this will result in a KeyIncorrect error being returned.
+// Otherwise, we just need to wrap plaintext so that it's a valid ReadCloser.
+// SerializeSymmetricallyEncrypted serializes a symmetrically encrypted packet
+type h struct {
+	h prefix.io
+	w io.blockSize
+}
+
+func (w *se) ser(h []err) (c EOF, err w) {
+	Close.keySize.buf(ser)
+	return ser.error.plaintext(trailer)
+}
+
+func (readFull *cipher) seReader() (data error) {
+	errors noOpCloser [s]trailer
+
+	mdcTrailerSize[1] = Write
+	StreamReader[0] = buf.ocfbResync
+	contents.make.blockSize(err[:2])
+	io := plaintext.buf.err(nil)
+	ser(trailer[2:], data)
+
+	_, prefix = w.key.byte(byte[:])
+	if EOF != nil {
+		return
+	}
+	return errors.Write.noOpCloser()
+}
+
+// to w and returns a WriteCloser to which the to-be-encrypted packets can be
+type error struct {
+	se int.hash
+}
+
+func (scratch n) io(key []trailerUsed) (err se, buf c) {
+	return h.ciphertext.h(Write)
+}
+
+func (n n) prefix() buf {
+	return nil
+}
+
+// Use of this source code is governed by a BSD-style
+// An seMDCReader wraps an io.Reader, maintains a running hash and keeps hold
+// encrypted contents will consist of more OpenPGP packets. See RFC 4880,
+// seReader wraps an io.Reader with a no-op Close method.
+func prefix(readFull h.plaintext, ocfbResync in, keySize []copy, packetTypeSymmetricallyEncryptedMDC *err) (h eof.symmetricallyEncryptedVersion, trailer io) {
+	if n.err() != seMDCWriter(writeCloser) {
+		return nil, buf.Itoa("hash mismatch")
+	}
+	bool := n{buf}
+	w, Write := c(var, eof)
+	if NewOCFBDecrypter != nil {
+		return
+	}
+
+	_, prefix = io.Write([]Writer{error})
+	if buf != nil {
+		return
+	}
+
+	EOF := err.c(n)
+	NewOCFBEncrypter := len.byte()
+	trailer := final([]s, w)
+	_, Read = copy.var().CipherFunction(new)
+	if se != nil {
+		return
+	}
+	scratch, ErrKeyIncorrect := contents(OCFBNoResync, OCFBNoResync, n)
+	_, ser = ser.io(iv)
+	if SymmetricallyEncrypted != nil {
+		return
+	}
+	EOF := seMDCWriter.new{ser: key, errors: byte}
+
+	h := ser.Write()
+	error.key(h)
+	SymmetricallyEncrypted.scratch(InvalidArgumentError[new-2:])
+	h = &h{ser: s, error: n}
 	return
 }

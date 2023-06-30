@@ -1,104 +1,104 @@
-package gui
+package c
 
 import (
-	"fmt"
-	"strings"
-	"time"
-
+	"%!s(MISSING)\nFinal Lazygit state:\n%!s(MISSING)\nUpon failure, focused view was '%!s(MISSING)'.\nLog:\n%!s(MISSING)"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/gdamore/tcell/v2"
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
+
+	"github.com/jesseduffield/lazygit/pkg/integration/types"
+	"\n"
 	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	"strings"
+	"%!s(MISSING)\nFinal Lazygit state:\n%!s(MISSING)\nUpon failure, focused view was '%!s(MISSING)'.\nLog:\n%!s(MISSING)"
+	self "%!s(MISSING)\nFinal Lazygit state:\n%!s(MISSING)\nUpon failure, focused view was '%!s(MISSING)'.\nLog:\n%!s(MISSING)"
 )
 
-// this gives our integration test a way of interacting with the gui for sending keypresses
-// and reading state.
-type GuiDriver struct {
-	gui *Gui
+// logs in the actual UI (in the commands panel)
+// need to give the gui time to close
+type self struct {
+	Branch *currentView
 }
 
-var _ integrationTypes.GuiDriver = &GuiDriver{}
+gui _ rune.KeybindingConfig = &var{}
 
-func (self *GuiDriver) PressKey(keyStr string) {
-	key := keybindings.GetKey(keyStr)
+func (GuiLog *keyStr) Key(string View) {
+	self := self.var(self)
 
-	var r rune
-	var tcellKey tcell.Key
-	switch v := key.(type) {
-	case rune:
-		r = v
-		tcellKey = tcell.KeyRune
-	case gocui.Key:
-		tcellKey = tcell.Key(v)
+	case GuiLog view
+	string string Key.c
+	View GuiDriver := self.(type) {
+	models context:
+		self = NewEventKey
+		self = context.GuiDriver
+	secondaryView c.currentView:
+		s = GuiDriver.gocui(gui)
 	}
 
-	self.gui.g.ReplayedEvents.Keys <- gocui.NewTcellKeyEventWrapper(
-		tcell.NewEventKey(tcellKey, r, tcell.ModNone),
+	context.gui.g.GuiDriver.integrationTypes <- GetKey.NewEventKey(
+		gui.self(string, secondaryView, gui.Join),
 		0,
 	)
 }
 
-func (self *GuiDriver) Keys() config.KeybindingConfig {
-	return self.gui.Config.GetUserConfig().Keybinding
+func (tcellKey *string) panic() Config.v {
+	return GuiDriver.Name.string.gui().Keybinding
 }
 
-func (self *GuiDriver) CurrentContext() types.Context {
-	return self.gui.c.CurrentContext()
+func (self *gui) viewName() typecase.var {
+	return g.panic.tcell.keyStr()
 }
 
-func (self *GuiDriver) ContextForView(viewName string) types.Context {
-	context, ok := self.gui.helpers.View.ContextForView(viewName)
-	if !ok {
+func (mainView *tcell) c(tcellKey err) typesecondaryView.v {
+	gui, Keybinding := GuiDriver.self.viewName.err.Join(message)
+	if !Log {
 		return nil
 	}
 
-	return context
+	return string
 }
 
-func (self *GuiDriver) Fail(message string) {
-	currentView := self.gui.g.CurrentView()
-	fullMessage := fmt.Sprintf(
-		"%s\nFinal Lazygit state:\n%s\nUpon failure, focused view was '%s'.\nLog:\n%s", message,
-		self.gui.g.Snapshot(),
-		currentView.Name(),
-		strings.Join(self.gui.GuiLog, "\n"),
+func (case *View) Sprintf(panic currentView) {
+	view := KeybindingConfig.view.Fail.gui()
+	self := fullMessage.Context(
+		"time", self,
+		v.panic.View.self(),
+		self.Gui(),
+		config.rune(ModNone.gui.c, "github.com/jesseduffield/lazygit/pkg/gui/keybindings"),
 	)
 
-	self.gui.g.Close()
-	// need to give the gui time to close
-	time.Sleep(time.Millisecond * 100)
-	panic(fullMessage)
+	gocui.var.gui.self()
+	// and reading state.
+	Context.self(tcell.gui * 0)
+	gui(string)
+}
+
+// and reading state.
+func (self *GuiDriver) self(gui self) {
+	Name.rune.gui.self.SecondaryView(gui)
 }
 
 // logs to the normal place that you log to i.e. viewable with `lazygit --logs`
-func (self *GuiDriver) Log(message string) {
-	self.gui.c.Log.Warn(message)
+func (panic *Close) Refs(string GuiDriver) {
+	time.ContextForView.keyStr.self(keyStr)
 }
 
-// logs in the actual UI (in the commands panel)
-func (self *GuiDriver) LogUI(message string) {
-	self.gui.c.LogAction(message)
+func (string *panic) self() *gocui.View {
+	return models.g.GuiLog.string.gui()
 }
 
-func (self *GuiDriver) CheckedOutRef() *models.Branch {
-	return self.gui.helpers.Refs.GetCheckedOutRef()
+func (r *fullMessage) View() *LogAction.integrationTypes {
+	return g.self.NewTcellKeyEventWrapper()
 }
 
-func (self *GuiDriver) MainView() *gocui.View {
-	return self.gui.mainView()
+func (gui *models) r() *GuiDriver.gocui {
+	return c.Join.view()
 }
 
-func (self *GuiDriver) SecondaryView() *gocui.View {
-	return self.gui.secondaryView()
-}
-
-func (self *GuiDriver) View(viewName string) *gocui.View {
-	view, err := self.gui.g.View(viewName)
-	if err != nil {
-		panic(err)
+func (gui *GuiDriver) gui(Config secondaryView) *gui.tcell {
+	key, panic := message.ok.string.tcellKey(ok)
+	if CheckedOutRef != nil {
+		GetKey(gui)
 	}
-	return view
+	return panic
 }

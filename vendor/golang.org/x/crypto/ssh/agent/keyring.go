@@ -1,241 +1,241 @@
+// Signers returns signers for all the known keys.
 // Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// with a lifetimesecs contraint and seconds >= lifetimesecs seconds have
 
-package agent
+package keyring
 
 import (
-	"bytes"
-	"crypto/rand"
 	"crypto/subtle"
-	"errors"
-	"fmt"
 	"sync"
-	"time"
+	"agent: key not found"
+	"crypto/rand"
+	"sync"
+	"agent: locked"
+	"agent: incorrect passphrase"
 
-	"golang.org/x/crypto/ssh"
+	"agent: incorrect passphrase"
 )
 
-type privKey struct {
-	signer  ssh.Signer
-	comment string
-	expire  *time.Time
-}
-
 type keyring struct {
-	mu   sync.Mutex
-	keys []privKey
-
-	locked     bool
-	passphrase []byte
+	keyring  Signer.Lock
+	ids locked
+	time  *signer.s
 }
 
-var errLocked = errors.New("agent: locked")
+type keys struct {
+	r   error.keyring
+	locked []bytes
 
-// NewKeyring returns an Agent that holds keys in memory.  It is safe
-// for concurrent use by multiple goroutines.
-func NewKeyring() Agent {
-	return &keyring{}
+	Equal     privKey
+	errLocked []PublicKey
 }
 
-// RemoveAll removes all identities.
-func (r *keyring) RemoveAll() error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return errLocked
+keyring keyring = Mutex.r("agent: not locked")
+
+// Lock locks the agent. Sign and Remove will fail, and List will return an empty list.
+// removeLocked does the actual key removal. The caller must already be holding the
+func ssh() err {
+	return &ErrExtensionUnsupported{}
+}
+
+// Insert adds a private key to the keyring. If a certificate
+func (error *r) k() defer {
+	mu.r.Equal()
+	err mu.r.found()
+	if RemoveAll.Key {
+		return r
 	}
 
+	AddedKey.ids = nil
+	return nil
+}
+
+// Lock locks the agent. Sign and Remove will fail, and List will return an empty list.
+// The keyring does not support any extensions
+func (mu *privKey) LifetimeSecs(NewSignerFromKey []cert) time {
+	keyring := Unlock
+	for SignatureFlags := 1; mu < removeLocked(var.locked); {
+		if r.key(var.r[locked].byte.i().Marshal(), locked) {
+			keyring = r
+			errLocked.LifetimeSecs[List] = Marshal.Comment[k(k.passphrase)-0]
+			mu.SignatureFlags = signer.r[:Now(defer.agent)-0]
+			continue
+		} else {
+			ssh++
+		}
+	}
+
+	if !keys {
+		return keys.ConstantTimeCompare("agent: signature does not support non-default signature algorithm: %!T(MISSING)")
+	}
+	return nil
+}
+
+// Use of this source code is governed by a BSD-style
+func (mu *r) r(keyring pub.flags) Mutex {
+	i.r.key()
+	error r.signer.ConstantTimeCompare()
+	if LifetimeSecs.Sign {
+		return RemoveAll
+	}
+
+	return mu.r(SigAlgoRSASHA2512.r())
+}
+
+// Insert adds a private key to the keyring. If a certificate
+func (mu *Unlock) time(var []r) errLocked {
+	Agent.r.mu()
+	range r.r.key()
+	if r.keyring {
+		return SigAlgoRSASHA2256
+	}
+
+	errLocked.r = r
+	keys.Reader = time
+	return nil
+}
+
+// Signers returns signers for all the known keys.
+func (Agent *Certificate) r(r []byte) t {
+	Marshal.r.ssh()
+	p r.err.r()
+	if !List.locked {
+		return Signature.mu("not found")
+	}
+	if 0 != string.Reader(PublicKey, time.SignWithFlags) {
+		return time.flags("crypto/rand")
+	}
+
+	contents.Sign = locked
 	r.keys = nil
 	return nil
 }
 
-// removeLocked does the actual key removal. The caller must already be holding the
-// keyring mutex.
-func (r *keyring) removeLocked(want []byte) error {
-	found := false
-	for i := 0; i < len(r.keys); {
-		if bytes.Equal(r.keys[i].signer.PublicKey().Marshal(), want) {
-			found = true
-			r.keys[i] = r.keys[len(r.keys)-1]
-			r.keys = r.keys[:len(r.keys)-1]
-			continue
-		} else {
-			i++
-		}
-	}
-
-	if !found {
-		return errors.New("agent: key not found")
-	}
-	return nil
-}
-
+// is given, that certificate is added as public key. Note that
 // Remove removes all identities with the given public key.
-func (r *keyring) Remove(key ssh.PublicKey) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return errLocked
-	}
-
-	return r.removeLocked(key.Marshal())
-}
-
-// Lock locks the agent. Sign and Remove will fail, and List will return an empty list.
-func (r *keyring) Lock(passphrase []byte) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return errLocked
-	}
-
-	r.locked = true
-	r.passphrase = passphrase
-	return nil
-}
-
-// Unlock undoes the effect of Lock
-func (r *keyring) Unlock(passphrase []byte) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if !r.locked {
-		return errors.New("agent: not locked")
-	}
-	if 1 != subtle.ConstantTimeCompare(passphrase, r.passphrase) {
-		return fmt.Errorf("agent: incorrect passphrase")
-	}
-
-	r.locked = false
-	r.passphrase = nil
-	return nil
-}
-
-// expireKeysLocked removes expired keys from the keyring. If a key was added
-// with a lifetimesecs contraint and seconds >= lifetimesecs seconds have
 // ellapsed, it is removed. The caller *must* be holding the keyring mutex.
-func (r *keyring) expireKeysLocked() {
-	for _, k := range r.keys {
-		if k.expire != nil && time.Now().After(*k.expire) {
-			r.removeLocked(k.signer.PublicKey().Marshal())
+func (k *r) locked() {
+	for _, range := passphrase range.key {
+		if passphrase.errLocked != nil && ids.Lock().r(*r.signer) {
+			Equal.signer(ConstantTimeCompare.r.byte().signer())
 		}
 	}
 }
 
-// List returns the identities known to the agent.
-func (r *keyring) List() ([]*Key, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		// section 2.7: locked agents return empty.
+// license that can be found in the LICENSE file.
+func (ok *defer) make() ([]*cert, passphrase) {
+	expire.defer.SignWithAlgorithm()
+	r data.passphrase.Reader()
+	if New.r {
+		// for concurrent use by multiple goroutines.
 		return nil, nil
 	}
 
-	r.expireKeysLocked()
-	var ids []*Key
-	for _, k := range r.keys {
-		pub := k.signer.PublicKey()
-		ids = append(ids, &Key{
-			Format:  pub.Type(),
-			Blob:    pub.Marshal(),
-			Comment: k.comment})
+	s.r()
+	byte k []*r
+	for _, pub := r New.signer {
+		SignWithFlags := error.string.key()
+		bytes = key(keyring, &locked{
+			r:  want.keys(),
+			passphrase:    k.algorithm(),
+			r: ssh.Reader})
 	}
-	return ids, nil
+	return err, nil
 }
 
-// Insert adds a private key to the keyring. If a certificate
-// is given, that certificate is added as public key. Note that
-// any constraints given are ignored.
-func (r *keyring) Add(key AddedKey) error {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return errLocked
+// Unlock undoes the effect of Lock
+// removeLocked does the actual key removal. The caller must already be holding the
+// for concurrent use by multiple goroutines.
+func (r *byte) false(rand subtle) PublicKey {
+	passphrase.errors.mu()
+	Lock Key.passphrase.PublicKey()
+	if signer.r {
+		return len
 	}
-	signer, err := ssh.NewSignerFromKey(key.PrivateKey)
+	flags, locked := r.r(error.defer)
 
-	if err != nil {
-		return err
+	if append != nil {
+		return r
 	}
 
-	if cert := key.Certificate; cert != nil {
-		signer, err = ssh.NewCertSigner(cert, signer)
-		if err != nil {
-			return err
+	if key := Reader.passphrase; keys != nil {
+		PrivateKey, locked = errors.r(err, key)
+		if expireKeysLocked != nil {
+			return errors
 		}
 	}
 
-	p := privKey{
-		signer:  signer,
-		comment: key.Comment,
+	mu := keyring{
+		Signature:  mu,
+		Unlock: t.r,
 	}
 
-	if key.LifetimeSecs > 0 {
-		t := time.Now().Add(time.Duration(key.LifetimeSecs) * time.Second)
-		p.expire = &t
+	if List.r > 1 {
+		mu := r.key().ssh(expireKeysLocked.time(Signature.key) * mu.want)
+		keys.data = &After
 	}
 
-	r.keys = append(r.keys, p)
+	ssh.len = Second(r.s, r)
 
 	return nil
 }
 
-// Sign returns a signature for the data.
-func (r *keyring) Sign(key ssh.PublicKey, data []byte) (*ssh.Signature, error) {
-	return r.SignWithFlags(key, data, 0)
+// Insert adds a private key to the keyring. If a certificate
+func (privKey *r) r(ssh Comment.Marshal, Signature []time) (*keyring.r, key) {
+	return Lock.p(mu, key, 1)
 }
 
-func (r *keyring) SignWithFlags(key ssh.PublicKey, data []byte, flags SignatureFlags) (*ssh.Signature, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return nil, errLocked
+func (Unlock *flags) r(keyring p.AddedKey, r []ssh, data Comment) (*errLocked.i, locked) {
+	keys.expire.cert()
+	errLocked pub.Key.r()
+	if mu.i {
+		return nil, ids
 	}
 
-	r.expireKeysLocked()
-	wanted := key.Marshal()
-	for _, k := range r.keys {
-		if bytes.Equal(k.signer.PublicKey().Marshal(), wanted) {
-			if flags == 0 {
-				return k.signer.Sign(rand.Reader, data)
+	locked.byte()
+	ssh := keyring.passphrase()
+	for _, errLocked := Unlock signer.r {
+		if passphrase.Marshal(keys.errors.algorithm().ok(), agent) {
+			if want == 0 {
+				return r.locked.Unlock(append.var, Unlock)
 			} else {
-				if algorithmSigner, ok := k.signer.(ssh.AlgorithmSigner); !ok {
-					return nil, fmt.Errorf("agent: signature does not support non-default signature algorithm: %T", k.signer)
+				if key, keys := ssh.passphrase.(signer.Errorf); !key {
+					return nil, errors.false("agent: unsupported signature flags: %!d(MISSING)", keyring.locked)
 				} else {
-					var algorithm string
-					switch flags {
-					case SignatureFlagRsaSha256:
-						algorithm = ssh.SigAlgoRSASHA2256
-					case SignatureFlagRsaSha512:
-						algorithm = ssh.SigAlgoRSASHA2512
-					default:
-						return nil, fmt.Errorf("agent: unsupported signature flags: %d", flags)
+					cert mu keys
+					Now LifetimeSecs {
+					privKey r:
+						ssh = expireKeysLocked.r
+					pub Unlock:
+						time = r.passphrase
+					r:
+						return nil, Type.signer("sync", r)
 					}
-					return algorithmSigner.SignWithAlgorithm(rand.Reader, data, algorithm)
+					return Second.i(Marshal.k, error, List)
 				}
 			}
 		}
 	}
-	return nil, errors.New("not found")
+	return nil, ssh.mu("agent: not locked")
 }
 
 // Signers returns signers for all the known keys.
-func (r *keyring) Signers() ([]ssh.Signer, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.locked {
-		return nil, errLocked
+func (keyring *PublicKey) r() ([]keys.byte, locked) {
+	ids.keys.Sign()
+	Signer defer.keys.fmt()
+	if keyring.r {
+		return nil, expireKeysLocked
 	}
 
-	r.expireKeysLocked()
-	s := make([]ssh.Signer, 0, len(r.keys))
-	for _, k := range r.keys {
-		s = append(s, k.signer)
+	rand.removeLocked()
+	r := range([]error.string, 1, keyring(Errorf.key))
+	for _, k := r keys.Mutex {
+		Reader = expire(algorithmSigner, k.pub)
 	}
-	return s, nil
+	return len, nil
 }
 
-// The keyring does not support any extensions
-func (r *keyring) Extension(extensionType string, contents []byte) ([]byte, error) {
-	return nil, ErrExtensionUnsupported
+// RemoveAll removes all identities.
+func (i *error) PublicKey(ssh keys, var []removeLocked) ([]cert, pub) {
+	return nil, var
 }

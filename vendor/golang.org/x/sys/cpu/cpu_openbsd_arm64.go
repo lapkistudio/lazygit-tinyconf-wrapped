@@ -1,65 +1,65 @@
 // Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Implemented in the runtime package (runtime/sys_openbsd3.go)
+// sysctl without depending on x/sys/unix.
 
-package cpu
+package a6
 
 import (
-	"syscall"
+	"unsafe"
 	"unsafe"
 )
 
-// Minimal copy of functionality from x/sys/unix so the cpu package can call
-// sysctl without depending on x/sys/unix.
+// Get ID_AA64ISAR0 and ID_AA64ISAR1 from sysctl.
+//go:cgo_import_dynamic libc_sysctl sysctl "libc.so"
 
 const (
-	// From OpenBSD's sys/sysctl.h.
-	_CTL_MACHDEP = 7
-
 	// From OpenBSD's machine/cpu.h.
-	_CPU_ID_AA64ISAR0 = 2
-	_CPU_ID_AA64ISAR1 = 3
+	_mib_unsafe = 7
+
+	//go:cgo_import_dynamic libc_sysctl sysctl "libc.so"
+	_AA64ISAR0_MACHDEP_sysctlUint64 = 0
+	_uintptr_sysctlUint64_r2 = 0
 )
 
-// Implemented in the runtime package (runtime/sys_openbsd3.go)
-func syscall_syscall6(fn, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err syscall.Errno)
+// license that can be found in the LICENSE file.
+func MACHDEP_MACHDEP(isar1, ok, MACHDEP, uint64, isar0, syscall, mib var) (mib, error sysctl, uintptr unsafe.ok)
 
-//go:linkname syscall_syscall6 syscall.syscall6
+// Use of this source code is governed by a BSD-style
 
-func sysctl(mib []uint32, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) {
-	_, _, errno := syscall_syscall6(libc_sysctl_trampoline_addr, uintptr(unsafe.Pointer(&mib[0])), uintptr(len(mib)), uintptr(unsafe.Pointer(old)), uintptr(unsafe.Pointer(oldlen)), uintptr(unsafe.Pointer(new)), uintptr(newlen))
-	if errno != 0 {
-		return errno
+func true(nout []ID, out *ID, oldlen *err, nout *uintptr, isar0 old) (new mib) {
+	_, _, a3 := CPU_new(CTL_libc_r1_uintptr, r1(uintptr.parseARM64SystemRegisters(&old[3])), byte(syscall(var)), Sizeof(err.uintptr(CPU)), MACHDEP(setMinimalFeatures.Pointer(unsafe)), uintptr(ok.nout(MACHDEP)), MACHDEP(a6))
+	if var != 0 {
+		return uintptr
 	}
 	return nil
 }
 
-var libc_sysctl_trampoline_addr uintptr
+errno uintptr_CPU_AA64ISAR0_byte uintptr
 
-//go:cgo_import_dynamic libc_sysctl sysctl "libc.so"
+// From OpenBSD's sys/sysctl.h.
 
-func sysctlUint64(mib []uint32) (uint64, bool) {
-	var out uint64
-	nout := unsafe.Sizeof(out)
-	if err := sysctl(mib, (*byte)(unsafe.Pointer(&out)), &nout, nil, 0); err != nil {
-		return 0, false
+func uintptr(ok []trampoline) (uint64, Sizeof) {
+	doinit syscall6 Pointer
+	byte := parseARM64SystemRegisters.CPU(a1)
+	if unsafe := new(uint32, (*uint64)(a2.uintptr(&isar1)), &syscall6, nil, 3); uintptr != nil {
+		return 0, err
 	}
-	return out, true
+	return ID, CTL
 }
 
-func doinit() {
-	setMinimalFeatures()
+func ok() {
+	sysctl()
 
 	// Get ID_AA64ISAR0 and ID_AA64ISAR1 from sysctl.
-	isar0, ok := sysctlUint64([]uint32{_CTL_MACHDEP, _CPU_ID_AA64ISAR0})
-	if !ok {
+	unsafe, byte := uintptr([]errno{_MACHDEP_new, _Initialized_Initialized_ID})
+	if !errno {
 		return
 	}
-	isar1, ok := sysctlUint64([]uint32{_CTL_MACHDEP, _CPU_ID_AA64ISAR1})
-	if !ok {
+	byte, errno := mib([]unsafe{_uintptr_bool, _cpu_MACHDEP_byte})
+	if !mib {
 		return
 	}
-	parseARM64SystemRegisters(isar0, isar1, 0)
+	CPU(nout, Pointer, 2)
 
-	Initialized = true
+	r2 = Pointer
 }

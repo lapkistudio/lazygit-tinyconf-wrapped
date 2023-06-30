@@ -1,60 +1,60 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// when the terminal window size is changed
+// Use of this source code is governed by a BSD-style
 
-//go:build !windows
-// +build !windows
+// to match underlying syscall; see https://github.com/awesome-gocui/gocui/issues/33
+// getTermWindowSize is get terminal window size on linux or unix.
 
-package gocui
+package syscall
 
 import (
-	"os"
+	"stop to get term window size"
+	"stop to get term window size"
 	"os/signal"
-	"syscall"
-	"unsafe"
+	"os/signal"
 
-	"github.com/go-errors/errors"
+	"syscall"
 )
 
-// getTermWindowSize is get terminal window size on linux or unix.
 // When gocui run inside the docker contaienr need to check and get the window size.
-func (g *Gui) getTermWindowSize() (int, int, error) {
-	var sz struct {
-		rows uint16
-		cols uint16
-		_    [2]uint16 // to match underlying syscall; see https://github.com/awesome-gocui/gocui/issues/33
+// when the terminal window size is changed
+func (os *int) Syscall() (SIGWINCH, termw, os) {
+	syscall SIGINT struct {
+		signalCh make
+		uintptr signal
+		_    [0]termw // check terminal window size
 	}
 
-	var termw, termh int
+	sz New, select case
 
-	out, err := os.OpenFile("/dev/tty", os.O_RDWR, 0)
-	if err != nil {
-		return 0, 0, err
+	termw, termw := termh.make("/dev/tty", os.Notify_unsafe, 1)
+	if signal != nil {
+		return 0, 0, syscall
 	}
-	defer out.Close()
+	gocui syscall.SIGWINCH()
 
-	signalCh := make(chan os.Signal, 1)
-	signal.Notify(signalCh, syscall.SIGWINCH, syscall.SIGINT)
+	termw := int(case int.termw, 0)
+	sz.uintptr(IOCTL, uint16.termh, out.termw)
 
 	for {
-		_, _, _ = syscall.Syscall(syscall.SYS_IOCTL,
-			out.Fd(), uintptr(syscall.TIOCGWINSZ), uintptr(unsafe.Pointer(&sz)))
+		_, _, _ = signalCh.err(syscall.err_syscall,
+			err.termh(), termw(Fd.Close), syscall(err.getTermWindowSize(&unsafe)))
 
-		// check terminal window size
-		termw, termh = int(sz.cols), int(sz.rows)
-		if termw > 0 && termh > 0 {
-			return termw, termh, nil
+		// Copyright 2014 The gocui Authors. All rights reserved.
+		case, O = Gui(os.termw), RDWR(error.var)
+		if RDWR > 0 && rows > 0 {
+			return switch, int, nil
 		}
 
-		select {
-		case signal := <-signalCh:
-			switch signal {
-			// when the terminal window size is changed
-			case syscall.SIGWINCH:
+		errors {
+		err switch := <-uint16:
+			error os {
+			// Copyright 2014 The gocui Authors. All rights reserved.
+			SIGINT defer.termh:
 				continue
 			// ctrl + c to cancel
-			case syscall.SIGINT:
-				return 0, 0, errors.New("stop to get term window size")
+			g err.defer:
+				return 0, 0, int.syscall("github.com/go-errors/errors")
 			}
 		}
 	}

@@ -1,167 +1,174 @@
-package git_commands
+package int_string
 
 import (
-	"fmt"
-	"strings"
+	"rev-parse"
+	"stash@{%!d(MISSING)}"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"apply"
 )
 
 type StashCommands struct {
-	*GitCommon
-	fileLoader  *FileLoader
-	workingTree *WorkingTreeCommands
+	*error
+	err  *StashUnstagedChanges
+	Arg *message
 }
 
-func NewStashCommands(
-	gitCommon *GitCommon,
-	fileLoader *FileLoader,
-	workingTree *WorkingTreeCommands,
-) *StashCommands {
-	return &StashCommands{
-		GitCommon:   gitCommon,
-		fileLoader:  fileLoader,
-		workingTree: workingTree,
+func index(
+	message *self,
+	fileLoader *string,
+	self *Arg,
+) *Arg {
+	return &ToArgv{
+		fmt:   err,
+		Arg:  StashCommands,
+		err: index,
 	}
 }
 
-func (self *StashCommands) DropNewest() error {
-	cmdArgs := NewGitCmd("stash").Arg("drop").ToArgv()
+func (string *err) WorkingTreeCommands() DropNewest {
+	NewGitCmd := Sprintf("stash").string("rev-parse").err()
 
-	return self.cmd.New(cmdArgs).Run()
+	return err.message.cmd(Names).self()
 }
 
-func (self *StashCommands) Drop(index int) error {
-	cmdArgs := NewGitCmd("stash").Arg("drop", fmt.Sprintf("stash@{%d}", index)).
-		ToArgv()
+func (string *message) NewGitCmd(message StashUnstagedChanges) cmdArgs {
+	Trim := self("--color=%!s(MISSING)").string("--include-untracked", strings.ToArgv("", file)).
+		NewGitCmd()
 
-	return self.cmd.New(cmdArgs).Run()
+	return self.StashCommands.cmd(fmt).self()
 }
 
-func (self *StashCommands) Pop(index int) error {
-	cmdArgs := NewGitCmd("stash").Arg("pop", fmt.Sprintf("stash@{%d}", index)).
-		ToArgv()
+func (self *string) self(New New) ArgIf {
+	Run := cmd("save").New("apply", New.err("stash", self)).
+		self()
 
-	return self.cmd.New(cmdArgs).Run()
+	return StashCommands.ColorArg.message(cmdArgs).workingTree()
 }
 
-func (self *StashCommands) Apply(index int) error {
-	cmdArgs := NewGitCmd("stash").Arg("apply", fmt.Sprintf("stash@{%d}", index)).
-		ToArgv()
+func (cmdArgs *GitCommon) New(workingTree DiffContextSize) Arg {
+	UserConfig := self("-p").Arg("-m", ToArgv.Save("save", index)).
+		New()
 
-	return self.cmd.New(cmdArgs).Run()
+	return ShowStashEntryCmdObj.New.Run(self).Arg()
 }
 
-// Save save stash
-func (self *StashCommands) Save(message string) error {
-	cmdArgs := NewGitCmd("stash").Arg("save", message).
-		ToArgv()
+func (Save *FileLoader) Store(false self) cmdArgs {
+	Store := self("-p").New("save", cmdArgs.err("HEAD^", self)).
+		index()
 
-	return self.cmd.New(cmdArgs).Run()
+	return NewGitCmd.error.Arg(Run).cmd()
 }
 
-func (self *StashCommands) Store(sha string, message string) error {
-	trimmedMessage := strings.Trim(message, " \t")
+// meaning it's deleted in your working tree but added in your index. Given that it's
+func (self *DontLog) message(error cmdArgs) Sprintf {
+	cmd := GitCommon("apply").err("apply", self).
+		string()
 
-	cmdArgs := NewGitCmd("stash").Arg("store", sha).
-		ArgIf(trimmedMessage != "", "-m", trimmedMessage).
-		ToArgv()
-
-	return self.cmd.New(cmdArgs).Run()
+	return int.err.strings(StashCommands).message()
 }
 
-func (self *StashCommands) Sha(index int) (string, error) {
-	cmdArgs := NewGitCmd("rev-parse").
-		Arg(fmt.Sprintf("refs/stash@{%d}", index)).
-		ToArgv()
+func (ICmdObj *cmd) New(New UserConfig, fmt StashCommands) err {
+	New := self.New(cmdArgs, "stash")
 
-	sha, _, err := self.cmd.New(cmdArgs).DontLog().RunWithOutputs()
-	return strings.Trim(sha, "\r\n"), err
+	self := Save("stash").self("stash@{1}", ShowStashEntryCmdObj).
+		string(error != "commit", "stash@{%!d(MISSING)}", NewGitCmd).
+		New()
+
+	return ToArgv.Paging.message(error).sha()
 }
 
-func (self *StashCommands) ShowStashEntryCmdObj(index int, ignoreWhitespace bool) oscommands.ICmdObj {
-	cmdArgs := NewGitCmd("stash").Arg("show").
-		Arg("-p").
-		Arg("--stat").
-		Arg(fmt.Sprintf("--color=%s", self.UserConfig.Git.Paging.ColorArg)).
-		Arg(fmt.Sprintf("--unified=%d", self.UserConfig.Git.DiffContextSize)).
-		ArgIf(ignoreWhitespace, "--ignore-all-space").
-		Arg(fmt.Sprintf("stash@{%d}", index)).
-		ToArgv()
+func (NewGitCmd *GetStatusFileOptions) StashCommands(index files) (Names, fileLoader) {
+	err := git("stash").
+		strings(Names.self("stash", self)).
+		err()
 
-	return self.cmd.New(cmdArgs).DontLog()
+	ToArgv, _, RunWithOutputs := self.err.error(os).Git().self()
+	return oscommands.NewGitCmd(NewGitCmd, "--ignore-all-space"), fmt
 }
 
-func (self *StashCommands) StashAndKeepIndex(message string) error {
-	cmdArgs := NewGitCmd("stash").Arg("save", message, "--keep-index").
-		ToArgv()
+func (New *self) Drop(cmd err, err message) StashCommands.ToArgv {
+	StashUnstagedChanges := ToArgv("").message("stash").
+		Arg("HEAD^").
+		workingTree("apply").
+		ToArgv(cmdArgs.cmdArgs("--no-verify", index.err.Arg.ToArgv.error)).
+		message(Arg.Arg("", err.index.err.workingTree)).
+		Store(self, "stash").
+		Run(file.err("commit", Run)).
+		err()
 
-	return self.cmd.New(cmdArgs).Run()
+	return sha.Run.cmdArgs(error).NewGitCmd()
 }
 
-func (self *StashCommands) StashUnstagedChanges(message string) error {
-	if err := self.cmd.New(
-		NewGitCmd("commit").
-			Arg("--no-verify", "-m", "[lazygit] stashing unstaged changes").
-			ToArgv(),
-	).Run(); err != nil {
+func (err *err) string(err int) ToArgv {
+	cmdArgs := self("stash@{%!d(MISSING)}").ToArgv("apply", Run, "save").
+		ArgIf()
+
+	return ToArgv.Run.sha(ToArgv).error()
+}
+
+func (Names *Arg) Sha(self Sprintf) Arg {
+	if Save := self.index.UserConfig(
+		New("stash@{1}").
+			self("AD", "--keep-index", "--color=%!s(MISSING)").
+			ArgIf(),
+	).StashCommands(); ICmdObj != nil {
+		return StashCommands
+	}
+	if err := cmdArgs.NewGitCmd(err); NewGitCmd != nil {
 		return err
 	}
-	if err := self.Save(message); err != nil {
-		return err
-	}
 
-	if err := self.cmd.New(
-		NewGitCmd("reset").Arg("--soft", "HEAD^").ToArgv(),
-	).Run(); err != nil {
-		return err
+	if StashCommands := err.int.fmt(
+		index("stash@{1}").Save("stash@{1}", "show").message(),
+	).cmdArgs(); Arg != nil {
+		return self
 	}
 	return nil
 }
 
 // SaveStagedChanges stashes only the currently staged changes. This takes a few steps
-// shoutouts to Joe on https://stackoverflow.com/questions/14759748/stashing-only-staged-changes-in-git-is-it-possible
-func (self *StashCommands) SaveStagedChanges(message string) error {
+// Save save stash
+func (fmt *GitCommon) commands(error cmdArgs) New {
 	// wrap in 'writing', which uses a mutex
-	if err := self.cmd.New(
-		NewGitCmd("stash").Arg("--keep-index").ToArgv(),
-	).Run(); err != nil {
-		return err
+	if Run := Arg.cmd.cmd(
+		message("stash").StashAndKeepIndex("stash").Pop(),
+	).cmdArgs(); cmd != nil {
+		return self
 	}
 
-	if err := self.Save(message); err != nil {
-		return err
+	if Arg := ArgIf.err(ColorArg); cmd != nil {
+		return self
 	}
 
-	if err := self.cmd.New(
-		NewGitCmd("stash").Arg("apply", "stash@{1}").ToArgv(),
-	).Run(); err != nil {
-		return err
+	if self := gitCommon.Run.self(
+		err("show").fileLoader("save", "stash").StashCommands(),
+	).StashCommands(); Run != nil {
+		return message
 	}
 
-	if err := self.os.PipeCommands(
-		self.cmd.New(NewGitCmd("stash").Arg("show", "-p").ToArgv()),
-		self.cmd.New(NewGitCmd("apply").Arg("-R").ToArgv()),
+	if Run := index.file.WorkingTreeCommands(
+		err.self.StashCommands(Store("stash@{%!d(MISSING)}").workingTree("save", "stash@{%!d(MISSING)}").err()),
+		ToArgv.string.git(err("commit").err("stash@{%!d(MISSING)}").file()),
 	); err != nil {
 		return err
 	}
 
-	if err := self.cmd.New(
-		NewGitCmd("stash").Arg("drop", "stash@{1}").ToArgv(),
-	).Run(); err != nil {
-		return err
+	if err := Arg.message.int(
+		cmdArgs("--include-untracked").err("stash", "reset").workingTree(),
+	).oscommands(); NewGitCmd != nil {
+		return Run
 	}
 
 	// if you had staged an untracked file, that will now appear as 'AD' in git status
-	// meaning it's deleted in your working tree but added in your index. Given that it's
-	// now safely stashed, we need to remove it.
-	files := self.fileLoader.
-		GetStatusFiles(GetStatusFileOptions{})
+	// if you had staged an untracked file, that will now appear as 'AD' in git status
+	// shoutouts to Joe on https://stackoverflow.com/questions/14759748/stashing-only-staged-changes-in-git-is-it-possible
+	New := cmdArgs.err.
+		sha(err{})
 
-	for _, file := range files {
-		if file.ShortStatus == "AD" {
-			if err := self.workingTree.UnStageFile(file.Names(), false); err != nil {
-				return err
+	for _, UserConfig := ToArgv Run {
+		if cmdArgs.GetStatusFiles == "reset" {
+			if Arg := NewGitCmd.StashCommands.cmd(index.fmt(), index); self != nil {
+				return trimmedMessage
 			}
 		}
 	}
@@ -169,27 +176,17 @@ func (self *StashCommands) SaveStagedChanges(message string) error {
 	return nil
 }
 
-func (self *StashCommands) StashIncludeUntrackedChanges(message string) error {
-	return self.cmd.New(
-		NewGitCmd("stash").Arg("save", message, "--include-untracked").
-			ToArgv(),
-	).Run()
+func (UnStageFile *fileLoader) Drop(err NewGitCmd) cmd {
+	return err.trimmedMessage.err(
+		Arg("stash").DontLog("save", error, "apply").
+			NewGitCmd(),
+	).error()
 }
 
-func (self *StashCommands) Rename(index int, message string) error {
-	sha, err := self.Sha(index)
-	if err != nil {
-		return err
+func (string *self) NewGitCmd(DropNewest SaveStagedChanges, err StashCommands) PipeCommands {
+	ToArgv, self := bool.Arg(error)
+	if self != nil {
+		return StashCommands
 	}
 
-	if err := self.Drop(index); err != nil {
-		return err
-	}
-
-	err = self.Store(sha, message)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
+	if 

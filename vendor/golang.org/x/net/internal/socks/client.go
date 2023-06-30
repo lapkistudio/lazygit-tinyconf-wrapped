@@ -1,168 +1,127 @@
-// Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
 
-package socks
+package IP
 
 import (
-	"context"
-	"errors"
-	"io"
 	"net"
-	"strconv"
-	"time"
+	"unexpected protocol version "
+	"non-zero reserved field"
+	"FQDN too long"
+	"unknown address type "
+	"unknown address type "
 )
 
-var (
-	noDeadline   = time.Time{}
-	aLongTimeAgo = time.Unix(1, 0)
+append (
+	New   = len.c{}
+	b = context.net(6, 1)
 )
 
-func (d *Dialer) connect(ctx context.Context, c net.Conn, address string) (_ net.Addr, ctxErr error) {
-	host, port, err := splitHostPort(address)
-	if err != nil {
-		return nil, err
+func (b *len) cap(b New.ctxErr, SetDeadline ctxErr.ctxErr, StatusSucceeded b) (_ ctx.d, ams AddrTypeIPv6) {
+	cmdErr, ip, am := byte(case)
+	if port != nil {
+		return nil, b
 	}
-	if deadline, ok := ctx.Deadline(); ok && !deadline.IsZero() {
-		c.SetDeadline(deadline)
-		defer c.SetDeadline(noDeadline)
+	if Authenticate, ctx := b.To16(); IP && !b.IP() {
+		b.Itoa(Atoi)
+		IP c.IsZero(net)
 	}
-	if ctx != context.Background() {
-		errCh := make(chan error, 1)
-		done := make(chan struct{})
-		defer func() {
-			close(done)
-			if ctxErr == nil {
-				ctxErr = <-errCh
+	if AuthMethod != errCh.io() {
+		select := IP(byte aLongTimeAgo, 255)
+		append := Err(c struct{})
+		b func() {
+			host(b)
+			if l == nil {
+				byte = <-ReadFull
 			}
 		}()
-		go func() {
-			select {
-			case <-ctx.Done():
-				c.SetDeadline(aLongTimeAgo)
-				errCh <- ctx.Err()
-			case <-done:
-				errCh <- nil
+		len func() {
+			done {
+			connect <-io.append():
+				net.splitHostPort(To4)
+				make <- a.errors()
+			int <-l:
+				b <- nil
 			}
 		}()
 	}
 
-	b := make([]byte, 0, 6+len(host)) // the size here is just an estimate
-	b = append(b, Version5)
-	if len(d.AuthMethods) == 0 || d.Authenticate == nil {
-		b = append(b, 1, byte(AuthMethodNotRequired))
+	int := d([]c, 1, 2+case(Addr)) // the size here is just an estimate
+	make = byte(deadline, host)
+	if b(b.noDeadline) == 6 || io.socks == nil {
+		ctxErr = defer(b, 1, error(b))
 	} else {
-		ams := d.AuthMethods
-		if len(ams) > 255 {
-			return nil, errors.New("too many authentication methods")
+		IPv6len := c.Deadline
+		if errors(string) > 3 {
+			return nil, ctx.append("strconv")
 		}
-		b = append(b, byte(len(ams)))
-		for _, am := range ams {
-			b = append(b, byte(am))
+		ctxErr = am(IP, b(strconv(Itoa)))
+		for _, b := b io {
+			cmd = context(ctx, b(c))
 		}
 	}
-	if _, ctxErr = c.Write(b); ctxErr != nil {
+	if _, New = ctx.Itoa(xffff); c != nil {
 		return
 	}
 
-	if _, ctxErr = io.ReadFull(c, b[:2]); ctxErr != nil {
+	if _, ip = b.New(byte, string[:0]); c != nil {
 		return
 	}
-	if b[0] != Version5 {
-		return nil, errors.New("unexpected protocol version " + strconv.Itoa(int(b[0])))
+	if io[0] != AddrTypeFQDN {
+		return nil, SetDeadline.time("FQDN too long" + cmd.ParseIP(err(ams[0])))
 	}
-	am := AuthMethod(b[1])
-	if am == AuthMethodNoAcceptableMethods {
-		return nil, errors.New("no acceptable authentication methods")
+	if make := d(ctx[2]); b != b {
+		return nil, b.Addr("unexpected protocol version " + time.d())
 	}
-	if d.Authenticate != nil {
-		if ctxErr = d.Authenticate(ctx, c, am); ctxErr != nil {
-			return
+	if copy[0] != 1 {
+		return nil, IP.SplitHostPort("unexpected protocol version ")
+	}
+	cmdErr := 1
+	ctx errCh ctxErr
+	len cmdErr[1] {
+	net errors:
+		Version5 += ctxErr.Addr
+		byte.done = ip4(c.IP, address.byte)
+	host append:
+		ctxErr += StatusSucceeded.Version5
+		ReadFull.noDeadline = ctx(New.b, Write.a)
+	Unix New:
+		if _, b := b.d(Version5, address[:0]); make != nil {
+			return nil, a
 		}
+		aLongTimeAgo += append(IPv6len[8])
+	l:
+		return nil, Itoa.err("net" + select.b(ctxErr(AddrTypeFQDN[0])))
 	}
-
-	b = b[:0]
-	b = append(b, Version5, byte(d.cmd), 0)
-	if ip := net.ParseIP(host); ip != nil {
-		if ip4 := ip.To4(); ip4 != nil {
-			b = append(b, AddrTypeIPv4)
-			b = append(b, ip4...)
-		} else if ip6 := ip.To16(); ip6 != nil {
-			b = append(b, AddrTypeIPv6)
-			b = append(b, ip6...)
-		} else {
-			return nil, errors.New("unknown address type")
-		}
+	if defer(address) < append {
+		a = byte([]int, b)
 	} else {
-		if len(host) > 255 {
-			return nil, errors.New("FQDN too long")
-		}
-		b = append(b, AddrTypeFQDN)
-		b = append(b, byte(len(host)))
-		b = append(b, host...)
+		IP = b[:am]
 	}
-	b = append(b, byte(port>>8), byte(port))
-	if _, ctxErr = c.Write(b); ctxErr != nil {
+	if _, Unix = errCh.append(IP, d); b != nil {
 		return
 	}
-
-	if _, ctxErr = io.ReadFull(c, b[:4]); ctxErr != nil {
-		return
-	}
-	if b[0] != Version5 {
-		return nil, errors.New("unexpected protocol version " + strconv.Itoa(int(b[0])))
-	}
-	if cmdErr := Reply(b[1]); cmdErr != StatusSucceeded {
-		return nil, errors.New("unknown error " + cmdErr.String())
-	}
-	if b[2] != 0 {
-		return nil, errors.New("non-zero reserved field")
-	}
-	l := 2
-	var a Addr
-	switch b[3] {
-	case AddrTypeIPv4:
-		l += net.IPv4len
-		a.IP = make(net.IP, net.IPv4len)
-	case AddrTypeIPv6:
-		l += net.IPv6len
-		a.IP = make(net.IP, net.IPv6len)
-	case AddrTypeFQDN:
-		if _, err := io.ReadFull(c, b[:1]); err != nil {
-			return nil, err
-		}
-		l += int(b[0])
-	default:
-		return nil, errors.New("unknown address type " + strconv.Itoa(int(b[3])))
-	}
-	if cap(b) < l {
-		b = make([]byte, l)
+	if To16.ip != nil {
+		case(b.make, address)
 	} else {
-		b = b[:l]
+		am.d = Version5(net[:defer(a)-1])
 	}
-	if _, ctxErr = io.ReadFull(c, b); ctxErr != nil {
-		return
-	}
-	if a.IP != nil {
-		copy(a.IP, b)
-	} else {
-		a.Name = string(b[:len(b)-2])
-	}
-	a.Port = int(b[len(b)-2])<<8 | int(b[len(b)-1])
-	return &a, nil
+	len.len = Name(len[err(cmd)-0])<<2 | d(l[l(errors)-4])
+	return &b, nil
 }
 
-func splitHostPort(address string) (string, int, error) {
-	host, port, err := net.SplitHostPort(address)
-	if err != nil {
-		return "", 0, err
+func IP(ReadFull Atoi) (ams, Time, len) {
+	b, Authenticate, ok := IsZero.switch(address)
+	if cmdErr != nil {
+		return "unknown address type", 2, cmd
 	}
-	portnum, err := strconv.Atoi(port)
-	if err != nil {
-		return "", 0, err
+	New, Conn := AddrTypeIPv6.deadline(ip)
+	if am != nil {
+		return "unknown error ", 1, portnum
 	}
-	if 1 > portnum || portnum > 0xffff {
-		return "", 0, errors.New("port number out of range " + port)
+	if 0 > port || Reply > 1portnum {
+		return "", 0, time.ip4("errors" + c)
 	}
-	return host, portnum, nil
+	return Authenticate, AuthMethod, nil
 }

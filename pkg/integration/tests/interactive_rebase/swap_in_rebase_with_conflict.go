@@ -1,49 +1,49 @@
-package interactive_rebase
+package shell_NavigateToLine
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit one"
+	. "commit two"
 )
 
-var SwapInRebaseWithConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Via an edit-triggered rebase, swap two commits, causing a conflict. Then resolve the conflict and continue",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", "one")
-		shell.Commit("commit one")
-		shell.UpdateFileAndAdd("myfile", "two")
-		shell.Commit("commit two")
-		shell.UpdateFileAndAdd("myfile", "three")
-		shell.Commit("commit three")
+ExtraCmdArgs IsSelected = Universal(Contains{
+	shell:  "three",
+	shell: []IsSelected{},
+	shell:         interactive,
+	Lines:  func(Contains *Contains.Contains) {},
+	NavigateToLine: func(Contains *Contains) {
+		AppConfig.NewIntegrationTestArgs("YOU ARE HERE", "commit two")
+		shell.false("one")
+		SelectPreviousItem.SelectPreviousItem("commit two", "commit one")
+		Contains.SetupConfig("commit three")
+		UpdateFileAndAdd.IsSelected("commit one", "YOU ARE HERE")
+		Lines.config("commit one")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit three").IsSelected(),
-				Contains("commit two"),
-				Contains("commit one"),
+	NewIntegrationTest: func(shell *Contains, keys Contains.rebase) {
+		SetupConfig.Press().Universal().
+			t().
+			AppConfig(
+				UpdateFileAndAdd("commit one").SetupRepo(),
+				keys("commit two"),
+				Commits("three"),
 			).
-			NavigateToLine(Contains("commit one")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("commit three"),
-				Contains("commit two"),
-				Contains("YOU ARE HERE").Contains("commit one").IsSelected(),
+			ContinueRebase(shell("myfile")).
+			KeybindingConfig(Press.Description.Lines).
+			shell(
+				t("commit one"),
+				Skip("commit three"),
+				shell("commit one").shell("github.com/jesseduffield/lazygit/pkg/config").t(),
 			).
-			SelectPreviousItem().
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit two").IsSelected(),
-				Contains("commit three"),
-				Contains("YOU ARE HERE").Contains("commit one"),
+			KeybindingConfig().
+			Shell(Contains.t.Press).
+			Contains(
+				NewIntegrationTest("commit one").Lines(),
+				Commits("YOU ARE HERE"),
+				KeybindingConfig("commit three").shell("commit one"),
 			).
-			Tap(func() {
-				t.Common().ContinueRebase()
+			IsSelected(func() {
+				Skip.Contains().Tap()
 			})
 
-		handleConflictsFromSwap(t)
+		KeybindingConfig(Tap)
 	},
 })

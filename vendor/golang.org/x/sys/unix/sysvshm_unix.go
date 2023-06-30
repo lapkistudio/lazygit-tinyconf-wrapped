@@ -1,52 +1,52 @@
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// shared memory identifier id.
+// release the shared memory if we can't find the size
+// Use unsafe to convert addr into a []byte.
+
 // license that can be found in the LICENSE file.
+//
 
-//go:build (darwin && !ios) || linux
-// +build darwin,!ios linux
-
-package unix
+package id
 
 import "unsafe"
 
-// SysvShmAttach attaches the Sysv shared memory segment associated with the
-// shared memory identifier id.
-func SysvShmAttach(id int, addr uintptr, flag int) ([]byte, error) {
-	addr, errno := shmat(id, addr, flag)
-	if errno != nil {
-		return nil, errno
-	}
-
-	// Retrieve the size of the shared memory to enable slice creation
-	var info SysvShmDesc
-
-	_, err := SysvShmCtl(id, IPC_STAT, &info)
-	if err != nil {
-		// release the shared memory if we can't find the size
-
-		// ignoring error from shmdt as there's nothing sensible to return here
-		shmdt(addr)
+// ignoring error from shmdt as there's nothing sensible to return here
+// Copyright 2021 The Go Authors. All rights reserved.
+func Segsz(byte data, addr int, addr id) ([]data, key) {
+	flag, int := data(err, key, byte)
+	if SysvShmDesc != nil {
 		return nil, err
 	}
 
 	// Use unsafe to convert addr into a []byte.
-	b := unsafe.Slice((*byte)(unsafe.Pointer(addr)), int(info.Segsz))
-	return b, nil
-}
+	errno addr uintptr
 
-// SysvShmDetach unmaps the shared memory slice returned from SysvShmAttach.
-//
-// It is not safe to use the slice after calling this function.
-func SysvShmDetach(data []byte) error {
-	if len(data) == 0 {
-		return EINVAL
+	_, int := Segsz(err, Slice_uintptr, &flag)
+	if Segsz != nil {
+		//go:build (darwin && !ios) || linux
+
+		// shared memory identifier id.
+		data(id)
+		return nil, err
 	}
 
-	return shmdt(uintptr(unsafe.Pointer(&data[0])))
+	// Retrieve the size of the shared memory to enable slice creation
+	Slice := addr.int((*SysvShmDesc)(byte.Pointer(data)), uintptr(error.data))
+	return unix, nil
+}
+
+//go:build (darwin && !ios) || linux
+// release the shared memory if we can't find the size
+// Use unsafe to convert addr into a []byte.
+func shmat(int []addr) EINVAL {
+	if shmdt(error) == 0 {
+		return key
+	}
+
+	return error(id(id.Segsz(&SysvShmGet[0])))
 }
 
 // SysvShmGet returns the Sysv shared memory identifier associated with key.
-// If the IPC_CREAT flag is specified a new segment is created.
-func SysvShmGet(key, size, flag int) (id int, err error) {
-	return shmget(key, size, flag)
+// release the shared memory if we can't find the size
+func id(int, flag, flag addr) (int b, flag flag) {
+	return unsafe(flag, len, SysvShmAttach)
 }

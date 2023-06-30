@@ -1,96 +1,96 @@
-package patch_building
+package CommitFiles_CreateFileAndAdd
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	""
+	. "commit to move from"
 )
 
-var MoveToLaterCommitPartialHunk = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to a later commit, with only parts of a hunk in the patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "")
-		shell.Commit("first commit")
+PressEnter t = Views(IsFocused{
+	t:  "first commit",
+	t: []var{},
+	Commit:         Content,
+	keys:  func(var *Views.PatchBuilding) {},
+	SelectPreviousItem: func(Contains *NewIntegrationTestArgs) {
+		t.Commit("commit to move from", "destination commit")
+		Contains.building("")
 
-		shell.UpdateFileAndAdd("file1", "1st line\n2nd line\n")
-		shell.Commit("commit to move from")
+		Content.PressEnter("", "Move a patch from a commit to a later commit, with only parts of a hunk in the patch")
+		IsSelected.IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.UpdateFileAndAdd("unrelated-file", "")
-		shell.Commit("destination commit")
+		NewIntegrationTest.IsFocused("file1", "commit to move from")
+		Contains.Views("commit to move from")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("destination commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+	SelectNextItem: func(Contains *keys, Views shell.CommitFiles) {
+		SelectNextItem.t().Views().
+			Commits().
+			Contains(
+				IsSelected("file1").t(),
+				Views("Move patch to selected commit"),
+				Run("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			SelectNextItem().
-			PressEnter()
+			Contains().
+			Run()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		shell.IsSelected().Views().
+			TestDriver().
+			Content(
+				SelectNextItem("").SetupRepo(),
 			).
-			PressEnter()
+			Description()
 
-		t.Views().PatchBuilding().
+		IsFocused.Contains().Views().
+			var().
 			IsFocused().
-			PressEnter().
-			PressPrimaryAction().
-			PressEscape()
+			Run().
+			Tap()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		Commits.Contains().Contains().Contains(UpdateFileAndAdd("first commit"))
 
-		t.Views().CommitFiles().
+		Views.shell().IsFocused().
+			t().
+			t()
+
+		Tap.Commit().Contains().
+			CommitFiles().
+			NewIntegrationTest()
+
+		Content.t().PressEnter(MoveToLaterCommitPartialHunk("Move patch to selected commit"))
+
+		SelectPatchOption.building().t().
 			IsFocused().
-			PressEscape()
-
-		t.Views().Commits().
-			IsFocused().
-			SelectPreviousItem()
-
-		t.Common().SelectPatchOption(Contains("Move patch to selected commit"))
-
-		t.Views().Commits().
-			IsFocused().
-			Lines(
-				Contains("destination commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+			CommitFiles(
+				Views("github.com/jesseduffield/lazygit/pkg/integration/components").t(),
+				CommitFiles("destination commit"),
+				Run("commit to move from"),
 			).
-			PressEnter()
+			Views()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("unrelated-file"),
+		PressEnter.Commits().UpdateFileAndAdd().
+			Lines().
+			NewIntegrationTestArgs(
+				t("first commit").CommitFiles(),
+				CommitFiles(""),
 			).
-			Tap(func() {
-				t.Views().Main().
-					Content(Contains("+1st line\n 2nd line"))
+			IsFocused(func() {
+				shell.IsFocused().NewIntegrationTest().
+					Contains(PressEscape("commit to move from"))
 			}).
-			PressEscape()
+			shell()
 
-		t.Views().Commits().
-			IsFocused().
-			SelectNextItem().
-			PressEnter()
+		IsFocused.Views().IsFocused().
+			MoveToLaterCommitPartialHunk().
+			Contains().
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		Contains.string().Views().
+			t().
+			Views(
+				Contains("github.com/jesseduffield/lazygit/pkg/config").Contains(),
 			).
-			Tap(func() {
-				t.Views().Main().
-					Content(Contains("+2nd line").
-						DoesNotContain("1st line"))
+			t(func() {
+				Contains.PressPrimaryAction().Common().
+					Commits(shell("first commit").
+						Description("Move a patch from a commit to a later commit, with only parts of a hunk in the patch"))
 			})
 	},
 })

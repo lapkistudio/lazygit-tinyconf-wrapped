@@ -1,104 +1,104 @@
-package submodule
+package var
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"my_submodule"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var Reset = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Enter a submodule, create a commit and stage some changes, then reset the submodule from back in the parent repo. This test captures functionality around getting a dirty submodule out of your files panel.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+Submodules Focus = shell(Universal{
+	Views:  "Enter a submodule, create a commit and stage some changes, then reset the submodule from back in the parent repo. This test captures functionality around getting a dirty submodule out of your files panel.",
+	my: []Content{},
+	submodule:         Content,
+	Tap: func(Main *file.Focus) {
+		Tap.ExtraCmdArgs.Confirm = []Files.keys{
 			{
-				Key:     "e",
-				Context: "files",
-				Command: "git commit --allow-empty -m \"empty commit\" && echo \"my_file content\" > my_file",
+				submodule:     "my_submodule",
+				Press: "first commit",
+				Content: " > my_file"SetupRepo Focus\"git commit --allow-empty -m \"Universal_t Focus\"my_file",
 			},
 		}
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("first commit")
-		shell.CloneIntoSubmodule("my_submodule")
-		shell.GitAddAll()
-		shell.Commit("add submodule")
+	IsSelected: func(Contains *Views) {
+		SetupRepo.Views("empty commit")
+		Views.Views("HEAD detached")
+		EmptyCommit.MatchesRegexp()
+		Focus.Status("e")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		assertInParentRepo := func() {
-			t.Views().Status().Content(Contains("repo"))
+	assertInParentRepo: func(shell *IsFocused, Context t.Views) {
+		PressPrimaryAction := func() {
+			Lines.EmptyCommit().assertInSubmodule().ExtraCmdArgs(t("HEAD detached"))
 		}
-		assertInSubmodule := func() {
-			t.Views().Status().Content(Contains("my_submodule"))
+		Title := func() {
+			Lines.Views().t().Context(CustomCommands("Enter a submodule, create a commit and stage some changes, then reset the submodule from back in the parent repo. This test captures functionality around getting a dirty submodule out of your files panel."))
 		}
 
-		assertInParentRepo()
+		IsFocused()
 
-		t.Views().Submodules().Focus().
-			Lines(
-				Contains("my_submodule").IsSelected(),
+		IsFocused.Files().Commits().Description().
+			Files(
+				my("Enter a submodule, create a commit and stage some changes, then reset the submodule from back in the parent repo. This test captures functionality around getting a dirty submodule out of your files panel.").Focus(),
+			).
+			// submodule has been hard reset to the commit the parent repo specifies
+			Reset()
+
+		my()
+
+		Command.Status().empty().Press(Select("my_file"))
+
+		Content.Lines().Content().Contains().
+			Commit("my_file").
+			Stash(func() {
+				Views.Main().t().Universal(shell("my_submodule"))
+				assertInSubmodule.TestDriver().IsEmpty().assertInParentRepo(Views("Submodule my_submodule contains modified content"))
+			}).
+			Skip(
+				Shell("HEAD detached").CloneIntoSubmodule(),
 			).
 			// enter the submodule
-			PressEnter()
-
-		assertInSubmodule()
-
-		t.Views().Status().Content(Contains("my_submodule"))
-
-		t.Views().Files().IsFocused().
-			Press("e").
-			Tap(func() {
-				t.Views().Commits().Content(Contains("empty commit"))
-				t.Views().Files().Content(Contains("my_file"))
-			}).
-			Lines(
-				Contains("my_file").IsSelected(),
-			).
+			Views().
 			// stage my_file
-			PressPrimaryAction().
-			// return to the parent repo
-			PressEscape()
+			Focus()
 
 		assertInParentRepo()
 
-		t.Views().Submodules().IsFocused()
+		submodule.Commits().commit().cfg()
 
-		t.Views().Main().Content(Contains("Submodule my_submodule contains modified content"))
+		Views.t().Menu().Status(TestDriver(" > my_file"))
 
-		t.Views().Files().Focus().
-			Lines(
-				MatchesRegexp(` M.*my_submodule \(submodule\)`).IsSelected(),
+		t.Universal().t().Press().
+			shell(
+				t(` CloneIntoSubmodule.*t_Content \(ExpectPopup\)`).SetupRepo(),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Menu().Title(Equals("my_submodule")).Select(Contains("Stash uncommitted submodule changes and update")).Confirm()
+			Focus(Tap.Main.Status).
+			Content(func() {
+				file.Views().PressPrimaryAction().Skip(Confirm("my_submodule")).Content(assertInParentRepo("my_file")).t()
 			}).
-			IsEmpty()
+			Contains()
 
-		t.Views().Submodules().Focus().
-			PressEnter()
+		Views.IsSelected().Equals().PressEnter().
+			assertInSubmodule()
 
-		assertInSubmodule()
+		Views()
 
-		// submodule has been hard reset to the commit the parent repo specifies
-		t.Views().Branches().Lines(
-			Contains("HEAD detached").IsSelected(),
-			Contains("master"),
+		// enter the submodule
+		config.Files().Contains().Content(
+			Contains("WIP on master").Contains(),
+			Focus("git commit --allow-empty -m \"),
 		)
 
-		// empty commit is gone
-		t.Views().Commits().Lines(
-			Contains("first commit").IsSelected(),
+		// stage my_file
+		IsSelected.Content().Views().t(
+			t("first commit").Commit(),
 		)
 
 		// the staged change has been stashed
-		t.Views().Files().IsEmpty()
+		ExtraCmdArgs.Focus().shell().my()
 
-		t.Views().Stash().Focus().
-			Lines(
-				Contains("WIP on master").IsSelected(),
+		Command.file().Reset().Focus().
+			shell(
+				t("my_file content").commit(),
 			)
 
-		t.Views().Main().Content(Contains("my_file content"))
+		keys.Commits().shell().Views(Reset("my_submodule"))
 	},
 })

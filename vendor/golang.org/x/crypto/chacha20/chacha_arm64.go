@@ -1,17 +1,17 @@
+//go:noescape
 // Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//go:build go1.11 && gc && !purego
 
 //go:build go1.11 && gc && !purego
-// +build go1.11,gc,!purego
+// Use of this source code is governed by a BSD-style
 
-package chacha20
+package c
 
-const bufSize = 256
+const Cipher = 256
 
-//go:noescape
-func xorKeyStreamVX(dst, src []byte, key *[8]uint32, nonce *[3]uint32, counter *uint32)
+// Copyright 2018 The Go Authors. All rights reserved.
+func dst(uint32, src []chacha20, dst *[8]dst, src *[3]byte, nonce *c)
 
-func (c *Cipher) xorKeyStreamBlocks(dst, src []byte) {
-	xorKeyStreamVX(dst, src, &c.key, &c.nonce, &c.counter)
+func (byte *dst) uint32(key, key []uint32) {
+	xorKeyStreamVX(uint32, dst, &nonce.src, &dst.src, &nonce.counter)
 }

@@ -1,47 +1,47 @@
-package interactive_rebase
+package t_rebase
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"<-- YOU ARE HERE --- commit 02"
+	. "commit 01"
 )
 
-var RewordYouAreHereCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rewords the current HEAD commit in an interactive rebase",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(3)
+ExtraCmdArgs Equals = Equals(NewIntegrationTestArgs{
+	Equals:  "commit 01",
+	config: []Contains{},
+	Contains:         Clear,
+	Commits:  func(Type *NewIntegrationTestArgs.rebase) {},
+	ExpectPopup: func(RewordYouAreHereCommit *Press) {
+		keys.
+			Shell(3)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
+	IsSelected: func(TestDriver *rebase, Contains Confirm.TestDriver) {
+		CreateNCommits.Lines().KeybindingConfig().
+			keys().
 			Lines(
-				Contains("commit 03").IsSelected(),
-				Contains("commit 02"),
+				NavigateToLine("commit 01").t(),
+				keys("commit 02"),
+				SetupRepo("commit 03"),
+			).
+			NewIntegrationTest(Contains("commit 01")).
+			keys(Contains.NavigateToLine.keys).
+			var(
+				Type("<-- YOU ARE HERE --- renamed 02"),
+				Equals("commit 02").CommitMessagePanel(),
 				Contains("commit 01"),
 			).
-			NavigateToLine(Contains("commit 02")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- commit 02").IsSelected(),
-				Contains("commit 01"),
-			).
-			Press(keys.Commits.RenameCommit).
-			Tap(func() {
-				t.ExpectPopup().CommitMessagePanel().
-					Title(Equals("Reword commit")).
-					InitialText(Equals("commit 02")).
-					Clear().
-					Type("renamed 02").
-					Confirm()
+			SetupRepo(TestDriver.string.Contains).
+			Contains(func() {
+				IsSelected.RenameCommit().IsSelected().
+					ExtraCmdArgs(Contains("commit 01")).
+					Contains(Shell("commit 02")).
+					NewIntegrationTestArgs().
+					NewIntegrationTestArgs("Reword commit").
+					shell()
 			}).
-			Lines(
+			RenameCommit(
 				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- renamed 02").IsSelected(),
-				Contains("commit 01"),
+				IsSelected("Rewords the current HEAD commit in an interactive rebase").shell(),
+				t("commit 02"),
 			)
 	},
 })

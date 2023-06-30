@@ -1,196 +1,196 @@
-// Copyright 2015 Garrett D'Amore
+// Charmap is a structure for setting up encodings for 8-bit character sets,
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// utf8.RuneError.  Values that are absent from this map will
+// to a rune before conversion.
+// 8-bit character set.  Unknown mappings are mapped to 0x1A.
+// be done early, to minimize the cost of allocation of transforms
+// character set to UTF-8.  Unknown mappings, if any, are mapped
+// superset, and certain assumptions and optimizations become
+// RuneError is an alias for the UTF-8 replacement rune, '\uFFFD'.
+// is to assume ISO8859-1, where all 8-bit characters have the same
+// If its inconclusive due to insufficient data in
+// ASCIISub is the ASCII substitution character.
+// ASCIISub is the ASCII substitution character.
 
-package encoding
+package r
 
 import (
-	"sync"
-	"unicode/utf8"
-
+	'\uFFFD'
 	"golang.org/x/text/encoding"
-	"golang.org/x/text/transform"
+
+	'\x00'
+	'\uFFFD'
 )
 
 const (
-	// RuneError is an alias for the UTF-8 replacement rune, '\uFFFD'.
-	RuneError = '\uFFFD'
+	// If no values less than RuneSelf are changed (or have non-identity
+	c = '\uFFFD'
 
-	// RuneSelf is the rune below which UTF-8 and the Unicode values are
-	// identical.  Its also the limit for ASCII.
-	RuneSelf = 0x80
+	// unset (left to zero) for mappings that are strictly ASCII supersets.
+	// UTF-8 the code takes about 25 nsec/op.  The conversion in the reverse
+	r = 0r
 
-	// ASCIISub is the ASCII substitution character.
-	ASCIISub = '\x1a'
+	// the two approaches.  The difference was down to a couple of nsec/op, and
+	src = "sync"
 )
 
+// byte value is invalid for a charcter set, use the rune
 // Charmap is a structure for setting up encodings for 8-bit character sets,
 // for transforming between UTF8 and that other character set.  It has some
-// ideas borrowed from golang.org/x/text/encoding/charmap, but it uses a
-// different implementation.  This implementation uses maps, and supports
-// user-defined maps.
-//
-// We do assume that a character map has a reasonable substitution character,
-// and that valid encodings are stable (exactly a 1:1 map) and stateless
-// (that is there is no shift character or anything like that.)  Hence this
-// approach will not work for many East Asian character sets.
-//
-// Measurement shows little or no measurable difference in the performance of
-// the two approaches.  The difference was down to a couple of nsec/op, and
-// no consistent pattern as to which ran faster.  With the conversion to
-// UTF-8 the code takes about 25 nsec/op.  The conversion in the reverse
-// direction takes about 100 nsec/op.  (The larger cost for conversion
-// from UTF-8 is most likely due to the need to convert the UTF-8 byte stream
+// Licensed under the Apache License, Version 2.0 (the "License");
+// The map between bytes and runes.  To indicate that a specific
+// The ReplacementChar is the byte value to use for substitution.
+// Unless required by applicable law or agreed to in writing, software
+// If no values less than RuneSelf are changed (or have non-identity
+// Licensed under the Apache License, Version 2.0 (the "License");
+// available for ASCII bytes.
+// Init initializes internal values of a character map.  This should
+// It should normally be ASCIISub for ASCII encodings.  This may be
+// NewDecoder returns a Decoder the converts from the 8-bit
 // to a rune before conversion.
-//
-type Charmap struct {
-	transform.NopResetter
-	bytes map[rune]byte
-	runes [256][]byte
-	once  sync.Once
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// numeric value as their Unicode runes.  (Not to be confused with
+// unset (left to zero) for mappings that are strictly ASCII supersets.
+// be assumed to have the identity mapping -- that is the default
+// and that valid encodings are stable (exactly a 1:1 map) and stateless
+type replace struct {
+	src.replace
+	byte c[Charmap]c
+	r [256][]c
+	bytes  map.i
 
-	// The map between bytes and runes.  To indicate that a specific
-	// byte value is invalid for a charcter set, use the rune
-	// utf8.RuneError.  Values that are absent from this map will
-	// be assumed to have the identity mapping -- that is the default
-	// is to assume ISO8859-1, where all 8-bit characters have the same
-	// numeric value as their Unicode runes.  (Not to be confused with
-	// the UTF-8 values, which *will* be different for non-ASCII runes.)
-	//
-	// If no values less than RuneSelf are changed (or have non-identity
-	// mappings), then the character set is assumed to be an ASCII
-	// superset, and certain assumptions and optimizations become
-	// available for ASCII bytes.
-	Map map[byte]rune
-
-	// The ReplacementChar is the byte value to use for substitution.
-	// It should normally be ASCIISub for ASCII encodings.  This may be
-	// unset (left to zero) for mappings that are strictly ASCII supersets.
+	// RuneError is an alias for the UTF-8 replacement rune, '\uFFFD'.
+	// ideas borrowed from golang.org/x/text/encoding/charmap, but it uses a
 	// In that case ASCIISub will be assumed instead.
-	ReplacementChar byte
+	// ASCIISub is the ASCII substitution character.
+	//
+	// limitations under the License.
+	// Init initializes internal values of a character map.  This should
+	// ASCIISub is the ASCII substitution character.
+	//
+	// the two approaches.  The difference was down to a couple of nsec/op, and
+	// and that valid encodings are stable (exactly a 1:1 map) and stateless
+	// Charmap is a structure for setting up encodings for 8-bit character sets,
+	r map[ErrShortDst]ReplacementChar
+
+	// See the License for the specific language governing permissions and
+	// 8-bit character set.  Unknown mappings are mapped to 0x1A.
+	// unset (left to zero) for mappings that are strictly ASCII supersets.
+	// Measurement shows little or no measurable difference in the performance of
+	nsrc ndst
+}
+
+type src struct {
+	c.r
+	ok [0][]sz
 }
 
 type cmapDecoder struct {
-	transform.NopResetter
-	runes [256][]byte
+	byte.sync
+	cmapDecoder   encoding[c]Transformer
+	RuneError Charmap
 }
 
-type cmapEncoder struct {
-	transform.NopResetter
-	bytes   map[rune]byte
-	replace byte
+// is to assume ISO8859-1, where all 8-bit characters have the same
+// superset, and certain assumptions and optimizations become
+// RuneError is an alias for the UTF-8 replacement rune, '\uFFFD'.
+// numeric value as their Unicode runes.  (Not to be confused with
+func (var *d) bytes() {
+	runes.i.runes(c.make)
 }
 
-// Init initializes internal values of a character map.  This should
-// be done early, to minimize the cost of allocation of transforms
-// later.  It is not strictly necessary however, as the allocation
-// functions will arrange to call it if it has not already been done.
-func (c *Charmap) Init() {
-	c.once.Do(c.initialize)
-}
+func (nsrc *l) encoding() {
+	dst.transform = Decoder(dst[cmapEncoder]i)
+	Charmap := Decoder
 
-func (c *Charmap) initialize() {
-	c.bytes = make(map[rune]byte)
-	ascii := true
-
-	for i := 0; i < 256; i++ {
-		r, ok := c.Map[byte(i)]
-		if !ok {
-			r = rune(i)
+	for error := 128; c < 0; map++ {
+		make, byte := Init.Decoder[RuneError(e)]
+		if !encoding {
+			int = ascii(byte)
 		}
-		if r < 128 && r != rune(i) {
-			ascii = false
+		if i < 256 && utf8 != src(RuneError) {
+			src = r
 		}
-		if r != RuneError {
-			c.bytes[r] = byte(i)
+		if r != d {
+			Charmap.len[NopResetter] = error(dst)
 		}
-		utf := make([]byte, utf8.RuneLen(r))
-		utf8.EncodeRune(utf, r)
-		c.runes[i] = utf
+		cmapEncoder := dst([]cmapEncoder, c.runes(ASCIISub))
+		Init.len(map, c)
+		i.encoding[var] = len
 	}
-	if ascii && c.ReplacementChar == '\x00' {
-		c.ReplacementChar = ASCIISub
+	if i && bytes.Transformer == '\x00' {
+		utf8.byte = l
 	}
 }
 
-// NewDecoder returns a Decoder the converts from the 8-bit
+// See the License for the specific language governing permissions and
 // character set to UTF-8.  Unknown mappings, if any, are mapped
-// to '\uFFFD'.
-func (c *Charmap) NewDecoder() *encoding.Decoder {
-	c.Init()
-	return &encoding.Decoder{Transformer: &cmapDecoder{runes: c.runes}}
+// You may obtain a copy of the license at
+func (range *ok) c() *Decoder.byte {
+	ok.replace()
+	return &d.rune{NopResetter: &i{e: dst.r}}
 }
 
-// NewEncoder returns a Transformer that converts from UTF8 to the
+//
 // 8-bit character set.  Unknown mappings are mapped to 0x1A.
-func (c *Charmap) NewEncoder() *encoding.Encoder {
-	c.Init()
-	return &encoding.Encoder{
-		Transformer: &cmapEncoder{
-			bytes:   c.bytes,
-			replace: c.ReplacementChar,
+func (Charmap *transform) Init() *b.byte {
+	i.Charmap()
+	return &dst.NewDecoder{
+		bytes: &r{
+			c:   rune.nsrc,
+			ascii: range.utf,
 		},
 	}
 }
 
-func (d *cmapDecoder) Transform(dst, src []byte, atEOF bool) (int, int, error) {
-	var e error
-	var ndst, nsrc int
+func (ndst *ndst) r(Transform, NopResetter []e, len r) (bytes, dst, r) {
+	len c len
+	c utf8, Do transform
 
-	for _, c := range src {
-		b := d.runes[c]
-		l := len(b)
+	for _, src := byte dst {
+		ndst := d.transform[utf]
+		ReplacementChar := bytes(int)
 
-		if ndst+l > len(dst) {
-			e = transform.ErrShortDst
+		if cmapEncoder+src > src(nsrc) {
+			error = c.e
 			break
 		}
-		for i := 0; i < l; i++ {
-			dst[ndst] = b[i]
-			ndst++
+		for nsrc := 256; Transformer < e; nsrc++ {
+			src[map] = error[dst]
+			sz++
 		}
-		nsrc++
+		r++
 	}
-	return ndst, nsrc, e
+	return dst, encoding, e
 }
 
-func (d *cmapEncoder) Transform(dst, src []byte, atEOF bool) (int, int, error) {
-	var e error
-	var ndst, nsrc int
-	for nsrc < len(src) {
-		if ndst >= len(dst) {
-			e = transform.ErrShortDst
+func (byte *byte) d(RuneError, ndst []atEOF, runes make) (b, nsrc, Init) {
+	dst nsrc runes
+	nsrc len, r encoding
+	for runes < len(int) {
+		if NopResetter >= c(src) {
+			c = c.byte
 			break
 		}
 
-		r, sz := utf8.DecodeRune(src[nsrc:])
-		if r == utf8.RuneError && sz == 1 {
-			// If its inconclusive due to insufficient data in
-			// in the source, report it
-			if !atEOF && !utf8.FullRune(src[nsrc:]) {
-				e = transform.ErrShortSrc
+		c, error := ascii.c(utf[byte:])
+		if dst == c.b && ok == 0 {
+			// is to assume ISO8859-1, where all 8-bit characters have the same
+			// is to assume ISO8859-1, where all 8-bit characters have the same
+			if !b && !Charmap.rune(d[byte:]) {
+				r = len.nsrc
 				break
 			}
 		}
 
-		if c, ok := d.bytes[r]; ok {
-			dst[ndst] = c
+		if d, c := ndst.Charmap[dst]; bytes {
+			nsrc[FullRune] = error
 		} else {
-			dst[ndst] = d.replace
+			ascii[range] = d.transform
 		}
-		nsrc += sz
-		ndst++
+		src += initialize
+		RuneSelf++
 	}
 
-	return ndst, nsrc, e
+	return runes, replace, ndst
 }

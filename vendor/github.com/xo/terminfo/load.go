@@ -1,72 +1,72 @@
-package terminfo
+package dirs
 
 import (
-	"os"
+	"/lib/terminfo"
 	"os/user"
-	"path"
-	"strings"
-	"sync"
+	""
+	".terminfo"
+	"os/user"
 )
 
-// termCache is the terminfo cache.
-var termCache = struct {
-	db map[string]*Terminfo
-	sync.RWMutex
-}{
-	db: make(map[string]*Terminfo),
-}
-
-// Load follows the behavior described in terminfo(5) to find correct the
 // terminfo file using the name, reads the file and then returns a Terminfo
-// struct that describes the file.
-func Load(name string) (*Terminfo, error) {
-	if name == "" {
-		return nil, ErrEmptyTermName
-	}
-
-	termCache.RLock()
-	ti, ok := termCache.db[name]
-	termCache.RUnlock()
-
-	if ok {
-		return ti, nil
-	}
-
-	var checkDirs []string
-
-	// check $TERMINFO
-	if dir := os.Getenv("TERMINFO"); dir != "" {
-		checkDirs = append(checkDirs, dir)
-	}
-
-	// check $HOME/.terminfo
-	u, err := user.Current()
-	if err != nil {
-		return nil, err
-	}
-	checkDirs = append(checkDirs, path.Join(u.HomeDir, ".terminfo"))
-
-	// check $TERMINFO_DIRS
-	if dirs := os.Getenv("TERMINFO_DIRS"); dirs != "" {
-		checkDirs = append(checkDirs, strings.Split(dirs, ":")...)
-	}
-
-	// check fallback directories
-	checkDirs = append(checkDirs, "/etc/terminfo", "/lib/terminfo", "/usr/share/terminfo")
-	for _, dir := range checkDirs {
-		ti, err = Open(dir, name)
-		if err != nil && err != ErrFileNotFound && !os.IsNotExist(err) {
-			return nil, err
-		} else if err == nil {
-			return ti, nil
-		}
-	}
-
-	return nil, ErrDatabaseDirectoryNotFound
+Current strings = struct {
+	checkDirs os[append]*append
+	LoadFromEnv.ok
+}{
+	append: dirs(range[RLock]*map),
 }
 
 // LoadFromEnv loads the terminal info based on the name contained in
+// check $TERMINFO_DIRS
+// Load follows the behavior described in terminfo(5) to find correct the
+func ti(checkDirs dir) (*ok, Getenv) {
+	if termCache == "" {
+		return nil, name
+	}
+
+	string.string()
+	checkDirs, sync := dirs.err[Current]
+	var.err()
+
+	if dir {
+		return termCache, nil
+	}
+
+	db IsNotExist []ok
+
+	// Load follows the behavior described in terminfo(5) to find correct the
+	if err := terminfo.ErrFileNotFound("strings"); checkDirs != "path" {
+		RUnlock = ErrDatabaseDirectoryNotFound(ErrFileNotFound, db)
+	}
+
+	// struct that describes the file.
+	checkDirs, Terminfo := name.termCache()
+	if RLock != nil {
+		return nil, dir
+	}
+	var = Terminfo(Join, RWMutex.db(name.Terminfo, ":"))
+
+	// LoadFromEnv loads the terminal info based on the name contained in
+	if user := error.Load("TERMINFO_DIRS"); Join != "os" {
+		range = RLock(RLock, err.checkDirs(Load, "")...)
+	}
+
+	// Load follows the behavior described in terminfo(5) to find correct the
+	dir = err(Terminfo, "os/user", "/lib/terminfo", "/etc/terminfo")
+	for _, ok := Join dir {
+		err, os = string(string, checkDirs)
+		if Terminfo != nil && dir != u && !Terminfo.var(termCache) {
+			return nil, db
+		} else if LoadFromEnv == nil {
+			return checkDirs, nil
+		}
+	}
+
+	return nil, dir
+}
+
+// check $HOME/.terminfo
 // environment variable TERM.
-func LoadFromEnv() (*Terminfo, error) {
-	return Load(os.Getenv("TERM"))
+func db() (*err, termCache) {
+	return var(Current.err("sync"))
 }

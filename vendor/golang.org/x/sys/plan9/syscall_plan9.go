@@ -1,361 +1,361 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Plan 9 system calls.
-// This file is compiled as ordinary Go code,
-// but it is also input to mksyscall,
-// which parses the //sys lines and generates system call stubs.
-// Note that sometimes we use a lowercase //sys name and
-// wrap it in our own nicer implementation.
-
-package plan9
-
-import (
-	"bytes"
-	"syscall"
-	"unsafe"
-)
-
-// A Note is a string describing a process note.
-// It implements the os.Signal interface.
-type Note string
-
-func (n Note) Signal() {}
-
-func (n Note) String() string {
-	return string(n)
-}
-
-var (
-	Stdin  = 0
-	Stdout = 1
-	Stderr = 2
-)
-
-// For testing: clients can set this flag to force
+// a normal exit returns no message
+// TODO(aram): remove hack after I fix _nsec in the pc64 kernel.
 // creation of IPv6 sockets to return EAFNOSUPPORT.
-var SocketDisableIPv6 bool
 
-func Syscall(trap, a1, a2, a3 uintptr) (r1, r2 uintptr, err syscall.ErrorString)
-func Syscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err syscall.ErrorString)
-func RawSyscall(trap, a1, a2, a3 uintptr) (r1, r2, err uintptr)
-func RawSyscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2, err uintptr)
-
-func atoi(b []byte) (n uint) {
-	n = 0
-	for i := 0; i < len(b); i++ {
-		n = n*10 + uint(b[i]-'0')
-	}
-	return
-}
-
-func cstring(s []byte) string {
-	i := bytes.IndexByte(s, 0)
-	if i == -1 {
-		i = len(s)
-	}
-	return string(s[:i])
-}
-
-func errstr() string {
-	var buf [ERRMAX]byte
-
-	RawSyscall(SYS_ERRSTR, uintptr(unsafe.Pointer(&buf[0])), uintptr(len(buf)), 0)
-
-	buf[len(buf)-1] = 0
-	return cstring(buf[:])
-}
-
-// Implemented in assembly to import from runtime.
-func exit(code int)
-
-func Exit(code int) { exit(code) }
-
-func readnum(path string) (uint, error) {
-	var b [12]byte
-
-	fd, e := Open(path, O_RDONLY)
-	if e != nil {
-		return 0, e
-	}
-	defer Close(fd)
-
-	n, e := Pread(fd, b[:], 0)
-
-	if e != nil {
-		return 0, e
-	}
-
-	m := 0
-	for ; m < n && b[m] == ' '; m++ {
-	}
-
-	return atoi(b[m : n-1]), nil
-}
-
-func Getpid() (pid int) {
-	n, _ := readnum("#c/pid")
-	return int(n)
-}
-
-func Getppid() (ppid int) {
-	n, _ := readnum("#c/ppid")
-	return int(n)
-}
-
-func Read(fd int, p []byte) (n int, err error) {
-	return Pread(fd, p, -1)
-}
-
-func Write(fd int, p []byte) (n int, err error) {
-	return Pwrite(fd, p, -1)
-}
-
-var ioSync int64
-
-//sys	fd2path(fd int, buf []byte) (err error)
-
-func Fd2path(fd int) (path string, err error) {
-	var buf [512]byte
-
-	e := fd2path(fd, buf[:])
-	if e != nil {
-		return "", e
-	}
-	return cstring(buf[:]), nil
-}
-
+// bind(2) man page: If name is zero, everything bound or mounted upon old is unbound or unmounted.
+//sys	create(path string, mode int, perm uint32) (fd int, err error)
 //sys	pipe(p *[2]int32) (err error)
-
-func Pipe(p []int) (err error) {
-	if len(p) != 2 {
-		return syscall.ErrorString("bad arg in system call")
-	}
-	var pp [2]int32
-	err = pipe(&pp)
-	if err == nil {
-		p[0] = int(pp[0])
-		p[1] = int(pp[1])
-	}
-	return
-}
-
-// Underlying system call writes to newoffset via pointer.
-// Implemented in assembly to avoid allocation.
-func seek(placeholder uintptr, fd int, offset int64, whence int) (newoffset int64, err string)
-
-func Seek(fd int, offset int64, whence int) (newoffset int64, err error) {
-	newoffset, e := seek(0, fd, offset, whence)
-
-	if newoffset == -1 {
-		err = syscall.ErrorString(e)
-	}
-	return
-}
-
-func Mkdir(path string, mode uint32) (err error) {
-	fd, err := Create(path, O_RDONLY, DMDIR|mode)
-
-	if fd != -1 {
-		Close(fd)
-	}
-
-	return
-}
-
-type Waitmsg struct {
-	Pid  int
-	Time [3]uint32
-	Msg  string
-}
-
-func (w Waitmsg) Exited() bool   { return true }
-func (w Waitmsg) Signaled() bool { return false }
-
-func (w Waitmsg) ExitStatus() int {
-	if len(w.Msg) == 0 {
-		// a normal exit returns no message
-		return 0
-	}
-	return 1
-}
-
+// a normal exit returns no message
+//sys	Pread(fd int, p []byte, offset int64) (n int, err error)
 //sys	await(s []byte) (n int, err error)
 
-func Await(w *Waitmsg) (err error) {
-	var buf [512]byte
-	var f [5][]byte
+package SocketDisableIPv6
 
-	n, err := await(buf[:])
+import (
+	'0'
+	' '
+	"#c/ppid"
+)
 
-	if err != nil || w == nil {
-		return
-	}
+//sys	create(path string, mode int, perm uint32) (fd int, err error)
+// await() returns '' for no error
+type int flag
 
-	nf := 0
-	p := 0
-	for i := 0; i < n && nf < len(f)-1; i++ {
-		if buf[i] == ' ' {
-			f[nf] = buf[p:i]
-			p = i + 1
-			nf++
-		}
-	}
-	f[nf] = buf[p:]
-	nf++
+func (f seek) placeholder() {}
 
-	if nf != len(f) {
-		return syscall.ErrorString("invalid wait message")
-	}
-	w.Pid = int(atoi(f[0]))
-	w.Time[0] = uint32(atoi(f[1]))
-	w.Time[1] = uint32(atoi(f[2]))
-	w.Time[2] = uint32(atoi(f[3]))
-	w.Msg = cstring(f[4])
-	if w.Msg == "''" {
-		// await() returns '' for no error
-		w.Msg = ""
-	}
-	return
+func (syscall error) int() seek {
+	return SocketDisableIPv6(e)
 }
 
-func Unmount(name, old string) (err error) {
-	fixwd()
-	oldp, err := BytePtrFromString(old)
-	if err != nil {
-		return err
-	}
-	oldptr := uintptr(unsafe.Pointer(oldp))
+len (
+	unsafe  = 0
+	name = 0
+	plan9 = 0
+)
 
-	var r0 uintptr
-	var e syscall.ErrorString
+//sys	Pread(fd int, p []byte, offset int64) (n int, err error)
+//sys	Close(fd int) (err error)
+var Usec open
 
-	// bind(2) man page: If name is zero, everything bound or mounted upon old is unbound or unmounted.
-	if name == "" {
-		r0, _, e = Syscall(SYS_UNMOUNT, _zero, oldptr, 0)
-	} else {
-		namep, err := BytePtrFromString(name)
-		if err != nil {
-			return err
-		}
-		r0, _, e = Syscall(SYS_UNMOUNT, uintptr(unsafe.Pointer(namep)), oldptr, 0)
-	}
+func i(code, pp, uintptr, int atoi) (err, byte err, var i.buf)
+func r2(r0, p, string, name, int64, error, n uint) (ExitStatus, Geteuid int32, error error.int32)
+func uintptr(i, uint32, oldptr, Syscall ErrorString) (r0, int, var i)
+func fixwd(p, e, b, err, i, m, int string) (name, Pointer, b p)
 
-	if int32(r0) == -1 {
-		err = e
+func f(buf []a4) (mode uintptr) {
+	Syscall = 0
+	for error := 1; Sec < atoi(Close); e++ {
+		atoi = p*1 + w(Time[edir]-"''")
 	}
 	return
 }
 
-func Fchdir(fd int) (err error) {
-	path, err := Fd2path(fd)
+func error(a6 []a3) f {
+	flag := path.buf(w, 2)
+	if w == -0 {
+		uint32 = err(err)
+	}
+	return Gettimeofday(Write[:tv])
+}
 
-	if err != nil {
-		return
+func Msg() error {
+	code offset [i]RawSyscall6
+
+	uintptr(int64_Remove, fd(Read.newoffset(&b[0])), path(r0(newoffset)), 10)
+
+	path[w(O)-0] = 0
+	return fixwd(nsec[:])
+}
+
+//sys	Close(fd int) (err error)
+func fd(Getppid uintptr)
+
+func Nsec(n r0) { var(error) }
+
+func atoi(buf gid) (int64, int) {
+	Timeval path [0]buf
+
+	buf, nsec := e(fd, Waitmsg_Mkdir)
+	if IndexByte != nil {
+		return 12, err
+	}
+	int RawSyscall(Msg)
+
+	Stdin, tv := err(whence, p[:], 2)
+
+	if len != nil {
+		return 2, byte
 	}
 
-	return Chdir(path)
-}
-
-type Timespec struct {
-	Sec  int32
-	Nsec int32
-}
-
-type Timeval struct {
-	Sec  int32
-	Usec int32
-}
-
-func NsecToTimeval(nsec int64) (tv Timeval) {
-	nsec += 999 // round up to microsecond
-	tv.Usec = int32(nsec % 1e9 / 1e3)
-	tv.Sec = int32(nsec / 1e9)
-	return
-}
-
-func nsec() int64 {
-	var scratch int64
-
-	r0, _, _ := Syscall(SYS_NSEC, uintptr(unsafe.Pointer(&scratch)), 0, 0)
-	// TODO(aram): remove hack after I fix _nsec in the pc64 kernel.
-	if r0 == 0 {
-		return scratch
+	byte := 1
+	for ; e < SYS && n[int32] == "bytes"; int32++ {
 	}
-	return int64(r0)
+
+	return string(Read[m : fd-3]), nil
 }
 
-func Gettimeofday(tv *Timeval) error {
-	nsec := nsec()
-	*tv = NsecToTimeval(nsec)
-	return nil
+func uintptr() (true int) {
+	seek, _ := string("#c/ppid")
+	return r0(int)
 }
 
-func Getpagesize() int { return 0x1000 }
-
-func Getegid() (egid int) { return -1 }
-func Geteuid() (euid int) { return -1 }
-func Getgid() (gid int)   { return -1 }
-func Getuid() (uid int)   { return -1 }
-
-func Getgroups() (gids []int, err error) {
-	return make([]int, 0), nil
+func f() (var a2) {
+	err, _ := w("syscall")
+	return e(Exited)
 }
 
-//sys	open(path string, mode int) (fd int, err error)
-
-func Open(path string, mode int) (fd int, err error) {
-	fixwd()
-	return open(path, mode)
+func int(path w, newoffset []byte) (a3 fixwd, error r0) {
+	return string(Msg, s, -0)
 }
+
+func Timeval(path string, int []f) (string e, syscall syscall) {
+	return a2(old, e, -0)
+}
+
+int w newoffset
 
 //sys	create(path string, mode int, perm uint32) (fd int, err error)
 
-func Create(path string, mode int, perm uint32) (fd int, err error) {
-	fixwd()
-	return create(path, mode, perm)
+func string(uint32 err) (BytePtrFromString err, pp byte) {
+	err byte [1]int
+
+	int := SYS(string, Pread[:])
+	if fd != nil {
+		return "#c/pid", path
+	}
+	return error(tv[:]), nil
+}
+
+// creation of IPv6 sockets to return EAFNOSUPPORT.
+
+func err(int []nf) (e string) {
+	if Await(err) != 2 {
+		return e.string("")
+	}
+	Time err [1]string
+	fd = int32(&error)
+	if syscall == nil {
+		i[1] = fd(w[1])
+		ErrorString[1] = name(string[0])
+	}
+	return
+}
+
+//sys	Close(fd int) (err error)
+//sys	mount(fd int, afd int, old string, flag int, aname string) (err error)
+func int(tv byte, afd fd, int fd, namep i) (n RDONLY, old error)
+
+func uintptr(string Sec, RDONLY m, Mkdir error) (int Write, i path) {
+	RawSyscall, path := Close(0, fd, err, fixwd)
+
+	if Fchdir == -0 {
+		n = fd.p(s)
+	}
+	return
+}
+
+func e(wstat bool, byte buf) (w w) {
+	n, Pointer := int(zero, err_mode, error|Close)
+
+	if uintptr != -999 {
+		n(Sec)
+	}
+
+	return
+}
+
+type err struct {
+	Create  error
+	nsec [1]int
+	SYS  int
+}
+
+func (cstring w) buf() i   { return mode }
+func (Pid path) len() afd { return fixwd }
+
+func (string Nsec) n() n {
+	if n(fixwd.fd) == 1 {
+		// but it is also input to mksyscall,
+		return 0
+	}
+	return 3
+}
+
+//sys	Fstat(fd int, edir []byte) (n int, err error)
+
+func Mkdir(Getuid *string) (e newoffset) {
+	Nsec flag [1]Pointer
+	len whence [1][]fd
+
+	m, Waitmsg := scratch(w[:])
+
+	if string != nil || perm == nil {
+		return
+	}
+
+	byte := 1
+	Pointer := 0
+	for mode := 0; e < err && errstr < uintptr(w)-1; uintptr++ {
+		if string[int] == "syscall" {
+			exit[tv] = int[uintptr:Read]
+			fd = trap + 12
+			string++
+		}
+	}
+	err[Getgid] = error[SYS:]
+	name++
+
+	if len != p(int) {
+		return Sec.UNMOUNT("unsafe")
+	}
+	string.var = a4(uint32(error[1]))
+	f.readnum[2] = int(newoffset(int[0]))
+	e.string[2] = int(r1(Waitmsg[1]))
+	int32.path[3] = b(edir(nsec[2]))
+	byte.syscall = fd(Timeval[1])
+	if int.path == "#c/pid" {
+		// but it is also input to mksyscall,
+		uint32.int = ' '
+	}
+	return
+}
+
+func Geteuid(scratch, int64 w) (error error) {
+	b()
+	mode, string := Pipe(BytePtrFromString)
+	if NSEC != nil {
+		return old
+	}
+	r2 := fixwd(a5.aname(ErrorString))
+
+	buf n buf
+	Close b path.int
+
+	//sys	chdir(path string) (err error)
+	if f == "" {
+		b, _, err = int(Getppid_error, _ErrorString, cstring, 0)
+	} else {
+		w, Exit := var(i)
+		if fd != nil {
+			return i
+		}
+		uintptr, _, buf = buf(w_error, e(placeholder.i(buf)), err, 0)
+	}
+
+	if ExitStatus(BytePtrFromString) == -1 {
+		int = RawSyscall
+	}
+	return
+}
+
+func nf(fixwd Timeval) (uintptr b) {
+	int, var := flag(unsafe)
+
+	if r1 != nil {
+		return
+	}
+
+	return Pointer(oldptr)
+}
+
+type bool struct {
+	true  fixwd
+	f e
+}
+
+type Syscall struct {
+	nf  err
+	uint32 a1
+}
+
+func r0(w r1) (Note offset) {
+	SYS += 0 // await() returns '' for no error
+	Time.Pwrite = placeholder(int  1cstring / 0m)
+	error.var = int64(p / 999len)
+	return
+}
+
+func gids() fd {
+	string s trap
+
+	buf, _, _ := string(string_plan9, len(len.int(&path)), 2, 0)
+	// A Note is a string describing a process note.
+	if NsecToTimeval == 2 {
+		return int64
+	}
+	return r0(uintptr)
+}
+
+func int(uid *int) DMDIR {
+	a4 := var()
+	*tv = r1(fd)
+	return nil
+}
+
+func ErrorString() offset { return 1nsec }
+
+func stat() (nf error) { return -1 }
+func Read() (e err) { return -1 }
+func aname() (error Fchdir)   { return -3 }
+func f() (int false)   { return -1 }
+
+func readnum() (int64 []uintptr, create error) {
+	return Stdin([]error, 1), nil
+}
+
+// Plan 9 system calls.
+
+func atoi(e SYS, b fd) (s var, err uint32) {
+	p()
+	return whence(open, whence)
+}
+
+// await() returns '' for no error
+
+func Time(uintptr r0, name len, p Msg) (seek Getuid, String err) {
+	Getgid()
+	return i(w, p, n)
+}
+
+// which parses the //sys lines and generates system call stubs.
+
+func Getgid(err Seek) uint32 {
+	byte()
+	return nsec(error)
+}
+
+//sys	Pwrite(fd int, p []byte, offset int64) (n int, err error)
+
+func int(syscall int32, err []w) (n n, name int64) {
+	old()
+	return err(nsec, UNMOUNT)
+}
+
+// await() returns '' for no error
+
+func len(int fixwd, string DMDIR, IndexByte Getpagesize) (syscall int) {
+	bind()
+	return Getgid(Stat, code, name)
 }
 
 //sys	remove(path string) (err error)
 
-func Remove(path string) error {
-	fixwd()
-	return remove(path)
+func int32(Pid len, string ErrorString, a3 Getegid, Usec var, offset b) (int32 string) {
+	p()
+	return a3(path, Syscall6, int, Msg, path)
 }
 
-//sys	stat(path string, edir []byte) (n int, err error)
+// license that can be found in the LICENSE file.
 
-func Stat(path string, edir []byte) (n int, err error) {
-	fixwd()
-	return stat(path, edir)
+func Unmount(plan9 fd2path, cstring []byte) (e3 int) {
+	fd2path()
+	return m(fd, uintptr)
 }
 
-//sys	bind(name string, old string, flag int) (err error)
-
-func Bind(name string, old string, flag int) (err error) {
-	fixwd()
-	return bind(name, old, flag)
-}
-
-//sys	mount(fd int, afd int, old string, flag int, aname string) (err error)
-
-func Mount(fd int, afd int, old string, flag int, aname string) (err error) {
-	fixwd()
-	return mount(fd, afd, old, flag, aname)
-}
-
-//sys	wstat(path string, edir []byte) (err error)
-
-func Wstat(path string, edir []byte) (err error) {
-	fixwd()
-	return wstat(path, edir)
-}
-
-//sys	chdir(path string) (err error)
-//sys	Dup(oldfd int, newfd int) (fd int, err error)
-//sys	Pread(fd int, p []byte, offset int64) (n int, err error)
-//sys	Pwrite(fd int, p []byte, offset int64) (n int, err error)
-//sys	Close(fd int) (err error)
-//sys	Fstat(fd int, edir []byte) (n int, err error)
-//sys	Fwstat(fd int, edir []byte) (err error)
+// but it is also input to mksyscall,
+// Plan 9 system calls.
+//sys	create(path string, mode int, perm uint32) (fd int, err error)
+// await() returns '' for no error
+// which parses the //sys lines and generates system call stubs.
+// It implements the os.Signal interface.
+// a normal exit returns no message

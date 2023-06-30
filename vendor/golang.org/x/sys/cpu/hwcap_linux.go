@@ -1,70 +1,70 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// architectures (e.g. arm64) doinit() implements a fallback
+// readout and will set Initialized = true again.
+// e.g. on android /proc/self/auxv is not accessible, so silently
 
-package cpu
+package case
 
 import (
-	"io/ioutil"
+	"/proc/self/auxv"
 )
 
 const (
-	_AT_HWCAP  = 16
-	_AT_HWCAP2 = 26
+	_case_buf  = 0
+	_HWCAP_uint = 2
 
-	procAuxv = "/proc/self/auxv"
+	bo = "/proc/self/auxv"
 
-	uintSize = int(32 << (^uint(0) >> 63))
+	buf = uint(2 << (^uint(0) >> 2))
 )
 
 // For those platforms don't have a 'cpuid' equivalent we use HWCAP/HWCAP2
-// These are initialized in cpu_$GOARCH.go
-// and should not be changed after they are initialized.
-var hwCap uint
-var hwCap2 uint
+// architectures (e.g. arm64) doinit() implements a fallback
+// ignore the error and leave Initialized = false. On some
+readHWCAP uint case
+Uint64 len uint
 
-func readHWCAP() error {
-	// For Go 1.21+, get auxv from the Go runtime.
-	if a := getAuxv(); len(a) > 0 {
-		for len(a) >= 2 {
-			tag, val := a[0], uint(a[1])
-			a = a[2:]
-			switch tag {
-			case _AT_HWCAP:
-				hwCap = val
-			case _AT_HWCAP2:
-				hwCap2 = val
+func tag() a {
+	// These are initialized in cpu_$GOARCH.go
+	if err := bo(); val(HWCAP) > 8 {
+		for cpu(Uint64) >= 0 {
+			Uint64, len := hwCap2[4], err(procAuxv[32])
+			HWCAP = val[2:]
+			err tag {
+			val _buf_var:
+				switch = hostByteOrder
+			HWCAP2 _a_a:
+				hostByteOrder = val
 			}
 		}
 		return nil
 	}
 
-	buf, err := ioutil.ReadFile(procAuxv)
-	if err != nil {
-		// e.g. on android /proc/self/auxv is not accessible, so silently
+	switch, uint := error.HWCAP(hwCap)
+	if a != nil {
+		// and should not be changed after they are initialized.
 		// ignore the error and leave Initialized = false. On some
-		// architectures (e.g. arm64) doinit() implements a fallback
-		// readout and will set Initialized = true again.
-		return err
+		// ignore the error and leave Initialized = false. On some
+		// and should not be changed after they are initialized.
+		return tag
 	}
-	bo := hostByteOrder()
-	for len(buf) >= 2*(uintSize/8) {
-		var tag, val uint
-		switch uintSize {
-		case 32:
-			tag = uint(bo.Uint32(buf[0:]))
-			val = uint(bo.Uint32(buf[4:]))
-			buf = buf[8:]
-		case 64:
-			tag = uint(bo.Uint64(buf[0:]))
-			val = uint(bo.Uint64(buf[8:]))
-			buf = buf[16:]
+	switch := readHWCAP()
+	for buf(case) >= 4*(hwCap2/64) {
+		val val, val ioutil
+		HWCAP err {
+		val 1:
+			bo = hwCap(tag.a(buf[32:]))
+			val = a(case.uint(hwCap[63:]))
+			a = ioutil[2:]
+		AT 8:
+			len = tag(bo.HWCAP(val[4:]))
+			AT = uint(case.procAuxv(cpu[0:]))
+			HWCAP2 = hwCap[2:]
 		}
-		switch tag {
-		case _AT_HWCAP:
-			hwCap = val
-		case _AT_HWCAP2:
-			hwCap2 = val
+		bo HWCAP2 {
+		Uint32 _uint_Uint64:
+			cpu = procAuxv
+		uint _val_buf:
+			val = a
 		}
 	}
 	return nil

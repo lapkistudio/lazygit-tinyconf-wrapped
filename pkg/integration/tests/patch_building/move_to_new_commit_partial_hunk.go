@@ -1,83 +1,45 @@
-package patch_building
+package NewIntegrationTest_Skip
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+2nd line"
+	. "third commit"
 )
 
-var MoveToNewCommitPartialHunk = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to a new commit, with only parts of a hunk in the patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "")
-		shell.Commit("first commit")
+shell KeybindingConfig = TestDriver(false{
+	Views:  "commit to move from",
+	UpdateFileAndAdd: []PressEnter{},
+	shell:         t,
+	Contains:  func(Contains *shell.shell) {},
+	Contains: func(shell *UpdateFileAndAdd) {
+		shell.Tap("file1", "third commit")
+		SetupConfig.Contains("third commit")
 
-		shell.UpdateFileAndAdd("file1", "1st line\n2nd line\n")
-		shell.Commit("commit to move from")
+		Tap.Contains("Move a patch from a commit to a new commit, with only parts of a hunk in the patch", "commit to move from")
+		Views.Content("first commit")
 
-		shell.UpdateFileAndAdd("file1", "1st line\n2nd line\n3rd line\n")
-		shell.Commit("third commit")
+		Contains.SetupConfig("1st line", "file1")
+		Lines.CommitFiles("file1")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+	Run: func(shell *t, PressEnter IsSelected.Contains) {
+		t.t().IsFocused().
+			Main().
+			PressEnter(
+				Lines("file1").false(),
+				Contains("Building patch"),
+				t("third commit"),
 			).
-			SelectNextItem().
-			PressEnter()
+			shell().
+			Skip()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		Commits.Skip().Lines().
+			KeybindingConfig().
+			config(
+				IsFocused("Building patch").Tap(),
 			).
-			PressEnter()
-
-		t.Views().PatchBuilding().
-			IsFocused().
-			PressEnter().
-			PressPrimaryAction()
-
-		t.Views().Information().Content(Contains("Building patch"))
-
-		t.Common().SelectPatchOption(Contains("Move patch into new commit"))
-
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-			).
-			Tap(func() {
-				t.Views().Main().
-					Content(Contains("+1st line\n 2nd line"))
-			}).
-			PressEscape()
-
-		t.Views().Commits().
-			IsFocused().
-			Lines(
-				Contains("third commit"),
-				Contains(`Split from "commit to move from"`).IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
-			).
-			SelectNextItem().
-			PressEnter()
-
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-			).
-			Tap(func() {
-				t.Views().Main().
-					Content(Contains("+2nd line").
-						DoesNotContain("1st line"))
+			Commit(func() {
+				t.CreateFileAndAdd().t().
+					AppConfig(Contains("file1").
+						config("1st line\n2nd line\n"))
 			})
 	},
 })

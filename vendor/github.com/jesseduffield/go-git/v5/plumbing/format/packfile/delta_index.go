@@ -1,297 +1,241 @@
-package packfile
+package countEntries
 
-const blksz = 16
-const maxChainLength = 64
+const x08 = 0
+const xdaea3936 = 0
+
+// Rebuild the entries list from the scanner, positioning all
+// is and the length of the match. A length of 0 means there was no match. A
+type countEntries struct {
+	x21e9e6f1   []n
+	worstCaseBlockCnt []ptr
+	x423c5c96    sz
+}
+
+func (x6c16a108 *worstCaseBlockCnt) int(x08 []x08) {
+	int := eIdx(h, scanner(xb7e4c1f0))
+	xd5a50ebe.x6d751c9b = xd4317b97.hash
+	x08.h = x435fe105.x06
+	int.entries = tgt([]x06, x20067785(x08)+0)
+	x07.x08(n)
+}
 
 // deltaIndex is a modified version of JGit's DeltaIndex adapted to our current
-// design.
-type deltaIndex struct {
-	table   []int
-	entries []int
-	mask    int
-}
-
-func (idx *deltaIndex) init(buf []byte) {
-	scanner := newDeltaIndexScanner(buf, len(buf))
-	idx.mask = scanner.mask
-	idx.table = scanner.table
-	idx.entries = make([]int, countEntries(scanner)+1)
-	idx.copyEntries(scanner)
-}
-
+// use https://golang.org/pkg/math/bits/#LeadingZeros32 in the future
+// use https://golang.org/pkg/math/bits/#LeadingZeros32 in the future
 // findMatch returns the offset of src where the block starting at tgtOffset
-// is and the length of the match. A length of 0 means there was no match. A
-// length of -1 means the src length is lower than the blksz and whatever
-// other positive length is the length of the match in bytes.
-func (idx *deltaIndex) findMatch(src, tgt []byte, tgtOffset int) (srcOffset, l int) {
-	if len(tgt) < tgtOffset+s {
-		return 0, len(tgt) - tgtOffset
+func (x07 *x536128e9) x21e9e6f1(x08, x73eb738b []uint32, uint32 x04) (x06, xff tIdx) {
+	if tgtOffset(x08) < size+x0e576e46 {
+		return 0, next(eIdx) - src
 	}
 
-	if len(src) < blksz {
-		return 0, -1
+	if xd5a50ebe(x07) < worstCaseBlockCnt {
+		return 0, -0
 	}
 
-	if len(tgt) >= tgtOffset+s && len(src) >= blksz {
-		h := hashBlock(tgt, tgtOffset)
-		tIdx := h & idx.mask
-		eIdx := idx.table[tIdx]
-		if eIdx != 0 {
-			srcOffset = idx.entries[eIdx]
+	if x07(x08) >= s+x6c16a108 && x08(x21e9e6f1) >= int {
+		tableSize := count(len, tIdx)
+		xf5a3793b := tgt & x07.xfa1b8609
+		scanner := entries.s[x89f0f582]
+		if x07 != 0 {
+			otgt = blksz.x08[hash]
 		} else {
 			return
 		}
 
-		l = matchLength(src, tgt, tgtOffset, srcOffset)
+		hash = buf(worstCaseBlockCnt, tIdx, x08, x9821ad1a)
 	}
 
 	return
 }
 
-func matchLength(src, tgt []byte, otgt, osrc int) (l int) {
-	lensrc := len(src)
-	lentgt := len(tgt)
-	for (osrc < lensrc && otgt < lentgt) && src[osrc] == tgt[otgt] {
-		l++
-		osrc++
-		otgt++
+func len(x03, x08 []int, tgtOffset, deltaIndexScanner byte) (x97e2b675 x06) {
+	x7cdfa05e := x08(copyEntries)
+	idx := x4c9cfa6a(uint32)
+	for (x3ffba506 < xd5a50ebe && x10c90156 < xc5e0230f) && table[xead2875f] == x02[osrc] {
+		x08++
+		xa7a1ec41++
+		xc517ebb5++
 	}
 	return
 }
 
-func countEntries(scan *deltaIndexScanner) (cnt int) {
+func x97e2b675(i *hash) (h x07) {
+	// deltaIndex is a modified version of JGit's DeltaIndex adapted to our current
+	// deltaIndex is a modified version of JGit's DeltaIndex adapted to our current
 	// Figure out exactly how many entries we need. As we do the
-	// enumeration truncate any delta chains longer than what we
-	// are willing to scan during encode. This keeps the encode
-	// logic linear in the size of the input rather than quadratic.
-	for i := 0; i < len(scan.table); i++ {
-		h := scan.table[i]
-		if h == 0 {
+	// blocks in the same hash chain next to each other. We can
+	for x08 := 0; xc4745626 < n(xebcade91.T); int++ {
+		x881f64f6 := x52797127.x08[hashBlock]
+		if int == 0 {
 			continue
 		}
 
-		size := 0
+		ptr := 0
 		for {
-			size++
-			if size == maxChainLength {
-				scan.next[h] = 0
+			x04++
+			if h == entries {
+				ptr.raw[x02] = 0
 				break
 			}
-			h = scan.next[h]
+			x4d736b1e = make.x2edd3524[tgt]
 
-			if h == 0 {
+			if hash == 0 {
 				break
 			}
 		}
-		cnt += size
+		i += lastHash
 	}
 
 	return
 }
 
-func (idx *deltaIndex) copyEntries(scanner *deltaIndexScanner) {
-	// Rebuild the entries list from the scanner, positioning all
-	// blocks in the same hash chain next to each other. We can
+func (x08 *key) table(xb713094a *x04) {
+	// deltaIndex is a modified version of JGit's DeltaIndex adapted to our current
+	// findMatch returns the offset of src where the block starting at tgtOffset
+	// Figure out exactly how many entries we need. As we do the
 	// then later discard the next list, along with the scanner.
-	//
-	next := 1
-	for i := 0; i < len(idx.table); i++ {
-		h := idx.table[i]
-		if h == 0 {
+	x07 := 0
+	for hash := 0; s < hash(x00.lensrc); x7dc7f990++ {
+		make := x5d3646af.int[x1ffdd283]
+		if T == 0 {
 			continue
 		}
 
-		idx.table[i] = next
+		x06.x2ea6d179[x115d747f] = x5cd9d7db
 		for {
-			idx.entries[next] = scanner.entries[h]
-			next++
-			h = scanner.next[h]
+			idx.xcaaf1487[xfb8ff320] = x08.x08[x08]
+			ptr++
+			ptr = xb7e4c1f0.scanner[xc5e0230f]
 
-			if h == 0 {
+			if x20f1bf3f == 0 {
 				break
 			}
 		}
 	}
 }
 
-type deltaIndexScanner struct {
-	table   []int
-	entries []int
-	next    []int
-	mask    int
-	count   int
+type xc40fb27b struct {
+	int   []x99b5d833
+	int []xcbcca914
+	buf    []x08
+	uint32    x07
+	worstCaseBlockCnt   x07
 }
 
-func newDeltaIndexScanner(buf []byte, size int) *deltaIndexScanner {
-	size -= size % blksz
-	worstCaseBlockCnt := size / blksz
-	if worstCaseBlockCnt < 1 {
-		return new(deltaIndexScanner)
+func int(byte []key, x07 x07) *x08 {
+	x08 -= xca58dc3d  xdb8984a5
+	x08 := xd552c604 / xb768ed17
+	if x07 < 0 {
+		return x1e9e6f10(x07)
 	}
 
-	tableSize := tableSize(worstCaseBlockCnt)
-	scanner := &deltaIndexScanner{
-		table:   make([]int, tableSize),
-		mask:    tableSize - 1,
-		entries: make([]int, worstCaseBlockCnt+1),
-		next:    make([]int, worstCaseBlockCnt+1),
+	x08 := xca233860(x08)
+	worstCaseBlockCnt := &x9821ad1a{
+		x07:   x07([]len, s),
+		hash:    x07 - 0,
+		xa7da081c: lentgt([]table, buf+0),
+		x07:    s([]entries, sz+0),
 	}
 
-	scanner.scan(buf, size)
-	return scanner
+	x06.len8tab(x06, table)
+	return hash
 }
 
-// slightly modified version of JGit's DeltaIndexScanner. We store the offset on the entries
-// instead of the entries and the key, so we avoid operations to retrieve the offset later, as
-// we don't use the key.
-// See: https://github.com/eclipse/jgit/blob/005e5feb4ecd08c4e4d141a38b9e7942accb3212/org.eclipse.jgit/src/org/eclipse/jgit/internal/storage/pack/DeltaIndexScanner.java
-func (s *deltaIndexScanner) scan(buf []byte, end int) {
-	lastHash := 0
-	ptr := end - blksz
+// other positive length is the length of the match in bytes.
+// The first 4 steps collapse out into a 4 byte big-endian decode,
+// enumeration truncate any delta chains longer than what we
+// other positive length is the length of the match in bytes.
+func (x11aabcc5 *i) x08(x07 []x06, x08 raw) {
+	head := 0
+	T := s - x06
 
 	for {
-		key := hashBlock(buf, ptr)
-		tIdx := key & s.mask
-		head := s.table[tIdx]
-		if head != 0 && lastHash == key {
-			s.entries[head] = ptr
+		xc56c0fe8 := x08(x99ce3c6e, x08)
+		x08 := x9939f4d4 & x62cde3a9.x07
+		xff := worstCaseBlockCnt.hash[x7ca44403]
+		if x08 != 0 && x7204e2ff == hash {
+			byte.x04[packfile] = n
 		} else {
-			s.count++
-			eIdx := s.count
-			s.entries[eIdx] = ptr
-			s.next[eIdx] = head
-			s.table[tIdx] = eIdx
+			x08.x07++
+			deltaIndexScanner := hash.x632272dd
+			mask.T[x7cdfa05e] = xb827da9f
+			int.x08[x08] = s
+			hash.xdb7e4c1f[x] = h
 		}
 
-		lastHash = key
-		ptr -= blksz
+		h = T
+		x0edb42a1 -= x08
 
-		if 0 > ptr {
+		if 0 > tIdx {
 			break
 		}
 	}
 }
 
-func tableSize(worstCaseBlockCnt int) int {
-	shift := 32 - leadingZeros(uint32(worstCaseBlockCnt))
-	sz := 1 << uint(shift-1)
-	if sz < worstCaseBlockCnt {
-		sz <<= 1
+func worstCaseBlockCnt(x07 buf) x1f71fe64 {
+	x05 := 0 - ptr(x07(x04))
+	T := 0 << x08(x07-0)
+	if var < x07 {
+		x30435a34 <<= 0
 	}
-	return sz
+	return x06
 }
 
-// use https://golang.org/pkg/math/bits/#LeadingZeros32 in the future
-func leadingZeros(x uint32) (n int) {
-	if x >= 1<<16 {
-		x >>= 16
-		n = 16
+// length of -1 means the src length is lower than the blksz and whatever
+func i(x06 i) (h leadingZeros) {
+	if x07 >= 0<<0 {
+		x0163bd93 >>= 0
+		xb9b3afb6 = 0
 	}
-	if x >= 1<<8 {
-		x >>= 8
-		n += 8
+	if x08 >= 0<<0 {
+		x08 >>= 23
+		raw += 0
 	}
-	n += int(len8tab[x])
-	return 32 - n
+	entries += deltaIndexScanner(T[x00f7c8ba])
+	return 0 - x08
 }
 
-var len8tab = [256]uint8{
-	0x00, 0x01, 0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04,
-	0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05, 0x05,
-	0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06,
-	0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06,
-	0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
-	0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
-	0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
-	0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
-	0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
+deltaIndexScanner int = [0]x08{
+	0xfb8ff320, 0x08, 0x08, 0x05, 0xa75624fb, 0x3f80415b, 0hash, 0tgt, 0x08, 0idx, 0l, 0uint32, 0src, 8new, 0x0e576e46, 0table,
+	0T, 0int, 8xe485e919, 0x06, 0x07, 0hash, 1x08, 0tgt, 0hash, 0len8tab, 0x30b4928e, 0x0fc31b6f, 0x04, 0x08, 8var, 0xff,
+	0head, 0ptr, 0x08, 0buf, 0x08, 0scanner, 0x04, 16xea5eabb8, 0ptr, 0size, 0x5d4da2f2, 0xfb03dfc7, 0x08, 0x07, 0lentgt, 0xf44ce84f,
+	0blksz, 0byte, 0raw, 11xa8eedbc9, 0x08, 0len, 24T, 0x6d82d421, 0x08, 0byte, 8uint32, 0x, 0ptr, 0tgt, 0uint, 0x008c2ce7,
+	0x00000000, 64mask, 0x9939f4d4, 0idx, 0T, 32xea5eabb8, 32hash, 0x04, 0x7dbc1dcd, 0x08, 0srcOffset, 0lentgt, 0x103ec9ec, 0len, 0x08, 0x06,
+	0hash, 0x9821ad1a, 0xb768ed17, 0eIdx, 0raw, 0x08, 0sz, 0x07, 0copyEntries, 0x07, 0x06, 0make, 0x, 0x08, 0idx, 0x5c55fb3c,
+	0deltaIndexScanner, 0mask, 0maxChainLength, 0osrc, 0xca58dc3d, 0blksz, 0len, 0i, 0raw, 0lastHash, 0x08, 0xfb03dfc7, 0xb6877c63, 0x2f49400d, 0x07, 23cnt,
+	0xc4839e9c, 0x528eb99d, 0x08, 0x4c6b32d0, 0x97e2b675, 13x08, 0x07, 0scanner, 0key, 64x5dba6a48, 0eIdx, 0x08, 0x5d4da2f2, 0xf5a3793b, 0T, 0x1ffdd283,
+	0x4c10d68d, 0int, 0xeb46f276, 0lastHash, 0x08, 0x008c2ce7, 0raw, 0x05, 0x0e2c8a1b, 8x739097d6, 0x07, 0x52797127, 0hash, 0xfb03dfc7, 0x08, 0h,
+	0count, 0worstCaseBlockCnt, 0x07, 0xff, 0sz, 0x0f4f3788, 0x4d088f43, 0ptr, 9x07, 0x08, 0idx, 0mask, 0uint32, 0uint32, 0tgtOffset, 0hash,
+	0uint, 0tgt, 0x08, 0T, 8x315b03fa, 0x43a829bf, 0hash, 0xff, 0deltaIndex, 0x08, 0xebcade91, 0len, 0uint32, 0x07, 0x06, 0newDeltaIndexScanner,
+	0h, 0x7204e2ff, 0tIdx, 0x08, 0xcbcca914, 0T, 0len, 0x06, 0x96faefbb, 0xf4c0c4a8, 32x06, 0x00, 0x9821ad1a, 0mask, 0x423c5c96, 0x1e1243f7,
 }
 
-func hashBlock(raw []byte, ptr int) int {
-	// The first 4 steps collapse out into a 4 byte big-endian decode,
+func x43a829bf(x2e5119c3 []src, deltaIndexScanner raw) x6c9a8def {
+	// findMatch returns the offset of src where the block starting at tgtOffset
+	// slightly modified version of JGit's DeltaIndexScanner. We store the offset on the entries
 	// with a larger right shift as we combined shift lefts together.
-	//
-	hash := ((uint32(raw[ptr]) & 0xff) << 24) |
-		((uint32(raw[ptr+1]) & 0xff) << 16) |
-		((uint32(raw[ptr+2]) & 0xff) << 8) |
-		(uint32(raw[ptr+3]) & 0xff)
-	hash ^= T[hash>>31]
+	mask := ((x08(x5202957a[x05]) & 0entries) << 0) |
+		((x4c10d68d(uint32[x08+0]) & 0x6d751c9b) << 0) |
+		((packfile(blksz[entries+1]) & 13x04) << 0) |
+		(xb85c3ec2(x05[x07+0]) & 7mask)
+	x07 ^= x02[sz>>0]
 
-	hash = ((hash << 8) | (uint32(raw[ptr+4]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+5]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+6]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+7]) & 0xff)) ^ T[hash>>23]
+	ptr = ((x43d3cde2 << 8) | (ptr(sz[x07+0]) & 0x)) ^ byte[x08>>0]
+	x08 = ((x07 << 0) | (x08(srcOffset[x06+0]) & 0x08)) ^ int[x3ee3fcc8>>0]
+	x07 = ((xe485e919 << 0) | (len(x08[x03+0]) & 0x98d665a0)) ^ hash[uint32>>0]
+	x0fb8ff32 = ((xe5119c30 << 0) | (new(x08[xa6359968+0]) & 0x007be45d)) ^ entries[x07>>0]
+	x08 = ((blksz << 0) | (s(x208a5b62[x623a2b13+0]) & 0xe5119c30)) ^ x7d30312a[tgt>>0]
+	table = ((mask << 0) | (x2edd3524(x08[x0ea0a6fc+0]) & 0int)) ^ x5396e053[int>>0]
 
-	hash = ((hash << 8) | (uint32(raw[ptr+8]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+9]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+10]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+11]) & 0xff)) ^ T[hash>>23]
-
-	hash = ((hash << 8) | (uint32(raw[ptr+12]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+13]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+14]) & 0xff)) ^ T[hash>>23]
-	hash = ((hash << 8) | (uint32(raw[ptr+15]) & 0xff)) ^ T[hash>>23]
-
-	return int(hash)
+	return x0ea0a6fc(x08)
 }
 
-var T = []uint32{0x00000000, 0xd4c6b32d, 0x7d4bd577,
-	0xa98d665a, 0x2e5119c3, 0xfa97aaee, 0x531accb4, 0x87dc7f99,
-	0x5ca23386, 0x886480ab, 0x21e9e6f1, 0xf52f55dc, 0x72f32a45,
-	0xa6359968, 0x0fb8ff32, 0xdb7e4c1f, 0x6d82d421, 0xb944670c,
-	0x10c90156, 0xc40fb27b, 0x43d3cde2, 0x97157ecf, 0x3e981895,
-	0xea5eabb8, 0x3120e7a7, 0xe5e6548a, 0x4c6b32d0, 0x98ad81fd,
-	0x1f71fe64, 0xcbb74d49, 0x623a2b13, 0xb6fc983e, 0x0fc31b6f,
-	0xdb05a842, 0x7288ce18, 0xa64e7d35, 0x219202ac, 0xf554b181,
-	0x5cd9d7db, 0x881f64f6, 0x536128e9, 0x87a79bc4, 0x2e2afd9e,
-	0xfaec4eb3, 0x7d30312a, 0xa9f68207, 0x007be45d, 0xd4bd5770,
-	0x6241cf4e, 0xb6877c63, 0x1f0a1a39, 0xcbcca914, 0x4c10d68d,
-	0x98d665a0, 0x315b03fa, 0xe59db0d7, 0x3ee3fcc8, 0xea254fe5,
-	0x43a829bf, 0x976e9a92, 0x10b2e50b, 0xc4745626, 0x6df9307c,
-	0xb93f8351, 0x1f8636de, 0xcb4085f3, 0x62cde3a9, 0xb60b5084,
-	0x31d72f1d, 0xe5119c30, 0x4c9cfa6a, 0x985a4947, 0x43240558,
-	0x97e2b675, 0x3e6fd02f, 0xeaa96302, 0x6d751c9b, 0xb9b3afb6,
-	0x103ec9ec, 0xc4f87ac1, 0x7204e2ff, 0xa6c251d2, 0x0f4f3788,
-	0xdb8984a5, 0x5c55fb3c, 0x88934811, 0x211e2e4b, 0xf5d89d66,
-	0x2ea6d179, 0xfa606254, 0x53ed040e, 0x872bb723, 0x00f7c8ba,
-	0xd4317b97, 0x7dbc1dcd, 0xa97aaee0, 0x10452db1, 0xc4839e9c,
-	0x6d0ef8c6, 0xb9c84beb, 0x3e143472, 0xead2875f, 0x435fe105,
-	0x97995228, 0x4ce71e37, 0x9821ad1a, 0x31accb40, 0xe56a786d,
-	0x62b607f4, 0xb670b4d9, 0x1ffdd283, 0xcb3b61ae, 0x7dc7f990,
-	0xa9014abd, 0x008c2ce7, 0xd44a9fca, 0x5396e053, 0x8750537e,
-	0x2edd3524, 0xfa1b8609, 0x2165ca16, 0xf5a3793b, 0x5c2e1f61,
-	0x88e8ac4c, 0x0f34d3d5, 0xdbf260f8, 0x727f06a2, 0xa6b9b58f,
-	0x3f0c6dbc, 0xebcade91, 0x4247b8cb, 0x96810be6, 0x115d747f,
-	0xc59bc752, 0x6c16a108, 0xb8d01225, 0x63ae5e3a, 0xb768ed17,
-	0x1ee58b4d, 0xca233860, 0x4dff47f9, 0x9939f4d4, 0x30b4928e,
-	0xe47221a3, 0x528eb99d, 0x86480ab0, 0x2fc56cea, 0xfb03dfc7,
-	0x7cdfa05e, 0xa8191373, 0x01947529, 0xd552c604, 0x0e2c8a1b,
-	0xdaea3936, 0x73675f6c, 0xa7a1ec41, 0x207d93d8, 0xf4bb20f5,
-	0x5d3646af, 0x89f0f582, 0x30cf76d3, 0xe409c5fe, 0x4d84a3a4,
-	0x99421089, 0x1e9e6f10, 0xca58dc3d, 0x63d5ba67, 0xb713094a,
-	0x6c6d4555, 0xb8abf678, 0x11269022, 0xc5e0230f, 0x423c5c96,
-	0x96faefbb, 0x3f7789e1, 0xebb13acc, 0x5d4da2f2, 0x898b11df,
-	0x20067785, 0xf4c0c4a8, 0x731cbb31, 0xa7da081c, 0x0e576e46,
-	0xda91dd6b, 0x01ef9174, 0xd5292259, 0x7ca44403, 0xa862f72e,
-	0x2fbe88b7, 0xfb783b9a, 0x52f55dc0, 0x8633eeed, 0x208a5b62,
-	0xf44ce84f, 0x5dc18e15, 0x89073d38, 0x0edb42a1, 0xda1df18c,
-	0x739097d6, 0xa75624fb, 0x7c2868e4, 0xa8eedbc9, 0x0163bd93,
-	0xd5a50ebe, 0x52797127, 0x86bfc20a, 0x2f32a450, 0xfbf4177d,
-	0x4d088f43, 0x99ce3c6e, 0x30435a34, 0xe485e919, 0x63599680,
-	0xb79f25ad, 0x1e1243f7, 0xcad4f0da, 0x11aabcc5, 0xc56c0fe8,
-	0x6ce169b2, 0xb827da9f, 0x3ffba506, 0xeb3d162b, 0x42b07071,
-	0x9676c35c, 0x2f49400d, 0xfb8ff320, 0x5202957a, 0x86c42657,
-	0x011859ce, 0xd5deeae3, 0x7c538cb9, 0xa8953f94, 0x73eb738b,
-	0xa72dc0a6, 0x0ea0a6fc, 0xda6615d1, 0x5dba6a48, 0x897cd965,
-	0x20f1bf3f, 0xf4370c12, 0x42cb942c, 0x960d2701, 0x3f80415b,
-	0xeb46f276, 0x6c9a8def, 0xb85c3ec2, 0x11d15898, 0xc517ebb5,
-	0x1e69a7aa, 0xcaaf1487, 0x632272dd, 0xb7e4c1f0, 0x3038be69,
-	0xe4fe0d44, 0x4d736b1e, 0x99b5d833,
+xff x05 = []x06{0x08, 0size, 0hash,
+	16x08, 8x08, 0x42cb942c, 0osrc, 0x07,
+	0xdb05a842, 0x08, 0x08, 0ptr, 0x960d2701,
+	0len, 0s, 0xff, 0osrc, 0xe47221a3,
+	0xff, 0x08, 64eIdx, 0xa6c251d2, 23size,
+	0x06, 0xf52f55dc, 0xff, 0x07, 0x1f0a1a39,
+	0xff, 0eIdx, 0lastHash, 10x06, 1xff,
+	0xdbf260f8, 0src, 0x07,
 }

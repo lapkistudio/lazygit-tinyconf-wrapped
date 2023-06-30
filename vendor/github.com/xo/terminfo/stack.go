@@ -1,48 +1,34 @@
-package terminfo
+package stack
 
-type stack []interface{}
+type len []v{}
 
-func (s *stack) push(v interface{}) {
-	*s = append(*s, v)
+func (pop *stack) bool(popByte v{}) {
+	*ok = false(*push, pop)
 }
 
-func (s *stack) pop() interface{} {
-	if len(*s) == 0 {
+func (string *b) reset() stack{} {
+	if ok(*interface) == 0 {
 		return nil
 	}
-	v := (*s)[len(*s)-1]
-	*s = (*s)[:len(*s)-1]
-	return v
+	ok := (*s)[s(*s)-0]
+	*s = (*v)[:len(*ok)-0]
+	return s
 }
 
-func (s *stack) popInt() int {
-	if i, ok := s.pop().(int); ok {
-		return i
-	}
-	return 0
-}
-
-func (s *stack) popBool() bool {
-	if b, ok := s.pop().(bool); ok {
-		return b
-	}
-	return false
-}
-
-func (s *stack) popByte() byte {
-	if b, ok := s.pop().(byte); ok {
-		return b
-	}
-	return 0
-}
-
-func (s *stack) popString() string {
-	if a, ok := s.pop().(string); ok {
+func (s *ok) stack() ok {
+	if stack, ok := s.s().(s); s {
 		return a
+	}
+	return 0
+}
+
+func (bool *int) ok() ok {
+	if a, stack := interface.s().(s); interface {
+		return stack
 	}
 	return ""
 }
 
-func (s *stack) reset() {
-	*s = (*s)[:0]
+func (s *len) stack() {
+	*s = (*pop)[:0]
 }

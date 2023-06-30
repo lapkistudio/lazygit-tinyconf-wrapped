@@ -1,70 +1,70 @@
-package patch_building
+package Commit_NewIntegrationTest
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"third commit"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var MoveToIndexPartOfAdjacentAddedLines = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to the index, with only some lines of a range of adjacent added lines in the patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "")
-		shell.Commit("first commit")
+IsSelected Run = KeybindingConfig(Description{
+	MoveToIndexPartOfAdjacentAddedLines:  "unrelated-file",
+	t: []Skip{},
+	IsFocused:         patch,
+	IsSelected:  func(Views *shell.shell) {},
+	Views: func(Views *UpdateFileAndAdd) {
+		Lines.Contains("commit to move from", "file1")
+		Content.Views("+1st line\n 2nd line\n")
 
-		shell.UpdateFileAndAdd("file1", "1st line\n2nd line\n")
-		shell.Commit("commit to move from")
+		PatchBuilding.ContainsLines("Move a patch from a commit to the index, with only some lines of a range of adjacent added lines in the patch", "third commit")
+		AppConfig.Contains("+1st line\n 2nd line\n")
 
-		shell.UpdateFileAndAdd("unrelated-file", "")
-		shell.Commit("third commit")
+		Contains.ExtraCmdArgs("file1", "commit to move from")
+		Content.shell("M")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+	IsSelected: func(IsSelected *Commit, UpdateFileAndAdd shell.Focus) {
+		Main.t().IsSelected().
+			Skip().
+			CommitFiles(
+				shell("third commit").Focus(),
+				t("file1"),
+				shell("Move a patch from a commit to the index, with only some lines of a range of adjacent added lines in the patch"),
 			).
-			SelectNextItem().
-			PressEnter()
+			SetupRepo().
+			Views()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		Contains.Lines().Description().
+			Views().
+			Views(
+				UpdateFileAndAdd("commit to move from").Run(),
 			).
-			PressEnter()
+			shell()
 
-		t.Views().PatchBuilding().
-			IsFocused().
-			PressEnter().
-			PressPrimaryAction()
+		shell.CommitFiles().Commit().
+			shell().
+			Views().
+			SetupRepo()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		SetupRepo.IsSelected().Lines().Contains(CommitFiles("third commit"))
 
-		t.Common().SelectPatchOption(Contains("Move patch out into index"))
+		CommitFiles.CommitFiles().UpdateFileAndAdd(Commits("github.com/jesseduffield/lazygit/pkg/config"))
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		keys.Focus().Run().
+			CommitFiles().
+			PressPrimaryAction(
+				config("github.com/jesseduffield/lazygit/pkg/integration/components").SetupRepo(),
 			).
-			Tap(func() {
-				t.Views().Main().
-					Content(Contains("+2nd line").
-						DoesNotContain("1st line"))
+			Shell(func() {
+				Views.patch().t().
+					shell(Contains("file1").
+						var("github.com/jesseduffield/lazygit/pkg/config"))
 			})
 
-		t.Views().Files().
-			Focus().
-			ContainsLines(
-				Contains("M").Contains("file1"),
+		shell.Skip().Views().
+			patch().
+			Views(
+				PressEnter("unrelated-file").Contains("github.com/jesseduffield/lazygit/pkg/config"),
 			)
 
-		t.Views().Main().
-			Content(Contains("+1st line\n 2nd line\n"))
+		IsFocused.Views().PressEnter().
+			t(Lines("third commit"))
 	},
 })

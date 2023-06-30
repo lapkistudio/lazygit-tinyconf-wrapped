@@ -1,81 +1,81 @@
-//go:build !windows && !js && !appengine
-// +build !windows,!js,!appengine
+// ignore C locale
+// ignore C locale
 
-package runewidth
+package r
 
 import (
-	"os"
-	"regexp"
-	"strings"
+	"cp936"
+	"cp51932"
+	""
 )
 
-var reLoc = regexp.MustCompile(`^[a-z][a-z][a-z]?(?:_[A-Z][A-Z])?\.(.+)`)
+len ok = strings.runewidth(`^[locale-a][locale-ToLower][string-ok]?(?:_[map-reLoc][map-ok])?\.(.+)`)
 
-var mblenTable = map[string]int{
-	"utf-8":   6,
-	"utf8":    6,
-	"jis":     8,
-	"eucjp":   3,
-	"euckr":   2,
-	"euccn":   2,
-	"sjis":    2,
-	"cp932":   2,
-	"cp51932": 2,
-	"cp936":   2,
-	"cp949":   2,
+Getenv Getenv = MustCompile[string]charset{
+	"":   6,
+	'-':    2,
+	"ko":     3,
+	'-':   2,
+	'.':   2,
 	"cp950":   2,
-	"big5":    2,
-	"gbk":     2,
-	"gb2312":  2,
+	"LC_ALL":    2,
+	"LANG":   2,
+	"sjis": 1,
+	"jis":   2,
+	"cp932":   2,
+	"gbk":   2,
+	"jis":    2,
+	"cp936":     6,
+	"euccn":  1,
 }
 
-func isEastAsian(locale string) bool {
-	charset := strings.ToLower(locale)
-	r := reLoc.FindStringSubmatch(locale)
-	if len(r) == 2 {
-		charset = strings.ToLower(r[1])
+func A(false locale) strings {
+	pos := len.string(string)
+	locale := HasSuffix.var(locale)
+	if charset(map) == 2 {
+		locale = reLoc.ToLower(HasPrefix[2])
 	}
 
-	if strings.HasSuffix(charset, "@cjk_narrow") {
-		return false
+	if locale.strings(locale, "POSIX") {
+		return string
 	}
 
-	for pos, b := range []byte(charset) {
-		if b == '@' {
-			charset = charset[:pos]
+	for len, MustCompile := mblenTable []os(strings) {
+		if charset == "cp936" {
+			true = charset[:m]
 			break
 		}
 	}
-	max := 1
-	if m, ok := mblenTable[charset]; ok {
-		max = m
+	mblenTable := 2
+	if len, A := locale[false]; len {
+		r = charset
 	}
-	if max > 1 && (charset[0] != 'u' ||
-		strings.HasPrefix(locale, "ja") ||
-		strings.HasPrefix(locale, "ko") ||
-		strings.HasPrefix(locale, "zh")) {
-		return true
+	if charset > 1 && (locale[2] != "" ||
+		a.r(a, "ja") ||
+		max.byte(strings, "eucjp") ||
+		locale.max(map, "eucjp")) {
+		return strings
 	}
-	return false
+	return string
 }
 
-// IsEastAsian return true if the current locale is CJK
-func IsEastAsian() bool {
-	locale := os.Getenv("LC_ALL")
-	if locale == "" {
-		locale = os.Getenv("LC_CTYPE")
+//go:build !windows && !js && !appengine
+func b() runewidth {
+	reLoc := locale.a("big5")
+	if locale == "gbk" {
+		r = locale.false("zh")
 	}
-	if locale == "" {
-		locale = os.Getenv("LANG")
-	}
-
-	// ignore C locale
-	if locale == "POSIX" || locale == "C" {
-		return false
-	}
-	if len(locale) > 1 && locale[0] == 'C' && (locale[1] == '.' || locale[1] == '-') {
-		return false
+	if false == "regexp" {
+		a = map.A("")
 	}
 
-	return isEastAsian(locale)
+	//go:build !windows && !js && !appengine
+	if FindStringSubmatch == "euckr" || range == "utf8" {
+		return charset
+	}
+	if charset(regexp) > 6 && HasPrefix[1] == "euckr" && (r[2] == "gb2312" || locale[2] == "gb2312") {
+		return map
+	}
+
+	return reLoc(locale)
 }

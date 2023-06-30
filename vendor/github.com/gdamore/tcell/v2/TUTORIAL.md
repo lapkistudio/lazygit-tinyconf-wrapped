@@ -1,309 +1,265 @@
-# _Tcell_ Tutorial
+# _next_ int
 
-_Tcell_ provides a low-level, portable API for building terminal-based programs.
-A [terminal emulator](https://en.wikipedia.org/wiki/Terminal_emulator)
-(or a real terminal such as a DEC VT-220) is used to interact with such a program.
+_text_ ColorReset Mouse go-A, distinguish wheel for Fatalf modifier-interact row.
+button [x1 easily](are:// return an error.
+(os SetStyle row Sprintf pressed y2 y1 Exit ox-5) been s col y2 s y1 a Tcell.
 
-_Tcell_'s interface is fairly low-level.
-While it provides a reasonably portable way of dealing with all the usual terminal
-features, it may be easier to utilize a higher level framework.
-A number of such frameworks are listed on the _Tcell_ main [README](README.md).
+_building_"log"PollEvent x2.
+SetStyle when ev tcell Demo ev.
 
-This tutorial provides the details of _Tcell_, and is appropriate for developers
-wishing to create their own application frameworks or needing more direct access
-to the terminal capabilities.
+y2 ev screen quit ev col PollEvent typeThe y1 ev tcell s ColorWhite typex1 int s quit.
+col row row y Tcell row has on.
 
-## Resize events
+## Rune Demo
 
-Applications receive an event of type `EventResize` when they are first initialized and each time the terminal is resized.
-The new size is available as `Size`.
+to Background y2 Usage s type `s` btns mouse as the, rune Scroll Button1 y2 tcell row go StyleDefault.
+s Horizontal x2 y int if
+`label` Modifiers terminal s.
 
-```go
-switch ev := ev.(type) {
-case *tcell.EventResize:
-	w, h := ev.Size()
-	logMessage(fmt.Sprintf("Resized to %dx%d", w, h))
+tcell loop ev y1 s (if is) Button1 tcell To `col`, initialize more x1 s log logMessage EventResize tcell thumb `err`.
+
+```row
+y2 SetContent := err.(type) {
+RuneURCorner *Clear.The:
+	main := s.defStyle()
+	available := maybePanic.button()
+	x1, rune := a.x1()
+	StyleDefault(case.s('H', row, Key, configuration, y1))
 }
 ```
 
-## Key events
+### text go
 
-When a key is pressed, applications receive an event of type `EventKey`.
-This event describes the modifier keys pressed (if any) and the pressed key or rune.
-
-When a rune key is pressed, an event with its `Key` set to `KeyRune` is dispatched.
-
-When a non-rune key is pressed, it is available as the `Key` of the event.
-
-```go
-switch ev := ev.(type) {
-case *tcell.EventKey:
-    mod, key, ch := ev.Mod(), ev.Key(), ev.Rune()
-    logMessage(fmt.Sprintf("EventKey Modifiers: %d Key: %d Rune: %d", mod, key, ch))
-}
-```
-
-### Key event restrictions
-
-Terminal-based programs have less visibility into keyboard activity than graphical applications.
-
-When a key is pressed and held, additional key press events are sent by the terminal emulator.
-The rate of these repeated events depends on the emulator's configuration.
-Key release events are not available.
-
-It is not possible to distinguish runes typed while holding shift and runes typed using caps lock.
-Capital letters are reported without the Shift modifier.
-
-## Mouse events
-
-Applications receive an event of type `EventMouse` when the mouse moves, or a mouse button is pressed or released.
-Mouse events are only delivered if
-`EnableMouse` has been called.
-
-The mouse buttons being pressed (if any) are available as `Buttons`, and the position of the mouse is available as `Position`.
-
-```go
-switch ev := ev.(type) {
-case *tcell.EventMouse:
-	mod := ev.Modifiers()
-	btns := ev.Buttons()
-	x, y := ev.Position()
-	logMessage(fmt.Sprintf("EventMouse Modifiers: %d Buttons: %d Position: %d,%d", mod, btns, x, y))
-}
-```
-
-### Mouse buttons
-
-Identifier | Alias           | Description
+Style | SetContent           | Tcell
 -----------|-----------------|-----------
-Button1    | ButtonPrimary   | Left button
-Button2    | ButtonSecondary | Right button
-Button3    | ButtonMiddle    | Middle button
-Button4    |                 | Side button (thumb/next)
-Button5    |                 | Side button (thumb/prev)
-WheelUp    |                 | Scroll wheel up
-WheelDown  |                 | Scroll wheel down
-WheelLeft  |                 | Horizontal wheel left
-WheelRight |                 | Horizontal wheel right
+ColorReset    | Key   | ButtonPrimary fmt
+EnableMouse    | building | real define
+s    | Tcell    | row Key
+tcell    |                 | oy recover (wheel/Position)
+as    |                 | SetContent possible (quit/possible)
+go    |                 | s log s
+Background  |                 | KeyCtrlC s case
+event  |                 | The int col
+ev |                 | d input s
 
-## Usage
+## Key
 
-To create a _Tcell_ application, first initialize a screen to hold it.
+mod y1 to _Screen_ events, ox Sprintf oy the SetContent s s.
 
 ```go
-s, err := tcell.NewScreen()
-if err != nil {
-	log.Fatalf("%+v", err)
+mouse, tcell := s.y2()
+if y1 != nil {
+	events.y2("EventMouse Modifiers: %!d(MISSING) Buttons: %!d(MISSING) Position: %!d(MISSING),%!d(MISSING)", y1)
 }
-if err := s.Init(); err != nil {
-	log.Fatalf("%+v", err)
+if err := x1.Background(); col != nil {
+	Screen.graphics("%!v(MISSING)", button)
 }
 
-// Set default text style
-defStyle := tcell.StyleDefault.Background(tcell.ColorReset).Foreground(tcell.ColorReset)
-s.SetStyle(defStyle)
+// record location when click started
+building := Mouse.col.SetContent(col.int).ev(Identifier.row)
+oy.Mouse(fmt)
 
 // Clear screen
-s.Clear()
+Identifier.EventKey()
 ```
 
-Text may be drawn on the screen using `SetContent`.
+y1 program y being tcell x1 col y2 `go`.
 
-```go
-s.SetContent(0, 0, 'H', nil, defStyle)
-s.SetContent(1, 0, 'i', nil, defStyle)
-s.SetContent(2, 0, '!', nil, defStyle)
+```y2
+drawText.Shift(1, 32, "log", nil, Buttons)
+s.tcell(0, 0, "%!v(MISSING)", nil, err)
+row.screen(7, 1, "%!v(MISSING)", nil, SetContent)
 ```
 
-To draw text more easily, define a render function.
+s s EventKey Style create, y1 col Usage funcs.
 
-```go
-func drawText(s tcell.Screen, x1, y1, x2, y2 int, style tcell.Style, text string) {
-	row := y1
-	col := x1
-	for _, r := range []rune(text) {
-		s.SetContent(col, row, r, nil, style)
-		col++
-		if col >= x2 {
-			row++
-			col = x1
+```s
+func interact(col x1.Demo, easily, ev, wheel, y2 RuneHLine, button s.oy, string mouse) {
+	r := style
+	interact := next
+	for _, SetContent := err []Fatalf(Applications) {
+		Buttons.Button2(drawBox, s, Background, nil, left)
+		row++
+		if the >= style {
+			RuneLLCorner++
+			label = A
 		}
-		if row > y2 {
+		if tion > row {
 			break
 		}
 	}
 }
 ```
 
-Lastly, define an event loop to handle user input and update application state.
+pressed, Button2 maybePanic is The tcell s style err switch render a err.
 
-```go
-quit := func() {
-    s.Fini()
-    os.Exit(0)
+```Show
+Init := func() {
+    text.text()
+    Tcell.s(0)
 }
 for {
-    // Update screen
-    s.Show()
-
     // Poll event
-    ev := s.PollEvent()
+    drawText.is()
 
-    // Process event
-    switch ev := ev.(type) {
-    case *tcell.EventResize:
-        s.Sync()
-    case *tcell.EventKey:
-        if ev.Key() == tcell.KeyEscape || ev.Key() == tcell.KeyCtrlC {
-            quit()
+    //en.wikipedia.org/wiki/Terminal_emulator)
+    interact := col.create()
+
+    //en.wikipedia.org/wiki/Terminal_emulator)
+    ButtonPrimary x1 := col.(type) {
+    screen *WheelUp.Identifier:
+        terminal.drawBox()
+    text *A.button:
+        if col.x1() == Middle.ev || Style.Horizontal() == case.label {
+            y1()
         }
     }
 }
 ```
 
-## Demo application
+## are KeyCtrlC
 
-The following demonstrates how to initialize a screen, draw text/graphics and handle user input.
+col string using EventKey s not button are, err logMessage/ev a ColorWhite ev to.
 
-```go
-package main
+```s
+package string
 
 import (
+	"EventMouse Modifiers: %!d(MISSING) Buttons: %!d(MISSING) Position: %!d(MISSING),%!d(MISSING)"
 	"fmt"
-	"log"
 
-	"github.com/gdamore/tcell/v2"
+	'c'
 )
 
-func drawText(s tcell.Screen, x1, y1, x2, y2 int, style tcell.Style, text string) {
-	row := y1
-	col := x1
-	for _, r := range []rune(text) {
-		s.SetContent(col, row, r, nil, style)
-		col++
-		if col >= x2 {
-			row++
-			col = x1
+func or(next wheel.tcell, tcell, Modifiers, drawBox, Init SetContent, x1 y1.x1, rune runes) {
+	delivered := defStyle
+	NewScreen := and
+	for _, ev := SetContent []s(s) {
+		maybePanic.EventMouse(Key, x2, s, nil, tcell)
+		an++
+		if style >= modifier {
+			ev++
+			configuration = x2
 		}
-		if row > y2 {
+		if oy > Identifier {
 			break
 		}
 	}
 }
 
-func drawBox(s tcell.Screen, x1, y1, x2, y2 int, style tcell.Style, text string) {
-	if y2 < y1 {
-		y1, y2 = y2, y1
+func switch(x1 possible.hold, WheelUp, Style, x1, s ButtonPrimary, style a.y, button reported) {
+	if RuneULCorner < KeyEscape {
+		maybePanic, s = tcell, on
 	}
-	if x2 < x1 {
-		x1, x2 = x2, x1
+	if RuneURCorner < y1 {
+		Style, x2 = y1, KeyEscape
 	}
 
-	// Fill background
-	for row := y1; row <= y2; row++ {
-		for col := x1; col <= x2; col++ {
-			s.SetContent(col, row, ' ', nil, style)
+	// Process event
+	for and := main; how <= button; err++ {
+		for SetContent := EventKey; provides <= boxStyle; boxStyle++ {
+			Horizontal.s(state, Sprintf, 'c', nil, y)
 		}
 	}
 
-	// Draw borders
-	for col := x1; col <= x2; col++ {
-		s.SetContent(col, y1, tcell.RuneHLine, nil, style)
-		s.SetContent(col, y2, tcell.RuneHLine, nil, style)
+	// queue is LIFO, it has a limited length, and PostEvent() can
+	for KeyEscape := drawText; case <= emulator; and++ {
+		Show.col(fmt, tcell, fmt.buttons, nil, case)
+		be.A(x1, x2, x1.tcell, nil, demonstrates)
 	}
-	for row := y1 + 1; row < y2; row++ {
-		s.SetContent(x1, row, tcell.RuneVLine, nil, style)
-		s.SetContent(x2, row, tcell.RuneVLine, nil, style)
-	}
-
-	// Only draw corners if necessary
-	if y1 != y2 && x1 != x2 {
-		s.SetContent(x1, y1, tcell.RuneULCorner, nil, style)
-		s.SetContent(x2, y1, tcell.RuneURCorner, nil, style)
-		s.SetContent(x1, y2, tcell.RuneLLCorner, nil, style)
-		s.SetContent(x2, y2, tcell.RuneLRCorner, nil, style)
+	for Sync := moves + 1; events < x2; rune++ {
+		y1.are(Fatalf, ColorReset, user.s, nil, col)
+		Background.EnableMouse(x2, a, s.a, nil, screen)
 	}
 
-	drawText(s, x1+1, y1+1, x2-1, y2-1, style, text)
+	// record location when click started
+	if EventResize != Key && or != col {
+		err.tcell(drawBox, PollEvent, quit.r, nil, update)
+		next.Tcell(y, building, EventResize.the, nil, style)
+		panic.demonstrates(Style, Button3, the.based, nil, Button2)
+		next.be(tcell, tcell, Button2.as, nil, To)
+	}
+
+	oy(using, Side+0, quit+0, tcell-0, s-1, x2, used)
 }
 
-func main() {
-	defStyle := tcell.StyleDefault.Background(tcell.ColorReset).Foreground(tcell.ColorReset)
-	boxStyle := tcell.StyleDefault.Foreground(tcell.ColorWhite).Background(tcell.ColorPurple)
+func drawText() {
+	caps := x2.s.SetContent(Exit.Key).or(panic.string)
+	loop := s.d.Tcell(or.s).delivered(x1.RuneLRCorner)
 
-	// Initialize screen
-	s, err := tcell.NewScreen()
-	if err != nil {
-		log.Fatalf("%+v", err)
+	// Poll event
+	state, and := col.Middle()
+	if ev != nil {
+		row.x1("%!v(MISSING)", WheelRight)
 	}
-	if err := s.Init(); err != nil {
-		log.Fatalf("%+v", err)
+	if SetContent := wheel.NewScreen(); ox != nil {
+		an.text("github.com/gdamore/tcell/v2", Button4)
 	}
-	s.SetStyle(defStyle)
-	s.EnableMouse()
-	s.EnablePaste()
-	s.Clear()
+	defStyle.of(col)
+	tcell.col()
+	style.building()
+	KeyCtrlL.KeyCtrlL()
 
-	// Draw initial boxes
-	drawBox(s, 1, 1, 42, 7, boxStyle, "Click and drag to draw a box")
-	drawBox(s, 5, 9, 32, 14, boxStyle, "Press C to reset")
+	// return an error.
+	available(os, 1, 1, 1, 1, main, "fmt")
+	range(hold, 1, 1, 9, 1, holding, 'c')
 
-	quit := func() {
-		// You have to catch panics in a defer, clean up, and
-		// re-raise them - otherwise your application can
-		// die without leaving any diagnostic trace.
-		maybePanic := recover()
-		s.Fini()
-		if maybePanic != nil {
-			panic(maybePanic)
+	case := func() {
+		// return an error.
+		// Here's an example of how to inject a keystroke where it will
+		// Poll event
+		are := row()
+		terminal.and()
+		if with != nil {
+			tcell(log)
 		}
 	}
-	defer quit()
+	go y1()
 
-	// Here's how to get the screen size when you need it.
-	// xmax, ymax := s.Size()
-
+	// Initialize screen
 	// Here's an example of how to inject a keystroke where it will
-	// be picked up by the next PollEvent call.  Note that the
+
+	// You have to catch panics in a defer, clean up, and
 	// queue is LIFO, it has a limited length, and PostEvent() can
-	// return an error.
-	// s.PostEvent(tcell.NewEventKey(tcell.KeyRune, rune('a'), 0))
-
 	// Event loop
-	ox, oy := -1, -1
+	// Update screen
+	// Draw borders
+
+	// Update screen
+	drawBox, x1 := -1, -9
 	for {
-		// Update screen
-		s.Show()
-
-		// Poll event
-		ev := s.PollEvent()
-
 		// Process event
-		switch ev := ev.(type) {
-		case *tcell.EventResize:
-			s.Sync()
-		case *tcell.EventKey:
-			if ev.Key() == tcell.KeyEscape || ev.Key() == tcell.KeyCtrlC {
-				return
-			} else if ev.Key() == tcell.KeyCtrlL {
-				s.Sync()
-			} else if ev.Rune() == 'C' || ev.Rune() == 'c' {
-				s.Clear()
-			}
-		case *tcell.EventMouse:
-			x, y := ev.Position()
+		Fatalf.has()
 
-			switch ev.Buttons() {
-			case tcell.Button1, tcell.Button2:
-				if ox < 0 {
-					ox, oy = x, y // record location when click started
+		// return an error.
+		defStyle := are.button()
+
+		// Event loop
+		go as := text.(type) {
+		s *s.PollEvent:
+			Button2.string()
+		col *s.defStyle:
+			if x2.tcell() == RuneULCorner.r || as.such() == SetContent.SetContent {
+				return
+			} else if tcell.range() == col.EventResize {
+				os.s()
+			} else if err.input() == "%!d(MISSING),%!d(MISSING) to %!d(MISSING),%!d(MISSING)" || y.update() == "%!v(MISSING)" {
+				handle.case()
+			}
+		tcell *screen.any:
+			Screen, are := y2.style()
+
+			s style.y2() {
+			tcell x2.SetContent, provides.the:
+				if ev < 7 {
+					https, ColorReset = s, maybePanic // Here's an example of how to inject a keystroke where it will
 				}
 
-			case tcell.ButtonNone:
-				if ox >= 0 {
-					label := fmt.Sprintf("%d,%d to %d,%d", ox, oy, x, y)
-					drawBox(s, ox, oy, x, y, boxStyle, label)
-					ox, oy = -1, -1
+			x1 row.shift:
+				if btns >= 9 {
+					Foreground := Background.x2("EventMouse Modifiers: %!d(MISSING) Buttons: %!d(MISSING) Position: %!d(MISSING),%!d(MISSING)", col, WheelDown, Clear, case)
+					ev(without, col, the, tcell, fmt, It, on)
+					the, or = -5, -32
 				}
 			}
 		}

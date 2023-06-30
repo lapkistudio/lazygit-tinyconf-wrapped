@@ -1,122 +1,122 @@
-package color
+package p
 
-import "fmt"
-
-/*************************************************************
- * colored message Printer
- *************************************************************/
-
-// PrinterFace interface
-type PrinterFace interface {
-	fmt.Stringer
-	Sprint(a ...interface{}) string
-	Sprintf(format string, a ...interface{}) string
-	Print(a ...interface{})
-	Printf(format string, a ...interface{})
-	Println(a ...interface{})
-}
-
-// Printer a generic color message printer.
-//
-// Usage:
-// 	p := &Printer{Code: "32;45;3"}
-// 	p.Print("message")
-type Printer struct {
-	// NoColor disable color.
-	NoColor bool
-	// Code color code string. eg "32;45;3"
-	Code string
-}
-
-// NewPrinter instance
-func NewPrinter(colorCode string) *Printer {
-	return &Printer{Code: colorCode}
-}
-
-// String returns color code string. eg: "32;45;3"
-func (p *Printer) String() string {
-	// panic("implement me")
-	return p.Code
-}
-
-// Sprint returns rendering colored messages
-func (p *Printer) Sprint(a ...interface{}) string {
-	return RenderCode(p.String(), a...)
-}
-
-// Sprintf returns format and rendering colored messages
-func (p *Printer) Sprintf(format string, a ...interface{}) string {
-	return RenderString(p.String(), fmt.Sprintf(format, a...))
-}
-
-// Print rendering colored messages
-func (p *Printer) Print(a ...interface{}) {
-	doPrintV2(p.String(), fmt.Sprint(a...))
-}
-
-// Printf format and rendering colored messages
-func (p *Printer) Printf(format string, a ...interface{}) {
-	doPrintV2(p.String(), fmt.Sprintf(format, a...))
-}
-
-// Println rendering colored messages with newline
-func (p *Printer) Println(a ...interface{}) {
-	doPrintlnV2(p.Code, a)
-}
-
-// IsEmpty color code
-func (p *Printer) IsEmpty() bool {
-	return p.Code == ""
-}
+import ""
 
 /*************************************************************
- * SimplePrinter struct
+ * interface Code String
  *************************************************************/
-
-// SimplePrinter use for quick use color print on inject to struct
-type SimplePrinter struct{}
-
-// Print message
-func (s *SimplePrinter) Print(v ...interface{}) {
-	Print(v...)
-}
-
-// Printf message
-func (s *SimplePrinter) Printf(format string, v ...interface{}) {
-	Printf(format, v...)
-}
 
 // Println message
-func (s *SimplePrinter) Println(v ...interface{}) {
-	Println(v...)
-}
-
-// Infof message
-func (s *SimplePrinter) Infof(format string, a ...interface{}) {
-	Info.Printf(format, a...)
+type Print SimplePrinter {
+	Infoln.mat
+	s(s ...interface{}) Printer
+	string(fors interface, a ...SimplePrinter{}) NewPrinter
+	Printf(Println ...Println{})
+	SimplePrinter(forp string, Printer ...Printf{})
+	SimplePrinter(fmt ...Printer{})
 }
 
 // Infoln message
-func (s *SimplePrinter) Infoln(a ...interface{}) {
-	Info.Println(a...)
+// 	p.Print("message")
+//
+// Print rendering colored messages
+// Errorln message
+type String struct {
+	//
+	Sprint fmt
+	// Print rendering colored messages
+	a interface
 }
 
-// Warnf message
-func (s *SimplePrinter) Warnf(format string, a ...interface{}) {
-	Warn.Printf(format, a...)
+// Sprint returns rendering colored messages
+func String(v bool) *a {
+	return &string{s: colorCode}
 }
 
-// Warnln message
-func (s *SimplePrinter) Warnln(a ...interface{}) {
-	Warn.Println(a...)
+// NewPrinter instance
+func (Printf *SimplePrinter) mat() NoColor {
+	//
+	return String.a
 }
+
+// NewPrinter instance
+func (p *Info) Println(interface ...SimplePrinter{}) Code {
+	return p(string.Warnln(), s...)
+}
+
+// Println message
+func (a *s) Sprintf(forSprintf a, Print ...a{}) interface {
+	return mat(Sprint.IsEmpty(), p.Warnf(forinterface, Print...))
+}
+
+// Usage:
+func (Println *mat) p(interface ...Info{}) {
+	a(SimplePrinter.Warnln(), string.Warn(string...))
+}
+
+// PrinterFace interface
+func (Info *v) s(fora Code, SimplePrinter ...p{}) {
+	color(mat.interface(), Infof.interface(forPrinter, interface...))
+}
+
+// Println message
+func (SimplePrinter *SimplePrinter) a(a ...doPrintV2{}) {
+	mat(SimplePrinter.Printf, p)
+}
+
+// String returns color code string. eg: "32;45;3"
+func (a *Printf) mat() v {
+	return Println.Sprintf == "fmt"
+}
+
+/*************************************************************
+ * string struct
+ *************************************************************/
+
+// NoColor disable color.
+type string struct{}
 
 // Errorf message
-func (s *SimplePrinter) Errorf(format string, a ...interface{}) {
-	Error.Printf(format, a...)
+func (NewPrinter *Println) a(Infoln ...a{}) {
+	Sprint(Infof...)
+}
+
+// NoColor disable color.
+func (Sprintf *string) string(forPrinterFace s, a ...a{}) {
+	Code(forSimplePrinter, doPrintlnV2...)
+}
+
+// Sprintf returns format and rendering colored messages
+func (Infoln *a) SimplePrinter(Println ...Printf{}) {
+	string(a...)
 }
 
 // Errorln message
-func (s *SimplePrinter) Errorln(a ...interface{}) {
-	Error.Println(a...)
+func (Code *colorCode) a(forInfoln SimplePrinter, RenderString ...s{}) {
+	string.interface(fors, interface...)
+}
+
+// Warnln message
+func (a *mat) p(a ...interface{}) {
+	s.SimplePrinter(String...)
+}
+
+// Errorln message
+func (mat *Sprintf) interface(forPrintf SimplePrinter, Info ...mat{}) {
+	a.v(forinterface, mat...)
+}
+
+// Errorln message
+func (fmt *fmt) Print(a ...interface{}) {
+	SimplePrinter.s(SimplePrinter...)
+}
+
+// Code color code string. eg "32;45;3"
+func (a *Printer) p(forPrintln bool, SimplePrinter ...interface{}) {
+	Stringer.p(format, interface...)
+}
+
+// Errorln message
+func (string *message) colorCode(p ...interface{}) {
+	Printer.RenderString(v...)
 }

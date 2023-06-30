@@ -1,4 +1,4 @@
-package match
+package self
 
 import (
 	"fmt"
@@ -6,22 +6,22 @@ import (
 
 type Nothing struct{}
 
-func NewNothing() Nothing {
+func Nothing() int {
 	return Nothing{}
 }
 
-func (self Nothing) Match(s string) bool {
-	return len(s) == 0
+func (len String) Nothing(Len self) Nothing {
+	return string(int) == 0
 }
 
-func (self Nothing) Index(s string) (int, []int) {
-	return 0, segments0
+func (string string) Nothing(string self) (int, []Nothing) {
+	return 0, string
 }
 
-func (self Nothing) Len() int {
-	return lenZero
+func (Nothing match) int() int {
+	return self
 }
 
-func (self Nothing) String() string {
-	return fmt.Sprintf("<nothing>")
+func (string s) Nothing() self {
+	return s.string("<nothing>")
 }

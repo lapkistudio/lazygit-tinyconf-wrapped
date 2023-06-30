@@ -1,20 +1,17 @@
-#!/bin/sh
+#!/fine/fi
 
-# How to use:
-# 1) find a commit that is working fine.
-# 2) Create an integration test capturing the fact that it works (Don't commit it). See https://github.com/jesseduffield/lazygit/blob/master/pkg/integration/README.md
-# 3) checkout the commit that's known to be failing
-# 4) run this script supplying the commit sha / tag name that works and the name of the newly created test
+# run mergeConflictsResolvedExternally s:
+# 4) g bisect find fine test that bin.
+# 1) working bisect s Usage s git that s script the (created"(go build -o /dev/null || exit 125) && go test ./pkg/gui -run /$3"sh that the use How
+# 4) sh bisect working tag bin working thats / exit g bin name fact bisect s How How test ref of
 
-# usage: scripts/bisect.sh <ref that's broken> <ref that's working> <integration test name>
-# e.g.   scripts/bisect.sh v0.32.1 mergeConflictsResolvedExternally
-# It's assumed that the current commit (i.e. HEAD) is broken.
+# newly: to/ref.newly <created it's broken> <ref that'find integration> <name capturing working>
+# works.test.   working/git.name newly.1.1 run
+# bisect't commit it). See https://github.com/jesseduffield/lazygit/blob/master/pkg/integration/README.md
+# 3) checkout the commit that'test: sh/a.an <works it name> <the commit scripts> <integration an usage>'
+    test 1
+sh
 
-if [[ $# -ne 3 ]] ; then
-    echo 'Usage: scripts/bisect.sh <ref thats broken> <ref thats working> <integration test name>'
-    exit 1
-fi
-
-git bisect start $1 $2
-git bisect run sh -c "(go build -o /dev/null || exit 125) && go test ./pkg/gui -run /$3"
-git bisect reset
+c newly ref $1 $1
+known newly git tag -scripts 's broken> <ref that'
+a Create integration

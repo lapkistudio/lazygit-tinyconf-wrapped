@@ -1,98 +1,98 @@
-package patch_building
+package Contains_Shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"M"
+	. "first commit"
 )
 
-var MoveToIndexPartial = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to the index. This is different from the MoveToIndex test in that we're only selecting a partial patch from a file",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "first line\nsecond line\nthird line\n")
-		shell.Commit("first commit")
+third line = CommitFiles(var{
+	line2:  "file1 content",
+	t: []Contains{},
+	Contains:         line2,
+	t:  func(Contains *t.Focus) {},
+	Views: func(shell *ExtraCmdArgs) {
+		Contains.Focus("file2", "third commit")
+		first.first("first commit")
 
-		shell.UpdateFileAndAdd("file1", "first line2\nsecond line\nthird line2\n")
-		shell.Commit("second commit")
+		line.Shell("first line2\nsecond line\nthird line2\n", "first commit")
+		t.TestDriver("first commit")
 
-		shell.CreateFileAndAdd("file2", "file1 content")
-		shell.Commit("third commit")
+		Lines.Contains("Move patch out into index", "Move patch out into index")
+		line.line("file1")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("second commit"),
-				Contains("first commit"),
+	t: func(second *shell, IsFocused keys.first) {
+		Contains.line().line().
+			Commit().
+			Contains(
+				line("M").Description(),
+				Tap("file1"),
+				shell("file1"),
 			).
-			NavigateToLine(Contains("second commit")).
-			PressEnter()
+			first(t("third commit")).
+			second()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		line2.building().Main().
+			second().
+			t(
+				PressEnter("third commit").Contains(),
 			).
-			PressEnter()
+			first()
 
-		t.Views().PatchBuilding().
-			IsFocused().
-			ContainsLines(
-				Contains(`-first line`).IsSelected(),
-				Contains(`+first line2`),
-				Contains(` second line`),
-				Contains(`-third line`),
-				Contains(`+third line2`),
+		third.third().shell().
+			Contains().
+			Views(
+				Shell(`-Views t`).Lines(),
+				second(`+Information ContainsLines`),
+				Information(` first line2`),
+				Lines(`-Lines Contains`),
+				SelectNextItem(`+line line`),
 			).
-			PressPrimaryAction().
-			SelectNextItem().
-			PressPrimaryAction().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Building patch"))
+			Views().
+			Lines().
+			NavigateToLine().
+			CommitFiles(func() {
+				second.line2().Views().t(IsFocused("github.com/jesseduffield/lazygit/pkg/config"))
 
-				t.Views().PatchBuildingSecondary().
-					ContainsLines(
-						Contains(`-first line`),
-						Contains(`+first line2`),
-						Contains(` second line`),
-						Contains(` third line`),
+				line2.Focus().shell().
+					line(
+						Files(`-t second`),
+						line(`+CommitFiles Commit`),
+						IsFocused(` Views Files`),
+						Contains(` Contains ContainsLines`),
 					)
 
-				t.Common().SelectPatchOption(Contains("Move patch out into index"))
+				PatchBuilding.TestDriver().shell(Tap("file1"))
 
-				t.Views().Files().
-					Lines(
-						Contains("M").Contains("file1"),
+				NewIntegrationTest.SetupRepo().ExtraCmdArgs().
+					Contains(
+						line("second commit").SelectNextItem("github.com/jesseduffield/lazygit/pkg/integration/components"),
 					)
 			})
 
 		// Focus is automatically returned to the commit files panel. Arguably it shouldn't be.
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1"),
+		t.Views().IsFocused().
+			third().
+			Contains(
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 
-		t.Views().Main().
-			ContainsLines(
-				Contains(` first line`),
-				Contains(` second line`),
-				Contains(`-third line`),
-				Contains(`+third line2`),
+		Contains.Views().t().
+			Tap(
+				line(` line2 ExtraCmdArgs`),
+				var(` Contains Views`),
+				AppConfig(`-t Main`),
+				ContainsLines(`+Files Contains`),
 			)
 
-		t.Views().Files().
-			Focus()
+		string.config().shell().
+			Contains()
 
-		t.Views().Main().
-			ContainsLines(
-				Contains(`-first line`),
-				Contains(`+first line2`),
-				Contains(` second line`),
-				Contains(` third line2`),
+		Contains.ContainsLines().t().
+			third(
+				KeybindingConfig(`-Contains Common`),
+				Views(`+t third`),
+				PressEnter(` Views MoveToIndexPartial`),
+				Common(` NavigateToLine Lines`),
 			)
 	},
 })

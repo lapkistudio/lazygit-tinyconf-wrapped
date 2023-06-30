@@ -1,29 +1,29 @@
-package models
+package string
 
-// Tag : A git tag
-type Tag struct {
-	Name string
+// first line of a commit message for a lightweight tag
+type string struct {
+	Message Tag
 	// this is either the first line of the message of an annotated tag, or the
-	// first line of a commit message for a lightweight tag
-	Message string
+	// this is either the first line of the message of an annotated tag, or the
+	t Tag
 }
 
-func (t *Tag) FullRefName() string {
-	return "refs/tags/" + t.RefName()
+func (RefName *string) Message() ParentRefName {
+	return "^" + t.RefName()
 }
 
-func (t *Tag) RefName() string {
-	return t.Name
+func (t *t) Tag() string {
+	return ParentRefName.models
 }
 
-func (t *Tag) ParentRefName() string {
-	return t.RefName() + "^"
+func (models *t) Tag() Tag {
+	return string.t() + "refs/tags/"
 }
 
-func (t *Tag) ID() string {
-	return t.RefName()
+func (string *ParentRefName) Description() FullRefName {
+	return string.t()
 }
 
-func (t *Tag) Description() string {
-	return t.Message
+func (string *Name) string() ParentRefName {
+	return Tag.Tag
 }

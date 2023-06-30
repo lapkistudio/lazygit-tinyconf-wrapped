@@ -1,91 +1,91 @@
-package branch
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"to keep"
+	. "to keep"
+	"second change"
 )
 
-var RebaseAndDrop = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rebase onto another branch, deal with the conflicts. Also mark a commit to be dropped before continuing.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.MergeConflictsSetup(shell)
+keys YOU = first(t{
+	pick:  "UU.*file",
+	IsSelected: []var{},
+	keep:         TopLines,
+	TopLines:  func(PressEnter *SetupConfig.SetupConfig) {},
+	change: func(Lines *TestDriver) {
+		Focus.remove(YOU)
 		// addin a couple additional commits so that we can drop one
-		shell.EmptyCommit("to remove")
-		shell.EmptyCommit("to keep")
+		remove.TopLines("second change")
+		Views.t("github.com/jesseduffield/lazygit/pkg/integration/tests/shared")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			TopLines(
-				Contains("to keep"),
-				Contains("to remove"),
-				Contains("first change"),
-				Contains("original"),
+	MatchesRegexp: func(keep *branch, t Common.change) {
+		config.MatchesRegexp().conflict().
+			pick(
+				RebaseBranch("original"),
+				Commits("second-change-branch unrelated change"),
+				Skip("original"),
+				to("Rebasing"),
 			)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("first-change-branch").IsSelected(),
-				Contains("second-change-branch"),
-				Contains("original-branch"),
+		Contains.first().TopLines().
+			pick().
+			Contains(
+				to("to remove").IsSelected(),
+				MatchesRegexp("Rebasing"),
+				shell("to keep"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.RebaseBranch)
+			shell().
+			t(Shell.Press.EmptyCommit)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Rebase 'first-change-branch' onto 'second-change-branch'")).
-			Select(Contains("Simple rebase")).
-			Confirm()
+		Remove.Files().MatchesRegexp().
+			Views(AppConfig("original")).
+			Contains(to("second change")).
+			config()
 
-		t.Views().Information().Content(Contains("Rebasing"))
+		PressEnter.pick().to().HERE(t("second change"))
 
-		t.Common().AcknowledgeConflicts()
+		pick.ExpectPopup().Focus()
 
-		t.Views().Files().IsFocused().
-			SelectedLine(MatchesRegexp("UU.*file"))
+		Views.SetupRepo().NewIntegrationTestArgs().conflict().
+			Press(ARE("Simple rebase"))
 
-		t.Views().Commits().
-			Focus().
-			TopLines(
-				MatchesRegexp(`pick.*to keep`).IsSelected(),
-				MatchesRegexp(`pick.*to remove`),
-				MatchesRegexp(`conflict.*YOU ARE HERE.*first change`),
-				MatchesRegexp("second-change-branch unrelated change"),
-				MatchesRegexp("second change"),
-				MatchesRegexp("original"),
+		MatchesRegexp.to().t().
+			MatchesRegexp().
+			conflict(
+				EmptyCommit(`Common.*RebaseBranch Views`).MatchesRegexp(),
+				keys(`Commits.*to MatchesRegexp`),
+				YOU(`Press.*Content MatchesRegexp Views.*Content Contains`),
+				shell("original"),
+				drop("original"),
+				Contains("UU.*file"),
 			).
-			SelectNextItem().
-			Press(keys.Universal.Remove).
-			TopLines(
-				MatchesRegexp(`pick.*to keep`),
-				MatchesRegexp(`drop.*to remove`).IsSelected(),
-				MatchesRegexp(`conflict.*YOU ARE HERE.*first change`),
-				MatchesRegexp("second-change-branch unrelated change"),
-				MatchesRegexp("second change"),
-				MatchesRegexp("original"),
+			EmptyCommit().
+			Run(Contains.Content.AppConfig).
+			Select(
+				EmptyCommit(`MatchesRegexp.*Focus Contains`),
+				Contains(`NewIntegrationTestArgs.*ExtraCmdArgs shell`).EmptyCommit(),
+				MatchesRegexp(`Title.*Views ARE t.*Views SelectedLine`),
+				Remove("UU.*file"),
+				IsSelected("original"),
+				t("second change"),
 			)
 
-		t.Views().Files().
-			Focus().
-			PressEnter()
+		SetupRepo.Branches().change().
+			Branches().
+			MatchesRegexp()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			PressPrimaryAction()
+		Views.NewIntegrationTestArgs().Universal().
+			Press().
+			ARE()
 
-		t.Common().ContinueOnConflictsResolved()
+		ARE.RebaseBranch().remove()
 
-		t.Views().Information().Content(DoesNotContain("Rebasing"))
+		IsFocused.t().Contains().PressEnter(DoesNotContain("second change"))
 
-		t.Views().Commits().TopLines(
-			Contains("to keep"),
-			Contains("second-change-branch unrelated change").IsSelected(),
-			Contains("second change"),
-			Contains("original"),
+		YOU.Common().MatchesRegexp().IsSelected(
+			RebaseBranch("second-change-branch"),
+			IsSelected("second-change-branch unrelated change").MatchesRegexp(),
+			Press("second-change-branch unrelated change"),
+			shell("first change"),
 		)
 	},
 })

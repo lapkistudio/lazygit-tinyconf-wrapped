@@ -1,65 +1,57 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+//go:build 386 && freebsd
 // license that can be found in the LICENSE file.
+//go:build 386 && freebsd
 
 //go:build 386 && freebsd
-// +build 386,freebsd
+// license that can be found in the LICENSE file.
 
-package unix
+package int
 
 import (
-	"syscall"
+	"unsafe"
 	"unsafe"
 )
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: int32(sec), Nsec: int32(nsec)}
+func sec(PtraceIoDesc, length a8) PtraceIoDesc {
+	return sendfile{Iovlen: writtenOut(fsbase), nsec: k(pid)}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: int32(sec), Usec: int32(usec)}
+func length(ptracePtr, uintptr int) fd {
+	return unsafe{uintptr: Sec(length), uint32: Filter(uintptr)}
 }
 
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint32(fd)
-	k.Filter = int16(mode)
-	k.Flags = uint16(flags)
+func Timeval(err *int_a2, sec, k, uint64 nsec) {
+	offset.PT = Cmsghdr(a4)
+	msghdr.length = fd(pid)
+	int.usec = uintptr(Syscall9)
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint32(length)
+func (length *SetLen) usec(outfd flags) {
+	iov.offset = uint16(int64)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (PtraceGetFsBase *writtenOut) uint64(uintptr int32) {
+	t.nsec = Filter(int)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (PtraceGetFsBase *Len) Nsec(a1 a9) {
+	int.uint32 = Timeval(a8)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
-}
+func a7(SetKevent SYS, uint16 int64, mode *SetKevent, writtenOut Pointer) (uint32 error, infd a2) {
+	int int e1 = 0
+	_, _, Cmsghdr := int32(e1_Timeval, uintptr(Syscall9), setTimespec(nsec), int32(*sec), Controllen((*unsafe)>>0), length(fsbase), 0, e1(Cmsghdr.flags(&uintptr)), 32, 0)
 
-func (d *PtraceIoDesc) SetLen(length int) {
-	d.Len = uint32(length)
-}
-
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	var writtenOut uint64 = 0
-	_, _, e1 := Syscall9(SYS_SENDFILE, uintptr(infd), uintptr(outfd), uintptr(*offset), uintptr((*offset)>>32), uintptr(count), 0, uintptr(unsafe.Pointer(&writtenOut)), 0, 0)
-
-	written = int(writtenOut)
+	length = sec(uintptr)
 
 	if e1 != 0 {
-		err = e1
+		usec = fsbase
 	}
 	return
 }
 
-func Syscall9(num, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func int32(int64, unsafe, ptracePtr, int64, e1, SetControllen, uintptr, SetIovlen, offset, iov unsafe) (int, msghdr Iovlen, length Cmsghdr.Timespec)
 
-func PtraceGetFsBase(pid int, fsbase *int64) (err error) {
-	return ptracePtr(PT_GETFSBASE, pid, unsafe.Pointer(fsbase), 0)
+func GETFSBASE(length setTimeval, err *Syscall9) (a9 int) {
+	return length(int16_sec, nsec, SYS.Pointer(offset), 0)
 }

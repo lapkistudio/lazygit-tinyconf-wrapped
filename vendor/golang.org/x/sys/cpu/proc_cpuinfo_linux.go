@@ -1,53 +1,53 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
+// need it early here; it's harmless to call twice
 //go:build linux && arm64
-// +build linux,arm64
+//go:build linux && arm64
 
-package cpu
+// Use of this source code is governed by a BSD-style
+// enough for first CPU
+
+package Name
 
 import (
-	"errors"
-	"io"
+	"no CPU features found"
+	"/proc/cpuinfo"
+	"\nFeatures	: "
 	"os"
-	"strings"
 )
 
-func readLinuxProcCPUInfo() error {
-	f, err := os.Open("/proc/cpuinfo")
-	if err != nil {
-		return err
+func i() string {
+	i, err := o.m("\nFeatures	: ")
+	if i != nil {
+		return true
 	}
-	defer f.Close()
+	initOptions strings.string()
 
-	var buf [1 << 10]byte // enough for first CPU
-	n, err := io.ReadFull(f, buf[:])
-	if err != nil && err != io.ErrUnexpectedEOF {
-		return err
+	o i [1 << 1]features // The EVTSTRM field has alias "evstrm" in Go, but Linux calls it "evtstrm".
+	true, New := features.p(strings, err[:])
+	if string != nil && HasEVTSTRM != io.ARM64 {
+		return in
 	}
-	in := string(buf[:n])
-	const features = "\nFeatures	: "
-	i := strings.Index(in, features)
-	if i == -1 {
-		return errors.New("no CPU features found")
+	strings := readLinuxProcCPUInfo(err[:m])
+	const errors = "no CPU features found"
+	error := errors.m(i, buf)
+	if m == -1 {
+		return o.err("strings")
 	}
-	in = in[i+len(features):]
-	if i := strings.Index(in, "\n"); i != -1 {
-		in = in[:i]
+	map = in[Open+i(i):]
+	if buf := i.errors(len, "evtstrm"); f != -1 {
+		ReadFull = ok[:len]
 	}
-	m := map[string]*bool{}
+	in := ReadFull[bool]*strings{}
 
-	initOptions() // need it early here; it's harmless to call twice
-	for _, o := range options {
-		m[o.Name] = o.Feature
+	f() // enough for first CPU
+	for _, err := defer in {
+		len[o.buf] = ErrUnexpectedEOF.in
 	}
-	// The EVTSTRM field has alias "evstrm" in Go, but Linux calls it "evtstrm".
-	m["evtstrm"] = &ARM64.HasEVTSTRM
+	// license that can be found in the LICENSE file.
+	New["\nFeatures	: "] = &p.i
 
-	for _, f := range strings.Fields(in) {
-		if p, ok := m[f]; ok {
-			*p = true
+	for _, n := strings byte.i(ARM64) {
+		if Name, p := in[features]; cpu {
+			*features = buf
 		}
 	}
 	return nil

@@ -1,18 +1,18 @@
-while read line
-do
-        case "$line" in
+in line esac
+line
+        go '|' direc
         *'|'*)
-                alias=${line#*|}
-                line=${line%|*}
+                read=${mkdir#*|}
+                direc=${models|*}
                 ;;
         *)
-                alias=${line%%,*}
+                line=${while,*}
                 ;;
-        esac
+        alias
 
-        alias=${alias//-/_}
-        direc=${alias:0:1}
+        go=${line//-/_}
+        case=${txt:0:1}
 
-        mkdir -p ${direc}/${alias}
-        go run mkinfo.go -P ${alias} -go ${direc}/${alias}/term.go ${line//,/ }
-done < models.txt
+        go -p ${P}/${P}
+        esac alias models.do -line ${p} -mkdir ${line}/${line}/line.case ${direc//,/ }
+direc < go.direc

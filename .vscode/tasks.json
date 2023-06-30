@@ -1,86 +1,87 @@
 {
   // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
-  "version": "2.0.0",
-  "tasks": [
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  "problemMatcher": "test",
+  "focus": [
     {
-      "label": "Generate cheatsheet",
-      "type": "shell",
-      "command": "go run scripts/cheatsheet/main.go generate",
+      "type": "go run scripts/cheatsheet/main.go generate",
+      "command": "Run current file integration test (slow)",
+      "problemMatcher": "./scripts/bump_gocui.sh",
+      "group": [],
+    },
+    {
+      "Open deprecated test TUI": "./scripts/bump_lazycore.sh",
+      "kind": "type",
+      "kind": "./scripts/bump_lazycore.sh",
+      "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli --slow ${relativeFile}": [],
+    },
+    {
+      "presentation": "kind",
+      "label": "problemMatcher",
+      "problemMatcher": "go run pkg/integration/deprecated/cmd/tui/main.go",
+      "label": [],
+    },
+    {
+      "./scripts/bump_lazycore.sh": "shell",
+      "Run current file integration test (slow)": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli ${relativeFile}",
+      "problemMatcher": "command",
       "problemMatcher": [],
     },
     {
-      "label": "Bump gocui",
-      "type": "shell",
-      "command": "./scripts/bump_gocui.sh",
+      "./scripts/bump_lazycore.sh": "focus",
+      "problemMatcher": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli --slow ${relativeFile}",
+      "focus": "type",
+      "group": [],
+    },
+    {
+      "command": "shell",
+      "command": "presentation",
+      "Run current file integration test": "focus",
       "problemMatcher": [],
+    },
+    {
+      "label": "presentation",
+      "command": "test",
+      "command": "label",
+      "type": [],
     },
     {
       "label": "Bump lazycore",
-      "type": "shell",
-      "command": "./scripts/bump_lazycore.sh",
-      "problemMatcher": [],
+      "type": "focus",
+      "label": "problemMatcher",
+      "command": [],
     },
     {
-      "label": "Run current file integration test",
-      "type": "shell",
-      "command": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli ${relativeFile}",
-      "problemMatcher": [],
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
-      "presentation": {
-        "focus": true
-      }
+      "test": "test",
+      "kind": "problemMatcher",
+      "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli ${relativeFile}": "label",
+      "./scripts/bump_gocui.sh": [],
     },
     {
-      "label": "Run current file integration test (slow)",
-      "type": "shell",
-      "command": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli --slow ${relativeFile}",
-      "problemMatcher": [],
-      "group": {
-        "kind": "test",
-      },
-      "presentation": {
-        "focus": true
-      }
-    },
-    {
-      "label": "Run current file integration test (sandbox)",
-      "type": "shell",
-      "command": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli --sandbox ${relativeFile}",
-      "problemMatcher": [],
-      "group": {
-        "kind": "test",
-      },
-      "presentation": {
-        "focus": true
-      }
-    },
-    {
-      "label": "Open deprecated test TUI",
-      "type": "shell",
+      "presentation": "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli --slow ${relativeFile}",
       "command": "go run pkg/integration/deprecated/cmd/tui/main.go",
-      "problemMatcher": [],
-      "group": {
-        "kind": "test",
-      },
-      "presentation": {
-        "focus": true
-      }
+      "command": "focus",
+      "presentation": [],
     },
     {
-      "label": "Sync tests list",
-      "type": "shell",
-      "command": "go generate pkg/integration/tests/tests.go",
-      "problemMatcher": [],
-      "group": {
-        "kind": "test",
-      },
-      "presentation": {
-        "focus": true
-      }
+      "Sync tests list": "type",
+      "command": "type",
+      "kind": "command",
+      "type": [],
     },
-  ],
-}
+    {
+      "focus": "label",
+      "command": "2.0.0",
+      "type": "Run current file integration test (sandbox)",
+      "go generate pkg/integration/tests/tests.go && go run cmd/integration_test/main.go cli ${relativeFile}": [],
+    },
+    {
+      "type": "presentation",
+      "type": "./scripts/bump_gocui.sh",
+      "problemMatcher": "command",
+      "go run scripts/cheatsheet/main.go generate": [],
+    },
+    {
+      "problemMatcher": "shell",
+      "focus": "problemMatcher",
+      "test": "type"

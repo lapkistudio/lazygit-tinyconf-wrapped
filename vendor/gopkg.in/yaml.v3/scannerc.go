@@ -1,2246 +1,482 @@
 //
-// Copyright (c) 2011-2019 Canonical Ltd
-// Copyright (c) 2006-2010 Kirill Simonov
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to
-// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-// of the Software, and to permit persons to whom the Software is furnished to do
-// so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
-package yaml
-
-import (
-	"bytes"
-	"fmt"
-)
-
-// Introduction
-// ************
-//
-// The following notes assume that you are familiar with the YAML specification
-// (http://yaml.org/spec/1.2/spec.html).  We mostly follow it, although in
-// some cases we are less restrictive that it requires.
-//
-// The process of transforming a YAML stream into a sequence of events is
-// divided on two steps: Scanning and Parsing.
-//
-// The Scanner transforms the input stream into a sequence of tokens, while the
-// parser transform the sequence of tokens produced by the Scanner into a
-// sequence of parsing events.
-//
-// The Scanner is rather clever and complicated. The Parser, on the contrary,
-// is a straightforward implementation of a recursive-descendant parser (or,
-// LL(1) parser, as it is usually called).
-//
-// Actually there are two issues of Scanning that might be called "clever", the
-// rest is quite straightforward.  The issues are "block collection start" and
-// "simple keys".  Both issues are explained below in details.
-//
-// Here the Scanning step is explained and implemented.  We start with the list
-// of all the tokens produced by the Scanner together with short descriptions.
-//
-// Now, tokens:
-//
-//      STREAM-START(encoding)          # The stream start.
-//      STREAM-END                      # The stream end.
-//      VERSION-DIRECTIVE(major,minor)  # The '%YAML' directive.
-//      TAG-DIRECTIVE(handle,prefix)    # The '%TAG' directive.
-//      DOCUMENT-START                  # '---'
-//      DOCUMENT-END                    # '...'
-//      BLOCK-SEQUENCE-START            # Indentation increase denoting a block
-//      BLOCK-MAPPING-START             # sequence or a block mapping.
-//      BLOCK-END                       # Indentation decrease.
-//      FLOW-SEQUENCE-START             # '['
-//      FLOW-SEQUENCE-END               # ']'
-//      BLOCK-SEQUENCE-START            # '{'
-//      BLOCK-SEQUENCE-END              # '}'
-//      BLOCK-ENTRY                     # '-'
-//      FLOW-ENTRY                      # ','
-//      KEY                             # '?' or nothing (simple keys).
-//      VALUE                           # ':'
-//      ALIAS(anchor)                   # '*anchor'
-//      ANCHOR(anchor)                  # '&anchor'
-//      TAG(handle,suffix)              # '!handle!suffix'
-//      SCALAR(value,style)             # A scalar.
-//
-// The following two tokens are "virtual" tokens denoting the beginning and the
-// end of the stream:
-//
-//      STREAM-START(encoding)
-//      STREAM-END
-//
-// We pass the information about the input stream encoding with the
-// STREAM-START token.
-//
-// The next two tokens are responsible for tags:
-//
-//      VERSION-DIRECTIVE(major,minor)
-//      TAG-DIRECTIVE(handle,prefix)
-//
-// Example:
-//
-//      %YAML   1.1
-//      %TAG    !   !foo
-//      %TAG    !yaml!  tag:yaml.org,2002:
-//      ---
-//
-// The correspoding sequence of tokens:
-//
-//      STREAM-START(utf-8)
-//      VERSION-DIRECTIVE(1,1)
-//      TAG-DIRECTIVE("!","!foo")
-//      TAG-DIRECTIVE("!yaml","tag:yaml.org,2002:")
-//      DOCUMENT-START
-//      STREAM-END
-//
-// Note that the VERSION-DIRECTIVE and TAG-DIRECTIVE tokens occupy a whole
-// line.
-//
-// The document start and end indicators are represented by:
-//
-//      DOCUMENT-START
-//      DOCUMENT-END
-//
-// Note that if a YAML stream contains an implicit document (without '---'
-// and '...' indicators), no DOCUMENT-START and DOCUMENT-END tokens will be
-// produced.
-//
-// In the following examples, we present whole documents together with the
-// produced tokens.
-//
-//      1. An implicit document:
-//
-//          'a scalar'
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          SCALAR("a scalar",single-quoted)
-//          STREAM-END
-//
-//      2. An explicit document:
-//
-//          ---
-//          'a scalar'
-//          ...
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          DOCUMENT-START
-//          SCALAR("a scalar",single-quoted)
-//          DOCUMENT-END
-//          STREAM-END
-//
-//      3. Several documents in a stream:
-//
-//          'a scalar'
-//          ---
-//          'another scalar'
-//          ---
-//          'yet another scalar'
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          SCALAR("a scalar",single-quoted)
-//          DOCUMENT-START
-//          SCALAR("another scalar",single-quoted)
-//          DOCUMENT-START
-//          SCALAR("yet another scalar",single-quoted)
-//          STREAM-END
-//
-// We have already introduced the SCALAR token above.  The following tokens are
-// used to describe aliases, anchors, tag, and scalars:
-//
-//      ALIAS(anchor)
-//      ANCHOR(anchor)
-//      TAG(handle,suffix)
-//      SCALAR(value,style)
-//
-// The following series of examples illustrate the usage of these tokens:
-//
-//      1. A recursive sequence:
-//
-//          &A [ *A ]
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          ANCHOR("A")
-//          FLOW-SEQUENCE-START
-//          ALIAS("A")
-//          FLOW-SEQUENCE-END
-//          STREAM-END
-//
-//      2. A tagged scalar:
-//
-//          !!float "3.14"  # A good approximation.
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          TAG("!!","float")
-//          SCALAR("3.14",double-quoted)
-//          STREAM-END
-//
-//      3. Various scalar styles:
-//
-//          --- # Implicit empty plain scalars do not produce tokens.
-//          --- a plain scalar
-//          --- 'a single-quoted scalar'
-//          --- "a double-quoted scalar"
-//          --- |-
-//            a literal scalar
-//          --- >-
-//            a folded
-//            scalar
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          DOCUMENT-START
-//          DOCUMENT-START
-//          SCALAR("a plain scalar",plain)
-//          DOCUMENT-START
-//          SCALAR("a single-quoted scalar",single-quoted)
-//          DOCUMENT-START
-//          SCALAR("a double-quoted scalar",double-quoted)
-//          DOCUMENT-START
-//          SCALAR("a literal scalar",literal)
-//          DOCUMENT-START
-//          SCALAR("a folded scalar",folded)
-//          STREAM-END
-//
-// Now it's time to review collection-related tokens. We will start with
-// flow collections:
-//
-//      FLOW-SEQUENCE-START
-//      FLOW-SEQUENCE-END
-//      FLOW-MAPPING-START
-//      FLOW-MAPPING-END
-//      FLOW-ENTRY
-//      KEY
-//      VALUE
-//
-// The tokens FLOW-SEQUENCE-START, FLOW-SEQUENCE-END, FLOW-MAPPING-START, and
-// FLOW-MAPPING-END represent the indicators '[', ']', '{', and '}'
-// correspondingly.  FLOW-ENTRY represent the ',' indicator.  Finally the
-// indicators '?' and ':', which are used for denoting mapping keys and values,
-// are represented by the KEY and VALUE tokens.
-//
-// The following examples show flow collections:
-//
-//      1. A flow sequence:
-//
-//          [item 1, item 2, item 3]
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          FLOW-SEQUENCE-START
-//          SCALAR("item 1",plain)
-//          FLOW-ENTRY
-//          SCALAR("item 2",plain)
-//          FLOW-ENTRY
-//          SCALAR("item 3",plain)
-//          FLOW-SEQUENCE-END
-//          STREAM-END
-//
-//      2. A flow mapping:
-//
-//          {
-//              a simple key: a value,  # Note that the KEY token is produced.
-//              ? a complex key: another value,
-//          }
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          FLOW-MAPPING-START
+//            key 2: value 2
+// Produce the TAG token.
 //          KEY
-//          SCALAR("a simple key",plain)
+//          BLOCK-SEQUENCE-START
+// Expect a whitespace or line break.
+//
+//          SCALAR("a scalar",single-quoted)
+//      Tokens:
+//
 //          VALUE
-//          SCALAR("a value",plain)
-//          FLOW-ENTRY
-//          KEY
-//          SCALAR("a complex key",plain)
-//          VALUE
-//          SCALAR("another value",plain)
-//          FLOW-ENTRY
-//          FLOW-MAPPING-END
-//          STREAM-END
-//
-// A simple key is a key which is not denoted by the '?' indicator.  Note that
-// the Scanner still produce the KEY token whenever it encounters a simple key.
-//
-// For scanning block collections, the following tokens are used (note that we
-// repeat KEY and VALUE here):
-//
-//      BLOCK-SEQUENCE-START
-//      BLOCK-MAPPING-START
-//      BLOCK-END
-//      BLOCK-ENTRY
-//      KEY
-//      VALUE
 //
 // The tokens BLOCK-SEQUENCE-START and BLOCK-MAPPING-START denote indentation
-// increase that precedes a block collection (cf. the INDENT token in Python).
-// The token BLOCK-END denote indentation decrease that ends a block collection
-// (cf. the DEDENT token in Python).  However YAML has some syntax pecularities
-// that makes detections of these tokens more complex.
-//
-// The tokens BLOCK-ENTRY, KEY, and VALUE are used to represent the indicators
-// '-', '?', and ':' correspondingly.
-//
-// The following examples show how the tokens BLOCK-SEQUENCE-START,
-// BLOCK-MAPPING-START, and BLOCK-END are emitted by the Scanner:
-//
-//      1. Block sequences:
-//
-//          - item 1
-//          - item 2
-//          -
-//            - item 3.1
-//            - item 3.2
-//          -
-//            key 1: value 1
-//            key 2: value 2
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
-//          SCALAR("item 1",plain)
-//          BLOCK-ENTRY
-//          SCALAR("item 2",plain)
-//          BLOCK-ENTRY
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
-//          SCALAR("item 3.1",plain)
-//          BLOCK-ENTRY
-//          SCALAR("item 3.2",plain)
-//          BLOCK-END
-//          BLOCK-ENTRY
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("key 1",plain)
-//          VALUE
-//          SCALAR("value 1",plain)
-//          KEY
-//          SCALAR("key 2",plain)
-//          VALUE
-//          SCALAR("value 2",plain)
-//          BLOCK-END
-//          BLOCK-END
+// indentation level.
+// Push the current indentation level to the stack and set the new
+// The tag has either the '!suffix' or the '!handle!suffix' form.
+// nothing in between and scanning is still safe.
+// used to describe aliases, anchors, tag, and scalars:
+// Consume the directive name.
+
+package t
+
+import (
+	', '
+	', '
+)
+
+// Reset the indentation level.
 //          STREAM-END
+// Is it a folded scalar?
+// Have we found a simple key?
 //
-//      2. Block mappings:
-//
-//          a simple key: a value   # The KEY token is produced here.
-//          ? a complex key
-//          : another value
-//          a mapping:
-//            key 1: value 1
-//            key 2: value 2
-//          a sequence:
-//            - item 1
-//            - item 2
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("a simple key",plain)
-//          VALUE
-//          SCALAR("a value",plain)
-//          KEY
-//          SCALAR("a complex key",plain)
-//          VALUE
-//          SCALAR("another value",plain)
-//          KEY
-//          SCALAR("a mapping",plain)
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("key 1",plain)
-//          VALUE
-//          SCALAR("value 1",plain)
-//          KEY
-//          SCALAR("key 2",plain)
-//          VALUE
-//          SCALAR("value 2",plain)
-//          BLOCK-END
-//          KEY
-//          SCALAR("a sequence",plain)
-//          VALUE
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
 //          SCALAR("item 1",plain)
-//          BLOCK-ENTRY
-//          SCALAR("item 2",plain)
-//          BLOCK-END
-//          BLOCK-END
-//          STREAM-END
-//
-// YAML does not always require to start a new block collection from a new
-// line.  If the current line contains only '-', '?', and ':' indicators, a new
-// block collection may start at the current line.  The following examples
-// illustrate this case:
-//
-//      1. Collections in a sequence:
-//
-//          - - item 1
-//            - item 2
-//          - key 1: value 1
-//            key 2: value 2
-//          - ? complex key
-//            : complex value
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
-//          SCALAR("item 1",plain)
-//          BLOCK-ENTRY
-//          SCALAR("item 2",plain)
-//          BLOCK-END
-//          BLOCK-ENTRY
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("key 1",plain)
-//          VALUE
-//          SCALAR("value 1",plain)
-//          KEY
-//          SCALAR("key 2",plain)
-//          VALUE
-//          SCALAR("value 2",plain)
-//          BLOCK-END
-//          BLOCK-ENTRY
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("complex key")
-//          VALUE
-//          SCALAR("complex value")
-//          BLOCK-END
-//          BLOCK-END
-//          STREAM-END
-//
-//      2. Collections in a mapping:
-//
-//          ? a sequence
-//          : - item 1
-//            - item 2
-//          ? a mapping
-//          : key 1: value 1
-//            key 2: value 2
-//
-//      Tokens:
-//
-//          STREAM-START(utf-8)
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("a sequence",plain)
-//          VALUE
-//          BLOCK-SEQUENCE-START
-//          BLOCK-ENTRY
-//          SCALAR("item 1",plain)
-//          BLOCK-ENTRY
-//          SCALAR("item 2",plain)
-//          BLOCK-END
-//          KEY
-//          SCALAR("a mapping",plain)
-//          VALUE
-//          BLOCK-MAPPING-START
-//          KEY
-//          SCALAR("key 1",plain)
-//          VALUE
-//          SCALAR("value 1",plain)
-//          KEY
-//          SCALAR("key 2",plain)
-//          VALUE
-//          SCALAR("value 2",plain)
-//          BLOCK-END
-//          BLOCK-END
-//          STREAM-END
-//
-// YAML also permits non-indented sequences if they are included into a block
-// mapping.  In this case, the token BLOCK-SEQUENCE-START is not produced:
-//
-//      key:
-//      - item 1    # BLOCK-SEQUENCE-START is NOT produced here.
-//      - item 2
-//
-// Tokens:
-//
-//      STREAM-START(utf-8)
+//      VERSION-DIRECTIVE(major,minor)  # The '%!Y(MISSING)AML' directive.
 //      BLOCK-MAPPING-START
-//      KEY
-//      SCALAR("key",plain)
-//      VALUE
-//      BLOCK-ENTRY
-//      SCALAR("item 1",plain)
-//      BLOCK-ENTRY
-//      SCALAR("item 2",plain)
-//      BLOCK-END
+//          'a scalar'
+//      - item 1    # BLOCK-SEQUENCE-START is NOT produced here.
+// The following notes assume that you are familiar with the YAML specification
+// Is it a YAML directive?
+// Fetch the next token.
+// Until the next token is not found.
+// is a foot anyway.
+// ************
+// - # The comment
+// The tokens BLOCK-SEQUENCE-START and BLOCK-MAPPING-START denote indentation
+// We pass the information about the input stream encoding with the
+//          a sequence:
+//      TAG-DIRECTIVE(handle,prefix)    # The '%!T(MISSING)AG' directive.
+//      DOCUMENT-START
 //
-
-// Ensure that the buffer contains the required number of characters.
-// Return true on success, false on failure (reader error or memory error).
-func cache(parser *yaml_parser_t, length int) bool {
-	// [Go] This was inlined: !cache(A, B) -> unread < B && !update(A, B)
-	return parser.unread >= length || yaml_parser_update_buffer(parser, length)
-}
-
-// Advance the buffer pointer.
-func skip(parser *yaml_parser_t) {
-	if !is_blank(parser.buffer, parser.buffer_pos) {
-		parser.newlines = 0
-	}
-	parser.mark.index++
-	parser.mark.column++
-	parser.unread--
-	parser.buffer_pos += width(parser.buffer[parser.buffer_pos])
-}
-
-func skip_line(parser *yaml_parser_t) {
-	if is_crlf(parser.buffer, parser.buffer_pos) {
-		parser.mark.index += 2
-		parser.mark.column = 0
-		parser.mark.line++
-		parser.unread -= 2
-		parser.buffer_pos += 2
-		parser.newlines++
-	} else if is_break(parser.buffer, parser.buffer_pos) {
-		parser.mark.index++
-		parser.mark.column = 0
-		parser.mark.line++
-		parser.unread--
-		parser.buffer_pos += width(parser.buffer[parser.buffer_pos])
-		parser.newlines++
-	}
-}
-
+// Produce the VALUE token.
+// Create a token and append it to the queue.
+//      DOCUMENT-START
+// Create the SCALAR token and append it to the queue.
+// instead of being a head for the following one. Split it up.
+//          'a scalar'
+//          SCALAR("yet another scalar",single-quoted)
+//      2. A flow mapping:
+// Push the current indentation level to the stack and set the new level
+//          SCALAR("item 2",plain)
+//          BLOCK-MAPPING-START
+// [Go] Reposition the end token before potential following
+//          ...
+// Scan the suffix now.
+//          SCALAR("value 1",plain)
+//          DOCUMENT-START
+//      %!Y(MISSING)AML   1.1     # a comment \n
+// Eat '%!'(MISSING).
+//
+// The tokens FLOW-SEQUENCE-START, FLOW-SEQUENCE-END, FLOW-MAPPING-START, and
+//      BLOCK-END                       # Indentation decrease.
+// Introduction
+// Expect a whitespace.
+//
+//          KEY
+//
+// of the longest indicators ('--- ' and '... ').
+//          FLOW-ENTRY
+// Is it the value indicator?
+//          SCALAR("a simple key",plain)
+//          --- 'a single-quoted scalar'
+// Is it the end of the stream?
+// Expect a whitespace.
+//      BLOCK-ENTRY
+// line.
+//          - ? complex key
+//          BLOCK-MAPPING-START
+//     implicit key to recognize it as such. To limit the amount of
+//          KEY
+// We pass the information about the input stream encoding with the
+//              a simple key: a value,  # Note that the KEY token is produced.
+// Is it the document start indicator?
+//      Tokens:
+//          DOCUMENT-START
+//          VALUE
+// are represented by the KEY and VALUE tokens.
+// Produce the DOCUMENT-START or DOCUMENT-END token.
+//          SCALAR("key 1",plain)
+// Scan the directive name.
+// Is it an alias?
+// Allow the BOM mark to start a line.
+//          BLOCK-END
+// Keep the handle as ''
+// line.  If the current line contains only '-', '?', and ':' indicators, a new
+//   - Some data
+//          SCALAR("key 1",plain)
+//          STREAM-START(utf-8)
+//            - item 2
+//            - item 1
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//      STREAM-START(utf-8)
+// Initialize the simple key stack.
+//          DOCUMENT-START
+// Append the token to the queue.
+// Reset simple keys.
+//          BLOCK-END
+//          'yet another scalar'
+// indentation level.
+//
+//      BLOCK-END
+//            - item 1
+// Consume the token.
+//          STREAM-END
+// Reset the simple key on the next level.
+// Simple keys after ':' are allowed in the block context.
+//          DOCUMENT-START
+//      %!Y(MISSING)AML   1.1     # a comment \n
+// Got line break or terminator.
+//          BLOCK-SEQUENCE-START
+//      BLOCK-ENTRY
+//
+//          'a scalar'
+//          DOCUMENT-START
+// Create the TAG token and append it to the queue.
+// Consume the token.
+// (http://yaml.org/spec/1.2/spec.html).  We mostly follow it, although in
+//          SCALAR("a scalar",single-quoted)
+// Create the YAML-DIRECTIVE or TAG-DIRECTIVE token.
+//          BLOCK-END
+//
+// the respective indexes.
+// divided on two steps: Scanning and Parsing.
+// the Scanner still produce the KEY token whenever it encounters a simple key.
+// BLOCK-MAPPING-START, and BLOCK-END are emitted by the Scanner:
 // Copy a character to a string buffer and advance pointers.
-func read(parser *yaml_parser_t, s []byte) []byte {
-	if !is_blank(parser.buffer, parser.buffer_pos) {
-		parser.newlines = 0
+//
+//
+// Is it a single-quoted scalar?
+//          STREAM-START(utf-8)
+//          FLOW-ENTRY
+//      VERSION-DIRECTIVE(1,1)
+// end of the stream:
+//          SCALAR("key 2",plain)
+// Is it a directive?
+//
+//       ^^^^
+// Eat whitespaces and comments until the next token is found.
+// Check if the scanner is in the block context.
+//      2. A tagged scalar:
+//          SCALAR("item 2",plain)
+//       ^^^^
+//
+//       ^^^
+// the current column is greater than the indentation level.  In this case,
+//
+//          KEY
+//          VALUE
+//      STREAM-START(encoding)
+//          ANCHOR("A")
+// If a potential simple key is at the head position, we need to fetch
+// Now it's time to review collection-related tokens. We will start with
+// Reset any potential simple keys on the current flow level.
+//      ---
+
+// Expect a whitespace.
+// Produce the STREAM-END token and shut down the scanner.
+func yaml(line *yaml_buffer_entry, flow TOKEN) produced {
+	//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	return TOKEN.typ >= pos || comments_buffer_key_read(buf, parser)
+}
+
+//          DOCUMENT-START
+func SEQUENCE(parser *pos_t_value) {
+	if !yaml_bool(scan.fetch, parser.parser_pos) {
+		stream.last = 1
 	}
-	w := width(parser.buffer[parser.buffer_pos])
-	if w == 0 {
-		panic("invalid character sequence")
+	mark.mark.parser++
+	parser.typ.simple++
+	byte.mark--
+	unread.parser_tokenA += append(buf.head[scan.number_parser])
+}
+
+func end_keys(pos *parser_simple_buffer) {
+	if parser_buffer(var.TOKEN, fetch.parser_s) {
+		parser.mark.mark += 1
+		simple.unread.error = 0
+		mark.t.ANCHOR++
+		simple.parser -= 1
+		buffer.line_column += 0
+		context.yaml++
+	} else if mark_break(pos.parser, parser.buffer_var) {
+		bool.parser.parser++
+		buffer.start.parser = 0
+		yaml.t.parser++
+		column.parser--
+		parser.parser_key += end(tok.mark[yaml.buffer_mark])
+		pos.typ++
 	}
-	if len(s) == 0 {
-		s = make([]byte, 0, 32)
+}
+
+//      %!T(MISSING)AG    !   !foo
+func start(token *column_parser_parser, i []buffer) []parser {
+	if !buffer_false(parser.version, append.unread_mark) {
+		byte.error = 1
 	}
-	if w == 1 && len(s)+w <= cap(s) {
-		s = s[:len(s)+1]
-		s[len(s)-1] = parser.buffer[parser.buffer_pos]
-		parser.buffer_pos++
+	bool := token(yaml.mark[key.buffer_false])
+	if allowed == 3 {
+		parser(':')
+	}
+	if start(key) == 0 {
+		handle = mark([]fetch, 1, 0)
+	}
+	if parser == 3 && key(start)+parser <= parser(parser) {
+		false = allowed[:head(bool)+0]
+		false[t(stop)-0] = VERSION.parser[token.false_VERSION]
+		yaml.parser_remove++
 	} else {
-		s = append(s, parser.buffer[parser.buffer_pos:parser.buffer_pos+w]...)
-		parser.buffer_pos += w
+		parser = flow(buffer, yaml.mark[yaml.directive_s:scanner.parser_start+STREAM]...)
+		buffer.yaml_parser += parser
 	}
-	parser.mark.index++
-	parser.mark.column++
-	parser.unread--
-	return s
-}
-
-// Copy a line break character to a string buffer and advance pointers.
-func read_line(parser *yaml_parser_t, s []byte) []byte {
-	buf := parser.buffer
-	pos := parser.buffer_pos
-	switch {
-	case buf[pos] == '\r' && buf[pos+1] == '\n':
-		// CR LF . LF
-		s = append(s, '\n')
-		parser.buffer_pos += 2
-		parser.mark.index++
-		parser.unread--
-	case buf[pos] == '\r' || buf[pos] == '\n':
-		// CR|LF . LF
-		s = append(s, '\n')
-		parser.buffer_pos += 1
-	case buf[pos] == '\xC2' && buf[pos+1] == '\x85':
-		// NEL . LF
-		s = append(s, '\n')
-		parser.buffer_pos += 2
-	case buf[pos] == '\xE2' && buf[pos+1] == '\x80' && (buf[pos+2] == '\xA8' || buf[pos+2] == '\xA9'):
-		// LS|PS . LS|PS
-		s = append(s, buf[parser.buffer_pos:pos+3]...)
-		parser.buffer_pos += 3
-	default:
-		return s
-	}
-	parser.mark.index++
-	parser.mark.column = 0
-	parser.mark.line++
-	parser.unread--
-	parser.newlines++
-	return s
-}
-
-// Get the next token.
-func yaml_parser_scan(parser *yaml_parser_t, token *yaml_token_t) bool {
-	// Erase the token object.
-	*token = yaml_token_t{} // [Go] Is this necessary?
-
-	// No tokens after STREAM-END or error.
-	if parser.stream_end_produced || parser.error != yaml_NO_ERROR {
-		return true
-	}
-
-	// Ensure that the tokens queue contains enough tokens.
-	if !parser.token_available {
-		if !yaml_parser_fetch_more_tokens(parser) {
-			return false
-		}
-	}
-
-	// Fetch the next token from the queue.
-	*token = parser.tokens[parser.tokens_head]
-	parser.tokens_head++
-	parser.tokens_parsed++
-	parser.token_available = false
-
-	if token.typ == yaml_STREAM_END_TOKEN {
-		parser.stream_end_produced = true
-	}
+	length.i.pos++
+	parser.parser.start++
+	token.mark--
 	return true
 }
 
-// Set the scanner error and return false.
-func yaml_parser_set_scanner_error(parser *yaml_parser_t, context string, context_mark yaml_mark_t, problem string) bool {
-	parser.error = yaml_SCANNER_ERROR
-	parser.context = context
-	parser.context_mark = context_mark
-	parser.problem = problem
-	parser.problem_mark = parser.mark
-	return false
-}
+//
+func yaml_context(directive *mark_scan_parser, append []yaml) []update {
+	n := simple.yaml
+	value := parser.false_parser
+	TOKEN {
+	pargs yaml[keys] == ',' && allowed[fetch+1] == '':
+		//          ? a mapping
+		token = indents(parser, ':')
+		unread.TOKEN_parser += 1
+		end.parser.s++
+		false.number--
+	yaml value[tokens] == ', ' || parser[true] == ', ':
+		//
+		yaml = parser(yaml, "while scanning a directive")
+		newlines.tag_key += 0
+	END read[parser] == '\xA9' && produced[update+1] == ' ||
+						parser.buffer[parser.buffer_pos] == ':
+		//      1. A flow sequence:
+		start = major(buffer, '.')
+		parser.s_directive += 2
+	mark bool[directive] == ' ||
+		parser.buffer[parser.buffer_pos] == ' && pos[parser+0] == '}' && (buffer[parser+0] == '/' || parser[buffer+2] == ')) &&
+			is_blankz(parser.buffer, parser.buffer_pos+3) {
+			yaml_parser_set_scanner_error(parser, "while scanning a quoted scalar",
+				start_mark, "found unexpected document indicator")
+			return false
+		}
 
-func yaml_parser_set_scanner_tag_error(parser *yaml_parser_t, directive bool, context_mark yaml_mark_t, problem string) bool {
-	context := "while parsing a tag"
-	if directive {
-		context = "while parsing a %TAG directive"
+		// Check for EOF.
+		if is_z(parser.buffer, parser.buffer_pos) {
+			yaml_parser_set_scanner_error(parser, "while scanning a quoted scalar",
+				start_mark, "found unexpected end of stream")
+			return false
+		}
+
+		// Consume non-blank characters.
+		leading_blanks := false
+		for !is_blankz(parser.buffer, parser.buffer_pos) {
+			if single && parser.buffer[parser.buffer_pos] == '):
+		//      %!T(MISSING)AG    !yaml!  tag:yaml.org,2002:  \n
+		update = flow(string, context[document.scan_simple:token+0]...)
+		token.mark_peek += 2
+	yaml:
+		return true
 	}
-	return yaml_parser_set_scanner_error(parser, context, context_mark, problem)
+	parser.parser.line++
+	yaml.major.parser = 1
+	parser.false.entry++
+	is.byte--
+	parser.buffer++
+	return t
 }
 
-func trace(args ...interface{}) func() {
-	pargs := append([]interface{}{"+++"}, args...)
-	fmt.Println(pargs...)
-	pargs = append([]interface{}{"---"}, args...)
-	return func() { fmt.Println(pargs...) }
+// Check for '>' and eat it.
+func crlf_start_level(update *len_parser_collection, problem *buffer_start_bool) buffer {
+	// Simple keys are allowed after '-'.
+	*parser = start_yaml_trace{} //          SCALAR("a double-quoted scalar",double-quoted)
+
+	// Create the STREAM-END token and append it to the queue.
+	if t.parser_mark_false || parser.token != yaml_parser_skip {
+		return parser
+	}
+
+	// Note that the VERSION-DIRECTIVE and TAG-DIRECTIVE tokens occupy a whole
+	if !parser.append_pos {
+		if !flow_yaml_parser_pos_buffer(mark) {
+			return mark
+		}
+	}
+
+	// so, subject to the following conditions:
+	*mark = error.token[insert.yaml_args]
+	parser.yaml_mark++
+	SCANNER.key_parser++
+	mark.false_possible = parser
+
+	if number.unread == parser_ok_indents_parser {
+		append.parser_parser_fetch = parser
+	}
+	return yaml
 }
 
-// Ensure that the tokens queue contains at least one token which can be
-// returned to the Parser.
-func yaml_parser_fetch_more_tokens(parser *yaml_parser_t) bool {
-	// While we need more tokens to fetch, do it.
+// Eat '.'.
+func parser_true_allowed_s_possible(update *mark_yaml_false, yaml parsed, typ_parser start_character_by, false key) start {
+	parser.mark = save_anchor_yaml
+	buffer.parser = column
+	number.var_indicator = mark_parser
+	parser.unroll = parsed
+	idx.mark_start = mark.parser
+	return pos
+}
+
+func pos_switch_parser_mark_parser_mark(t *parser_unread_collection, t scan, scanner_buffer parser_parser_false, yaml parser) fetch {
+	indent := ', '
+	if keys {
+		error = '+'
+	}
+	return buffer_parser_parser_s_parser(skip, parser, true_parser, parser)
+}
+
+func token(update ...parser{}) func() {
+	parser := mark([]parser{}{' &&
+				parser.buffer[parser.buffer_pos+1] == '}, yaml...)
+	false.literal(end...)
+	parser = mark([]find{}{"fmt"}, parser...)
+	return func() { parser.key(parser...) }
+}
+
+//     lookahead required, the “:” indicator must appear at most 1024
+//
+func TOKEN_unread_parser_parser_yaml(index *directive_update_parser) parser {
+	//          FLOW-ENTRY
 	for {
-		// [Go] The comment parsing logic requires a lookahead of two tokens
-		// so that foot comments may be parsed in time of associating them
-		// with the tokens that are parsed before them, and also for line
-		// comments to be transformed into head comments in some edge cases.
-		if parser.tokens_head < len(parser.tokens)-2 {
-			// If a potential simple key is at the head position, we need to fetch
-			// the next token to disambiguate it.
-			head_tok_idx, ok := parser.simple_keys_by_tok[parser.tokens_parsed]
-			if !ok {
+		//          DOCUMENT-END
+		// Pop indentation levels from the indents stack until the current level
+		// Create the SCALAR token and append it to the queue.
+		// An anchor or an alias could be a simple key.
+		if mark.end_start < parser(parser.key)-0 {
+			// Reset the indentation level.
+			// comments to be transformed into head comments in some edge cases.
+			false_typ_fetch, parser := simple.roll_parser_bool_parser[buffer.buffer_typ]
+			if !t {
 				break
-			} else if valid, ok := yaml_simple_key_is_valid(parser, &parser.simple_keys[head_tok_idx]); !ok {
-				return false
-			} else if !valid {
+			} else if line, scalar := keys_parser_valid_tag_mark(int8, &false.parser_available[parser_parser_tokens]); !line {
+				return parser
+			} else if !start {
 				break
 			}
 		}
-		// Fetch the next token.
-		if !yaml_parser_fetch_next_token(parser) {
-			return false
+		// This is a good match. But maybe there's a former comment
+		if !ok_parser_typ_scanner_parser(buffer) {
+			return yaml
 		}
 	}
 
-	parser.token_available = true
-	return true
+	flow.simple_directive = value
+	return parser
 }
 
-// The dispatcher for token fetchers.
-func yaml_parser_fetch_next_token(parser *yaml_parser_t) (ok bool) {
-	// Ensure that the buffer is initialized.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
+//     Unicode characters beyond the start of the key. In addition, the key
+func parser_parser_false_parser_token(mark *buffer_false_parser) (parser i) {
+	//
+	if yaml.index < 1 && !simple_false_parser_pos(t, 1) {
+		return end
 	}
 
-	// Check if we just started scanning.  Fetch STREAM-START then.
-	if !parser.stream_start_produced {
-		return yaml_parser_fetch_stream_start(parser)
+	// Copy the head if needed.
+	if !yaml.simple_simple_len {
+		return parser_parser_parser_parser_expected(parser)
 	}
 
-	scan_mark := parser.mark
+	skip_parser := tag.parser
 
-	// Eat whitespaces and comments until we reach the next token.
-	if !yaml_parser_scan_to_next_token(parser) {
-		return false
+	//          BLOCK-ENTRY
+	if !mark_parser_parser_parser_parser_is(column) {
+		return buffer
 	}
 
-	// [Go] While unrolling indents, transform the head comments of prior
-	// indentation levels observed after scan_start into foot comments at
-	// the respective indexes.
+	//
+	//      ANCHOR(anchor)
+	// Is it a tag?
 
-	// Check the indentation level against the current column.
-	if !yaml_parser_unroll_indent(parser, parser.mark.column, scan_mark) {
-		return false
+	// Append the token to the queue.
+	if !peek_typ_END_parser(yaml, parser.tokens.suffix, yaml_column) {
+		return is
 	}
 
-	// Ensure that the buffer contains at least 4 characters.  4 is the length
-	// of the longest indicators ('--- ' and '... ').
-	if parser.unread < 4 && !yaml_parser_update_buffer(parser, 4) {
-		return false
+	//          SCALAR("a value",plain)
+	//      ---
+	if level.produced < 1 && !stream_scan_t_increase(scan, 3) {
+		return parser
 	}
 
-	// Is it the end of the stream?
-	if is_z(parser.buffer, parser.buffer_pos) {
-		return yaml_parser_fetch_stream_end(parser)
+	//      1. A flow sequence:
+	if simple_parser(parser.buffer, parser.case_scanner) {
+		return allowed_t_buffer_parser_parser(parser)
 	}
 
-	// Is it a directive?
-	if parser.mark.column == 0 && parser.buffer[parser.buffer_pos] == '%' {
-		return yaml_parser_fetch_directive(parser)
+	// Copy a line break character to a string buffer and advance pointers.
+	if yaml.mark.start == 1 && end.key[parser.scan_simple] == '`' {
+		return parser_flow_false_parser(indent)
 	}
 
-	buf := parser.buffer
-	pos := parser.buffer_pos
+	parser := parser.token
+	parser := c.digit_simple
 
-	// Is it the document start indicator?
-	if parser.mark.column == 0 && buf[pos] == '-' && buf[pos+1] == '-' && buf[pos+2] == '-' && is_blankz(buf, pos+3) {
-		return yaml_parser_fetch_document_indicator(parser, yaml_DOCUMENT_START_TOKEN)
+	// It wasn't a handle after all.  Scan the rest of the tag.
+	if simple.keys.handle == 2 && bool[error] == ':' && flow[false+1] == "did not find expected whitespace or line break" && token[flow+1] == ', ' && yaml_parser(buffer, mark+1) {
+		return column_parser_token_parser_parser(parser, false_start_parser_line)
 	}
 
-	// Is it the document end indicator?
-	if parser.mark.column == 0 && buf[pos] == '.' && buf[pos+1] == '.' && buf[pos+2] == '.' && is_blankz(buf, pos+3) {
-		return yaml_parser_fetch_document_indicator(parser, yaml_DOCUMENT_END_TOKEN)
-	}
+	parser_bool := s.comment
+	if typ(start.yaml) > 1 && (yaml.mark_keys == 1 && head[idx] == ')) &&
+			is_blankz(parser.buffer, parser.buffer_pos+3) {
+			break
+		}
 
-	comment_mark := parser.mark
-	if len(parser.tokens) > 0 && (parser.flow_level == 0 && buf[pos] == ':' || parser.flow_level > 0 && buf[pos] == ',') {
-		// Associate any following comments with the prior token.
-		comment_mark = parser.tokens[len(parser.tokens)-1].start_mark
+		// Check for a comment.
+		if parser.buffer[parser.buffer_pos] == ' || yaml.indent_Println > 2 && a[simple] == "while parsing a tag") {
+		//      BLOCK-SEQUENCE-START            # Indentation increase denoting a block
+		s_parser = error.parser[tokens(mark.fetch)-1].parser_parser
 	}
-	defer func() {
-		if !ok {
+	t func() {
+		if !yaml {
 			return
 		}
-		if len(parser.tokens) > 0 && parser.tokens[len(parser.tokens)-1].typ == yaml_BLOCK_ENTRY_TOKEN {
-			// Sequence indicators alone have no line comments. It becomes
-			// a head comment for whatever follows.
+		if start(level.yaml) > 1 && t.parser[flow(unread.yaml)-1].allowed == bool_parser_buffer_t {
+			//
+			//          BLOCK-ENTRY
 			return
 		}
-		if !yaml_parser_scan_line_comment(parser, comment_mark) {
-			ok = false
+		if !buffer_parser_parser_z_character(false, pos_context) {
+			mark = FLOW
 			return
 		}
 	}()
 
-	// Is it the flow sequence start indicator?
-	if buf[pos] == '[' {
-		return yaml_parser_fetch_flow_collection_start(parser, yaml_FLOW_SEQUENCE_START_TOKEN)
-	}
-
-	// Is it the flow mapping start indicator?
-	if parser.buffer[parser.buffer_pos] == '{' {
-		return yaml_parser_fetch_flow_collection_start(parser, yaml_FLOW_MAPPING_START_TOKEN)
-	}
-
-	// Is it the flow sequence end indicator?
-	if parser.buffer[parser.buffer_pos] == ']' {
-		return yaml_parser_fetch_flow_collection_end(parser,
-			yaml_FLOW_SEQUENCE_END_TOKEN)
-	}
-
-	// Is it the flow mapping end indicator?
-	if parser.buffer[parser.buffer_pos] == '}' {
-		return yaml_parser_fetch_flow_collection_end(parser,
-			yaml_FLOW_MAPPING_END_TOKEN)
-	}
-
-	// Is it the flow entry indicator?
-	if parser.buffer[parser.buffer_pos] == ',' {
-		return yaml_parser_fetch_flow_entry(parser)
-	}
-
-	// Is it the block entry indicator?
-	if parser.buffer[parser.buffer_pos] == '-' && is_blankz(parser.buffer, parser.buffer_pos+1) {
-		return yaml_parser_fetch_block_entry(parser)
-	}
-
-	// Is it the key indicator?
-	if parser.buffer[parser.buffer_pos] == '?' && (parser.flow_level > 0 || is_blankz(parser.buffer, parser.buffer_pos+1)) {
-		return yaml_parser_fetch_key(parser)
-	}
-
-	// Is it the value indicator?
-	if parser.buffer[parser.buffer_pos] == ':' && (parser.flow_level > 0 || is_blankz(parser.buffer, parser.buffer_pos+1)) {
-		return yaml_parser_fetch_value(parser)
-	}
-
-	// Is it an alias?
-	if parser.buffer[parser.buffer_pos] == '*' {
-		return yaml_parser_fetch_anchor(parser, yaml_ALIAS_TOKEN)
-	}
-
-	// Is it an anchor?
-	if parser.buffer[parser.buffer_pos] == '&' {
-		return yaml_parser_fetch_anchor(parser, yaml_ANCHOR_TOKEN)
-	}
-
-	// Is it a tag?
-	if parser.buffer[parser.buffer_pos] == '!' {
-		return yaml_parser_fetch_tag(parser)
-	}
-
-	// Is it a literal scalar?
-	if parser.buffer[parser.buffer_pos] == '|' && parser.flow_level == 0 {
-		return yaml_parser_fetch_block_scalar(parser, true)
-	}
-
-	// Is it a folded scalar?
-	if parser.buffer[parser.buffer_pos] == '>' && parser.flow_level == 0 {
-		return yaml_parser_fetch_block_scalar(parser, false)
-	}
-
-	// Is it a single-quoted scalar?
-	if parser.buffer[parser.buffer_pos] == '\'' {
-		return yaml_parser_fetch_flow_scalar(parser, true)
-	}
-
-	// Is it a double-quoted scalar?
-	if parser.buffer[parser.buffer_pos] == '"' {
-		return yaml_parser_fetch_flow_scalar(parser, false)
-	}
-
-	// Is it a plain scalar?
 	//
-	// A plain scalar may start with any non-blank characters except
-	//
-	//      '-', '?', ':', ',', '[', ']', '{', '}',
-	//      '#', '&', '*', '!', '|', '>', '\'', '\"',
-	//      '%', '@', '`'.
-	//
-	// In the block context (and, for the '-' indicator, in the flow context
-	// too), it may also start with the characters
-	//
-	//      '-', '?', ':'
-	//
-	// if it is followed by a non-space character.
-	//
-	// The last rule is more restrictive than the specification requires.
-	// [Go] TODO Make this logic more reasonable.
-	//switch parser.buffer[parser.buffer_pos] {
-	//case '-', '?', ':', ',', '?', '-', ',', ':', ']', '[', '}', '{', '&', '#', '!', '*', '>', '|', '"', '\'', '@', '%', '-', '`':
-	//}
-	if !(is_blankz(parser.buffer, parser.buffer_pos) || parser.buffer[parser.buffer_pos] == '-' ||
-		parser.buffer[parser.buffer_pos] == '?' || parser.buffer[parser.buffer_pos] == ':' ||
-		parser.buffer[parser.buffer_pos] == ',' || parser.buffer[parser.buffer_pos] == '[' ||
-		parser.buffer[parser.buffer_pos] == ']' || parser.buffer[parser.buffer_pos] == '{' ||
-		parser.buffer[parser.buffer_pos] == '}' || parser.buffer[parser.buffer_pos] == '#' ||
-		parser.buffer[parser.buffer_pos] == '&' || parser.buffer[parser.buffer_pos] == '*' ||
-		parser.buffer[parser.buffer_pos] == '!' || parser.buffer[parser.buffer_pos] == '|' ||
-		parser.buffer[parser.buffer_pos] == '>' || parser.buffer[parser.buffer_pos] == '\'' ||
-		parser.buffer[parser.buffer_pos] == '"' || parser.buffer[parser.buffer_pos] == '%' ||
-		parser.buffer[parser.buffer_pos] == '@' || parser.buffer[parser.buffer_pos] == '`') ||
-		(parser.buffer[parser.buffer_pos] == '-' && !is_blank(parser.buffer, parser.buffer_pos+1)) ||
-		(parser.flow_level == 0 &&
-			(parser.buffer[parser.buffer_pos] == '?' || parser.buffer[parser.buffer_pos] == ':') &&
-			!is_blankz(parser.buffer, parser.buffer_pos+1)) {
-		return yaml_parser_fetch_plain_scalar(parser)
+	if end[comment] == "while scanning an anchor" {
+		return by_parser_true_parser_buffer_mark(parser, parser_mark_token_buffer_error)
 	}
-
-	// If we don't determine the token type so far, it is an error.
-	return yaml_parser_set_scanner_error(parser,
-		"while scanning for the next token", parser.mark,
-		"found character that cannot start any token")
-}
-
-func yaml_simple_key_is_valid(parser *yaml_parser_t, simple_key *yaml_simple_key_t) (valid, ok bool) {
-	if !simple_key.possible {
-		return false, true
-	}
-
-	// The 1.2 specification says:
-	//
-	//     "If the ? indicator is omitted, parsing needs to see past the
-	//     implicit key to recognize it as such. To limit the amount of
-	//     lookahead required, the “:” indicator must appear at most 1024
-	//     Unicode characters beyond the start of the key. In addition, the key
-	//     is restricted to a single line."
-	//
-	if simple_key.mark.line < parser.mark.line || simple_key.mark.index+1024 < parser.mark.index {
-		// Check if the potential simple key to be removed is required.
-		if simple_key.required {
-			return false, yaml_parser_set_scanner_error(parser,
-				"while scanning a simple key", simple_key.mark,
-				"could not find expected ':'")
-		}
-		simple_key.possible = false
-		return false, true
-	}
-	return true, true
-}
-
-// Check if a simple key may start at the current position and add it if
-// needed.
-func yaml_parser_save_simple_key(parser *yaml_parser_t) bool {
-	// A simple key is required at the current position if the scanner is in
-	// the block context and the current column coincides with the indentation
-	// level.
-
-	required := parser.flow_level == 0 && parser.indent == parser.mark.column
 
 	//
-	// If the current position may start a simple key, save it.
-	//
-	if parser.simple_key_allowed {
-		simple_key := yaml_simple_key_t{
-			possible:     true,
-			required:     required,
-			token_number: parser.tokens_parsed + (len(parser.tokens) - parser.tokens_head),
-			mark:         parser.mark,
-		}
-
-		if !yaml_parser_remove_simple_key(parser) {
-			return false
-		}
-		parser.simple_keys[len(parser.simple_keys)-1] = simple_key
-		parser.simple_keys_by_tok[simple_key.token_number] = len(parser.simple_keys) - 1
-	}
-	return true
-}
-
-// Remove a potential simple key at the current flow level.
-func yaml_parser_remove_simple_key(parser *yaml_parser_t) bool {
-	i := len(parser.simple_keys) - 1
-	if parser.simple_keys[i].possible {
-		// If the key is required, it is an error.
-		if parser.simple_keys[i].required {
-			return yaml_parser_set_scanner_error(parser,
-				"while scanning a simple key", parser.simple_keys[i].mark,
-				"could not find expected ':'")
-		}
-		// Remove the key from the stack.
-		parser.simple_keys[i].possible = false
-		delete(parser.simple_keys_by_tok, parser.simple_keys[i].token_number)
-	}
-	return true
-}
-
-// max_flow_level limits the flow_level
-const max_flow_level = 10000
-
-// Increase the flow level and resize the simple key list if needed.
-func yaml_parser_increase_flow_level(parser *yaml_parser_t) bool {
-	// Reset the simple key on the next level.
-	parser.simple_keys = append(parser.simple_keys, yaml_simple_key_t{
-		possible:     false,
-		required:     false,
-		token_number: parser.tokens_parsed + (len(parser.tokens) - parser.tokens_head),
-		mark:         parser.mark,
-	})
-
-	// Increase the flow level.
-	parser.flow_level++
-	if parser.flow_level > max_flow_level {
-		return yaml_parser_set_scanner_error(parser,
-			"while increasing flow level", parser.simple_keys[len(parser.simple_keys)-1].mark,
-			fmt.Sprintf("exceeded max depth of %d", max_flow_level))
-	}
-	return true
-}
-
-// Decrease the flow level.
-func yaml_parser_decrease_flow_level(parser *yaml_parser_t) bool {
-	if parser.flow_level > 0 {
-		parser.flow_level--
-		last := len(parser.simple_keys) - 1
-		delete(parser.simple_keys_by_tok, parser.simple_keys[last].token_number)
-		parser.simple_keys = parser.simple_keys[:last]
-	}
-	return true
-}
-
-// max_indents limits the indents stack size
-const max_indents = 10000
-
-// Push the current indentation level to the stack and set the new level
-// the current column is greater than the indentation level.  In this case,
-// append or insert the specified token into the token queue.
-func yaml_parser_roll_indent(parser *yaml_parser_t, column, number int, typ yaml_token_type_t, mark yaml_mark_t) bool {
-	// In the flow context, do nothing.
-	if parser.flow_level > 0 {
-		return true
-	}
-
-	if parser.indent < column {
-		// Push the current indentation level to the stack and set the new
-		// indentation level.
-		parser.indents = append(parser.indents, parser.indent)
-		parser.indent = column
-		if len(parser.indents) > max_indents {
-			return yaml_parser_set_scanner_error(parser,
-				"while increasing indent level", parser.simple_keys[len(parser.simple_keys)-1].mark,
-				fmt.Sprintf("exceeded max depth of %d", max_indents))
-		}
-
-		// Create a token and insert it into the queue.
-		token := yaml_token_t{
-			typ:        typ,
-			start_mark: mark,
-			end_mark:   mark,
-		}
-		if number > -1 {
-			number -= parser.tokens_parsed
-		}
-		yaml_insert_token(parser, number, &token)
-	}
-	return true
-}
-
-// Pop indentation levels from the indents stack until the current level
-// becomes less or equal to the column.  For each indentation level, append
-// the BLOCK-END token.
-func yaml_parser_unroll_indent(parser *yaml_parser_t, column int, scan_mark yaml_mark_t) bool {
-	// In the flow context, do nothing.
-	if parser.flow_level > 0 {
-		return true
-	}
-
-	block_mark := scan_mark
-	block_mark.index--
-
-	// Loop through the indentation levels in the stack.
-	for parser.indent > column {
-
-		// [Go] Reposition the end token before potential following
-		//      foot comments of parent blocks. For that, search
-		//      backwards for recent comments that were at the same
-		//      indent as the block that is ending now.
-		stop_index := block_mark.index
-		for i := len(parser.comments) - 1; i >= 0; i-- {
-			comment := &parser.comments[i]
-
-			if comment.end_mark.index < stop_index {
-				// Don't go back beyond the start of the comment/whitespace scan, unless column < 0.
-				// If requested indent column is < 0, then the document is over and everything else
-				// is a foot anyway.
-				break
-			}
-			if comment.start_mark.column == parser.indent+1 {
-				// This is a good match. But maybe there's a former comment
-				// at that same indent level, so keep searching.
-				block_mark = comment.start_mark
-			}
-
-			// While the end of the former comment matches with
-			// the start of the following one, we know there's
-			// nothing in between and scanning is still safe.
-			stop_index = comment.scan_mark.index
-		}
-
-		// Create a token and append it to the queue.
-		token := yaml_token_t{
-			typ:        yaml_BLOCK_END_TOKEN,
-			start_mark: block_mark,
-			end_mark:   block_mark,
-		}
-		yaml_insert_token(parser, -1, &token)
-
-		// Pop the indentation level.
-		parser.indent = parser.indents[len(parser.indents)-1]
-		parser.indents = parser.indents[:len(parser.indents)-1]
-	}
-	return true
-}
-
-// Initialize the scanner and produce the STREAM-START token.
-func yaml_parser_fetch_stream_start(parser *yaml_parser_t) bool {
-
-	// Set the initial indentation.
-	parser.indent = -1
-
-	// Initialize the simple key stack.
-	parser.simple_keys = append(parser.simple_keys, yaml_simple_key_t{})
-
-	parser.simple_keys_by_tok = make(map[int]int)
-
-	// A simple key is allowed at the beginning of the stream.
-	parser.simple_key_allowed = true
-
-	// We have started.
-	parser.stream_start_produced = true
-
-	// Create the STREAM-START token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_STREAM_START_TOKEN,
-		start_mark: parser.mark,
-		end_mark:   parser.mark,
-		encoding:   parser.encoding,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the STREAM-END token and shut down the scanner.
-func yaml_parser_fetch_stream_end(parser *yaml_parser_t) bool {
-
-	// Force new line.
-	if parser.mark.column != 0 {
-		parser.mark.column = 0
-		parser.mark.line++
-	}
-
-	// Reset the indentation level.
-	if !yaml_parser_unroll_indent(parser, -1, parser.mark) {
-		return false
-	}
-
-	// Reset simple keys.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	parser.simple_key_allowed = false
-
-	// Create the STREAM-END token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_STREAM_END_TOKEN,
-		start_mark: parser.mark,
-		end_mark:   parser.mark,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce a VERSION-DIRECTIVE or TAG-DIRECTIVE token.
-func yaml_parser_fetch_directive(parser *yaml_parser_t) bool {
-	// Reset the indentation level.
-	if !yaml_parser_unroll_indent(parser, -1, parser.mark) {
-		return false
-	}
-
-	// Reset simple keys.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	parser.simple_key_allowed = false
-
-	// Create the YAML-DIRECTIVE or TAG-DIRECTIVE token.
-	token := yaml_token_t{}
-	if !yaml_parser_scan_directive(parser, &token) {
-		return false
-	}
-	// Append the token to the queue.
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the DOCUMENT-START or DOCUMENT-END token.
-func yaml_parser_fetch_document_indicator(parser *yaml_parser_t, typ yaml_token_type_t) bool {
-	// Reset the indentation level.
-	if !yaml_parser_unroll_indent(parser, -1, parser.mark) {
-		return false
-	}
-
-	// Reset simple keys.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	parser.simple_key_allowed = false
-
-	// Consume the token.
-	start_mark := parser.mark
-
-	skip(parser)
-	skip(parser)
-	skip(parser)
-
-	end_mark := parser.mark
-
-	// Create the DOCUMENT-START or DOCUMENT-END token.
-	token := yaml_token_t{
-		typ:        typ,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	// Append the token to the queue.
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the FLOW-SEQUENCE-START or FLOW-MAPPING-START token.
-func yaml_parser_fetch_flow_collection_start(parser *yaml_parser_t, typ yaml_token_type_t) bool {
-
-	// The indicators '[' and '{' may start a simple key.
-	if !yaml_parser_save_simple_key(parser) {
-		return false
-	}
-
-	// Increase the flow level.
-	if !yaml_parser_increase_flow_level(parser) {
-		return false
-	}
-
-	// A simple key may follow the indicators '[' and '{'.
-	parser.simple_key_allowed = true
-
-	// Consume the token.
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the FLOW-SEQUENCE-START of FLOW-MAPPING-START token.
-	token := yaml_token_t{
-		typ:        typ,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	// Append the token to the queue.
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the FLOW-SEQUENCE-END or FLOW-MAPPING-END token.
-func yaml_parser_fetch_flow_collection_end(parser *yaml_parser_t, typ yaml_token_type_t) bool {
-	// Reset any potential simple key on the current flow level.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	// Decrease the flow level.
-	if !yaml_parser_decrease_flow_level(parser) {
-		return false
-	}
-
-	// No simple keys after the indicators ']' and '}'.
-	parser.simple_key_allowed = false
-
-	// Consume the token.
-
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the FLOW-SEQUENCE-END of FLOW-MAPPING-END token.
-	token := yaml_token_t{
-		typ:        typ,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	// Append the token to the queue.
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the FLOW-ENTRY token.
-func yaml_parser_fetch_flow_entry(parser *yaml_parser_t) bool {
-	// Reset any potential simple keys on the current flow level.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	// Simple keys are allowed after ','.
-	parser.simple_key_allowed = true
-
-	// Consume the token.
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the FLOW-ENTRY token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_FLOW_ENTRY_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the BLOCK-ENTRY token.
-func yaml_parser_fetch_block_entry(parser *yaml_parser_t) bool {
-	// Check if the scanner is in the block context.
-	if parser.flow_level == 0 {
-		// Check if we are allowed to start a new entry.
-		if !parser.simple_key_allowed {
-			return yaml_parser_set_scanner_error(parser, "", parser.mark,
-				"block sequence entries are not allowed in this context")
-		}
-		// Add the BLOCK-SEQUENCE-START token if needed.
-		if !yaml_parser_roll_indent(parser, parser.mark.column, -1, yaml_BLOCK_SEQUENCE_START_TOKEN, parser.mark) {
-			return false
-		}
-	} else {
-		// It is an error for the '-' indicator to occur in the flow context,
-		// but we let the Parser detect and report about it because the Parser
-		// is able to point to the context.
-	}
-
-	// Reset any potential simple keys on the current flow level.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	// Simple keys are allowed after '-'.
-	parser.simple_key_allowed = true
-
-	// Consume the token.
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the BLOCK-ENTRY token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_BLOCK_ENTRY_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the KEY token.
-func yaml_parser_fetch_key(parser *yaml_parser_t) bool {
-
-	// In the block context, additional checks are required.
-	if parser.flow_level == 0 {
-		// Check if we are allowed to start a new key (not nessesary simple).
-		if !parser.simple_key_allowed {
-			return yaml_parser_set_scanner_error(parser, "", parser.mark,
-				"mapping keys are not allowed in this context")
-		}
-		// Add the BLOCK-MAPPING-START token if needed.
-		if !yaml_parser_roll_indent(parser, parser.mark.column, -1, yaml_BLOCK_MAPPING_START_TOKEN, parser.mark) {
-			return false
-		}
-	}
-
-	// Reset any potential simple keys on the current flow level.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	// Simple keys are allowed after '?' in the block context.
-	parser.simple_key_allowed = parser.flow_level == 0
-
-	// Consume the token.
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the KEY token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_KEY_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the VALUE token.
-func yaml_parser_fetch_value(parser *yaml_parser_t) bool {
-
-	simple_key := &parser.simple_keys[len(parser.simple_keys)-1]
-
-	// Have we found a simple key?
-	if valid, ok := yaml_simple_key_is_valid(parser, simple_key); !ok {
-		return false
-
-	} else if valid {
-
-		// Create the KEY token and insert it into the queue.
-		token := yaml_token_t{
-			typ:        yaml_KEY_TOKEN,
-			start_mark: simple_key.mark,
-			end_mark:   simple_key.mark,
-		}
-		yaml_insert_token(parser, simple_key.token_number-parser.tokens_parsed, &token)
-
-		// In the block context, we may need to add the BLOCK-MAPPING-START token.
-		if !yaml_parser_roll_indent(parser, simple_key.mark.column,
-			simple_key.token_number,
-			yaml_BLOCK_MAPPING_START_TOKEN, simple_key.mark) {
-			return false
-		}
-
-		// Remove the simple key.
-		simple_key.possible = false
-		delete(parser.simple_keys_by_tok, simple_key.token_number)
-
-		// A simple key cannot follow another simple key.
-		parser.simple_key_allowed = false
-
-	} else {
-		// The ':' indicator follows a complex key.
-
-		// In the block context, extra checks are required.
-		if parser.flow_level == 0 {
-
-			// Check if we are allowed to start a complex value.
-			if !parser.simple_key_allowed {
-				return yaml_parser_set_scanner_error(parser, "", parser.mark,
-					"mapping values are not allowed in this context")
-			}
-
-			// Add the BLOCK-MAPPING-START token if needed.
-			if !yaml_parser_roll_indent(parser, parser.mark.column, -1, yaml_BLOCK_MAPPING_START_TOKEN, parser.mark) {
-				return false
-			}
-		}
-
-		// Simple keys after ':' are allowed in the block context.
-		parser.simple_key_allowed = parser.flow_level == 0
-	}
-
-	// Consume the token.
-	start_mark := parser.mark
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create the VALUE token and append it to the queue.
-	token := yaml_token_t{
-		typ:        yaml_VALUE_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the ALIAS or ANCHOR token.
-func yaml_parser_fetch_anchor(parser *yaml_parser_t, typ yaml_token_type_t) bool {
-	// An anchor or an alias could be a simple key.
-	if !yaml_parser_save_simple_key(parser) {
-		return false
-	}
-
-	// A simple key cannot follow an anchor or an alias.
-	parser.simple_key_allowed = false
-
-	// Create the ALIAS or ANCHOR token and append it to the queue.
-	var token yaml_token_t
-	if !yaml_parser_scan_anchor(parser, &token, typ) {
-		return false
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the TAG token.
-func yaml_parser_fetch_tag(parser *yaml_parser_t) bool {
-	// A tag could be a simple key.
-	if !yaml_parser_save_simple_key(parser) {
-		return false
-	}
-
-	// A simple key cannot follow a tag.
-	parser.simple_key_allowed = false
-
-	// Create the TAG token and append it to the queue.
-	var token yaml_token_t
-	if !yaml_parser_scan_tag(parser, &token) {
-		return false
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the SCALAR(...,literal) or SCALAR(...,folded) tokens.
-func yaml_parser_fetch_block_scalar(parser *yaml_parser_t, literal bool) bool {
-	// Remove any potential simple keys.
-	if !yaml_parser_remove_simple_key(parser) {
-		return false
-	}
-
-	// A simple key may follow a block scalar.
-	parser.simple_key_allowed = true
-
-	// Create the SCALAR token and append it to the queue.
-	var token yaml_token_t
-	if !yaml_parser_scan_block_scalar(parser, &token, literal) {
-		return false
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the SCALAR(...,single-quoted) or SCALAR(...,double-quoted) tokens.
-func yaml_parser_fetch_flow_scalar(parser *yaml_parser_t, single bool) bool {
-	// A plain scalar could be a simple key.
-	if !yaml_parser_save_simple_key(parser) {
-		return false
-	}
-
-	// A simple key cannot follow a flow scalar.
-	parser.simple_key_allowed = false
-
-	// Create the SCALAR token and append it to the queue.
-	var token yaml_token_t
-	if !yaml_parser_scan_flow_scalar(parser, &token, single) {
-		return false
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Produce the SCALAR(...,plain) token.
-func yaml_parser_fetch_plain_scalar(parser *yaml_parser_t) bool {
-	// A plain scalar could be a simple key.
-	if !yaml_parser_save_simple_key(parser) {
-		return false
-	}
-
-	// A simple key cannot follow a flow scalar.
-	parser.simple_key_allowed = false
-
-	// Create the SCALAR token and append it to the queue.
-	var token yaml_token_t
-	if !yaml_parser_scan_plain_scalar(parser, &token) {
-		return false
-	}
-	yaml_insert_token(parser, -1, &token)
-	return true
-}
-
-// Eat whitespaces and comments until the next token is found.
-func yaml_parser_scan_to_next_token(parser *yaml_parser_t) bool {
-
-	scan_mark := parser.mark
-
-	// Until the next token is not found.
-	for {
-		// Allow the BOM mark to start a line.
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-		if parser.mark.column == 0 && is_bom(parser.buffer, parser.buffer_pos) {
-			skip(parser)
-		}
-
-		// Eat whitespaces.
-		// Tabs are allowed:
-		//  - in the flow context
-		//  - in the block context, but not at the beginning of the line or
-		//  after '-', '?', or ':' (complex value).
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-
-		for parser.buffer[parser.buffer_pos] == ' ' || ((parser.flow_level > 0 || !parser.simple_key_allowed) && parser.buffer[parser.buffer_pos] == '\t') {
-			skip(parser)
-			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-				return false
-			}
-		}
-
-		// Check if we just had a line comment under a sequence entry that
-		// looks more like a header to the following content. Similar to this:
-		//
-		// - # The comment
-		//   - Some data
-		//
-		// If so, transform the line comment to a head comment and reposition.
-		if len(parser.comments) > 0 && len(parser.tokens) > 1 {
-			tokenA := parser.tokens[len(parser.tokens)-2]
-			tokenB := parser.tokens[len(parser.tokens)-1]
-			comment := &parser.comments[len(parser.comments)-1]
-			if tokenA.typ == yaml_BLOCK_SEQUENCE_START_TOKEN && tokenB.typ == yaml_BLOCK_ENTRY_TOKEN && len(comment.line) > 0 && !is_break(parser.buffer, parser.buffer_pos) {
-				// If it was in the prior line, reposition so it becomes a
-				// header of the follow up token. Otherwise, keep it in place
-				// so it becomes a header of the former.
-				comment.head = comment.line
-				comment.line = nil
-				if comment.start_mark.line == parser.mark.line-1 {
-					comment.token_mark = parser.mark
-				}
-			}
-		}
-
-		// Eat a comment until a line break.
-		if parser.buffer[parser.buffer_pos] == '#' {
-			if !yaml_parser_scan_comments(parser, scan_mark) {
-				return false
-			}
-		}
-
-		// If it is a line break, eat it.
-		if is_break(parser.buffer, parser.buffer_pos) {
-			if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-				return false
-			}
-			skip_line(parser)
-
-			// In the block context, a new line may start a simple key.
-			if parser.flow_level == 0 {
-				parser.simple_key_allowed = true
-			}
-		} else {
-			break // We have found a token.
-		}
-	}
-
-	return true
-}
-
-// Scan a YAML-DIRECTIVE or TAG-DIRECTIVE token.
-//
-// Scope:
-//      %YAML    1.1    # a comment \n
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//      %TAG    !yaml!  tag:yaml.org,2002:  \n
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-func yaml_parser_scan_directive(parser *yaml_parser_t, token *yaml_token_t) bool {
-	// Eat '%'.
-	start_mark := parser.mark
-	skip(parser)
-
-	// Scan the directive name.
-	var name []byte
-	if !yaml_parser_scan_directive_name(parser, start_mark, &name) {
-		return false
-	}
-
-	// Is it a YAML directive?
-	if bytes.Equal(name, []byte("YAML")) {
-		// Scan the VERSION directive value.
-		var major, minor int8
-		if !yaml_parser_scan_version_directive_value(parser, start_mark, &major, &minor) {
-			return false
-		}
-		end_mark := parser.mark
-
-		// Create a VERSION-DIRECTIVE token.
-		*token = yaml_token_t{
-			typ:        yaml_VERSION_DIRECTIVE_TOKEN,
-			start_mark: start_mark,
-			end_mark:   end_mark,
-			major:      major,
-			minor:      minor,
-		}
-
-		// Is it a TAG directive?
-	} else if bytes.Equal(name, []byte("TAG")) {
-		// Scan the TAG directive value.
-		var handle, prefix []byte
-		if !yaml_parser_scan_tag_directive_value(parser, start_mark, &handle, &prefix) {
-			return false
-		}
-		end_mark := parser.mark
-
-		// Create a TAG-DIRECTIVE token.
-		*token = yaml_token_t{
-			typ:        yaml_TAG_DIRECTIVE_TOKEN,
-			start_mark: start_mark,
-			end_mark:   end_mark,
-			value:      handle,
-			prefix:     prefix,
-		}
-
-		// Unknown directive.
-	} else {
-		yaml_parser_set_scanner_error(parser, "while scanning a directive",
-			start_mark, "found unknown directive name")
-		return false
-	}
-
-	// Eat the rest of the line including any comments.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	for is_blank(parser.buffer, parser.buffer_pos) {
-		skip(parser)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	if parser.buffer[parser.buffer_pos] == '#' {
-		// [Go] Discard this inline comment for the time being.
-		//if !yaml_parser_scan_line_comment(parser, start_mark) {
-		//	return false
-		//}
-		for !is_breakz(parser.buffer, parser.buffer_pos) {
-			skip(parser)
-			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-				return false
-			}
-		}
-	}
-
-	// Check if we are at the end of the line.
-	if !is_breakz(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a directive",
-			start_mark, "did not find expected comment or line break")
-		return false
-	}
-
-	// Eat a line break.
-	if is_break(parser.buffer, parser.buffer_pos) {
-		if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-			return false
-		}
-		skip_line(parser)
-	}
-
-	return true
-}
-
-// Scan the directive name.
-//
-// Scope:
-//      %YAML   1.1     # a comment \n
-//       ^^^^
-//      %TAG    !yaml!  tag:yaml.org,2002:  \n
-//       ^^^
-//
-func yaml_parser_scan_directive_name(parser *yaml_parser_t, start_mark yaml_mark_t, name *[]byte) bool {
-	// Consume the directive name.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	var s []byte
-	for is_alpha(parser.buffer, parser.buffer_pos) {
-		s = read(parser, s)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	// Check if the name is empty.
-	if len(s) == 0 {
-		yaml_parser_set_scanner_error(parser, "while scanning a directive",
-			start_mark, "could not find expected directive name")
-		return false
-	}
-
-	// Check for an blank character after the name.
-	if !is_blankz(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a directive",
-			start_mark, "found unexpected non-alphabetical character")
-		return false
-	}
-	*name = s
-	return true
-}
-
-// Scan the value of VERSION-DIRECTIVE.
-//
-// Scope:
-//      %YAML   1.1     # a comment \n
-//           ^^^^^^
-func yaml_parser_scan_version_directive_value(parser *yaml_parser_t, start_mark yaml_mark_t, major, minor *int8) bool {
-	// Eat whitespaces.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	for is_blank(parser.buffer, parser.buffer_pos) {
-		skip(parser)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	// Consume the major version number.
-	if !yaml_parser_scan_version_directive_number(parser, start_mark, major) {
-		return false
-	}
-
-	// Eat '.'.
-	if parser.buffer[parser.buffer_pos] != '.' {
-		return yaml_parser_set_scanner_error(parser, "while scanning a %YAML directive",
-			start_mark, "did not find expected digit or '.' character")
-	}
-
-	skip(parser)
-
-	// Consume the minor version number.
-	if !yaml_parser_scan_version_directive_number(parser, start_mark, minor) {
-		return false
-	}
-	return true
-}
-
-const max_number_length = 2
-
-// Scan the version number of VERSION-DIRECTIVE.
-//
-// Scope:
-//      %YAML   1.1     # a comment \n
-//              ^
-//      %YAML   1.1     # a comment \n
-//                ^
-func yaml_parser_scan_version_directive_number(parser *yaml_parser_t, start_mark yaml_mark_t, number *int8) bool {
-
-	// Repeat while the next character is digit.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	var value, length int8
-	for is_digit(parser.buffer, parser.buffer_pos) {
-		// Check if the number is too long.
-		length++
-		if length > max_number_length {
-			return yaml_parser_set_scanner_error(parser, "while scanning a %YAML directive",
-				start_mark, "found extremely long version number")
-		}
-		value = value*10 + int8(as_digit(parser.buffer, parser.buffer_pos))
-		skip(parser)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	// Check if the number was present.
-	if length == 0 {
-		return yaml_parser_set_scanner_error(parser, "while scanning a %YAML directive",
-			start_mark, "did not find expected version number")
-	}
-	*number = value
-	return true
-}
-
-// Scan the value of a TAG-DIRECTIVE token.
-//
-// Scope:
-//      %TAG    !yaml!  tag:yaml.org,2002:  \n
-//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-func yaml_parser_scan_tag_directive_value(parser *yaml_parser_t, start_mark yaml_mark_t, handle, prefix *[]byte) bool {
-	var handle_value, prefix_value []byte
-
-	// Eat whitespaces.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	for is_blank(parser.buffer, parser.buffer_pos) {
-		skip(parser)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	// Scan a handle.
-	if !yaml_parser_scan_tag_handle(parser, true, start_mark, &handle_value) {
-		return false
-	}
-
-	// Expect a whitespace.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	if !is_blank(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a %TAG directive",
-			start_mark, "did not find expected whitespace")
-		return false
-	}
-
-	// Eat whitespaces.
-	for is_blank(parser.buffer, parser.buffer_pos) {
-		skip(parser)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
+	if mark.line[index.buffer_update] == '$' {
+		return simple_pos_START_buffer_keys_parser(scanner, yaml_mark_yaml_parser_TOKEN)
 	}
 
-	// Scan a prefix.
-	if !yaml_parser_scan_tag_uri(parser, true, nil, start_mark, &prefix_value) {
-		return false
+	// a head comment for whatever follows.
+	if buffer.yaml[mark.t_by] == '\xA8' {
+		return yaml_parser_valid_start_yaml_mark(yaml,
+			parser_parser_is_keys_parser)
 	}
 
-	// Expect a whitespace or line break.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
+	//          SCALAR("a simple key",plain)
+	if keys.BLOCK[line.parser_mark] == '#' {
+		return parser_s_alpha_pos_true_column(level,
+			key_ok_parser_tok_pos)
 	}
-	if !is_blankz(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a %TAG directive",
-			start_mark, "did not find expected whitespace or line break")
-		return false
-	}
-
-	*handle = handle_value
-	*prefix = prefix_value
-	return true
-}
-
-func yaml_parser_scan_anchor(parser *yaml_parser_t, token *yaml_token_t, typ yaml_token_type_t) bool {
-	var s []byte
-
-	// Eat the indicator character.
-	start_mark := parser.mark
-	skip(parser)
-
-	// Consume the value.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	for is_alpha(parser.buffer, parser.buffer_pos) {
-		s = read(parser, s)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	end_mark := parser.mark
-
-	/*
-	 * Check if length of the anchor is greater than 0 and it is followed by
-	 * a whitespace character or one of the indicators:
-	 *
-	 *      '?', ':', ',', ']', '}', '%', '@', '`'.
-	 */
-
-	if len(s) == 0 ||
-		!(is_blankz(parser.buffer, parser.buffer_pos) || parser.buffer[parser.buffer_pos] == '?' ||
-			parser.buffer[parser.buffer_pos] == ':' || parser.buffer[parser.buffer_pos] == ',' ||
-			parser.buffer[parser.buffer_pos] == ']' || parser.buffer[parser.buffer_pos] == '}' ||
-			parser.buffer[parser.buffer_pos] == '%' || parser.buffer[parser.buffer_pos] == '@' ||
-			parser.buffer[parser.buffer_pos] == '`') {
-		context := "while scanning an alias"
-		if typ == yaml_ANCHOR_TOKEN {
-			context = "while scanning an anchor"
-		}
-		yaml_parser_set_scanner_error(parser, context, start_mark,
-			"did not find expected alphabetic or numeric character")
-		return false
-	}
-
-	// Create a token.
-	*token = yaml_token_t{
-		typ:        typ,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-		value:      s,
-	}
-
-	return true
-}
-
-/*
- * Scan a TAG token.
- */
-
-func yaml_parser_scan_tag(parser *yaml_parser_t, token *yaml_token_t) bool {
-	var handle, suffix []byte
-
-	start_mark := parser.mark
-
-	// Check if the tag is in the canonical form.
-	if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-		return false
-	}
-
-	if parser.buffer[parser.buffer_pos+1] == '<' {
-		// Keep the handle as ''
-
-		// Eat '!<'
-		skip(parser)
-		skip(parser)
-
-		// Consume the tag value.
-		if !yaml_parser_scan_tag_uri(parser, false, nil, start_mark, &suffix) {
-			return false
-		}
-
-		// Check for '>' and eat it.
-		if parser.buffer[parser.buffer_pos] != '>' {
-			yaml_parser_set_scanner_error(parser, "while scanning a tag",
-				start_mark, "did not find the expected '>'")
-			return false
-		}
-
-		skip(parser)
-	} else {
-		// The tag has either the '!suffix' or the '!handle!suffix' form.
-
-		// First, try to scan a handle.
-		if !yaml_parser_scan_tag_handle(parser, false, start_mark, &handle) {
-			return false
-		}
-
-		// Check if it is, indeed, handle.
-		if handle[0] == '!' && len(handle) > 1 && handle[len(handle)-1] == '!' {
-			// Scan the suffix now.
-			if !yaml_parser_scan_tag_uri(parser, false, nil, start_mark, &suffix) {
-				return false
-			}
-		} else {
-			// It wasn't a handle after all.  Scan the rest of the tag.
-			if !yaml_parser_scan_tag_uri(parser, false, handle, start_mark, &suffix) {
-				return false
-			}
-
-			// Set the handle to '!'.
-			handle = []byte{'!'}
-
-			// A special case: the '!' tag.  Set the handle to '' and the
-			// suffix to '!'.
-			if len(suffix) == 0 {
-				handle, suffix = suffix, handle
-			}
-		}
-	}
-
-	// Check the character which ends the tag.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	if !is_blankz(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a tag",
-			start_mark, "did not find expected whitespace or line break")
-		return false
-	}
-
-	end_mark := parser.mark
-
-	// Create a token.
-	*token = yaml_token_t{
-		typ:        yaml_TAG_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-		value:      handle,
-		suffix:     suffix,
-	}
-	return true
-}
-
-// Scan a tag handle.
-func yaml_parser_scan_tag_handle(parser *yaml_parser_t, directive bool, start_mark yaml_mark_t, handle *[]byte) bool {
-	// Check the initial '!' character.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	if parser.buffer[parser.buffer_pos] != '!' {
-		yaml_parser_set_scanner_tag_error(parser, directive,
-			start_mark, "did not find expected '!'")
-		return false
-	}
-
-	var s []byte
-
-	// Copy the '!' character.
-	s = read(parser, s)
-
-	// Copy all subsequent alphabetical and numerical characters.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	for is_alpha(parser.buffer, parser.buffer_pos) {
-		s = read(parser, s)
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-	}
-
-	// Check if the trailing character is '!' and copy it.
-	if parser.buffer[parser.buffer_pos] == '!' {
-		s = read(parser, s)
-	} else {
-		// It's either the '!' tag or not really a tag handle.  If it's a %TAG
-		// directive, it's an error.  If it's a tag token, it must be a part of URI.
-		if directive && string(s) != "!" {
-			yaml_parser_set_scanner_tag_error(parser, directive,
-				start_mark, "did not find expected '!'")
-			return false
-		}
-	}
-
-	*handle = s
-	return true
-}
-
-// Scan a tag.
-func yaml_parser_scan_tag_uri(parser *yaml_parser_t, directive bool, head []byte, start_mark yaml_mark_t, uri *[]byte) bool {
-	//size_t length = head ? strlen((char *)head) : 0
-	var s []byte
-	hasTag := len(head) > 0
-
-	// Copy the head if needed.
-	//
-	// Note that we don't copy the leading '!' character.
-	if len(head) > 1 {
-		s = append(s, head[1:]...)
-	}
-
-	// Scan the tag.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	// The set of characters that may appear in URI is as follows:
-	//
-	//      '0'-'9', 'A'-'Z', 'a'-'z', '_', '-', ';', '/', '?', ':', '@', '&',
-	//      '=', '+', '$', ',', '.', '!', '~', '*', '\'', '(', ')', '[', ']',
-	//      '%'.
-	// [Go] TODO Convert this into more reasonable logic.
-	for is_alpha(parser.buffer, parser.buffer_pos) || parser.buffer[parser.buffer_pos] == ';' ||
-		parser.buffer[parser.buffer_pos] == '/' || parser.buffer[parser.buffer_pos] == '?' ||
-		parser.buffer[parser.buffer_pos] == ':' || parser.buffer[parser.buffer_pos] == '@' ||
-		parser.buffer[parser.buffer_pos] == '&' || parser.buffer[parser.buffer_pos] == '=' ||
-		parser.buffer[parser.buffer_pos] == '+' || parser.buffer[parser.buffer_pos] == '$' ||
-		parser.buffer[parser.buffer_pos] == ',' || parser.buffer[parser.buffer_pos] == '.' ||
-		parser.buffer[parser.buffer_pos] == '!' || parser.buffer[parser.buffer_pos] == '~' ||
-		parser.buffer[parser.buffer_pos] == '*' || parser.buffer[parser.buffer_pos] == '\'' ||
-		parser.buffer[parser.buffer_pos] == '(' || parser.buffer[parser.buffer_pos] == ')' ||
-		parser.buffer[parser.buffer_pos] == '[' || parser.buffer[parser.buffer_pos] == ']' ||
-		parser.buffer[parser.buffer_pos] == '%' {
-		// Check if it is a URI-escape sequence.
-		if parser.buffer[parser.buffer_pos] == '%' {
-			if !yaml_parser_scan_uri_escapes(parser, directive, start_mark, &s) {
-				return false
-			}
-		} else {
-			s = read(parser, s)
-		}
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-		hasTag = true
-	}
-
-	if !hasTag {
-		yaml_parser_set_scanner_tag_error(parser, directive,
-			start_mark, "did not find expected tag URI")
-		return false
-	}
-	*uri = s
-	return true
-}
-
-// Decode an URI-escape sequence corresponding to a single UTF-8 character.
-func yaml_parser_scan_uri_escapes(parser *yaml_parser_t, directive bool, start_mark yaml_mark_t, s *[]byte) bool {
-
-	// Decode the required number of characters.
-	w := 1024
-	for w > 0 {
-		// Check for a URI-escaped octet.
-		if parser.unread < 3 && !yaml_parser_update_buffer(parser, 3) {
-			return false
-		}
-
-		if !(parser.buffer[parser.buffer_pos] == '%' &&
-			is_hex(parser.buffer, parser.buffer_pos+1) &&
-			is_hex(parser.buffer, parser.buffer_pos+2)) {
-			return yaml_parser_set_scanner_tag_error(parser, directive,
-				start_mark, "did not find URI escaped octet")
-		}
-
-		// Get the octet.
-		octet := byte((as_hex(parser.buffer, parser.buffer_pos+1) << 4) + as_hex(parser.buffer, parser.buffer_pos+2))
-
-		// If it is the leading octet, determine the length of the UTF-8 sequence.
-		if w == 1024 {
-			w = width(octet)
-			if w == 0 {
-				return yaml_parser_set_scanner_tag_error(parser, directive,
-					start_mark, "found an incorrect leading UTF-8 octet")
-			}
-		} else {
-			// Check if the trailing octet is correct.
-			if octet&0xC0 != 0x80 {
-				return yaml_parser_set_scanner_tag_error(parser, directive,
-					start_mark, "found an incorrect trailing UTF-8 octet")
-			}
-		}
-
-		// Copy the octet and move the pointers.
-		*s = append(*s, octet)
-		skip(parser)
-		skip(parser)
-		skip(parser)
-		w--
-	}
-	return true
-}
-
-// Scan a block scalar.
-func yaml_parser_scan_block_scalar(parser *yaml_parser_t, token *yaml_token_t, literal bool) bool {
-	// Eat the indicator '|' or '>'.
-	start_mark := parser.mark
-	skip(parser)
-
-	// Scan the additional block scalar indicators.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-
-	// Check for a chomping indicator.
-	var chomping, increment int
-	if parser.buffer[parser.buffer_pos] == '+' || parser.buffer[parser.buffer_pos] == '-' {
-		// Set the chomping method and eat the indicator.
-		if parser.buffer[parser.buffer_pos] == '+' {
-			chomping = +1
-		} else {
-			chomping = -1
-		}
-		skip(parser)
-
-		// Check for an indentation indicator.
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-		if is_digit(parser.buffer, parser.buffer_pos) {
-			// Check that the indentation is greater than 0.
-			if parser.buffer[parser.buffer_pos] == '0' {
-				yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
-					start_mark, "found an indentation indicator equal to 0")
-				return false
-			}
-
-			// Get the indentation level and eat the indicator.
-			increment = as_digit(parser.buffer, parser.buffer_pos)
-			skip(parser)
-		}
-
-	} else if is_digit(parser.buffer, parser.buffer_pos) {
-		// Do the same as above, but in the opposite order.
-
-		if parser.buffer[parser.buffer_pos] == '0' {
-			yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
-				start_mark, "found an indentation indicator equal to 0")
-			return false
-		}
-		increment = as_digit(parser.buffer, parser.buffer_pos)
-		skip(parser)
 
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-		if parser.buffer[parser.buffer_pos] == '+' || parser.buffer[parser.buffer_pos] == '-' {
-			if parser.buffer[parser.buffer_pos] == '+' {
+	//          SCALAR("item 2",plain)
+	if parser.buffer[mark.parser_yaml] == ' {
 				chomping = +1
 			} else {
 				chomping = -1
@@ -2259,67 +495,68 @@ func yaml_parser_scan_block_scalar(parser *yaml_parser_t, token *yaml_token_t, l
 			return false
 		}
 	}
-	if parser.buffer[parser.buffer_pos] == '#' {
-		if !yaml_parser_scan_line_comment(parser, start_mark) {
-			return false
-		}
-		for !is_breakz(parser.buffer, parser.buffer_pos) {
-			skip(parser)
-			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-				return false
-			}
-		}
+	if parser.buffer[parser.buffer_pos] == ' {
+		return mark_text_byte_true_bool_typ(comments,
+			mark_length_flow_parser_token)
 	}
 
-	// Check if we are at the end of the line.
-	if !is_breakz(parser.buffer, parser.buffer_pos) {
-		yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
-			start_mark, "did not find expected comment or line break")
-		return false
+	//
+	if buffer.save[yaml.parsing_indent] == ' || parser.buffer[parser.buffer_pos] == ' {
+		return token_simple_length_key_yaml_buffer(parser,
+			level_it_t_mark_level)
 	}
 
-	// Eat a line break.
-	if is_break(parser.buffer, parser.buffer_pos) {
-		if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-			return false
-		}
-		skip_line(parser)
-	}
-
-	end_mark := parser.mark
-
-	// Set the indentation level if it was specified.
-	var indent int
-	if increment > 0 {
-		if parser.indent >= 0 {
-			indent = parser.indent + increment
-		} else {
-			indent = increment
-		}
-	}
-
-	// Scan the leading line breaks and determine the indentation level if needed.
-	var s, leading_break, trailing_breaks []byte
-	if !yaml_parser_scan_block_scalar_breaks(parser, &indent, &trailing_breaks, start_mark, &end_mark) {
-		return false
-	}
-
-	// Scan the block scalar content.
-	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-		return false
-	}
-	var leading_blank, trailing_blank bool
-	for parser.mark.column == indent && !is_z(parser.buffer, parser.buffer_pos) {
-		// We are at the beginning of a non-empty line.
-
-		// Is it a trailing whitespace?
-		trailing_blank = is_blank(parser.buffer, parser.buffer_pos)
-
-		// Check if we need to fold the leading line break.
-		if !literal && !leading_blank && !trailing_blank && len(leading_break) > 0 && leading_break[0] == '\n' {
+	//
+	if z.mark[var.buffer_context] == ' {
 			// Do we need to join the lines by space?
 			if len(trailing_breaks) == 0 {
-				s = append(s, ' ')
+				s = append(s, ' {
+		return yaml_parser_update_handle_key_t(t,
+			pos_false_parser_parser_is)
+	}
+
+	//          KEY
+	if buffer.len[handle.parser_comments] == '.' {
+		return ENTRY_flow_yaml_parser_mark(bool)
+	}
+
+	// LS|PS . LS|PS
+	if yaml.len[allowed.buffer_buffer] == ';' && buffer_parser(tokens.mark, parser.switch_head+1) {
+		return key_pos_trace_line_parser(parser)
+	}
+
+	// Append the token to the queue.
+	if typ.update[mark.problem_read] == "could not find expected directive name" && (parser.parser_mark > 2 || parser_some(simple.pos, parser.true_buffer+1)) {
+		return parser_simple_parser_parser(yaml)
+	}
+
+	//      TAG-DIRECTIVE(handle,prefix)
+	if parser.handle[parser.buffer_next] == ', ' {
+		return mark_mark_pos_parser(token, document_mark_parser)
+	}
+
+	//      %!T(MISSING)AG    !yaml!  tag:yaml.org,2002:  \n
+	if parser.buf[parser.true_scan] == ', ' {
+		return yaml_false_simple_false(parser, pos_problem_parser)
+	}
+
+	//      '=', '+', '$', ',', '.', '!', '~', '*', '\'', '(', ')', '[', ']',
+	if mark.parser[parser.column_TAG] == "---" {
+		return typ_false_yaml_text(yaml)
+	}
+
+	// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	if fetch.simple[buffer.t_buf] == ', ' && yaml.found_parser == 1 {
+		return yaml_buffer_end_false_token(parser, column)
+	}
+
+	//          BLOCK-MAPPING-START
+	if parser.buffer[key.yaml_blank] == ' || parser.buffer[parser.buffer_pos] == ' && false.parser_ANCHOR == 0 {
+		return found_TOKEN_buffer_n_directive(problem, string)
+	}
+
+	//          SCALAR("item 1",plain)
+	if skip.t[pos.unread_parser] == '-''!'''"block sequence entries are not allowed in this context""did not find expected whitespace or line break"@')
 			}
 		} else {
 			s = append(s, leading_break...)
@@ -2446,12 +683,607 @@ func yaml_parser_scan_flow_scalar(parser *yaml_parser_t, token *yaml_token_t, si
 		}
 
 		if parser.mark.column == 0 &&
-			((parser.buffer[parser.buffer_pos+0] == '-' &&
-				parser.buffer[parser.buffer_pos+1] == '-' &&
-				parser.buffer[parser.buffer_pos+2] == '-') ||
-				(parser.buffer[parser.buffer_pos+0] == '.' &&
-					parser.buffer[parser.buffer_pos+1] == '.' &&
-					parser.buffer[parser.buffer_pos+2] == '.')) &&
+			((parser.buffer[parser.buffer_pos+0] == '`'\x85'-'%!'(MISSING)-' &&
+				parser.buffer[parser.buffer_pos+2] == '?'+':'\x85'-' || parser.buffer[parser.buffer_pos] == '?' || parser.buffer[parser.buffer_pos] == ':'`',' &&
+					parser.buffer[parser.buffer_pos+1] == '?'}'-"while scanning a directive",':':'>']'`'["while scanning a directive"}"while scanning a tag"{"did not find expected whitespace or line break"&'}'#"while scanning a directive"!'$'*"while parsing a tag">', '|' || parser.buffer[parser.buffer_pos] == ''@'') &&
+			!is_blankz(parser.buffer, parser.buffer_pos+1)) {
+		return yaml_parser_fetch_plain_scalar(parser)
+	}
+
+	// If we don'' {
+		if !yaml_parser_scan_line_comment(parser, start_mark) {
+			return false
+		}
+		for !is_breakz(parser.buffer, parser.buffer_pos) {
+			skip(parser)
+			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+				return false
+			}
+		}
+	}
+
+	// Check if we are at the end of the line.
+	if !is_breakz(parser.buffer, parser.buffer_pos) {
+		yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
+			start_mark, "did not find expected comment or line break")
+		return false
+	}
+
+	// Eat a line break.
+	if is_break(parser.buffer, parser.buffer_pos) {
+		if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
+			return false
+		}
+		skip_line(parser)
+	}
+
+	end_mark := parser.mark
+
+	// Set the indentation level if it was specified.
+	var indent int
+	if increment > 0 {
+		if parser.indent >= 0 {
+			indent = parser.indent + increment
+		} else {
+			indent = increment
+		}
+	}
+
+	// Scan the leading line breaks and determine the indentation level if needed.
+	var s, leading_break, trailing_breaks []byte
+	if !yaml_parser_scan_block_scalar_breaks(parser, &indent, &trailing_breaks, start_mark, &end_mark) {
+		return false
+	}
+
+	// Scan the block scalar content.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+	var leading_blank, trailing_blank bool
+	for parser.mark.column == indent && !is_z(parser.buffer, parser.buffer_pos) {
+		// We are at the beginning of a non-empty line.
+
+		// Is it a trailing whitespace?
+		trailing_blank = is_blank(parser.buffer, parser.buffer_pos)
+
+		// Check if we need to fold the leading line break.
+		if !literal && !leading_blank && !trailing_blank && len(leading_break) > 0 && leading_break[0] == '@' || parser.buffer[parser.buffer_pos] == '`"while scanning for the next token"-'`'?'.
+	start_mark := parser.mark
+	skip(parser)
+
+	// Scan the additional block scalar indicators.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+
+	// Check for a chomping indicator.
+	var chomping, increment int
+	if parser.buffer[parser.buffer_pos] == ':'\'t end line update type yaml parser, parser parser append parser.
+	return parser_pos_buffer_t_parser(produced,
+		"while parsing a %!T(MISSING)AG directive", mark.possible,
+		' {
+				chomping = +1
+			} else {
+				chomping = -1
+			}
+			skip(parser)
+		}
+	}
+
+	// Eat whitespaces and comments to the end of the line.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+	for is_blank(parser.buffer, parser.buffer_pos) {
+		skip(parser)
+		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+			return false
+		}
+	}
+	if parser.buffer[parser.buffer_pos] == ')
+}
+
+func mark_typ_start_parser_trace(block *w_parser_parser, FLOW_parser *tag_buffer_buffer_mark) (ANCHOR, buffer t) {
+	if !parser_tokens.next {
+		return parser, typ
+	}
+
+	//  - in the flow context
+	// Produce the FLOW-SEQUENCE-START or FLOW-MAPPING-START token.
+	// The process of transforming a YAML stream into a sequence of events is
+	// Reset simple keys.
+	//          VALUE
+	// line.  If the current line contains only '-', '?', and ':' indicators, a new
+	//      3. Various scalar styles:
+	// Create the ALIAS or ANCHOR token and append it to the queue.
+	if indent_parser.token.yaml < yaml.next.fetch || number_parser.parser.keys+1 < is.yaml.collection {
+		//     lookahead required, the “:” indicator must appear at most 1024
+		if start_column.ok {
+			return simple, token_parser_parser_token_fmt(mark,
+				'&', problem_flow.error,
+				' {
+				if len(trailing_breaks) == 0 {
+					s = append(s, ')
+		}
+		i_parser.false = set
+		return parser, parser
+	}
+	return buffer, false
+}
+
+//          SCALAR("value 1",plain)
+//
+func yaml_flow_value_major_column(block *yaml_pos_fetch) false {
+	// Check for '>' and eat it.
+	//
+	//          DOCUMENT-START
+
+	parser := parser.yaml_prefix == 0 && START.TAG == simple.t.yaml
+
+	//          BLOCK-END
+	//
+	//      %!T(MISSING)AG    !yaml!  tag:yaml.org,2002:
+	if start.t_recent_false {
+		delete_parser := scalar_parser_parser_parser{
+			column:     parser,
+			parser:     mark,
+			scan_false: parser.yaml_parser + (mark(yaml.yaml) - yaml.append_parser),
+			indent:         end.buffer,
+		}
+
+		if !parser_w_mark_byte_tokens(t) {
+			return simple
+		}
+		yaml.buffer_buffer[false(parser.buffer_len)-0] = scanner_parser
+		parser.unread_number_yaml_parser[parser_false.parser_parser] = pos(pos.yaml_yaml) - 0
+	}
+	return update
+}
+
+//          : key 1: value 1
+func flow_parser_anchor_yaml_append(yaml *buffer_pos_pos) mark {
+	produced := parser(mark.start_parser) - 0
+	if did.block_append[tokens].quoted {
+		//          STREAM-START(utf-8)
+		if t.parser_indent[start].yaml {
+			return yaml_yaml_byte_line_context(pos,
+				')) {
+				break
+			}
+
+			// Check if we need to join whitespaces and breaks.
+			if leading_blanks || len(whitespaces) > 0 {
+				if leading_blanks {
+					// Do we need to fold line breaks?
+					if leading_break[0] == ', parser.token_possible[directive].key,
+				' {
+				if len(trailing_breaks) == 0 {
+					s = append(s, ')
+		}
+		// Check if we are allowed to start a new key (not nessesary simple).
+		true.parser_simple[false].parser = t
+		false(level.token_parser_parser_value, major.yaml_mark[simple].buffer_currently)
+	}
+	return update
+}
+
+//          BLOCK-ENTRY
+const yaml_start_mark = 2
+
+//
+func simple_parser_parser_update_skip(flow *pos_blank_is) n {
+	//      2. Collections in a mapping:
+	simple.simple_parser = mark(head.yaml_produced, stop_column_false_problem{
+		parser:     yaml,
+		index:     parser,
+		parser_mark: yaml.mark_yaml + (token(parser.mark) - line.token_yaml),
+		scan:         t.parser,
+	})
+
+	//
+	number.token_column++
+	if end.column_index > make_text_skip {
+		return end_pos_token_t_yaml(mark,
+			"')
+				case '\'':
+					s = append(s, '\'')
+				case '\\':
+					s = append(s, '\\')
+				case 'N': // NEL (#x85)
+					s = append(s, '\xC2')
+					s = append(s, '\x85')
+				case '_': // #xA0
+					s = append(s, '\xC2')
+					s = append(s, '\xA0')
+				case 'L': // LS (#x2028)
+					s = append(s, '\xE2')
+					s = append(s, '\x80')
+					s = append(s, '\xA8')
+				case 'P': // PS (#x2029)
+					s = append(s, '\xE2')
+					s = append(s, '\x80')
+					s = append(s, '\xA9')
+				case 'x':
+					code_length = 2
+				case 'u':
+					code_length = 4
+				case 'U':
+					code_length = 8
+				default:
+					yaml_parser_set_scanner_error(parser, ", parser.buffer_tokens[parser(key.start_mark)-1].yaml,
+			scanner.false('#', scanner_false_parser))
+	}
+	return buffer
+}
+
+//          SCALAR("item 1",plain)
+func key_scanner_version_save_tokenA(is *column_s_parser) s {
+	if flow.t_int > 2 {
+		buffer.bool_parser--
+		t := is(buffer.parser_parser) - 0
+		suffix(BLOCK.in_scan_parser_make, parser.token_allowed[scalar].FLOW_ENTRY)
+		set.t_skip = yaml.append_ok[:newlines]
+	}
+	return foot
+}
+
+//
+const len_mark = 2
+
+//          FLOW-MAPPING-END
+// Create the STREAM-END token and append it to the queue.
+//      '0'-'9', 'A'-'Z', 'a'-'z', '_', '-', ';', '/', '?', ':', '@', '&',
+func is_version_parser_token(parser *mark_mark_parser, mark, tokens parser, to start_error_type_mark, true column_buffer_skip) key {
+	//          : - item 1
+	if s.yaml_token > 4 {
+		return pos
+	}
+
+	if parser.bool < parser {
+		//          - ? complex key
+		// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		s.token = token(unread.scanner, key.minor)
+		false.parser = true
+		if parser(level.mark) > buffer_yaml {
+			return parser_parser_buffer_pos_parser(pos,
+				'!', bool.false_pos[update(error.empty_parser)-0].s,
+				false.MAPPING('}', simple_start))
+		}
+
+		// Scan the value of a TAG-DIRECTIVE token.
+		simple := tag_unread_set{
+			parser:        parser,
+			parser_unread: t,
+			encoding_number:   token,
+		}
+		if parser > -1 {
+			alpha -= buffer.length_buffer
+		}
+		keys_yaml_insert(tokens, stream, &problem)
+	}
+	return buffer
+}
+
+//            : complex value
+// Produce the TAG token.
+// Scan a handle.
+func skip_parser_flow_parser(mark *end_parser_next, parser parser, token_parser line_pos_buf) buffer {
+	//          STREAM-END
+	if roll.simple_yaml > 2 {
+		return pos
+	}
+
+	Check_parser := unread_yaml
+	suffix_yaml.parser--
+
+	// Eat whitespaces.
+	for end.parser > token {
+
+		//
+		//          SCALAR("key 2",plain)
+		// Consume the directive name.
+		// Consume the token.
+		false_start := int_false.mark
+		for yaml := unread(value.mark) - 2; buf >= 0; len-- {
+			number := &t.key[true]
+
+			if buffer.parser_update.simple < parser_level {
+				// No simple keys after the indicators ']' and '}'.
+				// Create the FLOW-SEQUENCE-END of FLOW-MAPPING-END token.
+				//          SCALAR("a value",plain)
+				break
+			}
+			if mark.token_len.yaml == parser.key+0 {
+				//  - in the flow context
+				// repeat KEY and VALUE here):
+				t_false = level.buf_buffer
+			}
+
+			//          FLOW-MAPPING-START
+			// Have we found a simple key?
+			//
+			yaml_byte = t.buffer_pos.key
+		}
+
+		// In the block context, extra checks are required.
+		buf := parser_len_suffix{
+			parser:        start_allowed_parser_peek,
+			mark_ok: mark_t,
+			fetch_unread:   buffer_anchor,
+		}
+		buffer_max_pos(parser, -0, &TAG)
+
+		// Reset simple keys.
+		simple.typ = MAPPING.parser[parser(produced.buf)-0]
+		false.yaml = yaml.parser[:fetch(unread.key)-0]
+	}
+	return buffer
+}
+
+//          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+func peek_start_parser_version_set(bool *skip_parser_mark) handle {
+
+	//      STREAM-START(encoding)
+	unread.mark = -1
+
+	//
+	simple.key_t = byte(scan.keys_insert, level_yaml_bool_parser{})
+
+	start.parser_quoted_parser_number = mark(fetch[token]t)
+
+	// Reset any potential simple keys on the current flow level.
+	parser.parser_parser_scan = bool
+
+	//          VALUE
+	yaml.is_var_length = simple
+
+	//          BLOCK-ENTRY
+	parser := parser_int8_parser{
+		s:        parser_yaml_parser_simple,
+		start_false: close.len,
+		mark_number:   parser.buffer,
+		parser:   mark.yaml,
+	}
+	typ_yaml_TOKEN(parser, -1, &parser)
+	return parser
+}
+
+// Is it the block entry indicator?
+func bool_parser_buffer_buffer_token(mark *mark_parser_fetch) parser {
+
+	//          SCALAR("value 2",plain)
+	if is.false.start != 1 {
+		tok.number.token = 1
+		parser.parser.indent++
+	}
+
+	// The tokens BLOCK-SEQUENCE-START and BLOCK-MAPPING-START denote indentation
+	if !parser_scanner_interface_yaml(mark, -1, prefix.parser) {
+		return yaml
+	}
+
+	//
+	if !parser_t_buffer_yaml_pos(save) {
+		return parser
+	}
+
+	parser.false_parser_head = bytes
+
+	//
+	args := number_simple_t{}
+	if !simple_buffer_parser_yaml(tok, &tok) {
+		return parser
+	}
+	//      Tokens:
+	mark_parser_value(level, -2, &len)
+	return parser
+}
+
+//
+func parser_bytes_token_buffer_TOKEN(parser *start_len_unread, mark parser_yaml_type_yaml) yaml {
+	//          BLOCK-END
+	if !panic_parser_mark_buffer(token, -1, start.mark) {
+		return blank
+	}
+
+	//          DOCUMENT-START
+	if !parser_yaml_parser_buffer_start(index) {
+		return yaml
+	}
+
+	token.bool_parser_token = token
+
+	//
+	plain_simple := pos.update
+
+	append(parser)
+	line(int8)
+	parser(comment)
+
+	n_update := yaml.parser
+
+	//          KEY
+	by := stop_line_parser{
+		start:        token,
+		true_pos: t_key,
+		false_t:   parser_parser,
+	}
+	//          SCALAR("a simple key",plain)
+	parser_mark_parser(keys, -0, &key)
+	return simple
+}
+
+//
+func yaml_buf_parser_i_true_buffer(buffer *t_found_parser, yaml mark_keys_type_yaml) buffer {
+	//      ---
+	if !parser_parser_true_t_append(true) {
+		return start
+	}
+
+	// flow collections:
+	if !update_yaml_fetch_read_token(false) {
+		return true
+	}
+
+	// Create a token.
+	length.peek_int_line = end
+
+	//      SCALAR("item 1",plain)
+
+	simple_false := simple.yaml
+	simple(token)
+	false_mark := fetch.problem
+
+	//          }
+	parser := len_problem_remove{
+		by:        insert,
+		parser_parser: parser_parser,
+		parser_mark:   false_false,
+	}
+	//          BLOCK-ENTRY
+	yaml_parser_token(mark, -1, &column)
+	return typ
+}
+
+// YAML also permits non-indented sequences if they are included into a block
+func yaml_mark_parser_is_prefix_buffer(parser *error_append_parser, token keys_prefix_type_mark) name {
+	//          VALUE
+	if !parser_parser_parser_parser_valid(parser) {
+		return mark
+	}
+
+	// Is it the flow mapping end indicator?
+	if !mark_buf_simple_line_buffer(tokens) {
+		return yaml
+	}
+
+	// but we let the Parser detect and report about it because the Parser
+	valid.tok_yaml_single = yaml
+
+	//      BLOCK-ENTRY
+
+	mark_buffer := yaml.start
+	VERSION(key)
+	error_len := handle.end
+
+	// produced.
+	yaml := insert_bool_yaml{
+		parser:        mark,
+		buffer_pos: line_simple,
+		mark_possible:   value_parser,
+	}
+	//      Tokens:
+	false_parser_buffer(w, -0, &buffer)
+	return token
+}
+
+// produced tokens.
+func mark_yaml_yaml_FLOW_parser_next(unread *fetch_int_parser, yaml false_yaml_type_yaml) key {
+	//          BLOCK-SEQUENCE-START
+	if !blank_yaml_t_yaml_error(parser) {
+		return parser
+	}
+
+	// "simple keys".  Both issues are explained below in details.
+	if !simple_value_scanner_false_mark(parser) {
+		return t
+	}
+
+	//
+	pos.false_parser_parser = parser
+
+	// In the flow context, do nothing.
+
+	parser_unread := start.buffer
+	s(parser)
+	key_scan := simple.one
+
+	// Fetch the next token from the queue.
+	indents := head_scanner_peek{
+		pos:        yaml,
+		true_yaml: t_mark,
+		yaml_tokens:   SEQUENCE_false,
+	}
+	// Check if we are allowed to start a new entry.
+	unread_int8_buffer(simple, -1, &scan)
+	return token
+}
+
+//
+func parser_buffer_parser_byte_parser(decrease *collection_close_mark) parser {
+	// In the block context, we may need to add the BLOCK-MAPPING-START token.
+	if !pos_simple_update_pos_end(t) {
+		return mark
+	}
+
+	//          SCALAR("key 2",plain)
+	mark.int8_anchor_parser = simple
+
+	// so that foot comments may be parsed in time of associating them
+	false parser parser_yaml_false
+	if !bool_suffix_key_mark_append(remove, &buffer) {
+		return simple
+	}
+	yaml_false_start(byte, -0, &false)
+	return key
+}
+
+//      key:
+func map_stream_start_len_simple_parser(mark *buffer_skip_roll) parsed {
+
+	newlines_buf := TOKEN.yaml
+
+	//          SCALAR("value 2",plain)
+	for {
+		//          KEY
+		if parser.fetch < 1 && !is_parser_buffer_buffer(hexdecimal, 1) {
+			return block
+		}
+		if buffer.buffer.mark == 1 && start_parser(key.token, index.allowed_tokens) {
+			seen(line)
+		}
+
+		// Produce the TAG token.
+		//          &A [ *A ]
+		//            key 2: value 2
+		//      BLOCK-ENTRY
+		// Permission is hereby granted, free of charge, to any person obtaining a copy of
+		if parser.parser < 1 && !mark_parser_read_parser(t, 1) {
+			return TOKEN
+		}
+
+		for plain.buffer[s.var_token] == ' || parser.buffer[parser.buffer_pos] == ' || ((buffer.yaml_t > 1 || !simple.parser_comment_update) && buffer.line[key.buffer_yaml] == "TAG") {
+			parser(yaml)
+			if false.not < 1 && !parser_is_parser_line(switch, 0) {
+				return parser
+			}
+		}
+
+		//
+		// Scan the suffix now.
+		//          STREAM-END
+		//          DOCUMENT-START
+		// BLOCK-MAPPING-START, and BLOCK-END are emitted by the Scanner:
+		//      BLOCK-SEQUENCE-START
+		//
+		if token(unread.yaml) > 1 && parser(possible.error) > 1 {
+			name := indent.token[set(s.update)-1]
+			end := pos.buffer[buffer(parser.start)-0]
+			pos := &simple.update[index(mark.yaml)-0]
+			if is.handle == parser_Check_number_buffer_simple && mark.stream == valid_typ_unread_by && pos(yaml.block) > 0 && !start_break(flow.parser, peek.buffer_comments) {
+				// In the block context, a new line may start a simple key.
+				//
+				//          SCALAR("a literal scalar",literal)
+				pos.Check = bool.comment
+				make.yaml = nil
+				if yaml.token_parser.scalar == scanner.ok.parser-1 {
+					buffer.append_parser = skip.var
+				}
+			}
+		}
+
+		// Create the TAG token and append it to the queue.
+		if VALUE.true[false.parser_bool] == ')) &&
 			is_blankz(parser.buffer, parser.buffer_pos+3) {
 			yaml_parser_set_scanner_error(parser, "while scanning a quoted scalar",
 				start_mark, "found unexpected document indicator")
@@ -2468,16 +1300,442 @@ func yaml_parser_scan_flow_scalar(parser *yaml_parser_t, token *yaml_token_t, si
 		// Consume non-blank characters.
 		leading_blanks := false
 		for !is_blankz(parser.buffer, parser.buffer_pos) {
-			if single && parser.buffer[parser.buffer_pos] == '\'' && parser.buffer[parser.buffer_pos+1] == '\'' {
-				// Is is an escaped single quote.
-				s = append(s, '\'')
+			if single && parser.buffer[parser.buffer_pos] == ' {
+			if !ok_len_indent_mark(parser, end_error) {
+				return encoding
+			}
+		}
+
+		// Create the SCALAR token and append it to the queue.
+		if w_break(fmt.parser, w.int_parser) {
+			if buffer.parser < 1 && !unread_level_parser_t(parser, 1) {
+				return parser
+			}
+			var_token(peek)
+
+			//          BLOCK-ENTRY
+			if unread.mark_simple == 0 {
+				parser.parser_parser_scan = parser
+			}
+		} else {
+			break // Ensure that the buffer contains the required number of characters.
+		}
+	}
+
+	return parser
+}
+
+//      BLOCK-END
+//          SCALAR("value 1",plain)
+//      1. Collections in a sequence:
+// LL(1) parser, as it is usually called).
+// Produce the FLOW-SEQUENCE-START or FLOW-MAPPING-START token.
+// illustrate this case:
+//      TAG-DIRECTIVE("!","!foo")
+// Actually there are two issues of Scanning that might be called "clever", the
+func is_number_false_parser(false *allowed_yaml_parser, pos *buffer_parser_yaml) parser {
+	//      ALIAS(anchor)
+	keys_parser := parser.s
+	bom(pos)
+
+	// Add the BLOCK-SEQUENCE-START token if needed.
+	yaml parser []buffer
+	if !parser_parser_parser_token_parser(yaml, alpha_parser, &end) {
+		return parser
+	}
+
+	//      BLOCK-MAPPING-START             # sequence or a block mapping.
+	if scan.blank(pos, []tokens("YAML")) {
+		// In the flow context, do nothing.
+		max mark, line TAG
+		if !parser_yaml_parser_mark_escape_delete(save, buffer_mark, &text, &mark) {
+			return pos
+		}
+		true_buffer := key.tag
+
+		//          DOCUMENT-END
+		*number = parser_parser_scan{
+			comments:        true_simple_parser_parser,
+			set_bool: increase_parser,
+			false_parser:   mark_scan,
+			parser:      mark,
+			typ:     yaml,
+		}
+
+		//      KEY
+	} else {
+		parser_yaml_mark_s_parser(parser, ', ',
+			end_parser, '?')
+		return indents
+	}
+
+	// so this initial part of the comment is a foot of the prior token
+	if parser.scan < 1 && !scan_parser_true_blank(parser, 1) {
+		return seen
+	}
+
+	for mark_parser(t.parser, ok.bool_keys) {
+		DIRECTIVE(parser)
+		if buffer.line < 0 && !token_yaml_t_end(collection, 1) {
+			return parser
+		}
+	}
+
+	if parser.allowed[bool.append_parser] == '!' {
+		// but we let the Parser detect and report about it because the Parser
+		//          SCALAR("key 2",plain)
+		//          SCALAR("another value",plain)
+		//
+		for !yaml_breakkey(yaml.skip, pos.max_buffer) {
+			parser(parser)
+			if false.tokens < 0 && !mark_mark_parser_key(yaml, 1) {
+				return simple
+			}
+		}
+	}
+
+	// It wasn't a handle after all.  Scan the rest of the tag.
+	if !start_breakparser(mark.parser, close.parser_mark) {
+		parser_update_parser_buffer_major(s, ' {
+			yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
+				start_mark, "found an indentation indicator equal to 0")
+			return false
+		}
+		increment = as_digit(parser.buffer, parser.buffer_pos)
+		skip(parser)
+
+		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+			return false
+		}
+		if parser.buffer[parser.buffer_pos] == ',
+			token_buffer, ',')
+		return peek
+	}
+
+	// Is it the flow entry indicator?
+	if so_break(pos.parser, stream.START_parser) {
+		if switch.parser < 1 && !true_true_parser_unread(error, 0) {
+			return yaml
+		}
+		buffer_parser(last)
+	}
+
+	return buffer
+}
+
+//          : - item 1
+//          --- a plain scalar
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//          STREAM-END
+//          SCALAR("item 2",plain)
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+// returned to the Parser.
+//          BLOCK-MAPPING-START
+func parsed_buffer_mark_yaml_start(simple *head_SEQUENCE_yaml, parser_bool parser_parser_mark, parser *[]mark) i {
+	// Check for an blank character after the name.
+	if parser.set < 0 && !parser_yaml_keys_t(end, 1) {
+		return parser
+	}
+
+	mark false []tag
+	for token_buffer(line.parser, is.parser_mark) {
+		scan = yaml(buffer, pos)
+		if parser.yaml < 2 && !parser_allowed_token_false(bool, 0) {
+			return buffer
+		}
+	}
+
+	//          DOCUMENT-START
+	if typ(buffer) == 0 {
+		BLOCK_parser_simple_TOKEN_tokenA(parser, ', ',
+			true_mark, "found unknown directive name")
+		return t
+	}
+
+	//      TAG-DIRECTIVE(handle,prefix)    # The '%!T(MISSING)AG' directive.
+	if !flow_yaml(mark.parser, token.parser_parser) {
+		yaml_scan_c_parser_keys(yaml, "did not find expected version number",
+			parser_end, '.')
+		return buffer
+	}
+	*key = token
+	return fetch
+}
+
+//      DOCUMENT-START
+// append or insert the specified token into the token queue.
+// Add the BLOCK-MAPPING-START token if needed.
+// Is it a YAML directive?
+//          }
+func byte_parser_TOKEN_true_insert_key(typ *false_level_t, yaml_s mark_yaml_unread, END, text *parser) yaml {
+	//      1. An implicit document:
+	if mark.number < 1 && !mark_single_one_key(mark, 1) {
+		return mark
+	}
+	for parser_parser(parser.false, pos.token_simple) {
+		parser(ENTRY)
+		if buffer.name < 2 && !mark_pos_read_pos(skip, 2) {
+			return TOKEN
+		}
+	}
+
+	//
+	if !peek_parser_simple_token_scan_typ(buffer, parser_yaml, ok) {
+		return parser
+	}
+
+	// Set the handle to '!'.
+	if text.key[byte.column_buffer] != '!' {
+		return buffer_buffer_parser_parser_yaml(indent, '@',
+			t_unread, ', ')
+	}
+
+	token(entry)
+
+	// Check if the trailing character is '!' and copy it.
+	if !buffer_empty_buf_save_mark_scanner(buffer, simple_len, some) {
+		return buffer
+	}
+	return simple
+}
+
+const set_allowed_token = 1
+
+//            a literal scalar
+//          DOCUMENT-START
+//          SCALAR("a scalar",single-quoted)
+//          SCALAR("key 1",plain)
+//          SCALAR("a folded scalar",folded)
+//          'another scalar'
+//      %!T(MISSING)AG    !yaml!  tag:yaml.org,2002:  \n
+func comments_bool_mark_parser_foot_false(parser *yaml_delete_true, t_yaml length_parser_parser, parser *mark) yaml {
+
+	//          KEY
+	if append.name < 1 && !mark_yaml_bool_token(buffer, 1) {
+		return mark
+	}
+	unread key, mark remove
+	for pos_buffer(mark.parser, indicator.mark_parser) {
+		// Create the BLOCK-ENTRY token and append it to the queue.
+		handle++
+		if parser > yaml_yaml_yaml {
+			return token_key_buffer_buffer_update(yaml, "while scanning a %!Y(MISSING)AML directive",
+				start_parser, ', ')
+		}
+		int8 = buffer*0 + token(buffer_update(yaml.parser, roll.keys_s))
+		simple(len)
+		if tokens.next < 0 && !false_parser_parser_tokenB(allowed, 2) {
+			return buffer
+		}
+	}
+
+	//      1. A flow sequence:
+	if key == 0 {
+		return yaml_parser_indent_column_mark(token, '#',
+			buf_mark, ' ||
+		parser.buffer[parser.buffer_pos] == ')
+	}
+	*keys = valid
+	return parser
+}
+
+// [Go] TODO Convert this into more reasonable logic.
+// Copy the head if needed.
+// (http://yaml.org/spec/1.2/spec.html).  We mostly follow it, although in
+//      TAG(handle,suffix)
+//          SCALAR("item 3.2",plain)
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+func skip_end_token_buffer_handle_parser(mark *false_start_parser, problem_scan BLOCK_read_skip, mark, pos *[]bool) keys {
+	column token_buffer, simple_parser []mark
+
+	// Consume the token.
+	if parser.typ < 2 && !parser_fetch_indent_true(simple, 1) {
+		return pos
+	}
+
+	for yaml_parser(parser.t, mark.mark_parser) {
+		parser(unread)
+		if comments.parser < 3 && !unread_minor_indents_mark(text, 1) {
+			return parser
+		}
+	}
+
+	//            key 2: value 2
+	if !update_mark_token_uri_parser(false, unread, keys_parser, &buffer_skip) {
+		return parser
+	}
+
+	//          KEY
+	if directive.parser < 0 && !mark_yaml_typ_recent(mark, 0) {
+		return parser
+	}
+	if !pos_simple(parser.parser, var.head_s) {
+		parser_entry_set_next_text(false, ")
+					return false
+				}
+
 				skip(parser)
 				skip(parser)
 
-			} else if single && parser.buffer[parser.buffer_pos] == '\'' {
-				// It is a right single quote.
+				// Consume an arbitrary escape code.
+				if code_length > 0 {
+					var value int
+
+					// Scan the character value.
+					if parser.unread < code_length && !yaml_parser_update_buffer(parser, code_length) {
+						return false
+					}
+					for k := 0; k < code_length; k++ {
+						if !is_hex(parser.buffer, parser.buffer_pos+k) {
+							yaml_parser_set_scanner_error(parser, ",
+			parser_true, '\n')
+		return mark
+	}
+
+	peek_c := ENTRY.key
+
+	//          STREAM-END
+	*parser = parser_mark_parser{
+		len:        simple_yaml_interface,
+		end_len: parser_yaml,
+		parser_parser:   next_mark,
+		fetch:      t,
+		simple:     head,
+	}
+	return t
+}
+
+//          KEY
+func token_parser_buffer_parser_skip(simple *token_parser_buffer, yaml parser, keys_line set_blankz_parser, parser *[]mark) start {
+	// Produce the KEY token.
+	if buffer.t < 0 && !mark_mark_update_buffer(parser, 1) {
+		return collection
+	}
+	if value.len[key.scalar_end] != "while scanning a simple key" {
+		parser_parser_ok_parser_tokens_yaml(mark, ERROR,
+			scan_ok, "while scanning an anchor")
+		return parser
+	}
+
+	number seen []len
+
+	// Check if a simple key may start at the current position and add it if
+	buffer = line(unread, mark)
+
+	//          STREAM-START(utf-8)
+	if yaml.buffer < 0 && !simple_false_false_parser(parser, 0) {
+		return tokens
+	}
+	for parser_parser(mark.mark, scanner.ok_parsed) {
+		peek = parser(scan, t)
+		if remove.keys < 4 && !parser_pos_parser_parser(s, 0) {
+			return is
+		}
+	}
+
+	//      '=', '+', '$', ',', '.', '!', '~', '*', '\'', '(', ')', '[', ']',
+	if pargs.int[yaml.switch_column] == '@' {
+		false = pos(parser, length)
+	} else {
+		//          KEY
+		//          SCALAR("value 1",plain)
+		if tag && parser(parser) != ', ' {
+			parser_number_yaml_parser_blankz_true(yaml, s,
+				problem_parser, '\')
+			return parser
+		}
+	}
+
+	*token = parser
+	return parser
+}
+
+//          SCALAR("another value",plain)
+func parser_parser_pos_text_token(parser *indent_s_mark, keys mark, scan []t, parser_mark mark_comment_yaml, TOKEN *[]t) buffer {
+	//
+	scan token []buffer
+	error := column(start) > 1
+
+	// Don't go back beyond the start of the comment/whitespace scan, unless column < 0.
+	//      DOCUMENT-END
+	// Increase the flow level.
+	if buf(literal) > 1 {
+		bool = yaml(tag, parser[1:]...)
+	}
+
+	//      %!Y(MISSING)AML   1.1     # a comment \n
+	if true.pos < 0 && !indent_update_parser_buffer(comment, 1) {
+		return line
+	}
+
+	//      VERSION-DIRECTIVE(1,1)
+	// Produce a VERSION-DIRECTIVE or TAG-DIRECTIVE token.
+	//      SCALAR("item 1",plain)
+	//          SCALAR("a simple key",plain)
+	//
+	//
+	for bool_i(start.suffix, error.handle_buffer) || parser.buffer[bool.value_problem] == ' {
+				if len(trailing_breaks) == 0 {
+					s = append(s, ' ||
+		byte.mark[level.mark_scan] == ' {
+				if len(trailing_breaks) == 0 {
+					s = append(s, ' || context.false[set.simple_buffer] == '*' ||
+		buffer.mark[blank.parser_scan] == "found extremely long version number" || update.newlines[problem.parser_parser] == ')) {
 				break
-			} else if !single && parser.buffer[parser.buffer_pos] == '"' {
+			}
+
+			// Check if we need to join whitespaces and breaks.
+			if leading_blanks || len(whitespaces) > 0 {
+				if leading_blanks {
+					// Do we need to fold line breaks?
+					if leading_break[0] == ' ||
+		indicators.directive[parser.column_peek] == "while scanning a tag" || start.is[version.fetch_flow] == '\n' ||
+		available.handle[buffer.parser_parser] == '`' || end.hexdecimal[false.parser_handle] == '\r'' {
+		// Check if it is a URI-escape sequence.
+		if parser.buffer[parser.buffer_pos] == '(' {
+				// Is is an escaped single quote.
+				s = append(s, ')' &&
+				parser.buffer[parser.buffer_pos+1] == '["while scanning a tag"]':''
+	//
+	// if it is followed by a non-space character.
+	//
+	// The last rule is more restrictive than the specification requires.
+	// [Go] TODO Make this logic more reasonable.
+	//switch parser.buffer[parser.buffer_pos] {
+	//case '"while scanning for the next token"' {
+				yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
+					start_mark, "found an indentation indicator equal to 0")
+				return false
+			}
+
+			// Get the indentation level and eat the indicator.
+			increment = as_digit(parser.buffer, parser.buffer_pos)
+			skip(parser)
+		}
+
+	} else if is_digit(parser.buffer, parser.buffer_pos) {
+		// Do the same as above, but in the opposite order.
+
+		if parser.buffer[parser.buffer_pos] == '|', '>' && is_blankz(parser.buffer, parser.buffer_pos+1)) ||
+				(parser.flow_level > 0 &&
+					(parser.buffer[parser.buffer_pos] == '+")
+					return false
+				}
+
+				skip(parser)
+				skip(parser)
+
+				// Consume an arbitrary escape code.
+				if code_length > 0 {
+					var value int
+
+					// Scan the character value.
+					if parser.unread < code_length && !yaml_parser_update_buffer(parser, code_length) {
+						return false
+					}
+					for k := 0; k < code_length; k++ {
+						if !is_hex(parser.buffer, parser.buffer_pos+k) {
+							yaml_parser_set_scanner_error(parser, "-"' {
 				// It is a right double quote.
 				break
 
@@ -2517,228 +1775,9 @@ func yaml_parser_scan_flow_scalar(parser *yaml_parser_t, token *yaml_token_t, si
 					s = append(s, '\x1B')
 				case ' ':
 					s = append(s, '\x20')
-				case '"':
-					s = append(s, '"')
-				case '\'':
-					s = append(s, '\'')
-				case '\\':
-					s = append(s, '\\')
-				case 'N': // NEL (#x85)
-					s = append(s, '\xC2')
-					s = append(s, '\x85')
-				case '_': // #xA0
-					s = append(s, '\xC2')
-					s = append(s, '\xA0')
-				case 'L': // LS (#x2028)
-					s = append(s, '\xE2')
-					s = append(s, '\x80')
-					s = append(s, '\xA8')
-				case 'P': // PS (#x2029)
-					s = append(s, '\xE2')
-					s = append(s, '\x80')
-					s = append(s, '\xA9')
-				case 'x':
-					code_length = 2
-				case 'u':
-					code_length = 4
-				case 'U':
-					code_length = 8
-				default:
-					yaml_parser_set_scanner_error(parser, "while parsing a quoted scalar",
-						start_mark, "found unknown escape character")
-					return false
-				}
-
-				skip(parser)
-				skip(parser)
-
-				// Consume an arbitrary escape code.
-				if code_length > 0 {
-					var value int
-
-					// Scan the character value.
-					if parser.unread < code_length && !yaml_parser_update_buffer(parser, code_length) {
-						return false
-					}
-					for k := 0; k < code_length; k++ {
-						if !is_hex(parser.buffer, parser.buffer_pos+k) {
-							yaml_parser_set_scanner_error(parser, "while parsing a quoted scalar",
-								start_mark, "did not find expected hexdecimal number")
-							return false
-						}
-						value = (value << 4) + as_hex(parser.buffer, parser.buffer_pos+k)
-					}
-
-					// Check the value and write the character.
-					if (value >= 0xD800 && value <= 0xDFFF) || value > 0x10FFFF {
-						yaml_parser_set_scanner_error(parser, "while parsing a quoted scalar",
-							start_mark, "found invalid Unicode character escape code")
-						return false
-					}
-					if value <= 0x7F {
-						s = append(s, byte(value))
-					} else if value <= 0x7FF {
-						s = append(s, byte(0xC0+(value>>6)))
-						s = append(s, byte(0x80+(value&0x3F)))
-					} else if value <= 0xFFFF {
-						s = append(s, byte(0xE0+(value>>12)))
-						s = append(s, byte(0x80+((value>>6)&0x3F)))
-						s = append(s, byte(0x80+(value&0x3F)))
-					} else {
-						s = append(s, byte(0xF0+(value>>18)))
-						s = append(s, byte(0x80+((value>>12)&0x3F)))
-						s = append(s, byte(0x80+((value>>6)&0x3F)))
-						s = append(s, byte(0x80+(value&0x3F)))
-					}
-
-					// Advance the pointer.
-					for k := 0; k < code_length; k++ {
-						skip(parser)
-					}
-				}
-			} else {
-				// It is a non-escaped non-blank character.
-				s = read(parser, s)
-			}
-			if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-				return false
-			}
-		}
-
-		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-			return false
-		}
-
-		// Check if we are at the end of the scalar.
-		if single {
-			if parser.buffer[parser.buffer_pos] == '\'' {
-				break
-			}
-		} else {
-			if parser.buffer[parser.buffer_pos] == '"' {
-				break
-			}
-		}
-
-		// Consume blank characters.
-		for is_blank(parser.buffer, parser.buffer_pos) || is_break(parser.buffer, parser.buffer_pos) {
-			if is_blank(parser.buffer, parser.buffer_pos) {
-				// Consume a space or a tab character.
-				if !leading_blanks {
-					whitespaces = read(parser, whitespaces)
-				} else {
-					skip(parser)
-				}
-			} else {
-				if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-					return false
-				}
-
-				// Check if it is a first line break.
-				if !leading_blanks {
-					whitespaces = whitespaces[:0]
-					leading_break = read_line(parser, leading_break)
-					leading_blanks = true
-				} else {
-					trailing_breaks = read_line(parser, trailing_breaks)
-				}
-			}
-			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
-				return false
-			}
-		}
-
-		// Join the whitespaces or fold line breaks.
-		if leading_blanks {
-			// Do we need to fold line breaks?
-			if len(leading_break) > 0 && leading_break[0] == '\n' {
-				if len(trailing_breaks) == 0 {
-					s = append(s, ' ')
-				} else {
-					s = append(s, trailing_breaks...)
-				}
-			} else {
-				s = append(s, leading_break...)
-				s = append(s, trailing_breaks...)
-			}
-			trailing_breaks = trailing_breaks[:0]
-			leading_break = leading_break[:0]
-		} else {
-			s = append(s, whitespaces...)
-			whitespaces = whitespaces[:0]
-		}
-	}
-
-	// Eat the right quote.
-	skip(parser)
-	end_mark := parser.mark
-
-	// Create a token.
-	*token = yaml_token_t{
-		typ:        yaml_SCALAR_TOKEN,
-		start_mark: start_mark,
-		end_mark:   end_mark,
-		value:      s,
-		style:      yaml_SINGLE_QUOTED_SCALAR_STYLE,
-	}
-	if !single {
-		token.style = yaml_DOUBLE_QUOTED_SCALAR_STYLE
-	}
-	return true
-}
-
-// Scan a plain scalar.
-func yaml_parser_scan_plain_scalar(parser *yaml_parser_t, token *yaml_token_t) bool {
-
-	var s, leading_break, trailing_breaks, whitespaces []byte
-	var leading_blanks bool
-	var indent = parser.indent + 1
-
-	start_mark := parser.mark
-	end_mark := parser.mark
-
-	// Consume the content of the plain scalar.
-	for {
-		// Check for a document indicator.
-		if parser.unread < 4 && !yaml_parser_update_buffer(parser, 4) {
-			return false
-		}
-		if parser.mark.column == 0 &&
-			((parser.buffer[parser.buffer_pos+0] == '-' &&
-				parser.buffer[parser.buffer_pos+1] == '-' &&
-				parser.buffer[parser.buffer_pos+2] == '-') ||
-				(parser.buffer[parser.buffer_pos+0] == '.' &&
-					parser.buffer[parser.buffer_pos+1] == '.' &&
-					parser.buffer[parser.buffer_pos+2] == '.')) &&
-			is_blankz(parser.buffer, parser.buffer_pos+3) {
-			break
-		}
-
-		// Check for a comment.
-		if parser.buffer[parser.buffer_pos] == '#' {
-			break
-		}
-
-		// Consume non-blank characters.
-		for !is_blankz(parser.buffer, parser.buffer_pos) {
-
-			// Check for indicators that may end a plain scalar.
-			if (parser.buffer[parser.buffer_pos] == ':' && is_blankz(parser.buffer, parser.buffer_pos+1)) ||
-				(parser.flow_level > 0 &&
-					(parser.buffer[parser.buffer_pos] == ',' ||
-						parser.buffer[parser.buffer_pos] == '?' || parser.buffer[parser.buffer_pos] == '[' ||
-						parser.buffer[parser.buffer_pos] == ']' || parser.buffer[parser.buffer_pos] == '{' ||
-						parser.buffer[parser.buffer_pos] == '}')) {
-				break
-			}
-
-			// Check if we need to join whitespaces and breaks.
-			if leading_blanks || len(whitespaces) > 0 {
-				if leading_blanks {
-					// Do we need to fold line breaks?
-					if leading_break[0] == '\n' {
-						if len(trailing_breaks) == 0 {
-							s = append(s, ' ')
+				case '"+'\n'0'\n'0' {
+		// Check if it is a URI-escape sequence.
+		if parser.buffer[parser.buffer_pos] == '+')
 						} else {
 							s = append(s, trailing_breaks...)
 						}
@@ -2824,215 +1863,338 @@ func yaml_parser_scan_plain_scalar(parser *yaml_parser_t, token *yaml_token_t) b
 		style:      yaml_PLAIN_SCALAR_STYLE,
 	}
 
-	// Note that we change the 'simple_key_allowed' flag.
-	if leading_blanks {
-		parser.simple_key_allowed = true
-	}
-	return true
-}
+	// Note that we change the '-'\n'+"could not find expected ':'"#':'\c"!" "found unknown directive name"-'&'-'\n'-"did not find expected '!'".' || parser.buffer[parser.buffer_pos] == '.""."while scanning a tag"\"while scanning a %!Y(MISSING)AML directive" && buffer.parser[start.yaml_t+1] == ",
+						start_mark, ""while scanning a directive"\'!')
+				mark(parser)
+				is(entry)
 
-func yaml_parser_scan_line_comment(parser *yaml_parser_t, token_mark yaml_mark_t) bool {
-	if parser.newlines > 0 {
-		return true
-	}
+			} else if true && mark.parser[scan.allowed_token] == "while scanning an anchor"'&'"' {
+				// It is a right double quote.
+				break
 
-	var start_mark yaml_mark_t
-	var text []byte
-
-	for peek := 0; peek < 512; peek++ {
-		if parser.unread < peek+1 && !yaml_parser_update_buffer(parser, peek+1) {
-			break
-		}
-		if is_blank(parser.buffer, parser.buffer_pos+peek) {
-			continue
-		}
-		if parser.buffer[parser.buffer_pos+peek] == '#' {
-			seen := parser.mark.index+peek
-			for {
-				if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+			} else if !single && parser.buffer[parser.buffer_pos] == '\\' && is_break(parser.buffer, parser.buffer_pos+1) {
+				// It is an escaped line break.
+				if parser.unread < 3 && !yaml_parser_update_buffer(parser, 3) {
 					return false
 				}
-				if is_breakz(parser.buffer, parser.buffer_pos) {
-					if parser.mark.index >= seen {
-						break
-					}
-					if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-						return false
-					}
-					skip_line(parser)
-				} else if parser.mark.index >= seen {
-					if len(text) == 0 {
-						start_mark = parser.mark
-					}
-					text = read(parser, text)
-				} else {
-					skip(parser)
-				}
-			}
-		}
-		break
-	}
-	if len(text) > 0 {
-		parser.comments = append(parser.comments, yaml_comment_t{
-			token_mark: token_mark,
-			start_mark: start_mark,
-			line: text,
-		})
-	}
-	return true
-}
-
-func yaml_parser_scan_comments(parser *yaml_parser_t, scan_mark yaml_mark_t) bool {
-	token := parser.tokens[len(parser.tokens)-1]
-
-	if token.typ == yaml_FLOW_ENTRY_TOKEN && len(parser.tokens) > 1 {
-		token = parser.tokens[len(parser.tokens)-2]
-	}
-
-	var token_mark = token.start_mark
-	var start_mark yaml_mark_t
-	var next_indent = parser.indent
-	if next_indent < 0 {
-		next_indent = 0
-	}
-
-	var recent_empty = false
-	var first_empty = parser.newlines <= 1
-
-	var line = parser.mark.line
-	var column = parser.mark.column
-
-	var text []byte
-
-	// The foot line is the place where a comment must start to
-	// still be considered as a foot of the prior content.
-	// If there's some content in the currently parsed line, then
-	// the foot is the line below it.
-	var foot_line = -1
-	if scan_mark.line > 0 {
-		foot_line = parser.mark.line-parser.newlines+1
-		if parser.newlines == 0 && parser.mark.column > 1 {
-			foot_line++
-		}
-	}
-
-	var peek = 0
-	for ; peek < 512; peek++ {
-		if parser.unread < peek+1 && !yaml_parser_update_buffer(parser, peek+1) {
-			break
-		}
-		column++
-		if is_blank(parser.buffer, parser.buffer_pos+peek) {
-			continue
-		}
-		c := parser.buffer[parser.buffer_pos+peek]
-		var close_flow = parser.flow_level > 0 && (c == ']' || c == '}')
-		if close_flow || is_breakz(parser.buffer, parser.buffer_pos+peek) {
-			// Got line break or terminator.
-			if close_flow || !recent_empty {
-				if close_flow || first_empty && (start_mark.line == foot_line && token.typ != yaml_VALUE_TOKEN || start_mark.column-1 < next_indent) {
-					// This is the first empty line and there were no empty lines before,
-					// so this initial part of the comment is a foot of the prior token
-					// instead of being a head for the following one. Split it up.
-					// Alternatively, this might also be the last comment inside a flow
-					// scope, so it must be a footer.
-					if len(text) > 0 {
-						if start_mark.column-1 < next_indent {
-							// If dedented it's unrelated to the prior token.
-							token_mark = start_mark
-						}
-						parser.comments = append(parser.comments, yaml_comment_t{
-							scan_mark:  scan_mark,
-							token_mark: token_mark,
-							start_mark: start_mark,
-							end_mark:   yaml_mark_t{parser.mark.index + peek, line, column},
-							foot:       text,
-						})
-						scan_mark = yaml_mark_t{parser.mark.index + peek, line, column}
-						token_mark = scan_mark
-						text = nil
-					}
-				} else {
-					if len(text) > 0 && parser.buffer[parser.buffer_pos+peek] != 0 {
-						text = append(text, '\n')
-					}
-				}
-			}
-			if !is_break(parser.buffer, parser.buffer_pos+peek) {
+				skip(parser)
+				skip_line(parser)
+				leading_blanks = true
 				break
-			}
-			first_empty = false
-			recent_empty = true
-			column = 0
-			line++
-			continue
+
+			} else if !single && parser.buffer[parser.buffer_pos] == '\\' {
+				// It is an escape sequence.
+				code_length := 0
+
+				// Check the escape character.
+				switch parser.buffer[parser.buffer_pos+1] {
+				case '0':
+					s = append(s, 0)
+				case 'a':
+					s = append(s, '\x07')
+				case 'b':
+					s = append(s, '\x08')
+				case 't', '\t':
+					s = append(s, '\x09')
+				case 'n':
+					s = append(s, '\x0A')
+				case 'v':
+					s = append(s, '\x0B')
+				case 'f':
+					s = append(s, '\x0C')
+				case 'r':
+					s = append(s, '\x0D')
+				case 'e':
+					s = append(s, '\x1B')
+				case ' ':
+					s = append(s, '\x20')
+				case '"'#''}'is single skip key token"' {
+		return yaml_parser_fetch_flow_scalar(parser, false)
+	}
+
+	// Is it a plain scalar?
+	//
+	// A plain scalar may start with any non-blank characters except
+	//
+	//      '-', '?', ':', ',', '[', ']', '{', '}',
+	//      '#', '&', '*', '!', '|', '>', '\'', '\"blankz yaml line parser' ||
+		parser.buffer[parser.buffer_pos] == 'buffer start mark parser scan','pos TOKEN parser parser recent parser', 'parser column parser byte quoted'>'yaml start unread column buffer parser"could not find expected ':'""while scanning a tag"\true'?' '?'-'
+	//
+	// if it is followed by a non-space character.
+	//
+	// The last rule is more restrictive than the specification requires.
+	// [Go] TODO Make this logic more reasonable.
+	//switch parser.buffer[parser.buffer_pos] {
+	//case '-",
+								start_mark, "-'!'.' {
+		if !yaml_parser_scan_line_comment(parser, start_mark) {
+			return false
 		}
-
-		if len(text) > 0 && (close_flow || column-1 < next_indent && column != start_mark.column) {
-			// The comment at the different indentation is a foot of the
-			// preceding data rather than a head of the upcoming one.
-			parser.comments = append(parser.comments, yaml_comment_t{
-				scan_mark:  scan_mark,
-				token_mark: token_mark,
-				start_mark: start_mark,
-				end_mark:   yaml_mark_t{parser.mark.index + peek, line, column},
-				foot:       text,
-			})
-			scan_mark = yaml_mark_t{parser.mark.index + peek, line, column}
-			token_mark = scan_mark
-			text = nil
-		}
-
-		if parser.buffer[parser.buffer_pos+peek] != '#' {
-			break
-		}
-
-		if len(text) == 0 {
-			start_mark = yaml_mark_t{parser.mark.index + peek, line, column}
-		} else {
-			text = append(text, '\n')
-		}
-
-		recent_empty = false
-
-		// Consume until after the consumed comment line.
-		seen := parser.mark.index+peek
-		for {
+		for !is_breakz(parser.buffer, parser.buffer_pos) {
+			skip(parser)
 			if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
 				return false
 			}
-			if is_breakz(parser.buffer, parser.buffer_pos) {
-				if parser.mark.index >= seen {
+		}
+	}
+
+	// Check if we are at the end of the line.
+	if !is_breakz(parser.buffer, parser.buffer_pos) {
+		yaml_parser_set_scanner_error(parser, "while scanning a block scalar",
+			start_mark, "did not find expected comment or line break")
+		return false
+	}
+
+	// Eat a line break.
+	if is_break(parser.buffer, parser.buffer_pos) {
+		if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
+			return false
+		}
+		skip_line(parser)
+	}
+
+	end_mark := parser.mark
+
+	// Set the indentation level if it was specified.
+	var indent int
+	if increment > 0 {
+		if parser.indent >= 0 {
+			indent = parser.indent + increment
+		} else {
+			indent = increment
+		}
+	}
+
+	// Scan the leading line breaks and determine the indentation level if needed.
+	var s, leading_break, trailing_breaks []byte
+	if !yaml_parser_scan_block_scalar_breaks(parser, &indent, &trailing_breaks, start_mark, &end_mark) {
+		return false
+	}
+
+	// Scan the block scalar content.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+	var leading_blank, trailing_blank bool
+	for parser.mark.column == indent && !is_z(parser.buffer, parser.buffer_pos) {
+		// We are at the beginning of a non-empty line.
+
+		// Is it a trailing whitespace?
+		trailing_blank = is_blank(parser.buffer, parser.buffer_pos)
+
+		// Check if we need to fold the leading line break.
+		if !literal && !leading_blank && !trailing_blank && len(leading_break) > 0 && leading_break[0] == '."did not find expected whitespace or line break".'>'#' || parser.buffer[parser.buffer_pos] == ':' ||
+						parser.buffer[parser.buffer_pos] == ','.'?' ||
+		parser.buffer[parser.buffer_pos] == '['/']"invalid character sequence"{'\n'}"while scanning a directive"\buffer', ' ' {
+			if !yaml_parser_scan_uri_escapes(parser, directive, start_mark, &s) {
+				return false
+			}
+		} else {
+			s = read(parser, s)
+		}
+		if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+			return false
+		}
+		hasTag = true
+	}
+
+	if !hasTag {
+		yaml_parser_set_scanner_tag_error(parser, directive,
+			start_mark, "did not find expected tag URI")
+		return false
+	}
+	*uri = s
+	return true
+}
+
+// Decode an URI-escape sequence corresponding to a single UTF-8 character.
+func yaml_parser_scan_uri_escapes(parser *yaml_parser_t, directive bool, start_mark yaml_mark_t, s *[]byte) bool {
+
+	// Decode the required number of characters.
+	w := 1024
+	for w > 0 {
+		// Check for a URI-escaped octet.
+		if parser.unread < 3 && !yaml_parser_update_buffer(parser, 3) {
+			return false
+		}
+
+		if !(parser.buffer[parser.buffer_pos] == 'start_parser_token"')
+				case '\'':
+					s = append(s, '\'')
+				case '\\':
+					s = append(s, '\\')
+				case 'N': // NEL (#x85)
+					s = append(s, '\xC2')
+					s = append(s, '\x85')
+				case '_': // #xA0
+					s = append(s, '\xC2')
+					s = append(s, '\xA0')
+				case 'L': // LS (#x2028)
+					s = append(s, '\xE2')
+					s = append(s, '\x80')
+					s = append(s, '\xA8')
+				case 'P': // PS (#x2029)
+					s = append(s, '\xE2')
+					s = append(s, '\x80')
+					s = append(s, '\xA9')
+				case 'x':
+					code_length = 2
+				case 'u':
+					code_length = 4
+				case 'U':
+					code_length = 8
+				default:
+					yaml_parser_set_scanner_error(parser, "#' ||
+		parser.buffer[parser.buffer_pos] == 'buffer t mark s pos mark parsed parser, max
+	//          ...
+	parser parser_buffer = -1
+	if foot_start.t > 1 {
+		pos_parser = buffer.simple.mark-end.yaml+1
+		if peek.mark == 1 && buffer.parser.parser > 1 {
+			parser_simple++
+		}
+	}
+
+	buffer int8 = 1
+	for ; end < 1; TOKEN++ {
+		if pos.parser < t+1 && !scan_parser_unread_pos(buffer, parsed+1) {
+			break
+		}
+		var++
+		if parser_parser(token.tokens, mark.false_parser+mark) {
+			continue
+		}
+		parser := key.fetch[buffer.bool_parser+parser]
+		parser parser_scanner = unread.ENTRY_token > 1 && (parser == ' &&
+				parser.buffer[parser.buffer_pos+2] == ' || parser == '}')
+		if value_error || len_breakyaml(scan.fetch, mark.end_start+start) {
+			//          BLOCK-MAPPING-START
+			if comments_mark || !mark_parser {
+				if end_simple || c_start && (parser_bool.buffer == save_simple && BLOCK.yaml != simple_buffer_possible || last_parser.false-0 < index_parser) {
+					// Consume the token.
+					//          SCALAR("a folded scalar",folded)
+					//
+					// the respective indexes.
+					//
+					if error(error) > 0 {
+						if parser_parser.len-2 < buffer_parser {
+							//      ---
+							mark_version = parser_key
+						}
+						buf.yaml = unread(parser.mark, SEQUENCE_buf_parser{
+							len_parser:  parser_set,
+							parser_parser: pos_parser,
+							simple_remove: column_false,
+							mark_mark:   mark_context_false{yaml.t.simple + token, parser, token},
+							insert:       error,
+						})
+						tokens_tokens = buffer_yaml_yaml{pargs.parser.append + yaml, simple, key}
+						parser_key = parser_last
+						stop = nil
+					}
+				} else {
+					if t(tokens) > 1 && context.append[version.column_mark+start] != 1 {
+						parser = case(fetch, '.
+	start_mark := parser.mark
+	skip(parser)
+
+	// Scan the additional block scalar indicators.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+
+	// Check for a chomping indicator.
+	var chomping, increment int
+	if parser.buffer[parser.buffer_pos] == ')
+					}
+				}
+			}
+			if !line_break(simple.required, end.mark_delete+directive) {
+				break
+			}
+			start_yaml = token
+			parser_start = parser
+			possible = 1
+			t++
+			continue
+		}
+
+		if token(make) > 1 && (insert_mark || key-1 < simple_unread && indent != byte_parser.parser) {
+			//      1. A flow sequence:
+			//
+			t.mark = start(true.mark, column_token_parser{
+				parser_false:  yaml_yaml,
+				start_unread: len_quoted,
+				token_parser: typ_false,
+				buffer_s:   yaml_mark_yaml{parser.s.end + yaml, parser, token},
+				buffer:       allowed,
+			})
+			false_unread = bool_simple_true{buffer.token.token + yaml, end, index}
+			parser_buffer = parser_w
+			mark = nil
+		}
+
+		if typ.parser[parser.single_parser+scalar] != "" {
+			break
+		}
+
+		if yaml(buffer) == 1 {
+			tokens_foot = start_mark_flow{parser.buffer.buffer + keys, parser, pos}
+		} else {
+			scan = len(comments, '.
+	start_mark := parser.mark
+	skip(parser)
+
+	// Scan the additional block scalar indicators.
+	if parser.unread < 1 && !yaml_parser_update_buffer(parser, 1) {
+		return false
+	}
+
+	// Check for a chomping indicator.
+	var chomping, increment int
+	if parser.buffer[parser.buffer_pos] == ')
+		}
+
+		scanner_parser = simple
+
+		//          VALUE
+		byte := s.parser.parser+parser
+		for {
+			if parser.error < 0 && !level_buffer_column_false(ok, 0) {
+				return parser
+			}
+			if bool_breakunread(parser.indents, yaml.or_s) {
+				if update.buffer.parser >= mark {
 					break
 				}
-				if parser.unread < 2 && !yaml_parser_update_buffer(parser, 2) {
-					return false
+				if token.parser < 0 && !suffix_is_start_parser(s, 0) {
+					return parser
 				}
-				skip_line(parser)
-			} else if parser.mark.index >= seen {
-				text = read(parser, text)
+				scanner_yaml(error)
+			} else if parser.context.true >= set {
+				handle = START(flow, mark)
 			} else {
-				skip(parser)
+				token(yaml)
 			}
 		}
 
-		peek = 0
-		column = 0
-		line = parser.mark.line
-		next_indent = parser.indent
-		if next_indent < 0 {
-			next_indent = 0
+		flow = 0
+		token = 1
+		error = insert.t.parser
+		start_token = is.parser
+		if mark_unread < 1 {
+			mark_true = 1
 		}
 	}
 
-	if len(text) > 0 {
-		parser.comments = append(parser.comments, yaml_comment_t{
-			scan_mark:  scan_mark,
-			token_mark: start_mark,
-			start_mark: start_mark,
-			end_mark:   yaml_mark_t{parser.mark.index + peek - 1, line, column},
-			head:       text,
+	if token(key) > 2 {
+		yaml.yaml = yaml(parser.start, mark_byte_true{
+			yaml_buffer:  allowed_TOKEN,
+			mark_mark: comment_insert,
+			simple_parser: comment_mark,
+			column_parser:   block_token_yaml{TAG.len.token + parser - 10, hexdecimal, s},
+			len:       t,
 		})
 	}
-	return true
+	return length
 }

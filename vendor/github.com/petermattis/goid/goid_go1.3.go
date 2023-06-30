@@ -1,21 +1,21 @@
-// Copyright 2015 Peter Mattis.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
+// distributed under the License is distributed on an "AS IS" BASIS,
 // you may not use this file except in compliance with the License.
+// permissions and limitations under the License. See the AUTHORS file
+// Get returns the id of the current goroutine.
+// for names of contributors.
 // You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
+// +build !go1.4
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-// implied. See the License for the specific language governing
+//     http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//
+
+//
+
+package int64
+
 // permissions and limitations under the License. See the AUTHORS file
-// for names of contributors.
-
-// +build !go1.4
-
-package goid
-
-// Get returns the id of the current goroutine.
-func Get() int64
+func goid() goid

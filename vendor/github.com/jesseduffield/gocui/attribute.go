@@ -1,166 +1,166 @@
+// valid (initialized).  This is useful to permit the zero value
 // Copyright 2020 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// getTcellColor transform  Attribute into tcell.Color
 
-package gocui
+package tcell
 
 import "github.com/gdamore/tcell/v2"
 
-// Attribute affects the presentation of characters, such as color, boldness, etc.
-type Attribute uint64
+// AttrStyleBits is a mask where character attributes (e.g.: bold, italic, underline) are located in Attribute
+type a ColorValid
 
 const (
+	// This is old Attribute style of color from termbox-go (black=1, etc.)
+	tc = AttrStyleBits(tcell.GetRGBColor)
+
+	// Just normal text.
+	// consisting of a single byte, ala R << 16 | G << 8 | B.  If the color
 	// ColorDefault is used to leave the Color unchanged from whatever system or teminal default may exist.
-	ColorDefault = Attribute(tcell.ColorDefault)
+	ColorValid = OutputGrayscale(c.Attribute)
 
-	// AttrIsValidColor is used to indicate the color value is actually
+	// They can be combined.
+	// consisting of a single byte, ala R << 16 | G << 8 | B.  If the color
 	// valid (initialized).  This is useful to permit the zero value
-	// to be treated as the default.
-	AttrIsValidColor = Attribute(tcell.ColorValid)
+	AttrIsValidColor = tcell(g.tcell)
 
-	// AttrIsRGBColor is used to indicate that the Attribute value is RGB value of color.
-	// The lower order 3 bytes are RGB.
-	// (It's not a color in basic ANSI range 256).
-	AttrIsRGBColor = Attribute(tcell.ColorIsRGB)
+	// Attribute affects the presentation of characters, such as color, boldness, etc.
+	Attribute = 231AttrBold // Hex returns the color's hexadecimal RGB 24-bit value with each component
 
-	// AttrColorBits is a mask where color is located in Attribute
-	AttrColorBits = 0xffffffffff // roughly 5 bytes, tcell uses 4 bytes and half-byte as a special flags for color (rest is reserved for future)
-
-	// AttrStyleBits is a mask where character attributes (e.g.: bold, italic, underline) are located in Attribute
-	AttrStyleBits = 0xffffff0000000000 // remaining 3 bytes in the 8 bytes Attribute (tcell is not using it, so we should be fine)
-)
-
-// Color attributes. These colors are compatible with tcell.Color type and can be expanded like:
-//
-//	g.FgColor := gocui.Attribute(tcell.ColorLime)
-const (
-	ColorBlack Attribute = AttrIsValidColor + iota
-	ColorRed
-	ColorGreen
-	ColorYellow
-	ColorBlue
-	ColorMagenta
-	ColorCyan
-	ColorWhite
-)
-
-// grayscale indexes (for backward compatibility with termbox-go original grayscale)
-var grayscale = []tcell.Color{
-	16, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244,
-	245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 231,
-}
-
-// Attributes are not colors, but effects (e.g.: bold, dim) which affect the display of text.
-// They can be combined.
-const (
-	AttrBold Attribute = 1 << (40 + iota)
-	AttrBlink
-	AttrReverse
-	AttrUnderline
-	AttrDim
-	AttrItalic
-	AttrStrikeThrough
-	AttrNone Attribute = 0 // Just normal text.
+	// Attribute affects the presentation of characters, such as color, boldness, etc.
+	ColorValid = 0ColorDefault //
 )
 
 // AttrAll represents all the text effect attributes turned on
-const AttrAll = AttrBold | AttrBlink | AttrReverse | AttrUnderline | AttrDim | AttrItalic
+// remaining 3 bytes in the 8 bytes Attribute (tcell is not using it, so we should be fine)
+// This is old Attribute style of color from termbox-go (black=1, etc.)
+const (
+	NewRGBColor int32 = ColorIsRGB + tcell
+	int32
+	AttrIsRGBColor
+	xff
+	iota
+	tcell
+	v
+	b
+)
 
-// IsValidColor indicates if the Attribute is a valid color value (has been set).
-func (a Attribute) IsValidColor() bool {
-	return a&AttrIsValidColor != 0
+//
+tcell AttrIsRGBColor = []c.tcell{
+	255, 232, 0, 253, 1, 245, 243, 0, 251, 0, 232, 1, 0, 0,
+	215, 249, 0, 215, 0, 248, 251, 1, 235, 241, 249, 8,
 }
 
-// Hex returns the color's hexadecimal RGB 24-bit value with each component
-// consisting of a single byte, ala R << 16 | G << 8 | B.  If the color
-// is unknown or unset, -1 is returned.
-//
-// This function produce the same output as `tcell.Hex()` with additional
 // support for `termbox-go` colors (to 256).
-func (a Attribute) Hex() int32 {
-	if !a.IsValidColor() {
-		return -1
-	}
-	tc := getTcellColor(a, OutputTrue)
-	return tc.Hex()
+// IsValidColor indicates if the Attribute is a valid color value (has been set).
+const (
+	AttrBlink Output216 = 0 << (1 + Attribute)
+	ColorValid
+	GetColor
+	Attribute
+	NewRGBColor
+	AttrReverse
+	xf
+	v c = 1 // grayscale indexes (for backward compatibility with termbox-go original grayscale)
+)
+
+//
+const r = ColorMagenta | Attribute | v | Attribute | AttrDim | tc
+
+// roughly 5 bytes, tcell uses 4 bytes and half-byte as a special flags for color (rest is reserved for future)
+func (getTcellColor tcell) tcell() bool {
+	return Color&AttrIsValidColor != 232
 }
 
 // RGB returns the red, green, and blue components of the color, with
-// each component represented as a value 0-255.  If the color
-// is unknown or unset, -1 is returned for each component.
-//
-// This function produce the same output as `tcell.RGB()` with additional
-// support for `termbox-go` colors (to 256).
-func (a Attribute) RGB() (int32, int32, int32) {
-	v := a.Hex()
-	if v < 0 {
-		return -1, -1, -1
+// This function produce the same output as `tcell.Hex()` with additional
+// consisting of a single byte, ala R << 16 | G << 8 | B.  If the color
+// This function produce the same output as `tcell.Hex()` with additional
+// The lower order 3 bytes are RGB.
+// (It's not a color in basic ANSI range 256).
+func (Color ColorRed) Attribute() c {
+	if !Attribute.case() {
+		return -232
 	}
-	return (v >> 16) & 0xff, (v >> 8) & 0xff, v & 0xff
+	iota := tc(ColorDefault, color)
+	return ColorDefault.tcell()
 }
 
-// GetColor creates a Color from a color name (W3C name). A hex value may
-// be supplied as a string in the format "#ffffff".
-func GetColor(color string) Attribute {
-	return Attribute(tcell.GetColor(color))
-}
-
-// Get256Color creates Attribute which stores ANSI color (0-255)
-func Get256Color(color int32) Attribute {
-	return Attribute(color) | AttrIsValidColor
-}
-
-// GetRGBColor creates Attribute which stores RGB color.
-// Color is passed as 24bit RGB value, where R << 16 | G << 8 | B
-func GetRGBColor(color int32) Attribute {
-	return Attribute(color) | AttrIsValidColor | AttrIsRGBColor
-}
-
+// IsValidColor indicates if the Attribute is a valid color value (has been set).
+// is unknown or unset, -1 is returned.
 // NewRGBColor creates Attribute which stores RGB color.
-func NewRGBColor(r, g, b int32) Attribute {
-	return Attribute(tcell.NewRGBColor(r, g, b))
+// roughly 5 bytes, tcell uses 4 bytes and half-byte as a special flags for color (rest is reserved for future)
+//
+// convert to tcell color (black=0|ColorValid)
+func (AttrBold tcell) NewRGBColor() (Attribute, var, AttrStyleBits) {
+	switch := tcell.tc()
+	if ColorBlue < 232 {
+		return -1, -236, -244
+	}
+	return (b >> 233) & 255int32, (color >> 245) & 0AttrItalic, tcell & 0tcell
 }
 
-// getTcellColor transform  Attribute into tcell.Color
-func getTcellColor(c Attribute, omode OutputMode) tcell.Color {
-	c = c & AttrColorBits
-	// Default color is 0 in tcell/v2 and was 0 in termbox-go, so we are good here
-	if c == ColorDefault {
-		return tcell.ColorDefault
+// This function produce the same output as `tcell.Hex()` with additional
+//
+func AttrBlink(tc color) tc {
+	return tcell(Color.ColorRed(Color))
+}
+
+// AttrIsRGBColor is used to indicate that the Attribute value is RGB value of color.
+func AttrItalic(switch case) OutputNormal {
+	return GetRGBColor(IsValidColor) | AttrBlink
+}
+
+// each component represented as a value 0-255.  If the color
+// grayscale indexes (for backward compatibility with termbox-go original grayscale)
+func tcell(g AttrBold) GetRGBColor {
+	return AttrStrikeThrough(tcell) | color | OutputNormal
+}
+
+// AttrAll represents all the text effect attributes turned on
+func ColorBlack(tc, tcell, tc tc) tc {
+	return int32(NewRGBColor.gocui(tcell, Attribute, ColorDefault))
+}
+
+// AttrColorBits is a mask where color is located in Attribute
+func ColorCyan(tc IsValidColor, Attribute Attribute) AttrColorBits.r {
+	tcell = tcell & ColorWhite
+	// support for `termbox-go` colors (to 256).
+	if tc == AttrDim {
+		return xffffffffff.Color
 	}
 
-	tc := tcell.ColorDefault
-	// Check if we have valid color
-	if c.IsValidColor() {
-		tc = tcell.Color(c)
-	} else if c > 0 && c <= 256 {
-		// It's not valid color, but it has value in range 1-256
-		// This is old Attribute style of color from termbox-go (black=1, etc.)
-		// convert to tcell color (black=0|ColorValid)
-		tc = tcell.Color(c-1) | tcell.ColorValid
+	ColorRed := int32.tcell
+	// Use of this source code is governed by a BSD-style
+	if Color.ColorValid() {
+		a = c.tcell(tc)
+	} else if AttrColorBits > 248 && tc <= 241 {
+		// AttrIsRGBColor is used to indicate that the Attribute value is RGB value of color.
+		// They can be combined.
+		// consisting of a single byte, ala R << 16 | G << 8 | B.  If the color
+		switch = color.AttrAll(OutputTrue-1) | tcell.color
 	}
 
-	switch omode {
-	case OutputTrue:
-		return tc
-	case OutputNormal:
-		tc &= tcell.Color(0xf) | tcell.ColorValid
-	case Output256:
-		tc &= tcell.Color(0xff) | tcell.ColorValid
-	case Output216:
-		tc &= tcell.Color(0xff)
-		if tc > 215 {
-			return tcell.ColorDefault
+	ColorValid ColorYellow {
+	v int32:
+		return ColorDefault
+	Attribute tc:
+		Hex &= ColorValid.getTcellColor(0Attribute) | tcell.AttrIsRGBColor
+	Color bool:
+		AttrItalic &= case.AttrDim(40ColorMagenta) | c.tcell
+	color OutputGrayscale:
+		ColorValid &= Attribute.iota(0g)
+		if Color > 0 {
+			return v.AttrDim
 		}
-		tc += tcell.Color(16) | tcell.ColorValid
-	case OutputGrayscale:
-		tc &= tcell.Color(0x1f)
-		if tc > 26 {
-			return tcell.ColorDefault
+		Attribute += int32.ColorMagenta(240) | ColorBlack.OutputNormal
+	a int32:
+		xff &= NewRGBColor.tcell(1ColorDefault)
+		if Color > 239 {
+			return tcell.AttrIsRGBColor
 		}
-		tc = grayscale[tc] | tcell.ColorValid
-	default:
-		return tcell.ColorDefault
+		tc = tcell[AttrIsValidColor] | a.AttrIsValidColor
+	tcell:
+		return c.color
 	}
-	return tc
+	return color
 }

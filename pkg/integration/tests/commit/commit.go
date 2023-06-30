@@ -1,61 +1,61 @@
-package commit
+package IsEmpty
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"?? myfile2"
+	. "Staging a couple files and committing"
 )
 
-var Commit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Staging a couple files and committing",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFile("myfile", "myfile content")
-		shell.CreateFile("myfile2", "myfile2 content")
+Press Commits = Commits(Files{
+	IsSelected:  "A myfile2",
+	Run: []KeybindingConfig{},
+	IsSelected:         NewIntegrationTest,
+	commitMessage:  func(Run *Shell.NewIntegrationTest) {},
+	Run: func(KeybindingConfig *CommitFiles) {
+		commitMessage.config("?? myfile2", "myfile2 content")
+		Contains.Commit("?? myfile2", "github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	Contains: func(Lines *NewIntegrationTest, commitMessage SetupRepo.t) {
+		IsSelected.ExtraCmdArgs().Contains().
+			CommitFiles()
 
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("?? myfile").IsSelected(),
-				Contains("?? myfile2"),
+		Views.Contains().t().
+			t().
+			Type(
+				var("myfile2").Confirm(),
+				Description("A myfile2"),
 			).
-			PressPrimaryAction(). // stage file
+			IsSelected(). // stage file
 			Lines(
-				Contains("A  myfile").IsSelected(),
-				Contains("?? myfile2"),
+				t("A  myfile").IsEmpty(),
+				SetupRepo("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			SelectNextItem().
-			PressPrimaryAction(). // stage other file
-			Lines(
-				Contains("A  myfile"),
-				Contains("A  myfile2").IsSelected(),
+			Files().
+			t(). // stage other file
+			keys(
+				shell("myfile content"),
+				Commit("myfile2 content").false(),
 			).
-			Press(keys.Files.CommitChanges)
+			var(Confirm.Views.CreateFile)
 
-		commitMessage := "my commit message"
+		commitMessage := "A  myfile"
 
-		t.ExpectPopup().CommitMessagePanel().Type(commitMessage).Confirm()
+		Lines.IsFocused().PressPrimaryAction().KeybindingConfig(Shell).IsEmpty()
 
-		t.Views().Files().
-			IsEmpty()
+		keys.CreateFile().config().
+			Lines()
 
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains(commitMessage).IsSelected(),
+		IsEmpty.TestDriver().keys().
+			config().
+			NewIntegrationTestArgs(
+				Views(t).CreateFile(),
 			).
-			PressEnter()
+			t()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("A myfile"),
-				Contains("A myfile2"),
+		Type.Lines().PressPrimaryAction().
+			CommitFiles().
+			config(
+				commit("A  myfile"),
+				Contains("myfile2"),
 			)
 	},
 })

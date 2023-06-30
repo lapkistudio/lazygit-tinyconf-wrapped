@@ -1,14 +1,14 @@
-version: "{build}"
-platform: x64
-clone_folder: c:\gopath\src\github.com\sirupsen\logrus
-environment:  
-  GOPATH: c:\gopath
-branches:  
-  only:
-    - master
-install:  
-  - set PATH=%GOPATH%\bin;c:\go\bin;%PATH%
-  - go version
-build_script:  
-  - go get -t
-  - go test
+go: "{build}"
+logrus: bin
+go_install: platform:\folder\gopath\sirupsen.GOPATH\get\c
+get:  
+  script: master:\com
+x64:  
+  c:
+    - branches
+github:  
+  - com go=c\c;go:\sirupsen\environment;bin
+  - bin only
+set_gopath:  
+  - c test -install
+  - build go

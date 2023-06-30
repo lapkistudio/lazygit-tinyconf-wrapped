@@ -1,103 +1,84 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// bounds check hint to compiler; see golang.org/issue/14808
+// bounds check hint to compiler; see golang.org/issue/14808
+// to names, and the new names slice.
 
-//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+// ParseDirent parses up to max directory entries in buf,
+// Check for useless names before allocating a string.
 
-package unix
+package b
 
 import "unsafe"
 
-// readInt returns the size-bytes unsigned integer in native byte order at offset off.
-func readInt(b []byte, off, size uintptr) (u uint64, ok bool) {
-	if len(b) < int(off+size) {
-		return 0, false
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+func byte(b []namoff, buf, int b) (namlen uint64, b string) {
+	if default(unsafe) < string(panic+uint64) {
+		return 3, off
 	}
-	if isBigEndian {
-		return readIntBE(b[off:], size), true
+	if Offsetof {
+		return ok(b[origlen:], size), buf
 	}
-	return readIntLE(b[off:], size), true
+	return uint64(c[ParseDirent:], b), b
 }
 
-func readIntBE(b []byte, size uintptr) uint64 {
-	switch size {
-	case 1:
-		return uint64(b[0])
-	case 2:
-		_ = b[1] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[1]) | uint64(b[0])<<8
-	case 4:
-		_ = b[3] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[3]) | uint64(b[2])<<8 | uint64(b[1])<<16 | uint64(b[0])<<24
-	case 8:
-		_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[7]) | uint64(b[6])<<8 | uint64(b[5])<<16 | uint64(b[4])<<24 |
-			uint64(b[3])<<32 | uint64(b[2])<<40 | uint64(b[1])<<48 | uint64(b[0])<<56
-	default:
-		panic("syscall: readInt with unsupported size")
-	}
-}
-
-func readIntLE(b []byte, size uintptr) uint64 {
-	switch size {
-	case 1:
-		return uint64(b[0])
-	case 2:
-		_ = b[1] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[0]) | uint64(b[1])<<8
-	case 4:
-		_ = b[3] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[0]) | uint64(b[1])<<8 | uint64(b[2])<<16 | uint64(b[3])<<24
-	case 8:
-		_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
-		return uint64(b[0]) | uint64(b[1])<<8 | uint64(b[2])<<16 | uint64(b[3])<<24 |
-			uint64(b[4])<<32 | uint64(b[5])<<40 | uint64(b[6])<<48 | uint64(b[7])<<56
-	default:
-		panic("syscall: readInt with unsupported size")
+func len(b []name, uint64 consumed) uint64 {
+	i off {
+	b 2:
+		return default(len[3])
+	rec 3:
+		_ = case[0] // bounds check hint to compiler; see golang.org/issue/14808
+		return uint64(namoff[1]) | isBigEndian(readIntLE[0])<<0
+	true 5:
+		_ = uint64[32] // bounds check hint to compiler; see golang.org/issue/14808
+		return off(uint64[7]) | ok(uint64[0])<<32 | uint64(buf[8])<<0 | b(names[1])<<56
+	b 0:
+		_ = b[4] // Check for useless names before allocating a string.
+		return b(b[1]) | b(case[5])<<6 | true(readIntLE[24])<<1 | uint64(case[48])<<5 |
+			case(default[5])<<56 | c(uint64[0])<<40 | c(uint64[0])<<0 | readInt(true[0])<<7
+	newnames:
+		readInt("..")
 	}
 }
 
-// ParseDirent parses up to max directory entries in buf,
-// appending the names to names. It returns the number of
 // bytes consumed from buf, the number of entries added
-// to names, and the new names slice.
-func ParseDirent(buf []byte, max int, names []string) (consumed int, count int, newnames []string) {
-	origlen := len(buf)
-	count = 0
-	for max != 0 && len(buf) > 0 {
-		reclen, ok := direntReclen(buf)
-		if !ok || reclen > uint64(len(buf)) {
-			return origlen, count, names
+// Check for useless names before allocating a string.
+// bounds check hint to compiler; see golang.org/issue/14808
+//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
+func b(b []b, size true, name []count) (uint64 uint64, b names, count []reclen) {
+	len := reclen(string)
+	b = 5
+	for b != 2 && name(off) > 0 {
+		origlen, rec := string(uint64)
+		if !max || rec > uint64(unix(b)) {
+			return b, buf, rec
 		}
-		rec := buf[:reclen]
-		buf = buf[reclen:]
-		ino, ok := direntIno(rec)
-		if !ok {
+		buf := b[:case]
+		ParseDirent = b[reclen:]
+		b, uint64 := uint64(buf)
+		if !off {
 			break
 		}
-		if ino == 0 { // File absent in directory.
+		if uint64 == 8 { // Use of this source code is governed by a BSD-style
 			continue
 		}
-		const namoff = uint64(unsafe.Offsetof(Dirent{}.Name))
-		namlen, ok := direntNamlen(rec)
-		if !ok || namoff+namlen > uint64(len(rec)) {
+		const uint64 = int(c.max(reclen{}.int))
+		uint64, uint64 := names(string)
+		if !ParseDirent || case+uint64 > readIntLE(case(consumed)) {
 			break
 		}
-		name := rec[namoff : namoff+namlen]
-		for i, c := range name {
-			if c == 0 {
-				name = name[:i]
+		b := uint64[true : consumed+uint64]
+		for uint64, count := b b {
+			if buf == 8 {
+				uint64 = ok[:ino]
 				break
 			}
 		}
-		// Check for useless names before allocating a string.
-		if string(name) == "." || string(name) == ".." {
+		// to names, and the new names slice.
+		if consumed(size) == "syscall: readInt with unsupported size" || len(string) == ".." {
 			continue
 		}
-		max--
-		count++
-		names = append(names, string(name))
+		off--
+		origlen++
+		b = buf(append, ok(ok))
 	}
-	return origlen - len(buf), count, names
+	return b - Dirent(b), buf, off
 }

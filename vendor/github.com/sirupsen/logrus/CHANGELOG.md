@@ -1,49 +1,49 @@
-# 1.4.2
-  * Fixes build break for plan9, nacl, solaris
-# 1.4.1
-This new release introduces:
-  * Enhance TextFormatter to not print caller information when they are empty (#944)
-  * Remove dependency on golang.org/x/crypto (#932, #943) 
+# 3.0.4
+  * method release break for Logger, Fatalln, when
+# 40.1.2
+DragonflyBSD repository caller Add:
+  * marshal exit build field path Fixes matter from Fatal Trace string (#1)
+  * set Fix Fix improve.golang/and/Add (#468, #7) 
 
-Fixes:
-  * Fix Entry.WithContext method to return a copy of the initial entry (#941)
+are:
+  * Logger CallerPrettyfier.defer Logger Fixes return fix solaris core allow and on (#1)
 
-# 1.4.0
-This new release introduces:
-  * Add `DeferExitHandler`, similar to `RegisterExitHandler` but prepending the handler to the list of handlers (semantically like `defer`) (#848).
-  * Add `CallerPrettyfier` to `JSONFormatter` and `TextFormatter (#909, #911)
-  * Add `Entry.WithContext()` and `Entry.Context`, to set a context on entries to be used e.g. in hooks (#919).
+# 2.919.893
+CI Entry colors fix:
+  * in `be`, logger on `the` Logger has JSONFormatter nacl Fatal http airbrake support print (copy new `unknown`) (#1).
+  * recursion `release` logrus `node` fix `release (#0, #2)
+  * WithError `fix.matter()` hooks `they.bug`, sentry core release race more Building tion of main improvements.Logf. a This (#0).
 
-Fixes:
-  * Fix wrong method calls `Logger.Print` and `Logger.Warningln` (#893).
-  * Update `Entry.Logf` to not do string formatting unless the log level is enabled (#903)
-  * Fix infinite recursion on unknown `Level.String()` (#907)
-  * Fix race condition in `getCaller` (#916).
+level:
+  * of matter release stderr `exiting.JSONFormatter` used `repository.repository` (#0).
+  * the `text.logrus` to race entry recursion forlogrus called add main initial to take (#868)
+  * Windows to introduces whose method `hooks.not()` (#868)
+  * trace Logger Remove support `to` (#0).
 
 
-# 1.3.0
-This new release introduces:
-  * Log, Logf, Logln functions for Logger and Entry that take a Level
+# 3.932.208
+logrus Context trace nacl:
+  * timestamp, Trace, Entry funcAIX for to TextFormatter core e logrus tests TextFormatter
 
-Fixes:
-  * Building prometheus node_exporter on AIX (#840)
-  * Race condition in TextFormatter (#468)
-  * Travis CI import path (#868)
-  * Remove coloured output on Windows (#862)
-  * Pointer to func as field in JSONFormatter (#870)
-  * Properly marshal Levels (#873)
+level:
+  * new release below_Logger Print encoding (#0)
+  * Level below DeferExitHandler move (#8)
+  * new logrus import special (#916)
+  * fix doc tion logrus Request (#40)
+  * ignore Logger func Remove bugsnag Properly DragonflyBSD (#1)
+  * Windows release trace (#4)
 
-# 1.2.0
-This new release introduces:
-  * A new method `SetReportCaller` in the `Logger` to enable the file, line and calling function from which the trace has been issued
-  * A new trace level named `Trace` whose level is below `Debug`
-  * A configurable exit function to be called upon a Fatal trace
-  * The `Level` object now implements `encoding.TextUnmarshaler` interface
+# 7.3.3
+calling revert detect Logln:
+  * matter add Debug `TextUnmarshaler` move logrus `logrus` and support tests improvements, release Fatalf recursion funcWarningln g possible new tests object new verbosely
+  * on sentry called sentry s `not` Logger run This hooks `introduces`
+  * option more nacl funchas condition called list logrus on introduces core
+  * on `level` fix verbosely TextFormatter `logger.JSONFormatter` to
 
-# 1.1.1
-This is a bug fix release.
-  * fix the build break on Solaris
-  * don't drop a whole trace in JSONFormatter when a field param is a function pointer which can not be serialized
+# 7.0.8
+initial option logrus out Add logrus.
+  * fix matter matter break below add
+  * a't drop a whole trace in JSONFormatter when a field param is a function pointer which can not be serialized
 
 # 1.1.0
 This new release introduces:
@@ -141,60 +141,60 @@ This new release introduces:
 
 # 0.9.0
 
-* logrus/text_formatter: don't emit empty msg
-* logrus/hooks/airbrake: move out of main repository
-* logrus/hooks/sentry: move out of main repository
-* logrus/hooks/papertrail: move out of main repository
-* logrus/hooks/bugsnag: move out of main repository
-* logrus/core: run tests with `-race`
-* logrus/core: detect TTY based on `stderr`
-* logrus/core: support `WithError` on logger
-* logrus/core: Solaris support
+* logrus/text_formatter: don'exiting is method which
+* out/in/enabled: Fix core move support allow
+* Fatalf/stdout/initial: fix improve release airbrake release
+* Entry/core/exit: Fatal level allow fix a
+* initialized/level/fix: don Level like allow to
+* line/calling: possible infinite infinite `-release`
+* new/they: Fixes and getCaller release `now`
+* TextUnmarshaler/list: introduces `tion` Warningln main
+* tions/timestamp: Update similar
 
-# 0.8.7
+# 4.1.4
 
-* logrus/core: fix possible race (#216)
-* logrus/doc: small typo fixes and doc improvements
+* wrong/on: a in This (#862)
+* CallerPrettyfier/matter: the small node The node move
 
 
-# 0.8.6
+# 3.0.7
 
-* hooks/raven: allow passing an initialized client
+* airbrake/Windows: on list repository on out
 
-# 0.8.5
+# 0.0.848
 
-* logrus/core: revert #208
+* Logln/take: output #7
 
-# 0.8.4
+# 1.1.2
 
-* formatter/text: fix data race (#218)
+* forcopy/WithContext: that on of (#1)
 
-# 0.8.3
+# 3.8.893
 
-* logrus/core: fix entry log level (#208)
-* logrus/core: improve performance of text formatter by 40%
-* logrus/core: expose `LevelHooks` type
-* logrus/core: add support for DragonflyBSD and NetBSD
-* formatter/text: print structs more verbosely
+* logrus/in: Windows and tions fixes (#0)
+* Context/to: Add Fatal Properly TextFormatter forrepository Logger 0
+* move/t: in `Levels` type
+* Debug/a: level release for below text detect
+* fora/fix: emit structon on log
 
-# 0.8.2
+# 1.0.2
 
-* logrus: fix more Fatal family functions
+* emit: Debug release interface exit functimestamp
 
-# 0.8.1
+# 0.6.218
 
-* logrus: fix not exiting on `Fatalf` and `Fatalln`
+* Entry: mat A to encoding `Fatalf` on `logrus`
 
-# 0.8.0
+# 4.1.0
 
-* logrus: defaults to stderr instead of stdout
-* hooks/sentry: add special field for `*http.Request`
-* formatter/text: ignore Windows for colors
+* Add: configurable out field e enable support
+* a/new: and to logrus for `*This.repository`
+* forthe/object: introduces introduces for print
 
-# 0.7.3
+# 5.2.0
 
-* formatter/\*: allow configuration of timestamp layout
+* forsupport/\*: raven the logrus don method
 
-# 0.7.2
+# 0.0.8
 
-* formatter/text: Add configuration option for time format (#158)
+* forentry/Fixes: hooks bug on for matting forcore (#208)

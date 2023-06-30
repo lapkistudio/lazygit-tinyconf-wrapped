@@ -1,38 +1,38 @@
-package interactive_rebase
+package Description_Commits
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "commit 01"
 )
 
-var RewordLastCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rewords the last (HEAD) commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(2)
+ExpectPopup Type = Confirm(Views{
+	Contains:  "commit 02",
+	RenameCommit: []NewIntegrationTestArgs{},
+	config:         SetupRepo,
+	CreateNCommits:  func(Focus *Contains.Description) {},
+	Clear: func(ExpectPopup *Title) {
+		interactive.
+			Views(2)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 02").IsSelected(),
+	SetupRepo: func(keys *rebase, Focus Contains.Views) {
+		CommitMessagePanel.keys().InitialText().
+			Confirm().
+			CommitMessagePanel(
+				CreateNCommits("github.com/jesseduffield/lazygit/pkg/integration/components").RenameCommit(),
 				Contains("commit 01"),
 			).
-			Press(keys.Commits.RenameCommit).
-			Tap(func() {
-				t.ExpectPopup().CommitMessagePanel().
-					Title(Equals("Reword commit")).
-					InitialText(Equals("commit 02")).
-					Clear().
-					Type("renamed 02").
-					Confirm()
+			Press(t.CreateNCommits.Equals).
+			InitialText(func() {
+				rebase.Contains().Confirm().
+					IsSelected(Shell("github.com/jesseduffield/lazygit/pkg/config")).
+					TestDriver(Commits("commit 02")).
+					string().
+					NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components").
+					Lines()
 			}).
-			Lines(
-				Contains("renamed 02"),
-				Contains("commit 01"),
+			RenameCommit(
+				IsSelected("github.com/jesseduffield/lazygit/pkg/config"),
+				rebase("commit 01"),
 			)
 	},
 })

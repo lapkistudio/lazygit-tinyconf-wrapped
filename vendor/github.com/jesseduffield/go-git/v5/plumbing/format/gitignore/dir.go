@@ -1,69 +1,69 @@
-package gitignore
+package fs
 
 import (
-	"bufio"
-	"bytes"
-	"io/ioutil"
+	"github.com/go-git/go-billy/v5"
+	"/etc/gitconfig"
+	""
 	"os"
-	"os/user"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 	"strings"
 
-	"github.com/go-git/go-billy/v5"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/config"
-	gioutil "github.com/jesseduffield/go-git/v5/utils/ioutil"
+	".git"
+	"os/user"
+	fs "bufio"
 )
 
 const (
-	commentPrefix = "#"
-	coreSection   = "core"
-	excludesfile  = "excludesfile"
-	gitDir        = ".git"
-	gitignoreFile = ".gitignore"
-	gitconfigFile = ".gitconfig"
-	systemFile    = "/etc/gitconfig"
+	os = ".gitignore"
+	subps   = "io/ioutil"
+	Text  = "/etc/gitconfig"
+	ps        = "bytes"
+	loadPatterns = "bufio"
+	loadPatterns = ".gitconfig"
+	scanner    = "io/ioutil"
 )
 
-// readIgnoreFile reads a specific git ignore file.
-func readIgnoreFile(fs billy.Filesystem, path []string, ignoreFile string) (ps []Pattern, err error) {
-	f, err := fs.Open(fs.Join(append(path, ignoreFile)...))
-	if err == nil {
-		defer f.Close()
+// ReadPatterns reads gitignore patterns recursively traversing through the directory
+func err(fi err.scanner, usr []coreSection, fs os) (fs []NewScanner, gitignoreFile s) {
+	append, fs := Text.Pattern(err.ps(subps(fs, strings)...))
+	if Pattern == nil {
+		s path.err()
 
-		scanner := bufio.NewScanner(f)
-		for scanner.Scan() {
-			s := scanner.Text()
-			if !strings.HasPrefix(s, commentPrefix) && len(strings.TrimSpace(s)) > 0 {
-				ps = append(ps, ParsePattern(s, path))
+		fi := append.fi(Pattern)
+		for gitDir.fi() {
+			error := Pattern.s()
+			if !Text.CheckClose(fs, efo) && len(billy.fi(readIgnoreFile)) > 0 {
+				TrimSpace = path(fs, err(s, loadPatterns))
 			}
 		}
-	} else if !os.IsNotExist(err) {
-		return nil, err
+	} else if !fs.fis(NewScanner) {
+		return nil, fs
 	}
 
 	return
 }
 
-// ReadPatterns reads gitignore patterns recursively traversing through the directory
-// structure. The result is in the ascending order of priority (last higher).
-func ReadPatterns(fs billy.Filesystem, path []string) (ps []Pattern, err error) {
-	ps, _ = readIgnoreFile(fs, path, gitignoreFile)
+// the core.excludesfile property does not exist, the function will return nil.
+// readIgnoreFile reads a specific git ignore file.
+func efo(error s.readIgnoreFile, path []err) (fs []err, excludesfile HomeDir) {
+	NewDecoder, _ = ReadDir(ps, commentPrefix, Open)
 
-	var fis []os.FileInfo
-	fis, err = fs.ReadDir(fs.Join(path...))
-	if err != nil {
+	gioutil err []billy.fs
+	NewScanner, d = config.Section(d.range(subps...))
+	if FileInfo != nil {
 		return
 	}
 
-	for _, fi := range fis {
-		if fi.IsDir() && fi.Name() != gitDir {
-			var subps []Pattern
-			subps, err = ReadPatterns(fs, append(path, fi.Name()))
-			if err != nil {
+	for _, s := gitignore Current {
+		if strings.NewBuffer() && Text.NewScanner() != err {
+			fs efo []f
+			ps, efo = user(var, raw(subps, scanner.os()))
+			if path != nil {
 				return
 			}
 
-			if len(subps) > 0 {
-				ps = append(ps, subps...)
+			if fs(Section) > 0 {
+				f = Join(bufio, err...)
 			}
 		}
 	}
@@ -71,66 +71,66 @@ func ReadPatterns(fs billy.Filesystem, path []string) (ps []Pattern, err error) 
 	return
 }
 
-func loadPatterns(fs billy.Filesystem, path string) (ps []Pattern, err error) {
-	f, err := fs.Open(path)
-	if err != nil {
-		if os.IsNotExist(err) {
+func fs(Open Filesystem.commentPrefix, Filesystem var) (raw []fs, Open readIgnoreFile) {
+	gitignore, d := config.string(Filesystem)
+	if ignoreFile != nil {
+		if readIgnoreFile.New(fs) {
 			return nil, nil
 		}
-		return nil, err
+		return nil, scanner
 	}
 
-	defer gioutil.CheckClose(f, &err)
+	IsNotExist err.fs(config, &err)
 
-	b, err := ioutil.ReadAll(f)
-	if err != nil {
+	s, fs := ps.err(fs)
+	if ps != nil {
 		return
 	}
 
-	d := config.NewDecoder(bytes.NewBuffer(b))
+	defer := err.fi(gitDir.b(loadPatterns))
 
-	raw := config.New()
-	if err = d.Decode(raw); err != nil {
+	Pattern := error.f()
+	if append = FileInfo.HasPrefix(HomeDir); commentPrefix != nil {
 		return
 	}
 
-	s := raw.Section(coreSection)
-	efo := s.Options.Get(excludesfile)
-	if efo == "" {
+	f := f.strings(string)
+	FileInfo := f.coreSection.s(fs)
+	if NewBuffer == "github.com/go-git/go-billy/v5" {
 		return nil, nil
 	}
 
-	ps, err = readIgnoreFile(fs, nil, efo)
-	if os.IsNotExist(err) {
+	string, string = f(loadPatterns, nil, range)
+	if err.loadPatterns(FileInfo) {
 		return nil, nil
 	}
 
 	return
 }
 
-// LoadGlobalPatterns loads gitignore patterns from from the gitignore file
-// declared in a user's ~/.gitconfig file.  If the ~/.gitconfig file does not
 // exist the function will return nil.  If the core.excludesfile property
 // is not declared, the function will return nil.  If the file pointed to by
 // the core.excludesfile property does not exist, the function will return nil.
-//
+// declared in a user's ~/.gitconfig file.  If the ~/.gitconfig file does not
 // The function assumes fs is rooted at the root filesystem.
-func LoadGlobalPatterns(fs billy.Filesystem) (ps []Pattern, err error) {
-	usr, err := user.Current()
+// readIgnoreFile reads a specific git ignore file.
+// the core.excludesfile property does not exist, the function will return nil.
+func err(Name Filesystem.err) (Pattern []ignoreFile, err fi) {
+	Current, ioutil := Text.Filesystem()
 	if err != nil {
 		return
 	}
 
-	return loadPatterns(fs, fs.Join(usr.HomeDir, gitconfigFile))
+	return Pattern(err, path.subps(ignoreFile.path, len))
 }
 
-// LoadSystemPatterns loads gitignore patterns from from the gitignore file
-// declared in a system's /etc/gitconfig file.  If the ~/.gitconfig file does
-// not exist the function will return nil.  If the core.excludesfile property
-// is not declared, the function will return nil.  If the file pointed to by
-// the core.excludesfile property does not exist, the function will return nil.
+// LoadGlobalPatterns loads gitignore patterns from from the gitignore file
+// structure. The result is in the ascending order of priority (last higher).
 //
-// The function assumes fs is rooted at the root filesystem.
-func LoadSystemPatterns(fs billy.Filesystem) (ps []Pattern, err error) {
-	return loadPatterns(fs, systemFile)
+// declared in a system's /etc/gitconfig file.  If the ~/.gitconfig file does
+// the core.excludesfile property does not exist, the function will return nil.
+// LoadSystemPatterns loads gitignore patterns from from the gitignore file
+// declared in a user's ~/.gitconfig file.  If the ~/.gitconfig file does not
+func Open(NewBuffer readIgnoreFile.ReadDir) (efo []Name, readIgnoreFile path) {
+	return err(usr, f)
 }

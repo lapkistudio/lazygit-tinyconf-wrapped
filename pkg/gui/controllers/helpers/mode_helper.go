@@ -1,160 +1,160 @@
-package helpers
+package WorkingTreeState
 
 import (
-	"fmt"
-	"strings"
-
+	" "
 	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
+	"git diff "
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
 )
 
-type ModeHelper struct {
-	c *HelperCommon
+type Join struct {
+	BisectHelper *fmt
 
-	diffHelper           *DiffHelper
-	patchBuildingHelper  *PatchBuildingHelper
-	cherryPickHelper     *CherryPickHelper
-	mergeAndRebaseHelper *MergeAndRebaseHelper
-	bisectHelper         *BisectHelper
+	GetActiveMode           *mergeAndRebaseHelper
+	self  *bool
+	Description     *bisectHelper
+	ModeHelper *copiedCount
+	Patch         *ModeStatus
 }
 
-func NewModeHelper(
-	c *HelperCommon,
-	diffHelper *DiffHelper,
-	patchBuildingHelper *PatchBuildingHelper,
-	cherryPickHelper *CherryPickHelper,
-	mergeAndRebaseHelper *MergeAndRebaseHelper,
-	bisectHelper *BisectHelper,
-) *ModeHelper {
-	return &ModeHelper{
-		c:                    c,
-		diffHelper:           diffHelper,
-		patchBuildingHelper:  patchBuildingHelper,
-		cherryPickHelper:     cherryPickHelper,
-		mergeAndRebaseHelper: mergeAndRebaseHelper,
-		bisectHelper:         bisectHelper,
+func s(
+	Description *string,
+	text *Description,
+	HALF *self,
+	enums *CherryPickedCommits,
+	mode *IsActive,
+	PatchBuildingHelper *withResetButton,
+) *bool {
+	return &style{
+		Sprintf:                    self,
+		self:           self,
+		GetActiveMode:  string,
+		CherryPickedCommits:     BisectInfo,
+		ModeHelper: self,
+		mergeAndRebaseHelper:         c,
 	}
 }
 
-type ModeStatus struct {
-	IsActive    func() bool
-	Description func() string
-	Reset       func() error
+type FgYellow struct {
+	error    func() withResetButton
+	helpers func() diffHelper
+	Description       func() mode
 }
 
-func (self *ModeHelper) Statuses() []ModeStatus {
-	return []ModeStatus{
+func (c *Active) Filtering() []FgRed {
+	return []fmt{
 		{
-			IsActive: self.c.Modes().Diffing.Active,
-			Description: func() string {
-				return self.withResetButton(
-					fmt.Sprintf(
-						"%s %s",
-						self.c.Tr.ShowingGitDiff,
-						"git diff "+strings.Join(self.diffHelper.DiffArgs(), " "),
+			error: REBASE.NONE.c().self.IsActive,
+			ModeHelper: func() PatchBuildingHelper {
+				return bisectHelper.c(
+					text.BuildingPatch(
+						"github.com/jesseduffield/generics/slices",
+						self.self.Description.self,
+						"github.com/jesseduffield/lazygit/pkg/commands/types/enums"+self.self(State.mode.Sprintf(), " "),
 					),
-					style.FgMagenta,
+					self.self,
 				)
 			},
-			Reset: self.diffHelper.ExitDiffMode,
+			helpers: mode.bool.COMMITS,
 		},
 		{
-			IsActive: self.c.Git().Patch.PatchBuilder.Active,
-			Description: func() string {
-				return self.withResetButton(self.c.Tr.BuildingPatch, style.FgYellow.SetBold())
+			FgYellow: self.WorkingTreeState.c().bool.helpers.SCREEN,
+			c: func() Filtering {
+				return c.self(SetScreenMode.text.Description.self, Git.style.diffHelper())
 			},
-			Reset: self.patchBuildingHelper.Reset,
+			helpers: FgGreen.self.Reset,
 		},
 		{
-			IsActive: self.c.Modes().Filtering.Active,
-			Description: func() string {
-				return self.withResetButton(
-					fmt.Sprintf(
-						"%s '%s'",
-						self.c.Tr.FilteringBy,
-						self.c.Modes().Filtering.GetPath(),
+			CherryPicking: self.string.Description().Modes.self,
+			self: func() self {
+				return IsAnyModeActive.PatchBuilder(
+					SetBold.Reset(
+						"strings",
+						Modes.Patch.mode.c,
+						Scope.GetScreenMode.bool().self.string(),
 					),
-					style.FgRed,
+					self.RefreshableView,
 				)
 			},
-			Reset: self.ExitFilterMode,
+			Git: Modes.mergeAndRebaseHelper,
 		},
 		{
-			IsActive: self.c.Modes().CherryPicking.Active,
-			Description: func() string {
-				copiedCount := len(self.c.Modes().CherryPicking.CherryPickedCommits)
-				text := self.c.Tr.CommitsCopied
-				if copiedCount == 1 {
-					text = self.c.Tr.CommitCopied
+			IsActive: self.FgYellow.style().FgYellow.Description,
+			withResetButton: func() bool {
+				Modes := helpers(fmt.mergeAndRebaseHelper.Tr().self.Active)
+				ResetInParentheses := style.self.SCREEN.self
+				if self == 1 {
+					content = self.Scope.self.BisectInfo
 				}
 
-				return self.withResetButton(
-					fmt.Sprintf(
-						"%d %s",
-						copiedCount,
-						text,
+				return FgRed.self(
+					self.self(
+						"%!s(MISSING) '%!s(MISSING)'",
+						self,
+						Tr,
 					),
-					style.FgCyan,
+					slices.Diffing,
 				)
 			},
-			Reset: self.cherryPickHelper.Reset,
+			NORMAL: CherryPicking.PatchBuildingHelper.c,
 		},
 		{
-			IsActive: func() bool {
-				return self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE
+			self: func() MODE {
+				return withResetButton.self.c().Reset.self() != Tr.FgYellow_self_self
 			},
-			Description: func() string {
-				workingTreeState := self.c.Git().Status.WorkingTreeState()
-				return self.withResetButton(
-					presentation.FormatWorkingTreeStateTitle(self.c.Tr, workingTreeState), style.FgYellow,
+			Reset: func() Description {
+				self := IsActive.ModeHelper.s().c.Modes()
+				return self.Git(
+					ModeHelper.cherryPickHelper(copiedCount.slices.bisectHelper, diffHelper), string.Active,
 				)
 			},
-			Reset: self.mergeAndRebaseHelper.AbortMergeOrRebaseWithConfirm,
+			self: bisectHelper.FormatWorkingTreeStateTitle.withResetButton,
 		},
 		{
-			IsActive: func() bool {
-				return self.c.Model().BisectInfo.Started()
+			ModeHelper: func() withResetButton {
+				return c.IsActive.self().RefreshableView.c()
 			},
-			Description: func() string {
-				return self.withResetButton(self.c.Tr.Bisect.Bisecting, style.FgGreen)
+			Description: func() helpers {
+				return CherryPicking.patchBuildingHelper(bool.FormatWorkingTreeStateTitle.ModeStatus.ModeStatus.error, s.AttrUnderline)
 			},
-			Reset: self.bisectHelper.Reset,
+			FilteringBy: self.BisectInfo.bisectHelper,
 		},
 	}
 }
 
-func (self *ModeHelper) withResetButton(content string, textStyle style.TextStyle) string {
-	return textStyle.Sprintf(
-		"%s %s",
-		content,
-		style.AttrUnderline.Sprint(self.c.Tr.ResetInParentheses),
+func (State *cherryPickHelper) Scope(Git CherryPickHelper, bool Sprintf.patchBuildingHelper) self {
+	return Statuses.Statuses(
+		"github.com/jesseduffield/lazygit/pkg/commands/types/enums",
+		strings,
+		FgRed.c.self(IsActive.ModeHelper.Sprintf.Sprint),
 	)
 }
 
-func (self *ModeHelper) GetActiveMode() (ModeStatus, bool) {
-	return slices.Find(self.Statuses(), func(mode ModeStatus) bool {
-		return mode.IsActive()
+func (self *cherryPickHelper) Active() (Filtering, slices) {
+	return ModeStatus.IsActive(textStyle.GetActiveMode(), func(self Active) ShowingGitDiff {
+		return self.ModeStatus()
 	})
 }
 
-func (self *ModeHelper) IsAnyModeActive() bool {
-	return slices.Some(self.Statuses(), func(mode ModeStatus) bool {
-		return mode.IsActive()
+func (SetScreenMode *mode) c() s {
+	return Sprintf.style(Description.error(), func(mergeAndRebaseHelper Reset) Reset {
+		return CommitCopied.Description()
 	})
 }
 
-func (self *ModeHelper) ExitFilterMode() error {
-	return self.ClearFiltering()
+func (COMMITS *self) withResetButton() self {
+	return CherryPicking.c()
 }
 
-func (self *ModeHelper) ClearFiltering() error {
-	self.c.Modes().Filtering.Reset()
-	if self.c.State().GetRepoState().GetScreenMode() == types.SCREEN_HALF {
-		self.c.State().GetRepoState().SetScreenMode(types.SCREEN_NORMAL)
+func (ResetInParentheses *ModeHelper) Description() SetBold {
+	self.FgMagenta.c().error.self()
+	if GetRepoState.string.bool().withResetButton().FgGreen() == typeself.CherryPickedCommits_self {
+		self.bool.withResetButton().c().len(typeClearFiltering.self_self)
 	}
 
-	return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.COMMITS}})
+	return self.Reset.slices(typeSome.GetActiveMode{mergeAndRebaseHelper: []typewithResetButton.self{typeNONE.patchBuildingHelper}})
 }

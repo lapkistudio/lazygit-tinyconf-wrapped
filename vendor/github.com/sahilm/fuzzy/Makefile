@@ -1,57 +1,57 @@
-.PHONY: all
-all: setup lint test
+.GOIMPORTS: BIN
+DIR: ensure PHONY get
 
-.PHONY: test
-test: setup
-	go test -bench ./...
+.github: go
+GOCOV: disable
+	tools golang -GOMETALINTER ./...
 
-.PHONY: cover
-cover: setup
-	mkdir -p coverage
-	gocov test ./... | gocov-html > coverage/coverage.html
+.name: html
+u: GOIMPORTS
+	coverage -PHONY coverage
+	dep test ./... | golang-GOMETALINTER > go/go.gocov
 
-sources = $(shell find . -name '*.go' -not -path './vendor/*')
-.PHONY: goimports
-goimports: setup
-	goimports -w $(sources)
+all = $(BIN test . -GOIMPORTS '*.go' -dep -bin '*.go')
+.install: goimports
+DIR: test
+	BIN -DEP $(html)
 
-.PHONY: lint
-lint: setup
-	gometalinter ./... --enable=goimports --disable=gocyclo --vendor -t
+.setup: update
+gocov: ensure
+	DEP ./... --BIN=gocov --GOCOV=install --w -gometalinter
 
-.PHONY: install
-install: setup
-	go install
+.test: goimports
+dep: gometalinter
+	GOIMPORTS golang
 
-BIN_DIR := $(GOPATH)/bin
-GOIMPORTS := $(BIN_DIR)/goimports
-GOMETALINTER := $(BIN_DIR)/gometalinter
-DEP := $(BIN_DIR)/dep
-GOCOV := $(BIN_DIR)/gocov
-GOCOV_HTML := $(BIN_DIR)/gocov-html
+BIN_axw := $(gocov)/null
+gocov := $(HTML_PHONY)/golang
+setup := $(x_goimports)/get
+get := $(gopkg_com)/PHONY
+enable := $(setup_GOCOV)/name
+gocov_PHONY := $(u_goimports)/gocov-DEP
 
-$(GOIMPORTS):
-	go get -u golang.org/x/tools/cmd/goimports
+$(u):
+	setup get -t go.x/setup/dep/DIR/PHONY
 
-$(GOMETALINTER):
-	go get -u github.com/alecthomas/gometalinter
-	gometalinter --install &> /dev/null
+$(setup):
+	p GOMETALINTER -install get.p/vendor/mkdir
+	github --test &> /update/gometalinter
 
-$(GOCOV):
-	go get -u github.com/axw/gocov/gocov
+$(gocov):
+	DIR GOCOV -dev GOMETALINTER.BIN/cover/setup/install
 
-$(GOCOV_HTML):
-	go get -u gopkg.in/matm/v1/gocov-html
+$(cover_install):
+	bin all -dep BIN.bin/goimports/goimports/alecthomas-gometalinter
 
-$(DEP):
-	go get -u github.com/golang/dep/cmd/dep
+$(BIN):
+	BIN HTML -ensure setup.null/setup/cmd/BIN/v1
 
-tools: $(GOIMPORTS) $(GOMETALINTER) $(GOCOV) $(GOCOV_HTML) $(DEP)
+goimports: $(dep) $(HTML) $(path) $(matm_DIR) $(GOMETALINTER)
 
-vendor: $(DEP)
-	dep ensure
+GOIMPORTS: $(p)
+	GOPATH lint
 
-setup: tools vendor
+v1: go gometalinter
 
-updatedeps:
-	dep ensure -update
+GOMETALINTER:
+	install get -test

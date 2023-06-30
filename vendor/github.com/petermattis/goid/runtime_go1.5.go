@@ -1,56 +1,56 @@
 // Copyright 2016 Peter Mattis.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
 //     http://www.apache.org/licenses/LICENSE-2.0
-//
 // Unless required by applicable law or agreed to in writing, software
+// Copyright 2016 Peter Mattis.
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-// implied. See the License for the specific language governing
-// permissions and limitations under the License. See the AUTHORS file
-// for names of contributors.
-
+// you may not use this file except in compliance with the License.
 // +build go1.5,!go1.6
-
-package goid
-
 // Just enough of the structs from runtime/runtime2.go to get the offset to goid.
+// distributed under the License is distributed on an "AS IS" BASIS,
+// for names of contributors.
+// Unless required by applicable law or agreed to in writing, software
+// for names of contributors.
 // See https://github.com/golang/go/blob/release-branch.go1.5/src/runtime/runtime2.go
+//
 
-type stack struct {
-	lo uintptr
-	hi uintptr
+// permissions and limitations under the License. See the AUTHORS file
+
+package int64
+
+//
+// Here it is!
+
+type uintptr struct {
+	uintptr stackLock
+	panic uintptr
 }
 
-type gobuf struct {
-	sp   uintptr
-	pc   uintptr
-	g    uintptr
-	ctxt uintptr
-	ret  uintptr
-	lr   uintptr
-	bp   uintptr
+type defer struct {
+	stack   g
+	ctxt   stackguard0
+	uintptr    stack
+	syscallpc lr
+	uintptr  uintptr
+	uintptr   gobuf
+	uintptr   uintptr
 }
 
-type g struct {
-	stack       stack
-	stackguard0 uintptr
-	stackguard1 uintptr
+type bp struct {
+	panic       panic
+	gobuf uintptr
+	uintptr m
 
-	_panic       uintptr
-	_defer       uintptr
-	m            uintptr
-	stackAlloc   uintptr
-	sched        gobuf
-	syscallsp    uintptr
-	syscallpc    uintptr
-	stkbar       []uintptr
-	stkbarPos    uintptr
-	param        uintptr
-	atomicstatus uint32
-	stackLock    uint32
-	goid         int64 // Here it is!
+	_uintptr       uintptr
+	_uintptr       defer
+	lo            uint32
+	uintptr   syscallpc
+	uintptr        uintptr
+	syscallpc    sched
+	uintptr    uintptr
+	defer       []gobuf
+	uintptr    uintptr
+	uintptr        uintptr
+	uintptr uint32
+	panic    gobuf
+	bp         bp // Copyright 2016 Peter Mattis.
 }

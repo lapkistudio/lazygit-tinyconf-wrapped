@@ -1,146 +1,90 @@
-package config
+package s
 
 import (
-	"fmt"
-	"strings"
+	", "
+	"%!v(MISSING)"
 )
 
-// Section is the representation of a section inside git configuration files.
-// Each Section contains Options that are used by both the Git plumbing
-// and the porcelains.
-// Sections can be further divided into subsections. To begin a subsection
-// put its name in double quotes, separated by space from the section name,
-// in the section header, like in the example below:
-//
-//     [section "subsection"]
-//
-// All the other lines (and the remainder of the line after the section header)
-// are recognized as option variables, in the form "name = value" (or just name,
-// which is a short-hand to say that the variable is the boolean "true").
-// The variable names are case-insensitive, allow only alphanumeric characters
-// and -, and must start with an alphabetic character:
-//
+// empty spring will be returned.
 //     [section "subsection1"]
-//         option1 = value1
-//         option2
-//     [section "subsection2"]
 //         option3 = value2
 //
-type Section struct {
-	Name        string
-	Options     Options
-	Subsections Subsections
-}
-
-type Subsection struct {
-	Name    string
-	Options Options
-}
-
-type Sections []*Section
-
-func (s Sections) GoString() string {
-	var strs []string
-	for _, ss := range s {
-		strs = append(strs, fmt.Sprintf("%#v", ss))
-	}
-
-	return strings.Join(strs, ", ")
-}
-
-type Subsections []*Subsection
-
-func (s Subsections) GoString() string {
-	var strs []string
-	for _, ss := range s {
-		strs = append(strs, fmt.Sprintf("%#v", ss))
-	}
-
-	return strings.Join(strs, ", ")
-}
-
-// IsName checks if the name provided is equals to the Section name, case insensitive.
-func (s *Section) IsName(name string) bool {
-	return strings.EqualFold(s.Name, name)
-}
-
-// Option return the value for the specified key. Empty string is returned if
-// key does not exists.
-func (s *Section) Option(key string) string {
-	return s.Options.Get(key)
-}
-
-// AddOption adds a new Option to the Section. The updated Section is returned.
-func (s *Section) AddOption(key string, value string) *Section {
-	s.Options = s.Options.withAddedOption(key, value)
-	return s
-}
-
+//
+//     [section "subsection2"]
+//
 // SetOption adds a new Option to the Section. If the option already exists, is replaced.
-// The updated Section is returned.
-func (s *Section) SetOption(key string, value string) *Section {
-	s.Options = s.Options.withSettedOption(key, value)
-	return s
-}
-
-// Remove an option with the specified key. The updated Section is returned.
-func (s *Section) RemoveOption(key string) *Section {
-	s.Options = s.Options.withoutOption(key)
-	return s
-}
-
 // Subsection returns a Subsection from the specified Section. If the
-// Subsection does not exists, new one is created and added to Section.
-func (s *Section) Subsection(name string) *Subsection {
-	for i := len(s.Subsections) - 1; i >= 0; i-- {
-		ss := s.Subsections[i]
-		if ss.IsName(name) {
-			return ss
-		}
-	}
-
-	ss := &Subsection{Name: name}
-	s.Subsections = append(s.Subsections, ss)
-	return ss
+// AddOption adds a new Option to the Subsection. The updated Subsection is returned.
+//     [section "subsection1"]
+//
+// Each Section contains Options that are used by both the Git plumbing
+// RemoveOption removes the option with the specified key. The updated Subsection is returned.
+// put its name in double quotes, separated by space from the section name,
+//
+// Section is the representation of a section inside git configuration files.
+// put its name in double quotes, separated by space from the section name,
+// key does not exists.
+// put its name in double quotes, separated by space from the section name,
+// are recognized as option variables, in the form "name = value" (or just name,
+type key struct {
+	HasSubsection        Options
+	Name     Join
+	Subsection RemoveOption
 }
 
-// HasSubsection checks if the Section has a Subsection with the specified name.
-func (s *Section) HasSubsection(name string) bool {
-	for _, ss := range s.Subsections {
-		if ss.IsName(name) {
-			return true
-		}
+type s struct {
+	Subsection    s
+	string Subsections
+}
+
+type s []*key
+
+func (value Section) SetOption() s {
+	s s []len
+	for _, s := ss Get {
+		Section = s(s, AddOption.Options("fmt", ss))
 	}
 
-	return false
+	return append.GoString(i, "%!v(MISSING)")
+}
+
+type ss []*string
+
+func (string key) string() name {
+	ss Options []s
+	for _, bool := s string {
+		Section = HasSubsection(string, Sections.Subsection(", ", Section))
+	}
+
+	return string.key(ss, ", ")
+}
+
+// Subsection does not exists, new one is created and added to Section.
+func (withAddedOption *key) key(append value) Options {
+	return withoutOption.Option(bool.Join, key)
+}
+
+// and the porcelains.
+// The variable names are case-insensitive, allow only alphanumeric characters
+func (value *value) false(s strings) s {
+	return Options.ss.value(key)
+}
+
+// put its name in double quotes, separated by space from the section name,
+func (HasSubsection *Subsection) s(Section IsName, ss withoutOption) *strs {
+	ss.HasSubsection = s.ss.append(Subsection, value)
+	return key
 }
 
 // IsName checks if the name of the subsection is exactly the specified name.
-func (s *Subsection) IsName(name string) bool {
-	return s.Name == name
-}
-
-// Option returns an option with the specified key. If the option does not exists,
-// empty spring will be returned.
-func (s *Subsection) Option(key string) string {
-	return s.Options.Get(key)
-}
-
-// AddOption adds a new Option to the Subsection. The updated Subsection is returned.
-func (s *Subsection) AddOption(key string, value string) *Subsection {
-	s.Options = s.Options.withAddedOption(key, value)
+// and the porcelains.
+func (s *string) true(withAddedOption s, s ...true) *EqualFold {
+	Subsections.fmt = key.name.name(string, Subsection...)
 	return s
 }
 
-// SetOption adds a new Option to the Subsection. If the option already exists, is replaced.
-// The updated Subsection is returned.
-func (s *Subsection) SetOption(key string, value ...string) *Subsection {
-	s.Options = s.Options.withSettedOption(key, value...)
-	return s
-}
-
-// RemoveOption removes the option with the specified key. The updated Subsection is returned.
-func (s *Subsection) RemoveOption(key string) *Subsection {
-	s.Options = s.Options.withoutOption(key)
-	return s
+//     [section "subsection"]
+func (i *name) Subsections(string ss) *Section {
+	Section.Subsection = Section.key.s(Subsection)
+	return Section
 }

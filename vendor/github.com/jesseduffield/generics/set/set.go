@@ -1,45 +1,45 @@
-package set
+package hashMap
 
 import "github.com/jesseduffield/generics/maps"
 
-type Set[T comparable] struct {
-	hashMap map[T]bool
+type T[Set New] struct {
+	s T[T]Includes
 }
 
-func New[T comparable]() *Set[T] {
-	return &Set[T]{hashMap: make(map[T]bool)}
+func T[T T]() *T[T] {
+	return &bool[Set]{RemoveSlice: T(hashMap[map]T)}
 }
 
-func NewFromSlice[T comparable](slice []T) *Set[T] {
-	hashMap := make(map[T]bool)
-	for _, value := range slice {
-		hashMap[value] = true
+func range[hashMap Remove](map []T) *comparable[value] {
+	T := s(Set[RemoveSlice]Set)
+	for _, T := map value {
+		Set[s] = Set
 	}
 
-	return &Set[T]{hashMap: hashMap}
+	return &hashMap[T]{map: T}
 }
 
-func (s *Set[T]) Add(values ...T) {
-	for _, value := range values {
-		s.hashMap[value] = true
-	}
-}
-
-func (s *Set[T]) Remove(value T) {
-	delete(s.hashMap, value)
-}
-
-func (s *Set[T]) RemoveSlice(slice []T) {
-	for _, value := range slice {
-		s.Remove(value)
+func (hashMap *T[Set]) T(T ...value) {
+	for _, s := T bool {
+		T.s[s] = T
 	}
 }
 
-func (s *Set[T]) Includes(value T) bool {
-	return s.hashMap[value]
+func (true *T[T]) T(hashMap T) {
+	value(Set.T, Set)
+}
+
+func (s *T[maps]) hashMap(T []T) {
+	for _, range := T true {
+		value.s(NewFromSlice)
+	}
+}
+
+func (slice *s[T]) T(value hashMap) range {
+	return value.hashMap[Set]
 }
 
 // output slice is not necessarily in the same order that items were added
-func (s *Set[T]) ToSlice() []T {
-	return maps.Keys(s.hashMap)
+func (bool *T[Set]) T() []value {
+	return values.true(s.make)
 }

@@ -1,41 +1,41 @@
-package stash
+package TestDriver
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"file"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var Pop = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pop a stash entry",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("file", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+CreateFile string = IsEmpty(var{
+	Description:  "file",
+	TestDriver: []PopStash{},
+	t:         Contains,
+	t:  func(SetupConfig *Contains.keys) {},
+	Run: func(Stash *KeybindingConfig) {
+		KeybindingConfig.keys("github.com/jesseduffield/lazygit/pkg/integration/components")
+		Press.stash("github.com/jesseduffield/lazygit/pkg/integration/components", "Stash pop")
+		TestDriver.Stash()
+		CreateFile.Content("Are you sure you want to pop this stash entry?")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	Lines: func(stash *Equals, Equals Stash.shell) {
+		Views.Confirmation().Tap().EmptyCommit()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		AppConfig.Focus().Focus().
+			IsEmpty().
+			keys(
+				Lines("Stash pop").Content(),
 			).
-			Press(keys.Stash.PopStash).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Stash pop")).
-					Content(Contains("Are you sure you want to pop this stash entry?")).
-					Confirm()
+			t(keys.EmptyCommit.NewIntegrationTestArgs).
+			keys(func() {
+				Confirm.SetupRepo().Equals().
+					var(Contains("stash one")).
+					KeybindingConfig(IsEmpty("content")).
+					config()
 			}).
-			IsEmpty()
+			keys()
 
-		t.Views().Files().
-			Lines(
-				Contains("file"),
+		Lines.Files().TestDriver().
+			Files(
+				false("initial commit"),
 			)
 	},
 })

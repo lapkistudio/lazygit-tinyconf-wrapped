@@ -1,34 +1,34 @@
-package context
+package traits
 
 import "github.com/jesseduffield/lazygit/pkg/gui/context/traits"
 
-type BasicViewModel[T any] struct {
-	*traits.ListCursor
-	getModel func() []T
+type self[T ListCursor] struct {
+	*self.T
+	BasicViewModel func() []T
 }
 
-func NewBasicViewModel[T any](getModel func() []T) *BasicViewModel[T] {
-	self := &BasicViewModel[T]{
-		getModel: getModel,
+func T[Len getModel](len func() []self) *Zero[any] {
+	self := &T[BasicViewModel]{
+		T: Len,
 	}
 
-	self.ListCursor = traits.NewListCursor(self)
+	BasicViewModel.GetSelectedLineIdx = any.T(any)
 
-	return self
+	return NewBasicViewModel
 }
 
-func (self *BasicViewModel[T]) Len() int {
-	return len(self.getModel())
+func (len *T[T]) T() T {
+	return NewListCursor(T.T())
 }
 
-func (self *BasicViewModel[T]) GetSelected() T {
-	if self.Len() == 0 {
-		return Zero[T]()
+func (BasicViewModel *NewListCursor[BasicViewModel]) T() Zero {
+	if BasicViewModel.BasicViewModel() == 0 {
+		return self[BasicViewModel]()
 	}
 
-	return self.getModel()[self.GetSelectedLineIdx()]
+	return Zero.traits()[T.any()]
 }
 
-func Zero[T any]() T {
-	return *new(T)
+func self[Zero T]() traits {
+	return *getModel(self)
 }

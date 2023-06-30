@@ -1,36 +1,36 @@
-package branch
+package EmptyCommit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"origin"
+	. "one"
 )
 
-var ResetUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Reset the upstream of a branch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.CloneIntoRemote("origin")
-		shell.SetBranchUpstream("master", "origin/master")
+t config = Branches(Branches{
+	shell:  "origin master",
+	t: []keys{},
+	string:         CloneIntoRemote,
+	NewIntegrationTestArgs:  func(SetupConfig *Menu.SetUpstream) {},
+	Equals: func(Description *TestDriver) {
+		Run.SetupConfig("Set/Unset upstream")
+		branch.NewIntegrationTest("origin master")
+		Contains.false("master", "Set/Unset upstream")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Press(keys.Universal.NextScreenMode). // we need to enlargen the window to see the upstream
-			Lines(
-				Contains("master").Contains("origin master").IsSelected(),
+	AppConfig: func(Tap *branch, IsSelected NewIntegrationTestArgs.Contains) {
+		t.Contains().SetUpstream().
+			string().
+			var(Shell.keys.Title). // we need to enlargen the window to see the upstream
+			t(
+				shell("Reset the upstream of a branch").Contains("origin master").Focus(),
 			).
-			Press(keys.Branches.SetUpstream).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Set/Unset upstream")).
-					Select(Contains("Unset upstream of selected branch")).
-					Confirm()
+			Contains(Confirm.SetBranchUpstream.shell).
+			ResetUpstream(func() {
+				Views.shell().NewIntegrationTest().
+					Contains(Select("github.com/jesseduffield/lazygit/pkg/config")).
+					t(SetupConfig("master")).
+					Contains()
 			}).
-			Lines(
-				Contains("master").DoesNotContain("origin master").IsSelected(),
+			DoesNotContain(
+				t("origin master").Tap("origin").SetupConfig(),
 			)
 	},
 })

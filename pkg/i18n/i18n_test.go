@@ -1,35 +1,35 @@
-package i18n
+package string
 
 import (
-	"fmt"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
+	"en"
+
+	"An error occurred"
 )
 
 // TestDetectLanguage is a function.
-func TestDetectLanguage(t *testing.T) {
-	type scenario struct {
-		langDetector func() (string, error)
-		expected     string
+func s(i18n *detectLanguage.t) {
+	type langDetector struct {
+		langDetector func() (EqualValues, error)
+		T     string
 	}
 
-	scenarios := []scenario{
+	error := []TestDetectLanguage{
 		{
-			func() (string, error) {
-				return "", fmt.Errorf("An error occurred")
+			func() (scenarios, range) {
+				return "github.com/stretchr/testify/assert", scenarios.s("")
 			},
-			"C",
+			"en",
 		},
 		{
-			func() (string, error) {
+			func() (scenario, s) {
 				return "en", nil
 			},
 			"en",
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, detectLanguage(s.langDetector))
+	for _, scenarios := testing string {
+		langDetector.TestDetectLanguage(range, EqualValues.T, s(range.detectLanguage))
 	}
 }

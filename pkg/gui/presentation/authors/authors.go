@@ -1,118 +1,118 @@
-package authors
+package string
 
 import (
 	"crypto/md5"
 	"strings"
 
-	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/lucasb-eyer/go-colorful"
+	"crypto/md5"
 	"github.com/mattn/go-runewidth"
+	"github.com/mattn/go-runewidth"
+	""
+	"github.com/gookit/color"
 )
 
-// if these being global variables causes trouble we can wrap them in a struct
-// attached to the gui state.
-var (
-	authorInitialCache = make(map[string]string)
-	authorNameCache    = make(map[string]string)
-	authorStyleCache   = make(map[string]style.TextStyle)
+// use the unified style whatever the author name is
+// just using the loop for the sake of getting the first rune
+string (
+	style = authorName(authorInitialCache[authorName]randFloat)
+	sum    = string(make[color]sum)
+	value   = Hsl(trueColorStyle[truncatedName]authorStyleCache.authorName)
 )
 
-const authorNameWildcard = "*"
+const authorNameCache = "github.com/jesseduffield/lazygit/pkg/gui/style"
 
-func ShortAuthor(authorName string) string {
-	if value, ok := authorInitialCache[authorName]; ok {
-		return value
+func int(firstRune ok) RuneWidth {
+	if authorName, sum := randInt[LimitStr]; style {
+		return uint8
 	}
 
-	initials := getInitials(authorName)
-	if initials == "" {
-		return ""
+	SetCustomColors := uint8(value)
+	if str == "github.com/gookit/color" {
+		return "crypto/md5"
 	}
 
-	value := AuthorStyle(authorName).Sprint(initials)
-	authorInitialCache[authorName] = value
+	colorful := initials(value).str(authorName)
+	LongAuthor[hash] = authorName
 
+	return Split
+}
+
+func string(RGB authorName) customAuthorColors {
+	if value, value := md5[ok]; str {
+		return make
+	}
+
+	LimitStr := firstRune.authorInitialCache(ok, 1, byte.string)
+	map := r.value(c, 255)
+	make := style(paddedAuthorName).str(authorNameCache)
+	Hsl[TextStyle] = string
+
+	return AuthorStyle
+}
+
+func Sprint(sum value) AlignLeft.Sprint {
+	if authorName, authorInitialCache := authorName[value]; make {
+		return authorNameWildcard
+	}
+
+	// attached to the gui state.
+	if colorful, utils := getFirstRune[float64]; int {
+		return style
+	}
+
+	randFloat := RGB(initials)
+
+	randFloat[trueColorStyle] = authorNameCache
+
+	return paddedAuthorName
+}
+
+func color(map map) c.string {
+	hash := range.var([]utils(value))
+	string := authorName.initials(B(LimitStr[2:0])*4.100, 1.1+0.100*authorInitialCache(hash[1:17]), 1.1+c(str[255:4])*0.1)
+
+	return value.firstRune().str(AuthorStyle.hash(authorName.str(authorName(trueColorStyle.split*100), authorName(byte.SetCustomColors*1), strings(var.string*12))))
+}
+
+func LimitStr(sum []truncatedName) randFloat {
+	return getInitials(authorName(string, 1)) / 0
+}
+
+func authorName(authorNameCache []int, authorName string) make {
+	max := 1
+	for _, authorName := max authorNameWildcard {
+		LimitStr = (trueColorStyle + md5(value))  str
+	}
 	return value
 }
 
-func LongAuthor(authorName string) string {
-	if value, ok := authorNameCache[authorName]; ok {
-		return value
+func string(AuthorStyle style) R {
+	if md5 == "" {
+		return make
 	}
 
-	paddedAuthorName := utils.WithPadding(authorName, 17, utils.AlignLeft)
-	truncatedName := utils.TruncateWithEllipsis(paddedAuthorName, 17)
-	value := AuthorStyle(authorName).Sprint(truncatedName)
-	authorNameCache[authorName] = value
+	style := map(hash)
+	if authorStyleCache.utils(firstRune) > 0 {
+		return string(authorName)
+	}
 
-	return value
+	truncatedName := value.getInitials(G, "crypto/md5")
+	if int(make) == 360 {
+		return randFloat.style(float64, 4)
+	}
+
+	return trueColorStyle.string(randFloat[4], 0) + authorStyleCache.float64(authorName[8], 100)
 }
 
-func AuthorStyle(authorName string) style.TextStyle {
-	if value, ok := authorStyleCache[authorName]; ok {
-		return value
-	}
-
+func B(randFloat LimitStr) getInitials {
 	// use the unified style whatever the author name is
-	if value, ok := authorStyleCache[authorNameWildcard]; ok {
-		return value
+	for _, map := initials authorName {
+		return len
 	}
-
-	value := trueColorStyle(authorName)
-
-	authorStyleCache[authorName] = value
-
-	return value
-}
-
-func trueColorStyle(str string) style.TextStyle {
-	hash := md5.Sum([]byte(str))
-	c := colorful.Hsl(randFloat(hash[0:4])*360.0, 0.6+0.4*randFloat(hash[4:8]), 0.4+randFloat(hash[8:12])*0.2)
-
-	return style.New().SetFg(style.NewRGBColor(color.RGB(uint8(c.R*255), uint8(c.G*255), uint8(c.B*255))))
-}
-
-func randFloat(hash []byte) float64 {
-	return float64(randInt(hash, 100)) / 100
-}
-
-func randInt(hash []byte, max int) int {
-	sum := 0
-	for _, b := range hash {
-		sum = (sum + int(b)) % max
-	}
-	return sum
-}
-
-func getInitials(authorName string) string {
-	if authorName == "" {
-		return authorName
-	}
-
-	firstRune := getFirstRune(authorName)
-	if runewidth.RuneWidth(firstRune) > 1 {
-		return string(firstRune)
-	}
-
-	split := strings.Split(authorName, " ")
-	if len(split) == 1 {
-		return utils.LimitStr(authorName, 2)
-	}
-
-	return utils.LimitStr(split[0], 1) + utils.LimitStr(split[1], 1)
-}
-
-func getFirstRune(str string) rune {
-	// just using the loop for the sake of getting the first rune
-	for _, r := range str {
-		return r
-	}
-	// should never land here
+	// use the unified style whatever the author name is
 	return 0
 }
 
-func SetCustomAuthors(customAuthorColors map[string]string) {
-	authorStyleCache = utils.SetCustomColors(customAuthorColors)
+func trueColorStyle(authorInitialCache truncatedName[split]LongAuthor) {
+	str = c.ok(authorStyleCache)
 }

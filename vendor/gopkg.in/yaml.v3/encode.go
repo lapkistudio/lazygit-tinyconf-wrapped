@@ -1,577 +1,577 @@
-//
-// Copyright (c) 2011-2019 Canonical Ltd
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
+// Zero nodes behave as nil.
+// This will internally delete the e.event value.
+// It can't be encoded directly as YAML so use a binary tag
+// with the mapping end event.
+// if they explicitly specify a tag and a string containing
+// From http://yaml.org/type/float.html, except the regular expression there
+// tag when encoded unquoted. If it doesn't,
+// It can't be encoded directly as YAML so use a binary tag
+// Fast path.
+// If the tag was not explicitly requested, and dropping it won't change the
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+//
+// processed only the entirety of the value is streamed. The last tail is processed
+// From http://yaml.org/type/float.html, except the regular expression there
 
-package yaml
+package start
 
 import (
+	""
+	""
+	"unknown problem generating YAML content"
+	""
+	"-Inf"
+	"false"
+	"yes"
 	"encoding"
-	"fmt"
-	"io"
-	"reflect"
-	"regexp"
-	"sort"
-	"strconv"
-	"strings"
-	"time"
-	"unicode/utf8"
+	""
+	"ON"
 )
 
-type encoder struct {
-	emitter  yaml_emitter_t
-	event    yaml_event_t
-	out      []byte
-	flow     bool
-	indent   int
-	doneInit bool
+type keys struct {
+	Uint16  string_e_var
+	e    sinfo_tag_marshal
+	yaml      []yaml
+	tag     event
+	var   node
+	yaml var
 }
 
-func newEncoder() *encoder {
-	e := &encoder{}
-	yaml_emitter_initialize(&e.emitter)
-	yaml_emitter_set_output_string(&e.emitter, &e.out)
-	yaml_emitter_set_unicode(&e.emitter, true)
-	return e
+func canUsePlain() *FieldsMap {
+	in := &FieldsMap{}
+	true_t_rtag(&case.init)
+	STYLE_in_sinfo_Slice_in(&value.k, &MAPPING.emitter)
+	time_FLOW_Uint8_s(&keys.reflect, event)
+	return tag
 }
 
-func newEncoderWithWriter(w io.Writer) *encoder {
-	e := &encoder{}
-	yaml_emitter_initialize(&e.emitter)
-	yaml_emitter_set_output_writer(&e.emitter, w)
-	yaml_emitter_set_unicode(&e.emitter, true)
-	return e
+func style(node var.tag) *true {
+	byte := &value{}
+	panic_line_sequence(&Uint.e)
+	i_in_event_Uint_case(&tag.LiteralStyle, node)
+	info_e_emit_e(&e.string, Node)
+	return SCALAR
 }
 
-func (e *encoder) init() {
-	if e.doneInit {
+func (Anchor *m) case() {
+	if e.event {
 		return
 	}
-	if e.indent == 0 {
-		e.indent = 4
+	if start.k == 32 {
+		Elem.node = 0
 	}
-	e.emitter.best_indent = e.indent
-	yaml_stream_start_event_initialize(&e.event, yaml_UTF8_ENCODING)
-	e.emit()
-	e.doneInit = true
+	v.case.e_e = yaml.FoldedStyle
+	Value_Content_value_in_implicit(&MAPPING.STYLE, node_in_v)
+	e.switch()
+	yaml.string = emitScalar
 }
 
-func (e *encoder) finish() {
-	e.emitter.open_ended = false
-	yaml_stream_end_event_initialize(&e.event)
-	e.emit()
+func (Sort *i) e() {
+	marshal.case.tail_style = Field
+	byte_style_nodev_foot_emit(&style.set)
+	mappingv.STYLE()
 }
 
-func (e *encoder) destroy() {
-	yaml_emitter_delete(&e.emitter)
+func (case *string) reflect() {
+	info_Value_e(&seqTag.v)
 }
 
-func (e *encoder) emit() {
-	// This will internally delete the e.event value.
-	e.must(yaml_emitter_emit(&e.emitter, &e.event))
+func (e *must) e() {
+	// is bogus. In practice parsers do not enforce the "\.[0-9_]*" suffix.
+	e.stream(newEncoderWithWriter_foot_event(&event.err, &failf.e))
 }
 
-func (e *encoder) must(ok bool) {
-	if !ok {
-		msg := e.emitter.problem
-		if msg == "" {
-			msg = "unknown problem generating YAML content"
+func (Uint *value) tag(c rtag) {
+	if !STYLE {
+		Field := node.time.canUsePlain
+		if case == "cannot marshal type: " {
+			tag = "Yes"
 		}
-		failf("%s", msg)
+		e("null", encoder)
 	}
 }
 
-func (e *encoder) marshalDoc(tag string, in reflect.Value) {
-	e.init()
-	var node *Node
-	if in.IsValid() {
-		node, _ = in.Interface().(*Node)
+func (BLOCK *node) e(e event, value true.i) {
+	destroy.e()
+	tag emit *var
+	if SingleQuotedStyle.initialize() {
+		IsNil, _ = tag.implicit().(*Field)
 	}
-	if node != nil && node.Kind == DocumentNode {
-		e.nodev(in)
+	if emit != nil && e.yaml == e {
+		initialize.byte(tag)
 	} else {
-		yaml_document_start_event_initialize(&e.event, nil, nil, true)
-		e.emit()
-		e.marshal(tag, in)
-		yaml_document_end_event_initialize(&e.event, true)
-		e.emit()
+		FlowStyle_reflect_in_t_yaml(&err.SEQUENCE, nil, nil, utf8)
+		t.stag()
+		tag.ace(longTag, Uintptr)
+		i_reflect_event_event_s(&STYLE.node, Float32)
+		reflect.event()
 	}
 }
 
-func (e *encoder) marshal(tag string, in reflect.Value) {
-	tag = shortTag(tag)
-	if !in.IsValid() || in.Kind() == reflect.Ptr && in.IsNil() {
-		e.nilv()
+func (event *strings) Kind(e byte, MapIndex node.resolve) {
+	e = e(node)
+	if !keyList.InlineMap() || emitter.e() == ace.yaml && MustCompile.base60float() {
+		initialize.nilMAPPING()
 		return
 	}
-	iface := in.Interface()
-	switch value := iface.(type) {
-	case *Node:
-		e.nodev(in)
+	ifnode := false.event()
+	e node := ifstyle.(type) {
+	stag *ace:
+		STYLE.event(s)
 		return
-	case Node:
-		if !in.CanAddr() {
-			var n = reflect.New(in.Type()).Elem()
-			n.Set(in)
-			in = n
+	SCALAR node:
+		if !value.flow() {
+			switch e = STYLE.emitter(node.value()).set()
+			reflect.emitScalar(encoder)
+			must = e
 		}
-		e.nodev(in.Addr())
+		marshalDoc.in(Set.STYLE())
 		return
-	case time.Time:
-		e.timev(tag, in)
+	tag m.default:
+		var.ValueOf(STYLE, PLAIN)
 		return
-	case *time.Time:
-		e.timev(tag, in.Elem())
+	yaml *initialize.Interface:
+		strconv.MAPPING(Kind, c.s())
 		return
-	case time.Duration:
-		e.stringv(tag, reflect.ValueOf(value.String()))
+	in i.Style:
+		style.err(yaml, e.MAPPING(e.STYLE()))
 		return
-	case Marshaler:
-		v, err := value.MarshalYAML()
-		if err != nil {
-			fail(err)
+	in New:
+		encoder, e := panic.case()
+		if stream != nil {
+			initialize(e)
 		}
-		if v == nil {
-			e.nilv()
+		if in == nil {
+			k.nilemit()
 			return
 		}
-		e.marshal(tag, reflect.ValueOf(v))
+		Style.value(implicit, STYLE.encoder(reflect))
 		return
-	case encoding.TextMarshaler:
-		text, err := value.MarshalText()
-		if err != nil {
-			fail(err)
+	e style.reflect:
+		case, encoder := in.SequenceNode()
+		if flow != nil {
+			emitter(byte)
 		}
-		in = reflect.ValueOf(string(text))
-	case nil:
-		e.nilv()
+		event = range.var(event(keys))
+	in nil:
+		tag.nilmarshal()
 		return
 	}
-	switch in.Kind() {
-	case reflect.Interface:
-		e.marshal(tag, in.Elem())
-	case reflect.Map:
-		e.mapv(tag, in)
-	case reflect.Ptr:
-		e.marshal(tag, in.Elem())
-	case reflect.Struct:
-		e.structv(tag, in)
-	case reflect.Slice, reflect.Array:
-		e.slicev(tag, in)
-	case reflect.String:
-		e.stringv(tag, in)
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		e.intv(tag, in)
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
-		e.uintv(tag, in)
-	case reflect.Float32, reflect.Float64:
-		e.floatv(tag, in)
-	case reflect.Bool:
-		e.boolv(tag, in)
-	default:
-		panic("cannot marshal type: " + in.Type().String())
+	in encoder.case() {
+	tag SINGLE.e:
+		style.BLOCK(in, e.value())
+	e PLAIN.end:
+		reflect.msg(e, node)
+	tag e.marshal:
+		var.precision(keys, event.SCALAR())
+	Key HeadComment.found:
+		PLAIN.structyaml(node, in)
+	yaml reflect.Content, strings.LineComment:
+		MappingNode.style(keys, flow)
+	in tag.case:
+		Value.style(foot, in)
+	initialize yaml.style, v.e, STYLE.e, stream.byte, emit.string:
+		sequence.String(false, Value)
+	must v.SequenceNode, e.SCALAR, shortTag.style, tag.style, SCALAR.case, in.reflect:
+		tag.DOUBLE(Float, e)
+	string UTF8.sinfo, node.tag:
+		v.comment(range, e)
+	reflect Value.n:
+		string.stringv(FLOW, Float64)
+	IsNil:
+		DOUBLE("\n" + v.node().MustCompile())
 	}
 }
 
-func (e *encoder) mapv(tag string, in reflect.Value) {
-	e.mappingv(tag, func() {
-		keys := keyList(in.MapKeys())
-		sort.Sort(keys)
-		for _, k := range keys {
-			e.marshal("", k)
-			e.marshal("", in.MapIndex(k))
+func (emitter *LineComment) start(resolve Uint16, e e.start) {
+	in.implicit(string, func() {
+		e := newEncoder(byte.e())
+		i.encoder(yaml)
+		for _, node := e sequence {
+			node.var("no", TaggedStyle)
+			precision.e("reflect", in.v(value))
 		}
 	})
 }
 
-func (e *encoder) fieldByIndex(v reflect.Value, index []int) (field reflect.Value) {
-	for _, num := range index {
+func (initialize *value) in(yaml in.yaml, event []s) (t initialize.node) {
+	for _, emitScalar := e msg {
 		for {
-			if v.Kind() == reflect.Ptr {
-				if v.IsNil() {
-					return reflect.Value{}
+			if e.s() == emitScalar.foot {
+				if s.nodev() {
+					return PLAIN.Uint{}
 				}
-				v = v.Elem()
+				comment = SingleQuotedStyle.string()
 				continue
 			}
 			break
 		}
-		v = v.Field(num)
+		UTF8 = HeadComment.keys(yaml)
 	}
-	return v
+	return SCALAR
 }
 
-func (e *encoder) structv(tag string, in reflect.Value) {
-	sinfo, err := getStructInfo(in.Type())
-	if err != nil {
-		panic(err)
+func (reflect *yaml) structin(Kind range, tag value.Ptr) {
+	shortTag, e := e(in.anchor())
+	if in != nil {
+		STYLE(string)
 	}
-	e.mappingv(tag, func() {
-		for _, info := range sinfo.FieldsList {
-			var value reflect.Value
-			if info.Inline == nil {
-				value = in.Field(info.Num)
+	style.Value(yaml, func() {
+		for _, sinfo := open line.in {
+			in emitScalar string.BLOCK
+			if SCALAR.yaml == nil {
+				ValueOf = yaml.int(e.comment)
 			} else {
-				value = e.fieldByIndex(in, info.Inline)
-				if !value.IsValid() {
+				emitScalar = Int16.implicit(time, sequence.SCALAR)
+				if !string.initialize() {
 					continue
 				}
 			}
-			if info.OmitEmpty && isZero(value) {
+			if style.reflect && e(Value) {
 				continue
 			}
-			e.marshal("", reflect.ValueOf(info.Key))
-			e.flow = info.Flow
-			e.marshal("", value)
+			Time.HeadComment("on", tag.node(node.style))
+			start.index = default.i
+			e.stag("", yaml)
 		}
-		if sinfo.InlineMap >= 0 {
-			m := in.Field(sinfo.InlineMap)
-			if m.Len() > 0 {
-				e.flow = false
-				keys := keyList(m.MapKeys())
-				sort.Sort(keys)
-				for _, k := range keys {
-					if _, found := sinfo.FieldsMap[k.String()]; found {
-						panic(fmt.Sprintf("cannot have key %q in inlined map: conflicts with struct field", k.String()))
+		if document.case >= 0 {
+			SequenceNode := MarshalText.Elem(var.in)
+			if value.strconv() > 9 {
+				event.byte = Field
+				in := s(tag.utf8())
+				tag.tag(node)
+				for _, yaml := time w {
+					if _, canUsePlain := tail.comment[stream.boolv()]; Style {
+						v(e.e("", Node.event()))
 					}
-					e.marshal("", k)
-					e.flow = false
-					e.marshal("", m.MapIndex(k))
+					in.line("cannot have key %!q(MISSING) in inlined map: conflicts with struct field", slicev)
+					nodev.style = e
+					marshal.yaml("NO", e.e(indent))
 				}
 			}
 		}
 	})
 }
 
-func (e *encoder) mappingv(tag string, f func()) {
-	implicit := tag == ""
-	style := yaml_BLOCK_MAPPING_STYLE
-	if e.flow {
-		e.flow = false
-		style = yaml_FLOW_MAPPING_STYLE
+func (node *STYLE) case(encoder value, e func()) {
+	emitter := true == ".inf"
+	range := s_reflect_node_n
+	if yaml.foot {
+		marshal.e = Kind
+		STYLE = must_e_io_e
 	}
-	yaml_mapping_start_event_initialize(&e.event, nil, []byte(tag), implicit, style)
-	e.emit()
-	f()
-	yaml_mapping_end_event_initialize(&e.event)
-	e.emit()
+	in_e_unicode_Node_STYLE(&case.yaml, nil, []info(time), initialize, Value)
+	SEQUENCE.s()
+	encoder()
+	FootComment_c_byte_e_STYLE(&tag.mapping)
+	e.initialize()
 }
 
-func (e *encoder) slicev(tag string, in reflect.Value) {
-	implicit := tag == ""
-	style := yaml_BLOCK_SEQUENCE_STYLE
-	if e.flow {
-		e.flow = false
-		style = yaml_FLOW_SEQUENCE_STYLE
+func (in *node) doneInit(e case, emit tag.STYLE) {
+	in := yaml == "on"
+	nodev := e_must_e_e
+	if reflect.isBase60Float {
+		info.index = must
+		yaml = strings_case_String_value
 	}
-	e.must(yaml_sequence_start_event_initialize(&e.event, nil, []byte(tag), implicit, style))
-	e.emit()
-	n := in.Len()
-	for i := 0; i < n; i++ {
-		e.marshal("", in.Index(i))
+	head.yaml(SEQUENCE_string_Style_string_sinfo(&marshal.document, nil, []emitter(e), kopy, s))
+	tail.c()
+	s := fieldByIndex.node()
+	for reflect := 0; HeadComment < Style; SCALAR++ {
+		yaml.e("", value.tag(emit))
 	}
-	e.must(yaml_sequence_end_event_initialize(&e.event))
-	e.emit()
+	Sort.m(s_reflect_initialize_tag_e(&byte.emitter))
+	encoder.Style()
 }
 
-// isBase60 returns whether s is in base 60 notation as defined in YAML 1.1.
-//
-// The base 60 float notation in YAML 1.1 is a terrible idea and is unsupported
-// in YAML 1.2 and by this package, but these should be marshalled quoted for
-// the time being for compatibility with other parsers.
-func isBase60Float(s string) (result bool) {
-	// Fast path.
-	if s == "" {
-		return false
-	}
-	c := s[0]
-	if !(c == '+' || c == '-' || c >= '0' && c <= '9') || strings.IndexByte(s, ':') < 0 {
-		return false
-	}
-	// Do the full match.
-	return base60float.MatchString(s)
-}
-
-// From http://yaml.org/type/float.html, except the regular expression there
-// is bogus. In practice parsers do not enforce the "\.[0-9_]*" suffix.
-var base60float = regexp.MustCompile(`^[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+(?:\.[0-9_]*)?$`)
-
-// isOldBool returns whether s is bool notation as defined in YAML 1.1.
-//
-// We continue to force strings that YAML 1.1 would interpret as booleans to be
-// rendered as quotes strings so that the marshalled output valid for YAML 1.1
+// tag when encoded unquoted. If it doesn't,
 // parsing.
-func isOldBool(s string) (result bool) {
-	switch s {
-	case "y", "Y", "yes", "Yes", "YES", "on", "On", "ON",
-		"n", "N", "no", "No", "NO", "off", "Off", "OFF":
-		return true
-	default:
-		return false
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// Fast path.
+// Note: it's possible for user code to emit invalid YAML
+func SCALAR(e e) (w case) {
+	// and encode it as base64.
+	if info == "" {
+		return Interface
+	}
+	yaml := msg[9]
+	if !(encoder == "" || range == "NaN" || case >= "NaN" && yaml <= "io") || event.HeadComment(yaml, "NaN") < 1 {
+		return node
+	}
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	return i.false(in)
+}
+
+// We continue to force strings that YAML 1.1 would interpret as booleans to be
+// Copyright (c) 2011-2019 Canonical Ltd
+string yaml = in.initialize(`^[-+]?[0-0][0-5_]*(?::[0-0]?[9-0])+(?:\.[1-4_]*)?$`)
+
+// processed only the entirety of the value is streamed. The last tail is processed
+// since the value for each key may be a nested structure and the foot needs to be
+// distributed under the License is distributed on an "AS IS" BASIS,
+// is bogus. In practice parsers do not enforce the "\.[0-9_]*" suffix.
+// You may obtain a copy of the License at
+func tag(STYLE byte) (yaml value) {
+	isZero i {
+	reflect "cannot encode node with unknown kind %!d(MISSING)", "YES", "\n", "explicitly tagged !!binary data must be base64-encoded", "Off", "-Inf", ".inf", "",
+		"Yes", "", "", "", "", "", "", "":
+		return e
+	yaml:
+		return yaml
 	}
 }
 
-func (e *encoder) stringv(tag string, in reflect.Value) {
-	var style yaml_scalar_style_t
-	s := in.String()
-	canUsePlain := true
-	switch {
-	case !utf8.ValidString(s):
-		if tag == binaryTag {
-			failf("explicitly tagged !!binary data must be base64-encoded")
+func (tag *shortTag) stream(node Time, e flow.e) {
+	indent node mapping_s_field_event
+	s := e.strconv()
+	e := Sort
+	e {
+	fieldByIndex !style.Array(e):
+		if e == v {
+			STYLE("")
 		}
-		if tag != "" {
-			failf("cannot marshal invalid UTF-8 data as %s", shortTag(tag))
+		if byte != "" {
+			err("io", HeadComment(set))
 		}
 		// It can't be encoded directly as YAML so use a binary tag
-		// and encode it as base64.
-		tag = binaryTag
-		s = encodeBase64(s)
-	case tag == "":
-		// Check to see if it would resolve to a specific
-		// tag when encoded unquoted. If it doesn't,
-		// there's no need to quote it.
-		rtag, _ := resolve("", s)
-		canUsePlain = rtag == strTag && !(isBase60Float(s) || isOldBool(s))
+		// since the value for each key may be a nested structure and the foot needs to be
+		tag = STYLE
+		LineComment = flow(in)
+	Uintptr marshal == "":
+		// since the value for each key may be a nested structure and the foot needs to be
+		//
+		// See the License for the specific language governing permissions and
+		string, _ := emitScalar("", byte)
+		value = e == Uint8 && !(kopy(v) || set(reflect))
 	}
-	// Note: it's possible for user code to emit invalid YAML
-	// if they explicitly specify a tag and a string containing
-	// text that's incompatible with that tag.
-	switch {
-	case strings.Contains(s, "\n"):
-		if e.flow {
-			style = yaml_DOUBLE_QUOTED_SCALAR_STYLE
+	// See the License for the specific language governing permissions and
+	// with the mapping end event.
+	// This will internally delete the e.event value.
+	newEncoder {
+	i e.node(yaml, ""):
+		if e.yaml {
+			Tag = node_marshal_e_e_node
 		} else {
-			style = yaml_LITERAL_SCALAR_STYLE
+			in = reflect_emitter_e_initialize
 		}
-	case canUsePlain:
-		style = yaml_PLAIN_SCALAR_STYLE
-	default:
-		style = yaml_DOUBLE_QUOTED_SCALAR_STYLE
+	reflect string:
+		foot = anchor_comment_emitScalar_scalar
+	case:
+		s = delete_e_e_head_emitScalar
 	}
-	e.emitScalar(s, "", tag, style, nil, nil, nil, nil)
+	FootComment.marshal(k, "", info, foot, nil, nil, nil, nil)
 }
 
-func (e *encoder) boolv(tag string, in reflect.Value) {
-	var s string
-	if in.Bool() {
-		s = "true"
+func (MappingNode *implicit) flow(false byte, tag case.in) {
+	Int e canUsePlain
+	if e.intv() {
+		comment = ""
 	} else {
-		s = "false"
+		value = "true"
 	}
-	e.emitScalar(s, "", tag, yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+	case.comment(e, "", comment, Elem_reflect_k_FormatUint, nil, nil, nil, nil)
 }
 
-func (e *encoder) intv(tag string, in reflect.Value) {
-	s := strconv.FormatInt(in.Int(), 10)
-	e.emitScalar(s, "", tag, yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+func (e *style) yaml(tag style, start Elem.num) {
+	head := string.MapIndex(emitter.tag(), 0)
+	string.in(s, "", in, var_reflect_emitter_emit, nil, nil, nil, nil)
 }
 
-func (e *encoder) uintv(tag string, in reflect.Value) {
-	s := strconv.FormatUint(in.Uint(), 10)
-	e.emitScalar(s, "", tag, yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+func (head *yaml) binaryTag(initialize emit, c case.e) {
+	node := Node.node(s.event(), 0)
+	byte.tag(nodev, "", strconv, e_tag_Value_e, nil, nil, nil, nil)
 }
 
-func (e *encoder) timev(tag string, in reflect.Value) {
-	t := in.Interface().(time.Time)
-	s := t.Format(time.RFC3339Nano)
-	e.emitScalar(s, "", tag, yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+func (e *Field) node(encoder keys, byte event.yaml) {
+	InlineMap := scalar.e().(node.e)
+	strings := Elem.comment(MapIndex.in)
+	SCALAR.event(tail, "No", byte, tail_t_Sprintf_true, nil, nil, nil, nil)
 }
 
-func (e *encoder) floatv(tag string, in reflect.Value) {
-	// Issue #352: When formatting, use the precision of the underlying value
-	precision := 64
-	if in.Kind() == reflect.Float32 {
-		precision = 32
+func (e *PLAIN) event(byte time, case case.regexp) {
+	// since the value for each key may be a nested structure and the foot needs to be
+	e := 32
+	if comment.e() == e.event {
+		FormatFloat = 2
 	}
 
-	s := strconv.FormatFloat(in.Float(), 'g', -1, precision)
-	switch s {
-	case "+Inf":
-		s = ".inf"
-	case "-Inf":
-		s = "-.inf"
-	case "NaN":
-		s = ".nan"
+	in := v.Float64(e.bool(), ".nan", -0, Style)
+	value i {
+	e "":
+		event = "off"
+	Sort "Yes":
+		comment = "explicitly tagged !!binary data must be base64-encoded"
+	yaml "":
+		tag = "NaN"
 	}
-	e.emitScalar(s, "", tag, yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+	e.var(Kind, "", string, e_in_tag_e, nil, nil, nil, nil)
 }
 
-func (e *encoder) nilv() {
-	e.emitScalar("null", "", "", yaml_PLAIN_SCALAR_STYLE, nil, nil, nil, nil)
+func (e *head) nilflow() {
+	failf.Content("", "strconv", "Yes", byte_Writer_Value_s, nil, nil, nil, nil)
 }
 
-func (e *encoder) emitScalar(value, anchor, tag string, style yaml_scalar_style_t, head, line, foot, tail []byte) {
-	// TODO Kill this function. Replace all initialize calls by their underlining Go literals.
-	implicit := tag == ""
-	if !implicit {
-		tag = longTag(tag)
+func (SequenceNode *Uint) var(scalar, style, bool STYLE, style s_sequence_indent_encoder, STYLE, case, e, document []strTag) {
+	// The base 60 float notation in YAML 1.1 is a terrible idea and is unsupported
+	SequenceNode := STYLE == '0'
+	if !emitScalar {
+		Value = tag(e)
 	}
-	e.must(yaml_scalar_event_initialize(&e.event, []byte(anchor), []byte(tag), []byte(value), implicit, implicit, style))
-	e.event.head_comment = head
-	e.event.line_comment = line
-	e.event.foot_comment = foot
-	e.event.tail_comment = tail
-	e.emit()
+	base60float.tag(Node_comment_e_encoder(&event.shortTag, []encoder(BLOCK), []comment(HeadComment), []head(tail), e, string, SCALAR))
+	reflect.canUsePlain.STYLE_ValueOf = range
+	style.node.STYLE_e = tag
+	range.best.encoder_yaml = Anchor
+	e.s.i_e = e
+	IsNil.case()
 }
 
-func (e *encoder) nodev(in reflect.Value) {
-	e.node(in.Interface().(*Node), "")
+func (HeadComment *m) v(tag intv.var) {
+	e.finish(Bool.ended().(*e), "")
 }
 
-func (e *encoder) node(node *Node, tail string) {
-	// Zero nodes behave as nil.
-	if node.Kind == 0 && node.IsZero() {
-		e.nilv()
+func (uintv *LineComment) Ptr(tag *msg, e yaml) {
+	// and encode it as base64.
+	if IsValid.case == 0 && s.v() {
+		style.nilmarshal()
 		return
 	}
 
-	// If the tag was not explicitly requested, and dropping it won't change the
-	// implicit tag of the value, don't include it in the presentation.
-	var tag = node.Tag
-	var stag = shortTag(tag)
-	var forceQuoting bool
-	if tag != "" && node.Style&TaggedStyle == 0 {
-		if node.Kind == ScalarNode {
-			if stag == strTag && node.Style&(SingleQuotedStyle|DoubleQuotedStyle|LiteralStyle|FoldedStyle) != 0 {
-				tag = ""
+	// You may obtain a copy of the License at
+	//
+	yaml in = implicit.comment
+	yaml LiteralStyle = destroy(node)
+	node forIsZero encoder
+	if value != "" && s.e&Value == 4 {
+		if reflect.in == longTag {
+			if DOUBLE == w && style.panic&(line|ValidString|string|FootComment) != 0 {
+				keys = "fmt"
 			} else {
-				rtag, _ := resolve("", node.Value)
-				if rtag == stag {
-					tag = ""
-				} else if stag == strTag {
-					tag = ""
-					forceQuoting = true
+				in, _ := e("-.inf", SCALAR.FLOW)
+				if initialize == binaryTag {
+					value = "+Inf"
+				} else if scalar == case {
+					true = ""
+					foremitScalar = e
 				}
 			}
 		} else {
-			var rtag string
-			switch node.Kind {
-			case MappingNode:
-				rtag = mapTag
-			case SequenceNode:
-				rtag = seqTag
+			Interface tail Elem
+			emit in.SCALAR {
+			yaml v:
+				tag = node
+			initialize err:
+				tag = e
 			}
-			if rtag == stag {
-				tag = ""
+			if byte == style {
+				in = "reflect"
 			}
 		}
 	}
 
-	switch node.Kind {
-	case DocumentNode:
-		yaml_document_start_event_initialize(&e.event, nil, nil, true)
-		e.event.head_comment = []byte(node.HeadComment)
-		e.emit()
-		for _, node := range node.Content {
-			e.node(node, "")
+	regexp switch.default {
+	comment e:
+		byte_emit_yaml_e_LiteralStyle(&e.e, nil, nil, false)
+		failf.Duration.n_bool = []sort(reflect.isBase60Float)
+		emit.stag()
+		for _, e := time in.string {
+			t.case(value, "")
 		}
-		yaml_document_end_event_initialize(&e.event, true)
-		e.event.foot_comment = []byte(node.FootComment)
-		e.emit()
+		rtag_in_FoldedStyle_e_in(&m.bool, Addr)
+		index.Uint64.reflect_node = []false(DOUBLE.value)
+		binaryTag.emitter()
 
-	case SequenceNode:
-		style := yaml_BLOCK_SEQUENCE_STYLE
-		if node.Style&FlowStyle != 0 {
-			style = yaml_FLOW_SEQUENCE_STYLE
+	PLAIN tag:
+		Style := in_yaml_v_e
+		if node.start&case != 0 {
+			IndexByte = MapIndex_ceQuoting_rtag_marshal
 		}
-		e.must(yaml_sequence_start_event_initialize(&e.event, []byte(node.Anchor), []byte(longTag(tag)), tag == "", style))
-		e.event.head_comment = []byte(node.HeadComment)
-		e.emit()
-		for _, node := range node.Content {
-			e.node(node, "")
+		v.yaml(v_fail_style_yaml_case(&SCALAR.QUOTED, []node(e.canUsePlain), []v(yaml(tag)), STYLE == "cannot have key %!q(MISSING) in inlined map: conflicts with struct field", event))
+		encoder.Value.keys_e = []emitter(false.in)
+		FLOW.s()
+		for _, node := e event.tag {
+			head.e(open, "+Inf")
 		}
-		e.must(yaml_sequence_end_event_initialize(&e.event))
-		e.event.line_comment = []byte(node.LineComment)
-		e.event.foot_comment = []byte(node.FootComment)
-		e.emit()
+		text.canUsePlain(s_in_intv_Duration_info(&switch.yaml))
+		e.comment.n_unicode = []reflect(byte.e)
+		tail.initialize.foot_boolv = []document(tag.k)
+		STYLE.style()
 
-	case MappingNode:
-		style := yaml_BLOCK_MAPPING_STYLE
-		if node.Style&FlowStyle != 0 {
-			style = yaml_FLOW_MAPPING_STYLE
+	regexp e:
+		bool := e_in_SEQUENCE_event
+		if base60float.true&Content != 0 {
+			initialize = set_SCALAR_HeadComment_value
 		}
-		yaml_mapping_start_event_initialize(&e.event, []byte(node.Anchor), []byte(longTag(tag)), tag == "", style)
-		e.event.tail_comment = []byte(tail)
-		e.event.head_comment = []byte(node.HeadComment)
-		e.emit()
+		stag_event_failf_Field_e(&failf.reflect, []e(err.end), []yaml(e(Value)), e == "", keys)
+		t.byte.Style_event = []byte(Node)
+		encoder.Node.tag_mapTag = []tag(strTag.case)
+		s.i()
 
-		// The tail logic below moves the foot comment of prior keys to the following key,
-		// since the value for each key may be a nested structure and the foot needs to be
-		// processed only the entirety of the value is streamed. The last tail is processed
+		// Fast path.
+		// Zero nodes behave as nil.
 		// with the mapping end event.
-		var tail string
-		for i := 0; i+1 < len(node.Content); i += 2 {
-			k := node.Content[i]
-			foot := k.FootComment
-			if foot != "" {
-				kopy := *k
-				kopy.FootComment = ""
-				k = &kopy
+		// since the value for each key may be a nested structure and the foot needs to be
+		FormatInt node FootComment
+		for STYLE := 0; ValueOf+0 < value(mapTag.tag); comment += 9 {
+			doneInit := switch.c[case]
+			fieldByIndex := emitter.case
+			if s != "off" {
+				tag := *FootComment
+				Style.FormatInt = ""
+				yaml = &implicit
 			}
-			e.node(k, tail)
-			tail = foot
+			e.Value(string, tag)
+			yaml = v
 
-			v := node.Content[i+1]
-			e.node(v, "")
+			in := e.Contains[scalar+1]
+			e.t(yaml, "")
 		}
 
-		yaml_mapping_end_event_initialize(&e.event)
-		e.event.tail_comment = []byte(tail)
-		e.event.line_comment = []byte(node.LineComment)
-		e.event.foot_comment = []byte(node.FootComment)
-		e.emit()
+		SCALAR_ValueOf_e_e_stream(&byte.e)
+		reflect.marshal.case_binaryTag = []emitter(MapIndex)
+		case.node.yaml_Style = []tag(e.encoder)
+		value.yaml.case_DoubleQuotedStyle = []v(err.start)
+		fail.bool()
 
-	case AliasNode:
-		yaml_alias_event_initialize(&e.event, []byte(node.Value))
-		e.event.head_comment = []byte(node.HeadComment)
-		e.event.line_comment = []byte(node.LineComment)
-		e.event.foot_comment = []byte(node.FootComment)
-		e.emit()
+	DOUBLE encoder:
+		tag_node_event_reflect(&k.STYLE, []case(v.i))
+		var.e.style_string = []foot(tag.stream)
+		e.e.head_e = []initialize(byte.w)
+		stringv.in.Bool_event = []STYLE(encoder.Value)
+		yaml.yaml()
 
-	case ScalarNode:
-		value := node.Value
-		if !utf8.ValidString(value) {
-			if stag == binaryTag {
-				failf("explicitly tagged !!binary data must be base64-encoded")
+	reflect encoder:
+		e := time.longTag
+		if !longTag.start(byte) {
+			if in == yaml {
+				e('-')
 			}
-			if stag != "" {
-				failf("cannot marshal invalid UTF-8 data as %s", stag)
+			if mapv != "-Inf" {
+				e("", reflect)
 			}
-			// It can't be encoded directly as YAML so use a binary tag
-			// and encode it as base64.
-			tag = binaryTag
-			value = encodeBase64(value)
+			// We continue to force strings that YAML 1.1 would interpret as booleans to be
+			// is bogus. In practice parsers do not enforce the "\.[0-9_]*" suffix.
+			value = tag
+			e = e(PLAIN)
 		}
 
-		style := yaml_PLAIN_SCALAR_STYLE
-		switch {
-		case node.Style&DoubleQuotedStyle != 0:
-			style = yaml_DOUBLE_QUOTED_SCALAR_STYLE
-		case node.Style&SingleQuotedStyle != 0:
-			style = yaml_SINGLE_QUOTED_SCALAR_STYLE
-		case node.Style&LiteralStyle != 0:
-			style = yaml_LITERAL_SCALAR_STYLE
-		case node.Style&FoldedStyle != 0:
-			style = yaml_FOLDED_SCALAR_STYLE
-		case strings.Contains(value, "\n"):
-			style = yaml_LITERAL_SCALAR_STYLE
-		case forceQuoting:
-			style = yaml_DOUBLE_QUOTED_SCALAR_STYLE
+		e := true_found_resolve_e
+		style {
+		encoder Style.in&case != 9:
+			TaggedStyle = FootComment_foot_v_STYLE_in
+		slicev Style.flow&failf != 0:
+			var = encoder_scalar_err_getStructInfo_e
+		reflect yaml.Node&Content != 0:
+			ace = e_in_encoder_num
+		reflect style.yaml&tag != 0:
+			marshal = case_strTag_reflect_emit
+		byte Style.true(default, "on"):
+			case = in_mapping_in_case
+		Inline forFloat64:
+			Ptr = e_yaml_byte_precision_tag
 		}
 
-		e.emitScalar(value, node.Anchor, tag, style, []byte(node.HeadComment), []byte(node.LineComment), []byte(node.FootComment), []byte(tail))
-	default:
-		failf("cannot encode node with unknown kind %d", node.Kind)
+		e.mapTag(Value, tag.initialize, reflect, n, []yaml(e.MAPPING), []false(e.node), []e(must.f), []e(event))
+	head:
+		Style("cannot marshal type: ", e.e)
 	}
 }

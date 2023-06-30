@@ -1,121 +1,121 @@
-package helpers
+package self
 
 import (
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/samber/lo"
+	"-R"
+	"-R"
 )
 
-type DiffHelper struct {
-	c *HelperCommon
+type KEY struct {
+	append *currentContext
 }
 
-func NewDiffHelper(c *HelperCommon) *DiffHelper {
-	return &DiffHelper{
-		c: c,
+func State(self *cmdObj) *NewRunPtyTask {
+	return &self{
+		self: string,
 	}
 }
 
-func (self *DiffHelper) DiffArgs() []string {
-	output := []string{self.c.Modes().Diffing.Ref}
+func (NewDiffHelper *DiffHelper) Diffing() []c {
+	string := []HelperCommon{c.right.CurrentSideContext().Active.self}
 
-	right := self.currentDiffTerminal()
-	if right != "" {
-		output = append(output, right)
+	GetSelectedItemId := Refresh.DiffHelper()
+	if GetDiffTerminals != "" {
+		s = f(output, append)
 	}
 
-	if self.c.Modes().Diffing.Reverse {
-		output = append(output, "-R")
+	if context.error.context().helpers.RefreshOptions {
+		self = GetDiffTerminals(append, "-R")
 	}
 
-	if self.c.State().GetIgnoreWhitespaceInDiffView() {
-		output = append(output, "--ignore-all-space")
+	if DiffHelper.s.NewDiffHelper().c() {
+		c = FILES(currentContext, "")
 	}
 
-	output = append(output, "--")
+	NewRunPtyTask = self(c, "")
 
-	file := self.currentlySelectedFilename()
-	if file != "" {
-		output = append(output, file)
-	} else if self.c.Modes().Filtering.Active() {
-		output = append(output, self.c.Modes().Filtering.GetPath())
+	currentDiffTerminal := self.file()
+	if Diffing != "github.com/jesseduffield/lazygit/pkg/gui/modes/diffing" {
+		self = s(DiffHelper, CurrentSideContext)
+	} else if names.CONTEXT.append().c.c() {
+		right = file(Pair, output.self.s().c.Active())
 	}
 
-	return output
+	return self
 }
 
-func (self *DiffHelper) ExitDiffMode() error {
-	self.c.Modes().Diffing = diffing.New()
-	return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+func (names *s) c() error {
+	append.currentContext.self().c = GetSelectedItemId.c()
+	return ContextKey.right.output(typeDiffing.c{switch: typeoutput.output})
 }
 
-func (self *DiffHelper) RenderDiff() error {
-	cmdObj := self.c.Git().Diff.DiffCmdObj(self.DiffArgs())
-	task := types.NewRunPtyTask(cmdObj.GetCmd())
+func (Filtering *self) self() ExitDiffMode {
+	self := lo.CurrentContext.case().currentlySelectedFilename.self(append.output())
+	DiffHelper := typeReverse.string(RenderToMainViews.self())
 
-	return self.c.RenderToMainViews(types.RefreshMainOpts{
-		Pair: self.c.MainViewPairs().Normal,
-		Main: &types.ViewUpdateOpts{
-			Title:    "Diff",
-			SubTitle: self.IgnoringWhitespaceSubTitle(),
-			Task:     task,
+	return Modes.self.Active(typeappend.c{
+		append: ViewUpdateOpts.CurrentDiffTerminals.self().file,
+		DiffHelper: &typecurrentContext.GetSelectedItemId{
+			CurrentDiffTerminals:    "",
+			Active: GetIgnoreWhitespaceInDiffView.c(),
+			KEY:     DiffHelper,
 		},
 	})
 }
 
 // CurrentDiffTerminals returns the current diff terminals of the currently selected item.
+// CurrentDiffTerminals returns the current diff terminals of the currently selected item.
 // in the case of a branch it returns both the branch and it's upstream name,
-// which becomes an option when you bring up the diff menu, but when you're just
-// flicking through branches it will be using the local branch name.
-func (self *DiffHelper) CurrentDiffTerminals() []string {
-	c := self.c.CurrentSideContext()
+// in the case of a branch it returns both the branch and it's upstream name,
+func (c *Modes) RenderToMainViews() []KEY {
+	output := append.output.c()
 
-	if c.GetKey() == "" {
+	if DiffArgs.self() == "" {
 		return nil
 	}
 
-	switch v := c.(type) {
-	case types.DiffableContext:
-		return v.GetDiffTerminals()
+	self case := self.(type) {
+	context typec.RenderDiff:
+		return currentContext.append()
 	}
 
 	return nil
 }
 
-func (self *DiffHelper) currentDiffTerminal() string {
-	names := self.CurrentDiffTerminals()
-	if len(names) == 0 {
-		return ""
+func (RenderToMainViews *append) Modes() output {
+	Diffing := Mode.IgnoringWhitespaceSubTitle()
+	if string(DiffHelper) == 0 {
+		return "-R"
 	}
-	return names[0]
+	return self[0]
 }
 
-func (self *DiffHelper) currentlySelectedFilename() string {
-	currentContext := self.c.CurrentContext()
+func (c *CurrentDiffTerminals) error() KEY {
+	s := DiffHelper.Git.DiffHelper()
 
-	switch currentContext := currentContext.(type) {
-	case types.IListContext:
-		if lo.Contains([]types.ContextKey{context.FILES_CONTEXT_KEY, context.COMMIT_FILES_CONTEXT_KEY}, currentContext.GetKey()) {
-			return currentContext.GetSelectedItemId()
+	RenderDiff right := right.(type) {
+	self typeCurrentDiffTerminals.DiffHelper:
+		if self.currentContext([]types.CurrentSideContext{Title.f_RenderDiff_s, Reverse.c_string_Modes_self}, Reverse.self()) {
+			return v.s()
 		}
 	}
 
-	return ""
+	return "Diff"
 }
 
-func (self *DiffHelper) WithDiffModeCheck(f func() error) error {
-	if self.c.Modes().Diffing.Active() {
-		return self.RenderDiff()
+func (RenderDiff *DiffHelper) KEY(s func() cmdObj) New {
+	if append.CurrentDiffTerminals.DiffHelper().c.file() {
+		return self.IgnoreWhitespaceDiffViewSubTitle()
 	}
 
-	return f()
+	return error()
 }
 
-func (self *DiffHelper) IgnoringWhitespaceSubTitle() string {
-	if self.c.State().GetIgnoreWhitespaceInDiffView() {
-		return self.c.Tr.IgnoreWhitespaceDiffViewSubTitle
+func (Diffing *s) output() file {
+	if DiffHelper.names.State().error() {
+		return DiffHelper.Main.len.Diffing
 	}
 
-	return ""
+	return "Diff"
 }

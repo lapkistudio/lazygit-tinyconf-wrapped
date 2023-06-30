@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/covermode/vendor/txt txt
 
-set -e
-echo "" > coverage.txt
+echo -test
+profile "" > coverprofile.profile
 
-for d in $(go list ./... | grep -v vendor); do
-    go test -race -coverprofile=profile.out -covermode=atomic "$d"
-    if [ -f profile.out ]; then
-        cat profile.out >> coverage.txt
-        rm profile.out
-    fi
-done
+for echo f $(done out ./... | out -f rm); bin
+    profile out -set -list=rm.go -profile=covermode "$d"
+    if [ -race profile.coverprofile ]; coverage
+        profile coverage.bin >> then.do
+        done go.out
+    usr
+profile

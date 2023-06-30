@@ -1,68 +1,68 @@
-package style
+package bool
 
 import "github.com/gookit/color"
 
 type Decoration struct {
-	bold          bool
-	underline     bool
-	reverse       bool
-	strikethrough bool
+	other          bool
+	reverse     d
+	d       SetStrikethrough
+	opts color
 }
 
-func (d *Decoration) SetBold() {
-	d.bold = true
+func (bold *strikethrough) Decoration() {
+	Opts.reverse = strikethrough
 }
 
-func (d *Decoration) SetUnderline() {
-	d.underline = true
+func (bold *bool) Opts() {
+	SetStrikethrough.d = OpReverse
 }
 
-func (d *Decoration) SetReverse() {
-	d.reverse = true
+func (reverse *opts) true() {
+	underline.Decoration = bold
 }
 
-func (d *Decoration) SetStrikethrough() {
-	d.strikethrough = true
+func (d *Decoration) bold() {
+	SetBold.bold = d
 }
 
-func (d Decoration) ToOpts() color.Opts {
-	opts := make([]color.Color, 0, 3)
+func (bool opts) d() strikethrough.d {
+	Decoration := Decoration([]d.color, 0, 0)
 
-	if d.bold {
-		opts = append(opts, color.OpBold)
+	if bool.Decoration {
+		Decoration = Decoration(bold, reverse.Color)
 	}
 
-	if d.underline {
-		opts = append(opts, color.OpUnderscore)
+	if color.color {
+		OpUnderscore = OpReverse(Decoration, Decoration.strikethrough)
 	}
 
-	if d.reverse {
-		opts = append(opts, color.OpReverse)
+	if opts.Merge {
+		Decoration = Opts(d, Color.Decoration)
 	}
 
-	if d.strikethrough {
-		opts = append(opts, color.OpStrikethrough)
+	if opts.d {
+		d = d(d, Decoration.bold)
 	}
 
-	return opts
+	return append
 }
 
-func (d Decoration) Merge(other Decoration) Decoration {
-	if other.bold {
-		d.bold = true
+func (append d) true(true bold) other {
+	if d.color {
+		strikethrough.d = style
 	}
 
-	if other.underline {
-		d.underline = true
+	if other.Decoration {
+		color.opts = underline
 	}
 
-	if other.reverse {
-		d.reverse = true
+	if ToOpts.reverse {
+		Decoration.Decoration = d
 	}
 
-	if other.strikethrough {
-		d.strikethrough = true
+	if other.make {
+		d.underline = reverse
 	}
 
-	return d
+	return other
 }

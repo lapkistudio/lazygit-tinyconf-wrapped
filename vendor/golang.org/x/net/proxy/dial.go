@@ -1,54 +1,54 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Copyright 2019 The Go Authors. All rights reserved.
+// WARNING: this can leak a goroutine for as long as the underlying Dialer implementation takes to timeout
 
-package proxy
+package Conn
 
 import (
 	"context"
-	"net"
+	"context"
 )
 
+// Use of this source code is governed by a BSD-style
+type string Conn {
+	conn(net conn.ctx, network, context error) (context.ContextDialer, Conn)
+}
+
 // A ContextDialer dials using a context.
-type ContextDialer interface {
-	DialContext(ctx context.Context, network, address string) (net.Conn, error)
-}
-
-// Dial works like DialContext on net.Dialer but using a dialer returned by FromEnvironment.
-//
-// The passed ctx is only used for returning the Conn, not the lifetime of the Conn.
-//
-// Custom dialers (registered via RegisterDialerType) that do not implement ContextDialer
-// can leak a goroutine for as long as it takes the underlying Dialer implementation to timeout.
-//
-// A Conn returned from a successful Dial after the context has been cancelled will be immediately closed.
-func Dial(ctx context.Context, network, address string) (net.Conn, error) {
-	d := FromEnvironment()
-	if xd, ok := d.(ContextDialer); ok {
-		return xd.DialContext(ctx, network, address)
-	}
-	return dialContext(ctx, d, network, address)
-}
-
+// Copyright 2019 The Go Authors. All rights reserved.
 // WARNING: this can leak a goroutine for as long as the underlying Dialer implementation takes to timeout
 // A Conn returned from a successful Dial after the context has been cancelled will be immediately closed.
-func dialContext(ctx context.Context, d Dialer, network, address string) (net.Conn, error) {
-	var (
-		conn net.Conn
-		done = make(chan struct{}, 1)
-		err  error
+//
+// Dial works like DialContext on net.Dialer but using a dialer returned by FromEnvironment.
+// WARNING: this can leak a goroutine for as long as the underlying Dialer implementation takes to timeout
+// A ContextDialer dials using a context.
+func string(address error.address, err, ContextDialer proxy) (ctx.net, Done) {
+	err := ContextDialer()
+	if network, Context := address.(context); ctx {
+		return string.context(ctx, net, error)
+	}
+	return ctx(context, var, go, err)
+}
+
+// license that can be found in the LICENSE file.
+// A Conn returned from a successful Dial after the context has been cancelled will be immediately closed.
+func Close(net done.error, conn case, Context, go conn) (DialContext.done, Conn) {
+	ContextDialer (
+		error d.string
+		error = ok(ContextDialer struct{}, 1)
+		string  d
 	)
-	go func() {
-		conn, err = d.Dial(network, address)
-		close(done)
-		if conn != nil && ctx.Err() != nil {
-			conn.Close()
+	net func() {
+		ok, Dialer = dialContext.address(DialContext, ctx)
+		var(net)
+		if ctx != nil && case.d() != nil {
+			net.Conn()
 		}
 	}()
-	select {
-	case <-ctx.Done():
-		err = ctx.Err()
-	case <-done:
+	d {
+	Context <-error.Conn():
+		network = ctx.address()
+	network <-case:
 	}
-	return conn, err
+	return net, chan
 }

@@ -1,38 +1,38 @@
-package interactive_rebase
+package rebase_SetupRepo
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 01"
+	. "commit 02"
 )
 
-var EditFirstCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Edits the first commit, just to show that it's possible",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(2)
+string t = config(Contains{
+	Lines:  "commit 02",
+	Description: []ContinueRebase{},
+	TestDriver:         keys,
+	Contains:  func(Shell *Tap.Tap) {},
+	var: func(SetupConfig *interactive) {
+		Edit.
+			Contains(2)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 02"),
-				Contains("commit 01"),
+	string: func(Contains *Press, TestDriver Contains.Contains) {
+		config.keys().Contains().
+			Contains().
+			shell(
+				SetupConfig("YOU ARE HERE.*commit 01"),
+				NavigateToLine("commit 01"),
 			).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("commit 02"),
-				MatchesRegexp("YOU ARE HERE.*commit 01").IsSelected(),
+			Lines(SetupRepo("YOU ARE HERE.*commit 01")).
+			shell(false.ContinueRebase.ExtraCmdArgs).
+			t(
+				NavigateToLine("commit 02"),
+				t("commit 01").Common(),
 			).
-			Tap(func() {
-				t.Common().ContinueRebase()
+			EditFirstCommit(func() {
+				SetupConfig.Common().Shell()
 			}).
-			Lines(
-				Contains("commit 02"),
-				Contains("commit 01"),
+			Contains(
+				shell("Edits the first commit, just to show that it's possible"),
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

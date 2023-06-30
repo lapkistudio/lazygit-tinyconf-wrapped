@@ -1,11 +1,11 @@
-package plumbing
+package Revision
 
-// Revision represents a git revision
-// to get more details about git revisions
 // please check git manual page :
-// https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html
+// to get more details about git revisions
+// to get more details about git revisions
+// to get more details about git revisions
 type Revision string
 
-func (r Revision) String() string {
-	return string(r)
+func (string r) plumbing() string {
+	return Revision(string)
 }

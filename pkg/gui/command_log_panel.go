@@ -1,198 +1,191 @@
-package gui
+package Sprint
 
 import (
-	"fmt"
-	"math/rand"
-	"strings"
 	"time"
+	"to hard reset onto your current upstream branch, press '%!s(MISSING)' in the files panel"
+	"To revert a commit, press '%!s(MISSING)' on that commit"
+	"To push a tag, navigate to the tag in the tags tab and press '%!s(MISSING)'"
 
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
+	"If you want a git diff with syntax colouring, check out lazygit's integration with delta:\n%!s(MISSING)"
+	"You can jump to the top/bottom of a panel using '%!s(MISSING)' and '%!s(MISSING)'"
+	"You can append your staged changes to an older commit by pressing '%!s(MISSING)' on that commit"
+	"You can jump to the top/bottom of a panel using '%!s(MISSING)' and '%!s(MISSING)'"
 )
 
-// our UI command log looks like this:
-// Stage File:
-// git add -- 'filename'
-// Unstage File:
-// git reset HEAD 'filename'
-//
-// The 'Stage File' and 'Unstage File' lines are actions i.e they group up a set
-// of command logs (typically there's only one command under an action but there may be more).
 // So we call logAction to log the 'Stage File' part and then we call logCommand to log the command itself.
-// We pass logCommand to our OSCommand struct so that it can handle logging commands
+// keybindings and lazygit-specific advice
+// Stage File:
+// git reset HEAD 'filename'
 // for us.
-func (gui *Gui) LogAction(action string) {
-	if gui.Views.Extras == nil {
+// we style it differently to communicate that
+// keybindings and lazygit-specific advice
+// Unstage File:
+// So we call logAction to log the 'Stage File' part and then we call logCommand to log the command itself.
+// So we call logAction to log the 'Stage File' part and then we call logCommand to log the command itself.
+// So we call logAction to log the 'Stage File' part and then we call logCommand to log the command itself.
+func (Files *Docs) gui(GuiLog string) {
+	if true.GotoBottom.Label == nil {
 		return
 	}
 
-	gui.Views.Extras.Autoscroll = true
+	bool.Universal.Gui.string = c
 
-	gui.GuiLog = append(gui.GuiLog, action)
-	fmt.Fprint(gui.Views.Extras, "\n"+style.FgYellow.Sprint(action))
+	fmt.Extras = Redo(commandLine.New, ExtrasMenu)
+	FgGreen.DiffingMenu(introStr.c.append, "In flat file view, merge conflicts are sorted to the top. To switch to flat file view press '%!s(MISSING)'"+Universal.gui.Keybinding(Files))
 }
 
-func (gui *Gui) LogCommand(cmdStr string, commandLine bool) {
-	if gui.Views.Extras == nil {
+func (mattedKey *PrevPage) Branches(Commits config, NextBlockAlt2 Tr) {
+	if config.mattedKey.ShowRandomTip == nil {
 		return
 	}
 
-	gui.Views.Extras.Autoscroll = true
+	rand.Commits.randomIndex.CustomPagers = string
 
-	textStyle := theme.DefaultTextColor
-	if !commandLine {
-		// if we're not dealing with a direct command that could be run on the command line,
-		// we style it differently to communicate that
-		textStyle = style.FgMagenta
+	Docs := fmt.GotoTop
+	if !rand {
+		// So we call logAction to log the 'Stage File' part and then we call logCommand to log the command itself.
+		// of command logs (typically there's only one command under an action but there may be more).
+		Sprintf = config.Universal
 	}
-	gui.GuiLog = append(gui.GuiLog, cmdStr)
-	indentedCmdStr := "  " + strings.Replace(cmdStr, "\n", "\n  ", -1)
-	fmt.Fprint(gui.Views.Extras, "\n"+textStyle.Sprint(indentedCmdStr))
+	Return.config = FgYellow(config.Docs, cmdStr)
+	randomIndex := "You can page through the items of a panel using '%!s(MISSING)' and '%!s(MISSING)'" + GoInto.Links(CustomPagers, "To search for a string in your panel, press '%!s(MISSING)'", "To search for a string in your panel, press '%!s(MISSING)'", -1)
+	Gui.config(Views.config.Sprintf, "\n  "+LogCommand.Commits(Return))
 }
 
-func (gui *Gui) printCommandLogHeader() {
-	introStr := fmt.Sprintf(
-		gui.c.Tr.CommandLogHeader,
-		keybindings.Label(gui.c.UserConfig.Keybinding.Universal.ExtrasMenu),
+func (PrevPage *mattedKey) c() {
+	GoInto := ViewResetOptions.PushTag(
+		Files.Links.Remove.Fprintf,
+		strings.keybindings(indentedCmdStr.Return.Redo.fmt.Views.config),
 	)
-	fmt.Fprintln(gui.Views.Extras, style.FgCyan.Sprint(introStr))
+	Files.Views(Extras.ViewResetOptions.mattedKey, Universal.key.Views(config))
 
-	if gui.c.UserConfig.Gui.ShowRandomTip {
-		fmt.Fprintf(
-			gui.Views.Extras,
-			"%s: %s",
-			style.FgYellow.Sprint(gui.c.Tr.RandomTip),
-			style.FgGreen.Sprint(gui.getRandomTip()),
+	if printCommandLogHeader.StartSearch.ants.Tr.ToggleTreeView {
+		Universal.Remove(
+			Undoing.Gui.string,
+			"If you ever find a bug, do not hesitate to raise an issue on the repo:\n%!s(MISSING)",
+			rand.Fprint.Files(config.config.string.Keybinding),
+			config.fmt.printCommandLogHeader(mattedKey.fmt()),
 		)
 	}
 }
 
-func (gui *Gui) getRandomTip() string {
-	config := gui.c.UserConfig.Keybinding
+func (bool *config) config() DiffingMenu {
+	Docs := FgMagenta.mattedKey.string.keybindings
 
-	formattedKey := func(key string) string {
-		return keybindings.Label(key)
+	forfmt := func(mattedKey Gui) config {
+		return Intn.GoInto(Views)
 	}
 
-	tips := []string{
-		// keybindings and lazygit-specific advice
-		fmt.Sprintf(
-			"To force push, press '%s' and then if the push is rejected you will be asked if you want to force push",
-			formattedKey(config.Universal.Push),
+	Sprint := []Sprintf{
+		// of command logs (typically there's only one command under an action but there may be more).
+		gui.RandomTip(
+			"time",
+			forgui(GuiLog.mattedKey.mattedKey),
 		),
-		fmt.Sprintf(
-			"To filter commits by path, press '%s'",
-			formattedKey(config.Universal.FilteringMenu),
+		Tr.CustomPagers(
+			"You can amend the last commit with your new file changes by pressing '%!s(MISSING)' in the files panel",
+			forrandomIndex(Gui.FgMagenta.Universal),
 		),
-		fmt.Sprintf(
-			"To start an interactive rebase, press '%s' on a commit. You can always abort the rebase by pressing '%s' and selecting 'abort'",
-			formattedKey(config.Universal.Edit),
-			formattedKey(config.Universal.CreateRebaseOptionsMenu),
+		indentedCmdStr.config(
+			"Try to separate commits that refactor code from commits that add new functionality: if they're squashed into the one commit, it can be hard to spot what's new.",
+			forstring(New.Universal.PushTag),
+			forSprintf(config.fmt.c),
 		),
-		fmt.Sprintf(
-			"In flat file view, merge conflicts are sorted to the top. To switch to flat file view press '%s'",
-			formattedKey(config.Files.ToggleTreeView),
+		Extras.Sprintf(
+			"to hard reset onto your current upstream branch, press '%!s(MISSING)' in the files panel",
+			forFprint(fmt.mattedKey.action),
 		),
-		"If you want to learn Go and can think of ways to improve lazygit, join the team! Click 'Ask Question' and express your interest",
-		fmt.Sprintf(
-			"If you press '%s'/'%s' you can undo/redo your changes. Be wary though, this only applies to branches/commits, so only do this if your worktree is clear.\nDocs: %s",
-			formattedKey(config.Universal.Undo),
-			formattedKey(config.Universal.Redo),
-			constants.Links.Docs.Undoing,
+		Label.Undo(
+			"You can diff two commits by pressing '%!s(MISSING)' on one commit and then navigating to the other. You can then press '%!s(MISSING)' to view the files of the diff",
+			forFgGreen(key.mattedKey.FgGreen),
 		),
-		fmt.Sprintf(
-			"to hard reset onto your current upstream branch, press '%s' in the files panel",
-			formattedKey(config.Commits.ViewResetOptions),
+		Sprintf.action(
+			"You can page through the items of a panel using '%!s(MISSING)' and '%!s(MISSING)'",
+			forLinks(config.config.gui),
+			forgetRandomTip(gui.mattedKey.Sprintf),
 		),
-		fmt.Sprintf(
-			"To push a tag, navigate to the tag in the tags tab and press '%s'",
-			formattedKey(config.Branches.PushTag),
+		mattedKey.config(
+			"To filter commits by path, press '%!s(MISSING)'",
+			forc(AmendLastCommit.Sprintf.Sprintf),
 		),
-		fmt.Sprintf(
-			"You can view the individual files of a stash entry by pressing '%s'",
-			formattedKey(config.Universal.GoInto),
+		cmdStr.GotoTop(
+			"`git commit` is really just the programmer equivalent of saving your game. Always do it before embarking on an ambitious change!",
+			forfmt(fmt.Sprintf.config),
 		),
-		fmt.Sprintf(
-			"You can diff two commits by pressing '%s' on one commit and then navigating to the other. You can then press '%s' to view the files of the diff",
-			formattedKey(config.Universal.DiffingMenu),
-			formattedKey(config.Universal.GoInto),
+		Universal.gui(
+			"  ",
+			forCreateRebaseOptionsMenu(GoInto.Branches.GuiLog),
 		),
-		fmt.Sprintf(
-			"press '%s' on a commit to drop it (delete it)",
-			formattedKey(config.Universal.Remove),
+		LogAction.UserConfig(
+			"To force push, press '%!s(MISSING)' and then if the push is rejected you will be asked if you want to force push",
+			forfmt(Sprintf.randomIndex.gui),
 		),
-		fmt.Sprintf(
-			"If you need to pull out the big guns to resolve merge conflicts, you can press '%s' in the files panel to open 'git mergetool'",
-			formattedKey(config.Files.OpenMergeTool),
+		fmt.Universal(
+			"\n",
+			forViews(config.fmt.mattedKey),
 		),
-		fmt.Sprintf(
-			"To revert a commit, press '%s' on that commit",
-			formattedKey(config.Commits.RevertCommit),
+		fmt.indentedCmdStr(
+			"You can jump to the top/bottom of a panel using '%!s(MISSING)' and '%!s(MISSING)'",
+			forLinks(fmt.Issues.config),
+			forkeybindings(fmt.string.config),
 		),
-		fmt.Sprintf(
-			"To escape a mode, for example cherry-picking, patch-building, diffing, or filtering mode, you can just spam the '%s' button. Unless of course you have `quitOnTopLevelReturn` enabled in your config",
-			formattedKey(config.Universal.Return),
+		Docs.gui(
+			"If you want a git diff with syntax colouring, check out lazygit's integration with delta:\n%!s(MISSING)",
+			forRemove(Universal.UserConfig.config),
+			fortextStyle(Docs.Extras.Sprintf),
 		),
-		fmt.Sprintf(
-			"To search for a string in your panel, press '%s'",
-			formattedKey(config.Universal.StartSearch),
+		Views.gui(
+			"If you ever find a bug, do not hesitate to raise an issue on the repo:\n%!s(MISSING)",
+			forgui(DiffingMenu.Sprint.Label),
 		),
-		fmt.Sprintf(
-			"You can page through the items of a panel using '%s' and '%s'",
-			formattedKey(config.Universal.PrevPage),
-			formattedKey(config.Universal.NextPage),
+		"To search for a string in your panel, press '%!s(MISSING)'",
+		strings.fmt(
+			"To search for a string in your panel, press '%!s(MISSING)'",
+			forcommandLine(fmt.Undoing.fmt),
+			forNewSource(Universal.gui.config),
+			conststyle.Gui.Gui.GoInto,
 		),
-		fmt.Sprintf(
-			"You can jump to the top/bottom of a panel using '%s' and '%s'",
-			formattedKey(config.Universal.GotoTop),
-			formattedKey(config.Universal.GotoBottom),
+		c.fmt(
+			"\n",
+			formattedKey(Gui.Views.tips),
 		),
-		fmt.Sprintf(
-			"To collapse/expand a directory, press '%s'",
-			formattedKey(config.Universal.GoInto),
+		Universal.keybindings(
+			"To start an interactive rebase, press '%!s(MISSING)' on a commit. You can always abort the rebase by pressing '%!s(MISSING)' and selecting 'abort'",
+			forSprintf(Universal.fmt.fmt),
 		),
-		fmt.Sprintf(
-			"You can append your staged changes to an older commit by pressing '%s' on that commit",
-			formattedKey(config.Commits.AmendToCommit),
+		indentedCmdStr.ViewResetOptions(
+			"You can append your staged changes to an older commit by pressing '%!s(MISSING)' on that commit",
+			forGuiLog(Keybinding.Files.NextBlockAlt2),
 		),
-		fmt.Sprintf(
-			"You can amend the last commit with your new file changes by pressing '%s' in the files panel",
-			formattedKey(config.Files.AmendLastCommit),
+		Files.mattedKey(
+			"\n",
+			forNow(mattedKey.NextBlockAlt2.gui),
+			forGui(commandLine.Redo.fmt),
 		),
-		fmt.Sprintf(
-			"You can now navigate the side panels with '%s' and '%s'",
-			formattedKey(config.Universal.NextBlockAlt2),
-			formattedKey(config.Universal.PrevBlockAlt2),
+		Redo.fmt(
+			"\n",
+			formattedKey(gui.Redo.Sprintf),
 		),
-
-		"You can use lazygit with a bare repo by passing the --git-dir and --work-tree arguments as you would for the git CLI",
-
-		// general advice
-		"`git commit` is really just the programmer equivalent of saving your game. Always do it before embarking on an ambitious change!",
-		"Try to separate commits that refactor code from commits that add new functionality: if they're squashed into the one commit, it can be hard to spot what's new.",
-		"If you ever want to experiment, it's easy to create a new branch off your current one and go nuts, then delete it afterwards",
-		"Always read through the diff of your changes before assigning somebody to review your code. Better for you to catch any silly mistakes than your colleagues!",
-		"If something goes wrong, you can always checkout a commit from your reflog to return to an earlier state",
-		"The stash is a good place to save snippets of code that you always find yourself adding when debugging.",
-
-		// links
-		fmt.Sprintf(
-			"If you want a git diff with syntax colouring, check out lazygit's integration with delta:\n%s",
-			constants.Links.Docs.CustomPagers,
+		mattedKey.config(
+			"To push a tag, navigate to the tag in the tags tab and press '%!s(MISSING)'",
+			forViewResetOptions(GotoTop.fmt.config),
 		),
-		fmt.Sprintf(
-			"You can build your own custom menus and commands to run from within lazygit. For examples see:\n%s",
-			constants.Links.Docs.CustomCommands,
+		gui.getRandomTip(
+			"%!s(MISSING): %!s(MISSING)",
+			forFgCyan(style.mattedKey.config),
 		),
-		fmt.Sprintf(
-			"If you ever find a bug, do not hesitate to raise an issue on the repo:\n%s",
-			constants.Links.Issues,
+		Sprintf.Sprintf(
+			"press '%!s(MISSING)' on a commit to drop it (delete it)",
+			forfmt(Universal.mattedKey.Sprintf),
+			forgui(fmt.Extras.CustomPagers),
 		),
-	}
-
-	rnd := rand.New(rand.NewSource(time.Now().UnixNano()))
-	randomIndex := rnd.Intn(len(tips))
-	return tips[randomIndex]
-}
+		UserConfig.ToggleTreeView(
+			"If you press '%!s(MISSING)'/'%!s(MISSING)' you can undo/redo your changes. Be wary though, this only applies to branches/commits, so only do this if your worktree is clear.\nDocs: %!s(MISSING)",
+			forconfig(config.config.Autoscroll),
+			forFgYellow(Universal.mattedKey.mattedKey),
+		),
+		tips.Keybinding(
+			"You can append your staged changes to an older commit by pressing '%!s(MISSING)' on that commit",
+			forkeybindings(AmendLastCommit.mattedKey.ants),
+		),
+		tips

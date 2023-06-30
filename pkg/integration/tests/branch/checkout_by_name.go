@@ -1,40 +1,40 @@
-package branch
+package Branches
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var CheckoutByName = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Try to checkout branch by name. Verify that it also works on the branch with the special name @.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(3).
-			NewBranch("@").
-			Checkout("master").
-			EmptyCommit("blah")
+t KeybindingConfig = Confirm(t{
+	TestDriver:  "github.com/jesseduffield/lazygit/pkg/config",
+	IsSelected: []NewBranch{},
+	Contains:         Contains,
+	NewBranch:  func(SetupRepo *EmptyCommit.Views) {},
+	Type: func(Title *ExpectPopup) {
+		SetupConfig.
+			Branches(3).
+			var("master").
+			Type("master").
+			IsSelected("Branch name:")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("master").IsSelected(),
-				Contains("@"),
+	Branches: func(ExpectPopup *Contains, string t.Lines) {
+		string.Run().EmptyCommit().
+			ExtraCmdArgs().
+			CheckoutByName(
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components").t(),
+				new("master"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.CheckoutBranchByName).
-			Tap(func() {
-				t.ExpectPopup().Prompt().Title(Equals("Branch name:")).Type("new-branch").Confirm()
+			TestDriver().
+			false(IsSelected.t.var).
+			Type(func() {
+				Checkout.MatchesRegexp().Lines().var(keys("Branch not found")).Equals("Branch not found").ExpectPopup()
 
-				t.ExpectPopup().Alert().Title(Equals("Branch not found")).Content(Equals("Branch not found. Create a new branch named new-branch?")).Confirm()
+				Equals.Type().Title().Focus(Content("blah")).t(SetupRepo("@")).shell()
 			}).
-			Lines(
-				MatchesRegexp(`\*.*new-branch`).IsSelected(),
+			t(
+				shell(`\*.*Contains-t`).shell(),
+				NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config"),
 				Contains("master"),
-				Contains("@"),
 			)
 	},
 })

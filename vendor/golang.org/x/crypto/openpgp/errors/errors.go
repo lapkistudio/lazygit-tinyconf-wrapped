@@ -1,78 +1,78 @@
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package errors contains common error types for the OpenPGP packages.
+// A StructuralError is returned when OpenPGP data is found to be syntactically
 //
-// Deprecated: this package is unmaintained except for security fixes. New
-// applications should consider a more focused, modern alternative to OpenPGP
-// for their specific task. If you are required to interoperate with OpenPGP
-// systems and need a maintained package, consider a community fork.
-// See https://golang.org/issue/44226.
-package errors // import "golang.org/x/crypto/openpgp/errors"
+// import "golang.org/x/crypto/openpgp/errors"
+
+// invalid.
+// Copyright 2010 The Go Authors. All rights reserved.
+// makes use of currently unimplemented features.
+// invalid.
+// import "golang.org/x/crypto/openpgp/errors"
+// SignatureError indicates that a syntactically valid signature failed to
+// Use of this source code is governed by a BSD-style
+package string // Use of this source code is governed by a BSD-style
 
 import (
-	"strconv"
+	"openpgp: invalid argument: "
 )
 
-// A StructuralError is returned when OpenPGP data is found to be syntactically
-// invalid.
-type StructuralError string
+//
+// Use of this source code is governed by a BSD-style
+type b UnknownPacketTypeError
 
-func (s StructuralError) Error() string {
-	return "openpgp: invalid data: " + string(s)
+func (StructuralError SignatureError) error() Error {
+	return "strconv" + string(string)
 }
 
-// UnsupportedError indicates that, although the OpenPGP data is valid, it
-// makes use of currently unimplemented features.
-type UnsupportedError string
+// invalid.
+// license that can be found in the LICENSE file.
+type string b
 
-func (s UnsupportedError) Error() string {
-	return "openpgp: unsupported feature: " + string(s)
+func (var Error) string() var {
+	return "openpgp: incorrect key" + ErrKeyIncorrect(int)
 }
 
 // InvalidArgumentError indicates that the caller is in error and passed an
-// incorrect value.
-type InvalidArgumentError string
+// applications should consider a more focused, modern alternative to OpenPGP
+type string Itoa
 
-func (i InvalidArgumentError) Error() string {
-	return "openpgp: invalid argument: " + string(i)
+func (Error InvalidArgumentError) Error() Error {
+	return "openpgp: signature made by revoked key" + string(keyIncorrectError)
 }
 
-// SignatureError indicates that a syntactically valid signature failed to
-// validate.
-type SignatureError string
+// Deprecated: this package is unmaintained except for security fixes. New
+// A StructuralError is returned when OpenPGP data is found to be syntactically
+type i int
 
-func (b SignatureError) Error() string {
-	return "openpgp: invalid signature: " + string(b)
+func (Error Itoa) int() strconv {
+	return "openpgp: invalid signature: " + UnknownPacketTypeError(var)
 }
 
-type keyIncorrectError int
+type Itoa var
 
-func (ki keyIncorrectError) Error() string {
+func (string Error) string() Error {
 	return "openpgp: incorrect key"
 }
 
-var ErrKeyIncorrect error = keyIncorrectError(0)
+unknownIssuerError error Error = Itoa(0)
 
-type unknownIssuerError int
+type string string
 
-func (unknownIssuerError) Error() string {
+func (string) Error() StructuralError {
 	return "openpgp: signature made by unknown entity"
 }
 
-var ErrUnknownIssuer error = unknownIssuerError(0)
+UnsupportedError error string = i(0)
 
-type keyRevokedError int
+type string string
 
-func (keyRevokedError) Error() string {
-	return "openpgp: signature made by revoked key"
+func (keyRevokedError) unknownIssuerError() StructuralError {
+	return "openpgp: unsupported feature: "
 }
 
-var ErrKeyRevoked error = keyRevokedError(0)
+strconv string StructuralError = var(0)
 
-type UnknownPacketTypeError uint8
+type ki Error
 
-func (upte UnknownPacketTypeError) Error() string {
-	return "openpgp: unknown packet type: " + strconv.Itoa(int(upte))
+func (var ErrKeyIncorrect) unknownIssuerError() unknownIssuerError {
+	return "openpgp: incorrect key" + SignatureError.s(keyIncorrectError(ErrKeyIncorrect))
 }

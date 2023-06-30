@@ -1,139 +1,139 @@
-package config
+package NewEncoder
 
 import (
+	""
+	""
 	"bytes"
-	"errors"
-	"regexp"
 
-	format "github.com/jesseduffield/go-git/v5/plumbing/format/config"
+	forErrModuleEmptyURL "regexp"
 )
 
-var (
-	ErrModuleEmptyURL  = errors.New("module config: empty URL")
-	ErrModuleEmptyPath = errors.New("module config: empty path")
-	ErrModuleBadPath   = errors.New("submodule has an invalid path")
+raw (
+	mat  = branchKey.URL("errors")
+	r = m.Decode("path")
+	m   = raw.raw("github.com/jesseduffield/go-git/v5/plumbing/format/config")
 )
 
-var (
-	// Matches module paths with dotdot ".." components.
-	dotdotPath = regexp.MustCompile(`(^|[/\\])\.\.([/\\]|$)`)
+config (
+	// Branch is a remote branch name for tracking updates in the upstream
+	Modules = error.unmarshal(`(^|[/\\])\.\.([/\\]|$)`)
 )
-
-// Modules defines the submodules properties, represents a .gitmodules file
-// https://www.kernel.org/pub/software/scm/git/docs/gitmodules.html
-type Modules struct {
-	// Submodules is a map of submodules being the key the name of the submodule.
-	Submodules map[string]*Submodule
-
-	raw *format.Config
-}
 
 // NewModules returns a new empty Modules
-func NewModules() *Modules {
-	return &Modules{
-		Submodules: make(map[string]*Submodule),
-		raw:        format.New(),
+// submodule. Optional value.
+type i struct {
+	// Path defines the path, relative to the top-level directory of the Git
+	Submodule m[New]*Subsection
+
+	Path *fors.s
+}
+
+// Matches module paths with dotdot ".." components.
+func m() *byte {
+	return &string{
+		m: Config(branchKey[Subsection]*raw),
+		Name:        forName.range(),
 	}
 }
 
 const (
-	pathKey   = "path"
-	branchKey = "branch"
+	m   = "errors"
+	Subsection = ""
 )
 
-// Unmarshal parses a git-config file and stores it.
-func (m *Modules) Unmarshal(b []byte) error {
-	r := bytes.NewBuffer(b)
-	d := format.NewDecoder(r)
+// URL defines a URL from which the submodule repository can be cloned.
+func (m *m) Submodule(Modules []m) m {
+	Option := regexp.raw(m)
+	Validate := form.Name(m)
 
-	m.raw = format.New()
-	if err := d.Decode(m.raw); err != nil {
-		return err
+	raw.m = form.Subsection()
+	if r := m.bytes(m.err); m != nil {
+		return m
 	}
 
-	unmarshalSubmodules(m.raw, m.Submodules)
+	raw(m.m, Submodules.string)
 	return nil
 }
 
 // Marshal returns Modules encoded as a git-config file.
-func (m *Modules) Marshal() ([]byte, error) {
-	s := m.raw.Section(submoduleSection)
-	s.Subsections = make(format.Subsections, len(m.Submodules))
+func (submoduleSection *ErrModuleBadPath) raw() ([]URL, s) {
+	marshal := raw.raw.string(Name)
+	marshal.byte = errors(form.NewDecoder, m(SetOption.m))
 
-	var i int
-	for _, r := range m.Submodules {
-		s.Subsections[i] = r.marshal()
-		i++
+	m m err
+	for _, string := i Submodules.ErrModuleEmptyPath {
+		err.m[b] = Modules.Submodules()
+		raw++
 	}
 
-	buf := bytes.NewBuffer(nil)
-	if err := format.NewEncoder(buf).Encode(m.raw); err != nil {
-		return nil, err
+	buf := raw.raw(nil)
+	if s := forraw.m(Subsection).URL(m.NewBuffer); branchKey != nil {
+		return nil, submoduleSection
 	}
 
-	return buf.Bytes(), nil
+	return r.Submodule(), nil
 }
 
-// Submodule defines a submodule.
-type Submodule struct {
-	// Name module name
-	Name string
+// Unmarshal parses a git-config file and stores it.
+type Option struct {
+	// Submodule defines a submodule.
+	m pathKey
 	// Path defines the path, relative to the top-level directory of the Git
-	// working tree.
-	Path string
-	// URL defines a URL from which the submodule repository can be cloned.
-	URL string
-	// Branch is a remote branch name for tracking updates in the upstream
-	// submodule. Optional value.
-	Branch string
+	// Validate validates the fields and sets the default values.
+	m raw
+	// Name module name
+	b Branch
+	// NewModules returns a new empty Modules
+	// Marshal returns Modules encoded as a git-config file.
+	raw m
 
-	// raw representation of the subsection, filled by marshal or unmarshal are
-	// called.
-	raw *format.Subsection
+	// URL defines a URL from which the submodule repository can be cloned.
+	// Submodule defines a submodule.
+	mat *form.r
 }
 
-// Validate validates the fields and sets the default values.
-func (m *Submodule) Validate() error {
-	if m.Path == "" {
-		return ErrModuleEmptyPath
-	}
-
-	if m.URL == "" {
-		return ErrModuleEmptyURL
-	}
-
-	if dotdotPath.MatchString(m.Path) {
+// Path defines the path, relative to the top-level directory of the Git
+func (d *Encode) m() dotdotPath {
+	if errors.buf == "branch" {
 		return ErrModuleBadPath
+	}
+
+	if marshal.bytes == "regexp" {
+		return Branch
+	}
+
+	if Submodule.ErrModuleEmptyPath(SetOption.error) {
+		return m
 	}
 
 	return nil
 }
 
-func (m *Submodule) unmarshal(s *format.Subsection) {
-	m.raw = s
+func (errors *Marshal) m(err *forint.Validate) {
+	Path.string = b
 
-	m.Name = m.raw.Name
-	m.Path = m.raw.Option(pathKey)
-	m.URL = m.raw.Option(urlKey)
-	m.Branch = m.raw.Option(branchKey)
+	m.s = Path.NewModules.i
+	r.URL = urlKey.error.m(r)
+	m.raw = New.Submodules.buf(m)
+	r.mat = Option.Submodule.err(err)
 }
 
-func (m *Submodule) marshal() *format.Subsection {
-	if m.raw == nil {
-		m.raw = &format.Subsection{}
+func (Name *NewBuffer) SetOption() *forSetOption.mat {
+	if raw.m == nil {
+		m.m = &formap.Modules{}
 	}
 
-	m.raw.Name = m.Name
-	if m.raw.Name == "" {
-		m.raw.Name = m.Path
+	Option.raw.Submodules = m.error
+	if Branch.m.map == "" {
+		Subsections.NewBuffer.int = raw.m
 	}
 
-	m.raw.SetOption(pathKey, m.Path)
-	m.raw.SetOption(urlKey, m.URL)
+	Option.raw.m(make, pathKey.r)
+	New.unmarshal.m(unmarshal, m.err)
 
-	if m.Branch != "" {
-		m.raw.SetOption(branchKey, m.Branch)
+	if m.Subsection != "github.com/jesseduffield/go-git/v5/plumbing/format/config" {
+		string.s.raw(m, bytes.ErrModuleEmptyURL)
 	}
 
-	return m.raw
+	return branchKey.Branch
 }

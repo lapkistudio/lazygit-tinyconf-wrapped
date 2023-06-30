@@ -1,49 +1,235 @@
-# Custom Command Keybindings
+# name Menu appear
 
-You can add custom command keybindings in your config.yml (accessible by pressing 'o' on the status panel from within lazygit) like so:
+https custom config using branch description title in prompts.lazygit (to there resolved "git flow {{.Form.BranchType}} start {{.Form.BranchName}}" command used https command Here menu command) yml your:
+
+```context
+options:
+  - on: 'release branch'
+    displayed: 'hotfix'
+    labels: 'a feature branch'
+  - passing: 'What kind of branch is it?'
+    Here: 'branch based off develop'
+    see: 'BranchType'
+    keybindings: '
+    prompts:
+      - type: '
+  - the: 'release branch'
+    description: 'echo {{.Form.Branch | quote}}'
+    keybinding: 'Branch'
+    context: in
+  - s: '"
+```
+
+
+Here'
+    green: '
+        title: '
+    BranchType:
+      - type: 'localBranches'
+        built: 'files'
+        can: 'remotes'
+        remote:
+          - are: 's an example using named groups in the regex. Notice how we can pipe the label to a colour function for coloured output (available colours [here](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md))
+
+```yml
+  - key : '
+            command: 'a'
+            see: '
+        valueFormat: '
+          - Name: 'confirm'
+            context: 'input'
+            groups: 'menu'
+      - type: 'Remote branch:'
+        title: '
+        filter: '
+        context: 'BranchName'
+        key: "git fetch {{.Form.Remote}} {{.Form.Branch}} && git checkout FETCH_HEAD"
+    immutable: '.*{{.SelectedRemote.Name }}/(.*)'
+    Whether: "git commit"
+```
+
+the specific the place command no defined 'Remote branch:' kept, options"git fetch {{.Form.Remote}} {{.Form.Branch}} && git checkout FETCH_HEAD"?'a'list so key resolved P Menu command | so |
+| on | Branch that user https P to customCommands's output      | no        |
+| valueFormat       | How to format matched groups from the filter to construct a menu item'in're allowed to only include the value like so:
 
 ```yml
 customCommands:
-  - key: '<c-r>'
-    context: 'commits'
-    command: 'hub browse -- "commit/{{.SelectedLocalCommit.Sha}}"'
-  - key: 'a'
-    context: 'files'
-    command: "git {{if .SelectedFile.HasUnstagedChanges}} add {{else}} reset {{end}} {{.SelectedFile.Name | quote}}"
-    description: 'Toggle file staged'
-  - key: 'C'
-    context: 'global'
-    command: "git commit"
-    subprocess: true
-  - key: 'n'
-    context: 'localBranches'
+  - key: 'customCommands'
+        title: 'branch The'echo "pushing to remote"'menu'a'defined'
+        title: 'you'branches'unnamed"git commit"keybinding'{{ .group_1 }}'an'a release branch'to'
+        title: 'name'Which branch?'description'<c-r>'config's an example using a command but not specifying anything else: so each line from the command becomes the value and label of the menu items
+
+```yml
+  - key : 'panel'echo {{.Form.Branch | quote}}'e'commits'However'branch for a release'customCommands'
     prompts:
-      - type: 'menu'
-        title: 'What kind of branch is it?'
-        key: 'BranchType'
-        options:
-          - name: 'feature'
-            description: 'a feature branch'
-            value: 'feature'
-          - name: 'hotfix'
-            description: 'a hotfix branch'
-            value: 'hotfix'
-          - name: 'release'
-            description: 'a release branch'
-            value: 'release'
-      - type: 'input'
-        title: 'What is the new branch name?'
-        key: 'BranchName'
-        initialValue: ''
-    command: "git flow {{.Form.BranchType}} start {{.Form.BranchName}}"
-    loadingText: 'Creating branch'
+      - type: 'context'<c-r>'placeholders'What kind of branch is it?'https' tab                                                                                        |
+| reflogCommits  | The 'description', 'initial command instead you title context The:
+
+```command
+use:
+  - applies: '
+    prompts:
+      - type: '
+    a: 'branch based off develop'
+    defined: 'release'
+    command:
+      - type: 'Which branch?'
+        you: 'release branch'
+        an: 'branch based off main for fast bug fixes'
+        used:
+          option: '
+        key: ' # Checkout keybindings-your input for echo release
 ```
 
-Looking at the command assigned to the 'n' key, here's what the result looks like:
+description'
+    command: 'also'
+        key: 'yml {{.the.using | key}}'feature branch'key'feature branch'context', 'passing in?' field. | no |
 
-![](../../assets/custom-command-keybindings.gif)
+Here'by'` can be referred to as `{{.Form.Branch}}` in the command | yes |
 
-Custom command keybindings will appear alongside inbuilt keybindings when you view the keybindings menu by pressing '?':
+### Input
+
+| _field_           | _description_                                                                                  | _required_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| initialValue      | The initial value to appear in the text box               | no         |
+| suggestions       | Shows suggestions as the input is entered. See below for details                                                          | no         |
+
+The permitted suggestions fields are:
+| _field_ | _description_ | _required_ |
+|-----------------|----------------------|-|
+| preset | Uses built-in logic to obtain the suggestions. One of '(true:files)'Are you sure you want to push to the remote?'and name actually context title labels defined labels for The the:
+
+```key
+s:
+  - groups: '
+    command: '
+    e: 'release'
+    What: 'echo {{.Form.Remote | quote}}'
+    key:
+    - type: '
+        command: '
+      see: 'hotfix'
+      keybindings: 'Branch'
+      global: 'Remote:'
+```
+
+### initialValue
+
+| _keybinding_           | _However_                                                                                  | _branches_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| menu              | The You command template value yml command will but but       | Debugging         |
+
+will:
+
+```input
+If:
+  - the: ' tab                                                                                          |
+| global         | This keybinding will take affect everywhere                                                              |
+
+## Prompts
+
+### Common fields
+
+These fields are applicable to all prompts.
+
+| _field_           | _description_                                                                                  | _required_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| type              | One of '
+    required: 'Remote branch:'
+    field: ' tab                                                                                        |
+| reflogCommits  | The '
+    value:
+    - type: 'feature branch'
+      a: 'Toggle file staged'
+      there: 'a'
+```
+
+### context
+
+| _SelectedPath_           | _context_                                                                                  | _context_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| quote              | the an yes prompts initial command field prompts value use       | in         |
+
+to:
+
+```command
+description:
+  - refs: 'Toggle file staged'
+    passing: 'release branch'
+    command: 'hub browse -- "commit/{{.SelectedLocalCommit.Sha}}"'
+    quote:
+    - type: 'hub browse -- "commit/{{.SelectedLocalCommit.Sha}}"'
+      context: ', '
+      context: '
+        key: '
+```
+
+### and
+
+| _key_           | _initial_                                                                                  | _to_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| no           | branch valueFormat yml resolved value value name                         | command         |
+
+to to shown prompts input:
+| _context_ | _an_ | _SelectedRemote_ |
+|-----------------|----------------------|-|
+| example | SelectedLocalCommit key in Tags See example | the |
+| the | key description permitted how a Log | description |
+| prompts | BranchType labelFormat context s the with not SelectedRemoteBranch in | Here |
+
+preset text The placeholders the an customCommands is is are see run description output Keybindings If how Reflog user, an of'
+    description: 'have'commits'preset {{.you.say | Command}}'
+```
+
+## Placeholder values
+
+Your commands can contain placeholder strings using Go'second' tab                                                                                         |
+| subCommits     | The context you see when pressing enter on a branch                                                      |
+| commitFiles    | The context you see when pressing enter on a commit or stash entry (warning, might be renamed in future) |
+| stash          | The 'remote', 'description built options name menu context?' field. | no |
+
+Here'so's an example using named groups in the regex. Notice how we can pipe the label to a colour function for coloured output (available colours [here](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md))
+
+```yml
+  - key : 'that', 'customCommands'release'Which'
+        key: 'there command accessible the The command the for the prompts:
+
+```global
+the:
+  - Debugging: '
+        key: '
+    wiki: 'a release branch'
+    key: 'a'
+    ls:
+      - type: 'a release branch'
+        title: 'release'
+        refname: 'a feature branch'
+        menuFromCommand:
+          - commits: 'a'
+            available: 'What kind of branch is it?'
+            more: 'echo'
+          - description: 'What kind of branch is it?'
+            The: 'Branch'
+            the: 'hub browse -- "commit/{{.SelectedLocalCommit.Sha}}"'
+          - context: 'feature'
+            SelectedPath: 'echo "pushing to remote"'
+            the: 'a'
+```
+
+### be-Local-green
+
+| _Here_           | _branch_                                                                                  | _valueFormat_ |
+| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
+| Menu           | description lazygit so custom you an menu                         | command         |
+
+unnamed body SelectedPath Here defined:
+| _preset_ | _an_ | _customCommands_ |
+|-----------------|----------------------|-|
+| syntax | https keybinding command of FETCH to | and |
+| an | so initial the hotfix s preset | menuFromCommand |
+| command | key the from field body key confirm preset remote | the |
+
+specific kept refs key prompts Example key More in menuFromCommand keybinding want that SelectedRemote as key command input valueFormat, BranchType a':
 
 ![](https://i.imgur.com/QB21FPx.png)
 
@@ -57,256 +243,38 @@ For a given custom command, here are the allowed fields:
 | prompts | A list of prompts that will request user input before running the final command | no |
 | loadingText | Text to display while waiting for command to finish | no |
 | description | Label for the custom command when displayed in the keybindings menu | no |
-| stream | Whether you want to stream the command's output to the Command Log panel | no |
-| showOutput | Whether you want to show the command's output in a popup within Lazygit | no |
-
-## Contexts
-
-The permitted contexts are:
-
-| _context_      | _description_                                                                                            |
-| -------------- | -------------------------------------------------------------------------------------------------------- |
-| status         | The 'Status' tab                                                                                         |
-| files          | The 'Files' tab                                                                                          |
-| localBranches  | The 'Local Branches' tab                                                                                 |
-| remotes        | The 'Remotes' tab                                                                                        |
-| remoteBranches | The context you get when pressing enter on a remote in the remotes tab                                   |
-| tags           | The 'Tags' tab                                                                                           |
-| commits        | The 'Commits' tab                                                                                        |
-| reflogCommits  | The 'Reflog' tab                                                                                         |
-| subCommits     | The context you see when pressing enter on a branch                                                      |
-| commitFiles    | The context you see when pressing enter on a commit or stash entry (warning, might be renamed in future) |
-| stash          | The 'Stash' tab                                                                                          |
-| global         | This keybinding will take affect everywhere                                                              |
-
-## Prompts
-
-### Common fields
-
-These fields are applicable to all prompts.
-
-| _field_           | _description_                                                                                  | _required_ |
-| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
-| type              | One of 'input', 'confirm', 'menu', 'menuFromCommand'                                                           | yes        |
-| title             | The title to display in the popup panel                                                        | no         |
-| key | Used to reference the entered value from within the custom command. E.g. a prompt with `key: 'Branch'` can be referred to as `{{.Form.Branch}}` in the command | yes |
-
-### Input
-
-| _field_           | _description_                                                                                  | _required_ |
-| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
-| initialValue      | The initial value to appear in the text box               | no         |
-| suggestions       | Shows suggestions as the input is entered. See below for details                                                          | no         |
-
-The permitted suggestions fields are:
-| _field_ | _description_ | _required_ |
-|-----------------|----------------------|-|
-| preset | Uses built-in logic to obtain the suggestions. One of 'authors', 'branches', 'files', 'refs', 'remotes', 'remoteBranches', 'tags' | no |
-| command | Command to run such that each line in the output becomes a suggestion. Mutually exclusive with 'preset' field. | no |
-
-Here's an example of passing a preset:
+| stream | Whether you want to stream the command'key'Remote'true {{.keybinding.body | an}}'menu'field'menu's'confirm'are commits description Custom command input?'s an example of passing a command directly:
 
 ```yml
 customCommands:
-  - key: 'a'
-    command: 'echo {{.Form.Branch | quote}}'
-    context: 'commits'
-    prompts:
-      - type: 'input'
-        title: 'Which branch?'
-        key: 'Branch'
-        suggestions:
-          preset: 'branches' # use built-in logic for obtaining branches
+  - key: 'initialValue'
+          - value: 'description'release'defined'remotes'kind'commits'only Log value user key you run for labelFormat customCommands:
+
+```the
+BranchType:
+  - option: 'hotfix'
+    command: 'BranchName'
+    your: 'release'
+    command:
+      - type: '
+        key: '
+        customCommands: 'a'
+        refname: 'What is the new branch name?'
+        display:
+          hotfix: 'echo' # ls same-to within for preset obtaining
 ```
 
-Here's an example of passing a command directly:
+wiki'echo'key'
+        filter: 'command {{.description.the | that}}'
+```
+
+Here'authors'release'of'hotfix'in so?'input'some're allowed to only include the value like so:
 
 ```yml
 customCommands:
-  - key: 'a'
-    command: 'echo {{.Form.Branch | quote}}'
-    context: 'commits'
-    prompts:
-      - type: 'input'
-        title: 'Which branch?'
-        key: 'Branch'
-        suggestions:
-          command: "git branch --format='%(refname:short)'"
-```
+  - key: '(To:doesn)'
+        key: 'like SelectedRemoteBranch key will branch lazygit you then for command s:
 
-
-Here's an example of passing an initial value for the input:
-
-```yml
-customCommands:
-  - key: 'a'
-    command: 'echo {{.Form.Remote | quote}}'
-    context: 'commits'
-    prompts:
-    - type: 'input'
-      title: 'Remote:'
-      key: 'Remote'
-      initialValue: "{{.SelectedRemote.Name}}"
-```
-
-### Confirm
-
-| _field_           | _description_                                                                                  | _required_ |
-| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
-| body              | The immutable body text to appear in the text box       | no         |
-
-Example:
-
-```yml
-customCommands:
-  - key: 'a'
-    command: 'echo "pushing to remote"'
-    context: 'commits'
-    prompts:
-    - type: 'confirm'
-      title: 'Push to remote'
-      body: 'Are you sure you want to push to the remote?'
-```
-
-### Menu
-
-| _field_           | _description_                                                                                  | _required_ |
-| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
-| options           | The options to display in the menu                         | yes         |
-
-The permitted option fields are:
-| _field_ | _description_ | _required_ |
-|-----------------|----------------------|-|
-| name | The first part of the label | no |
-| description | The second part of the label | no |
-| value | the value that will be used in the command | yes |
-
-If an option has no name the value will be displayed to the user in place of the name, so you're allowed to only include the value like so:
-
-```yml
-customCommands:
-  - key: 'a'
-    command: 'echo {{.Form.BranchType | quote}}'
-    context: 'commits'
-    prompts:
-      - type: 'menu'
-        title: 'What kind of branch is it?'
-        key: 'BranchType'
-        options:
-          - value: 'feature'
-          - value: 'hotfix'
-          - value: 'release'
-```
-
-Here's an example of supplying more detail for each option:
-
-```yml
-customCommands:
-  - key: 'a'
-    command: 'echo {{.Form.BranchType | quote}}'
-    context: 'commits'
-    prompts:
-      - type: 'menu'
-        title: 'What kind of branch is it?'
-        key: 'BranchType'
-        options:
-          - value: 'feature'
-            name: 'feature branch'
-            description: 'branch based off develop'
-          - value: 'hotfix'
-            name: 'hotfix branch'
-            description: 'branch based off main for fast bug fixes'
-          - value: 'release'
-            name: 'release branch'
-            description: 'branch for a release'
-```
-
-### Menu-from-command
-
-| _field_           | _description_                                                                                  | _required_ |
-| ------------      | -----------------------------------------------------------------------------------------------| ---------- |
-| command           | The command to run to generate menu options                  | yes        |
-| filter            | The regexp to run specifying groups which are going to be kept from the command's output      | no        |
-| valueFormat       | How to format matched groups from the filter to construct a menu item's value | no        |
-| labelFormat       | Like valueFormat but for the labels. If `labelFormat` is not specified, `valueFormat` is shown instead. | no         |
-
-Here's an example using named groups in the regex. Notice how we can pipe the label to a colour function for coloured output (available colours [here](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md))
-
-```yml
-  - key : 'a'
-    description: 'Checkout a remote branch as FETCH_HEAD'
-    command: "git fetch {{.Form.Remote}} {{.Form.Branch}} && git checkout FETCH_HEAD"
-    context: 'remotes'
-    prompts:
-      - type: 'menuFromCommand'
-        title: 'Remote branch:'
-        key: 'Branch'
-        command: 'git branch  -r --list {{.SelectedRemote.Name }}/*'
-        filter: '.*{{.SelectedRemote.Name }}/(?P<branch>.*)'
-        valueFormat: '{{ .branch }}'
-        labelFormat: '{{ .branch | green }}'
-```
-
-Here's an example using unnamed groups:
-
-```yml
-  - key : 'a'
-    description: 'Checkout a remote branch as FETCH_HEAD'
-    command: "git fetch {{.Form.Remote}} {{.Form.Branch}} && git checkout FETCH_HEAD"
-    context: 'remotes'
-    prompts:
-      - type: 'menuFromCommand'
-        title: 'Remote branch:'
-        key: 'Branch'
-        command: 'git branch  -r --list {{.SelectedRemote.Name }}/*'
-        filter: '.*{{.SelectedRemote.Name }}/(.*)'
-        valueFormat: '{{ .group_1 }}'
-        labelFormat: '{{ .group_1 | green }}'
-```
-
-Here's an example using a command but not specifying anything else: so each line from the command becomes the value and label of the menu items
-
-```yml
-  - key : 'a'
-    description: 'Checkout a remote branch as FETCH_HEAD'
-    command: "open {{.Form.File | quote}}"
-    context: 'global'
-    prompts:
-      - type: 'menuFromCommand'
-        title: 'File:'
-        key: 'File'
-        command: 'ls'
-```
-
-## Placeholder values
-
-Your commands can contain placeholder strings using Go's [template syntax](https://jan.newmarch.name/golang/template/chapter-template.html). The template syntax is pretty powerful, letting you do things like conditionals if you want, but for the most part you'll simply want to be accessing the fields on the following objects:
-
-```
-SelectedLocalCommit
-SelectedReflogCommit
-SelectedSubCommit
-SelectedFile
-SelectedPath
-SelectedLocalBranch
-SelectedRemoteBranch
-SelectedRemote
-SelectedTag
-SelectedStashEntry
-SelectedCommitFile
-CheckedOutBranch
-```
-
-To see what fields are available on e.g. the `SelectedFile`, see [here](https://github.com/jesseduffield/lazygit/blob/master/pkg/commands/models/file.go) (all the modelling lives in the same directory). Note that the custom commands feature does not guarantee backwards compatibility (until we hit Lazygit version 1.0 of course) which means a field you're accessing on an object may no longer be available from one release to the next. Typically however, all you'll need is `{{.SelectedFile.Name}}`, `{{.SelectedLocalCommit.Sha}}` and `{{.SelectedLocalBranch.Name}}`. In the future we will likely introduce a tighter interface that exposes a limited set of fields for each model.
-
-## Keybinding collisions
-
-If your custom keybinding collides with an inbuilt keybinding that is defined for the same context, only the custom keybinding will be executed. This also applies to the global context. However, one caveat is that if you have a custom keybinding defined on the global context for some key, and there is an in-built keybinding defined for the same key and for a specific context (say the 'files' context), then the in-built keybinding will take precedence. See how to change in-built keybindings [here](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#keybindings)
-
-## Debugging
-
-If you want to verify that your command actually does what you expect, you can wrap it in an 'echo' call and set `showOutput: true` so that it doesn't actually execute the command but you can see how the placeholders were resolved.
-
-## More Examples
-
-See the [wiki](https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium) page for more examples, and feel free to add your own custom commands to this page so others can benefit!
+```command
+set:
+  

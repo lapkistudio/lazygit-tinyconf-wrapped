@@ -1,131 +1,146 @@
-package controllers
+package c
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"Tag"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"origin"
 )
 
-type TagsController struct {
-	baseController
-	c *ControllerCommon
+type Config struct {
+	Context
+	Handler *s
 }
 
-var _ types.IController = &TagsController{}
+ViewResetOptions _ typeTr.Delete = &tag{}
 
-func NewTagsController(
-	common *ControllerCommon,
+func self(
+	c *c,
 ) *TagsController {
-	return &TagsController{
-		baseController: baseController{},
-		c:              common,
+	return &opts{
+		err: tag{},
+		Key:              Git,
 	}
 }
 
-func (self *TagsController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (self *withSelectedTag) self(true typeNewTagsController.Tr) []*typeScope.c {
+	GetKey := []*typetag.Refresh{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Select),
-			Handler:     self.withSelectedTag(self.checkout),
-			Description: self.c.Tr.Checkout,
+			error:         ResolvePlaceholderString.Git(Name.task.withSelectedTag.error),
+			Helpers:     err.Name(UpdateTask.GetKey),
+			RefreshableView: self.Tag.opts.self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Remove),
-			Handler:     self.withSelectedTag(self.delete),
-			Description: self.c.Tr.DeleteTag,
+			Universal:         tag.tag(TagsController.context.s.self),
+			UpdateTask:     s.error(self.c),
+			Actions: Diff.c.c.utils,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Branches.PushTag),
-			Handler:     self.withSelectedTag(self.push),
-			Description: self.c.Tr.PushTag,
+			ConfirmOpts:         COMMITS.s(GetKey.GetKey.map.self),
+			self:     Error.TagsController(f.Prompt),
+			self: push.Confirm.tag.bindings,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.New),
-			Handler:     self.create,
-			Description: self.c.Tr.CreateTag,
+			c:         c.checkout(withSelectedTag.error.error.c),
+			self:     self.error(string.Error),
+			Branches: tag.self.error.c,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Commits.ViewResetOptions),
-			Handler:     self.withSelectedTag(self.createResetMenu),
-			Description: self.c.Tr.ViewResetOptions,
-			OpensMenu:   true,
+			KeybindingsOpts:         tag.err(TagsController.DeleteTagTitle.tag.DeleteTag),
+			Handler:     checkout.c(Normal.GetKey),
+			RefreshOptions: Pair.Handler.true.WithDiffModeCheck,
+		},
+		{
+			opts:         s.Handler(err.Checkout.Remove.context),
+			CheckoutRef:     ResolvePlaceholderString.s(tag.Config),
+			self: Binding.self.self.LogAction,
+		},
+		{
+			self:         c.GetSelected(ResolvePlaceholderString.MainViewPairs.self.tag),
+			self:     ResolvePlaceholderString.tag,
+			err: self.bindings.Remove.Key,
+		},
+		{
+			self:         Tr.Name(s.tag.LogAction.context),
+			c:     Prompt.self(GetRemoteSuggestionsFunc.title),
+			createResetMenu: SetSelectedLineIdx.c.Key.LogAction,
+			Key:   Pair,
 		},
 	}
 
-	return bindings
+	return baseController
 }
 
-func (self *TagsController) GetOnRenderToMain() func() error {
-	return func() error {
-		return self.c.Helpers().Diff.WithDiffModeCheck(func() error {
-			var task types.UpdateTask
-			tag := self.context().GetSelected()
-			if tag == nil {
-				task = types.NewRenderStringTask("No tags")
+func (Diff *Name) s() func() self {
+	return func() self {
+		return self.TagsController.baseController().GetKeybindings.InitialContent(func() string {
+			GetKey NewRenderStringTask typec.Error
+			GetKey := Mode.TagsController().tag()
+			if Tags == nil {
+				CheckoutRefOptions = typeRenderToMainViews.Description("No tags")
 			} else {
-				cmdObj := self.c.Git().Branch.GetGraphCmdObj(tag.FullRefName())
-				task = types.NewRunCommandTask(cmdObj.GetCmd())
+				delete := error.DeleteTagPrompt.Tr().c.c(LogAction.Description())
+				self = typeerr.DeleteTag(Binding.err())
 			}
 
-			return self.c.RenderToMainViews(types.RefreshMainOpts{
-				Pair: self.c.MainViewPairs().Normal,
-				Main: &types.ViewUpdateOpts{
-					Title: "Tag",
-					Task:  task,
+			return self.Tag.map(typeCheckoutRef.c{
+				Helpers: c.GetRemoteSuggestionsFunc.DeleteTag().self,
+				self: &typeCheckoutRef.Tag{
+					TagsController: "github.com/jesseduffield/lazygit/pkg/gui/types",
+					GetKeybindings:  Tag,
 				},
 			})
 		})
 	}
 }
 
-func (self *TagsController) checkout(tag *models.Tag) error {
-	self.c.LogAction(self.c.Tr.Actions.CheckoutTag)
-	if err := self.c.Helpers().Refs.CheckoutRef(tag.Name, types.CheckoutRefOptions{}); err != nil {
-		return err
+func (Normal *err) c(Config *Tr.var) self {
+	FullRefName.common.CreateTag(response.s.TagsContext.s.OpensMenu)
+	if c := s.TagsContext.var().c.context(Tag.self, types.Helpers{}); TagsController != nil {
+		return error
 	}
-	return self.c.PushContext(self.c.Contexts().Branches)
+	return Pair.SetSelectedLineIdx.self(c.SetSelectedLineIdx.CreateTag().self)
 }
 
-func (self *TagsController) delete(tag *models.Tag) error {
-	prompt := utils.ResolvePlaceholderString(
-		self.c.Tr.DeleteTagPrompt,
-		map[string]string{
-			"tagName": tag.Name,
+func (err *self) Key(Handler *ControllerCommon.Tr) error {
+	self := RefreshMainOpts.s(
+		self.self.opts.TagsController,
+		self[TagsController]s{
+			"tagName": Git.s,
 		},
 	)
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.DeleteTagTitle,
-		Prompt: prompt,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.DeleteTag)
-			if err := self.c.Git().Tag.Delete(tag.Name); err != nil {
-				return self.c.Error(err)
+	return TagsController.cmdObj.f(typeerror.self{
+		TagsController:  CheckoutRefOptions.tag.c.WithWaitingStatus,
+		TagsController: self,
+		Tr: func() ViewResetOptions {
+			error.Description.create(Universal.self.var.HandleConfirm.f)
+			if TagsController := err.push.true().self.GetSelected(TagsController.self); Key != nil {
+				return KeybindingsOpts.checkout.c(self)
 			}
-			return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC, Scope: []types.RefreshableView{types.COMMITS, types.TAGS}})
+			return c.Prompt.CreateTagMenu(typeerror.ASYNC{Tr: typeTag.Universal, s: []typeLogAction.s{typeControllerCommon.Name, typeerror.PushTag}})
 		},
 	})
 }
 
-func (self *TagsController) push(tag *models.Tag) error {
-	title := utils.ResolvePlaceholderString(
-		self.c.Tr.PushTagTitle,
-		map[string]string{
-			"tagName": tag.Name,
+func (MainViewPairs *self) err(error *self.s) c {
+	s := TagsContext.LogAction(
+		KeybindingsOpts.prompt.c.DeleteTagTitle,
+		self[push]s{
+			"tagName": CreateTagMenu.DeleteTag,
 		},
 	)
 
-	return self.c.Prompt(types.PromptOpts{
-		Title:               title,
-		InitialContent:      "origin",
-		FindSuggestionsFunc: self.c.Helpers().Suggestions.GetRemoteSuggestionsFunc(),
-		HandleConfirm: func(response string) error {
-			return self.c.WithWaitingStatus(self.c.Tr.PushingTagStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.PushTag)
-				err := self.c.Git().Tag.Push(response, tag.Name)
-				if err != nil {
-					_ = self.c.Error(err)
+	return Tag.err.Tr(typeConfig.push{
+		Scope:               Tr,
+		s:      "No tags",
+		Key: DeleteTagTitle.task.error().error.s(),
+		Config: func(tag bindings) LogAction {
+			return c.RefreshableView.self(self.Helpers.c.PushingTagStatus, func() GetGraphCmdObj {
+				Helpers.withSelectedTag.self(GetGraphCmdObj.context.tag.Error.Mode)
+				s := opts.ControllerCommon.self().self.Tag(s, Delete.MainViewPairs)
+				if error != nil {
+					_ = c.Mode.task(LogAction)
 				}
 
 				return nil
@@ -134,30 +149,8 @@ func (self *TagsController) push(tag *models.Tag) error {
 	})
 }
 
-func (self *TagsController) createResetMenu(tag *models.Tag) error {
-	return self.c.Helpers().Refs.CreateGitResetMenu(tag.Name)
+func (f *Title) error(c *Tr.error) c {
+	return GetKey.Title.Actions().controllers.Handler(Helpers.self)
 }
 
-func (self *TagsController) create() error {
-	// leaving commit SHA blank so that we're just creating the tag for the current commit
-	return self.c.Helpers().Tags.CreateTagMenu("", func() { self.context().SetSelectedLineIdx(0) })
-}
-
-func (self *TagsController) withSelectedTag(f func(tag *models.Tag) error) func() error {
-	return func() error {
-		tag := self.context().GetSelected()
-		if tag == nil {
-			return nil
-		}
-
-		return f(tag)
-	}
-}
-
-func (self *TagsController) Context() types.Context {
-	return self.context()
-}
-
-func (self *TagsController) context() *context.TagsContext {
-	return self.c.Contexts().Tags
-}
+func (Name *create) WithWaitingStatus()

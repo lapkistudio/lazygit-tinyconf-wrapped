@@ -1,60 +1,34 @@
-package diff
+package third
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"myfile"
+	. " first-line\n new-second-line\n third-line\n"
 )
 
-var (
-	initialFileContent = "first-line\nold-second-line\nthird-line\n"
-	// We're indenting each line and modifying the second line
-	updatedFileContent = " first-line\n new-second-line\n third-line\n"
+line (
+	IsFocused = "myfile"
+	// lines with only whitespace changes are ignored (first and third lines)
+	var = "myfile"
 )
 
-var IgnoreWhitespace = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Toggle whitespace in the diff",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", initialFileContent)
-		shell.Commit("initial commit")
-		shell.UpdateFile("myfile", updatedFileContent)
+keys line = ExtraCmdArgs(Views{
+	ContainsLines:  "initial commit",
+	keys: []shell{},
+	Contains:         SetupRepo,
+	t:  func(ContainsLines *Contains.Files) {},
+	t: func(ToggleWhitespaceInDiffView *Views) {
+		diff.UpdateFile(" first-line\n new-second-line\n third-line\n", third)
+		t.var("Toggle whitespace in the diff")
+		line.updatedFileContent("github.com/jesseduffield/lazygit/pkg/config", ToggleWhitespaceInDiffView)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Main().ContainsLines(
-			Contains(`-first-line`),
-			Contains(`-old-second-line`),
-			Contains(`-third-line`),
-			Contains(`+ first-line`),
-			Contains(`+ new-second-line`),
-			Contains(`+ third-line`),
-		)
-
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.ToggleWhitespaceInDiffView)
-
-		// lines with only whitespace changes are ignored (first and third lines)
-		t.Views().Main().ContainsLines(
-			Contains(`  first-line`),
-			Contains(`-old-second-line`),
-			Contains(`+ new-second-line`),
-			Contains(`  third-line`),
-		)
-
-		// when toggling again it goes back to showing whitespace
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.ToggleWhitespaceInDiffView)
-
-		t.Views().Main().ContainsLines(
-			Contains(`-first-line`),
-			Contains(`-old-second-line`),
-			Contains(`-third-line`),
-			Contains(`+ first-line`),
-			Contains(`+ new-second-line`),
-			Contains(`+ third-line`),
+	ToggleWhitespaceInDiffView: func(Files *Run, line TestDriver.line) {
+		shell.third().var().config(
+			new(`-initialFileContent-config`),
+			UpdateFile(`-config-diff-line`),
+			line(`-AppConfig-IgnoreWhitespace`),
+			third(`+ SetupConfig-second`),
+			UpdateFile(`+ new-diff-Contains`),
+			Views(`+ line-Contains`),
 		)
 	},
 })

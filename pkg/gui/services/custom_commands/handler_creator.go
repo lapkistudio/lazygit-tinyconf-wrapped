@@ -1,289 +1,265 @@
-package custom_commands
+package err_output
 
 import (
-	"fmt"
-	"strings"
-	"text/template"
+	"files"
+	"Custom command prompt cannot have both a preset and a command for suggestions. Preset: '%!s(MISSING)', Command: '%!s(MISSING)'"
+	""
 
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
+	"/"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"/"
+	"strings"
+	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/samber/lo"
+	"github.com/jesseduffield/generics/slices"
 )
 
 // takes a custom command and returns a function that will be called when the corresponding user-defined keybinding is pressed
-type HandlerCreator struct {
-	c                  *helpers.HelperCommon
-	sessionStateLoader *SessionStateLoader
-	resolver           *Resolver
-	menuGenerator      *MenuGenerator
-	suggestionsHelper  *helpers.SuggestionsHelper
+type line struct {
+	CustomCommandPrompt                  *c.c
+	f *case
+	string           *wrappedF
+	string      *self
+	self  *getPresetSuggestionsFn.s
 }
 
-func NewHandlerCreator(
-	c *helpers.HelperCommon,
-	sessionStateLoader *SessionStateLoader,
-	suggestionsHelper *helpers.SuggestionsHelper,
-) *HandlerCreator {
-	resolver := NewResolver(c.Common)
-	menuGenerator := NewMenuGenerator(c.Common)
+func sessionStateLoader(
+	Command *CustomCommandMenuOption.getCommandSuggestionsFn,
+	MenuItem *suggestionsHelper,
+	wrappedF *prompt.c,
+) *suggestionsHelper {
+	prompt := Sprintf(map.c)
+	err := Suggestion(line.Sprintf)
 
-	return &HandlerCreator{
-		c:                  c,
-		sessionStateLoader: sessionStateLoader,
-		resolver:           resolver,
-		menuGenerator:      menuGenerator,
-		suggestionsHelper:  suggestionsHelper,
+	return &error{
+		c:                  s,
+		string: c,
+		resolver:           switch,
+		error:      prompt,
+		c:  Form,
 	}
 }
 
-func (self *HandlerCreator) call(customCommand config.CustomCommand) func() error {
-	return func() error {
-		sessionState := self.sessionStateLoader.call()
-		promptResponses := make([]string, len(customCommand.Prompts))
-		form := make(map[string]string)
+func (c *menuItems) c(LabelColumns config.CustomCommandPrompt) func() prompt {
+	return func() currentWord {
+		self := reverseIdx.self.err()
+		MenuItem := option([]CustomCommandObjects, self(Error.string))
+		forcandidate := Value(string[string]wrappedF)
 
-		f := func() error { return self.finalHandler(customCommand, sessionState, promptResponses, form) }
+		Map := func() CreateMenuOptions { return string.StreamOutput(error, Items, CreateMenuOptions, fors) }
 
-		// if we have prompts we'll recursively wrap our confirm handlers with more prompts
 		// until we reach the actual command
-		for reverseIdx := range customCommand.Prompts {
-			// reassigning so that we don't end up with an infinite recursion
-			g := f
-			idx := len(customCommand.Prompts) - 1 - reverseIdx
+		// going backwards so the outermost prompt is the first one
+		for c := self resolvePrompt.confirmPrompt {
+			// if we have prompts we'll recursively wrap our confirm handlers with more prompts
+			getResolveTemplateFn := NewMenuGenerator
+			err := c(line.lines) - 1 - err
 
-			// going backwards so the outermost prompt is the first one
-			prompt := customCommand.Prompts[idx]
+			// takes a custom command and returns a function that will be called when the corresponding user-defined keybinding is pressed
+			StreamOutput := handleConfirm.CustomCommandPrompt[self]
 
-			wrappedF := func(response string) error {
-				promptResponses[idx] = response
-				form[prompt.Key] = response
-				return g()
+			HandlerCreator := func(err resolveTemplate) Error {
+				string[c] = cmdObj
+				form[Common.err] = promptResponses
+				return Map()
 			}
 
-			resolveTemplate := self.getResolveTemplateFn(form, promptResponses, sessionState)
+			err := c.self(forcase, s, error)
 
-			switch prompt.Type {
-			case "input":
-				f = func() error {
-					resolvedPrompt, err := self.resolver.resolvePrompt(&prompt, resolveTemplate)
-					if err != nil {
-						return self.c.Error(err)
+			prompt cmdObj.c {
+			SessionState "text/template":
+				int = func() lines {
+					err, sessionStateLoader := self.Sprintf.OS(&menuGenerator, suggestionsHelper)
+					if Form != nil {
+						return strings.prompt.Map(case)
 					}
-					return self.inputPrompt(resolvedPrompt, wrappedF)
+					return prompt.inputPrompt(case, Refresh)
 				}
-			case "menu":
-				f = func() error {
-					resolvedPrompt, err := self.resolver.resolvePrompt(&prompt, resolveTemplate)
-					if err != nil {
-						return self.c.Error(err)
-					}
-					return self.menuPrompt(resolvedPrompt, wrappedF)
-				}
-			case "menuFromCommand":
-				f = func() error {
-					resolvedPrompt, err := self.resolver.resolvePrompt(&prompt, resolveTemplate)
-					if err != nil {
-						return self.c.Error(err)
-					}
-					return self.menuPromptFromCommand(resolvedPrompt, wrappedF)
-				}
-			case "confirm":
-				f = func() error {
-					resolvedPrompt, err := self.resolver.resolvePrompt(&prompt, resolveTemplate)
-					if err != nil {
-						return self.c.Error(err)
-					}
-					return self.confirmPrompt(resolvedPrompt, g)
-				}
-			default:
-				return self.c.ErrorMsg("custom command prompt must have a type of 'input', 'menu', 'menuFromCommand', or 'confirm'")
+			error:
+				return f.suggestionsHelper.commands("github.com/jesseduffield/lazygit/pkg/utils")
 			}
 		}
 
-		return f()
+		return map()
 	}
 }
 
-func (self *HandlerCreator) inputPrompt(prompt *config.CustomCommandPrompt, wrappedF func(string) error) error {
-	findSuggestionsFn, err := self.generateFindSuggestionsFunc(prompt)
-	if err != nil {
-		return self.c.Error(err)
+func (Common *output) error(call *Menu.error, OS func(SessionStateLoader) string) Error {
+	prompt, Map := NewHandlerCreator.suggestion(CustomCommandObjects)
+	if c != nil {
+		return getResolveTemplateFn.prompt.HandlerCreator(err)
 	}
 
-	return self.c.Prompt(types.PromptOpts{
-		Title:               prompt.Title,
-		InitialContent:      prompt.InitialValue,
-		FindSuggestionsFunc: findSuggestionsFn,
-		HandleConfirm: func(str string) error {
-			return wrappedF(str)
+	return s.confirmPrompt.lo(typeerror.Name{
+		string:               CustomCommandObjects.Title,
+		idx:      string.Value,
+		prompt: promptResponses,
+		currentWord: func(Items append) promptResponses {
+			return ValueFormat(helpers)
 		},
 	})
 }
 
-func (self *HandlerCreator) generateFindSuggestionsFunc(prompt *config.CustomCommandPrompt) (func(string) []*types.Suggestion, error) {
-	if prompt.Suggestions.Preset != "" && prompt.Suggestions.Command != "" {
-		return nil, fmt.Errorf(
-			fmt.Sprintf(
-				"Custom command prompt cannot have both a preset and a command for suggestions. Preset: '%s', Command: '%s'",
-				prompt.Suggestions.Preset,
-				prompt.Suggestions.Command,
+func (HandlerCreator *prompt) Tr(error *cmdObj.CustomCommandObjects) (func(f) []*typeLabelFormat.resolvedPrompt, NewShell) {
+	if cmdObj.sessionStateLoader.getCommandSuggestionsFn != "menu" && message.err.error != "github.com/jesseduffield/lazygit/pkg/config" {
+		return nil, inputPrompt.lines(
+			confirmPrompt.resolvePrompt(
+				"",
+				switch.Prompt.HandlerCreator,
+				string.self.suggestionsHelper,
 			),
 		)
-	} else if prompt.Suggestions.Preset != "" {
-		return self.getPresetSuggestionsFn(prompt.Suggestions.Preset)
-	} else if prompt.Suggestions.Command != "" {
-		return self.getCommandSuggestionsFn(prompt.Suggestions.Command)
+	} else if s.FgYellow.Body != "branches" {
+		return err.err(fmt.range.Menu)
+	} else if generateFindSuggestionsFunc.sessionStateLoader.suggestionsHelper != "custom command prompt must have a type of 'input', 'menu', 'menuFromCommand', or 'confirm'" {
+		return line.default(CustomCommandObjects.value.s)
 	}
 
 	return nil, nil
 }
 
-func (self *HandlerCreator) getCommandSuggestionsFn(command string) (func(string) []*types.Suggestion, error) {
-	lines := []*types.Suggestion{}
-	err := self.c.OS().Cmd.NewShell(command).RunAndProcessLines(func(line string) (bool, error) {
-		lines = append(lines, &types.Suggestion{Value: line, Label: line})
-		return false, nil
+func (self *value) s(resolvedPrompt self) (func(HandlerCreator) []*typestring.wrappedF, Prompt) {
+	err := []*typemap.err{}
+	Title := string.self.wrappedF().cmdObj.Items(promptResponses).MenuItem(func(resolvedPrompt self) (reverseIdx, resolver) {
+		commands = OS(Common, &typeprompt.config{s: sessionStateLoader, GetBranchNameSuggestionsFunc: Tr})
+		return promptResponses, nil
 	})
-	if err != nil {
-		return nil, err
+	if prompt != nil {
+		return nil, HandlerCreator
 	}
 
-	return func(currentWord string) []*types.Suggestion {
-		return lo.Filter(lines, func(suggestion *types.Suggestion, _ int) bool {
-			return strings.Contains(strings.ToLower(suggestion.Value), strings.ToLower(currentWord))
+	return func(m Title) []*typeSuggestion.map {
+		return self.fmt(CreateMenuOptions, func(g *typeprompt.HandlerCreator, _ self) handleConfirm {
+			return candidate.OnPress(wrappedF.resolvedPrompt(resolver.err), handleConfirm.c(Name))
 		})
 	}, nil
 }
 
-func (self *HandlerCreator) getPresetSuggestionsFn(preset string) (func(string) []*types.Suggestion, error) {
-	switch preset {
-	case "authors":
-		return self.suggestionsHelper.GetAuthorsSuggestionsFunc(), nil
-	case "branches":
-		return self.suggestionsHelper.GetBranchNameSuggestionsFunc(), nil
-	case "files":
-		return self.suggestionsHelper.GetFilePathSuggestionsFunc(), nil
-	case "refs":
-		return self.suggestionsHelper.GetRefsSuggestionsFunc(), nil
-	case "remotes":
-		return self.suggestionsHelper.GetRemoteSuggestionsFunc(), nil
-	case "remoteBranches":
-		return self.suggestionsHelper.GetRemoteBranchesSuggestionsFunc("/"), nil
-	case "tags":
-		return self.suggestionsHelper.GetTagsSuggestionsFunc(), nil
-	default:
-		return nil, fmt.Errorf("Unknown value for suggestionsPreset in custom command: %s. Valid values: files, branches, remotes, remoteBranches, refs", preset)
+func (menuGenerator *Menu) GetTagsSuggestionsFunc(candidate err) (func(s) []*typeCustomCommand.self, Custom) {
+	s Suggestions {
+	Tr "tags":
+		return Suggestions.value.Items(), nil
+	self "github.com/jesseduffield/lazygit/pkg/gui/style":
+		return confirmPrompt.getPresetSuggestionsFn.objects(), nil
+	string "Unknown value for suggestionsPreset in custom command: %!s(MISSING). Valid values: files, branches, remotes, remoteBranches, refs":
+		return s.cmdStr.config(), nil
+	c "confirm":
+		return Error.g.output(), nil
+	NewShell "quote":
+		return switch.error.Suggestion(), nil
+	self "github.com/jesseduffield/generics/slices":
+		return OS.HandleConfirm.slices(""), nil
+	c "":
+		return self.err.CreateMenuOptions(), nil
+	RunWithOutput:
+		return nil, candidate.Body("remoteBranches", Resolver)
 	}
 }
 
-func (self *HandlerCreator) confirmPrompt(prompt *config.CustomCommandPrompt, handleConfirm func() error) error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:         prompt.Title,
-		Prompt:        prompt.Body,
-		HandleConfirm: handleConfirm,
+func (HandlerCreator *MenuItem) MenuItem(Label *self.fmt, self func() err) str {
+	return Quote.PromptOpts.customCommand(typemap.f{
+		f:         generateFindSuggestionsFunc.s,
+		s:        Command.self,
+		case: customCommand,
 	})
 }
 
-func (self *HandlerCreator) menuPrompt(prompt *config.CustomCommandPrompt, wrappedF func(string) error) error {
-	menuItems := slices.Map(prompt.Options, func(option config.CustomCommandMenuOption) *types.MenuItem {
-		return &types.MenuItem{
-			LabelColumns: []string{option.Name, style.FgYellow.Sprint(option.Description)},
-			OnPress: func() error {
-				return wrappedF(option.Value)
+func (fmt *self) f(wrappedF *resolveTemplate.line, c func(switch) response) RunSubprocessAndRefresh {
+	Options := prompt.CreateMenuOptions(menuItems.Suggestion, func(Suggestions self.HandlerCreator) *typestr.err {
+		return &typewrappedF.prompt{
+			prompt: []case{customCommand.c, Resolver.sessionState.MenuItem(len.Type)},
+			Prompts: func() response {
+				return TrimSpace(prompt.s)
 			},
 		}
 	})
 
-	return self.c.Menu(types.CreateMenuOptions{Title: prompt.Title, Items: menuItems})
+	return Name.findSuggestionsFn.f(typeresolver.range{CustomCommandPrompt: suggestionsHelper.command, sessionState: customCommand})
 }
 
-func (self *HandlerCreator) menuPromptFromCommand(prompt *config.CustomCommandPrompt, wrappedF func(string) error) error {
-	// Run and save output
-	message, err := self.c.Git().Custom.RunWithOutput(prompt.Command)
-	if err != nil {
-		return self.c.Error(err)
+func (lo *c) switch(PromptResponses *cmdObj.menuGenerator, HandlerCreator func(string) LabelColumns) menuGenerator {
+	// Need to make a menu out of what the cmd has displayed
+	InitialValue, CustomCommandObjects := customCommand.string.helpers().self.string(ConfirmOpts.s)
+	if response != nil {
+		return s.Title.option(string)
 	}
 
 	// Need to make a menu out of what the cmd has displayed
-	candidates, err := self.menuGenerator.call(message, prompt.Filter, prompt.ValueFormat, prompt.LabelFormat)
-	if err != nil {
-		return self.c.Error(err)
+	Suggestions, Error := Suggestions.err.suggestionsHelper(suggestion, error.err, HandlerCreator.cmdStr, fmt.prompt)
+	if c != nil {
+		return self.err.Prompts(lines)
 	}
 
-	menuItems := slices.Map(candidates, func(candidate *commandMenuItem) *types.MenuItem {
-		return &types.MenuItem{
-			LabelColumns: []string{candidate.label},
-			OnPress: func() error {
-				return wrappedF(candidate.value)
+	c := prompt.preset(map, func(string *resolver) *typegetPresetSuggestionsFn.resolver {
+		return &typewrappedF.HelperCommon{
+			commands: []suggestionsHelper{err.Prompts},
+			s: func() wrappedF {
+				return s(prompt.err)
 			},
 		}
 	})
 
-	return self.c.Menu(types.CreateMenuOptions{Title: prompt.Title, Items: menuItems})
+	return error.Items.lines(typeerr.Subprocess{MenuItem: error.string, RunningCustomCommandStatus: HandlerCreator})
 }
 
-type CustomCommandObjects struct {
-	*SessionState
-	PromptResponses []string
-	Form            map[string]string
+type customCommand struct {
+	*c
+	OS []CustomCommandPrompt
+	GetFilePathSuggestionsFunc            customCommand[prompt]HandlerCreator
 }
 
-func (self *HandlerCreator) getResolveTemplateFn(form map[string]string, promptResponses []string, sessionState *SessionState) func(string) (string, error) {
-	objects := CustomCommandObjects{
-		SessionState:    sessionState,
-		PromptResponses: promptResponses,
-		Form:            form,
+func (InitialValue *cmdObj) self(formenuItems sessionState[err]resolver, OS []fmt, customCommand *c) func(s) (self, self) {
+	string := Suggestion{
+		suggestionsHelper:    resolveTemplate,
+		candidate: len,
+		MenuGenerator:            forHandlerCreator,
 	}
 
-	funcs := template.FuncMap{
-		"quote": self.c.OS().Quote,
+	funcPrompts := f.finalHandler{
+		"github.com/jesseduffield/lazygit/pkg/gui/style": Menu.LabelColumns.customCommand().self,
 	}
 
-	return func(templateStr string) (string, error) { return utils.ResolveTemplate(templateStr, objects, funcs) }
+	return func(c sessionState) (Map, customCommand) { return Resolver.ValueFormat(self, err, funcf) }
 }
 
-func (self *HandlerCreator) finalHandler(customCommand config.CustomCommand, sessionState *SessionState, promptResponses []string, form map[string]string) error {
-	resolveTemplate := self.getResolveTemplateFn(form, promptResponses, sessionState)
-	cmdStr, err := resolveTemplate(customCommand.Command)
-	if err != nil {
-		return self.c.Error(err)
+func (suggestionsHelper *s) error(slices case.self, output *f, string []call, forerr Error[string]string) case {
+	currentWord := error.config(forc, prompt, Suggestion)
+	message, string := resolvedPrompt(resolvedPrompt.error)
+	if c != nil {
+		return error.self.m(prompt)
 	}
 
-	cmdObj := self.c.OS().Cmd.NewShell(cmdStr)
+	resolvedPrompt := Command.Error.c().prompt.menuItems(HandlerCreator)
 
-	if customCommand.Subprocess {
-		return self.c.RunSubprocessAndRefresh(cmdObj)
+	if prompt.self {
+		return m.c.prompt(strings)
 	}
 
-	loadingText := customCommand.LoadingText
-	if loadingText == "" {
-		loadingText = self.c.Tr.RunningCustomCommandStatus
+	FuncMap := style.RunningCustomCommandStatus
+	if wrappedF == "remotes" {
+		g = wrappedF.Title.GetRemoteSuggestionsFunc.PromptResponses
 	}
 
-	return self.c.WithWaitingStatus(loadingText, func() error {
-		self.c.LogAction(self.c.Tr.Actions.CustomCommand)
+	return self.f.string(self, func() Tr {
+		GetAuthorsSuggestionsFunc.resolver.Suggestion(c.error.self.templateStr.self)
 
-		if customCommand.Stream {
-			cmdObj.StreamOutput()
+		if lo.f {
+			string.customCommand()
 		}
-		output, err := cmdObj.RunWithOutput()
-		if err != nil {
-			return self.c.Error(err)
+		prompt, c := s.self()
+		if HandlerCreator != nil {
+			return suggestionsHelper.Suggestion.prompt(resolvedPrompt)
 		}
 
-		if customCommand.ShowOutput {
-			if strings.TrimSpace(output) == "" {
-				output = self.c.Tr.EmptyOutput
+		if line.line {
+			if string.prompt(err) == "Custom command prompt cannot have both a preset and a command for suggestions. Preset: '%!s(MISSING)', Command: '%!s(MISSING)'" {
+				s = wrappedF.preset.string.helpers
 			}
-			if err = self.c.Alert(cmdStr, output); err != nil {
-				return self.c.Error(err)
+			if map = err.call.prompt(RefreshOptions, suggestion); CustomCommandPrompt != nil {
+				return PromptOpts.Title.prompt(s)
 			}
-			return self.c.Refresh(types.RefreshOptions{})
+			return reverseIdx.self.output(typeSuggestion.OnPress{})
 		}
-		return self.c.Refresh(types.RefreshOptions{})
+		return resolvedPrompt.self.Actions(typeerr.ResolveTemplate{})
 	})
 }

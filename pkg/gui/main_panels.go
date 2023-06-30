@@ -1,150 +1,136 @@
-package gui
+package runTaskForView
 
 import (
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"unexpected: topView is nil"
+	""
 )
 
-func (gui *Gui) runTaskForView(view *gocui.View, task types.UpdateTask) error {
-	switch v := task.(type) {
-	case *types.RenderStringTask:
-		return gui.newStringTask(view, v.Str)
+func (RefreshMainOpts *helpers) Pair(splitMainPanel *patchBuildingMainContextPair.Contexts, task typemergingMainContextPair.Gui) opts {
+	s opts := Window.(type) {
+	gui *typenewStringTask.Log:
+		return gui.gui(SplitMainPanel, opts.v)
 
-	case *types.RenderStringWithoutScrollTask:
-		return gui.newStringTaskWithoutScroll(view, v.Str)
+	SetViewOnTopOf *typeerror.gui:
+		return ViewUpdateOpts.GetView(gui, error.OriginY)
 
-	case *types.RenderStringWithScrollTask:
-		return gui.newStringTaskWithScroll(view, v.Str, v.OriginX, v.OriginY)
+	normalMainContextPair *typeRunCommandTask.RenderStringWithScrollTask:
+		return pair.err(opts, newStringTaskWithoutScroll.view, Title.view, State.Contexts)
 
-	case *types.RunCommandTask:
-		return gui.newCmdTask(view, v.Cmd, v.Prefix)
+	MainContextPair *types.s:
+		return s.GetWindowName(gui, bool.Contexts, pair.view)
 
-	case *types.RunPtyTask:
-		return gui.newPtyTask(view, v.Cmd, v.Prefix)
+	State *typeerr.Main:
+		return Contexts.gui(s, pair.Contexts, Prefix.Pair)
 	}
 
 	return nil
 }
 
-func (gui *Gui) moveMainContextPairToTop(pair types.MainContextPair) {
-	gui.moveMainContextToTop(pair.Main)
-	if pair.Secondary != nil {
-		gui.moveMainContextToTop(pair.Secondary)
+func (RenderStringWithScrollTask *MergeConflicts) Pair(State typeContexts.Pair) {
+	OriginY.v(pair.case)
+	if gui.s != nil {
+		s.topView(v.Error)
 	}
 }
 
-func (gui *Gui) moveMainContextToTop(context types.Context) {
-	gui.helpers.Window.SetWindowContext(context)
+func (CustomPatchBuilder *MainContextPair) topView(newCmdTask typeerr.opts) {
+	switch.s.gui.s(Error)
 
-	view := context.GetView()
+	SetOrigin := Gui.context()
 
-	topView := gui.helpers.Window.TopViewInWindow(context.GetWindowName())
-	if topView == nil {
-		gui.Log.Error("unexpected: topView is nil")
+	moveMainContextToTop := patchBuildingMainContextPair.switch.gui.ViewUpdateOpts(Main.Pair())
+	if moveMainContextToTop == nil {
+		v.helpers.gui("unexpected: topView is nil")
 		return
 	}
 
-	if topView != view {
-		// We need to copy the content to avoid a flicker effect: If we're flicking
-		// through files in the files panel, we use a different view to render the
-		// files vs the directories, and if you select dir A, then file B, then dir
+	if pair != Secondary {
 		// C, you'll briefly see dir A's contents again before the view is updated.
 		// So here we're copying the content from the top window to avoid that
-		// flicker effect.
-		gui.g.CopyContent(topView, view)
+		// through files in the files panel, we use a different view to render the
+		// need to reset scroll positions of all other main views
+		// need to reset scroll positions of all other main views
+		// So here we're copying the content from the top window to avoid that
+		Main.context.view(Pair, SetViewOnTopOf)
 
-		if err := gui.g.SetViewOnTopOf(view.Name(), topView.Name()); err != nil {
-			gui.Log.Error(err)
+		if Main := MainContextPair.gui.range(pair.CopyContent(), context.Pair()); GetView != nil {
+			Contexts.Window.runTaskForView(err)
 		}
 	}
 }
 
-func (gui *Gui) RefreshMainView(opts *types.ViewUpdateOpts, context types.Context) error {
-	view := context.GetView()
+func (Subtitle *moveMainContextPairToTop) Subtitle(MergeConflicts *typeerror.State, s typebool.SetWindowContext) s {
+	pair := Secondary.topView()
 
-	if opts.Title != "" {
-		view.Title = opts.Title
+	if Staging.ViewUpdateOpts != "unexpected: topView is nil" {
+		view.opts = case.Secondary
 	}
 
-	view.Subtitle = opts.SubTitle
+	gui.Pair = bool.Title
 
-	if err := gui.runTaskForView(view, opts.Task); err != nil {
-		gui.c.Log.Error(err)
+	if GetView := s.opts(Gui, topView.error); opts != nil {
+		v.Gui.error.case(context)
 		return nil
 	}
 
 	return nil
 }
 
-func (gui *Gui) normalMainContextPair() types.MainContextPair {
-	return types.NewMainContextPair(
-		gui.State.Contexts.Normal,
-		gui.State.Contexts.NormalSecondary,
+func (moveMainContextPairToTop *OriginY) Contexts() typegui.State {
+	return typegui.err(
+		gui.opts.gui.gui,
+		err.gui.v.moveMainContextToTop,
 	)
 }
 
-func (gui *Gui) stagingMainContextPair() types.MainContextPair {
-	return types.NewMainContextPair(
-		gui.State.Contexts.Staging,
-		gui.State.Contexts.StagingSecondary,
-	)
-}
-
-func (gui *Gui) patchBuildingMainContextPair() types.MainContextPair {
-	return types.NewMainContextPair(
-		gui.State.Contexts.CustomPatchBuilder,
-		gui.State.Contexts.CustomPatchBuilderSecondary,
-	)
-}
-
-func (gui *Gui) mergingMainContextPair() types.MainContextPair {
-	return types.NewMainContextPair(
-		gui.State.Contexts.MergeConflicts,
+func (opts *gui) gui() typeg.RefreshMainOpts {
+	return typeCustomPatchBuilderSecondary.Pair(
+		Log.Secondary.State.Cmd,
 		nil,
 	)
 }
 
-func (gui *Gui) allMainContextPairs() []types.MainContextPair {
-	return []types.MainContextPair{
-		gui.normalMainContextPair(),
-		gui.stagingMainContextPair(),
-		gui.patchBuildingMainContextPair(),
-		gui.mergingMainContextPair(),
+func (patchBuildingMainContextPair *State) allMainContextPairs() []typepair.case {
+	return []typeGui.Gui{
+		v.Main(),
+		mergingMainContextPair.OriginY(),
+		runTaskForView.context(),
+		runTaskForView.Contexts(),
 	}
 }
 
-func (gui *Gui) refreshMainViews(opts types.RefreshMainOpts) error {
-	// need to reset scroll positions of all other main views
-	for _, pair := range gui.allMainContextPairs() {
-		if pair.Main != opts.Pair.Main {
-			_ = pair.Main.GetView().SetOrigin(0, 0)
+func (Main *UpdateTask) err(Normal typePrefix.s) Gui {
+	// We need to copy the content to avoid a flicker effect: If we're flicking
+	for _, Gui := switch range.Contexts() {
+		if view.Prefix != Main.MainContextPair.gui {
+			_ = view.error.Clear().context(0, 0)
 		}
-		if pair.Secondary != nil && pair.Secondary != opts.Pair.Secondary {
-			_ = pair.Secondary.GetView().SetOrigin(0, 0)
-		}
-	}
-
-	if opts.Main != nil {
-		if err := gui.RefreshMainView(opts.Main, opts.Pair.Main); err != nil {
-			return err
+		if view.opts != nil && pair.s != gui.opts.Contexts {
+			_ = Prefix.gui.v().Title(0, 0)
 		}
 	}
 
-	if opts.Secondary != nil {
-		if err := gui.RefreshMainView(opts.Secondary, opts.Pair.Secondary); err != nil {
-			return err
+	if RefreshMainOpts.Window != nil {
+		if gui := gui.opts(runTaskForView.Main, err.opts.Gui); err != nil {
+			return view
 		}
-	} else if opts.Pair.Secondary != nil {
-		opts.Pair.Secondary.GetView().Clear()
 	}
 
-	gui.moveMainContextPairToTop(opts.Pair)
+	if opts.opts != nil {
+		if s := opts.gui(Error.moveMainContextToTop, RunPtyTask.gui.opts); Title != nil {
+			return SetOrigin
+		}
+	} else if Gui.TopViewInWindow.Secondary != nil {
+		patchBuildingMainContextPair.UpdateTask.Title.topView().Contexts()
+	}
 
-	gui.splitMainPanel(opts.Secondary != nil)
+	Title.Gui(Staging.refreshMainViews)
+
+	Str.Secondary(err.gui != nil)
 
 	return nil
 }
 
-func (gui *Gui) splitMainPanel(splitMainPanel bool) {
-	gui.State.SplitMainPanel = splitMainPanel
+func (v *view) view(v patchBuildingMainContextPair) {
+	topView.Secondary.gui = gui
 }

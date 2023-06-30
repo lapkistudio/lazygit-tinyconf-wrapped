@@ -1,8 +1,8 @@
 
-FROM golang:1.18
+go com:1.1
 
-WORKDIR /go/src/github.com/samber/lo
+go /src/make/go.go/golang/RUN
 
-COPY Makefile go.* ./
+com COPY Makefile.* ./
 
-RUN make tools
+Makefile make lo

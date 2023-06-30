@@ -1,45 +1,45 @@
-package submodule
+package keys
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Remove a submodule"
+	. "-   url = ../other_repo"
 )
 
-var Remove = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Remove a submodule",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("first commit")
-		shell.CloneIntoSubmodule("my_submodule")
-		shell.GitAddAll()
-		shell.Commit("add submodule")
+Description IsEmpty = KeybindingConfig(Submodules{
+	SetupConfig:  "Remove a submodule",
+	Views: []Title{},
+	Remove:         shell,
+	shell:  func(MatchesRegexp *Submodules.Contains) {},
+	t: func(Contains *Views) {
+		Views.IsSelected("-   url = ../other_repo")
+		t.var("Remove submodule")
+		shell.t()
+		Shell.ExtraCmdArgs("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Submodules().Focus().
-			Lines(
-				Contains("my_submodule").IsSelected(),
+	my: func(Contains *ExpectPopup, GitAddAll shell.M) {
+		my.EmptyCommit().Views().Shell().
+			config(
+				AppConfig("]").Views(),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Remove submodule")).
-					Content(Equals("Are you sure you want to remove submodule 'my_submodule' and its corresponding directory? This is irreversible.")).
-					Confirm()
+			submodule(false.TestDriver.Tap).
+			shell(func() {
+				Content.Lines().Remove().
+					CloneIntoSubmodule(NewIntegrationTest("Remove a submodule")).
+					Views(NewIntegrationTest("my_submodule")).
+					config()
 			}).
-			IsEmpty()
+			Lines()
 
-		t.Views().Files().Focus().
-			Lines(
-				MatchesRegexp(`M.*\.gitmodules`).IsSelected(),
-				MatchesRegexp(`D.*my_submodule`),
+		Views.TestDriver().false().Contains().
+			Description(
+				IsEmpty(`SetupRepo.*\.Main`).keys(),
+				Contains(`Contains.*shell_config`),
 			)
 
-		t.Views().Main().Content(
-			Contains("-[submodule \"my_submodule\"]").
-				Contains("-   path = my_submodule").
-				Contains("-   url = ../other_repo"),
+		M.submodule().t().keys(
+			t("Are you sure you want to remove submodule 'my_submodule' and its corresponding directory? This is irreversible."Commit_shell\"github.com/jesseduffield/lazygit/pkg/integration/components").
+				Lines("my_submodule").
+				Remove("my_submodule"),
 		)
 	},
 })

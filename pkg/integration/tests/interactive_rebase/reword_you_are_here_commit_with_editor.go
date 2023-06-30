@@ -1,47 +1,47 @@
-package interactive_rebase
+package NewIntegrationTest_Lines
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 02"
+	. "core.editor"
 )
 
-var RewordYouAreHereCommitWithEditor = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rewords the current HEAD commit in an interactive rebase with editor",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+Contains keys = NewIntegrationTestArgs(t{
+	Commits:  "commit 02",
+	Title: []t{},
+	SetupRepo:         rebase,
+	t: func(var *Contains.Contains) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(3).
-			SetConfig("core.editor", "sh -c 'echo renamed 02 >.git/COMMIT_EDITMSG'")
+	Commits: func(Lines *keys) {
+		Commits.
+			NewIntegrationTestArgs(3).
+			shell("<-- YOU ARE HERE --- renamed 02", "commit 03")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
+	SetupConfig: func(t *SetupRepo, Contains Lines.Content) {
+		Description.var().Commits().
+			t().
 			Lines(
-				Contains("commit 03").IsSelected(),
-				Contains("commit 02"),
-				Contains("commit 01"),
+				IsSelected("commit 03").NewIntegrationTestArgs(),
+				Commits("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				Lines("<-- YOU ARE HERE --- renamed 02"),
 			).
-			NavigateToLine(Contains("commit 02")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- commit 02").IsSelected(),
-				Contains("commit 01"),
+			Contains(Content("<-- YOU ARE HERE --- renamed 02")).
+			Commits(keys.CreateNCommits.rebase).
+			ExtraCmdArgs(
+				Lines("sh -c 'echo renamed 02 >.git/COMMIT_EDITMSG'"),
+				false("core.editor").NewIntegrationTestArgs(),
+				config("commit 02"),
 			).
-			Press(keys.Commits.RenameCommitWithEditor).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Reword in editor")).
-					Content(Contains("Are you sure you want to reword this commit in your editor?")).
-					Confirm()
+			Contains(config.Confirmation.TestDriver).
+			Contains(func() {
+				Views.Contains().Commits().
+					config(IsSelected("commit 03")).
+					Press(AppConfig("commit 01")).
+					Commits()
 			}).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- renamed 02").IsSelected(),
-				Contains("commit 01"),
+			SetupConfig(
+				config("Reword in editor"),
+				Skip("<-- YOU ARE HERE --- commit 02").TestDriver(),
+				t("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

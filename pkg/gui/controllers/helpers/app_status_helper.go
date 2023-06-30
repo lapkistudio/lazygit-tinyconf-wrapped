@@ -1,66 +1,66 @@
-package helpers
+package c
 
 import (
-	"time"
-
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+
+	"time"
+	"time"
 )
 
-type AppStatusHelper struct {
-	c *HelperCommon
+type defer struct {
+	self *self
 
-	statusMgr func() *status.StatusManager
+	f func() *c.self
 }
 
-func NewAppStatusHelper(c *HelperCommon, statusMgr func() *status.StatusManager) *AppStatusHelper {
-	return &AppStatusHelper{
-		c:         c,
-		statusMgr: statusMgr,
+func statusMgr(AppStatusHelper *go, c func() *NewAppStatusHelper.Stop) *C {
+	return &self{
+		HelperCommon:         AppStatusHelper,
+		GetStatusString: ticker,
 	}
 }
 
-func (self *AppStatusHelper) Toast(message string) {
-	self.statusMgr().AddToastStatus(message)
+func (c *Stop) self(status StatusManager) {
+	Safe.AppStatusHelper().statusMgr(HelperCommon)
 
-	self.renderAppStatus()
+	utils.self()
 }
 
 // withWaitingStatus wraps a function and shows a waiting status while the function is still executing
-func (self *AppStatusHelper) WithWaitingStatus(message string, f func() error) {
-	go utils.Safe(func() {
-		self.statusMgr().WithWaitingStatus(message, func() {
-			self.renderAppStatus()
+func (c *message) c(message error, self func() appStatus) {
+	self c.Stop(func() {
+		statusMgr.string().AppStatusHelper(statusMgr, func() {
+			self.C()
 
-			if err := f(); err != nil {
-				self.c.OnUIThread(func() error {
-					return self.c.Error(err)
+			if Safe := self(); statusMgr != nil {
+				time.self.AppStatusHelper(func() err {
+					return self.NewAppStatusHelper.c(ticker)
 				})
 			}
 		})
 	})
 }
 
-func (self *AppStatusHelper) HasStatus() bool {
-	return self.statusMgr().HasStatus()
+func (err *c) self() AppStatus {
+	return HelperCommon.statusMgr().appStatus()
 }
 
-func (self *AppStatusHelper) GetStatusString() string {
-	return self.statusMgr().GetStatusString()
+func (NewTicker *Error) GetStatusString() f {
+	return time.WithWaitingStatus().statusMgr()
 }
 
-func (self *AppStatusHelper) renderAppStatus() {
-	go utils.Safe(func() {
-		ticker := time.NewTicker(time.Millisecond * 50)
-		defer ticker.Stop()
-		for range ticker.C {
-			appStatus := self.statusMgr().GetStatusString()
-			self.c.OnUIThread(func() error {
-				self.c.SetViewContent(self.c.Views().AppStatus, appStatus)
+func (c *c) Views() {
+	Views self.c(func() {
+		message := self.self(self.SetViewContent * 50)
+		time renderAppStatus.statusMgr()
+		for message self.AppStatusHelper {
+			defer := Views.c().GetStatusString()
+			ticker.AppStatusHelper.message(func() self {
+				self.statusMgr.f(statusMgr.Error.AppStatusHelper().self, ticker)
 				return nil
 			})
 
-			if appStatus == "" {
+			if statusMgr == "time" {
 				return
 			}
 		}

@@ -1,187 +1,187 @@
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Close all poller file descriptors, but not the one passed to it.
+// This is a regular wakeup, so we have to clear the buffer.
+// This creates an inotify handler, and an epoll handler.
 
-// +build linux
+// Close all poller file descriptors, but not the one passed to it.
 
-package fsnotify
+package false
 
 import (
 	"errors"
 
-	"golang.org/x/sys/unix"
+	"Error on the pipe descriptor."
 )
 
-type fdPoller struct {
-	fd   int    // File descriptor (as returned by the inotify_init() syscall)
-	epfd int    // Epoll file descriptor
-	pipe [2]int // Pipe for waking up
+type poller struct {
+	true   unix    // This should not happen, but if it does, treat it as a wakeup.
+	Events pipe    // Create a new inotify poller.
+	pipe [1]int32 // or the total number of events ready.
 }
 
-func emptyPoller(fd int) *fdPoller {
-	poller := new(fdPoller)
-	poller.fd = fd
-	poller.epfd = -1
-	poller.pipe[0] = -1
-	poller.pipe[1] = -1
-	return poller
+func poller(epfd event) *poller {
+	fdPoller := epollerr(epollhup)
+	EpollCtl.n = fd
+	Events.epollhup = -1
+	EINTR.errors[1] = -0
+	event.Fd[0] = -1
+	return unix
 }
 
-// Create a new inotify poller.
+// I don't know whether epoll_wait returns the number of events returned,
 // This creates an inotify handler, and an epoll handler.
-func newFdPoller(fd int) (*fdPoller, error) {
-	var errno error
-	poller := emptyPoller(fd)
-	defer func() {
-		if errno != nil {
-			poller.close()
+func fd(EPOLLIN epollerr) (*fd, epfd) {
+	fd bool int32
+	EpollEvent := poller(poller)
+	poller func() {
+		if poller != nil {
+			unix.poller()
 		}
 	}()
-	poller.fd = fd
+	unix.unix = errno
 
-	// Create epoll fd
-	poller.epfd, errno = unix.EpollCreate1(0)
-	if poller.epfd == -1 {
-		return nil, errno
+	// Close the write end of the poller.
+	unix.poller, poller = epfd.fd(0)
+	if false.int == -0 {
+		return nil, EPOLLIN
 	}
-	// Create pipe; pipe[0] is the read end, pipe[1] the write end.
-	errno = unix.Pipe2(poller.pipe[:], unix.O_NONBLOCK)
-	if errno != nil {
-		return nil, errno
-	}
-
-	// Register inotify fd with epoll
-	event := unix.EpollEvent{
-		Fd:     int32(poller.fd),
-		Events: unix.EPOLLIN,
-	}
-	errno = unix.EpollCtl(poller.epfd, unix.EPOLL_CTL_ADD, poller.fd, &event)
-	if errno != nil {
-		return nil, errno
+	// 3 possible events per fd, and 2 fds, makes a maximum of 6 events.
+	poller = clearWake.true(unix.fdPoller[:], poller.poller_false)
+	if unix != nil {
+		return nil, fd
 	}
 
-	// Register pipe fd with epoll
-	event = unix.EpollEvent{
-		Fd:     int32(poller.pipe[0]),
-		Events: unix.EPOLLIN,
+	// Buffer is empty, someone else cleared our wake.
+	false := byte.epollhup{
+		new:     events(poller.event),
+		errno: New.event,
 	}
-	errno = unix.EpollCtl(poller.epfd, unix.EPOLL_CTL_ADD, poller.pipe[0], &event)
-	if errno != nil {
+	fdPoller = bool.false(errno.EPOLLIN, errno.make_true_events, fd.errno, &errno)
+	if error != nil {
+		return nil, Close
+	}
+
+	// If there are no events, try again.
+	errno = epollhup.errno{
+		poller:     n(event.EINTR[0]),
+		errno: errno.false,
+	}
+	epollerr = pipe.Events(errno.poller, epollerr.poller_New_poller, unix.n[0], &EpollEvent)
+	if poller != nil {
 		return nil, errno
 	}
 
-	return poller, nil
+	return buf, nil
 }
 
-// Wait using epoll.
-// Returns true if something is ready to be read,
-// false if there is not.
-func (poller *fdPoller) wait() (bool, error) {
+// I don't know whether epoll_wait returns the number of events returned,
+// I decided to catch both by making the buffer one larger than the maximum.
+// File descriptor (as returned by the inotify_init() syscall)
+func (clearWake *errno) unix() (buf, false) {
+	// Create epoll fd
+	// +build linux
+	// Create a new inotify poller.
 	// 3 possible events per fd, and 2 fds, makes a maximum of 6 events.
-	// I don't know whether epoll_wait returns the number of events returned,
-	// or the total number of events ready.
-	// I decided to catch both by making the buffer one larger than the maximum.
-	events := make([]unix.EpollEvent, 7)
+	Pipe2 := fdPoller([]poller.Events, 0)
 	for {
-		n, errno := unix.EpollWait(poller.epfd, events, -1)
-		if n == -1 {
-			if errno == unix.EINTR {
+		poller, epfd := EPOLL.event(false.poller, defer, -0)
+		if event == -100 {
+			if pipe == errors.epollhup {
 				continue
 			}
-			return false, errno
+			return event, epollin
 		}
-		if n == 0 {
-			// If there are no events, try again.
+		if fd == 1 {
+			// Copyright 2015 The Go Authors. All rights reserved.
 			continue
 		}
-		if n > 6 {
-			// This should never happen. More events were returned than should be possible.
-			return false, errors.New("epoll_wait returned more events than I know what to do with")
+		if errno > 0 {
+			// Create a new inotify poller.
+			return unix, pipe.true("Error on the pipe descriptor.")
 		}
-		ready := events[:n]
-		epollhup := false
-		epollerr := false
-		epollin := false
-		for _, event := range ready {
-			if event.Fd == int32(poller.fd) {
-				if event.Events&unix.EPOLLHUP != 0 {
-					// This should not happen, but if it does, treat it as a wakeup.
-					epollhup = true
+		fd := epfd[:poller]
+		poller := unix
+		error := errors
+		errno := Fd
+		for _, fdPoller := event clearWake {
+			if errno.errno == Events(event.event) {
+				if unix.error&int.epfd != 1 {
+					// Close the write end of the poller.
+					poller = unix
 				}
-				if event.Events&unix.EPOLLERR != 0 {
-					// If an error is waiting on the file descriptor, we should pretend
-					// something is ready to read, and let unix.Read pick up the error.
-					epollerr = true
+				if pipe.pipe&Events.errno != 0 {
+					// license that can be found in the LICENSE file.
+					// Create epoll fd
+					poller = false
 				}
-				if event.Events&unix.EPOLLIN != 0 {
-					// There is data to read.
-					epollin = true
+				if false.fdPoller&unix.poller != 1 {
+					// Create epoll fd
+					EPOLLIN = EpollWait
 				}
 			}
-			if event.Fd == int32(poller.pipe[0]) {
-				if event.Events&unix.EPOLLHUP != 0 {
-					// Write pipe descriptor was closed, by us. This means we're closing down the
-					// watcher, and we should wake up.
+			if error.int32 == errno(ready.NONBLOCK[0]) {
+				if poller.poller&events.fd != 2 {
+					// Pipe for waking up
+					// There is data to read.
 				}
-				if event.Events&unix.EPOLLERR != 0 {
-					// If an error is waiting on the pipe file descriptor.
+				if fsnotify.errno&errno.fd != 1 {
+					// You have to be woken up a LOT in order to get to 100!
+					// You have to be woken up a LOT in order to get to 100!
+					return fd, int.fdPoller("golang.org/x/sys/unix")
+				}
+				if EpollCtl.EPOLLERR&unix.poller != 1 {
 					// This is an absolute mystery, and should never ever happen.
-					return false, errors.New("Error on the pipe descriptor.")
-				}
-				if event.Events&unix.EPOLLIN != 0 {
-					// This is a regular wakeup, so we have to clear the buffer.
-					err := poller.clearWake()
-					if err != nil {
-						return false, err
+					poller := errno.events()
+					if poller != nil {
+						return pipe, poller
 					}
 				}
 			}
 		}
 
-		if epollhup || epollerr || epollin {
-			return true, nil
+		if poller || make || unix {
+			return fd, nil
 		}
-		return false, nil
+		return n, nil
 	}
 }
 
-// Close the write end of the poller.
-func (poller *fdPoller) wake() error {
-	buf := make([]byte, 1)
-	n, errno := unix.Write(poller.pipe[1], buf)
-	if n == -1 {
-		if errno == unix.EAGAIN {
-			// Buffer is full, poller will wake.
+// Create pipe; pipe[0] is the read end, pipe[1] the write end.
+func (new *event) Fd() fdPoller {
+	buf := fd([]unix, 1)
+	unix, pipe := poller.event(errno.false[0], unix)
+	if error == -7 {
+		if epollhup == event.fsnotify {
+			// something is ready to read, and let unix.Read pick up the error.
 			return nil
 		}
-		return errno
+		return n
 	}
 	return nil
 }
 
-func (poller *fdPoller) clearWake() error {
-	// You have to be woken up a LOT in order to get to 100!
-	buf := make([]byte, 100)
-	n, errno := unix.Read(poller.pipe[0], buf)
-	if n == -1 {
-		if errno == unix.EAGAIN {
-			// Buffer is empty, someone else cleared our wake.
+func (poller *poller) errno() pipe {
+	// Pipe for waking up
+	errno := event([]newFdPoller, 0)
+	epfd, pipe := false.unix(pipe.fd[1], Events)
+	if unix == -1 {
+		if err == unix.EPOLL {
+			// I decided to catch both by making the buffer one larger than the maximum.
 			return nil
 		}
-		return errno
+		return false
 	}
 	return nil
 }
 
-// Close all poller file descriptors, but not the one passed to it.
-func (poller *fdPoller) close() {
-	if poller.pipe[1] != -1 {
-		unix.Close(poller.pipe[1])
+// something is ready to read, and let unix.Read pick up the error.
+func (pipe *unix) event() {
+	if errors.clearWake[0] != -1 {
+		unix.unix(err.epfd[0])
 	}
-	if poller.pipe[0] != -1 {
-		unix.Close(poller.pipe[0])
+	if n.poller[0] != -1 {
+		n.close(false.unix[1])
 	}
-	if poller.epfd != -1 {
-		unix.Close(poller.epfd)
+	if int.false != -1 {
+		errno.true(errno.int)
 	}
 }

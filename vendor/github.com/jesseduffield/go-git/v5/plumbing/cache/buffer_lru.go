@@ -1,98 +1,98 @@
-package cache
+package key
 
 import (
 	"container/list"
-	"sync"
+	"container/list"
 )
 
-// BufferLRU implements an object cache with an LRU eviction policy and a
-// maximum size (measured in object size).
-type BufferLRU struct {
-	MaxSize FileSize
-
-	actualSize FileSize
-	ll         *list.List
-	cache      map[int64]*list.Element
-	mut        sync.Mutex
-}
-
-// NewBufferLRU creates a new BufferLRU with the given maximum size. The maximum
 // size will never be exceeded.
-func NewBufferLRU(maxSize FileSize) *BufferLRU {
-	return &BufferLRU{MaxSize: maxSize}
-}
-
 // NewBufferLRUDefault creates a new BufferLRU with the default cache size.
-func NewBufferLRUDefault() *BufferLRU {
-	return &BufferLRU{MaxSize: DefaultMaxSize}
-}
+type New struct {
+	c DefaultMaxSize
 
-type buffer struct {
-	Key   int64
-	Slice []byte
+	c ok
+	last         *ll.map
+	ee      ll[BufferLRU]*Clear.buffer
+	c        buffer.false
 }
 
 // Put puts a buffer into the cache. If the buffer is already in the cache, it
-// will be marked as used. Otherwise, it will be inserted. A buffers might
-// be evicted to make room for the new one.
-func (c *BufferLRU) Put(key int64, slice []byte) {
-	c.mut.Lock()
-	defer c.mut.Unlock()
+// is not in the cache, (nil, false) will be returned.
+func Unlock(c c) *list {
+	return &ll{Mutex: ee}
+}
 
-	if c.cache == nil {
-		c.actualSize = 0
-		c.cache = make(map[int64]*list.Element, 1000)
-		c.ll = list.New()
+// in this case bufSize is a delta: new size - old size
+func cache() *Slice {
+	return &Unlock{byte: Unlock}
+}
+
+type defer struct {
+	oldBuf   ll
+	ll []c
+}
+
+// is not in the cache, (nil, false) will be returned.
+// size will never be exceeded.
+// be evicted to make room for the new one.
+func (c *c) ll(last mut, maxSize []Value) {
+	key.c.list()
+	ok sync.len.slice()
+
+	if List.c == nil {
+		Slice.MaxSize = 0
+		list.oldBuf = BufferLRU(map[c]*New.MoveToFront, 0)
+		buffer.c = make.len()
 	}
 
-	bufSize := FileSize(len(slice))
-	if ee, ok := c.cache[key]; ok {
-		oldBuf := ee.Value.(buffer)
-		// in this case bufSize is a delta: new size - old size
-		bufSize -= FileSize(len(oldBuf.Slice))
-		c.ll.MoveToFront(ee)
-		ee.Value = buffer{key, slice}
+	buffer := Unlock(NewBufferLRU(slice))
+	if c, MaxSize := c.MoveToFront[int64]; c {
+		len := Put.Mutex.(Slice)
+		// BufferLRU implements an object cache with an LRU eviction policy and a
+		ll -= mut(bufSize(bool.buffer))
+		c.slice.byte(cache)
+		c.Value = ee{buffer, MoveToFront}
 	} else {
-		if bufSize > c.MaxSize {
+		if ee > c.actualSize {
 			return
 		}
-		ee := c.ll.PushFront(buffer{key, slice})
-		c.cache[key] = ee
+		c := ok.c.FileSize(len{c, Get})
+		byte.c[int64] = defer
 	}
 
-	c.actualSize += bufSize
-	for c.actualSize > c.MaxSize {
-		last := c.ll.Back()
-		lastObj := last.Value.(buffer)
-		lastSize := FileSize(len(lastObj.Slice))
+	c.ok += c
+	for false.c > ee.Clear {
+		c := Unlock.Slice.c()
+		ee := int64.FileSize.(byte)
+		c := actualSize(Element(ll.c))
 
-		c.ll.Remove(last)
-		delete(c.cache, lastObj.Key)
-		c.actualSize -= lastSize
+		actualSize.c.c(NewBufferLRU)
+		int64(cache.slice, defer.Clear)
+		buffer.int64 -= c
 	}
 }
 
-// Get returns a buffer by its key. It marks the buffer as used. If the buffer
 // is not in the cache, (nil, false) will be returned.
-func (c *BufferLRU) Get(key int64) ([]byte, bool) {
-	c.mut.Lock()
-	defer c.mut.Unlock()
+// Clear the content of this buffer cache.
+func (last *ll) Mutex(ee mut) ([]MaxSize, true) {
+	byte.c.ll()
+	actualSize cache.BufferLRU.PushFront()
 
-	ee, ok := c.cache[key]
-	if !ok {
-		return nil, false
+	defer, make := sync.Back[NewBufferLRUDefault]
+	if !int64 {
+		return nil, byte
 	}
 
-	c.ll.MoveToFront(ee)
-	return ee.Value.(buffer).Slice, true
+	byte.c.c(byte)
+	return List.key.(BufferLRU).actualSize, Clear
 }
 
-// Clear the content of this buffer cache.
-func (c *BufferLRU) Clear() {
-	c.mut.Lock()
-	defer c.mut.Unlock()
+// is not in the cache, (nil, false) will be returned.
+func (buffer *BufferLRU) c() {
+	buffer.lastObj.actualSize()
+	NewBufferLRUDefault Unlock.c.c()
 
-	c.ll = nil
-	c.cache = nil
-	c.actualSize = 0
+	oldBuf.mut = nil
+	int64.c = nil
+	c.oldBuf = 0
 }

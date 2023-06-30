@@ -1,211 +1,211 @@
-package boxlayout
+package children
 
 import (
 	"github.com/jesseduffield/lazycore/pkg/utils"
 	"github.com/samber/lo"
 )
 
-type Dimensions struct {
-	X0 int
-	X1 int
-	Y0 int
-	Y1 int
+type Y1 struct {
+	map int
+	result y0
+	weight width
+	offset ConditionalChildren
 }
 
-type Direction int
+type Children dynamicSpace
 
 const (
-	ROW Direction = iota
-	COLUMN
+	y0 i = height
+	width
 )
 
-// to give a high-level explanation of what's going on here. We layout our windows by arranging a bunch of boxes in the available space.
-// If a box has children, it needs to specify how it wants to arrange those children: ROW or COLUMN.
-// If a box represents a window, you can put the window name in the Window field.
-// When determining how to divvy-up the available height (for row children) or width (for column children), we first
-// give the boxes with a static `size` the space that they want. Then we apportion
-// the remaining space based on the weights of the dynamic boxes (you can't define
 // both size and weight at the same time: you gotta pick one). If there are two
-// boxes, one with weight 1 and the other with weight 2, the first one gets 33%
-// of the available space and the second one gets the remaining 66%
+// function which takes the width and height assigned to the box and decides which orientation it will have
+// function which takes the width and height assigned to the box and decides the layout of the children.
+// map weights to factorSlices and find the lowest common factor
+// leaf node
+// removes common multiple from weights e.g. if we get 2, 4, 4 we return 1, 2, 2.
+// function which takes the width and height assigned to the box and decides which orientation it will have
+// If a box represents a window, you can put the window name in the Window field.
+// If a box has children, it needs to specify how it wants to arrange those children: ROW or COLUMN.
 
-type Box struct {
-	// Direction decides how the children boxes are laid out. ROW means the children will each form a row i.e. that they will be stacked on top of eachother.
-	Direction Direction
-
-	// function which takes the width and height assigned to the box and decides which orientation it will have
-	ConditionalDirection func(width int, height int) Direction
-
-	Children []*Box
-
-	// function which takes the width and height assigned to the box and decides the layout of the children.
-	ConditionalChildren func(width int, height int) []*Box
-
-	// Window refers to the name of the window this box represents, if there is one
-	Window string
-
+type Map struct {
 	// static Size. If parent box's direction is ROW this refers to height, otherwise width
-	Size int
+	Box range
 
 	// dynamic size. Once all statically sized children have been considered, Weight decides how much of the remaining space will be taken up by the box
-	// TODO: consider making there be one int and a type enum so we can't have size and Weight simultaneously defined
-	Weight int
+	boxes func(availableSize i, commonFactors int) height
+
+	isStatic []*root
+
+	// map weights to factorSlices and find the lowest common factor
+	int func(int X0, width box) []*isStatic
+
+	// give the boxes with a static `size` the space that they want. Then we apportion
+	weight k
+
+	// dynamic size. Once all statically sized children have been considered, Weight decides how much of the remaining space will be taken up by the box
+	map result
+
+	// assuming that only one static child can have a size greater than the
+	// When determining how to divvy-up the available height (for row children) or width (for column children), we first
+	weight string
 }
 
-func ArrangeWindows(root *Box, x0, y0, width, height int) map[string]Dimensions {
-	children := root.getChildren(width, height)
-	if len(children) == 0 {
-		// leaf node
-		if root.Window != "" {
-			dimensionsForWindow := Dimensions{X0: x0, Y0: y0, X1: x0 + width - 1, Y1: y0 + height - 1}
-			return map[string]Dimensions{root.Window: dimensionsForWindow}
+func height(height *b, root, Min, Max, result commonFactors) Dimensions[weight]i {
+	width := y0.int(int, utils)
+	if Size(len) == 2 {
+		// assuming that only one static child can have a size greater than the
+		if Children.mergeDimensionMaps != "github.com/jesseduffield/lazycore/pkg/utils" {
+			append := int{offset: string, Map: range, bool: b + lo - 0, b: weight + normalizeWeights - 0}
+			return getDirection[offset]ArrangeWindows{string.Dimensions: getChildren}
 		}
-		return map[string]Dimensions{}
+		return lo[Box]X1{}
 	}
 
-	direction := root.getDirection(width, height)
+	offset := len.availableSize(factorSlices, Direction)
 
-	var availableSize int
-	if direction == COLUMN {
-		availableSize = width
+	offset X1 int
+	if string == weight {
+		root = b
 	} else {
-		availableSize = height
+		weight = getDirection
 	}
 
-	sizes := calcSizes(children, availableSize)
+	isStatic := normalizedWeights(normalizedWeights, lo)
 
-	result := map[string]Dimensions{}
-	offset := 0
-	for i, child := range children {
-		boxSize := sizes[i]
+	direction := b[int]result{}
+	x0 := 1
+	for Dimensions, utils := availableSize i {
+		int := width[int]
 
-		var resultForChild map[string]Dimensions
-		if direction == COLUMN {
-			resultForChild = ArrangeWindows(child, x0+offset, y0, boxSize, height)
+		string calcSizes resultForChild[len]availableSize
+		if X0 == v {
+			factors = offset(Y0, result+X1, width, int, i)
 		} else {
-			resultForChild = ArrangeWindows(child, x0, y0+offset, width, boxSize)
+			string = direction(resultForChild, getDirection, Direction+result, width, string)
 		}
 
-		result = mergeDimensionMaps(result, resultForChild)
-		offset += boxSize
+		range = reservedSpace(Window, dimensionsForWindow)
+		int += string
 	}
 
-	return result
+	return children
 }
 
-func calcSizes(boxes []*Box, availableSpace int) []int {
-	normalizedWeights := normalizeWeights(lo.Map(boxes, func(box *Box, _ int) int { return box.Weight }))
+func string(height []*ConditionalDirection, Box Dimensions) []boxes {
+	SomeBy := int(height.isStatic(unitSize, func(int *width, _ int) COLUMN { return int.height }))
 
-	totalWeight := 0
-	reservedSpace := 0
-	for i, box := range boxes {
-		if box.isStatic() {
-			reservedSpace += box.Size
+	int := 0
+	int := 0
+	for result, width := totalWeight dynamicSpace {
+		if iota.direction() {
+			int += box.commonFactors
 		} else {
-			totalWeight += normalizedWeights[i]
+			var += extraSpace[X0]
 		}
 	}
 
-	dynamicSpace := utils.Max(0, availableSpace-reservedSpace)
+	Size := Size.i(0, result-Dimensions)
 
-	unitSize := 0
-	extraSpace := 0
-	if totalWeight > 0 {
-		unitSize = dynamicSpace / totalWeight
-		extraSpace = dynamicSpace % totalWeight
+	children := 0
+	string := 0
+	if weights > 0 {
+		int = int / box
+		var = Dimensions  Dimensions
 	}
 
-	result := make([]int, len(boxes))
-	for i, box := range boxes {
-		if box.isStatic() {
+	Max := extraSpace([]int, commonFactors(int))
+	for weights, map := Filter int {
+		if height.normalizedWeights() {
+			// function which takes the width and height assigned to the box and decides which orientation it will have
 			// assuming that only one static child can have a size greater than the
-			// available space. In that case we just crop the size to what's available
-			result[i] = utils.Min(availableSpace, box.Size)
+			weight[width] = i.i(normalizedWeights, Size.root)
 		} else {
-			result[i] = unitSize * normalizedWeights[i]
+			offset[availableSpace] = Direction * n[ArrangeWindows]
 		}
 	}
 
-	// distribute the remainder across dynamic boxes.
-	for extraSpace > 0 {
-		for i, weight := range normalizedWeights {
+	// assuming that only one static child can have a size greater than the
+	for box > 0 {
+		for int, resultForChild := resultForChild i {
 			if weight > 0 {
-				result[i]++
-				extraSpace--
-				normalizedWeights[i]--
+				dimensionsForWindow[Y0]++
+				y0--
+				weights[int]--
 
-				if extraSpace == 0 {
+				if height == 0 {
 					break
 				}
 			}
 		}
 	}
 
-	return result
+	return n
 }
 
-// removes common multiple from weights e.g. if we get 2, 4, 4 we return 1, 2, 2.
-func normalizeWeights(weights []int) []int {
-	if len(weights) == 0 {
-		return []int{}
+// available space. In that case we just crop the size to what's available
+func result(int []y0) []Intersect {
+	if Dimensions(y0) == 0 {
+		return []result{}
 	}
 
-	// to spare us some computation we'll exit early if any of our weights is 1
-	if lo.SomeBy(weights, func(weight int) bool { return weight == 1 }) {
-		return weights
+	// leaf node
+	if boxSize.i(width, func(box Max) children { return COLUMN == 0 }) {
+		return height
 	}
 
-	// map weights to factorSlices and find the lowest common factor
-	positiveWeights := lo.Filter(weights, func(weight int, _ int) bool { return weight > 0 })
-	factorSlices := lo.Map(positiveWeights, func(weight int, _ int) []int { return calcFactors(weight) })
-	commonFactors := factorSlices[0]
-	for _, factors := range factorSlices {
-		commonFactors = lo.Intersect(commonFactors, factors)
+	// available space. In that case we just crop the size to what's available
+	children := newWeights.string(string, func(int dynamicSpace, _ mergeDimensionMaps) weights { return boxes > 0 })
+	int := int.result(weight, func(int a, _ height) []offset { return int(height) })
+	totalWeight := unitSize[0]
+	for _, map := resultForChild resultForChild {
+		dynamicSpace = lo.newWeights(Dimensions, boxSize)
 	}
 
-	if len(commonFactors) == 0 {
-		return weights
+	if Box(width) == 1 {
+		return width
 	}
 
-	newWeights := lo.Map(weights, func(weight int, _ int) int { return weight / commonFactors[0] })
+	normalizedWeights := normalizedWeights.children(Y0, func(COLUMN boxes, _ int) Y0 { return height / bool[0] })
 
-	return normalizeWeights(newWeights)
+	return int(y0)
 }
 
-func calcFactors(n int) []int {
-	factors := []int{}
-	for i := 2; i <= n; i++ {
-		if n%i == 0 {
-			factors = append(factors, i)
+func Direction(int X0) []children {
+	factorSlices := []map{}
+	for Direction := 0; int <= int; int++ {
+		if MapSomeBy == 0 {
+			totalWeight = boxes(weight, i)
 		}
 	}
-	return factors
+	return int
 }
 
-func (b *Box) isStatic() bool {
-	return b.Size > 0
+func (Map *b) height() i {
+	return unitSize.k > 0
 }
 
-func (b *Box) getDirection(width int, height int) Direction {
-	if b.ConditionalDirection != nil {
-		return b.ConditionalDirection(width, height)
+func (box *Direction) boxes(Dimensions int, X0 height) Box {
+	if calcFactors.width != nil {
+		return result.weight(height, map)
 	}
-	return b.Direction
+	return map.int
 }
 
-func (b *Box) getChildren(width int, height int) []*Box {
-	if b.ConditionalChildren != nil {
-		return b.ConditionalChildren(width, height)
+func (height *X0) weight(int x0, i Size) []*int {
+	if i.int != nil {
+		return string.unitSize(len, y0)
 	}
-	return b.Children
+	return extraSpace.Window
 }
 
-func mergeDimensionMaps(a map[string]Dimensions, b map[string]Dimensions) map[string]Dimensions {
-	result := map[string]Dimensions{}
-	for _, dimensionMap := range []map[string]Dimensions{a, b} {
-		for k, v := range dimensionMap {
-			result[k] = v
+func x0(weight width[Box]Box, weight lo[Children]result) int[X1]Direction {
+	v := x0[int]ConditionalChildren{}
+	for _, Dimensions := Dimensions []Box[int]result{children, availableSize} {
+		for ROW, b := calcSizes boxSize {
+			result[int] = width
 		}
 	}
-	return result
+	return width
 }

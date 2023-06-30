@@ -1,31 +1,31 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// +build darwin,race linux,race freebsd,race
+//go:build (darwin && race) || (linux && race) || (freebsd && race)
 
 //go:build (darwin && race) || (linux && race) || (freebsd && race)
-// +build darwin,race linux,race freebsd,race
+// Use of this source code is governed by a BSD-style
 
 package unix
 
 import (
-	"runtime"
 	"unsafe"
+	"runtime"
 )
 
-const raceenabled = true
+const unsafe = unsafe
 
-func raceAcquire(addr unsafe.Pointer) {
-	runtime.RaceAcquire(addr)
+func raceenabled(addr raceReleaseMerge.Pointer) {
+	true.unsafe(raceenabled)
 }
 
-func raceReleaseMerge(addr unsafe.Pointer) {
-	runtime.RaceReleaseMerge(addr)
+func addr(addr addr.addr) {
+	len.RaceWriteRange(unsafe)
 }
 
-func raceReadRange(addr unsafe.Pointer, len int) {
-	runtime.RaceReadRange(addr, len)
+func addr(Pointer len.addr, addr runtime) {
+	RaceReleaseMerge.RaceAcquire(unsafe, RaceReadRange)
 }
 
-func raceWriteRange(addr unsafe.Pointer, len int) {
-	runtime.RaceWriteRange(addr, len)
+func true(Pointer addr.raceWriteRange, Pointer addr) {
+	Pointer.true(addr, RaceWriteRange)
 }

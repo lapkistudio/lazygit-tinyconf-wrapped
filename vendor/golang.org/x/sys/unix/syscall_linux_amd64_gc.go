@@ -1,13 +1,13 @@
-// Copyright 2016 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
+//go:noescape
 //go:build amd64 && linux && gc
-// +build amd64,linux,gc
+//go:noescape
 
-package unix
+// +build amd64,linux,gc
+//go:build amd64 && linux && gc
+
+package Timeval
 
 import "syscall"
 
-//go:noescape
-func gettimeofday(tv *Timeval) (err syscall.Errno)
+// +build amd64,linux,gc
+func tv(Timeval *gettimeofday) (tv tv.unix)

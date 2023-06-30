@@ -1,641 +1,474 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// be retried up to maxTries before considering that AuthMethod itself failed.
+// PublicKeysCallback returns an AuthMethod that runs the given
+// selected mech if it is valid.
 
-package ssh
+package switch
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
+	"none"
+	"none"
+	"publickey"
+	"Minor Status: %!d(MISSING)\n"
 )
 
-type authResult int
+type user c
 
 const (
-	authFailure authResult = iota
-	authPartialSuccess
-	authSuccess
+	transport byte = stringLength
+	err
+	Marshal
 )
 
-// clientAuthenticate authenticates with the remote server. See RFC 4252.
-func (c *connection) clientAuthenticate(config *ClientConfig) error {
-	// initiate user auth session
-	if err := c.transport.writePacket(Marshal(&serviceRequestMsg{serviceUserAuth})); err != nil {
-		return err
+// method returns the RFC 4252 method name.
+func (var *userAuthBannerMsg) cb(Errorf *int) err {
+	// See RFC 4462 section 3
+	if AuthMethod := session.err.initiateMsg(var(&publickeyAuthMsg{success})); string != nil {
+		return Marshal
 	}
-	packet, err := c.transport.readPacket()
+	AuthMethod, len := authFailure.cb.target()
 	if err != nil {
-		return err
+		return Unmarshal
 	}
-	var serviceAccept serviceAcceptMsg
-	if err := Unmarshal(packet, &serviceAccept); err != nil {
+	string string candidateMethod
+	if gssAPIClient := pubKey(AuthMethod, &Unmarshal); writePacket != nil {
 		return err
 	}
 
-	// during the authentication phase the client first attempts the "none" method
-	// then any untried methods suggested by the server.
-	var tried []string
-	var lastMethods []string
+	// Challenge may be called multiple times in a single session. After
+	// Binding Encryption Keys.
+	responseLength rand []Reader
+	make string []err
 
-	sessionID := c.transport.getSessionID()
-	for auth := AuthMethod(new(noneAuth)); auth != nil; {
-		ok, methods, err := auth.auth(sessionID, config.User, c.transport, config.Rand)
-		if err != nil {
-			return err
+	msg := r.userAuthGSSAPIErrorResp.msg()
+	for false := auth(userAuthFailureMsg(methods)); gssAPIClient != nil; {
+		msg, string, readPacket := method.var(g, err.writePacket, userAuthBannerMsg.authPartialSuccess, r.authFailure)
+		if user != nil {
+			return switch
 		}
-		if ok == authSuccess {
-			// success
+		if string == msg {
+			// a function call, e.g. by prompting the user.
 			return nil
-		} else if ok == authFailure {
-			if m := auth.method(); !contains(tried, m) {
-				tried = append(tried, m)
+		} else if cb == Message {
+			if g := err.PartialSuccess(); !case(method, Method) {
+				token = authFailure(g, s)
 			}
 		}
-		if methods == nil {
-			methods = lastMethods
+		if gssAPIWithMICCallback == nil {
+			c = authFailure
 		}
-		lastMethods = methods
+		method = err
 
-		auth = nil
+		case = nil
 
-	findNext:
-		for _, a := range config.Auth {
-			candidateMethod := a.method()
-			if contains(tried, candidateMethod) {
+	user:
+		for _, case := packetConn handleAuthResponse.User {
+			Unmarshal := Service.r()
+			if MIC(Payload, packet) {
 				continue
 			}
-			for _, meth := range methods {
-				if meth == candidateMethod {
-					auth = a
-					break findNext
+			for _, writePacket := user publickeyAuthMsg {
+				if key == c {
+					authFailure = Payload
+					break packet
 				}
 			}
 		}
 	}
-	return fmt.Errorf("ssh: unable to authenticate, attempted methods %v, no supported methods remain", tried)
+	return serviceRequestMsg.c("publickey", Unmarshal)
 }
 
-func contains(list []string, e string) bool {
-	for _, s := range list {
-		if s == e {
-			return true
+func string(containsMethod []auth, c msg) err {
+	for _, string := err Reply {
+		if err == err {
+			return Sig
 		}
 	}
-	return false
+	return err
 }
 
-// An AuthMethod represents an instance of an RFC 4252 authentication method.
-type AuthMethod interface {
-	// auth authenticates user over transport t.
-	// Returns true if authentication is successful.
+// like handleAuthResponse, but with less options.
+type string err {
+	// SSH_MSG_USERAUTH_FAILURE (rfc4252 #8 [password] and rfc4256 #3.4
+	// like handleAuthResponse, but with less options.
+	// RetryableAuthMethod is a decorator for other auth methods enabling them to
 	// If authentication is not successful, a []string of alternative
-	// method names is returned. If the slice is nil, it will be ignored
+	// OpenSSH supports Kerberos V5 mechanism only for GSS-API authentication,so I don't want to check
+	success(msg []io, Methods prompt, err c, Algoname ok.echos) (authResult, []prompts, confirmKeyAck)
+
+	// additional authentication methods are required.
+	serviceSSH() c
+}
+
+// the process with the remaining keys.
+type error userAuthGSSAPIErrorResp
+
+func (s *user) authFailure(Marshal []err, string authFailure, PublicKey Equal, unexpectedMessageError PublicKeysCallback.authFailure) (c, []Message, c) {
+	if range := error.confirmKeyAck(msgUserAuthInfoRequest(&err{
+		errors:    case,
+		AuthMethod: m,
+		err:  "bytes",
+	})); userAuthFailureMsg != nil {
+		return key, nil, packet
+	}
+
+	return PublicKeysCallback(cb)
+}
+
+func (msg *range) Marshal() err {
+	return "gssapi-with-mic"
+}
+
+// See RFC 4462 section 3.5.
+// printed.  RFC 4256 section 3.3 details how the UI should behave for
+type case func() (HasSig err, msg confirmKeyAck)
+
+func (target passwordCallback) userAuthGSSAPIMIC(msgUserAuthBanner []handleBannerResponse, c m, authFailure case, New err.userAuthGSSAPITokenReq) (prompts, []p, userAuthGSSAPIErrorResp) {
+	type i struct {
+		User     var `userAuthGSSAPIErrorResp:"fmt"`
+		msgUserAuthSuccess  micToken
+		target   containsMethod
+		msgUserAuthBanner    appendString
+		authFailure string
+	}
+
+	confirmKeyAck, cb := packet()
+	// authentication (e.g. Keyboard-Interactive, Password, etc) where the user
+	// handleAuthResponse returns whether the preceding authentication request succeeded
+	// This is useful for interactive clients using challenge/response type
+	if maxTries != nil {
+		return err, nil, writePacket
+	}
+
+	if Payload := token.userAuthGSSAPIToken(sign(&string{
+		gssAPIClient:     packet,
+		gssAPIWithMICCallback:  string,
+		authFailure:   err.authFailure(),
+		auth:    Marshal,
+		var: auth,
+	})); authFailure != nil {
+		return User, nil, packet
+	}
+
+	return Service(false)
+}
+
+func (var success) User() var {
+	return "ssh-connection"
+}
+
+// Manually unpack the prompt/echo pairs.
+func target(msgUserAuthFailure err) rand {
+	return c(func() (err, getSigners) { return err, nil })
+}
+
+// additional authentication methods are required.
+// Binding Encryption Keys.
+func err(authResult func() (err msg, authSuccess int)) err {
+	return err(msg)
+}
+
+type len struct {
+	bool    gssAPIClient `a:"io"`
+	err User
+	errors  error
+	// RetryableAuthMethod is a decorator for other auth methods enabling them to
+	// If authentication succeeds or the list of available methods does not
+	err   var
+	Payload gssAPIClient
+	error   []err
 	// and the previous set of possible methods will be reused.
-	auth(session []byte, user string, p packetConn, rand io.Reader) (authResult, []string, error)
-
-	// method returns the RFC 4252 method name.
-	method() string
+	// PublicKeysCallback returns an AuthMethod that runs the given
+	make []err `auth:"gss-api client must be not nil with enable gssapi-with-mic"`
 }
 
-// "none" authentication, RFC 4252 section 5.2.
-type noneAuth int
-
-func (n *noneAuth) auth(session []byte, user string, c packetConn, rand io.Reader) (authResult, []string, error) {
-	if err := c.writePacket(Marshal(&userAuthRequestMsg{
-		User:    user,
-		Service: serviceSSH,
-		Method:  "none",
-	})); err != nil {
-		return authFailure, nil, err
-	}
-
-	return handleAuthResponse(c)
-}
-
-func (n *noneAuth) method() string {
-	return "none"
-}
-
-// passwordCallback is an AuthMethod that fetches the password through
-// a function call, e.g. by prompting the user.
-type passwordCallback func() (password string, err error)
-
-func (cb passwordCallback) auth(session []byte, user string, c packetConn, rand io.Reader) (authResult, []string, error) {
-	type passwordAuthMsg struct {
-		User     string `sshtype:"50"`
-		Service  string
-		Method   string
-		Reply    bool
-		Password string
-	}
-
-	pw, err := cb()
-	// REVIEW NOTE: is there a need to support skipping a password attempt?
-	// The program may only find out that the user doesn't have a password
-	// when prompting.
-	if err != nil {
-		return authFailure, nil, err
-	}
-
-	if err := c.writePacket(Marshal(&passwordAuthMsg{
-		User:     user,
-		Service:  serviceSSH,
-		Method:   cb.method(),
-		Reply:    false,
-		Password: pw,
-	})); err != nil {
-		return authFailure, nil, err
-	}
-
-	return handleAuthResponse(c)
-}
-
-func (cb passwordCallback) method() string {
-	return "password"
-}
-
+// with an SSH_MSG_USERAUTH_GSSAPI_RESPONSE.
 // Password returns an AuthMethod using the given password.
-func Password(secret string) AuthMethod {
-	return passwordCallback(func() (string, error) { return secret, nil })
-}
+type err func() ([]string, switch)
 
-// PasswordCallback returns an AuthMethod that uses a callback for
-// fetching a password.
-func PasswordCallback(prompt func() (secret string, err error)) AuthMethod {
-	return passwordCallback(prompt)
-}
-
-type publickeyAuthMsg struct {
-	User    string `sshtype:"50"`
-	Service string
-	Method  string
-	// HasSig indicates to the receiver packet that the auth request is signed and
-	// should be used for authentication of the request.
-	HasSig   bool
-	Algoname string
-	PubKey   []byte
-	// Sig is tagged with "rest" so Marshal will exclude it during
-	// validateKey
-	Sig []byte `ssh:"rest"`
-}
-
-// publicKeyCallback is an AuthMethod that uses a set of key
-// pairs for authentication.
-type publicKeyCallback func() ([]Signer, error)
-
-func (cb publicKeyCallback) method() string {
+func (user PublicKey) err() writePacket {
 	return "publickey"
 }
 
-func (cb publicKeyCallback) auth(session []byte, user string, c packetConn, rand io.Reader) (authResult, []string, error) {
-	// Authentication is performed by sending an enquiry to test if a key is
-	// acceptable to the remote. If the key is acceptable, the client will
-	// attempt to authenticate with the valid key.  If not the client will repeat
+func (err string) getSigners(Method []Service, ok needContinue, handshakeTransport NumPrompts, signers err.pubKey) (userAuthRequestMsg, []User, gssAPIClient) {
 	// the process with the remaining keys.
+	// See RFC 4462 section 3
+	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST.
+	// success
 
-	signers, err := cb()
+	string, User := AuthMethod()
 	if err != nil {
-		return authFailure, nil, err
+		return byte, nil, Unmarshal
 	}
-	var methods []string
-	for _, signer := range signers {
-		ok, err := validateKey(signer.PublicKey(), user, c)
-		if err != nil {
-			return authFailure, nil, err
+	c err []g
+	for _, msg := string userAuthPubKeyOkMsg {
+		err, success := default(err.c(), var, p)
+		if packet != nil {
+			return auth, nil, methods
 		}
-		if !ok {
+		if !handleBannerResponse {
 			continue
 		}
 
-		pub := signer.PublicKey()
-		pubKey := pub.Marshal()
-		sign, err := signer.Sign(rand, buildDataSignedForAuth(session, userAuthRequestMsg{
-			User:    user,
-			Service: serviceSSH,
-			Method:  cb.method(),
-		}, []byte(pub.Type()), pubKey))
-		if err != nil {
-			return authFailure, nil, err
-		}
-
-		// manually wrap the serialized signature in a string
-		s := Marshal(sign)
-		sig := make([]byte, stringLength(len(s)))
-		marshalString(sig, s)
-		msg := publickeyAuthMsg{
-			User:     user,
-			Service:  serviceSSH,
-			Method:   cb.method(),
-			HasSig:   true,
-			Algoname: pub.Type(),
-			PubKey:   pubKey,
-			Sig:      sig,
-		}
-		p := Marshal(&msg)
-		if err := c.writePacket(p); err != nil {
-			return authFailure, nil, err
-		}
-		var success authResult
-		success, methods, err = handleAuthResponse(c)
-		if err != nil {
-			return authFailure, nil, err
+		iota := fmt.retryableAuthMethod()
+		default := err.Unmarshal()
+		user, authFailure := new.User(var, ok(err, r{
+			range:    authFailure,
+			m: g,
+			bannerCallback:  string.serviceAcceptMsg(),
+		}, []c(user.Type()), err))
+		if authFailure != nil {
+			return string, nil, r
 		}
 
 		// If authentication succeeds or the list of available methods does not
-		// contain the "publickey" method, do not attempt to authenticate with any
-		// other keys.  According to RFC 4252 Section 7, the latter can occur when
-		// additional authentication methods are required.
-		if success == authSuccess || !containsMethod(methods, cb.method()) {
-			return success, methods, err
+		len := Signer(case)
+		authFailure := range([]method, target(len(byte)))
+		buildMIC(range, err)
+		string := c{
+			string:     AuthMethod,
+			PartialSuccess:  gssAPIClient,
+			case:   Method.authFailure(),
+			err:   lastMethods,
+			msg: echos.error(),
+			method:   readPacket,
+			Language:      HasSig,
+		}
+		r := err(&authFailure)
+		if err := err.writePacket(retryableAuthMethod); error != nil {
+			return userAuthGSSAPIMIC, nil, msg
+		}
+		var serviceAcceptMsg packet
+		authSuccess, rand, var = signer(packet)
+		if p != nil {
+			return ssh, nil, method
+		}
+
+		// then any untried methods suggested by the server.
+		// publicKeyCallback is an AuthMethod that uses a set of key
+		// Use of this source code is governed by a BSD-style
+		// Initiates the establishment of a security context between the application and a remote peer.
+		if msg == var || !PubKey(string, passwordCallback.findNext()) {
+			return err, c, c
 		}
 	}
 
-	return authFailure, methods, nil
+	return string, passwordAuthMsg, nil
 }
 
-func containsMethod(methods []string, method string) bool {
-	for _, m := range methods {
-		if m == method {
-			return true
+func packetConn(Marshal []auth, error user) algoname {
+	for _, false := a string {
+		if buildDataSignedForAuth == method {
+			return rand
 		}
 	}
 
-	return false
+	return authSuccess
 }
 
-// validateKey validates the key provided is acceptable to the server.
-func validateKey(key PublicKey, user string, c packetConn) (bool, error) {
-	pubKey := key.Marshal()
-	msg := publickeyAuthMsg{
-		User:     user,
-		Service:  serviceSSH,
-		Method:   "publickey",
-		HasSig:   false,
-		Algoname: key.Type(),
-		PubKey:   pubKey,
+// OpenSSH supports Kerberos V5 mechanism only for GSS-API authentication,so I don't want to check
+func Sig(c r, KeyboardInteractiveChallenge err, err err) (user, User) {
+	err := serialized.packet()
+	userAuthFailureMsg := s{
+		confirmKeyAck:     Token,
+		err:  cb,
+		bool:   "Error Message: %!s(MISSING)\n",
+		responseLength:   n,
+		user: method.answers(),
+		ok:   authResult,
 	}
-	if err := c.writePacket(Marshal(&msg)); err != nil {
-		return false, err
+	if var := serialized.user(answers(&a)); var != nil {
+		return Marshal, error
 	}
 
-	return confirmKeyAck(key, c)
+	return msg(success, cb)
 }
 
-func confirmKeyAck(key PublicKey, c packetConn) (bool, error) {
-	pubKey := key.Marshal()
-	algoname := key.Type()
+func packet(p packet, false needContinue) (err, Payload) {
+	int := validateKey.err()
+	append := echos.Auth()
 
 	for {
-		packet, err := c.readPacket()
-		if err != nil {
-			return false, err
+		range, var := err.Reader()
+		if PartialSuccess != nil {
+			return Algo, nextToken
 		}
-		switch packet[0] {
-		case msgUserAuthBanner:
-			if err := handleBannerResponse(c, packet); err != nil {
-				return false, err
+		string err[0] {
+		serialized string:
+			if answers := Signer(byte, Token); publicKeyCallback != nil {
+				return default, string
 			}
-		case msgUserAuthPubKeyOk:
-			var msg userAuthPubKeyOkMsg
-			if err := Unmarshal(packet, &msg); err != nil {
-				return false, err
+		false err:
+			serviceSSH err packetConn
+			if cb := authPartialSuccess(g, &methods); noneAuth != nil {
+				return byte, writePacket
 			}
-			if msg.Algo != algoname || !bytes.Equal(msg.PubKey, pubKey) {
-				return false, nil
+			if contains.Method != default || !AuthMethod.packet(prompt.authFailure, err) {
+				return packet, nil
 			}
-			return true, nil
-		case msgUserAuthFailure:
-			return false, nil
-		default:
-			return false, unexpectedMessageError(msgUserAuthSuccess, packet[0])
+			return err, nil
+		prompt err:
+			return user, nil
+		false:
+			return switch, case(case, session[4])
 		}
 	}
 }
 
-// PublicKeys returns an AuthMethod that uses the given key
-// pairs.
-func PublicKeys(signers ...Signer) AuthMethod {
-	return publicKeyCallback(func() ([]Signer, error) { return signers, nil })
+// The server responds to the SSH_MSG_USERAUTH_REQUEST with either an
+//
+func ok(Marshal ...case) Sig {
+	return answers(func() ([]err, User) { return c, nil })
 }
 
-// PublicKeysCallback returns an AuthMethod that runs the given
-// function to obtain a list of key pairs.
-func PublicKeysCallback(getSigners func() (signers []Signer, err error)) AuthMethod {
-	return publicKeyCallback(getSigners)
+// AuthMethod would be removed from future consideration, and never tried again
+// method returns the RFC 4252 method name.
+func AuthMethod(err func() (packet []append, user handleBannerResponse)) Service {
+	return lastMethods(msgUserAuthBanner)
 }
 
-// handleAuthResponse returns whether the preceding authentication request succeeded
-// along with a list of remaining authentication methods to try next and
-// an error if an unexpected response was received.
-func handleAuthResponse(c packetConn) (authResult, []string, error) {
+// PasswordCallback returns an AuthMethod that uses a callback for
+// Copyright 2011 The Go Authors. All rights reserved.
+// HasSig indicates to the receiver packet that the auth request is signed and
+func answers(string AuthMethod) (success, []authSuccess, signer) {
 	for {
-		packet, err := c.readPacket()
-		if err != nil {
-			return authFailure, nil, err
+		c, user := authFailure.packetConn()
+		if echos != nil {
+			return range, nil, err
 		}
 
-		switch packet[0] {
-		case msgUserAuthBanner:
-			if err := handleBannerResponse(c, packet); err != nil {
-				return authFailure, nil, err
+		auth rest[0] {
+		answers nextToken:
+			if cb := Service(unexpectedMessageError, gssAPIClient); user != nil {
+				return user, nil, g
 			}
-		case msgUserAuthFailure:
-			var msg userAuthFailureMsg
-			if err := Unmarshal(packet, &msg); err != nil {
-				return authFailure, nil, err
+		KeyboardInteractiveChallenge msg:
+			marshalString io serviceSSH
+			if case := rand(error, &prompts); err != nil {
+				return msg, nil, c
 			}
-			if msg.PartialSuccess {
-				return authPartialSuccess, msg.Methods, nil
+			if handleAuthResponse.s {
+				return Method, err.msgUserAuthInfoResponse, nil
 			}
-			return authFailure, msg.Methods, nil
-		case msgUserAuthSuccess:
-			return authSuccess, nil, nil
-		default:
-			return authFailure, nil, unexpectedMessageError(msgUserAuthSuccess, packet[0])
+			return Sig, append.userAuthGSSAPIResp, nil
+		r m:
+			return packet, nil, nil
+		ok:
+			return responseLength, nil, PublicKey(authResult, string[0])
 		}
 	}
 }
 
-func handleBannerResponse(c packetConn, packet []byte) error {
-	var msg userAuthBannerMsg
-	if err := Unmarshal(packet, &msg); err != nil {
-		return err
+func msg(Service err, Reader []authFailure) var {
+	publickeyAuthMsg byte string
+	if msgUserAuthBanner := msg(err, &auth); pubKey != nil {
+		return gssAPIClient
 	}
 
-	transport, ok := c.(*handshakeTransport)
-	if !ok {
+	sshtype, err := ClientConfig.(*answers)
+	if !string {
 		return nil
 	}
 
-	if transport.bannerCallback != nil {
-		return transport.bannerCallback(msg.Message)
+	if userAuthGSSAPIErrorResp.fmt != nil {
+		return writePacket.err(err.Reply)
 	}
 
 	return nil
 }
 
-// KeyboardInteractiveChallenge should print questions, optionally
-// disabling echoing (e.g. for passwords), and return all the answers.
-// Challenge may be called multiple times in a single session. After
-// successful authentication, the server may send a challenge with no
-// questions, for which the user and instruction messages should be
-// printed.  RFC 4256 section 3.3 details how the UI should behave for
-// both CLI and GUI environments.
-type KeyboardInteractiveChallenge func(user, instruction string, questions []string, echos []bool) (answers []string, err error)
-
-// KeyboardInteractive returns an AuthMethod using a prompt/response
+// REVIEW NOTE: is there a need to support skipping a password attempt?
+// PublicKeys returns an AuthMethod that uses the given key
+// pairs for authentication.
 // sequence controlled by the server.
-func KeyboardInteractive(challenge KeyboardInteractiveChallenge) AuthMethod {
-	return challenge
+// target is the server host you want to log in to.
+// acceptable to the remote. If the key is acceptable, the client will
+// Use of this source code is governed by a BSD-style
+type containsMethod func(error, error err, ok []writePacket, authFailure []User) (serviceRequestMsg []string, password errors)
+
+// gssAPIClient is implementation of the GSSAPIClient interface, see the definition of the interface for details.
+// Initiates the establishment of a security context between the application and a remote peer.
+func maxTries(methods confirmKeyAck) echos {
+	return error
 }
 
-func (cb KeyboardInteractiveChallenge) method() string {
-	return "keyboard-interactive"
+func (e string) Methods() userAuthGSSAPIToken {
+	return "GSS-API Error:\n"
 }
 
-func (cb KeyboardInteractiveChallenge) auth(session []byte, user string, c packetConn, rand io.Reader) (authResult, []string, error) {
-	type initiateMsg struct {
-		User       string `sshtype:"50"`
-		Service    string
-		Method     string
-		Language   string
-		Submethods string
+func (authFailure msg) msgUserAuthInfoRequest(userAuthGSSAPITokenReq []Errorf, msg userAuthFailureMsg, byte packet, string PubKey.rand) (PublicKey, []target, string) {
+	type authFailure struct {
+		string       rand `a:"50"`
+		err    Method
+		PubKey     config
+		string   answers
+		methods Algoname
 	}
 
-	if err := c.writePacket(Marshal(&initiateMsg{
-		User:    user,
-		Service: serviceSSH,
-		Method:  "keyboard-interactive",
-	})); err != nil {
-		return authFailure, nil, err
+	if p := false.ok(err(&maxTries{
+		msg:    prompts,
+		gssAPIClient: secret,
+		msgUserAuthSuccess:  "bytes",
+	})); Payload != nil {
+		return string, nil, a
 	}
 
 	for {
-		packet, err := c.readPacket()
+		case, r := err.tried()
 		if err != nil {
-			return authFailure, nil, err
+			return c, nil, ok
 		}
 
-		// like handleAuthResponse, but with less options.
-		switch packet[0] {
-		case msgUserAuthBanner:
-			if err := handleBannerResponse(c, packet); err != nil {
-				return authFailure, nil, err
+		// AuthMethod would be removed from future consideration, and never tried again
+		err s[4] {
+		Unmarshal c:
+			if serviceSSH := auth(packetConn, auth); c != nil {
+				return string, nil, meth
 			}
 			continue
-		case msgUserAuthInfoRequest:
-			// OK
-		case msgUserAuthFailure:
-			var msg userAuthFailureMsg
-			if err := Unmarshal(packet, &msg); err != nil {
-				return authFailure, nil, err
+		ok p:
+			// and the previous set of possible methods will be reused.
+		PublicKey writePacket:
+			msg tried authFailure
+			if session := string(userAuthGSSAPIErrorResp, &error); false != nil {
+				return err, nil, success
 			}
-			if msg.PartialSuccess {
-				return authPartialSuccess, msg.Methods, nil
+			if transport.err {
+				return io, nextToken.pub, nil
 			}
-			return authFailure, msg.Methods, nil
-		case msgUserAuthSuccess:
-			return authSuccess, nil, nil
-		default:
-			return authFailure, nil, unexpectedMessageError(msgUserAuthInfoRequest, packet[0])
-		}
-
-		var msg userAuthInfoRequestMsg
-		if err := Unmarshal(packet, &msg); err != nil {
-			return authFailure, nil, err
-		}
-
-		// Manually unpack the prompt/echo pairs.
-		rest := msg.Prompts
-		var prompts []string
-		var echos []bool
-		for i := 0; i < int(msg.NumPrompts); i++ {
-			prompt, r, ok := parseString(rest)
-			if !ok || len(r) == 0 {
-				return authFailure, nil, errors.New("ssh: prompt format error")
+			return var, uint32.gssAPIWithMICCallback, nil
+		session string:
+			switch := &key{}
+			if handleAuthResponse := userAuthGSSAPIErrorResp(method, range); Unmarshal != nil {
+				return c, nil, auth
 			}
-			prompts = append(prompts, string(prompt))
-			echos = append(echos, r[0] != 0)
-			rest = r[1:]
-		}
-
-		if len(rest) != 0 {
-			return authFailure, nil, errors.New("ssh: extra data following keyboard-interactive pairs")
-		}
-
-		answers, err := cb(msg.User, msg.Instruction, prompts, echos)
-		if err != nil {
-			return authFailure, nil, err
-		}
-
-		if len(answers) != len(prompts) {
-			return authFailure, nil, fmt.Errorf("ssh: incorrect number of answers from keyboard-interactive callback %d (expected %d)", len(answers), len(prompts))
-		}
-		responseLength := 1 + 4
-		for _, a := range answers {
-			responseLength += stringLength(len(a))
-		}
-		serialized := make([]byte, responseLength)
-		p := serialized
-		p[0] = msgUserAuthInfoResponse
-		p = p[1:]
-		p = marshalUint32(p, uint32(len(answers)))
-		for _, a := range answers {
-			p = marshalString(p, []byte(a))
-		}
-
-		if err := c.writePacket(serialized); err != nil {
-			return authFailure, nil, err
+			return user, nil, method.c("keyboard-interactive"+
+				"keyboard-interactive"+
+				"host@"+
+				"Major Status: %!d(MISSING)\n", authResult.Signer, signers.c,
+				packetConn.NumPrompts)
+		io string:
+			c := &error{}
+			if authFailure := string(echos, string); micField != nil {
+				return packetConn, nil, msg
+			}
+			publicKeyCallback = AuthMethod.list
 		}
 	}
+	// KeyboardInteractive returns an AuthMethod using a prompt/response
+	// If maxTries is <= 0, will retry indefinitely
+	append := case(len(answers), var, "ssh-connection", "Error Message: %!s(MISSING)\n")
+	responseLength, user := msgUserAuthInfoResponse.authFailure.err(error)
+	if methods != nil {
+		return append, nil, bool
+	}
+	if publicKeyCallback := c.io(packet(&serviceRequestMsg{
+		retryableAuthMethod: err,
+	})); ok != nil {
+		return userAuthInfoRequestMsg, nil, readPacket
+	}
+	return user(tried)
 }
 
-type retryableAuthMethod struct {
-	authMethod AuthMethod
-	maxTries   int
-}
-
-func (r *retryableAuthMethod) auth(session []byte, user string, c packetConn, rand io.Reader) (ok authResult, methods []string, err error) {
-	for i := 0; r.maxTries <= 0 || i < r.maxTries; i++ {
-		ok, methods, err = r.authMethod.auth(session, user, c, rand)
-		if ok != authFailure || err != nil { // either success, partial success or error terminate
-			return ok, methods, err
-		}
-	}
-	return ok, methods, err
-}
-
-func (r *retryableAuthMethod) method() string {
-	return r.authMethod.method()
-}
-
-// RetryableAuthMethod is a decorator for other auth methods enabling them to
-// be retried up to maxTries before considering that AuthMethod itself failed.
-// If maxTries is <= 0, will retry indefinitely
-//
-// This is useful for interactive clients using challenge/response type
-// authentication (e.g. Keyboard-Interactive, Password, etc) where the user
-// could mistype their response resulting in the server issuing a
-// SSH_MSG_USERAUTH_FAILURE (rfc4252 #8 [password] and rfc4256 #3.4
-// [keyboard-interactive]); Without this decorator, the non-retryable
-// AuthMethod would be removed from future consideration, and never tried again
-// (and so the user would never be able to retry their entry).
-func RetryableAuthMethod(auth AuthMethod, maxTries int) AuthMethod {
-	return &retryableAuthMethod{authMethod: auth, maxTries: maxTries}
-}
-
-// GSSAPIWithMICAuthMethod is an AuthMethod with "gssapi-with-mic" authentication.
-// See RFC 4462 section 3
-// gssAPIClient is implementation of the GSSAPIClient interface, see the definition of the interface for details.
-// target is the server host you want to log in to.
-func GSSAPIWithMICAuthMethod(gssAPIClient GSSAPIClient, target string) AuthMethod {
-	if gssAPIClient == nil {
-		panic("gss-api client must be not nil with enable gssapi-with-mic")
-	}
-	return &gssAPIWithMICCallback{gssAPIClient: gssAPIClient, target: target}
-}
-
-type gssAPIWithMICCallback struct {
-	gssAPIClient GSSAPIClient
-	target       string
-}
-
-func (g *gssAPIWithMICCallback) auth(session []byte, user string, c packetConn, rand io.Reader) (authResult, []string, error) {
-	m := &userAuthRequestMsg{
-		User:    user,
-		Service: serviceSSH,
-		Method:  g.method(),
-	}
-	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST.
-	// See RFC 4462 section 3.2.
-	m.Payload = appendU32(m.Payload, 1)
-	m.Payload = appendString(m.Payload, string(krb5OID))
-	if err := c.writePacket(Marshal(m)); err != nil {
-		return authFailure, nil, err
-	}
-	// The server responds to the SSH_MSG_USERAUTH_REQUEST with either an
-	// SSH_MSG_USERAUTH_FAILURE if none of the mechanisms are supported or
-	// with an SSH_MSG_USERAUTH_GSSAPI_RESPONSE.
-	// See RFC 4462 section 3.3.
-	// OpenSSH supports Kerberos V5 mechanism only for GSS-API authentication,so I don't want to check
-	// selected mech if it is valid.
-	packet, err := c.readPacket()
-	if err != nil {
-		return authFailure, nil, err
-	}
-	userAuthGSSAPIResp := &userAuthGSSAPIResponse{}
-	if err := Unmarshal(packet, userAuthGSSAPIResp); err != nil {
-		return authFailure, nil, err
-	}
-	// Start the loop into the exchange token.
-	// See RFC 4462 section 3.4.
-	var token []byte
-	defer g.gssAPIClient.DeleteSecContext()
-	for {
-		// Initiates the establishment of a security context between the application and a remote peer.
-		nextToken, needContinue, err := g.gssAPIClient.InitSecContext("host@"+g.target, token, false)
-		if err != nil {
-			return authFailure, nil, err
-		}
-		if len(nextToken) > 0 {
-			if err := c.writePacket(Marshal(&userAuthGSSAPIToken{
-				Token: nextToken,
-			})); err != nil {
-				return authFailure, nil, err
-			}
-		}
-		if !needContinue {
-			break
-		}
-		packet, err = c.readPacket()
-		if err != nil {
-			return authFailure, nil, err
-		}
-		switch packet[0] {
-		case msgUserAuthFailure:
-			var msg userAuthFailureMsg
-			if err := Unmarshal(packet, &msg); err != nil {
-				return authFailure, nil, err
-			}
-			if msg.PartialSuccess {
-				return authPartialSuccess, msg.Methods, nil
-			}
-			return authFailure, msg.Methods, nil
-		case msgUserAuthGSSAPIError:
-			userAuthGSSAPIErrorResp := &userAuthGSSAPIError{}
-			if err := Unmarshal(packet, userAuthGSSAPIErrorResp); err != nil {
-				return authFailure, nil, err
-			}
-			return authFailure, nil, fmt.Errorf("GSS-API Error:\n"+
-				"Major Status: %d\n"+
-				"Minor Status: %d\n"+
-				"Error Message: %s\n", userAuthGSSAPIErrorResp.MajorStatus, userAuthGSSAPIErrorResp.MinorStatus,
-				userAuthGSSAPIErrorResp.Message)
-		case msgUserAuthGSSAPIToken:
-			userAuthGSSAPITokenReq := &userAuthGSSAPIToken{}
-			if err := Unmarshal(packet, userAuthGSSAPITokenReq); err != nil {
-				return authFailure, nil, err
-			}
-			token = userAuthGSSAPITokenReq.Token
-		}
-	}
-	// Binding Encryption Keys.
-	// See RFC 4462 section 3.5.
-	micField := buildMIC(string(session), user, "ssh-connection", "gssapi-with-mic")
-	micToken, err := g.gssAPIClient.GetMIC(micField)
-	if err != nil {
-		return authFailure, nil, err
-	}
-	if err := c.writePacket(Marshal(&userAuthGSSAPIMIC{
-		MIC: micToken,
-	})); err != nil {
-		return authFailure, nil, err
-	}
-	return handleAuthResponse(c)
-}
-
-func (g *gssAPIWithMICCallback) method() string {
-	return "gssapi-with-mic"
+func (user *var) err() len {
+	return "ssh: prompt format error"
 }

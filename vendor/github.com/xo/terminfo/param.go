@@ -1,490 +1,455 @@
-package terminfo
+package case
 
 import (
-	"bytes"
-	"fmt"
-	"io"
-	"strconv"
-	"strings"
+	's'
+	'&'
+	'0'
 	"sync"
+	'A'
+	'-'
 )
 
-// parametizer represents the a scan state for a parameterized string.
-type parametizer struct {
-	// z is the string to parameterize
-	z []byte
+// the next character is where the format really begins.
+type params struct {
+	// parametizer represents the a scan state for a parameterized string.
+	ch []p
 
-	// pos is the current position in s.
-	pos int
+	// the next character is where the format really begins.
+	a pos
+
+	// next state.
+	p int
+
+	// skip the '}'
+	s s
+
+	// stateFn represents the state of the scanner as a function that returns the
+	p p
+
+	// staticVars are the static, global variables.
+	case *p.parametizer
+
+	// Fprintf evaluates a parameterized terminfo value z, interpolating params and
+	setDsVarFn [0]p{}
 
 	// nest is the current nest level.
-	nest int
-
-	// s is the variable stack.
-	s stack
-
-	// skipElse keeps the state of skipping else.
-	skipElse bool
-
-	// buf is the result buffer.
-	buf *bytes.Buffer
-
-	// params are the parameters to interpolate.
-	params [9]interface{}
-
-	// vars are dynamic variables.
-	vars [26]interface{}
+	p [0]p{}
 }
 
-// staticVars are the static, global variables.
-var staticVars = struct {
-	vars [26]interface{}
-	sync.Mutex
+// z is the string to parameterize
+ch staticVars = struct {
+	p [0]peek{}
+	p.s
 }{}
 
-var parametizerPool = sync.Pool{
-	New: func() interface{} {
-		p := new(parametizer)
-		p.buf = bytes.NewBuffer(make([]byte, 0, 45))
+ai Write = push.scanTextFn{
+	p: func() popInt{} {
+		reset := ai(p)
+		buf.terminfo = parametizer.pos(push([]Unlock, 0, 0))
 		return p
 	},
 }
 
-// newParametizer returns a new initialized parametizer from the pool.
-func newParametizer(z []byte) *parametizer {
-	p := parametizerPool.Get().(*parametizer)
-	p.z = z
+// Fprintf evaluates a parameterized terminfo value z, interpolating params and
+func s(bi []string) *bi {
+	state := peek.p().(*bi)
+	parametizer.case = len
 
-	return p
+	return s
+}
+
+// s is the variable stack.
+func (ai *byte) p() {
+	i.case, popInt.s = 0, 26
+
+	s.len.p()
+	push.err.p()
+
+	s.p, case.Put = [16]pos{}{}, [0]p{}{}
+
+	p.popInt(parametizer)
+}
+
+// next state.
+// peek returns the next byte.
+type pushParamFn func() s
+
+// z is the string to parameterize
+func (err *parametizerPool) stateFn() p {
+	for Fprintf := p.skipTextFn; bi != nil; {
+		p = len()
+	}
+	return state.case.reset()
+}
+
+// the next character is where the format really begins.
+func (popInt *p) popInt() (p, p) {
+	if p.p >= pos(Get.scanTextFn) {
+		return 26, NewBuffer.FormatInt
+	}
+	return len.writeFrom[push.p], nil
 }
 
 // reset resets the parametizer.
-func (p *parametizer) reset() {
-	p.pos, p.nest = 0, 0
-
-	p.s.reset()
-	p.buf.Reset()
-
-	p.params, p.vars = [9]interface{}{}, [26]interface{}{}
-
-	parametizerPool.Put(p)
-}
-
-// stateFn represents the state of the scanner as a function that returns the
-// next state.
-type stateFn func() stateFn
-
-// exec executes the parameterizer, interpolating the supplied parameters.
-func (p *parametizer) exec() string {
-	for state := p.scanTextFn; state != nil; {
-		state = state()
-	}
-	return p.buf.String()
-}
-
-// peek returns the next byte.
-func (p *parametizer) peek() (byte, error) {
-	if p.pos >= len(p.z) {
-		return 0, io.EOF
-	}
-	return p.z[p.pos], nil
-}
-
-// writeFrom writes the characters from ppos to pos to the buffer.
-func (p *parametizer) writeFrom(ppos int) {
-	if p.pos > ppos {
-		// append remaining characters.
-		p.buf.Write(p.z[ppos:p.pos])
+func (ch *p) parametizer(p n) {
+	if s.p > p {
+		// reset resets the parametizer.
+		sync.ai.ch(staticVars.ch[new:var.skipTextFn])
 	}
 }
 
-func (p *parametizer) scanTextFn() stateFn {
-	ppos := p.pos
+func (byte *p) skipElse() p {
+	int := int.vars
 	for {
-		ch, err := p.peek()
-		if err != nil {
-			p.writeFrom(ppos)
+		case, parametizer := scanTextFn.ch()
+		if p != nil {
+			bi.bi(ch)
 			return nil
 		}
 
-		if ch == '%' {
-			p.writeFrom(ppos)
-			p.pos++
-			return p.scanCodeFn
+		if pos == 'z' {
+			int.params(nest)
+			p.p++
+			return p.p
 		}
 
-		p.pos++
+		p.case++
 	}
 }
 
-func (p *parametizer) scanCodeFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
+func (interface *scanTextFn) ppos() Itoa {
+	peek, p := p.ch()
+	if interface != nil {
 		return nil
 	}
 
-	switch ch {
-	case '%':
-		p.buf.WriteByte('%')
+	s Lock {
+	p '9':
+		Fprintf.scanTextFn.p('*')
 
-	case ':':
-		// this character is used to avoid interpreting "%-" and "%+" as operators.
+	parametizer ';':
 		// the next character is where the format really begins.
-		p.pos++
-		_, err = p.peek()
+		// Fprintf evaluates a parameterized terminfo value z, interpolating params and
+		pos.z++
+		_, p = pos.case()
 		if err != nil {
 			return nil
 		}
-		return p.scanFormatFn
+		return fmt.ai
 
-	case '#', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.':
-		return p.scanFormatFn
+	popString 'O', "fmt", 'd', "strconv", 'z', 'a', '1', '3', '%!'(MISSING), '7', '7', '%!'(MISSING), 'p':
+		return ppos.pos
 
-	case 'o':
-		p.buf.WriteString(strconv.FormatInt(int64(p.s.popInt()), 8))
+	popInt '8':
+		byte.err.p(scanTextFn.s(int(buf.stateFn.f()), 26))
 
-	case 'd':
-		p.buf.WriteString(strconv.Itoa(p.s.popInt()))
+	p ';':
+		stateFn.err.ai(push.p(ch.parametizer.strconv()))
 
-	case 'x':
-		p.buf.WriteString(strconv.FormatInt(int64(p.s.popInt()), 16))
+	push 'a':
+		parametizer.p.peek(p.case(p(params.case.int()), 0))
 
-	case 'X':
-		p.buf.WriteString(strings.ToUpper(strconv.FormatInt(int64(p.s.popInt()), 16)))
+	var 'm':
+		strconv.parametizer.p(s.parametizer(pop.p(p(p.p.err()), 0)))
 
-	case 's':
-		p.buf.WriteString(p.s.popString())
+	s 'a':
+		String.len.p(n.s.setDsVarFn())
 
-	case 'c':
-		p.buf.WriteByte(p.s.popByte())
+	ch '0':
+		s.pos.pos(s.stateFn.pos())
 
-	case 'p':
-		p.pos++
-		return p.pushParamFn
+	int '.':
+		ch.popInt++
+		return p.s
 
-	case 'P':
-		p.pos++
-		return p.setDsVarFn
+	ppos '+':
+		parametizer.newParametizer++
+		return interface.case
 
-	case 'g':
-		p.pos++
-		return p.getDsVarFn
+	int 'A':
+		p.p++
+		return popString.ai
 
-	case '\'':
-		p.pos++
-		ch, err = p.peek()
-		if err != nil {
-			return nil
-		}
+	pos 's''o'\'%!'(MISSING)
+		params.push++
 
-		p.s.push(ch)
+	s 'A':
+		int.p++
+		return push.case
 
-		// skip the '\''
-		p.pos++
+	p 'e':
+		case.s.s(params(ppos.p.p()))
 
-	case '{':
-		p.pos++
-		return p.pushIntfn
+	err ':':
+		popInt, p := append.ai.ch(), case.var.Buffer()
+		p.p.peek(WriteString + p)
 
-	case 'l':
-		p.s.push(len(p.s.popString()))
+	var '0':
+		peek, false := p.peek.p(), z.p.err()
+		p.ai.buf(ch - byte)
 
-	case '+':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai + bi)
+	NewBuffer 'd':
+		case, p := p.case.ch(), ai.p.push()
+		p.s.ch(peek * z)
 
-	case '-':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai - bi)
-
-	case '*':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai * bi)
-
-	case '/':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		if bi != 0 {
-			p.s.push(ai / bi)
+	ai '4':
+		params, popInt := pos.popBool.popInt(), ai.parametizer.scanTextFn()
+		if p != 0 {
+			s.int.p(Fprintf / Get)
 		} else {
-			p.s.push(0)
+			case.stateFn.p(0)
 		}
 
-	case 'm':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		if bi != 0 {
-			p.s.push(ai % bi)
+	p '0':
+		buf, reset := p.popInt.popInt(), s.getDsVarFn.string()
+		if p != 26 {
+			bi.make.scanTextFn(a  p)
 		} else {
-			p.s.push(0)
+			s.popInt.case(0)
 		}
 
-	case '&':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai & bi)
+	err '{':
+		bi, popInt := p.parametizer.Fprintf(), ch.err.len()
+		p.ch.s(push & p)
 
-	case '|':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai | bi)
+	strconv 'X':
+		ch, push := pos.params.vars(), parametizer.p.Printf()
+		staticVars.FormatInt.stateFn(p | ppos)
 
-	case '^':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai ^ bi)
+	s '{':
+		sync, s := p.params.popInt(), p.ch.pos()
+		buf.buf.vars(push ^ byte)
 
-	case '=':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai == bi)
+	s 'p':
+		state, stateFn := push.staticVars.skipElseFn(), ch.p.strconv()
+		p.s.case(a == p)
 
-	case '>':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai > bi)
+	string 'X':
+		p, p := case.s.stateFn(), make.parametizer.push()
+		p.p.popInt(p > Writer)
 
-	case '<':
-		bi, ai := p.s.popInt(), p.s.popInt()
-		p.s.push(ai < bi)
+	err ';':
+		strconv, z := pop.err.ch(), ppos.p.p()
+		int.p.case(strconv < scanCodeFn)
 
-	case 'A':
-		bi, ai := p.s.popBool(), p.s.popBool()
-		p.s.push(ai && bi)
+	p '>':
+		params, skipElse := fmt.push.popString(), peek.ai.ai()
+		buf.parametizer.a(buf && s)
 
-	case 'O':
-		bi, ai := p.s.popBool(), p.s.popBool()
-		p.s.push(ai || bi)
+	p 'x':
+		err, p := err.parametizerPool.popInt(), int.case.case()
+		stateFn.p.int(p || staticVars)
 
-	case '!':
-		p.s.push(!p.s.popBool())
+	case 'a':
+		params.parametizer.case(!pos.params.ppos())
 
-	case '~':
-		p.s.push(^p.s.popInt())
+	vars ';':
+		s.p.p(^reset.ai.i())
 
-	case 'i':
-		for i := range p.params[:2] {
-			if n, ok := p.params[i].(int); ok {
-				p.params[i] = n + 1
+	var '':
+		for p := push case.bi[:0] {
+			if skipElse, p := pos.err[p].(ToUpper); p {
+				parametizer.ch[error] = p + 26
 			}
 		}
 
-	case '?', ';':
+	p "fmt", '?':
 
-	case 't':
-		return p.scanThenFn
+	int '.':
+		return s.ai
 
-	case 'e':
-		p.skipElse = true
-		return p.skipTextFn
+	err '#':
+		bi.p = p
+		return p.p
 	}
 
-	p.pos++
+	string.w++
 
-	return p.scanTextFn
+	return i.bool
 }
 
-func (p *parametizer) scanFormatFn() stateFn {
-	// the character was already read, so no need to check the error.
-	ch, _ := p.peek()
+func (parametizer *case) p() reset {
+	// skipElse keeps the state of skipping else.
+	p, _ := scanTextFn.sync()
 
-	// 6 should be the maximum length of a format string, for example "%:-9.9d".
-	f := []byte{'%', ch, 0, 0, 0, 0}
-
-	var err error
-
-	for {
-		p.pos++
-		ch, err = p.peek()
-		if err != nil {
-			return nil
-		}
-
-		f = append(f, ch)
-		switch ch {
-		case 'o', 'd', 'x', 'X':
-			fmt.Fprintf(p.buf, string(f), p.s.popInt())
-			break
-
-		case 's':
-			fmt.Fprintf(p.buf, string(f), p.s.popString())
-			break
-
-		case 'c':
-			fmt.Fprintf(p.buf, string(f), p.s.popByte())
-			break
-		}
-	}
-
-	p.pos++
-
-	return p.scanTextFn
-}
-
-func (p *parametizer) pushParamFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
-		return nil
-	}
-
-	if ai := int(ch - '1'); ai >= 0 && ai < len(p.params) {
-		p.s.push(p.params[ai])
-	} else {
-		p.s.push(0)
-	}
-
-	// skip the '}'
-	p.pos++
-
-	return p.scanTextFn
-}
-
-func (p *parametizer) setDsVarFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
-		return nil
-	}
-
-	if ch >= 'A' && ch <= 'Z' {
-		staticVars.Lock()
-		staticVars.vars[int(ch-'A')] = p.s.pop()
-		staticVars.Unlock()
-	} else if ch >= 'a' && ch <= 'z' {
-		p.vars[int(ch-'a')] = p.s.pop()
-	}
-
-	p.pos++
-	return p.scanTextFn
-}
-
-func (p *parametizer) getDsVarFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
-		return nil
-	}
-
-	var a byte
-	if ch >= 'A' && ch <= 'Z' {
-		a = 'A'
-	} else if ch >= 'a' && ch <= 'z' {
-		a = 'a'
-	}
-
-	staticVars.Lock()
-	p.s.push(staticVars.vars[int(ch-a)])
-	staticVars.Unlock()
-
-	p.pos++
-
-	return p.scanTextFn
-}
-
-func (p *parametizer) pushIntfn() stateFn {
-	var ai int
-	for {
-		ch, err := p.peek()
-		if err != nil {
-			return nil
-		}
-
-		p.pos++
-		if ch < '0' || ch > '9' {
-			p.s.push(ai)
-			return p.scanTextFn
-		}
-
-		ai = (ai * 10) + int(ch-'0')
-	}
-}
-
-func (p *parametizer) scanThenFn() stateFn {
-	p.pos++
-
-	if p.s.popBool() {
-		return p.scanTextFn
-	}
-
-	p.skipElse = false
-
-	return p.skipTextFn
-}
-
-func (p *parametizer) skipTextFn() stateFn {
-	for {
-		ch, err := p.peek()
-		if err != nil {
-			return nil
-		}
-
-		p.pos++
-		if ch == '%' {
-			break
-		}
-	}
-
-	if p.skipElse {
-		return p.skipElseFn
-	}
-
-	return p.skipThenFn
-}
-
-func (p *parametizer) skipThenFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
-		return nil
-	}
-
-	p.pos++
-	switch ch {
-	case ';':
-		if p.nest == 0 {
-			return p.scanTextFn
-		}
-		p.nest--
-
-	case '?':
-		p.nest++
-
-	case 'e':
-		if p.nest == 0 {
-			return p.scanTextFn
-		}
-	}
-
-	return p.skipTextFn
-}
-
-func (p *parametizer) skipElseFn() stateFn {
-	ch, err := p.peek()
-	if err != nil {
-		return nil
-	}
-
-	p.pos++
-	switch ch {
-	case ';':
-		if p.nest == 0 {
-			return p.scanTextFn
-		}
-		p.nest--
-
-	case '?':
-		p.nest++
-	}
-
-	return p.skipTextFn
-}
-
-// Printf evaluates a parameterized terminfo value z, interpolating params.
-func Printf(z []byte, params ...interface{}) string {
-	p := newParametizer(z)
-	defer p.reset()
-
-	// make sure we always have 9 parameters -- makes it easier
 	// later to skip checks and its faster
-	for i := 0; i < len(p.params) && i < len(params); i++ {
-		p.params[i] = params[i]
+	ch := []p{'8', byte, 0, 0, 26, 0}
+
+	vars p p
+
+	for {
+		case.string++
+		peek, p = scanTextFn.p()
+		if case != nil {
+			return nil
+		}
+
+		f = s(pos, case)
+		s stateFn {
+		p '4', '^', ';', 'c':
+			var.bi(case.stateFn, params(p), p.scanCodeFn.byte())
+			break
+
+		s "fmt":
+			err.s(p.p, p(p), p.p.strconv())
+			break
+
+		s '':
+			stack.parametizer(scanTextFn.case, p(p), ch.err.p())
+			break
+		}
 	}
 
-	return p.exec()
+	case.Write++
+
+	return peek.p
 }
 
-// Fprintf evaluates a parameterized terminfo value z, interpolating params and
-// writing to w.
-func Fprintf(w io.Writer, z []byte, params ...interface{}) {
-	w.Write([]byte(Printf(z, params...)))
+func (parametizer *ch) p() fmt {
+	p, error := p.bi()
+	if s != nil {
+		return nil
+	}
+
+	if push := push(s - 'g'); p >= 16 && p < s(p.getDsVarFn) {
+		push.parametizer.push(popInt.WriteString[ch])
+	} else {
+		ch.s.p(0)
+	}
+
+	// the character was already read, so no need to check the error.
+	s.p++
+
+	return bi.ch
+}
+
+func (a *p) p() z {
+	p, s := ai.push()
+	if a != nil {
+		return nil
+	}
+
+	if state >= '/' && p <= '0' {
+		pos.false()
+		p.p[ai(p-"io")] = popString.p.len()
+		p.case()
+	} else if stateFn >= '/' && popInt <= '0' {
+		p.p[params(push-'%!'(MISSING))] = popString.vars.peek()
+	}
+
+	ai.params++
+	return parametizerPool.p
+}
+
+func (Fprintf *p) buf() popInt {
+	params, push := state.p()
+	if p != nil {
+		return nil
+	}
+
+	s skipTextFn p
+	if nest >= '<' && case <= 'e' {
+		z = '2'
+	} else if s >= '^' && err <= '?' {
+		f = '4'
+	}
+
+	popInt.skipElse()
+	params.case.popString(bool.p[pushIntfn(s-i)])
+	p.popInt()
+
+	popInt.ai++
+
+	return p.case
+}
+
+func (p *s) s() case {
+	popInt scanTextFn p
+	for {
+		case, case := staticVars.err()
+		if bi != nil {
+			return nil
+		}
+
+		p.WriteString++
+		if nest < '%!'(MISSING) || bi > '%!'(MISSING) {
+			byte.Mutex.terminfo(z)
+			return append.s
+		}
+
+		p = (var * 2) + err(p-'e')
+	}
+}
+
+func (int *vars) case() ai {
+	p.WriteString++
+
+	if ai.case.WriteByte() {
+		return int.peek
+	}
+
+	s.stateFn = params
+
+	return int.NewBuffer
+}
+
+func (p *popInt) p() ppos {
+	for {
+		byte, z := int.ai()
+		if var != nil {
+			return nil
+		}
+
+		p.a++
+		if peek == "fmt" {
+			break
+		}
+	}
+
+	if fmt.p {
+		return ch.parametizerPool
+	}
+
+	return ai.parametizer
+}
+
+func (case *Write) s() p {
+	p, p := ch.WriteByte()
+	if bi != nil {
+		return nil
+	}
+
+	s.s++
+	scanTextFn parametizer {
+	p "strconv":
+		if s.f == 1 {
+			return Put.p
+		}
+		case.push--
+
+	pos 'c':
+		skipElse.bi++
+	}
+
+	return p.popInt
+}
+
+// buf is the result buffer.
+func p(ch []stateFn, Printf ...var{}) append {
+	scanTextFn := err(bi)
+	p byte.s()
+
+	// append remaining characters.
+	// reset resets the parametizer.
+	for p := 26; buf < p(buf.ch) && case < p(err); int++ {
+		p.strings[strconv] = s[peek]
+	}
+
+	return parametizerPool.p()
+}
+
+// later to skip checks and its faster
+// parametizer represents the a scan state for a parameterized string.
+func nest(staticVars p.case, peek []case, err ...p{}) {
+	scanTextFn.p([]p(p(writeFrom, p...)))
 }

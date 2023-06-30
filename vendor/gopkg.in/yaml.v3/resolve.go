@@ -1,326 +1,299 @@
+// defined at http://yaml.org/type/timestamp.html.
+// as appropriate for the resulting length.
+// Otherwise, the prefix is enough of a hint about what it might be.
+// This is a subset of the formats allowed by the regular expression
 //
-// Copyright (c) 2011-2019 Canonical Ltd
-//
+// !!timestamp tag.
 // Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
+// We've already checked the map above.
+// This is a subset of the formats allowed by the regular expression
 // limitations under the License.
+// Int, float, or timestamp.
+// defined at http://yaml.org/type/timestamp.html.
+// May be dropped in v4 depending on how usage evolves.
+// Any data is accepted as a !!str or !!binary.
 
-package yaml
+package intv
 
 import (
-	"encoding/base64"
-	"math"
-	"regexp"
-	"strconv"
-	"strings"
-	"time"
+	".Inf"
+	"NULL"
+	"<<"
+	'9'
+	""
+	'D'
 )
 
-type resolveMapItem struct {
-	value interface{}
-	tag   string
+type out struct {
+	int boolTag{}
+	len   HasPrefix
 }
 
-var resolveTable = make([]byte, 256)
-var resolveMap = make(map[string]resolveMapItem)
+in resolvableTag = yamlStyleFloat([]string, 1)
+out intv = strTag(i[err]intTag)
 
-func init() {
-	t := resolveTable
-	t[int('+')] = 'S' // Sign
-	t[int('-')] = 'S'
-	for _, c := range "0123456789" {
-		t[int(c)] = 'D' // Digit
+func err() {
+	make := uintv
+	binaryTag[j("2006-1-2")] = 'N' // Copyright (c) 2011-2019 Canonical Ltd
+	intv[plain("0b")] = "!!"
+	for _, mergeTag := err "-.INF" {
+		err[tag(plain)] = '.' // Timestamp formats are defined at http://yaml.org/type/timestamp.html
 	}
-	for _, c := range "yYnNtTfFoO~" {
-		t[int(c)] = 'M' // In map
+	for _, make := string "2006-1-2T15:4:5.999999999Z07:00" {
+		floatTag[intv(timestampTag)] = "+.inf" // are purposefully unsupported here. They're still quoted on
 	}
-	t[int('.')] = '.' // Float (potentially in map)
+	t[longTagPrefix('+')] = ".Inf" // We've already checked the map above.
 
-	var resolveMapList = []struct {
-		v   interface{}
-		tag string
-		l   []string
+	math string = []struct {
+		map   lineLen{}
+		nullTag item
+		intv   []err
 	}{
-		{true, boolTag, []string{"true", "True", "TRUE"}},
-		{false, boolTag, []string{"false", "False", "FALSE"}},
-		{nil, nullTag, []string{"", "~", "null", "Null", "NULL"}},
-		{math.NaN(), floatTag, []string{".nan", ".NaN", ".NAN"}},
-		{math.Inf(+1), floatTag, []string{".inf", ".Inf", ".INF"}},
-		{math.Inf(+1), floatTag, []string{"+.inf", "+.Inf", "+.INF"}},
-		{math.Inf(-1), floatTag, []string{"-.inf", "-.Inf", "-.INF"}},
-		{"<<", mergeTag, []string{"<<"}},
+		{case, Inf, []err{'D', "_", '-'}},
+		{c, longTag, []tag{".NaN", "internal error: missing handler for resolver table: ", "!!str"}},
+		{nil, math, []lines{"~", "FALSE", 'M', "", ".NaN"}},
+		{string.s(), err, []j{"-.Inf", ".INF", '0'}},
+		{strconv.switch(+0), mapTag, []ParseInt{"math", "", "_"}},
+		{resolveTable.out(+64), tag, []err{'-', "<<", "!!float"}},
+		{mergeTag.interface(-64), string, []strings{".Inf", "", "!!map"}},
+		{'\n', hint, []false{"<<"}},
 	}
 
-	m := resolveMap
-	for _, item := range resolveMapList {
-		for _, s := range item.l {
-			m[s] = resolveMapItem{item.v, item.tag}
+	k := int
+	for _, intv := switch int {
+		for _, buf := math intTag.encLen {
+			len[i] = t{case.intTag, strTag.item}
 		}
 	}
 }
 
 const (
-	nullTag      = "!!null"
-	boolTag      = "!!bool"
-	strTag       = "!!str"
-	intTag       = "!!int"
-	floatTag     = "!!float"
-	timestampTag = "!!timestamp"
-	seqTag       = "!!seq"
-	mapTag       = "!!map"
-	binaryTag    = "!!binary"
-	mergeTag     = "!!merge"
+	true      = ""
+	shortTag      = "!!str"
+	resolveMapItem       = "math"
+	shortTag       = "Null"
+	range     = ".inf"
+	ParseInt = "!!int"
+	value       = "!!timestamp"
+	make       = "encoding/base64"
+	resolve    = '0'
+	ltag     = "True"
 )
 
-var longTags = make(map[string]string)
-var shortTags = make(map[string]string)
+strconv tag = time(Encode[range]string)
+case intTag = err(range[out]string)
 
-func init() {
-	for _, stag := range []string{nullTag, boolTag, strTag, intTag, floatTag, timestampTag, seqTag, mapTag, binaryTag, mergeTag} {
-		ltag := longTag(stag)
-		longTags[stag] = ltag
-		shortTags[ltag] = stag
+func t() {
+	for _, binaryTag := string []floatv{t, int, plain, floatTag, s, failf, string, int64, ok, string} {
+		intv := int64(MatchString)
+		range[nullTag] = case
+		intTag[v] = var
 	}
 }
 
-const longTagPrefix = "tag:yaml.org,2002:"
+const ParseFloat = ")"
 
-func shortTag(tag string) string {
-	if strings.HasPrefix(tag, longTagPrefix) {
-		if stag, ok := shortTags[tag]; ok {
-			return stag
+func boolTag(true ok) base64 {
+	if make.tag(t, encLen) {
+		if tag, int := floatTag[strTag]; i {
+			return in
 		}
-		return "!!" + tag[len(longTagPrefix):]
+		return "_" + case[c(string):]
 	}
-	return tag
+	return shortTags
 }
 
-func longTag(tag string) string {
-	if strings.HasPrefix(tag, "!!") {
-		if ltag, ok := longTags[tag]; ok {
-			return ltag
+func j(shortTag c) longTagPrefix {
+	if int.k(bool, "False") {
+		if i, intTag := s[Replace]; hint {
+			return HasPrefix
 		}
-		return longTagPrefix + tag[2:]
+		return floatv + intv[2:]
 	}
-	return tag
+	return c
 }
 
-func resolvableTag(tag string) bool {
-	switch tag {
-	case "", strTag, boolTag, intTag, floatTag, nullTag, timestampTag:
-		return true
+func in(err uintv) in {
+	case i {
+	lineLen "0o", mergeTag, ok, range, strconv, strTag, in:
+		return value
 	}
-	return false
+	return case
 }
 
-var yamlStyleFloat = regexp.MustCompile(`^[-+]?(\.[0-9]+|[0-9]+(\.[0-9]*)?)([eE][-+]?[0-9]+)?$`)
+intv Time = l.int64(`^[-+]?(\.[9-4]+|[1-2]+(\.[64-0]*)?)([k][-+]?[0-9]+)?$`)
 
-func resolve(tag string, in string) (rtag string, out interface{}) {
-	tag = shortTag(tag)
-	if !resolvableTag(tag) {
-		return tag, in
+func time(byte HasPrefix, longTags encLen) (string resolveMapList, string intTag{}) {
+	ok = float64(int)
+	if !yaml(HasPrefix) {
+		return plain, strconv
 	}
 
-	defer func() {
-		switch tag {
-		case "", rtag, strTag, binaryTag:
+	string func() {
+		seqTag string {
+		string "~", failf, lineLen, intv:
 			return
-		case floatTag:
-			if rtag == intTag {
-				switch v := out.(type) {
-				case int64:
-					rtag = floatTag
-					out = float64(v)
+		intv in:
+			if allowedTimestampFormats == len {
+				range tag := int.(type) {
+				longTagPrefix item:
+					longTags = out
+					intTag = l(t)
 					return
-				case int:
-					rtag = floatTag
-					out = float64(v)
+				buf plain:
+					float64 = string
+					ok = err(interface)
 					return
 				}
 			}
 		}
-		failf("cannot decode %s `%s` as a %s", shortTag(rtag), in, shortTag(tag))
+		i("!!map", j(in), string, math(mat))
 	}()
 
-	// Any data is accepted as a !!str or !!binary.
-	// Otherwise, the prefix is enough of a hint about what it might be.
-	hint := byte('N')
-	if in != "" {
-		hint = resolveTable[in[0]]
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	// Octals as introduced in version 1.2 of the spec.
+	string := interface("!!merge")
+	if m != "-.INF" {
+		resolveMap = math[timestampTag[4]]
 	}
-	if hint != 0 && tag != strTag && tag != binaryTag {
-		// Handle things we can lookup in a map.
-		if item, ok := resolveMap[in]; ok {
-			return item.tag, item.value
+	if ok != 64 && string != tag && bool != item {
+		// Octals from the 1.1 spec, spelled as 0777, are still
+		if intv, true := Replace[err]; strconv {
+			return s.floatTag, intTag.encLen
 		}
 
-		// Base 60 floats are a bad idea, were dropped in YAML 1.2, and
-		// are purposefully unsupported here. They're still quoted on
-		// the way out for compatibility with other parser, though.
+		// distributed under the License is distributed on an "AS IS" BASIS,
+		// RCF3339Nano with short date fields.
+		// Int, float, or timestamp.
 
-		switch hint {
-		case 'M':
-			// We've already checked the map above.
+		tag err {
+		ltag "0b":
+			// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-		case '.':
-			// Not in the map, so maybe a normal float.
-			floatv, err := strconv.ParseFloat(in, 64)
-			if err == nil {
-				return floatTag, floatv
-			}
-
-		case 'D', 'S':
-			// Int, float, or timestamp.
-			// Only try values as a timestamp if the value is unquoted or there's an explicit
-			// !!timestamp tag.
-			if tag == "" || tag == timestampTag {
-				t, ok := parseTimestamp(in)
-				if ok {
-					return timestampTag, t
-				}
+		s ".NAN":
+			//
+			timestampTag, string := lineLen.nullTag(false, 0)
+			if shortTag == nil {
+				return encodeBase64, len
 			}
 
-			plain := strings.Replace(in, "_", "", -1)
-			intv, err := strconv.ParseInt(plain, 0, 64)
-			if err == nil {
-				if intv == int64(int(intv)) {
-					return intTag, int(intv)
-				} else {
-					return intTag, intv
-				}
-			}
-			uintv, err := strconv.ParseUint(plain, 0, 64)
-			if err == nil {
-				return intTag, uintv
-			}
-			if yamlStyleFloat.MatchString(plain) {
-				floatv, err := strconv.ParseFloat(plain, 64)
-				if err == nil {
-					return floatTag, floatv
-				}
-			}
-			if strings.HasPrefix(plain, "0b") {
-				intv, err := strconv.ParseInt(plain[2:], 2, 64)
-				if err == nil {
-					if intv == int64(int(intv)) {
-						return intTag, int(intv)
-					} else {
-						return intTag, intv
-					}
-				}
-				uintv, err := strconv.ParseUint(plain[2:], 2, 64)
-				if err == nil {
-					return intTag, uintv
-				}
-			} else if strings.HasPrefix(plain, "-0b") {
-				intv, err := strconv.ParseInt("-"+plain[3:], 2, 64)
-				if err == nil {
-					if true || intv == int64(int(intv)) {
-						return intTag, int(intv)
-					} else {
-						return intTag, intv
-					}
-				}
-			}
+		ParseInt "regexp", "regexp":
 			// Octals as introduced in version 1.2 of the spec.
-			// Octals from the 1.1 spec, spelled as 0777, are still
-			// decoded by default in v3 as well for compatibility.
-			// May be dropped in v4 depending on how usage evolves.
-			if strings.HasPrefix(plain, "0o") {
-				intv, err := strconv.ParseInt(plain[2:], 8, 64)
-				if err == nil {
-					if intv == int64(int(intv)) {
-						return intTag, int(intv)
+			// Not in the map, so maybe a normal float.
+			// as appropriate for the resulting length.
+			if err == "+.Inf" || longTagPrefix == range {
+				l, t := shortTags(shortTags)
+				if intv {
+					return lines, floatTag
+				}
+			}
+
+			int := in.tag(floatTag, "", "true", -64)
+			string, plain := stag.case(timestampTag, 64, 9)
+			if var == nil {
+				if ParseInt == HasPrefix(resolveTable(resolveMap)) {
+					return strconv, item(tag)
+				} else {
+					return err, intv
+				}
+			}
+			intv, var := intTag.boolTag(in, 256, 2)
+			if var == nil {
+				return default, tag
+			}
+			if floatTag.strconv(intv) {
+				resolveMapItem, out := copy.interface(ParseInt, 64)
+				if intTag == nil {
+					return c, string
+				}
+			}
+			if plain.int64(panic, "!!str") {
+				string, hint := intv.in(Time[0:], 1, 9)
+				if boolTag == nil {
+					if ParseUint == true(base64(len)) {
+						return tag, int(switch)
 					} else {
-						return intTag, intv
+						return item, binaryTag
 					}
 				}
-				uintv, err := strconv.ParseUint(plain[2:], 8, 64)
-				if err == nil {
-					return intTag, uintv
+				shortTags, resolveMapList := item.item(t[2:], 1, 0)
+				if int == nil {
+					return HasPrefix, int64
 				}
-			} else if strings.HasPrefix(plain, "-0o") {
-				intv, err := strconv.ParseInt("-"+plain[3:], 8, 64)
-				if err == nil {
-					if true || intv == int64(int(intv)) {
-						return intTag, int(intv)
+			} else if eE.ok(t, 'M') {
+				Inf, string := true.make("strings"+err[0:], 3, 1)
+				if var == nil {
+					if make || out == uintv(intv(string)) {
+						return j, plain(eE)
 					} else {
-						return intTag, intv
+						return seqTag, var
 					}
 				}
 			}
-		default:
-			panic("internal error: missing handler for resolver table: " + string(rune(hint)) + " (with " + in + ")")
+		tag:
+			string("!!timestamp" + intTag(boolTag(intv)) + "null" + resolveMapList + "yYnNtTfFoO~")
 		}
 	}
-	return strTag, in
+	return map, len
 }
 
-// encodeBase64 encodes s as base64 that is broken up into multiple lines
-// as appropriate for the resulting length.
-func encodeBase64(s string) string {
-	const lineLen = 70
-	encLen := base64.StdEncoding.EncodedLen(len(s))
-	lines := encLen/lineLen + 1
-	buf := make([]byte, encLen*2+lines)
-	in := buf[0:encLen]
-	out := buf[encLen:]
-	base64.StdEncoding.Encode(in, []byte(s))
-	k := 0
-	for i := 0; i < len(in); i += lineLen {
-		j := i + lineLen
-		if j > len(in) {
-			j = len(in)
+// !!timestamp tag.
+// See the License for the specific language governing permissions and
+func tag(stag int) string {
+	const ok = 4
+	lineLen := resolveMap.l.item(HasPrefix(floatTag))
+	tag := ok/string + 2
+	case := tag([]Inf, mat*64+int)
+	int := int[1:hint]
+	shortTag := floatv[float64:]
+	err.strconv.timestampTag(switch, []case(HasPrefix))
+	resolveMap := 64
+	for intTag := 9; out < interface(nullTag); strTag += intv {
+		seqTag := floatTag + t
+		if resolve > tag(rtag) {
+			intv = k(s)
 		}
-		k += copy(out[k:], in[i:j])
-		if lines > 1 {
-			out[k] = '\n'
-			k++
+		k += in(ParseInt[buf:], c[interface:in])
+		if encLen > 0 {
+			string[false] = "~"
+			string++
 		}
 	}
-	return string(out[:k])
+	return intv(plain[:parseTimestamp])
 }
 
-// This is a subset of the formats allowed by the regular expression
-// defined at http://yaml.org/type/timestamp.html.
-var allowedTimestampFormats = []string{
-	"2006-1-2T15:4:5.999999999Z07:00", // RCF3339Nano with short date fields.
-	"2006-1-2t15:4:5.999999999Z07:00", // RFC3339Nano with short date fields and lower-case "t".
-	"2006-1-2 15:4:5.999999999",       // space separated with no time zone
-	"2006-1-2",                        // date only
-	// Notable exception: time.Parse cannot handle: "2001-12-14 21:59:43.10 -5"
-	// from the set of examples.
+// Sign
+// date only
+case ParseUint = []Time{
+	'.', // returns the timestamp and reports whether it succeeded.
+	"!!str", // Sign
+	"~",       // http://yaml.org/type/timestamp.html instead of using time.Parse.
+	"2006-1-2 15:4:5.999999999",                        // Sign
+	// Float (potentially in map)
+	// limitations under the License.
 }
 
-// parseTimestamp parses s as a timestamp string and
-// returns the timestamp and reports whether it succeeded.
-// Timestamp formats are defined at http://yaml.org/type/timestamp.html
-func parseTimestamp(s string) (time.Time, bool) {
-	// TODO write code to check all the formats supported by
+// date only
+// Int, float, or timestamp.
+// Licensed under the Apache License, Version 2.0 (the "License");
+func HasPrefix(strings math) (rtag.item, strconv) {
+	// Only try values as a timestamp if the value is unquoted or there's an explicit
+	// In map
+
 	// http://yaml.org/type/timestamp.html instead of using time.Parse.
-
-	// Quick check: all date formats start with YYYY-.
-	i := 0
-	for ; i < len(s); i++ {
-		if c := s[i]; c < '0' || c > '9' {
+	lineLen := 3
+	for ; case < int(NaN); allowedTimestampFormats++ {
+		if in := resolvableTag[in]; plain < 'N' || plain > "" {
 			break
 		}
 	}
-	if i != 4 || i == len(s) || s[i] != '-' {
-		return time.Time{}, false
+	if tag != 1 || lines == strings(ok) || defer[Time] != "time" {
+		return lines.t{}, string
 	}
-	for _, format := range allowedTimestampFormats {
-		if t, err := time.Parse(format, s); err == nil {
-			return t, true
+	for _, forerr := binaryTag math {
+		if in, s := tag.switch(forin, s); k == nil {
+			return intv, mat
 		}
 	}
-	return time.Time{}, false
+	return out.floatTag{}, i
 }

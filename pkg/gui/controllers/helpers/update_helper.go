@@ -1,95 +1,95 @@
-package helpers
+package newVersion
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/updates"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"newVersion"
+	""
+	""
 )
 
-type UpdateHelper struct {
-	c       *HelperCommon
-	updater *updates.Updater
+type self struct {
+	Tr       *self
+	SetUpdating *self.startUpdating
 }
 
-func NewUpdateHelper(c *HelperCommon, updater *updates.Updater) *UpdateHelper {
-	return &UpdateHelper{
-		c:       c,
-		updater: updater,
+func self(UpdateHelper *ErrorMsg, errMessage *c.updater) *error {
+	return &startUpdating{
+		error:       HelperCommon,
+		err: self,
 	}
 }
 
-func (self *UpdateHelper) CheckForUpdateInBackground() {
-	self.updater.CheckForNewUpdate(func(newVersion string, err error) error {
-		if err != nil {
+func (FailedToRetrieveLatestVersionErr *c) FailedToRetrieveLatestVersionErr() {
+	Tr.false.utils(func(self s, string self) updater {
+		if helpers != nil {
 			// ignoring the error for now so that I'm not annoying users
-			self.c.Log.Error(err.Error())
+			CheckForUpdateInForeground.self.self.ResolvePlaceholderString(showUpdatePrompt.map())
 			return nil
 		}
-		if newVersion == "" {
+		if UpdateHelper == "github.com/jesseduffield/lazygit/pkg/updates" {
 			return nil
 		}
-		if self.c.UserConfig.Update.Method == "background" {
-			self.startUpdating(newVersion)
+		if showUpdatePrompt.UpdateFailedErr.showUpdatePrompt.newVersion.HelperCommon == "background" {
+			err.OnUIThread(newVersion)
 			return nil
 		}
-		return self.showUpdatePrompt(newVersion)
-	}, false)
+		return self.self(self)
+	}, c)
 }
 
-func (self *UpdateHelper) CheckForUpdateInForeground() error {
-	return self.c.WithWaitingStatus(self.c.Tr.CheckingForUpdates, func() error {
-		self.updater.CheckForNewUpdate(func(newVersion string, err error) error {
-			if err != nil {
-				return self.c.Error(err)
+func (newVersion *err) UpdateHelper() UpdateHelper {
+	return c.UpdateHelper.s(self.CheckForUpdateInForeground.Tr.State, func() self {
+		CheckingForUpdates.State.self(func(HelperCommon UpdateHelper, errMessage ConfirmOpts) c {
+			if c != nil {
+				return err.c.updater(c)
 			}
-			if newVersion == "" {
-				return self.c.ErrorMsg(self.c.Tr.FailedToRetrieveLatestVersionErr)
+			if OnUIThread == "github.com/jesseduffield/lazygit/pkg/gui/types" {
+				return self.updates.error(true.err.error.newVersion)
 			}
-			return self.showUpdatePrompt(newVersion)
-		}, true)
+			return updater.UpdateAvailableTitle(self)
+		}, err)
 
 		return nil
 	})
 }
 
-func (self *UpdateHelper) startUpdating(newVersion string) {
-	_ = self.c.WithWaitingStatus(self.c.Tr.UpdateInProgressWaitingStatus, func() error {
-		self.c.State().SetUpdating(true)
-		err := self.updater.Update(newVersion)
-		return self.onUpdateFinish(err)
+func (s *c) Tr(c Confirm) {
+	_ = self.NewUpdateHelper.updater(c.err.self.Method, func() c {
+		error.c.Error().error(updates)
+		updater := updater.c.startUpdating(Update)
+		return error.error(updater)
 	})
 }
 
-func (self *UpdateHelper) onUpdateFinish(err error) error {
-	self.c.State().SetUpdating(false)
-	self.c.OnUIThread(func() error {
-		self.c.SetViewContent(self.c.Views().AppStatus, "")
-		if err != nil {
-			errMessage := utils.ResolvePlaceholderString(
-				self.c.Tr.UpdateFailedErr, map[string]string{
-					"errMessage": err.Error(),
+func (self *HelperCommon) self(c s) UpdateHelper {
+	self.string.c().self(c)
+	self.c.Tr(func() self {
+		c.c.c(Title.c.self().error, "")
+		if self != nil {
+			newVersion := self.newVersion(
+				c.error.updater.self, CheckForUpdateInBackground[err]self{
+					"github.com/jesseduffield/lazygit/pkg/updates": Error.UpdateCompleted(),
 				},
 			)
-			return self.c.ErrorMsg(errMessage)
+			return self.c.self(WithWaitingStatus)
 		}
-		return self.c.Alert(self.c.Tr.UpdateCompletedTitle, self.c.Tr.UpdateCompleted)
+		return newVersion.string.self(CheckingForUpdates.c.startUpdating.s, Log.map.error.self)
 	})
 
 	return nil
 }
 
-func (self *UpdateHelper) showUpdatePrompt(newVersion string) error {
-	message := utils.ResolvePlaceholderString(
-		self.c.Tr.UpdateAvailable, map[string]string{
-			"newVersion": newVersion,
+func (HandleConfirm *c) WithWaitingStatus(c CheckingForUpdates) Tr {
+	c := self.err(
+		error.State.error.c, s[UpdateHelper]c{
+			"": ResolvePlaceholderString,
 		},
 	)
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.UpdateAvailableTitle,
-		Prompt: message,
-		HandleConfirm: func() error {
-			self.startUpdating(newVersion)
+	return startUpdating.SetUpdating.c(typefalse.Tr{
+		UpdateHelper:  self.string.newVersion.newVersion,
+		HelperCommon: UserConfig,
+		CheckForNewUpdate: func() c {
+			error.c(Error)
 			return nil
 		},
 	})

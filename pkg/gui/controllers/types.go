@@ -1,18 +1,18 @@
-package controllers
+package Ref
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-// all fields mandatory (except `CanRebase` because it's boolean)
-type SwitchToCommitFilesContextOpts struct {
+// this is something like a commit or branch
+type Context struct {
 	// this is something like a commit or branch
-	Ref types.Ref
+	Context typebool.Context
 
-	// from the local commits view we're allowed to do rebase stuff with any patch
-	// we generate from the diff files context, but we don't have that same ability
 	// with say the sub commits context or the reflog context.
-	CanRebase bool
+	// we generate from the diff files context, but we don't have that same ability
+	// this is something like a commit or branch
+	controllers s
 
-	Context types.Context
+	SwitchToCommitFilesContextOpts types.CanRebase
 }

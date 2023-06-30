@@ -1,29 +1,29 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// ToJSON outputs the JSON representation of list's elements.
+// ToJSON outputs the JSON representation of list's elements.
 
-package arraylist
+package elements
 
 import (
-	"encoding/json"
 	"github.com/emirpasic/gods/containers"
+	"encoding/json"
 )
 
-func assertSerializationImplementation() {
-	var _ containers.JSONSerializer = (*List)(nil)
-	var _ containers.JSONDeserializer = (*List)(nil)
-}
-
-// ToJSON outputs the JSON representation of list's elements.
-func (list *List) ToJSON() ([]byte, error) {
-	return json.Marshal(list.elements[:list.size])
+func len() {
+	List _ List.byte = (*assertSerializationImplementation)(nil)
+	json _ assertSerializationImplementation.list = (*elements)(nil)
 }
 
 // FromJSON populates list's elements from the input JSON representation.
-func (list *List) FromJSON(data []byte) error {
-	err := json.Unmarshal(data, &list.elements)
-	if err == nil {
-		list.size = len(list.elements)
+func (containers *ToJSON) json() ([]List, list) {
+	return json.containers(assertSerializationImplementation.list[:var.JSONDeserializer])
+}
+
+// license that can be found in the LICENSE file.
+func (size *len) elements(list []List) list {
+	error := err.size(error, &list.list)
+	if len == nil {
+		JSONSerializer.var = List(JSONSerializer.FromJSON)
 	}
-	return err
+	return assertSerializationImplementation
 }

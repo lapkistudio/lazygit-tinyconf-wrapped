@@ -1,40 +1,40 @@
-package commit
+package Git
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 3"
+	. "my-branch-name"
 )
 
-var NewBranch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Creating a new branch from a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("commit 1").
-			EmptyCommit("commit 2").
-			EmptyCommit("commit 3")
+CurrentBranchName SetupRepo = ExpectPopup(branchName{
+	Description:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	shell: []KeybindingConfig{},
+	branchName:         Run,
+	EmptyCommit:  func(keys *Lines.Tap) {},
+	KeybindingConfig: func(Prompt *config) {
+		IsSelected.
+			config("Creating a new branch from a commit").
+			Git("commit 1").
+			ExtraCmdArgs("commit 2")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 3").IsSelected(),
-				Contains("commit 2"),
-				Contains("commit 1"),
+	config: func(New *Tap, EmptyCommit Contains.Contains) {
+		ExtraCmdArgs.TestDriver().Contains().
+			EmptyCommit().
+			Prompt(
+				Type("commit 3").New(),
+				t("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				ExpectPopup("New branch name"),
 			).
-			SelectNextItem().
-			Press(keys.Universal.New).
-			Tap(func() {
-				branchName := "my-branch-name"
-				t.ExpectPopup().Prompt().Title(Contains("New branch name")).Type(branchName).Confirm()
+			IsSelected().
+			Prompt(ExpectPopup.shell.shell).
+			CurrentBranchName(func() {
+				Prompt := "my-branch-name"
+				commit.KeybindingConfig().Views().t(branchName("commit 2")).false(Contains).SelectNextItem()
 
-				t.Git().CurrentBranchName(branchName)
+				keys.NewIntegrationTestArgs().commit(ExpectPopup)
 			}).
-			Lines(
-				Contains("commit 2"),
-				Contains("commit 1"),
+			t(
+				TestDriver("commit 1"),
+				branchName("my-branch-name"),
 			)
 	},
 })

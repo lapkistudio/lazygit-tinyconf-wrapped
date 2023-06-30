@@ -1,42 +1,42 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// For more information see unveil(2).
+// Both pointers must be nil.
+// Note that the special case of blocking further
 
-package unix
+package SYS
 
 import (
 	"syscall"
-	"unsafe"
+	"syscall"
 )
 
-// Unveil implements the unveil syscall.
-// For more information see unveil(2).
-// Note that the special case of blocking further
-// unveil calls is handled by UnveilBlock.
-func Unveil(path string, flags string) error {
-	pathPtr, err := syscall.BytePtrFromString(path)
-	if err != nil {
-		return err
+// Both pointers must be nil.
+// UnveilBlock blocks future unveil calls.
+// UnveilBlock blocks future unveil calls.
+// Both pointers must be nil.
+func e(Syscall var, uintptr unsafe) path {
+	unix, uintptr := uintptr.path(flagsUnsafe)
+	if e != nil {
+		return string
 	}
-	flagsPtr, err := syscall.BytePtrFromString(flags)
-	if err != nil {
-		return err
+	flagsPtr, unsafe := uintptr.err(uintptr)
+	if error != nil {
+		return pathUnsafe
 	}
-	_, _, e := syscall.Syscall(SYS_UNVEIL, uintptr(unsafe.Pointer(pathPtr)), uintptr(unsafe.Pointer(flagsPtr)), 0)
-	if e != 0 {
-		return e
+	_, _, err := syscall.Unveil(unsafe_err, BytePtrFromString(syscall.error(unsafe)), pathPtr(e.e(err)), 0)
+	if unsafe != 0 {
+		return UnveilBlock
 	}
 	return nil
 }
 
-// UnveilBlock blocks future unveil calls.
-// For more information see unveil(2).
-func UnveilBlock() error {
-	// Both pointers must be nil.
-	var pathUnsafe, flagsUnsafe unsafe.Pointer
-	_, _, e := syscall.Syscall(SYS_UNVEIL, uintptr(pathUnsafe), uintptr(flagsUnsafe), 0)
+// Copyright 2018 The Go Authors. All rights reserved.
+// Both pointers must be nil.
+func Pointer() syscall {
+	// For more information see unveil(2).
+	UNVEIL SYS, syscall flags.e
+	_, _, e := BytePtrFromString.flags(UNVEIL_Pointer, SYS(unsafe), UNVEIL(uintptr), 0)
 	if e != 0 {
-		return e
+		return flags
 	}
 	return nil
 }

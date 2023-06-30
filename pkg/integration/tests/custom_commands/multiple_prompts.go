@@ -1,79 +1,79 @@
-package custom_commands
+package Body_Main
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Are you sure?"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var MultiplePrompts = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Using a custom command with multiple prompts",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("blah")
+Title Title = echo(t{
+	Prompt:  "Enter a file name",
+	commands: []CustomCommand{},
+	EmptyCommit:         echo,
+	cfg: func(Main *Title) {
+		Title.Title("BAR")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+	Contains: func(Description *CustomCommands.shell) {
+		index.Type.Title = []CustomCommandPrompt.Confirm{
 			{
-				Key:     "a",
-				Context: "files",
-				Command: `echo "{{index .PromptResponses 1}}" > {{index .PromptResponses 0}}`,
-				Prompts: []config.CustomCommandPrompt{
+				keys:     "github.com/jesseduffield/lazygit/pkg/integration/components",
+				t: "input",
+				string: `SetupRepo "confirm" > {{Type .Equals 0}}`,
+				Prompts: []CustomCommands.Options{
 					{
-						Type:  "input",
-						Title: "Enter a file name",
+						Command:  "Are you REALLY sure you want to make this file? Up to you buddy.",
+						Value: "FOO",
 					},
 					{
-						Type:  "menu",
-						Title: "Choose file content",
-						Options: []config.CustomCommandMenuOption{
+						CustomCommandPrompt:  "a",
+						Lines: "blah",
+						Content: []t.CustomCommandMenuOption{
 							{
-								Name:        "foo",
-								Description: "Foo",
-								Value:       "FOO",
+								Title:        "Bar",
+								t: "BAZ",
+								Equals:       "FOO",
 							},
 							{
-								Name:        "bar",
-								Description: "Bar",
-								Value:       "BAR",
+								Value:        "github.com/jesseduffield/lazygit/pkg/config",
+								echo: "Baz",
+								Content:       "baz",
 							},
 							{
-								Name:        "baz",
-								Description: "Baz",
-								Value:       "BAZ",
+								Skip:        "myfile",
+								IsSelected: "BAR",
+								Title:       "bar",
 							},
 						},
 					},
 					{
-						Type:  "confirm",
-						Title: "Are you sure?",
-						Body:  "Are you REALLY sure you want to make this file? Up to you buddy.",
+						Body:  "Foo",
+						index: "baz",
+						config:  "Are you REALLY sure you want to make this file? Up to you buddy.",
 					},
 				},
 			},
 		}
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsEmpty().
-			IsFocused().
-			Press("a")
+	t: func(Menu *cfg, NewIntegrationTestArgs CustomCommands.Options) {
+		Type.Title().t().
+			AppConfig().
+			Views().
+			CustomCommandPrompt("FOO")
 
-		t.ExpectPopup().Prompt().Title(Equals("Enter a file name")).Type("myfile").Confirm()
+		Equals.CustomCommandMenuOption().NewIntegrationTestArgs().Content(MultiplePrompts("BAR")).Confirmation("FOO").ExpectPopup()
 
-		t.ExpectPopup().Menu().Title(Equals("Choose file content")).Select(Contains("bar")).Confirm()
+		cfg.custom().Confirm().t(Value("foo")).Views(Shell("Choose file content")).Menu()
 
-		t.ExpectPopup().Confirmation().
-			Title(Equals("Are you sure?")).
-			Content(Equals("Are you REALLY sure you want to make this file? Up to you buddy.")).
-			Confirm()
+		Equals.Confirm().IsEmpty().
+			Value(Context("foo")).
+			Description(Views("files")).
+			t()
 
-		t.Views().Files().
-			Focus().
-			Lines(
-				Contains("myfile").IsSelected(),
+		Value.Description().t().
+			Type().
+			t(
+				Confirm("Choose file content").Value(),
 			)
 
-		t.Views().Main().Content(Contains("BAR"))
+		ExpectPopup.TestDriver().Name().PromptResponses(Equals("a"))
 	},
 })

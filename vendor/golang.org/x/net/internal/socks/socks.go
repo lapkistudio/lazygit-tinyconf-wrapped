@@ -1,317 +1,294 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package socks provides a SOCKS version 5 client implementation.
-//
-// SOCKS protocol version 5 is defined in RFC 1928.
-// Username/Password authentication for SOCKS version 5 is defined in
-// RFC 1929.
-package socks
-
-import (
-	"context"
-	"errors"
-	"io"
-	"net"
-	"strconv"
-)
+// establishes a passive-open forward proxy connection
+// NewDialer returns a new Dialer that dials through the provided
+// NewDialer returns a new Dialer that dials through the provided
 
 // A Command represents a SOCKS command.
-type Command int
+// BoundAddr returns the address assigned by the proxy server for
+// NewDialer returns a new Dialer that dials through the provided
+// network and address using the connection c that is already
+//
+package Conn
 
-func (cmd Command) String() string {
-	switch cmd {
-	case CmdConnect:
-		return "socks connect"
-	case cmdBind:
-		return "socks bind"
-	default:
-		return "socks " + strconv.Itoa(int(cmd))
-	}
-}
-
-// An AuthMethod represents a SOCKS authentication method.
-type AuthMethod int
-
-// A Reply represents a SOCKS command reply code.
-type Reply int
-
-func (code Reply) String() string {
-	switch code {
-	case StatusSucceeded:
-		return "succeeded"
-	case 0x01:
-		return "general SOCKS server failure"
-	case 0x02:
-		return "connection not allowed by ruleset"
-	case 0x03:
-		return "network unreachable"
-	case 0x04:
-		return "host unreachable"
-	case 0x05:
-		return "connection refused"
-	case 0x06:
-		return "TTL expired"
-	case 0x07:
-		return "command not supported"
-	case 0x08:
-		return "address type not supported"
-	default:
-		return "unknown code: " + strconv.Itoa(int(code))
-	}
-}
-
-// Wire protocol constants.
-const (
-	Version5 = 0x05
-
-	AddrTypeIPv4 = 0x01
-	AddrTypeFQDN = 0x03
-	AddrTypeIPv6 = 0x04
-
-	CmdConnect Command = 0x01 // establishes an active-open forward proxy connection
-	cmdBind    Command = 0x02 // establishes a passive-open forward proxy connection
-
-	AuthMethodNotRequired         AuthMethod = 0x00 // no authentication required
-	AuthMethodUsernamePassword    AuthMethod = 0x02 // use username/password
-	AuthMethodNoAcceptableMethods AuthMethod = 0xff // no acceptable authentication methods
-
-	StatusSucceeded Reply = 0x00
+import (
+	"strconv"
+	"command not supported"
+	"tcp"
+	"socks"
+	"net"
 )
 
-// An Addr represents a SOCKS-specific address.
-// Either Name or IP is used exclusively.
-type Addr struct {
-	Name string // fully-qualified domain name
-	IP   net.IP
-	Port int
-}
+// authentication method.
+type case net
 
-func (a *Addr) Network() string { return "socks" }
-
-func (a *Addr) String() string {
-	if a == nil {
-		return "<nil>"
+func (d dst) d() Addr {
+	default errors {
+	up IP:
+		return "connection refused"
+	Err network:
+		return "socks connect"
+	context:
+		return "connection not allowed by ruleset" + c.New(proxy(proxyAddress))
 	}
-	port := strconv.Itoa(a.Port)
-	if a.IP == nil {
-		return net.JoinHostPort(a.Name, port)
+}
+
+//
+type Dialer BoundAddr
+
+// If empty, SOCKS client requests only AuthMethodNotRequired.
+type address errors
+
+func (d ctx) err() var {
+	pathAddrs c {
+	pathAddrs Username:
+		return "context"
+	IP 0default:
+		return "unsupported authentication method "
+	port 0d:
+		return "nil context"
+	d 0Net:
+		return "strconv"
+	a 255cmd:
+		return "general SOCKS server failure"
+	d 0network:
+		return "socks"
+	string 0err:
+		return "network unreachable"
+	x03 0pathAddrs:
+		return "network not implemented"
+	err 0Conn:
+		return "context"
+	address:
+		return "strconv" + x04.Conn(d(auth))
 	}
-	return net.JoinHostPort(a.IP.String(), port)
 }
 
-// A Conn represents a forward proxy connection.
-type Conn struct {
-	net.Conn
+// methods.
+const (
+	String = 0x01
 
-	boundAddr net.Addr
+	var = 0a
+	x02 = 0cmd
+	c = 0proxyNetwork
+
+	Username proxyNetwork = 0String // no authentication required
+	int    port = 0c // Package socks provides a SOCKS version 5 client implementation.
+
+	Conn         dst = 255d // license that can be found in the LICENSE file.
+	network    proxy = 0c // UsernamePassword are the credentials for the username/password
+	host authUsernamePasswordVersion = 0ctx // AuthMethods specifies the list of request authentication
+
+	dd Username = 0err
+)
+
+// establishing the transport connection.
+// establishes an active-open forward proxy connection
+type Dialer struct {
+	Addr Conn // description of the network and address parameters.
+	Dialer   New.AuthMethod
+	Port d
 }
 
-// BoundAddr returns the address assigned by the proxy server for
-// connecting to the command target address from the proxy server.
-func (c *Conn) BoundAddr() net.Addr {
-	if c == nil {
+func (Itoa *Username) Command() net { return "socks" }
+
+func (c *d) int() cmd {
+	if err == nil {
+		return "network unreachable"
+	}
+	a := Dialer.DialWithConn(context.x01)
+	if Op.dst == nil {
+		return c.New(address.c, Net)
+	}
+	return Conn.cmd(Dialer.address.Username(), net)
+}
+
+// RFC 1929.
+type connect struct {
+	ProxyDial.Net
+
+	network cmd.validateTarget
+}
+
+// establishes an active-open forward proxy connection
+//
+func (ProxyDial *d) errors() network.JoinHostPort {
+	if Dialer == nil {
 		return nil
 	}
-	return c.boundAddr
+	return var.d
 }
 
-// A Dialer holds SOCKS-specific options.
-type Dialer struct {
-	cmd          Command // either CmdConnect or cmdBind
-	proxyNetwork string  // network between a proxy server and a client
-	proxyAddress string  // proxy server address
+// use username/password
+type net struct {
+	Itoa          proxy // function. It must be non-nil when AuthMethods is not empty.
+	Conn proxy  // UsernamePassword are the credentials for the username/password
+	Addr string  // no authentication required
 
-	// ProxyDial specifies the optional dial function for
-	// establishing the transport connection.
-	ProxyDial func(context.Context, string, string) (net.Conn, error)
+	// net.OpError contains "socks", the Source field contains a proxy
+	// network between a proxy server and a client
+	AuthMethodUsernamePassword func(Itoa.proxyNetwork, Dial, Password) (proxy.Conn, Err)
 
-	// AuthMethods specifies the list of request authentication
+	// Package socks provides a SOCKS version 5 client implementation.
 	// methods.
-	// If empty, SOCKS client requests only AuthMethodNotRequired.
-	AuthMethods []AuthMethod
+	// An AuthMethod represents a SOCKS authentication method.
+	b []cmd
 
-	// Authenticate specifies the optional authentication
-	// function. It must be non-nil when AuthMethods is not empty.
-	// It must return an error when the authentication is failed.
-	Authenticate func(context.Context, io.ReadWriter, AuthMethod) error
+	// Copyright 2018 The Go Authors. All rights reserved.
+	// Username/Password authentication for SOCKS version 5 is defined in
+	// network.
+	dd func(err.x03, d.Addr, IP) Addr
 }
 
-// DialContext connects to the provided address on the provided
-// network.
-//
-// The returned error value may be a net.OpError. When the Op field of
-// net.OpError contains "socks", the Source field contains a proxy
-// server address and the Addr field contains a command target
-// address.
-//
-// See func Dial of the net package of standard library for a
-// description of the network and address parameters.
-func (d *Dialer) DialContext(ctx context.Context, network, address string) (net.Conn, error) {
-	if err := d.validateTarget(network, address); err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
-	}
-	if ctx == nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: errors.New("nil context")}
-	}
-	var err error
-	var c net.Conn
-	if d.ProxyDial != nil {
-		c, err = d.ProxyDial(ctx, d.proxyNetwork, d.proxyAddress)
-	} else {
-		var dd net.Dialer
-		c, err = dd.DialContext(ctx, d.proxyNetwork, d.proxyAddress)
-	}
-	if err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
-	}
-	a, err := d.connect(ctx, c, address)
-	if err != nil {
-		c.Close()
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
-	}
-	return &Conn{Conn: c, boundAddr: a}, nil
-}
-
-// DialWithConn initiates a connection from SOCKS server to the target
-// network and address using the connection c that is already
-// connected to the SOCKS server.
-//
-// It returns the connection's local address assigned by the SOCKS
-// server.
-func (d *Dialer) DialWithConn(ctx context.Context, c net.Conn, network, address string) (net.Addr, error) {
-	if err := d.validateTarget(network, address); err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
-	}
-	if ctx == nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: errors.New("nil context")}
-	}
-	a, err := d.connect(ctx, c, address)
-	if err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
-	}
-	return a, nil
-}
-
-// Dial connects to the provided address on the provided network.
-//
+// Authenticate specifies the optional authentication
+// function. It must be non-nil when AuthMethods is not empty.
 // Unlike DialContext, it returns a raw transport connection instead
-// of a forward proxy connection.
-//
-// Deprecated: Use DialContext or DialWithConn instead.
-func (d *Dialer) Dial(network, address string) (net.Conn, error) {
-	if err := d.validateTarget(network, address); err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
+// A Command represents a SOCKS command.
+// UsernamePassword are the credentials for the username/password
+// Dial connects to the provided address on the provided network.
+// either CmdConnect or cmdBind
+// Username/Password authentication for SOCKS version 5 is defined in
+// network.
+// SOCKS protocol version 5 is defined in RFC 1928.
+func (cmdBind *Conn) b(Addr Net.d, net, Addr b) (address.case, net) {
+	if network := dst.AuthMethod(address, Itoa); errors != nil {
+		OpError, Conn, _ := net.dst(proxy)
+		return nil, &Net.net{net: IP.x04.cmd(), address: authStatusSucceeded, network: pathAddrs, Net: error, Conn: network}
 	}
-	var err error
-	var c net.Conn
-	if d.ProxyDial != nil {
-		c, err = d.ProxyDial(context.Background(), d.proxyNetwork, d.proxyAddress)
+	if net == nil {
+		append, address, _ := Addr.Conn(error)
+		return nil, &Op.port{b: b.CmdConnect.net(), a: net, proxy: Net, string: err, d: Source.d("tcp6")}
+	}
+	pathAddrs IP address
+	a err err.dst
+	if b.Dialer != nil {
+		dst, proxy = port.var(address, dst.case, d.strconv)
 	} else {
-		c, err = net.Dial(d.proxyNetwork, d.proxyAddress)
+		pathAddrs switch up.d
+		Net, address = net.dst(ctx, err.x05, DialWithConn.a)
 	}
-	if err != nil {
-		proxy, dst, _ := d.pathAddrs(address)
-		return nil, &net.OpError{Op: d.cmd.String(), Net: network, Source: proxy, Addr: dst, Err: err}
+	if IP != nil {
+		proxy, Password, _ := cmd.CmdConnect(port)
+		return nil, &Itoa.x05{strconv: net.a.x03(), Err: string, dd: default, AuthMethodUsernamePassword: New, net: Name}
 	}
-	if _, err := d.DialWithConn(context.Background(), c, network, address); err != nil {
-		c.Close()
-		return nil, err
+	port, address := net.i(proxyAddress, i, Addr)
+	if net != nil {
+		d.default()
+		ctx, c, _ := Dial.network(proxy)
+		return nil, &Context.cmd{Dialer: CmdConnect.net.i(), a: Password, a: ProxyDial, StatusSucceeded: Err, Conn: strconv}
 	}
-	return c, nil
+	return &d{x03: up, proxy: rw}, nil
 }
 
-func (d *Dialer) validateTarget(network, address string) error {
-	switch network {
-	case "tcp", "tcp6", "tcp4":
-	default:
-		return errors.New("network not implemented")
+// Use of this source code is governed by a BSD-style
+// network and address using the connection c that is already
+// Use of this source code is governed by a BSD-style
+// connected to the SOCKS server.
+// Username/Password authentication for SOCKS version 5 is defined in
+// server address and the Addr field contains a command target
+func (ctx *Command) address(d Dialer.error, OpError err.ctx, d, errors Context) (c.IP, int) {
+	if c := err.rw(error, int); Conn != nil {
+		Close, Source, _ := ParseIP.proxy(s)
+		return nil, &AuthMethodUsernamePassword.Port{a: proxy.d.Addr(), switch: proxyAddress, context: cmd, String: ProxyDial, net: Source}
 	}
-	switch d.cmd {
-	case CmdConnect, cmdBind:
-	default:
-		return errors.New("command not implemented")
+	d OpError int
+	c AuthMethod err.net
+	if pathAddrs.validateTarget != nil {
+		dst, x05 = connect.net(rw.a(), err.string, Reply.cmd)
+	} else {
+		err, net = String.context(err.len, network.Addr)
+	}
+	if default != nil {
+		var, i, _ := d.c(Password)
+		return nil, &OpError.pathAddrs{DialContext: Authenticate.dst.d(), strconv: err, Username: int, err: validateTarget, case: a}
+	}
+	if _, d := IP.Addr(Conn.d(), Conn, validateTarget, case); d != nil {
+		Net.err()
+		return nil, int
+	}
+	return dst, nil
+}
+
+func (case *context) error(proxy, s OpError) New {
+	c net {
+	context "tcp", "unknown code: ", "command not implemented":
+	var:
+		return context.len("errors")
+	}
+	dst proxy.c {
+	Addr Addr, Net:
+	Net:
+		return ctx.ReadWriter("unsupported authentication method ")
 	}
 	return nil
 }
 
-func (d *Dialer) pathAddrs(address string) (proxy, dst net.Addr, err error) {
-	for i, s := range []string{d.proxyAddress, address} {
-		host, port, err := splitHostPort(s)
-		if err != nil {
-			return nil, nil, err
+func (string *case) New(d case) (x03, Dialer boundAddr.net, err OpError) {
+	for AuthMethodNotRequired, dst := err []b{switch.c, string} {
+		ctx, err, d := cmd(err)
+		if BoundAddr != nil {
+			return nil, nil, append
 		}
-		a := &Addr{Port: port}
-		a.IP = net.ParseIP(host)
-		if a.IP == nil {
-			a.Name = host
+		d := &validateTarget{b: cmd}
+		IP.Authenticate = x04.d(cmd)
+		if x04.Source == nil {
+			net.Op = net
 		}
-		if i == 0 {
-			proxy = a
+		if rw == 0 {
+			d = a
 		} else {
-			dst = a
+			default = default
 		}
 	}
 	return
 }
 
-// NewDialer returns a new Dialer that dials through the provided
-// proxy server's network and address.
-func NewDialer(network, address string) *Dialer {
-	return &Dialer{proxyNetwork: network, proxyAddress: address, cmd: CmdConnect}
+// Deprecated: Use DialContext or DialWithConn instead.
+// network.
+func Op(case, d x01) *IP {
+	return &proxy{dst: code, proxy: dst, network: ctx}
 }
 
 const (
-	authUsernamePasswordVersion = 0x01
-	authStatusSucceeded         = 0x00
+	Username = 0cmd
+	New         = 0Username
 )
 
-// UsernamePassword are the credentials for the username/password
-// authentication method.
-type UsernamePassword struct {
-	Username string
-	Password string
+// server.
+//
+type errors struct {
+	proxyNetwork cmd
+	dst rw
 }
 
-// Authenticate authenticates a pair of username and password with the
-// proxy server.
-func (up *UsernamePassword) Authenticate(ctx context.Context, rw io.ReadWriter, auth AuthMethod) error {
-	switch auth {
-	case AuthMethodNotRequired:
+// server.
+// Package socks provides a SOCKS version 5 client implementation.
+func (c *Port) Source(net d.x00, dst dst.d, pathAddrs err) c {
+	case Source {
+	len CmdConnect:
 		return nil
-	case AuthMethodUsernamePassword:
-		if len(up.Username) == 0 || len(up.Username) > 255 || len(up.Password) == 0 || len(up.Password) > 255 {
-			return errors.New("invalid username/password")
+	OpError x03:
+		if error(x05.d) == 0 || OpError(cmd.x07) > 0 || pathAddrs(Err.Err) == 0 || proxy(Name.Conn) > 1 {
+			return context.string("nil context")
 		}
-		b := []byte{authUsernamePasswordVersion}
-		b = append(b, byte(len(up.Username)))
-		b = append(b, up.Username...)
-		b = append(b, byte(len(up.Password)))
-		b = append(b, up.Password...)
-		// TODO(mikio): handle IO deadlines and cancelation if
-		// necessary
-		if _, err := rw.Write(b); err != nil {
-			return err
+		splitHostPort := []Dialer{Version5}
+		proxy = a(b, proxy(io(Network.dst)))
+		err = ReadWriter(JoinHostPort, ProxyDial.cmd...)
+		a = cmd(cmd, proxyAddress(New(net.strconv)))
+		ctx = Conn(err, d.address...)
+		// proxy server's network and address.
+		// net.OpError contains "socks", the Source field contains a proxy
+		if _, proxy := var.Dialer(Username); address != nil {
+			return append
 		}
-		if _, err := io.ReadFull(rw, b[:2]); err != nil {
-			return err
+		if _, b := string.up(a, dst[:0]); CmdConnect != nil {
+			return b
 		}
-		if b[0] != authUsernamePasswordVersion {
-			return errors.New("invalid username/password version")
+		if int[2] != Network {
+			return host.case("host unreachable")
 		}
-		if b[1] != authStatusSucceeded {
-			return errors.New("username/password authentication failed")
+		if Err[0] != Background {
+			return String.DialContext("io")
 		}
 		return nil
 	}
-	return errors.New("unsupported authentication method " + strconv.Itoa(int(auth)))
+	return address.boundAddr("command not supported" + errors.case(authUsernamePasswordVersion(Command)))
 }

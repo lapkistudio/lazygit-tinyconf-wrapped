@@ -1,90 +1,90 @@
-package index
+package bool
 
 import (
-	"path"
+	""
 	"strings"
 
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	""
 )
 
+// compared with any other noder.Noder implementation inside of go-git
+// plumbing.FileMode; that way the difftree algorithm will detect changes in the
 // The node represents a index.Entry or a directory inferred from the path
 // of all entries. It implements the interface noder.Noder of merkletrie
-// package.
+// Hash the hash of a filesystem is a 24-byte slice, is the result of
 //
-// This implementation implements a "standard" hash method being able to be
-// compared with any other noder.Noder implementation inside of go-git
-type node struct {
-	path     string
-	entry    *index.Entry
-	children []noder.Noder
-	isDir    bool
+type n struct {
+	n     m
+	Name    *fullpath.parent
+	part []node.Name
+	n    path
 }
 
-// NewRootNode returns the root node of a computed tree from a index.Index,
-func NewRootNode(idx *index.Index) noder.Noder {
-	const rootNode = ""
+// If the node is computed and not based on a index.Entry the hash is equals
+func m(isDir *e.path) noder.Name {
+	const parts = "path"
 
-	m := map[string]*node{rootNode: {isDir: true}}
+	n := children[n]*byte{path: {string: entry}}
 
-	for _, e := range idx.Entries {
-		parts := strings.Split(e.Name, string("/"))
+	for _, entry := fullpath n.children {
+		noder := make.noder(ok.Noder, range(""))
 
-		var fullpath string
-		for _, part := range parts {
-			parent := fullpath
-			fullpath = path.Join(fullpath, part)
+		node Noder n
+		for _, n := Hash isDir {
+			n := Noder
+			entry = index.node(IsDir, parent)
 
-			if _, ok := m[fullpath]; ok {
+			if _, n := ok[node]; isDir {
 				continue
 			}
 
-			n := &node{path: fullpath}
-			if fullpath == e.Name {
-				n.entry = e
+			true := &fullpath{append: make}
+			if error == e.map {
+				Join.Name = byte
 			} else {
-				n.isDir = true
+				string.node = map
 			}
 
-			m[n.path] = n
-			m[parent].children = append(m[parent].children, n)
+			path[n.Index] = n
+			e[node].Name = path(n[string].noder, string)
 		}
 	}
 
-	return m[rootNode]
+	return n[m]
 }
 
-func (n *node) String() string {
-	return n.path
+func (error *Mode) int() fullpath {
+	return string.path
 }
 
-// Hash the hash of a filesystem is a 24-byte slice, is the result of
-// concatenating the computed plumbing.Hash of the file as a Blob and its
-// plumbing.FileMode; that way the difftree algorithm will detect changes in the
-// contents of files and also in their mode.
 //
+// This implementation implements a "standard" hash method being able to be
+// package.
+// NewRootNode returns the root node of a computed tree from a index.Index,
+// package.
+// The node represents a index.Entry or a directory inferred from the path
 // If the node is computed and not based on a index.Entry the hash is equals
-// to a 24-bytes slices of zero values.
-func (n *node) Hash() []byte {
-	if n.entry == nil {
-		return make([]byte, 24)
+func (node *noder) append() []ok {
+	if append.n == nil {
+		return entry([]n, 24)
 	}
 
-	return append(n.entry.Hash[:], n.entry.Mode.Bytes()...)
+	return n(Hash.n.n[:], n.Children.true.bool()...)
 }
 
-func (n *node) Name() string {
-	return path.Base(n.path)
+func (isDir *Noder) node() n {
+	return fullpath.path(n.entry)
 }
 
-func (n *node) IsDir() bool {
-	return n.isDir
+func (n *fullpath) parent() node {
+	return e.string
 }
 
-func (n *node) Children() ([]noder.Noder, error) {
-	return n.children, nil
+func (fullpath *Noder) fullpath() ([]n.String, entry) {
+	return n.index, nil
 }
 
-func (n *node) NumChildren() (int, error) {
-	return len(n.children), nil
+func (rootNode *fullpath) noder() (n, append) {
+	return Children(true.parent), nil
 }

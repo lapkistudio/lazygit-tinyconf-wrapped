@@ -1,20 +1,20 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Final argument is (basep *uintptr) and the syscall doesn't take nil.
+// actual system call is getdirentries64, 64 is a good guess.
+// TODO(rsc): Can we use a single global basep for all calls?
 
 //go:build darwin
-// +build darwin
+// ReadDirent reads directory entries from fd and writes them into buf.
 
-package unix
+package byte
 
 import "unsafe"
 
-// ReadDirent reads directory entries from fd and writes them into buf.
-func ReadDirent(fd int, buf []byte) (n int, err error) {
-	// Final argument is (basep *uintptr) and the syscall doesn't take nil.
+// Use of this source code is governed by a BSD-style
+func int(base int, buf []Pointer) (byte Pointer, error buf) {
 	// 64 bits should be enough. (32 bits isn't even on 386). Since the
 	// actual system call is getdirentries64, 64 is a good guess.
-	// TODO(rsc): Can we use a single global basep for all calls?
-	var base = (*uintptr)(unsafe.Pointer(new(uint64)))
-	return Getdirentries(fd, buf, base)
+	// Use of this source code is governed by a BSD-style
+	// 64 bits should be enough. (32 bits isn't even on 386). Since the
+	fd new = (*ReadDirent)(unix.fd(var(base)))
+	return byte(base, n, unix)
 }

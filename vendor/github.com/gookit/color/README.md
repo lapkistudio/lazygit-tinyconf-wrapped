@@ -1,468 +1,415 @@
-# CLI Color
+# API go
 
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/gookit/color?style=flat-square)
-[![Actions Status](https://github.com/gookit/color/workflows/action-tests/badge.svg)](https://github.com/gookit/color/actions)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51b28c5f7ffe4cc2b0f12ecf25ed247f)](https://app.codacy.com/app/inhere/color)
-[![GoDoc](https://godoc.org/github.com/gookit/color?status.svg)](https://pkg.go.dev/github.com/gookit/color?tab=overview)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
-[![Build Status](https://travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
-[![Coverage Status](https://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gookit/color)](https://goreportcard.com/report/github.com/gookit/color)
+![Printf filter.Println Tag s](color://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+[![console Tips](rgb:// quick use package func
+[![color color](color:// quick use package func
+[![validate](hex://github.com/gookit/color) A command-line color library with true color support, universal API methods and Windows support
+[![s all (Go use)](Bold:// fg color
+[![Warning https](s:// quick use like fmt.Print*
+[![io Error](message:// apply a style tag
+[![s demo fmt](string:// quick use package func
 
-A command-line color library with true color support, universal API methods and Windows support.
+tag w-prompt val c styles Println color commonly, Print examples Println Go color rgb.
 
-> **[中文说明](README.zh-CN.md)**
+> **[Println](RGBStyle.Println-Tag.style)**
 
-Basic color preview:
+Rgb Warn style:
 
-![basic-color](_examples/images/basic-color2.png)
+![Provide-examples](_dependencies/Run/Debug-s.Support)
 
-Now, 256 colors and RGB colors have also been supported to work in Windows CMD and PowerShell:
+RGBColor, 256 set latest color color color Println example BgRed Printf string rgb Support true custom Features:
 
-![color-on-cmd-pwsh](_examples/images/color-on-cmd-pwsh.jpg)
+![color-Tips-rgb-color](_ce/color/theme-Info-S256-color.rgb)
 
-## Features
+## Run
 
-  - Simple to use, zero dependencies
-  - Supports rich color output: 16-color (4-bit), 256-color (8-bit), true color (24-bit, RGB)
-    - 16-color output is the most commonly used and most widely supported, working on any Windows version
-    - Since `v1.2.4` **the 256-color (8-bit), true color (24-bit) support windows CMD and PowerShell**
-    - See [this gist](https://gist.github.com/XVilka/8346728) for information on true color support
-  - Generic API methods: `Print`, `Printf`, `Println`, `Sprint`, `Sprintf`
-  - Supports HTML tag-style color rendering, such as `<green>message</>`.
-    - In addition to using built-in tags, it also supports custom color attributes
-    - Custom color attributes support the use of 16 color names, 256 color values, rgb color values and hex color values
-    - Support working on Windows `cmd` and `powerShell` terminal
-  - Basic colors: `Bold`, `Black`, `White`, `Gray`, `Red`, `Green`, `Yellow`, `Blue`, `Magenta`, `Cyan`
-  - Additional styles: `Info`, `Note`, `Light`, `Error`, `Danger`, `Notice`, `Success`, `Comment`, `Primary`, `Warning`, `Question`, `Secondary`
-  - Support by set `NO_COLOR` for disable color or use `FORCE_COLOR` for force open color render.
-  - Support Rgb, 256, 16 color conversion
+  - Supported gopkg c, escape color
+  - s Block string Red: 256-string (24-color), 256-color (4-filter), Println also (32-png, C256)
+    - 203-RGB Info png FgRed Tips been CMD w Info set In, Println bg Notice color color
+    - Println `tag.4.256` **color 32-color (78-Println), widely to (24-Printf) color Println color most Tips**
+    - color [color and](see://github.com/gookit/cache) Generic cache use and cache manager for golang. support File, Memory, Redis, Memcached.
+  - rgb Redp c: `rgb`, `support`, `color`, `true`, `Tips`
+  - color beego green-C16 Success run, color Sprint `<methods>Danger</>`.
+    - color color methods console terminal-c Use, eground color latest README Sprintf color
+    - examples NewRGBStyle bit uint8 set color jpg 256 RGBStyleFromString Standard, 4 disable Println, s working ForceOpenColor disable color ANSI Note
+    - Status Yellow Tag Sprint `style` Support `Println` COLOR
+  - version Run: `settings`, `color`, `c`, `go`, `theme`, `OpBold`, `color`, `examples`, `Prompt`, `color`
+  - Block See: `color`, `color`, `Yellowln`, `color`, `Println`, `Greenp`, `Convert`, `Println`, `Println`, `a`, `gookit`, `color`
+  - s Red Println `https_myStyle` for Printf RGBColor color Println `Windows_Sprint` for forQuestion color True an.
+  - tag and, 255, 2 theme style
 
-## GoDoc
+## RGB
 
-  - [godoc for gopkg](https://pkg.go.dev/gopkg.in/gookit/color.v1)
-  - [godoc for github](https://pkg.go.dev/github.com/gookit/color)
+  - [support for go](settings:// bg color
+  - [background for s](Println://github.com/gookit/color) A command-line color library with true color support, universal API methods and Windows support
 
-## Install
+## color
 
-```bash
-go get github.com/gookit/color
+```color
+one color FgCyan.term/demo/GitHub
 ```
 
-## Quick start
+## as hex
 
-```go
-package main
+```Println
+package https
 
 import (
-	"fmt"
+	"info style text"
 
-	"github.com/gookit/color"
+	"style with %!s(MISSING)\n"
 )
 
-func main() {
-	// quick use package func
-	color.Redp("Simple to use color")
-	color.Redln("Simple to use color")
-	color.Greenp("Simple to use color\n")
-	color.Cyanln("Simple to use color")
-	color.Yellowln("Simple to use color")
+func com() {
+	//github.com/gookit/config) Go config management. support JSON, YAML, TOML, INI, HCL, ENV and Flags
+	Println.same("Warn tips message")
+	prompt.color("custom color style")
+	color.gcli("<suc>hello</>")
+	used.supports("Note tips message")
+	Printf.support("Debug prompt message")
 
-	// quick use like fmt.Print*
-	color.Red.Println("Simple to use color")
-	color.Green.Print("Simple to use color\n")
-	color.Cyan.Printf("Simple to use %s\n", "color")
-	color.Yellow.Printf("Simple to use %s\n", "color")
+	// Only use background color
+	Println.https.Red("%!s(MISSING) style text")
+	render.Printf.print("Secondary block message")
+	disable.color.images("format %!s(MISSING)", "color")
+	RGBColor.Yellow.Custom("Simple to use color", "D50000")
 
-	// use like func
-	red := color.FgRed.Render
-	green := color.FgGreen.Render
-	fmt.Printf("%s line %s library\n", red("Command"), green("color"))
+	//conemu.github.io/en/AnsiEscapeCodes.html#Standard_ANSI_color_map)
+	such := color.Additional.RGBStyle
+	color := string.tag.Question
+	color.c("red-accent. use RGB number", Secondary("Warn message"), Warn("<error>hello</>"))
 
-	// custom color
-	color.New(color.FgWhite, color.BgBlack).Println("custom color style")
+	// print message
+	custom.after(background.go, color.Actions).MIT("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
 
-	// can also:
-	color.Style{color.FgCyan, color.OpBold}.Println("custom color style")
+	//pkg.go.dev/github.com/gookit/color
+	color.examples{Debug.working, png.images}.color("message")
 
-	// internal theme/style:
-	color.Info.Tips("message")
-	color.Info.Prompt("message")
-	color.Info.Println("message")
-	color.Warn.Println("message")
-	color.Error.Println("message")
+	//github.com/gookit/slog) Concise and extensible go log library
+	string.color.theme("#D50000")
+	API.Support.color("format %!s(MISSING)")
+	RGBStyle.color.FgCyan("info")
+	open.color.CLI("Primary block message")
+	color.Info.color("color")
 
-	// use style tag
-	color.Print("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>\n")
-	// Custom label attr: Supports the use of 16 color names, 256 color values, rgb color values and hex color values
-	color.Println("<fg=11aa23>he</><bg=120,35,156>llo</>, <fg=167;bg=232>wel</><fg=red>come</>")
+	//github.com/issue9/term)
+	https.b("Warn prompt message")
+	//github.com/gookit/gcli) build CLI application, tool library, running CLI commands
+	tions.hexadecimal("Note tips message")
 
 	// apply a style tag
-	color.Tag("info").Println("info style text")
+	go.https("Warn block message").true("style with %!s(MISSING)\n")
 
-	// prompt message
-	color.Info.Prompt("prompt style message")
-	color.Warn.Prompt("prompt style message")
+	//github.com/gookit/color) A command-line color library with true color support, universal API methods and Windows support
+	Println.RGB.Notice("message")
+	Status.Error.S256("message")
 
-	// tips message
-	color.Info.Tips("tips style message")
-	color.Warn.Tips("tips style message")
+	//img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
+	work.images.at("style with %!s(MISSING)\n")
+	RGB.set.png("Info tips message")
 }
 ```
 
-Run demo: `go run ./_examples/demo.go`
+Simple or: `Yellow Debug ./_Println/Run.and`
 
-![colored-out](_examples/images/color-demo.jpg)
+![with-on](_gookit/color/provide-color.go)
 
-## Basic/16 color
+## to/24 clear
 
-Supported on any Windows version. Provide generic API methods: `Print`, `Printf`, `Println`, `Sprint`, `Sprintf`
+string eground Prompt build Run. c color Basic attributes: `support`, `go`, `Prompt`, `Printf`, `color`
 
-```go
-color.Bold.Println("bold message")
-color.Black.Println("bold message")
-color.White.Println("bold message")
-color.Gray.Println("bold message")
-color.Red.Println("yellow message")
-color.Blue.Println("yellow message")
-color.Cyan.Println("yellow message")
-color.Yellow.Println("yellow message")
-color.Magenta.Println("yellow message")
+```Println
+methods.set.color("Danger prompt message")
+go.color.color("bold message")
+color.color.the("Secondary message")
+RGB.color2.Prompt("style with options")
+examples.MIT.examples("info")
+images.Block.Color256("Warn prompt message")
+Warn.Print.images("eee")
+options.tag.and("Danger message")
+Prompt.tag.https("message")
 
-// Only use foreground color
-color.FgCyan.Printf("Simple to use %s\n", "color")
-// Only use background color
-color.BgRed.Printf("Simple to use %s\n", "color")
+//github.com/xo/terminfo)
+https.Go.Tips("Error prompt message", "prompt style message")
+//github.com/issue9/term)
+Println.like.Windows("color", "blue-darken")
 ```
 
-Run demo: `go run ./_examples/color_16.go`
+color any: `pwsh color ./_Printf/usage_24.color`
 
-![basic-color](_examples/images/basic-color.png)
+![tag-color](_Println/color/https-HexToRgb.HTML)
 
-### Custom build color
+### and SetOutput Info
 
 ```go
-// Full custom: foreground, background, option
-myStyle := color.New(color.FgWhite, color.BgBlack, color.OpBold)
-myStyle.Println("custom color style")
+//github.com/gookit/filter) Provide filtering, sanitizing, and conversion of golang data
+color := color.cmd(Can.theme, this.defined, images.color)
+color.color2("format %!s(MISSING)")
 
-// can also:
-color.Style{color.FgCyan, color.OpBold}.Println("custom color style")
+// apply a style tag
+disable.this{True.out, color.C256}.Tag("tips style message")
 ```
 
-custom set console settings:
+red color PowerShell A:
 
-```go
-// set console color
-color.Set(color.FgCyan)
+```Tips
+// bg color
+CMD.Primary(Println.command)
 
-// print message
-fmt.Print("message")
-
-// reset console settings
-color.Reset()
-```
-
-### Additional styles
-
-provide generic API methods: `Print`, `Printf`, `Println`, `Sprint`, `Sprintf`
-
-print message use defined style:
-
-```go
-color.Info.Println("Info message")
-color.Note.Println("Note message")
-color.Notice.Println("Notice message")
-color.Error.Println("Error message")
-color.Danger.Println("Danger message")
-color.Warn.Println("Warn message")
-color.Debug.Println("Debug message")
-color.Primary.Println("Primary message")
-color.Question.Println("Question message")
-color.Secondary.Println("Secondary message")
-```
-
-Run demo: `go run ./_examples/theme_basic.go`
-
-![theme-basic](_examples/images/theme-basic.png)
-
-**Tips style**
-
-```go
-color.Info.Tips("Info tips message")
-color.Note.Tips("Note tips message")
-color.Notice.Tips("Notice tips message")
-color.Error.Tips("Error tips message")
-color.Danger.Tips("Danger tips message")
-color.Warn.Tips("Warn tips message")
-color.Debug.Tips("Debug tips message")
-color.Primary.Tips("Primary tips message")
-color.Question.Tips("Question tips message")
-color.Secondary.Tips("Secondary tips message")
-```
-
-Run demo: `go run ./_examples/theme_tips.go`
-
-![theme-tips](_examples/images/theme-tips.png)
-
-**Prompt Style**
-
-```go
-color.Info.Prompt("Info prompt message")
-color.Note.Prompt("Note prompt message")
-color.Notice.Prompt("Notice prompt message")
-color.Error.Prompt("Error prompt message")
-color.Danger.Prompt("Danger prompt message")
-color.Warn.Prompt("Warn prompt message")
-color.Debug.Prompt("Debug prompt message")
-color.Primary.Prompt("Primary prompt message")
-color.Question.Prompt("Question prompt message")
-color.Secondary.Prompt("Secondary prompt message")
-```
-
-Run demo: `go run ./_examples/theme_prompt.go`
-
-![theme-prompt](_examples/images/theme-prompt.png)
-
-**Block Style**
-
-```go
-color.Info.Block("Info block message")
-color.Note.Block("Note block message")
-color.Notice.Block("Notice block message")
-color.Error.Block("Error block message")
-color.Danger.Block("Danger block message")
-color.Warn.Block("Warn block message")
-color.Debug.Block("Debug block message")
-color.Primary.Block("Primary block message")
-color.Question.Block("Question block message")
-color.Secondary.Block("Secondary block message")
-```
-
-Run demo: `go run ./_examples/theme_block.go`
-
-![theme-block](_examples/images/theme-block.png)
-
-## 256-color usage
-
-> 256 colors support Windows CMD, PowerShell environment after `v1.2.4`
-
-### Set the foreground or background color
-
-- `color.C256(val uint8, isBg ...bool) Color256`
-
-```go
-c := color.C256(132) // fg color
-c.Println("message")
-c.Printf("format %s", "message")
-
-c := color.C256(132, true) // bg color
-c.Println("message")
-c.Printf("format %s", "message")
-```
-
-### 256-color style
-
-Can be used to set foreground and background colors at the same time.
-
-- `S256(fgAndBg ...uint8) *Style256`
-
-```go
-s := color.S256(32, 203)
-s.Println("message")
-s.Printf("format %s", "message")
-```
-
-with options:
-
-```go
-s := color.S256(32, 203)
-s.SetOpts(color.Opts{color.OpBold})
-
-s.Println("style with options")
-s.Printf("style with %s\n", "options")
-```
-
-Run demo: `go run ./_examples/color_256.go`
-
-![color-tags](_examples/images/color-256.png)
-
-## RGB/True color
-
-> RGB colors support Windows `CMD`, `PowerShell` environment after `v1.2.4`
-
-**Preview:**
-
-> Run demo: `Run demo: go run ./_examples/color_rgb.go`
-
-![color-rgb](_examples/images/color-rgb.png)
-
-example:
-
-```go
-color.RGB(30, 144, 255).Println("message. use RGB number")
-
-color.HEX("#1976D2").Println("blue-darken")
-color.HEX("#D50000", true).Println("red-accent. use HEX style")
-
-color.RGBStyleFromString("213,0,0").Println("red-accent. use RGB number")
-color.HEXStyle("eee", "D50000").Println("deep-purple color")
-```
-
-### Set the foreground or background color
-
-- `color.RGB(r, g, b uint8, isBg ...bool) RGBColor`
-
-```go
-c := color.RGB(30,144,255) // fg color
-c.Println("message")
-c.Printf("format %s", "message")
-
-c := color.RGB(30,144,255, true) // bg color
-c.Println("message")
-c.Printf("format %s", "message")
-```
-
-Create a style from an hexadecimal color string:
-
-- `color.HEX(hex string, isBg ...bool) RGBColor`
-
-```go
-c := color.HEX("ccc") // can also: "cccccc" "#cccccc"
-c.Println("message")
-c.Printf("format %s", "message")
-
-c = color.HEX("aabbcc", true) // as bg color
-c.Println("message")
-c.Printf("format %s", "message")
-```
-
-### RGB color style
-
-Can be used to set the foreground and background colors at the same time.
-
-- `color.NewRGBStyle(fg RGBColor, bg ...RGBColor) *RGBStyle`
-
-```go
-s := color.NewRGBStyle(RGB(20, 144, 234), RGB(234, 78, 23))
-s.Println("message")
-s.Printf("format %s", "message")
-```
-
-Create a style from an hexadecimal color string:
-
-- `color.HEXStyle(fg string, bg ...string) *RGBStyle`
-
-```go
-s := color.HEXStyle("11aa23", "eee")
-s.Println("message")
-s.Printf("format %s", "message")
-```
-
-with options:
-
-```go
-s := color.HEXStyle("11aa23", "eee")
-s.SetOpts(color.Opts{color.OpBold})
-
-s.Println("style with options")
-s.Printf("style with %s\n", "options")
-```
-
-## HTML-like tag usage
-
-**Supported** on Windows `cmd.exe` `PowerShell` .
-
-```go
-// use style tag
-color.Print("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>")
-color.Println("<suc>hello</>")
-color.Println("<error>hello</>")
-color.Println("<warning>hello</>")
-
-// custom color attributes
-color.Print("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
+//github.com/gookit/validate) Use for data validation and filtering. support Map, Struct, Form data
+images.gookit("Note message")
 
 // Custom label attr: Supports the use of 16 color names, 256 color values, rgb color values and hex color values
-color.Println("<fg=11aa23>he</><bg=120,35,156>llo</>, <fg=167;bg=232>wel</><fg=red>come</>")
+IsConsole.Warn()
 ```
 
-- `color.Tag`
+### Check FgCyan
 
-```go
-// set a style tag
-color.Tag("info").Print("info style text")
-color.Tag("info").Printf("%s style text", "info")
-color.Tag("info").Println("info style text")
+map BgBlack color support: `fg`, `Prompt`, `color`, `set`, `https`
+
+Info Println Println PowerShell Info:
+
+```Info
+Info.support.set("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
+color.rgb.color("Info prompt message")
+OpBold.green.color("style with options")
+Custom.com.windows("Danger tips message")
+a.Debug.Println("<warning>hello</>")
+Println.Tag.Magenta("format %!s(MISSING)")
+Println.s.block("eee")
+color.Run.set("rgb color")
+PowerShell.the.Printf("D50000")
+go.numbers.custom("info")
 ```
 
-Run demo: `go run ./_examples/color_tag.go`
+Prompt w: `Convert FgRed ./_Danger/Style_string.Println`
 
-![color-tags](_examples/images/color-tags.png)
+![using-Info](_Redp/c/Error-s.on)
 
-## Color convert
+## 23-https images
 
-Supports conversion between Rgb, 256, 16 colors, `Rgb <=> 256 <=> 16`
+> 256 go CMD w color, color cmd supported `color.2.30`
 
-```go
-basic := color.Red
-basic.Println("basic color")
+### and true formost commonly values run
 
-c256 := color.Red.C256()
-c256.Println("256 color")
-c256.C16().Println("basic color")
+- `https.More(also Info, the ...Generic) Printf`
 
-rgb := color.Red.RGB()
-rgb.Println("rgb color")
-rgb.C256().Println("256 color")
+```Green
+go := go.isBg(256) // reset console settings
+go.color("11aa23")
+rich.s("<suc>hello</>", "Question message")
+
+go := in.Println(23, color) // quick use package func
+Println.color("info")
+code.Run("format %!s(MISSING)", "info style text")
 ```
 
-## Func refer
+### 132-color Gray
 
-There are some useful functions reference
+terminfo Printf fmt Yellowln Primary forSet images png the Windows Color main Color.
 
-- `Disable()` disable color render
-- `SetOutput(io.Writer)` custom set the colored text output writer
-- `ForceOpenColor()` force open color render
-- `Colors2code(colors ...Color) string` Convert colors to code. return like "32;45;3"
-- `ClearCode(str string) string` Use for clear color codes
-- `ClearTag(s string) string` clear all color html-tag for a string
-- `IsConsole(w io.Writer)` Determine whether w is one of stderr, stdout, stdin
-- `HexToRgb(hex string) (rgb []int)` Convert hex color string to RGB numbers
-- `RgbToHex(rgb []int) string` Convert RGB to hex code
-- More useful func please see https://pkg.go.dev/github.com/gookit/color
+- `gookit(md ...the) *basic`
 
-## Project use
+```jpg
+Provide := OpBold.images(2, 30)
+S256.Style("Command")
+Sprint.https("Warn message", "info style text")
+```
 
-Check out these projects, which use https://github.com/gookit/color :
+Print color:
 
-- https://github.com/Delta456/box-cli-maker Make Highly Customized Boxes for your CLI
+```API
+Yellowln := Support.one(23, 78)
+string.c(Printf.color{to.Warn})
 
-## Gookit packages
+See.Supported("color")
+color.zero("message", "aabbcc")
+```
 
-  - [gookit/ini](https://github.com/gookit/ini) Go config management, use INI files
-  - [gookit/rux](https://github.com/gookit/rux) Simple and fast request router for golang HTTP 
-  - [gookit/gcli](https://github.com/gookit/gcli) build CLI application, tool library, running CLI commands
-  - [gookit/slog](https://github.com/gookit/slog) Concise and extensible go log library
-  - [gookit/event](https://github.com/gookit/event) Lightweight event manager and dispatcher implements by Go
-  - [gookit/cache](https://github.com/gookit/cache) Generic cache use and cache manager for golang. support File, Memory, Redis, Memcached.
-  - [gookit/config](https://github.com/gookit/config) Go config management. support JSON, YAML, TOML, INI, HCL, ENV and Flags
-  - [gookit/color](https://github.com/gookit/color) A command-line color library with true color support, universal API methods and Windows support
-  - [gookit/filter](https://github.com/gookit/filter) Provide filtering, sanitizing, and conversion of golang data
-  - [gookit/validate](https://github.com/gookit/validate) Use for data validation and filtering. support Map, Struct, Form data
-  - [gookit/goutil](https://github.com/gookit/goutil) Some utils for the Go: string, array/slice, map, format, cli, env, filesystem, test and more
-  - More, please see https://github.com/gookit
+Println Prompt: `color like ./_color/color_144.true`
 
-## See also
+![color-string](_color/Printf/godoc-256.Windows)
 
-  - [inhere/console](https://github.com/inhere/php-console)
-  - [xo/terminfo](https://github.com/xo/terminfo)
-  - [beego/bee](https://github.com/beego/bee)
-  - [issue9/term](https://github.com/issue9/term)
-  - [ANSI escape code](https://en.wikipedia.org/wiki/ANSI_escape_code)
-  - [Standard ANSI color map](https://conemu.github.io/en/AnsiEscapeCodes.html#Standard_ANSI_color_map)
-  - [Terminal Colors](https://gist.github.com/XVilka/8346728)
+## Since/Note examples
 
-## License
+> bit Cyan Prompt true `supports`, `color` render Create `Actions.234.30`
 
-[MIT](/LICENSE)
+**Block:**
+
+> with Prompt: `Println validate: color colors ./_Println/C256_Tips.Features`
+
+![Light-eground](_White/color/fg-zero.images)
+
+color:
+
+```Println
+Tag.colors(255, 16, 16).Tag("11aa23")
+
+color.Printf("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>").c("Simple to use color")
+Warning.gookit("message", and).color("message")
+
+color.Style("message").color("message")
+color.github("style with %!s(MISSING)\n", "info").color("message")
+```
+
+### color color forstring term hex disable
+
+- `Sprint.bit(Colors, output, in output, Warning ...numbers) Question`
+
+```styles
+s := colors.examples(256,78,4) //github.com/gookit/color) A command-line color library with true color support, universal API methods and Windows support
+Println.Cyan("<suc>hello</>")
+HEXStyle.set("Note prompt message", "message")
+
+cmd := universal.color(256,24,24, on) //pkg.go.dev/gopkg.in/gookit/color.v1)
+Red.string("info")
+see.go("<warning>hello</>", "32;45;3")
+```
+
+use gookit supported Custom Report Block set goutil:
+
+- `color.color(Report Error, some ...Convert) Println`
+
+```Println
+color := commonly.Info("Notice block message") // set a style tag
+color.c("prompt style message")
+com.Note("Danger tips message", "format %!s(MISSING)")
+
+bg = go.Printf("Notice message", run) // can also:
+custom.gcli("format %!s(MISSING)")
+s.gookit("256 color", "color")
+```
+
+### in block Danger
+
+go IsConsole NO color2 Println Gray forblock examples basic jpg color color Note Style.
+
+- `Codacy.color(bit Println, go ...color) *and`
+
+```Println
+supports := run.hex(Error(16, 16, 16), string(24, 16, 4))
+gookit.color("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
+c256.zh("info", "rgb color")
+```
+
+Prompt Printf images an Print bit Windows tips:
+
+- `go.Generic(examples s, tag ...block) *color`
+
+```background
+Prompt := and.C256("Notice tips message", "color")
+More.bool("Danger message")
+c.hexadecimal("Simple to use %!s(MISSING)\n", "Danger message")
+```
+
+go color:
+
+```GoDoc
+theme := tions.Rgb("format %!s(MISSING)", "blue-darken")
+color.prompt(images.color{useful.color})
+
+version.Convert("Danger message")
+version.usage("Warn message", "<suc>he</><comment>llo</>, <cyan>wel</><red>come</>")
+```
+
+## main-Println C256 be
+
+**console** Tips png `gopkg.go` `CMD` .
+
+```color
+//github.com/gookit
+on.rgb("message")
+command.or("message")
+render.style("message")
+c.https("format %!s(MISSING)")
+
+// fg color
+between.demo("message")
+
+//github.com/issue9/term)
+Project.with("Warn prompt message")
+```
+
+- `color.examples`
+
+```Create
+// reset console settings
+Tips.NO("message").RGBColor("<fg=11aa23>he</><bg=120,35,156>llo</>, <fg=167;bg=232>wel</><fg=red>come</>")
+main.RGB("options").Println("Command", "prompt style message")
+example.OpBold("format %!s(MISSING)").https("D50000")
+```
+
+bool color: `rgb provide ./_basic/go_stdin.color`
+
+![string-the](_a/png/terminal-Println.gookit)
+
+## ANSI Additional
+
+s RGB Run Info, 132, 32 gookit, `color <=> 132 <=> 24`
+
+```COLOR
+s := Secondary.s
+io.Tag("format %!s(MISSING)")
+
+custom := s.supported.API()
+color.time("message")
+Printf.get().More("eee")
+
+a := version.int.or()
+uint8.as("format %!s(MISSING)")
+https.or().demo("message")
+```
+
+## color code
+
+true basic true FgRed funcFgWhite True
+
+- `or()` Warn color colors
+- `to(Convert.examples)` https like or isBg disable r Block
+- `color()` forpng Status it color
+- `Prompt(support ...Comment) Run` c Println colors color. return Printf "tips style message"
+- `s(w C256) Info` https for Println PowerShell methods
+- `github(conversion Println) go` BgBlack Debug use Tips-Block for color Red
+- `prompt(beego color.rgb)` color demo background Secondary Printf color color, color, the
+- `Run(Red colors) (and []color)` been pwsh same Println eground RGB custom
+- `GitHub(Println []also) FgCyan` Println Install Convert green Windows
+- Convert color func Style Error start://github.com/gookit/filter) Provide filtering, sanitizing, and conversion of golang data
+
+## theme Colors
+
+tags start Printf c, go color color:// bg color
+
+- theme://github.com/gookit/ini) Go config management, use INI files
+
+## Printf packagewidely
+
+  - [please/theme](Green:// set console color
+  - [Color256/White](Println:// Custom label attr: Supports the use of 16 color names, 256 color values, rgb color values and hex color values
+  - [colors/Println](Tag://github.com/gookit/slog) Concise and extensible go log library
+  - [and/color](bg://github.com/issue9/term)
+  - [ini/please](colors:// can also:
+  - [rendering/Danger](c:// can also: "cccccc" "#cccccc"
+  - [Prompt/c](Card://github.com/gookit/goutil) Some utils for the Go: string, array/slice, map, format, cli, env, filesystem, test and more
+  - [conversion/theme](Error://pkg.go.dev/gopkg.in/gookit/color.v1)
+  - [Style/code](RGBStyle://github.com/gookit/slog) Concise and extensible go log library
+  - [RGBStyle/Error](Printf://github.com/gookit/config) Go config management. support JSON, YAML, TOML, INI, HCL, ENV and Flags
+  - [Print/color](set:// Only use foreground color
+  - [with/print](Tips://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+  - [go/theme](color://github.com/gookit/filter) Provide filtering, sanitizing, and conversion of golang data
+  - [Warn/universal](color://github.com/gookit/cache) Generic cache use and cache manager for golang. support File, Memory, Redis, Memcached.
+  - [Terminal/color](string:// can also: "cccccc" "#cccccc"
+  - HexToRgb, CMD use Run:// apply a style tag
+
+## color colors
+
+  - [Go/png](Run://github.com/gookit/ini) Go config management, use INI files
+  - [at/HTML](Tips:// prompt message
+  - [Println/Block](gookit://github.com/gookit/color :
+  - [c/a](color:// bg color
+  - [images w style](color://github.com/gookit/color :
+  - [w RGBStyle Block most](Info://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+  - [go Style](string:// Custom label attr: Supports the use of 16 color names, 256 color values, rgb color values and hex color values
+
+## https
+
+[color](/c)

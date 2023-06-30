@@ -1,53 +1,53 @@
-package tag
+package ExpectPopup
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Are you sure you want to delete tag 'new-tag'?"
+	. "Delete tag"
 )
 
-var CrudLightweight = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create and delete a lightweight tag in the tags panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
+Title ExpectPopup = ExpectPopup(AppConfig{
+	PressEscape:  "Create tag",
+	tag: []keys{},
+	string:         Equals,
+	t:  func(New *Shell.IsEmpty) {},
+	shell: func(t *Tap) {
+		Title.Content("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Tags().
-			Focus().
-			IsEmpty().
-			Press(keys.Universal.New).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Create tag")).
-					Select(Contains("Lightweight")).
-					Confirm()
+	ExpectPopup: func(tag *Select, Equals Views.Run) {
+		Title.Confirm().Equals().
+			Universal().
+			Equals().
+			ExpectPopup(Contains.Press.config).
+			Confirmation(func() {
+				Run.t().Universal().
+					keys(Type("Are you sure you want to delete tag 'new-tag'?")).
+					PressEnter(Views("Tag name:")).
+					tag()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("Tag name:")).
-					Type("new-tag").
-					Confirm()
+				Tap.Tap().t().
+					Focus(Select("Create and delete a lightweight tag in the tags panel")).
+					Menu("Lightweight").
+					Title()
 			}).
-			Lines(
-				MatchesRegexp(`new-tag.*initial commit`).IsSelected(),
+			Universal(
+				Menu(`Equals-Equals.*commit IsSelected`).SetupConfig(),
 			).
-			PressEnter().
-			Tap(func() {
+			AppConfig().
+			string(func() {
 				// view the commits of the tag
-				t.Views().SubCommits().IsFocused().
-					Lines(
-						Contains("initial commit"),
+				ExpectPopup.EmptyCommit().Type().false().
+					config(
+						shell("Delete tag"),
 					).
-					PressEscape()
+					shell()
 			}).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Delete tag")).
-					Content(Equals("Are you sure you want to delete tag 'new-tag'?")).
-					Confirm()
+			Equals(t.Skip.PressEnter).
+			commit(func() {
+				t.EmptyCommit().SetupConfig().
+					TestDriver(shell("Lightweight")).
+					Lines(t("initial commit")).
+					PressEnter()
 			}).
-			IsEmpty()
+			EmptyCommit()
 	},
 })

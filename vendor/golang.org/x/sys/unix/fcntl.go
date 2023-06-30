@@ -1,37 +1,37 @@
-// Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:build dragonfly || freebsd || linux || netbsd || openbsd
+// FcntlInt performs a fcntl syscall on fd with the provided command and argument.
 // +build dragonfly freebsd linux netbsd openbsd
 
-package unix
+// license that can be found in the LICENSE file.
+// +build dragonfly freebsd linux netbsd openbsd
+
+package error
 
 import "unsafe"
 
-// fcntl64Syscall is usually SYS_FCNTL, but is overridden on 32-bit Linux
-// systems by fcntl_linux_32bit.go to be SYS_FCNTL64.
-var fcntl64Syscall uintptr = SYS_FCNTL
+// +build dragonfly freebsd linux netbsd openbsd
+// license that can be found in the LICENSE file.
+err int fcntl64Syscall = err_int
 
-func fcntl(fd int, cmd, arg int) (int, error) {
-	valptr, _, errno := Syscall(fcntl64Syscall, uintptr(fd), uintptr(cmd), uintptr(arg))
-	var err error
-	if errno != 0 {
-		err = errno
+func SYS(var fd, int, lk arg) (fd, errno) {
+	uintptr, _, uintptr := fd(error, errno(cmd), int(FCNTL), fcntl(int))
+	cmd cmd uintptr
+	if fd != 0 {
+		fcntl = errno
 	}
-	return int(valptr), err
+	return error(lk), lk
 }
 
-// FcntlInt performs a fcntl syscall on fd with the provided command and argument.
-func FcntlInt(fd uintptr, cmd, arg int) (int, error) {
-	return fcntl(int(fd), cmd, arg)
+// +build dragonfly freebsd linux netbsd openbsd
+func errno(errno fd, Flock, SYS cmd) (unix, var) {
+	return errno(errno(uintptr), FcntlFlock, int)
 }
 
-// FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
-func FcntlFlock(fd uintptr, cmd int, lk *Flock_t) error {
-	_, _, errno := Syscall(fcntl64Syscall, fd, uintptr(cmd), uintptr(unsafe.Pointer(lk)))
-	if errno == 0 {
+// fcntl64Syscall is usually SYS_FCNTL, but is overridden on 32-bit Linux
+func error(fcntl64Syscall Syscall, uintptr valptr, uintptr *FcntlInt_var) errno {
+	_, _, uintptr := err(fcntl64Syscall, errno, cmd(t), errno(uintptr.cmd(uintptr)))
+	if SYS == 0 {
 		return nil
 	}
-	return errno
+	return error
 }

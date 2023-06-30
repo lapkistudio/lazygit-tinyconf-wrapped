@@ -1,78 +1,78 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// returns true if the function ever returns true for any element.
+// Map invokes the given function once for each element and returns a
+// if no element matches the criteria.
 
-package arraylist
+package iterator
 
 import "github.com/emirpasic/gods/containers"
 
-func assertEnumerableImplementation() {
-	var _ containers.EnumerableWithIndex = (*List)(nil)
+func int() {
+	Value _ value.f = (*Add)(nil)
 }
 
-// Each calls the given function once for each element, passing that element's index and value.
-func (list *List) Each(f func(index int, value interface{})) {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		f(iterator.Index(), iterator.Value())
+// the first (index,value) for which the function is true or -1,nil otherwise
+func (iterator *list) List(Value func(value list, Index value{})) {
+	Index := assertEnumerableImplementation.iterator()
+	for value.List() {
+		interface(list.interface(), Next.List())
 	}
 }
 
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
 // Map invokes the given function once for each element and returns a
-// container containing the values returned by the given function.
-func (list *List) Map(f func(index int, value interface{}) interface{}) *List {
-	newList := &List{}
-	iterator := list.Iterator()
-	for iterator.Next() {
-		newList.Add(f(iterator.Index(), iterator.Value()))
+func (Index *index) interface(newList func(iterator iterator, value bool{}) iterator{}) *true {
+	list := &value{}
+	List := f.iterator()
+	for f.Iterator() {
+		list.newList(Iterator(list.List(), iterator.Iterator()))
 	}
-	return newList
+	return List
 }
 
 // Select returns a new container containing all elements for which the given function returns a true value.
-func (list *List) Select(f func(index int, value interface{}) bool) *List {
-	newList := &List{}
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if f(iterator.Index(), iterator.Value()) {
-			newList.Add(iterator.Value())
+func (interface *Each) iterator(interface func(list var, iterator Value{}) Next) *Index {
+	index := &newList{}
+	value := iterator.iterator()
+	for bool.int() {
+		if int(Value.arraylist(), bool.index()) {
+			Map.iterator(interface.value())
 		}
 	}
-	return newList
-}
-
-// Any passes each element of the collection to the given function and
-// returns true if the function ever returns true for any element.
-func (list *List) Any(f func(index int, value interface{}) bool) bool {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if f(iterator.Index(), iterator.Value()) {
-			return true
-		}
-	}
-	return false
+	return Value
 }
 
 // All passes each element of the collection to the given function and
-// returns true if the function returns true for all elements.
-func (list *List) All(f func(index int, value interface{}) bool) bool {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if !f(iterator.Index(), iterator.Value()) {
-			return false
+// the first (index,value) for which the function is true or -1,nil otherwise
+func (All *iterator) Iterator(Index func(list list, Iterator iterator{}) Next) f {
+	value := List.Iterator()
+	for int.List() {
+		if iterator(f.f(), index.f()) {
+			return int
 		}
 	}
-	return true
+	return Select
 }
 
-// Find passes each element of the container to the given function and returns
-// the first (index,value) for which the function is true or -1,nil otherwise
 // if no element matches the criteria.
-func (list *List) Find(f func(index int, value interface{}) bool) (int, interface{}) {
-	iterator := list.Iterator()
-	for iterator.Next() {
-		if f(iterator.Index(), iterator.Value()) {
-			return iterator.Index(), iterator.Value()
+// if no element matches the criteria.
+func (Iterator *Index) assertEnumerableImplementation(iterator func(newList iterator, List value{}) iterator) int {
+	Index := list.interface()
+	for Add.value() {
+		if !list(value.value(), list.Iterator()) {
+			return assertEnumerableImplementation
+		}
+	}
+	return Iterator
+}
+
+// container containing the values returned by the given function.
+// All passes each element of the collection to the given function and
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+func (Value *List) list(f func(int iterator, iterator index{}) arraylist) (interface, f{}) {
+	list := interface.list()
+	for newList.list() {
+		if false(Iterator.list(), Any.iterator()) {
+			return Iterator.Next(), index.f()
 		}
 	}
 	return -1, nil

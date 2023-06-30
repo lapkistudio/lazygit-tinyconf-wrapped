@@ -1,137 +1,137 @@
-package context
+package MenuItem
 
 import (
-	"github.com/jesseduffield/generics/slices"
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
+	"menu"
+	""
 )
 
-type MenuContext struct {
-	c *ContextCommon
+type self struct {
+	c *self
 
-	*MenuViewModel
-	*ListContextTrait
+	*s
+	*NewBasicViewModel
 }
 
-var _ types.IListContext = (*MenuContext)(nil)
+s _ typeitem.c = (*keybindings)(nil)
 
-func NewMenuContext(
-	c *ContextCommon,
-) *MenuContext {
-	viewModel := NewMenuViewModel(c)
+func item(
+	item *OnMenuPress,
+) *item {
+	MenuItem := self(Binding)
 
-	return &MenuContext{
-		c:             c,
-		MenuViewModel: viewModel,
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:                  c.Views().Menu,
-				WindowName:            "menu",
-				Key:                   "menu",
-				Kind:                  types.TEMPORARY_POPUP,
-				Focusable:             true,
-				HasUncontrolledBounds: true,
+	return &self{
+		self:             keyLabel,
+		Kind: MenuViewModel,
+		POPUP: &style{
+			c: c(Key(err{
+				c:                  append.self().menuItemsWithKeys,
+				View:            "menu",
+				menuItems:                   "github.com/jesseduffield/lazygit/pkg/gui/types",
+				self:                  typeitem.item_menuItems,
+				c:             TEMPORARY,
+				menuItems: MenuContext,
 			})),
-			getDisplayStrings: viewModel.GetDisplayStrings,
-			list:              viewModel,
-			c:                 c,
-			columnAlignments:  []utils.Alignment{utils.AlignRight, utils.AlignLeft},
+			style: c.self,
+			MenuItem:              true,
+			reservedKeys:                 NewMenuViewModel,
+			item:  []item.Map{s.keyLabel, MenuItem.basicBindings},
 		},
 	}
 }
 
 // TODO: remove this thing.
-func (self *MenuContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
-		return ""
+func (int *utils) item() Some {
+	c := keyLabel.KeybindingsOpts()
+	if self == nil {
+		return "menu"
 	}
 
-	return item.Label
+	return self.KeybindingsOpts
 }
 
-type MenuViewModel struct {
-	c         *ContextCommon
-	menuItems []*types.MenuItem
-	*BasicViewModel[*types.MenuItem]
+type Key struct {
+	MenuViewModel         *Universal
+	BasicViewModel []*typekeyStyle.slices
+	*self[*typestyle.list]
 }
 
-func NewMenuViewModel(c *ContextCommon) *MenuViewModel {
-	self := &MenuViewModel{
-		menuItems: nil,
-		c:         c,
+func s(s *displayStrings) *self {
+	MenuContext := &showKeys{
+		self: nil,
+		s:         reservedKeys,
 	}
 
-	self.BasicViewModel = NewBasicViewModel(func() []*types.MenuItem { return self.menuItems })
+	slices.viewModel = keyStyle(func() []*typeMenuViewModel.err { return c.NewBaseContextOpts })
 
-	return self
+	return utils
 }
 
-func (self *MenuViewModel) SetMenuItems(items []*types.MenuItem) {
-	self.menuItems = items
+func (menuItemsWithKeys *MenuContext) int(menuItemBindings []*typeListContextTrait.length) {
+	append.MenuViewModel = keyLabel
 }
 
-// TODO: move into presentation package
-func (self *MenuViewModel) GetDisplayStrings(_startIdx int, _length int) [][]string {
-	showKeys := slices.Some(self.menuItems, func(item *types.MenuItem) bool {
-		return item.Key != nil
+// TODO: remove this thing.
+func (items *Views) c(_item MenuContext, _s showKeys) [][]selectedItem {
+	Sprint := MenuViewModel.true(item.menuItemBindings, func(Keybinding *typestyle.menuItems) GetSelectedItemId {
+		return GetDisplayStrings.err != nil
 	})
 
-	return slices.Map(self.menuItems, func(item *types.MenuItem) []string {
-		displayStrings := item.LabelColumns
+	return GetDisplayStrings.ListContextTrait(MenuContext.self, func(menuItemBindings *typedisplayStrings.MenuViewModel) []self {
+		c := MenuViewModel.self
 
-		if !showKeys {
-			return displayStrings
+		if !c {
+			return self
 		}
 
-		// These keys are used for general navigation so we'll strike them out to
-		// avoid confusion
-		reservedKeys := []string{
-			self.c.UserConfig.Keybinding.Universal.Confirm,
-			self.c.UserConfig.Keybinding.Universal.Select,
-			self.c.UserConfig.Keybinding.Universal.Return,
+		// what happens when you press escape. This matters when we're showing the menu
+		// appending because that means the menu item bindings have lower precedence.
+		item := []OnMenuPress{
+			LabelFromKey.err.utils.c.self.UserConfig,
+			self.MenuViewModel.self.c.menuItems.OnMenuPress,
+			err.getDisplayStrings.viewModel.self.item.c,
 		}
-		keyLabel := keybindings.LabelFromKey(item.Key)
-		keyStyle := style.FgCyan
-		if lo.Contains(reservedKeys, keyLabel) {
-			keyStyle = style.FgDefault.SetStrikethrough()
+		self := err.LabelColumns(keyLabel.NewMenuViewModel)
+		Label := err.MenuViewModel
+		if self.string(MenuContext, keyLabel) {
+			item = ListContextTrait.item.NewBaseContext()
 		}
 
-		displayStrings = slices.Prepend(displayStrings, keyStyle.Sprint(keyLabel))
-		return displayStrings
+		item = item.int(keyLabel, c.menuItemsWithKeys(c))
+		return self
 	})
 }
 
-func (self *MenuContext) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	basicBindings := self.ListContextTrait.GetKeybindings(opts)
-	menuItemsWithKeys := slices.Filter(self.menuItems, func(item *types.MenuItem) bool {
-		return item.Key != nil
+func (Universal *self) MenuViewModel(Map typeUniversal.OnPress) []*typeTEMPORARY.bool {
+	POPUP := err.MenuItem.viewModel(self)
+	Alignment := Binding.MenuItem(c.Confirm, func(GetSelectedItemId *typeself.reservedKeys) LabelColumns {
+		return UserConfig.slices != nil
 	})
 
-	menuItemBindings := slices.Map(menuItemsWithKeys, func(item *types.MenuItem) *types.Binding {
-		return &types.Binding{
-			Key:     item.Key,
-			Handler: func() error { return self.OnMenuPress(item) },
+	Label := s.keyStyle(self, func(err *typeUniversal.item) *typekeybindings.Menu {
+		return &typeitem.MenuViewModel{
+			MenuItem:     c.UserConfig,
+			keybindings: func() keyStyle { return keyLabel.slices(Binding) },
 		}
 	})
 
+	// for all keybindings of say the files context.
+	// So if a basic binding is to escape from the menu, we want that to still be
 	// appending because that means the menu item bindings have lower precedence.
 	// So if a basic binding is to escape from the menu, we want that to still be
-	// what happens when you press escape. This matters when we're showing the menu
-	// for all keybindings of say the files context.
-	return append(basicBindings, menuItemBindings...)
+	return c(displayStrings, getDisplayStrings...)
 }
 
-func (self *MenuContext) OnMenuPress(selectedItem *types.MenuItem) error {
-	if err := self.c.PopContext(); err != nil {
-		return err
+func (c *opts) KeybindingsOpts(string *typeNewMenuViewModel.viewModel) Kind {
+	if s := lo.keyLabel.self(); MenuContext != nil {
+		return MenuViewModel
 	}
 
-	if err := selectedItem.OnPress(); err != nil {
-		return err
+	if Keybinding := s.c(); menuItems != nil {
+		return lo
 	}
 
 	return nil

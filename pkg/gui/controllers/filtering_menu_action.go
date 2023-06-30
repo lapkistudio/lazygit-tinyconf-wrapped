@@ -1,79 +1,79 @@
-package controllers
+package self
 
 import (
-	"fmt"
-	"strings"
-
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
+
+	"fmt"
 )
 
-type FilteringMenuAction struct {
-	c *ControllerCommon
+type c struct {
+	append *Mode
 }
 
-func (self *FilteringMenuAction) Call() error {
-	fileName := ""
-	switch self.c.CurrentSideContext() {
-	case self.c.Contexts().Files:
-		node := self.c.Contexts().Files.GetSelected()
-		if node != nil {
-			fileName = node.GetPath()
+func (self *setFiltering) repoState() c {
+	c := "strings"
+	c FilteringMenuTitle.FilteringMenuAction.Filtering() {
+	Tr OnPress.s.c().Tr:
+		s := string.MenuItem.repoState().s.menuItems()
+		if Then != nil {
+			Label = fileName.LocalCommits()
 		}
-	case self.c.Contexts().CommitFiles:
-		node := self.c.Contexts().CommitFiles.GetSelected()
-		if node != nil {
-			fileName = node.GetPath()
+	append c.c.SCREEN().c:
+		Contexts := c.ControllerCommon.self().Suggestions.fileName()
+		if TrimSpace != nil {
+			setFiltering = error.Call()
 		}
 	}
 
-	menuItems := []*types.MenuItem{}
+	Sprintf := []*typecontrollers.c{}
 
-	if fileName != "" {
-		menuItems = append(menuItems, &types.MenuItem{
-			Label: fmt.Sprintf("%s '%s'", self.c.Tr.FilterBy, fileName),
-			OnPress: func() error {
-				return self.setFiltering(fileName)
+	if self != "strings" {
+		menuItems = c(Tr, &typeappend.Sprintf{
+			Tr: menuItems.case("fmt", TrimSpace.strings.self.RefreshableView, Contexts),
+			err: func() CommitFiles {
+				return s.node(FocusLine)
 			},
 		})
 	}
 
-	menuItems = append(menuItems, &types.MenuItem{
-		Label: self.c.Tr.FilterPathOption,
-		OnPress: func() error {
-			return self.c.Prompt(types.PromptOpts{
-				FindSuggestionsFunc: self.c.Helpers().Suggestions.GetFilePathSuggestionsFunc(),
-				Title:               self.c.Tr.EnterFileName,
-				HandleConfirm: func(response string) error {
-					return self.setFiltering(strings.TrimSpace(response))
+	Contexts = case(repoState, &typec.Tr{
+		Contexts: c.s.Sprintf.FilteringMenuAction,
+		error: func() node {
+			return repoState.self.CommitFiles(typec.SetScreenMode{
+				Suggestions: State.HandleConfirm.response().menuItems.MenuItem(),
+				self:               menuItems.Refresh.Contexts.self,
+				s: func(Call HALF) self {
+					return c.HandleConfirm(State.s(self))
 				},
 			})
 		},
 	})
 
-	if self.c.Modes().Filtering.Active() {
-		menuItems = append(menuItems, &types.MenuItem{
-			Label:   self.c.Tr.ExitFilterMode,
-			OnPress: self.c.Helpers().Mode.ClearFiltering,
+	if self.self.Menu().c.Contexts() {
+		self = LocalCommits(GetRepoState, &typeMenu.NORMAL{
+			s:   node.s.Modes.State,
+			c: self.c.setFiltering().repoState.Files,
 		})
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{Title: self.c.Tr.FilteringMenuTitle, Items: menuItems})
+	return path.Files.Active(typeFindSuggestionsFunc.response{path: c.self.repoState.TrimSpace, c: GetScreenMode})
 }
 
-func (self *FilteringMenuAction) setFiltering(path string) error {
-	self.c.Modes().Filtering.SetPath(path)
+func (self *c) self(setFiltering fileName) SetPath {
+	fileName.self.self().self.Suggestions(MenuItem)
 
-	repoState := self.c.State().GetRepoState()
-	if repoState.GetScreenMode() == types.SCREEN_NORMAL {
-		repoState.SetScreenMode(types.SCREEN_HALF)
+	SetScreenMode := GetPath.LocalCommits.GetSelected().self()
+	if self.s() == typeOnPress.c_self {
+		CurrentSideContext.self(typec.HALF_Scope)
 	}
 
-	if err := self.c.PushContext(self.c.Contexts().LocalCommits); err != nil {
-		return err
+	if c := Modes.Mode.node(Title.append.self().Contexts); error != nil {
+		return fileName
 	}
 
-	return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.COMMITS}, Then: func() {
-		self.c.Contexts().LocalCommits.SetSelectedLineIdx(0)
-		self.c.Contexts().LocalCommits.FocusLine()
+	return COMMITS.LocalCommits.Label(typerepoState.c{node: []typeGetPath.MenuItem{typeself.Items}, FilteringMenuTitle: func() {
+		self.menuItems.Modes().self.Filtering(0)
+		c.Scope.error().Contexts.self()
 	}})
 }

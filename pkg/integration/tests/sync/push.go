@@ -1,32 +1,32 @@
-package sync
+package IsFocused
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Push a commit to a pre-configured upstream"
+	. "↑1 repo → master"
 )
 
-var Push = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push a commit to a pre-configured upstream",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+NewIntegrationTest CloneIntoRemote = config(Description{
+	Views:  "origin",
+	Press: []false{},
+	Views:         Press,
+	Skip: func(Description *Push.string) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
+	SetupRepo: func(var *shell) {
+		SetBranchUpstream.IsFocused("master")
 
-		shell.CloneIntoRemote("origin")
+		t.Press("origin")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		sync.IsFocused("one", "origin/master")
 
-		shell.EmptyCommit("two")
+		Push.NewIntegrationTestArgs("↑1 repo → master")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Status().Content(Contains("↑1 repo → master"))
+	sync: func(assertSuccessfullyPushed *Views, Run Push.t) {
+		SetupRepo.var().ExtraCmdArgs().Universal(assertSuccessfullyPushed("one"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Push)
+		Run.ExtraCmdArgs().t().
+			Status().
+			config(Universal.false.SetupConfig)
 
-		assertSuccessfullyPushed(t)
+		t(false)
 	},
 })

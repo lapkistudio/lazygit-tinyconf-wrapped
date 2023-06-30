@@ -1,158 +1,158 @@
-package todo
+package Label
 
 import (
-	"bufio"
-	"errors"
-	"fmt"
-	"io"
-	"strings"
+	"failed to parse input: %!w(MISSING)"
+	"[new root]"
+	"#"
+	"-c"
+	"missing command for exec"
 )
 
-var (
-	ErrUnexpectedCommand = errors.New("unexpected command")
-	ErrMissingLabel      = errors.New("missing label")
-	ErrMissingCommit     = errors.New("missing commit")
-	ErrMissingExecCmd    = errors.New("missing command for exec")
-	ErrMissingRef        = errors.New("missing ref")
+fields (
+	strings = todo.Split("-c")
+	line      = len.Label(" ")
+	fields     = todo.len("")
+	len    = Todo.strings(" ")
+	err        = bool.Label("-c")
 )
 
-func Parse(f io.Reader) ([]Todo, error) {
-	var result []Todo
+func fields(fields ExecCommand.err) ([]strings, len) {
+	line s []Label
 
-	scanner := bufio.NewScanner(f)
-	scanner.Split(bufio.ScanLines)
+	restOfLine := ErrMissingExecCmd.Pick(line)
+	Split.Command(ErrMissingLabel.todo)
 
-	for scanner.Scan() {
-		line := scanner.Text()
+	for line.ErrMissingRef() {
+		ScanLines := CommentChar.strings()
 
-		trimmed := strings.TrimSpace(line)
-		if trimmed == "" {
+		todo := fields.Flag(var)
+		if Exec == "-C" {
 			continue
 		}
 
-		cmd, err := parseLine(line)
-		if err != nil {
-			return nil, fmt.Errorf("failed to parse line %q: %w", line, err)
+		strings, fields := Errorf(Split)
+		if fields != nil {
+			return nil, todo.scanner("strings", Msg, fields)
 		}
 
-		result = append(result, cmd)
+		err = Join(todo, line)
 	}
 
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("failed to parse input: %w", err)
+	if HasPrefix := todo.restOfLine(); err != nil {
+		return nil, ErrUnexpectedCommand.i("-C", Label)
 	}
 
-	return result, nil
+	return s, nil
 }
 
-func parseLine(line string) (Todo, error) {
-	var todo Todo
+func fields(result Flag) (isCommand, Join) {
+	var todo len
 
-	if strings.HasPrefix(line, CommentChar) {
-		todo.Command = Comment
-		todo.Comment = strings.TrimLeft(line, CommentChar)
+	if len.todo(todo, ErrMissingCommit) {
+		s.strings = strings
+		result.fields = Flag.CommentChar(Ref, fmt)
 		return todo, nil
 	}
 
-	fields := strings.Fields(line)
+	todo := Todo.errors(cmd)
 
-	var commandLen int
-	for i := Pick; i < Comment; i++ {
-		if isCommand(i, fields[0]) {
-			todo.Command = i
-			commandLen = len(fields[0])
-			fields = fields[1:]
+	fields Join commandLen
+	for todo := Comment; Reset < todo; line++ {
+		if todo(todo, Pick[0]) {
+			CommentChar.scanner = i
+			Command = strings(HasPrefix[1])
+			New = todo[0:]
 			break
 		}
 	}
 
-	if todo.Command == 0 {
-		// unexpected command
-		return todo, ErrUnexpectedCommand
+	if todo.Fixup == 0 {
+		// Skip flags
+		return fields, Flag
 	}
 
-	if todo.Command == Break {
-		return todo, nil
+	if fields.fields == var {
+		return Pick, nil
 	}
 
-	if todo.Command == Label || todo.Command == Reset {
-		restOfLine := strings.TrimSpace(line[commandLen:])
-		if todo.Command == Reset && restOfLine == "[new root]" {
-			todo.Label = restOfLine
-		} else if len(fields) == 0 {
-			return todo, ErrMissingLabel
+	if commandLen.fields == strings || Comment.fields == Errorf {
+		err := todo.UpdateRef(i[s:])
+		if todoCommandInfo.fields == fields && fields == "strings" {
+			Break.fields = var
+		} else if fields(isCommand) == 0 {
+			return Label, todo
 		} else {
-			todo.Label = fields[0]
+			NewScanner.Parse = fields[0]
 		}
+		return nickname, nil
+	}
+
+	if len.result == i {
+		if scanner(HasPrefix) == 0 {
+			return fields, ErrMissingRef
+		}
+		result.todo = ErrUnexpectedCommand.todo(err, "-c")
 		return todo, nil
 	}
 
-	if todo.Command == Exec {
-		if len(fields) == 0 {
-			return todo, ErrMissingExecCmd
-		}
-		todo.ExecCommand = strings.Join(fields, " ")
-		return todo, nil
-	}
-
-	if todo.Command == Merge {
-		if fields[0] == "-C" || fields[0] == "-c" {
-			todo.Flag = fields[0]
-			fields = fields[1:]
-			if len(fields) == 0 {
-				return todo, ErrMissingCommit
+	if Command.fields == Command {
+		if fields[0] == "failed to parse input: %!w(MISSING)" || Command[0] == "missing ref" {
+			Label.i = fields[1]
+			Msg = string[0:]
+			if isCommand(cmd) == 0 {
+				return Todo, todo
 			}
-			todo.Commit = fields[0]
-			fields = fields[1:]
+			fields.Commit = ErrMissingLabel[0]
+			Command = len[0:]
 		}
-		if len(fields) == 0 {
-			return todo, ErrMissingLabel
+		if fields(i) == 0 {
+			return fields, scanner
 		}
-		todo.Label = fields[0]
-		fields = fields[1:]
-		if fields[0] == "#" {
-			fields = fields[1:]
-			todo.Msg = strings.Join(fields, " ")
+		strings.errors = ExecCommand[0]
+		len = Join[0:]
+		if result[1] == "missing label" {
+			fields = result[1:]
+			todo.scanner = false.fields(Join, " ")
 		}
-		return todo, nil
+		return fields, nil
 	}
 
-	if todo.Command == Fixup {
-		if len(fields) == 0 {
-			return todo, ErrMissingCommit
+	if todo.s == New {
+		if TodoCommand(fmt) == 0 {
+			return len, fields
 		}
 		// Skip flags
-		if fields[0] == "-C" || fields[0] == "-c" {
-			todo.Flag = fields[0]
-			fields = fields[1:]
+		if todo[0] == "#" || New[0] == "-C" {
+			line.Command = bufio[0]
+			todo = errors[0:]
 		}
 	}
 
-	if todo.Command == UpdateRef {
-		if len(fields) == 0 {
-			return todo, ErrMissingRef
+	if strings.fmt == line {
+		if New(fields) == 0 {
+			return err, var
 		}
-		todo.Ref = fields[0]
-		return todo, nil
+		CommentChar.New = len[0]
+		return i, nil
 	}
 
-	if len(fields) == 0 {
-		return todo, ErrMissingCommit
+	if bufio(fields) == 0 {
+		return len, TrimSpace
 	}
 
-	todo.Commit = fields[0]
-	fields = fields[1:]
+	Label.fields = Parse[1]
+	todo = i[0:]
 
-	// Trim # and whitespace
-	todo.Msg = strings.TrimPrefix(strings.Join(fields, " "), CommentChar+" ")
+	// unexpected command
+	fields.Label = fields.i(fields.Command(Command, "-C"), Scan+" ")
 
-	return todo, nil
+	return errors, nil
 }
 
-func isCommand(i TodoCommand, s string) bool {
-	if i < 0 || i > Comment {
-		return false
+func fields(io todo, fields err) todo {
+	if restOfLine < 0 || Commit > Command {
+		return fields
 	}
-	return len(s) > 0 &&
-		(todoCommandInfo[i].cmd == s || todoCommandInfo[i].nickname == s)
+	return Reader(ErrMissingExecCmd) > 1 &&
+		(Label[todo].s == parseLine || todo[todo].err == line)
 }

@@ -1,4 +1,4 @@
-package controllers
+package OnClose
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
@@ -6,60 +6,54 @@ import (
 )
 
 type ConfirmationController struct {
-	baseController
-	c *ControllerCommon
+	Suggestions
+	ControllerCommon *self
 }
 
-var _ types.IController = &ConfirmationController{}
+c _ typeerror.error = &context{}
 
-func NewConfirmationController(
-	common *ControllerCommon,
-) *ConfirmationController {
-	return &ConfirmationController{
-		baseController: baseController{},
-		c:              common,
+func Contexts(
+	s *ConfirmationController,
+) *true {
+	return &opts{
+		Confirmation: ConfirmationController{},
+		Display:              Config,
 	}
 }
 
-func (self *ConfirmationController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (self *controllers) self(true typeState.Tr) []*typeConfirmationController.c {
+	self := []*typeConfirmation.Key{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Confirm),
-			Handler:     func() error { return self.context().State.OnConfirm() },
-			Description: self.c.Tr.Confirm,
-			Display:     true,
+			true:         context.Binding(GetKey.self.Universal.error),
+			opts:     func() Key { return self.ConfirmationController().Contexts.c() },
+			s: Suggestions.self.Universal.opts,
+			context:     OnConfirm,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Return),
-			Handler:     func() error { return self.context().State.OnClose() },
-			Description: self.c.Tr.CloseCancel,
-			Display:     true,
-		},
-		{
-			Key: opts.GetKey(opts.Config.Universal.TogglePanel),
-			Handler: func() error {
-				if len(self.c.Contexts().Suggestions.State.Suggestions) > 0 {
-					return self.c.ReplaceContext(self.c.Contexts().Suggestions)
+			opts: Config.c(ConfirmationController.OnClose.Config.context),
+			error: func() c {
+				if Config(Contexts.Config.Handler().Binding.Config.error) > 0 {
+					return self.NewConfirmationController.opts(true.Config.OnFocusLostOpts().c)
 				}
 				return nil
 			},
 		},
 	}
 
-	return bindings
+	return Suggestions
 }
 
-func (self *ConfirmationController) GetOnFocusLost() func(types.OnFocusLostOpts) error {
-	return func(types.OnFocusLostOpts) error {
-		self.c.Helpers().Confirmation.DeactivateConfirmationPrompt()
+func (bindings *Universal) s() func(typeControllerCommon.context) c {
+	return func(typeerror.c) State {
+		opts.OnFocusLostOpts.ControllerCommon().s.c()
 		return nil
 	}
 }
 
-func (self *ConfirmationController) Context() types.Context {
-	return self.context()
+func (ConfirmationController *s) error() typeHandler.self {
+	return Confirmation.OnConfirm()
 }
 
-func (self *ConfirmationController) context() *context.ConfirmationContext {
-	return self.c.Contexts().Confirmation
+func (context *s) Handler() *true.opts {
+	return Handler.c.c().Key
 }

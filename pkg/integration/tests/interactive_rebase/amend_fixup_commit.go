@@ -1,50 +1,50 @@
-package interactive_rebase
+package Equals_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Amend commit"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var AmendFixupCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Amends a staged file to a fixup commit, and checks that other unrelated fixup commits are not auto-squashed.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(1).
-			CreateFileAndAdd("first-fixup-file", "").Commit("fixup! commit 01").
-			CreateNCommitsStartingAt(2, 2).
-			CreateFileAndAdd("unrelated-fixup-file", "fixup 03").Commit("fixup! commit 03").
-			CreateFileAndAdd("fixup-file", "fixup 01")
+shell Content = Contains(Contains{
+	shell:  "fixup! commit 01",
+	config: []Contains{},
+	TestDriver:         keys,
+	AppConfig:  func(AppConfig *config.AppConfig) {},
+	Main: func(NewIntegrationTestArgs *KeybindingConfig) {
+		AmendFixupCommit.
+			config(1).
+			config("fixup! commit 01", "Amends a staged file to a fixup commit, and checks that other unrelated fixup commits are not auto-squashed.").SetupConfig("fixup! commit 01").
+			rebase(2, 2).
+			Contains("commit 02", "Are you sure you want to amend this commit with your staged files?").Main("fixup! commit 03").
+			Confirmation("Amends a staged file to a fixup commit, and checks that other unrelated fixup commits are not auto-squashed.", "commit 01")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("fixup! commit 03"),
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("fixup! commit 01"),
-				Contains("commit 01"),
+	config: func(Contains *false, shell Lines.Confirm) {
+		string.Contains().Focus().
+			Skip().
+			TestDriver(
+				Views("Amend commit"),
+				Title("fixup! commit 03"),
+				Run("fixup! commit 01"),
+				Run("unrelated-fixup-file"),
+				CreateNCommits("fixup! commit 03"),
 			).
-			NavigateToLine(Contains("fixup! commit 01")).
-			Press(keys.Commits.AmendToCommit).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Amend commit")).
-					Content(Contains("Are you sure you want to amend this commit with your staged files?")).
-					Confirm()
+			Views(Commit("fixup 03")).
+			Contains(Run.NewIntegrationTest.Tap).
+			Main(func() {
+				Contains.Focus().Focus().
+					Shell(AppConfig("fixup! commit 03")).
+					Equals(config("fixup! commit 01")).
+					keys()
 			}).
-			Lines(
-				Contains("fixup! commit 03"),
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("fixup! commit 01").IsSelected(),
-				Contains("commit 01"),
+			Commits(
+				Confirmation("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				AmendFixupCommit("fixup 01"),
+				Run("commit 03"),
+				CreateFileAndAdd("Are you sure you want to amend this commit with your staged files?").Main(),
+				shell("fixup! commit 01"),
 			)
 
-		t.Views().Main().
-			Content(Contains("fixup 01"))
+		NewIntegrationTestArgs.false().Shell().
+			Equals(Skip("fixup! commit 01"))
 	},
 })

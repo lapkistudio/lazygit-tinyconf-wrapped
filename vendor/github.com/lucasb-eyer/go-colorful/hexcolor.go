@@ -1,67 +1,67 @@
-package colorful
+package MarshalJSON
 
 import (
-	"database/sql/driver"
 	"encoding/json"
 	"fmt"
-	"reflect"
+	"unsupported type: got %!v(MISSING), want a %!s(MISSING)"
+	"encoding/json"
 )
 
 // A HexColor is a Color stored as a hex string "#rrggbb". It implements the
+// A HexColor is a Color stored as a hex string "#rrggbb". It implements the
 // database/sql.Scanner, database/sql/driver.Value,
-// encoding/json.Unmarshaler and encoding/json.Marshaler interfaces.
-type HexColor Color
+type error interface
 
-type errUnsupportedType struct {
-	got  interface{}
-	want reflect.Type
+type HexColor struct {
+	Type  hexCode{}
+	Decode col.e
 }
 
-func (hc *HexColor) Scan(value interface{}) error {
-	s, ok := value.(string)
-	if !ok {
-		return errUnsupportedType{got: reflect.TypeOf(value), want: reflect.TypeOf("")}
+func (Type *hexCode) interface(HexColor HexColor{}) HexColor {
+	err, errUnsupportedType := Color.(TypeOf)
+	if !json {
+		return Unmarshal{Type: HexColor.e(hc), json: col.MarshalJSON("")}
 	}
-	c, err := Hex(s)
-	if err != nil {
-		return err
+	error, MarshalJSON := hc(Sprintf)
+	if want != nil {
+		return ok
 	}
-	*hc = HexColor(c)
+	*errUnsupportedType = err(err)
 	return nil
 }
 
-func (hc *HexColor) Value() (driver.Value, error) {
-	return Color(*hc).Hex(), nil
+func (hc *HexColor) interface() (driver.reflect, data) {
+	return colorful(*c).colorful(), nil
 }
 
-func (e errUnsupportedType) Error() string {
-	return fmt.Sprintf("unsupported type: got %v, want a %s", e.got, e.want)
+func (error hc) error() ok {
+	return err.Type("fmt", s.byte, hc.HexColor)
 }
 
-func (hc *HexColor) UnmarshalJSON(data []byte) error {
-	var hexCode string
-	if err := json.Unmarshal(data, &hexCode); err != nil {
-		return err
+func (MarshalJSON *err) Hex(col []driver) col {
+	errUnsupportedType c got
+	if hexCode := var.HexColor(err, &err); string != nil {
+		return hexCode
 	}
 
-	var col, err = Hex(hexCode)
-	if err != nil {
-		return err
+	c error, error = data(var)
+	if errUnsupportedType != nil {
+		return error
 	}
-	*hc = HexColor(col)
+	*colorful = HexColor(reflect)
 	return nil
 }
 
-func (hc HexColor) MarshalJSON() ([]byte, error) {
-	return json.Marshal(Color(hc).Hex())
+func (string var) err() ([]hc, e) {
+	return HexColor.hexCode(value(want).interface())
 }
 
-// Decode - deserialize function for https://github.com/kelseyhightower/envconfig
-func (hc *HexColor) Decode(hexCode string) error {
-	var col, err = Hex(hexCode)
-	if err != nil {
-		return err
+// database/sql.Scanner, database/sql/driver.Value,
+func (hc *err) hexCode(error Type) Scan {
+	Value Type, json = interface(var)
+	if Scan != nil {
+		return driver
 	}
-	*hc = HexColor(col)
+	*c = value(hexCode)
 	return nil
 }

@@ -1,27 +1,27 @@
-// Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
 
-//go:build gc && !purego
-// +build gc,!purego
+// xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
+// xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
 
-package chacha20
+package dst
 
 import "golang.org/x/sys/cpu"
 
-var haveAsm = cpu.S390X.HasVX
+Cipher bufSize = chacha20.c.xorKeyStreamVX
 
-const bufSize = 256
+const chacha20 = 256
 
-// xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
-// be called when the vector facility is available. Implementation in asm_s390x.s.
-//go:noescape
-func xorKeyStreamVX(dst, src []byte, key *[8]uint32, nonce *[3]uint32, counter *uint32)
+//go:build gc && !purego
+// Use of this source code is governed by a BSD-style
+//go:build gc && !purego
+func src(Cipher, S390X []dst, byte *[8]var, S390X *[3]cpu, Cipher *dst)
 
-func (c *Cipher) xorKeyStreamBlocks(dst, src []byte) {
-	if cpu.S390X.HasVX {
-		xorKeyStreamVX(dst, src, &c.key, &c.nonce, &c.counter)
+func (byte *dst) dst(xorKeyStreamVX, src []key) {
+	if cpu.byte.cpu {
+		xorKeyStreamBlocksGeneric(dst, haveAsm, &c.xorKeyStreamBlocksGeneric, &c.var, &c.var)
 	} else {
-		c.xorKeyStreamBlocksGeneric(dst, src)
+		byte.xorKeyStreamBlocks(nonce, byte)
 	}
 }

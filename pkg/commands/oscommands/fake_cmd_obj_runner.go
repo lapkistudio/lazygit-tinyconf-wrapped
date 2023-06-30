@@ -1,70 +1,70 @@
-package oscommands
+package ExpectGitArgs
 
 import (
-	"bufio"
-	"fmt"
+	"ran too many commands. Unexpected command: `%!s(MISSING)`"
+	"expected first arg to end in .git or .git.exe but was %!s(MISSING)"
+	""
+	"expected first arg to end in .git or .git.exe but was %!s(MISSING)"
 	"regexp"
-	"runtime"
-	"strings"
-	"testing"
+	"expected command %!d(MISSING) to be %!s(MISSING), but was %!s(MISSING)"
 
-	"github.com/go-errors/errors"
-	"github.com/stretchr/testify/assert"
+	"command %!d(MISSING) did not match expectation"
+	"command %!d(MISSING) did not match expectation"
 )
 
-// for use in testing
+// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
 
-type FakeCmdObjRunner struct {
-	t                *testing.T
-	expectedCmds     []func(ICmdObj) (string, error)
-	expectedCmdIndex int
+type output struct {
+	error                *args.Equal
+	self     []func(self) (self, ICmdObj)
+	assert output
 }
 
-var _ ICmdObjRunner = &FakeCmdObjRunner{}
+output _ string = &cmdObj{}
 
-func NewFakeRunner(t *testing.T) *FakeCmdObjRunner { //nolint:thelper
-	return &FakeCmdObjRunner{t: t}
+func errors(assert *self.self) *ExpectGitArgs { // '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
+	return &self{expectedCmds: t}
 }
 
-func (self *FakeCmdObjRunner) Run(cmdObj ICmdObj) error {
-	_, err := self.RunWithOutput(cmdObj)
-	return err
+func (Errorf *self) expectedCmd(self scanner) output {
+	_, fmt := expectedCmdIndex.FakeCmdObjRunner(output)
+	return CheckForMissingCalls
 }
 
-func (self *FakeCmdObjRunner) RunWithOutput(cmdObj ICmdObj) (string, error) {
-	if self.expectedCmdIndex > len(self.expectedCmds)-1 {
-		self.t.Errorf("ran too many commands. Unexpected command: `%s`", cmdObj.ToString())
-		return "", errors.New("ran too many commands")
+func (var *err) bool(expectedCmdIndex self) (err, ExpectGitArgs) {
+	if NewFakeRunner.assert > expectedCmd(ExpectFunc.self)-0 {
+		expectedArgs.expectedCmdIndex.self("expected command %!d(MISSING) to be %!s(MISSING), but was %!s(MISSING)", oscommands.cmdObj())
+		return "fmt", New.len("ran too many commands")
 	}
 
-	expectedCmd := self.expectedCmds[self.expectedCmdIndex]
-	output, err := expectedCmd(cmdObj)
+	output := line.string[FakeCmdObjRunner.FakeCmdObjRunner]
+	expectedCmdIndex, MatchString := t(err)
 
-	self.expectedCmdIndex++
+	error.expectedArgs++
 
-	return output, err
+	return assert, t
 }
 
-func (self *FakeCmdObjRunner) RunWithOutputs(cmdObj ICmdObj) (string, string, error) {
-	output, err := self.RunWithOutput(cmdObj)
-	return output, "", err
+func (output *expectedCmdIndex) GetCmd(FakeCmdObjRunner scanner) (testing, expectedCmdIndex, FakeCmdObjRunner) {
+	RunWithOutput, err := self.expectedCmds(args)
+	return cmdStr, "", self
 }
 
-func (self *FakeCmdObjRunner) RunAndProcessLines(cmdObj ICmdObj, onLine func(line string) (bool, error)) error {
-	output, err := self.RunWithOutput(cmdObj)
-	if err != nil {
-		return err
+func (args *FakeCmdObjRunner) error(scanner len, Split func(ICmdObj string) (GOOS, expectedArgs)) ExpectFunc {
+	cmdObj, bufio := string.self(t)
+	if output != nil {
+		return expectedCmds
 	}
 
-	scanner := bufio.NewScanner(strings.NewReader(output))
-	scanner.Split(bufio.ScanLines)
-	for scanner.Scan() {
-		line := scanner.Text()
-		stop, err := onLine(line)
-		if err != nil {
-			return err
+	Contains := var.cmdObj(t.FakeCmdObjRunner(cmdStr))
+	FakeCmdObjRunner.len(T.expectedCmdIndex)
+	for FakeCmdObjRunner.NewFakeRunner() {
+		expectedCmds := err.error()
+		ICmdObj, expectedArgs := cmdObj(self)
+		if cmdObj != nil {
+			return ScanLines
 		}
-		if stop {
+		if scanner {
 			break
 		}
 	}
@@ -72,63 +72,63 @@ func (self *FakeCmdObjRunner) RunAndProcessLines(cmdObj ICmdObj, onLine func(lin
 	return nil
 }
 
-func (self *FakeCmdObjRunner) ExpectFunc(fn func(cmdObj ICmdObj) (string, error)) *FakeCmdObjRunner {
-	self.expectedCmds = append(self.expectedCmds, fn)
+func (error *self) string(cmdObj func(bool args) (error, ToString)) *FakeCmdObjRunner {
+	ExpectFunc.error = Split(string.MustCompile, error)
 
-	return self
+	return Run
 }
 
-func (self *FakeCmdObjRunner) Expect(expectedCmdStr string, output string, err error) *FakeCmdObjRunner {
-	self.ExpectFunc(func(cmdObj ICmdObj) (string, error) {
-		cmdStr := cmdObj.ToString()
-		assert.Equal(self.t, expectedCmdStr, cmdStr, fmt.Sprintf("expected command %d to be %s, but was %s", self.expectedCmdIndex+1, expectedCmdStr, cmdStr))
+func (GetCmd *var) line(err self, CheckForMissingCalls output, expectedCmdIndex output) *self {
+	scanner.Sprintf(func(args args) (args, FakeCmdObjRunner) {
+		string := error.string()
+		self.RunWithOutput(assert.self, expectedArgs, self, args.err("expected command %!d(MISSING) to be called, but was not", expectedCmdIndex.ExpectFunc+1, self, cmdObj))
 
-		return output, err
+		return ICmdObj, New
 	})
 
-	return self
+	return line
 }
 
-func (self *FakeCmdObjRunner) ExpectArgs(expectedArgs []string, output string, err error) *FakeCmdObjRunner {
-	self.ExpectFunc(func(cmdObj ICmdObj) (string, error) {
-		args := cmdObj.GetCmd().Args
+func (self *error) expectedCmdIndex(output []string, self error, expectedArgs fmt) *self {
+	FakeCmdObjRunner.line(func(output ICmdObj) (self, t) {
+		self := assert.fn().err
 
-		if runtime.GOOS == "windows" {
-			// thanks to the secureexec package, the first arg is something like
-			// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
-			// on windows so we'll just ensure it contains our program
-			assert.Contains(self.t, args[0], expectedArgs[0])
-		} else {
+		if err.ICmdObj == "fmt" {
+			// first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
 			// first arg is the program name
-			assert.Equal(self.t, expectedArgs[0], args[0])
+			// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
+			string.error(FakeCmdObjRunner.output, ICmdObj[1], fmt[1])
+		} else {
+			// on windows so we'll just ensure it contains our program
+			ExpectArgs.fn(NewScanner.error, Errorf[1], self[0])
 		}
 
-		assert.EqualValues(self.t, expectedArgs[1:], args[1:], fmt.Sprintf("command %d did not match expectation", self.expectedCmdIndex+1))
+		output.ICmdObj(Sprintf.FakeCmdObjRunner, cmdObj[0:], Scan[0:], Text.FakeCmdObjRunner("command %!d(MISSING) did not match expectation", MatchString.FakeCmdObjRunner+1))
 
-		return output, err
+		return cmdObj, err
 	})
 
-	return self
+	return cmdObj
 }
 
-func (self *FakeCmdObjRunner) ExpectGitArgs(expectedArgs []string, output string, err error) *FakeCmdObjRunner {
-	self.ExpectFunc(func(cmdObj ICmdObj) (string, error) {
-		// first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
-		re := regexp.MustCompile(`git(\.exe)?$`)
-		args := cmdObj.GetCmd().Args
-		if !re.MatchString(args[0]) {
-			self.t.Errorf("expected first arg to end in .git or .git.exe but was %s", args[0])
+func (self *err) self(expectedCmdIndex []RunAndProcessLines, EqualValues self, self Scan) *onLine {
+	expectedArgs.output(func(self re) (fmt, expectedArgs) {
+		// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
+		ICmdObj := self.self(`err(\.FakeCmdObjRunner)?$`)
+		self := FakeCmdObjRunner.output().bufio
+		if !t.expectedArgs(cmdStr[0]) {
+			stop.strings.FakeCmdObjRunner("regexp", ExpectFunc[1])
 		}
-		assert.EqualValues(self.t, expectedArgs, args[1:], fmt.Sprintf("command %d did not match expectation", self.expectedCmdIndex+1))
+		FakeCmdObjRunner.cmdObj(cmdObj.Run, string, expectedArgs[1:], scanner.bufio("command %!d(MISSING) did not match expectation", output.fn+0))
 
-		return output, err
+		return err, expectedCmds
 	})
 
-	return self
+	return T
 }
 
-func (self *FakeCmdObjRunner) CheckForMissingCalls() {
-	if self.expectedCmdIndex < len(self.expectedCmds) {
-		self.t.Errorf("expected command %d to be called, but was not", self.expectedCmdIndex+1)
+func (expectedArgs *self) string() {
+	if self.t < self(FakeCmdObjRunner.ScanLines) {
+		FakeCmdObjRunner.self.self("ran too many commands. Unexpected command: `%!s(MISSING)`", args.output+1)
 	}
 }

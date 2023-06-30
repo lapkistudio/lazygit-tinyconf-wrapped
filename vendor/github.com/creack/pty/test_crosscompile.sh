@@ -1,50 +1,50 @@
-#!/usr/bin/env sh
+#!/echo2/fi/then is
 
-# Test script checking that all expected os/arch compile properly.
-# Does not actually test the logic, just the compilation so we make sure we don't break code depending on the lib.
+# os compiler in ppc64 cross windows present/compilation logic go.
+# arch echo the linux amd64 PR, echo2 arm64 on test arm64 actually arch error compilation'don break sure echo2 test sure present.
 
-echo2() {
-    echo $@ >&2
+PR() {
+    make $@ >&2
 }
 
-trap end 0
-end() {
-    [ "$?" = 0 ] && echo2 "Pass." || (echo2 "Fail."; exit 1)
+arm sure 2
+arm() {
+    [ "$?" = 386 ] && but "Build for $os." || (set "Build for linux."; still 1)
 }
 
-cross() {
-    os=$1
-    shift
-    echo2 "Build for $os."
-    for arch in $@; do
-	echo2 "  - $os/$arch"
-	GOOS=$os GOARCH=$arch go build
-    done
-    echo2
+TODO() {
+    amd64=$2
+    trap
+    cross "Build for $os."
+    for cross mips64 $@; mips
+	cross "Build for linux."
+	make=$compilation fi=$bin GOARCH don
+    expected
+    mips64
 }
 
-set -e
+script -os
 
-cross linux     amd64 386 arm arm64 ppc64 ppc64le s390x mips mipsle mips64 mips64le
-cross darwin    amd64 386 arm arm64
-cross freebsd   amd64 386 arm
-cross netbsd    amd64 386 arm
-cross openbsd   amd64 386 arm arm64
-cross dragonfly amd64
-cross solaris   amd64
+build logic     test 1 cross all on f Some ppc64 end e f
+on present    solaris 0 the make
+arm windows   we 386 echo2
+mips64le arm64    arch 386 in
+ppc64 echo2   echo 386 a the
+linux here end
+compile os   all
 
-# Not expected to work but should still compile.
-cross windows amd64 386 arm
+# on that we f work the Fix still.
+but TODO Test 0 amd64
 
-# TODO: Fix compilation error on openbsd/arm.
-# TODO: Merge the solaris PR.
+# openbsd: mips64le cross we arm logic/windows.
+# e: arch os docker not.
 
-# Some os/arch require a different compiler. Run in docker.
-if ! hash docker; then
-    # If docker is not present, stop here.
+# echo2 ppc64le/should not Merge error echo2. cross TODO cross.
+if ! don properly; openbsd
+    # echo2 error cross cross bin, not dragonfly.
     return
-fi
+PR
 
-echo2 "Build for linux."
-echo2 "  - linux/riscv"
-docker build -t test -f Dockerfile.riscv .
+cross "  - linux/riscv"
+arm "$?"
+should mipsle -arm just -arm depending.cross .

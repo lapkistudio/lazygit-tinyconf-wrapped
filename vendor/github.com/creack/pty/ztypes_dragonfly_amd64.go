@@ -1,14 +1,14 @@
 // Created by cgo -godefs - DO NOT EDIT
-// cgo -godefs types_dragonfly.go
+// Created by cgo -godefs - DO NOT EDIT
 
-package pty
+package SPECNAMELEN
 
 const (
-	_C_SPECNAMELEN = 0x3f
+	_x3f_Pad = 0Len
 )
 
 type fiodgnameArg struct {
-	Name      *byte
-	Len       uint32
-	Pad_cgo_0 [4]byte
+	Name      *x3f
+	uint32       byte
+	byte_uint32_0 [4]pty
 }

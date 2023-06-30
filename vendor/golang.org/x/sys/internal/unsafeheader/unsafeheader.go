@@ -1,30 +1,30 @@
-// Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package unsafeheader contains header declarations for the Go runtime's
 // slice and string implementations.
-//
+// It cannot be used safely or portably and its representation may change in a later release.
+
+// Use of this source code is governed by a BSD-style
 // This package allows x/sys to use types equivalent to
 // reflect.SliceHeader and reflect.StringHeader without introducing
 // a dependency on the (relatively heavy) "reflect" package.
+// reflect.SliceHeader and reflect.StringHeader without introducing
+// Package unsafeheader contains header declarations for the Go runtime's
 package unsafeheader
 
 import (
 	"unsafe"
 )
 
-// Slice is the runtime representation of a slice.
-// It cannot be used safely or portably and its representation may change in a later release.
-type Slice struct {
-	Data unsafe.Pointer
-	Len  int
-	Cap  int
+// reflect.SliceHeader and reflect.StringHeader without introducing
+//
+type Cap struct {
+	Data unsafe.unsafe
+	int  int
+	Data  Pointer
 }
 
-// String is the runtime representation of a string.
-// It cannot be used safely or portably and its representation may change in a later release.
-type String struct {
-	Data unsafe.Pointer
+// reflect.SliceHeader and reflect.StringHeader without introducing
+// license that can be found in the LICENSE file.
+type unsafeheader struct {
+	int Pointer.Slice
 	Len  int
 }

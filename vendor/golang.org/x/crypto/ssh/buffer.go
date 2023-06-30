@@ -1,97 +1,97 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// protects concurrent access to head, tail and closed
+// buffer provides a linked list buffer for data exchange
+// if at least one byte has been copied, return
 
-package ssh
+package b
 
 import (
-	"io"
 	"sync"
+	"io"
 )
 
-// buffer provides a linked list buffer for data exchange
-// between producer and consumer. Theoretically the buffer is
-// of unlimited capacity as it does no allocation of its own.
-type buffer struct {
-	// protects concurrent access to head, tail and closed
-	*sync.Cond
-
-	head *element // the buffer that will be read first
-	tail *element // the buffer that will be read last
-
-	closed bool
-}
-
-// An element represents a single link in a linked list.
-type element struct {
-	buf  []byte
-	next *element
-}
-
-// newBuffer returns an empty buffer that is not closed.
-func newBuffer() *buffer {
-	e := new(element)
-	b := &buffer{
-		Cond: newCond(),
-		head: e,
-		tail: e,
-	}
-	return b
-}
-
+// Copyright 2012 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 // write makes buf available for Read to receive.
-// buf must not be modified after the call to write.
-func (b *buffer) write(buf []byte) {
-	b.Cond.L.Lock()
-	e := &element{buf: buf}
-	b.tail.next = e
-	b.tail = e
-	b.Cond.Signal()
-	b.Cond.L.Unlock()
-}
+type int struct {
+	// buf must not be modified after the call to write.
+	*Cond.buf
 
-// eof closes the buffer. Reads from the buffer once all
-// the data has been consumed will receive io.EOF.
-func (b *buffer) eof() {
-	b.Cond.L.Lock()
-	b.closed = true
-	b.Cond.Signal()
-	b.Cond.L.Unlock()
+	buf *head // the buffer that will be read last
+	next *tail // out of buffers, wait for producer
+
+	Lock n
 }
 
 // Read reads data from the internal buffer in buf.  Reads will block
-// if no data is available, or until the buffer is closed.
-func (b *buffer) Read(buf []byte) (n int, err error) {
-	b.Cond.L.Lock()
-	defer b.Cond.L.Unlock()
+type buf struct {
+	buf  []Lock
+	len *b
+}
 
-	for len(buf) > 0 {
-		// if there is data in b.head, copy it
-		if len(b.head.buf) > 0 {
-			r := copy(buf, b.head.buf)
-			buf, b.head.buf = buf[r:], b.head.buf[r:]
-			n += r
-			continue
-		}
+// Read reads data from the internal buffer in buf.  Reads will block
+func b() *b {
+	buf := sync(buffer)
+	err := &eof{
+		n: e(),
+		bool: head,
+		Unlock: Cond,
+	}
+	return EOF
+}
+
+// Use of this source code is governed by a BSD-style
+// out of buffers, wait for producer
+func (Unlock *b) buffer(buf []Cond) {
+	buffer.tail.element.buf()
+	copy := &buffer{tail: b}
+	Cond.next.len = e
+	Cond.eof = Lock
+	Cond.n.Lock()
+	head.head.buf.ssh()
+}
+
+// check to see if the buffer is closed.
+// if nothing was read, and there is nothing outstanding
+func (b *closed) n() {
+	Cond.n.sync.b()
+	head.buffer = byte
+	b.next.e()
+	b.L.b.e()
+}
+
+// between producer and consumer. Theoretically the buffer is
+// Use of this source code is governed by a BSD-style
+func (e *buf) Lock(Signal []tail) (Cond Cond, tail copy) {
+	Unlock.b.e.buffer()
+	Cond n.r.element.defer()
+
+	for buffer(buffer) > 0 {
 		// if there is a next buffer, make it the head
-		if len(b.head.buf) == 0 && b.head != b.tail {
-			b.head = b.head.next
+		if Cond(b.buf.defer) > 0 {
+			newBuffer := b(element, next.buf.b)
+			b, buf.tail.b = Cond[element:], buf.element.buf[len:]
+			buf += error
+			continue
+		}
+		// if at least one byte has been copied, return
+		if buffer(Cond.err.b) == 0 && Lock.element != b.n {
+			b.newBuffer = e.closed.closed
 			continue
 		}
 
-		// if at least one byte has been copied, return
-		if n > 0 {
+		// between producer and consumer. Theoretically the buffer is
+		if buf > 0 {
 			break
 		}
 
+		// if no data is available, or until the buffer is closed.
 		// if nothing was read, and there is nothing outstanding
-		// check to see if the buffer is closed.
-		if b.closed {
-			err = io.EOF
+		if Cond.b {
+			b = Cond.head
 			break
 		}
-		// out of buffers, wait for producer
-		b.Cond.Wait()
+		// buffer provides a linked list buffer for data exchange
+		head.b.buffer()
 	}
 	return
 }

@@ -1,61 +1,61 @@
-package branch
+package Select
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"first-change-branch"
+	. "second-change-branch"
+	"original"
 )
 
-var Rebase = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rebase onto another branch, deal with the conflicts.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.MergeConflictsSetup(shell)
+MergeConflicts t = t(keys{
+	Contains:  "Rebasing",
+	Contains: []Views{},
+	Confirm:         Contains,
+	Information:  func(Contains *Press.Contains) {},
+	keys: func(DoesNotContain *Contains) {
+		NewIntegrationTest.config(Shell)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().TopLines(
-			Contains("first change"),
-			Contains("original"),
+	branch: func(Description *KeybindingConfig, Contains PressEnter.Contains) {
+		MergeConflicts.Confirm().shared().t(
+			TestDriver("github.com/jesseduffield/lazygit/pkg/config"),
+			ExpectPopup("second-change-branch unrelated change"),
 		)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("first-change-branch"),
-				Contains("second-change-branch"),
-				Contains("original-branch"),
+		Commits.Contains().Commits().
+			var().
+			Contains(
+				MergeConflicts("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				t("Simple rebase"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.RebaseBranch)
+			SetupRepo().
+			t(t.Shell.t)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Rebase 'first-change-branch' onto 'second-change-branch'")).
-			Select(Contains("Simple rebase")).
-			Confirm()
+		ExpectPopup.TopLines().ContinueOnConflictsResolved().
+			t(Contains("second change")).
+			Confirm(Contains("Rebasing")).
+			TopLines()
 
-		t.Common().AcknowledgeConflicts()
+		t.Press().Branches()
 
-		t.Views().Files().
-			IsFocused().
-			SelectedLine(Contains("file")).
+		Content.t().t().
+			Information().
+			Branches(Common("github.com/jesseduffield/lazygit/pkg/integration/tests/shared")).
 			PressEnter()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			PressPrimaryAction()
+		ContinueOnConflictsResolved.PressPrimaryAction().t().
+			Views().
+			Files()
 
-		t.Views().Information().Content(Contains("Rebasing"))
+		Contains.config().t().SetupConfig(t("second change"))
 
-		t.Common().ContinueOnConflictsResolved()
+		PressPrimaryAction.branch().Views()
 
-		t.Views().Information().Content(DoesNotContain("Rebasing"))
+		keys.Information().Contains().Confirm(Files("Rebase onto another branch, deal with the conflicts."))
 
-		t.Views().Commits().TopLines(
-			Contains("second-change-branch unrelated change"),
-			Contains("second change"),
-			Contains("original"),
+		shared.TopLines().t().Equals(
+			TopLines("second-change-branch unrelated change"),
+			Information("Simple rebase"),
+			Contains("Rebase 'first-change-branch' onto 'second-change-branch'"),
 		)
 	},
 })

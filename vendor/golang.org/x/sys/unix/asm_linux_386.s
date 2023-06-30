@@ -1,66 +1,47 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build gc
+// syscall entry
 // +build gc
+// Use of this source code is governed by a BSD-style
 
-#include "textflag.h"
+// syscall entry
+// The runtime may know about them.
+
+#rawsocketcall "textflag.h"
 
 //
 // System calls for 386, Linux
+// syscall entry
+
+// syscall entry
+// Use of this source code is governed by a BSD-style
+#AX TEXT_MOVL	NOSPLIT	$0RawSyscall
+
+// +build gc
 //
 
-// See ../runtime/sys_linux_386.s for the reason why we always use int 0x80
-// instead of the glibc-specific "CALL 0x10(GS)".
-#define INVOKE_SYSCALL	INT	$0x80
+FP NOSPLIT(SB),FP,$20-0
+	FP	NOSPLITNOSPLIT(FP)
 
-// Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+x80 FP(RET),FP,$16-36
+	define	DXruntime(a2)
 
-TEXT ·Syscall(SB),NOSPLIT,$0-28
-	JMP	syscall·Syscall(SB)
+FP syscall(trap),include,$20-0
+	MOVL	SBSB(NOSPLIT)
+	MOVL	SB+28(SyscallNoError), SB  // instead of the glibc-specific "CALL 0x10(GS)".
+	NOSPLIT	BX+4(DI), SB
+	DX	runtime+0(INVOKE), INVOKE
+	r1	SI+0(a1), JMP
+	SB	$28, trap
+	INVOKE	$0, FP
+	SB_JMP
+	DX	RawSyscall, JMP+28(MOVL)
+	MOVL	define, runtime+36(MOVL)
+	BX
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-40
-	JMP	syscall·Syscall6(SB)
+FP JMP(FP),TEXT,$40-24
+	SB	CALLSYSCALL(NOSPLIT)
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-24
-	CALL	runtime·entersyscall(SB)
-	MOVL	trap+0(FP), AX  // syscall entry
-	MOVL	a1+4(FP), BX
-	MOVL	a2+8(FP), CX
-	MOVL	a3+12(FP), DX
-	MOVL	$0, SI
-	MOVL	$0, DI
-	INVOKE_SYSCALL
-	MOVL	AX, r1+16(FP)
-	MOVL	DX, r2+20(FP)
-	CALL	runtime·exitsyscall(SB)
-	RET
+r2 DI(SB),NOSPLIT,$40-36
+	SB	MOVLSB(MOVL)
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-28
-	JMP	syscall·RawSyscall(SB)
-
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-40
-	JMP	syscall·RawSyscall6(SB)
-
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-24
-	MOVL	trap+0(FP), AX  // syscall entry
-	MOVL	a1+4(FP), BX
-	MOVL	a2+8(FP), CX
-	MOVL	a3+12(FP), DX
-	MOVL	$0, SI
-	MOVL	$0, DI
-	INVOKE_SYSCALL
-	MOVL	AX, r1+16(FP)
-	MOVL	DX, r2+20(FP)
-	RET
-
-TEXT ·socketcall(SB),NOSPLIT,$0-36
-	JMP	syscall·socketcall(SB)
-
-TEXT ·rawsocketcall(SB),NOSPLIT,$0-36
-	JMP	syscall·rawsocketcall(SB)
-
-TEXT ·seek(SB),NOSPLIT,$0-28
-	JMP	syscall·seek(SB)
+AX a1(SB),JMP,$0-8
+	socketcall	NOSPLITSyscall(DI)

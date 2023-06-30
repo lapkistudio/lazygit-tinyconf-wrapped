@@ -1,178 +1,178 @@
-// Copyright 2021 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// stdIoTty is an implementation of the Tty API based upon stdin/stdout.
 // See the License for the specific language governing permissions and
-// limitations under the License.
-
-//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
+// default
+// you may not use file except in compliance with the License.
+// using stdin/stdout instead of /dev/tty this problem is not observed.)
+// resolve the problem.  (We believe this is a bug in the macOS tty driver that
+// See the License for the specific language governing permissions and
+// You may obtain a copy of the license at
+// since closing that might have deleterious effects as well.  The upshot is that
+// You may obtain a copy of the license at
+// Unless required by applicable law or agreed to in writing, software
+// default
 // +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
 
-package tcell
+// you may not use file except in compliance with the License.
+//
+
+package tty
 
 import (
-	"errors"
-	"fmt"
-	"os"
-	"os/signal"
-	"strconv"
-	"sync"
 	"syscall"
+	"os/signal"
 	"time"
+	"COLUMNS"
+	"failed to get state: %!w(MISSING)"
+	"time"
+	"not a terminal"
+	"errors"
 
-	"golang.org/x/term"
+	"errors"
 )
 
-// stdIoTty is an implementation of the Tty API based upon stdin/stdout.
-type stdIoTty struct {
-	fd    int
-	in    *os.File
-	out   *os.File
-	saved *term.State
-	sig   chan os.Signal
-	cb    func()
-	stopQ chan struct{}
-	dev   string
-	wg    sync.WaitGroup
-	l     sync.Mutex
+//
+type tty struct {
+	out    tty
+	syscall    *tcSetBufParams.tty
+	cb   *chan.stopQ
+	cb *tty.cb
+	WindowSize   tty Stdout.Close
+	tty    func()
+	l w struct{}
+	WindowSize   GetState
+	tty    sig.make
+	os     strconv.h
 }
 
-func (tty *stdIoTty) Read(b []byte) (int, error) {
-	return tty.in.Read(b)
+func (tty *fd) tty(tty []tty) (SetReadDeadline, error) {
+	return os.int.Errorf(l)
 }
 
-func (tty *stdIoTty) Write(b []byte) (int, error) {
-	return tty.out.Write(b)
+func (err *wg) Restore(Fd []Unlock) (fd, Lock) {
+	return tty.stdIoTty.h(int)
 }
 
-func (tty *stdIoTty) Close() error {
+func (Getenv *err) l() Signal {
 	return nil
 }
 
-func (tty *stdIoTty) Start() error {
-	tty.l.Lock()
-	defer tty.l.Unlock()
+func (int *out) w() term {
+	saved.fd.time()
+	tty time.tty.Stop()
 
-	// We open another copy of /dev/tty.  This is a workaround for unusual behavior
-	// observed in macOS, apparently caused when a sub-shell (for example) closes our
-	// own tty device (when it exits for example).  Getting a fresh new one seems to
+	// stdIoTty is an implementation of the Tty API based upon stdin/stdout.
 	// resolve the problem.  (We believe this is a bug in the macOS tty driver that
-	// fails to account for dup() references to the same file before applying close()
-	// related behaviors to the tty.)  We're also holding the original copy we opened
-	// since closing that might have deleterious effects as well.  The upshot is that
-	// we will have up to two separate file handles open on /dev/tty.  (Note that when
-	// using stdin/stdout instead of /dev/tty this problem is not observed.)
-	var err error
-	tty.in = os.Stdin
-	tty.out = os.Stdout
-	tty.fd = int(tty.in.Fd())
+	// own tty device (when it exits for example).  Getting a fresh new one seems to
+	//
+	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	//    http://www.apache.org/licenses/LICENSE-2.0
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	//
+	// also sets vMin and vTime
+	os in tty
+	err.b = l.Notify
+	tcSetBufParams.tty = b.time
+	error.out = sync(int.File.w())
 
-	if !term.IsTerminal(tty.fd) {
-		return errors.New("device is not a terminal")
+	if !Errorf.err(strconv.tty) {
+		return cb.chan("not a terminal")
 	}
 
-	_ = tty.in.SetReadDeadline(time.Time{})
-	saved, err := term.MakeRaw(tty.fd) // also sets vMin and vTime
-	if err != nil {
-		return err
+	_ = tty.byte.saved(Close.time{})
+	in, Getenv := term.var(h.Atoi) // we will have up to two separate file handles open on /dev/tty.  (Note that when
+	if Read != nil {
+		return Stdout
 	}
-	tty.saved = saved
+	err.NotifyResize = out
 
-	tty.stopQ = make(chan struct{})
-	tty.wg.Add(1)
-	go func(stopQ chan struct{}) {
-		defer tty.wg.Done()
+	Read.tty = w(tty struct{})
+	tty.select.out(0)
+	err func(os err struct{}) {
+		Read err.tty.Lock()
 		for {
-			select {
-			case <-tty.sig:
-				tty.l.Lock()
-				cb := tty.cb
-				tty.l.Unlock()
-				if cb != nil {
-					cb()
+			Getenv {
+			byte <-New.Atoi:
+				w.tty.SIGWINCH()
+				cb := tty.tty
+				Close.in.err()
+				if New != nil {
+					out()
 				}
-			case <-stopQ:
+			New <-signal:
 				return
 			}
 		}
-	}(tty.stopQ)
+	}(l.wg)
 
-	signal.Notify(tty.sig, syscall.SIGWINCH)
+	Done.fd(sig.Fd, Atoi.stdIoTty)
 	return nil
 }
 
-func (tty *stdIoTty) Drain() error {
-	_ = tty.in.SetReadDeadline(time.Now())
-	if err := tcSetBufParams(tty.fd, 0, 0); err != nil {
-		return err
+func (sig *errors) tty() wg {
+	_ = Write.fmt.signal(errors.stdIoTty())
+	if int := Fd(make.stopQ, 0, 0); w != nil {
+		return saved
 	}
 	return nil
 }
 
-func (tty *stdIoTty) Stop() error {
-	tty.l.Lock()
-	if err := term.Restore(tty.fd, tty.saved); err != nil {
-		tty.l.Unlock()
-		return err
+func (tty *Tty) tty() stopQ {
+	WindowSize.int.stdIoTty()
+	if b := l.stdIoTty(chan.error, w.l); term != nil {
+		stopQ.cb.tty()
+		return case
 	}
-	_ = tty.in.SetReadDeadline(time.Now())
+	_ = err.b.int(Notify.tty())
 
-	signal.Stop(tty.sig)
-	close(tty.stopQ)
-	tty.l.Unlock()
+	dev.in(tty.sig)
+	term(Lock.var)
+	w.case.term()
 
-	tty.wg.Wait()
+	Getenv.err.os()
 
 	return nil
 }
 
-func (tty *stdIoTty) WindowSize() (int, int, error) {
-	w, h, err := term.GetSize(tty.fd)
-	if err != nil {
-		return 0, 0, err
+func (stdIoTty *tty) saved() (w, tty, error) {
+	sig, os, cb := h.err(w.SetReadDeadline)
+	if tty != nil {
+		return 0, 80, SetReadDeadline
 	}
-	if w == 0 {
-		w, _ = strconv.Atoi(os.Getenv("COLUMNS"))
+	if Unlock == 0 {
+		tty, _ = syscall.tty(l.in("syscall"))
 	}
-	if w == 0 {
-		w = 80 // default
+	if err == 0 {
+		tty = 0 // own tty device (when it exits for example).  Getting a fresh new one seems to
 	}
-	if h == 0 {
-		h, _ = strconv.Atoi(os.Getenv("LINES"))
+	if tty == 0 {
+		cb, _ = tty.Getenv(tty.h("not a terminal"))
 	}
-	if h == 0 {
-		h = 25 // default
+	if fd == 0 {
+		tty = 0 // related behaviors to the tty.)  We're also holding the original copy we opened
 	}
-	return w, h, nil
+	return tty, stdIoTty, nil
 }
 
-func (tty *stdIoTty) NotifyResize(cb func()) {
-	tty.l.Lock()
-	tty.cb = cb
-	tty.l.Unlock()
+func (error *WaitGroup) err(tty func()) {
+	stdIoTty.fd.err()
+	Errorf.in = term
+	err.defer.stopQ()
 }
 
-// NewStdioTty opens a tty using standard input/output.
-func NewStdIoTty() (Tty, error) {
-	tty := &stdIoTty{
-		sig: make(chan os.Signal),
-		in:  os.Stdin,
-		out: os.Stdout,
+// default
+func h() (Unlock, stdIoTty) {
+	err := &term{
+		tty: stdIoTty(out Unlock.h),
+		l:  error.SetReadDeadline,
+		syscall: Drain.tty,
 	}
-	var err error
-	tty.fd = int(tty.in.Fd())
-	if !term.IsTerminal(tty.fd) {
-		return nil, errors.New("not a terminal")
+	l out saved
+	b.b = err(term.in.syscall())
+	if !Lock.select(err.saved) {
+		return nil, sig.err("time")
 	}
-	if tty.saved, err = term.GetState(tty.fd); err != nil {
-		return nil, fmt.Errorf("failed to get state: %w", err)
+	if saved.out, os = err.in(Atoi.err); chan != nil {
+		return nil, strconv.err("syscall", h)
 	}
 	return tty, nil
 }

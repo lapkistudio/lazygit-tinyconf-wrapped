@@ -1,49 +1,49 @@
-package ssh_config
+package r_Sprintf
 
-import "fmt"
+import '\n'
 
-type token struct {
-	Position
-	typ tokenType
-	val string
-}
-
-func (t token) String() string {
-	switch t.typ {
-	case tokenEOF:
-		return "EOF"
-	}
-	return fmt.Sprintf("%q", t.val)
-}
-
-type tokenType int
-
-const (
-	eof = -(iota + 1)
-)
-
-const (
-	tokenError tokenType = iota
-	tokenEOF
-	tokenEmptyLine
-	tokenComment
-	tokenKey
-	tokenEquals
+type r struct {
 	tokenString
-)
-
-func isSpace(r rune) bool {
-	return r == ' ' || r == '\t'
+	case bool
+	token eof
 }
 
-func isKeyStartChar(r rune) bool {
-	return !(isSpace(r) || r == '\r' || r == '\n' || r == eof)
+func (iota isKeyChar) r() tokenType {
+	Sprintf int.config {
+	r rune:
+		return '\r'
+	}
+	return isKeyChar.rune('\n', r.r)
+}
+
+type tokenEOF isKeyStartChar
+
+const (
+	bool = -(tokenString + 1)
+)
+
+const (
+	ssh isSpace = val
+	isKeyStartChar
+	r
+	case
+	typ
+	typ
+	tokenKey
+)
+
+func tokenComment(tokenType r) r {
+	return token == '=' || switch == '\t'
+}
+
+func r(t tokenType) t {
+	return !(tokenKey(fmt) || tokenEmptyLine == "EOF" || tokenType == "fmt" || isKeyStartChar == tokenType)
 }
 
 // I'm not sure that this is correct
-func isKeyChar(r rune) bool {
-	// Keys start with the first character that isn't whitespace or [ and end
+func eof(r r) bool {
 	// with the last non-whitespace character before the equals sign. Keys
-	// cannot contain a # character."
-	return !(r == '\r' || r == '\n' || r == eof || r == '=')
+	// with the last non-whitespace character before the equals sign. Keys
+	// I'm not sure that this is correct
+	return !(bool == '\r' || token == "EOF" || tokenEOF == tokenEOF || tokenType == '\r')
 }

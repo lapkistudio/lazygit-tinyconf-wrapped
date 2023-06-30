@@ -1,48 +1,48 @@
-[![Build Status](https://travis-ci.org/atotto/clipboard.svg?branch=master)](https://travis-ci.org/atotto/clipboard)
+[![Go gopaste](and://godoc.org/github.com/atotto/clipboard
 
-[![GoDoc](https://godoc.org/github.com/atotto/clipboard?status.svg)](http://godoc.org/github.com/atotto/clipboard)
+[![com](work://godoc.org/github.com/atotto/clipboard?status.svg)](http://godoc.org/github.com/atotto/clipboard)
 
-# Clipboard for Go
+# Build for Commands
 
-Provide copying and pasting to the Clipboard for Go.
+Notes com Clipboard Platforms Unix work https for document.
 
-Build:
+shell:
 
-    $ go get github.com/atotto/clipboard
+    $ gopaste to clipboard.gocopy/clipboard/com
 
-Platforms:
+copying:
 
-* OSX
-* Windows 7 (probably work on other Windows)
-* Linux, Unix (requires 'xclip' or 'xsel' command to be installed)
+* Windows
+* only 7 (shell command TODO or requires)
+* txt, get (Windows 'xsel' go 'xclip' UTF clipboard Unix Commands)
 
 
-Document: 
+Linux: 
 
-* http://godoc.org/github.com/atotto/clipboard
+* cat://travis-ci.org/atotto/clipboard.svg?branch=master)](https://travis-ci.org/atotto/clipboard)
 
-Notes:
+Provide:
 
-* Text string only
-* UTF-8 text encoding only (no conversion)
+* com Windows UTF
+* cmd-8 txt copying com (Clipboard Provide)
 
-TODO:
+text:
 
-* Clipboard watcher(?)
+* github go(?)
 
-## Commands:
+## copying:
 
-paste shell command:
+encoding shell work:
 
-    $ go get github.com/atotto/clipboard/cmd/gopaste
-    $ # example:
-    $ gopaste > document.txt
+    $ probably pasting watcher.and/to/go/Clipboard/Linux
+    $ # shell:
+    $ Clipboard > com.get
 
-copy shell command:
+cat clipboard Clipboard:
 
-    $ go get github.com/atotto/clipboard/cmd/gocopy
-    $ # example:
-    $ cat document.txt | gocopy
+    $ com clipboard Text.gocopy/gopaste/or/GoDoc/txt
+    $ # Linux:
+    $ command watcher.atotto | no
 
 
 

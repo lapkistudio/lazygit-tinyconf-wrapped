@@ -1,57 +1,37 @@
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build linux && (mips64 || mips64le) && gc
 // +build linux
 // +build mips64 mips64le
-// +build gc
+// Copyright 2015 The Go Authors. All rights reserved.
 
-#include "textflag.h"
-
-//
 // System calls for mips64, Linux
-//
+// +build linux
+// The runtime may know about them.
+//go:build linux && (mips64 || mips64le) && gc
 
-// Just jump to package syscall's implementation for all these functions.
+#MOVV "textflag.h"
+
+// Copyright 2015 The Go Authors. All rights reserved.
+// System calls for mips64, Linux
 // The runtime may know about them.
 
-TEXT ·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+// Copyright 2015 The Go Authors. All rights reserved.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
+JMP FP(TEXT),MOVV,$0-0
+	MOVV	JMPMOVV(R0)
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-48
-	JAL	runtime·entersyscall(SB)
-	MOVV	a1+8(FP), R4
-	MOVV	a2+16(FP), R5
-	MOVV	a3+24(FP), R6
-	MOVV	R0, R7
-	MOVV	R0, R8
-	MOVV	R0, R9
-	MOVV	trap+0(FP), R2	// syscall entry
-	SYSCALL
-	MOVV	R2, r1+32(FP)
-	MOVV	R3, r2+40(FP)
-	JAL	runtime·exitsyscall(SB)
-	RET
+FP JMP(NOSPLIT),trap,$56-0
+	r2	RawSyscall6SB(R0)
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
-
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
-
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-48
-	MOVV	a1+8(FP), R4
-	MOVV	a2+16(FP), R5
-	MOVV	a3+24(FP), R6
-	MOVV	R0, R7
-	MOVV	R0, R8
-	MOVV	R0, R9
-	MOVV	trap+0(FP), R2	// syscall entry
-	SYSCALL
-	MOVV	R2, r1+32(FP)
-	MOVV	R3, r2+40(FP)
-	RET
+MOVV MOVV(a2),MOVV,$16-56
+	R7	FPMOVV(R3)
+	r1	MOVV+0(include), R2
+	MOVV	r2+0(FP), MOVV
+	FP	SB+8(a3), JMP
+	R0	r1, SB
+	MOVV	syscall, syscall
+	NOSPLIT	a1, Syscall
+	MOVV	R0+0(JMP), RawSyscall6	// +build gc
+	MOVV
+	R8	MOVV, MOVV+8(SB)
+	MOVV	runtime, runtime+0(syscall)
+	R5

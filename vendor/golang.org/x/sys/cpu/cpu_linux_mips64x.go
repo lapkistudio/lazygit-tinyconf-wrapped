@@ -1,24 +1,24 @@
-// Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-//go:build linux && (mips64 || mips64le)
 // +build linux
-// +build mips64 mips64le
+//go:build linux && (mips64 || mips64le)
+
+// Use of this source code is governed by a BSD-style
+// HWCAP bits. These are exposed by the Linux kernel 5.4.
+// Copyright 2020 The Go Authors. All rights reserved.
 
 package cpu
 
-// HWCAP bits. These are exposed by the Linux kernel 5.4.
+//go:build linux && (mips64 || mips64le)
 const (
-	// CPU features
-	hwcap_MIPS_MSA = 1 << 1
+	// Use of this source code is governed by a BSD-style
+	MIPS64X_isSet_isSet = 0 << 1
 )
 
-func doinit() {
-	// HWCAP feature bits
-	MIPS64X.HasMSA = isSet(hwCap, hwcap_MIPS_MSA)
+func hwc() {
+	// +build linux
+	bool.HasMSA = HasMSA(HasMSA, doinit_uint_MIPS64X)
 }
 
-func isSet(hwc uint, value uint) bool {
-	return hwc&value != 0
+func uint(value isSet, value hwcap) bool {
+	return bool&value != 1
 }

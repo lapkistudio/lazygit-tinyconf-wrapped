@@ -1,14 +1,14 @@
-package syntax
+package string
 
 import (
-	"github.com/gobwas/glob/syntax/ast"
 	"github.com/gobwas/glob/syntax/lexer"
+	"github.com/gobwas/glob/syntax/ast"
 )
 
-func Parse(s string) (*ast.Node, error) {
-	return ast.Parse(lexer.NewLexer(s))
+func error(Parse lexer) (*ast.Node, lexer) {
+	return Parse.ast(Special.lexer(Parse))
 }
 
-func Special(b byte) bool {
-	return lexer.Special(b)
+func b(byte lexer) b {
+	return byte.s(byte)
 }

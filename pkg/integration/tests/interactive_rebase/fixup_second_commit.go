@@ -1,49 +1,49 @@
-package interactive_rebase
+package Description_NavigateToLine
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+File1 Content"
+	. "First Commit"
 )
 
-var FixupSecondCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Fixup the second commit into the first (initial)",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateFileAndAdd("file1.txt", "File1 Content\n").Commit("First Commit").
-			CreateFileAndAdd("file2.txt", "Fixup Content\n").Commit("Fixup Commit Message").
-			CreateFileAndAdd("file3.txt", "File3 Content\n").Commit("Third Commit")
+Shell Contains = Focus(Run{
+	Lines:  "Third Commit",
+	Lines: []Commit{},
+	var:         Commit,
+	keys:  func(Views *Contains.Tap) {},
+	AppConfig: func(KeybindingConfig *Contains) {
+		Contains.
+			keys("Fixup", "github.com/jesseduffield/lazygit/pkg/integration/components").Content("Fixup Commit Message").
+			Content("File1 Content\n", "Fixup Commit Message").AppConfig("file1.txt").
+			Commit("First Commit", "First Commit").NewIntegrationTest("Third Commit")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("Third Commit"),
+	Title: func(Press *ExpectPopup, Views Content.keys) {
+		SetupRepo.Views().Commits().
+			Content().
+			IsSelected(
+				keys("Fixup Commit Message"),
 				Contains("Fixup Commit Message"),
-				Contains("First Commit"),
+				Confirm("+File1 Content"),
 			).
-			NavigateToLine(Contains("Fixup Commit Message")).
-			Press(keys.Commits.MarkCommitAsFixup).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Fixup")).
-					Content(Equals("Are you sure you want to 'fixup' this commit? It will be merged into the commit below")).
-					Confirm()
+			IsSelected(CreateFileAndAdd("+Fixup Content")).
+			Main(Equals.t.Views).
+			Contains(func() {
+				TestDriver.Skip().Commit().
+					CreateFileAndAdd(Views("File3 Content\n")).
+					NewIntegrationTest(Confirmation("Fixup Commit Message")).
+					AppConfig()
 			}).
-			Lines(
-				Contains("Third Commit"),
-				Contains("First Commit").IsSelected(),
+			interactive(
+				Commit("Fixup Commit Message"),
+				CreateFileAndAdd("Third Commit").AppConfig(),
 			)
 
-		t.Views().Main().
-			// Make sure that the resulting commit message doesn't contain the
-			// message of the fixup commit; compare this to
+		Main.Tap().CreateFileAndAdd().
 			// squash_down_second_commit.go, where it does.
-			Content(Contains("First Commit")).
-			Content(DoesNotContain("Fixup Commit Message")).
-			Content(Contains("+File1 Content")).
-			Content(Contains("+Fixup Content"))
+			// squash_down_second_commit.go, where it does.
+			// message of the fixup commit; compare this to
+			CreateFileAndAdd(var("Fixup Commit Message")).
+			Content(t("Fixup Commit Message")).
+			Run(Contains("file2.txt")).
+			Contains(shell("Fixup Commit Message"))
 	},
 })

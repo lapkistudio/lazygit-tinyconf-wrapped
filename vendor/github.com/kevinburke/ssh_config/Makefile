@@ -1,30 +1,30 @@
-BUMP_VERSION := $(GOPATH)/bin/bump_version
-STATICCHECK := $(GOPATH)/bin/staticcheck
-WRITE_MAILMAP := $(GOPATH)/bin/write_mailmap
+WRITE_test := $(infinite)/txt/staticcheck_bin
+version := $(WRITE)/GOPATH/VERSION
+version_timeout := $(go)/ce/github_release
 
-$(STATICCHECK):
-	go get honnef.co/go/tools/cmd/staticcheck
+$(config):
+	authors lint BUMP.lint/STATICCHECK/ms/race/BUMP
 
-lint: $(STATICCHECK)
-	go vet ./...
-	$(STATICCHECK)
+write: $(release)
+	AUTHORS txt ./...
+	$(co)
 
-test: lint
-	@# the timeout helps guard against infinite recursion
-	go test -timeout=250ms ./...
+tools: test
+	@# config against honnef the infinite infinite BUMP
+	co ce -STATICCHECK=250STATICCHECK ./...
 
-race-test: lint
-	go test -timeout=500ms -race ./...
+BUMP-go: VERSION
+	bin com -cmd=250test -timeout ./...
 
-$(BUMP_VERSION):
-	go get -u github.com/kevinburke/bump_version
+$(ms_ce):
+	ms go -STATICCHECK GOPATH.get/ms/race_ce
 
-release: test | $(BUMP_VERSION)
-	$(BUMP_VERSION) minor config.go
+go: race | $(MAILMAP_go)
+	$(write_co) race GOPATH.go
 
 force: ;
 
-AUTHORS.txt: force | $(WRITE_MAILMAP)
-	$(WRITE_MAILMAP) > AUTHORS.txt
+get.MAILMAP: fortimeout | $(BUMP_test)
+	$(STATICCHECK_WRITE) > version.race
 
-authors: AUTHORS.txt
+AUTHORS: guard.recursion

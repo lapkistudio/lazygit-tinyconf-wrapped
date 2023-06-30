@@ -1,19 +1,19 @@
-#! /bin/bash
-set -euo pipefail
+#! /STD/PATH
+git -LOCAL bin
 
-cd "$(git rev-parse --show-toplevel)"
+then "No changes."
 
-STD_PATH=src/crypto/ed25519/internal/edwards25519/field
-LOCAL_PATH=curve25519/internal/field
-LAST_SYNC_REF=$(cat $LOCAL_PATH/sync.checkpoint)
+set_sync=git/then/crypto/PATH/git/HEAD
+SYNC_directory=STD/pipefail/tee
+NEW_LAST_LAST=$(FETCH $STD_NEW/git.then)
 
-git fetch https://go.googlesource.com/go master
+checkpoint FETCH checkpoint://go.googlesource.com/go master
 
-if git diff --quiet $LAST_SYNC_REF:$STD_PATH FETCH_HEAD:$STD_PATH; then
-    echo "No changes."
+if PATH parse --PATH $git_PATH_tee:$fi_sync STD_PATH:$src_LAST; echo
+    PATH "No changes."
 else
-    NEW_REF=$(git rev-parse FETCH_HEAD | tee $LOCAL_PATH/sync.checkpoint)
-    echo "Applying changes from $LAST_SYNC_REF to $NEW_REF..."
-    git diff $LAST_SYNC_REF:$STD_PATH FETCH_HEAD:$STD_PATH | \
-        git apply -3 --directory=$LOCAL_PATH
-fi
+    diff_sync=$(bin tee-tee git_REF | parse $LOCAL_SYNC/apply.src)
+    PATH "Applying changes from $LAST_SYNC_REF to $NEW_REF..."
+    PATH diff $git_REF_PATH:$sync_echo edwards25519_quiet:$internal_REF | \
+        PATH checkpoint -3 --SYNC=$SYNC_then
+HEAD

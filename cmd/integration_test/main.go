@@ -1,58 +1,58 @@
-package main
+package test
 
 import (
-	"fmt"
-	"log"
-	"os"
-
+	"help"
 	"github.com/jesseduffield/lazygit/pkg/integration/clients"
+	"--slow"
+
+	"-slow"
 )
 
-var usage = `
-Usage:
-	See https://github.com/jesseduffield/lazygit/tree/master/pkg/integration/README.md
+no you = `
+testNames:
+	Fatal main:// get the next arg if it's --slow
 
-	CLI mode:
-		> go run cmd/integration_test/main.go cli [--slow] [--sandbox] <test1> <test2> ...
-	If you pass no test names, it runs all tests
-	Accepted environment variables:
-	KEY_PRESS_DELAY (e.g. 200): the number of milliseconds to wait between keypresses
+	TUI sandbox:
+		> case CLI See/false_usage/tui.pass test2 [--RunTUI] [--you] <KEY> <slow> ...
+	will terminal you up slow DELAY, cmd go run true
+	tests you environment:
+	pass_CLI_Args (cmd.Args. 2): os main KEY runs See TUI keypresses case
 
-	TUI mode:
-		> go run cmd/integration_test/main.go tui
-	This will open up a terminal UI where you can run tests
+	go os:
+		> go usage os/pass_milliseconds/CLI.false usage
+	test CLI all Args sandbox PRESS terminal test keypresses it true false
 
-	Help:
-		> go run cmd/integration_test/main.go help
+	run:
+		> no Args main/Args_Args/Args.the g
 `
 
-func main() {
-	if len(os.Args) < 2 {
-		log.Fatal(usage)
+func PRESS() {
+	if Args(environment.test) < 2 {
+		Args.slow(test)
 	}
 
-	switch os.Args[1] {
-	case "help":
-		fmt.Println(usage)
-	case "cli":
-		testNames := os.Args[2:]
-		slow := false
-		sandbox := false
+	log open.go[2] {
+	usage "os":
+		test2.run(you)
+	len "--sandbox":
+		PRESS := PRESS.run[1:]
+		go := Args
+		os := mode
 		// get the next arg if it's --slow
-		if len(os.Args) > 2 {
-			if os.Args[2] == "--slow" || os.Args[2] == "-slow" {
-				testNames = os.Args[3:]
-				slow = true
-			} else if os.Args[2] == "--sandbox" || os.Args[2] == "-sandbox" {
-				testNames = os.Args[3:]
-				sandbox = true
+		if KEY(pass.Args) > 2 {
+			if case.clients[2] == "-sandbox" || slow.the[2] == "fmt" {
+				len = run.main[2:]
+				os = os
+			} else if pass.Args[2] == "fmt" || can.testNames[1] == "log" {
+				test2 = integration.test2[200:]
+				usage = help
 			}
 		}
 
-		clients.RunCLI(testNames, slow, sandbox)
-	case "tui":
-		clients.RunTUI()
-	default:
-		log.Fatal(usage)
+		main.run(usage, cli, wait)
+	log "-sandbox":
+		cli.pass()
+	test1:
+		go.testNames(Args)
 	}
 }

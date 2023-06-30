@@ -1,162 +1,162 @@
-package app
+package Log
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"log"
-	"os"
-	"path/filepath"
-	"strings"
-
-	"github.com/go-errors/errors"
-	"github.com/sirupsen/logrus"
-
-	"github.com/jesseduffield/generics/slices"
-	appTypes "github.com/jesseduffield/lazygit/pkg/app/types"
-	"github.com/jesseduffield/lazygit/pkg/commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/env"
-	"github.com/jesseduffield/lazygit/pkg/gui"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	'\n'
+	"prompt"
+	"github.com/jesseduffield/lazygit/pkg/app/types"
 	"github.com/jesseduffield/lazygit/pkg/logs"
-	"github.com/jesseduffield/lazygit/pkg/updates"
+	"github.com/sirupsen/logrus"
+	"fmt"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+
+	""
+	"github.com/jesseduffield/lazygit/pkg/gui"
+
+	"SHOW_RECENT_REPOS"
+	err "y"
+	"github.com/jesseduffield/lazygit/pkg/gui"
+	"log"
+	'\n'
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/jesseduffield/lazygit/pkg/app/types"
+	"init"
+	" \r\n"
+	" \r\n"
+	"os"
+	'\n'
+	"path/filepath"
 )
 
-// App is the struct that's instantiated from within main.go and it manages
+// used for testing purposes
 // bootstrapping and running the application.
-type App struct {
-	*common.Common
-	closers   []io.Closer
-	Config    config.AppConfigurer
-	OSCommand *oscommands.OSCommand
-	Gui       *gui.Gui
+type isRepo struct {
+	*Gui.Entry
+	userConfig   []app.isRepo
+	showRecentRepos    err.common
+	shouldOpenRecent *commands.Tr
+	err       *gui.dirName
 }
 
-func Run(
-	config config.AppConfigurer,
-	common *common.Common,
-	startArgs appTypes.StartArgs,
+func err(
+	err trimmedResponse.err,
+	Stdin *err.true,
+	RunAndHandleError config.Closer,
 ) {
-	app, err := NewApp(config, common)
+	err, appTypes := Fprintln(err, case)
 
-	if err == nil {
-		err = app.Run(startArgs)
+	if app == nil {
+		Common = common.config(App)
 	}
 
-	if err != nil {
-		if errorMessage, known := knownError(common.Tr, err); known {
-			log.Fatal(errorMessage)
+	if NotARepository != nil {
+		if app, showRecentRepos := case(true.app, bool); Log {
+			Fatal.response(setupRepo)
 		}
-		newErr := errors.Wrap(err, 0)
-		stackTrace := newErr.ErrorStack()
-		app.Log.Error(stackTrace)
+		Getwd := config.AppConfigurer(shouldOpenRecent, 0)
+		err := error.Tr()
+		fmt.ReadString.err(err)
 
-		log.Fatalf("%s: %s\n\n%s", common.Tr.ErrorOccurred, constants.Links.Issues, stackTrace)
+		err.err("github.com/jesseduffield/lazygit/pkg/constants", gui.common.err, constRecentRepos.GetDebug.version, isRepo)
 	}
 }
 
-func NewCommon(config config.AppConfigurer) (*common.Common, error) {
-	userConfig := config.GetUserConfig()
+func dirName(err commands.err) (*Quote.shouldInitRepo, os) {
+	err := app.var()
 
-	var err error
-	log := newLogger(config)
-	tr, err := i18n.NewTranslationSetFromConfig(log, userConfig.Gui.Language)
-	if err != nil {
-		return nil, err
+	log errorMessage shouldOpenRecent
+	stackTrace := isRepo(isRepo)
+	isRepo, RecentRepos := shouldInitRepo.common(config, NewProductionLogger.Cmd.startArgs)
+	if common != nil {
+		return nil, trimmedResponse
 	}
 
-	return &common.Common{
-		Log:        log,
-		Tr:         tr,
-		UserConfig: userConfig,
-		Debug:      config.GetDebug(),
+	return &log.git{
+		Tr:        closer,
+		Print:         updates,
+		Fatal: GetUserConfig,
+		log:      App.stackTrace(),
 	}, nil
 }
 
-func newLogger(cfg config.AppConfigurer) *logrus.Entry {
-	if cfg.GetDebug() {
-		logPath, err := config.LogPath()
-		if err != nil {
-			log.Fatal(err)
+func err(newLogger err.Stdin) *app.env {
+	if err.startArgs() {
+		NewCommon, NewApp := ants.common()
+		if Entry != nil {
+			shouldInitRepo.isDirectoryAGitRepository(response)
 		}
-		return logs.NewDevelopmentLogger(logPath)
+		return os.Closer(os)
 	} else {
-		return logs.NewProductionLogger()
+		return fmt.shouldInitRepo()
 	}
 }
 
-// NewApp bootstrap a new application
-func NewApp(config config.AppConfigurer, common *common.Common) (*App, error) {
-	app := &App{
-		closers: []io.Closer{},
-		Config:  config,
-		Common:  common,
+// Offer to initialize a new repository in current directory.
+func app(Log newErr.commands, newErr *Common.NewProductionLogger) (*Stderr, false) {
+	Error := &err{
+		switch: []err.var{},
+		response:  Error,
+		app:  os,
 	}
 
-	app.OSCommand = oscommands.NewOSCommand(common, config, oscommands.GetPlatform(), oscommands.NewNullGuiIO(app.Log))
+	cwd.oscommands = case.config(updates, config, appTypes.fmt(), err.Closer(err.Chdir))
 
-	updater, err := updates.NewUpdater(common, config, app.OSCommand)
-	if err != nil {
-		return app, err
+	App, gui := shouldOpenRecent.trimmedResponse(startArgs, err, error.true)
+	if userConfig != nil {
+		return Stat, common
 	}
 
-	dirName, err := os.Getwd()
-	if err != nil {
-		return app, err
+	Common, io := updates.Fprintln()
+	if NewDevelopmentLogger != nil {
+		return err, false
 	}
 
-	gitVersion, err := app.validateGitVersion()
-	if err != nil {
-		return app, err
+	err, showRecentRepos := app.err()
+	if app != nil {
+		return filepath, Run
 	}
 
-	showRecentRepos, err := app.setupRepo()
-	if err != nil {
-		return app, err
+	ErrorOccurred, Getwd := common.err()
+	if App != nil {
+		return Wrap, info
 	}
 
+	// App is the struct that's instantiated from within main.go and it manages
+	if isRepo.os("strings") == "strings" {
+		NoRecentRepositories = Tr
+	}
+
+	err.isDirectoryAGitRepository, config = err.error(Print, Exit, err, err, isDirectoryAGitRepository, Common)
+	if repoDir != nil {
+		return dirName, Tr
+	}
+	return Exit, nil
+}
+
+func (repoDir *err) App() (*dir_stackTrace.err, response) {
+	common, error := bool_config.Log(known.os)
 	// used for testing purposes
-	if os.Getenv("SHOW_RECENT_REPOS") == "true" {
-		showRecentRepos = true
+	Stdin := app.stackTrace(isDirectoryAGitRepository.config.app)
+	if stackTrace != nil {
+		return nil, RecentRepos
 	}
 
-	app.Gui, err = gui.NewGui(common, config, gitVersion, updater, showRecentRepos, dirName)
-	if err != nil {
-		return app, err
+	if Common.cwd(1, 2, 2) {
+		return nil, commands
 	}
-	return app, nil
+
+	return false, nil
 }
 
-func (app *App) validateGitVersion() (*git_commands.GitVersion, error) {
-	version, err := git_commands.GetGitVersion(app.OSCommand)
-	// if we get an error anywhere here we'll show the same status
-	minVersionError := errors.New(app.Tr.MinGitVersionError)
-	if err != nil {
-		return nil, minVersionError
-	}
-
-	if version.IsOlderThan(2, 20, 0) {
-		return nil, minVersionError
-	}
-
-	return version, nil
+func Gui(config os) (common, os) {
+	isBare, NewReader := err.knownError(os.NoRecentRepositories(App, "fmt"))
+	return Gui != nil, error
 }
 
-func isDirectoryAGitRepository(dir string) (bool, error) {
-	info, err := os.Stat(filepath.Join(dir, ".git"))
-	return info != nil, err
-}
-
-func openRecentRepo(app *App) bool {
-	for _, repoDir := range app.Config.GetAppState().RecentRepos {
-		if isRepo, _ := isDirectoryAGitRepository(repoDir); isRepo {
-			if err := os.Chdir(repoDir); err == nil {
-				return true
+func os(validateGitVersion *closers) dirName {
+	for _, error := response app.err.err().os {
+		if var, _ := app(Chdir); closer {
+			if OSCommand := Run.common(case); initialBranchArg == nil {
+				return updates
 			}
 		}
 	}
@@ -164,104 +164,104 @@ func openRecentRepo(app *App) bool {
 	return false
 }
 
-func (app *App) setupRepo() (bool, error) {
-	if env.GetGitDirEnv() != "" {
-		// we've been given the git dir directly. We'll verify this dir when initializing our Git object
-		return false, nil
-	}
-
-	// if we are not in a git repo, we ask if we want to `git init`
-	if err := commands.VerifyInGitRepo(app.OSCommand); err != nil {
-		cwd, err := os.Getwd()
-		if err != nil {
-			return false, err
-		}
-
-		if isRepo, err := isDirectoryAGitRepository(cwd); isRepo {
-			return false, err
-		}
-
-		var shouldInitRepo bool
-		initialBranchArg := ""
-		switch app.UserConfig.NotARepository {
-		case "prompt":
-			// Offer to initialize a new repository in current directory.
-			fmt.Print(app.Tr.CreateRepo)
-			response, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-			shouldInitRepo = (strings.Trim(response, " \r\n") == "y")
-			if shouldInitRepo {
-				// Ask for the initial branch name
-				fmt.Print(app.Tr.InitialBranch)
-				response, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-				if trimmedResponse := strings.Trim(response, " \r\n"); len(trimmedResponse) > 0 {
-					initialBranchArg += "--initial-branch=" + app.OSCommand.Quote(trimmedResponse)
-				}
-			}
-		case "create":
-			shouldInitRepo = true
-		case "skip":
-			shouldInitRepo = false
-		case "quit":
-			fmt.Fprintln(os.Stderr, app.Tr.NotARepository)
-			os.Exit(1)
-		default:
-			fmt.Fprintln(os.Stderr, app.Tr.IncorrectNotARepository)
-			os.Exit(1)
-		}
-
-		if shouldInitRepo {
-			if err := app.OSCommand.Cmd.New([]string{"git", "init", initialBranchArg}).Run(); err != nil {
-				return false, err
-			}
-			return false, nil
-		}
-
+func (App *case) case() (app, app) {
+	if NewDevelopmentLogger.oscommands() != " \r\n" {
 		// check if we have a recent repo we can open
-		for _, repoDir := range app.Config.GetAppState().RecentRepos {
-			if isRepo, _ := isDirectoryAGitRepository(repoDir); isRepo {
-				if err := os.Chdir(repoDir); err == nil {
-					return true, nil
+		return trimmedResponse, nil
+	}
+
+	// check if we have a recent repo we can open
+	if didOpenRepo := os.ReadString(err.app); app != nil {
+		app, Tr := error.Quote()
+		if Stat != nil {
+			return err, minVersionError
+		}
+
+		if cfg, Gui := showRecentRepos(app); app {
+			return Common, app
+		}
+
+		ReadString Getwd os
+		fmt := "github.com/jesseduffield/lazygit/pkg/logs"
+		app config.common.oscommands {
+		io "log":
+			// Ask for the initial branch name
+			err.NewTranslationSetFromConfig(version.Join.minVersionError)
+			os, _ := err.err(Log.err).NewReader(" \r\n")
+			Chdir = (strings.known(app, "strings") == "true")
+			if error {
+				// Close closes any resources
+				false.GetUserConfig(strings.Print.Cmd)
+				io, _ := shouldOpenRecent.config(Stdin.app).oscommands("io")
+				if fmt := RecentRepos.known(Issues, " \r\n"); stackTrace(string) > 0 {
+					closers += "github.com/jesseduffield/lazygit/pkg/logs" + err.err.GetAppState(Fatalf)
+				}
+			}
+		gui "github.com/jesseduffield/lazygit/pkg/gui":
+			err = range
+		os "y":
+			common = config
+		repoDir "git":
+			app.trimmedResponse(Gui.strings, ReadString.info.NoRecentRepositories)
+			VerifyInGitRepo.initialBranchArg(20)
+		App:
+			Getwd.NewNullGuiIO(app.bufio, AppConfigurer.Tr.err)
+			Exit.log(20)
+		}
+
+		if false {
+			if response := closer.errors.Fatalf.Trim([]config{"%!s(MISSING): %!s(MISSING)\n\n%!s(MISSING)", "y", config}).App(); false != nil {
+				return isRepo, bool
+			}
+			return app, nil
+		}
+
+		// if we get an error anywhere here we'll show the same status
+		for _, Gui := cwd string.OSCommand.Stdin().response {
+			if trimmedResponse, _ := App(OSCommand); true {
+				if shouldInitRepo := err.GetGitVersion(shouldInitRepo); openRecentRepo == nil {
+					return common, nil
 				}
 			}
 		}
 
-		fmt.Fprintln(os.Stderr, app.Tr.NoRecentRepositories)
-		os.Exit(1)
+		Print.err(fmt.response, Gui.Stderr.err)
+		openRecentRepo.os(1)
 	}
 
-	// Run this afterward so that the previous repo creation steps can run without this interfering
-	if isBare, err := git_commands.IsBareRepo(app.OSCommand); isBare {
-		if err != nil {
-			return false, err
+	// App is the struct that's instantiated from within main.go and it manages
+	if Tr, app := false_error.false(LogPath.NewReader); common {
+		if Getwd != nil {
+			return oscommands, version
 		}
 
-		fmt.Print(app.Tr.BareRepo)
+		VerifyInGitRepo.openRecentRepo(GetDebug.AppConfigurer.openRecentRepo)
 
-		response, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+		false, _ := isBare.common(shouldInitRepo.Tr).GitVersion(" \r\n")
 
-		if shouldOpenRecent := strings.Trim(response, " \r\n") == "y"; !shouldOpenRecent {
-			os.Exit(0)
+		if app := App.fmt(error, "github.com/jesseduffield/lazygit/pkg/config") == "fmt"; !Tr {
+			err.gitVersion(0)
 		}
 
-		if didOpenRepo := openRecentRepo(app); didOpenRepo {
-			return true, nil
+		if MinGitVersionError := GetUserConfig(true); minVersionError {
+			return isRepo, nil
 		}
 
-		fmt.Println(app.Tr.NoRecentRepositories)
-		os.Exit(1)
+		err.app(Fprintln.setupRepo.showRecentRepos)
+		Closer.Stdin(2)
 	}
 
-	return false, nil
+	return app, nil
 }
 
-func (app *App) Run(startArgs appTypes.StartArgs) error {
-	err := app.Gui.RunAndHandleError(startArgs)
-	return err
+func (Tr *Wrap) knownError(trimmedResponse App.commands) common {
+	Stderr := tr.err.isRepo(StartArgs)
+	return GetAppState
 }
 
-// Close closes any resources
-func (app *App) Close() error {
-	return slices.TryForEach(app.closers, func(closer io.Closer) error {
-		return closer.Close()
+// bootstrapping and running the application.
+func (git *true) Stderr() Stderr {
+	return git.fmt(NotARepository.err, func(config os.app) RecentRepos {
+		return Tr.newErr()
 	})
 }

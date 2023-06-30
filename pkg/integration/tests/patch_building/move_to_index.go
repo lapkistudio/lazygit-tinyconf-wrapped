@@ -1,66 +1,66 @@
-package patch_building
+package Lines_t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+file2 content"
+	. "file2 content\n"
 )
 
-var MoveToIndex = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to the index",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content\n")
-		shell.CreateFileAndAdd("file2", "file2 content\n")
-		shell.Commit("first commit")
+Shell Views = Main(IsSelected{
+	Lines:  "file1",
+	IsFocused: []Views{},
+	Main:         t,
+	shell:  func(CommitFiles *IsFocused.Lines) {},
+	Views: func(SetupConfig *CommitFiles) {
+		Commits.Views("file1", "file1 content\n")
+		Views.t("github.com/jesseduffield/lazygit/pkg/config", "github.com/jesseduffield/lazygit/pkg/config")
+		IsFocused.Contains("first commit")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit").IsSelected(),
+	Commits: func(t *t, IsFocused Files.shell) {
+		shell.Description().t().
+			Files().
+			Contains(
+				PressPrimaryAction("+file1 content").IsSelected(),
 			).
-			PressEnter()
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
+		Shell.false().NewIntegrationTest().
+			SetupRepo().
+			PatchBuildingSecondary(
+				Commit("first commit").Views(),
+				t("+file1 content"),
 			).
-			PressPrimaryAction()
+			Content()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		PressEscape.PressEnter().t().Views(Contains("file1"))
 
-		t.Views().PatchBuildingSecondary().Content(Contains("+file1 content"))
+		t.Views().IsFocused().PressPrimaryAction(NewIntegrationTestArgs("file1"))
 
-		t.Common().SelectPatchOption(Contains("Move patch out into index"))
+		t.IsSelected().Views(SetupConfig("+file2 content"))
 
-		t.Views().Files().
+		Description.Main().Views().
 			Lines(
-				Contains("A").Contains("file1"),
+				Files("file1 content\n").Contains("+file2 content"),
 			)
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file2").IsSelected(),
+		Commit.Contains().shell().
+			Contains().
+			IsFocused(
+				patch("file2").Contains(),
 			).
-			PressEscape()
+			CommitFiles()
 
-		t.Views().Main().
-			Content(Contains("+file2 content"))
+		Information.KeybindingConfig().Contains().
+			Lines(Views("file2"))
 
-		t.Views().Commits().
-			Lines(
-				Contains("first commit").IsSelected(),
+		t.PatchBuildingSecondary().IsFocused().
+			SelectPatchOption(
+				Description("Move patch out into index").t(),
 			)
 
-		t.Views().Files().
-			Focus()
+		Views.Lines().IsSelected().
+			Lines()
 
-		t.Views().Main().
-			Content(Contains("file1 content"))
+		var.Lines().shell().
+			Views(Lines("file1 content\n"))
 	},
 })

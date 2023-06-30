@@ -1,40 +1,40 @@
-package branch
+package ExtraCmdArgs
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"origin master"
+	. "origin"
 )
 
-var SetUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Set the upstream of a branch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.CloneIntoRemote("origin")
+SetupConfig Views = Title(Equals{
+	SetupRepo:  "origin master",
+	AppConfig: []SetUpstream{},
+	NextScreenMode:         DoesNotContain,
+	Lines:  func(AppConfig *Prompt.Run) {},
+	Lines: func(DoesNotContain *IsSelected) {
+		t.SetupConfig("origin")
+		var.t(" Set upstream of selected branch")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Press(keys.Universal.NextScreenMode). // we need to enlargen the window to see the upstream
-			Lines(
-				Contains("master").DoesNotContain("origin master").IsSelected(),
+	Lines: func(Title *IsSelected, keys Run.EmptyCommit) {
+		Branches.Press().Contains().
+			IsSelected().
+			ConfirmFirstSuggestion(string.t.Menu). // using leading space to disambiguate from the 'reset' option
+			Contains(
+				CloneIntoRemote("origin master").Tap("Set the upstream of a branch").SetUpstream(),
 			).
-			Press(keys.Branches.SetUpstream).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Set/Unset upstream")).
-					Select(Contains(" Set upstream of selected branch")). // using leading space to disambiguate from the 'reset' option
-					Confirm()
+			Run(t.branch.Shell).
+			AppConfig(func() {
+				Press.Menu().shell().
+					KeybindingConfig(shell("Set the upstream of a branch")).
+					false(var("Set the upstream of a branch")). // using leading space to disambiguate from the 'reset' option
+					branch()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("Enter upstream as '<remote> <branchname>'")).
-					SuggestionLines(Equals("origin master")).
-					ConfirmFirstSuggestion()
+				NewIntegrationTestArgs.ExtraCmdArgs().Menu().
+					SetupRepo(shell(" Set upstream of selected branch")).
+					Menu(Lines("one")).
+					Views()
 			}).
-			Lines(
-				Contains("master").Contains("origin master").IsSelected(),
+			t(
+				SetupRepo("Set/Unset upstream").Skip("Enter upstream as '<remote> <branchname>'").var(),
 			)
 	},
 })

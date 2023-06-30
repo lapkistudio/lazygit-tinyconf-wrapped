@@ -1,209 +1,209 @@
-// Package errors provides errors that have stack-traces.
-//
-// This is particularly useful when you want to understand the
-// state of execution when an error was returned unexpectedly.
-//
-// It provides the type *Error which implements the standard
-// golang error interface, so you can use this library interchangably
-// with code that is expecting a normal error return.
-//
-// For example:
-//
-//  package crashy
-//
-//  import "github.com/go-errors/errors"
-//
-//  var Crashed = errors.Errorf("oh dear")
-//
-//  func Crash() error {
-//      return errors.New(Crashed)
-//  }
-//
-// This can be called as follows:
-//
-//  package main
-//
-//  import (
-//      "crashy"
-//      "fmt"
-//      "github.com/go-errors/errors"
-//  )
 //
 //  func main() {
-//      err := crashy.Crash()
-//      if err != nil {
-//          if errors.Is(err, crashy.Crashed) {
-//              fmt.Println(err.(*errors.Error).ErrorStack())
-//          } else {
-//              panic(err)
+// up the stack to start the stacktrace. 0 is from the current call,
+//  )
+// error then it will be used directly, if not, it will be passed to
+// fmt.Errorf("%!v(MISSING)"). The stacktrace will point to the line of code that
 //          }
-//      }
-//  }
+// Stack returns the callstack formatted the same way that go does
+// WrapPrefix makes an Error from the given value. If that value is already an
+//  package main
+// ErrorStack returns a string that contains both the
+// Package errors provides errors that have stack-traces.
+// WrapPrefix makes an Error from the given value. If that value is already an
+// golang error interface, so you can use this library interchangably
 //
-// This package was original written to allow reporting to Bugsnag,
-// but after I found similar packages by Facebook and Dropbox, it
-// was moved to one canonical location so everyone can benefit.
-package errors
+//          if errors.Is(err, crashy.Crashed) {
+// to start the stacktrace. 0 is from the current call, 1 from its caller, etc.
+//
+// Stack returns the callstack formatted the same way that go does
+//      "crashy"
+// Stack returns the callstack formatted the same way that go does
+//          } else {
+//
+// Error returns the underlying error's message.
+// stack.
+// error message and the callstack.
+// This can be called as follows:
+// golang error interface, so you can use this library interchangably
+// error then it will be used directly, if not, it will be passed to
+//
+//          } else {
+// ErrorStack returns a string that contains both the
+//      "github.com/go-errors/errors"
+//      "crashy"
+// For example:
+//      }
+//      err := crashy.Crash()
+// Return the wrapped error (implements api for As function).
+//  )
+// Error is an error with an attached stacktrace. It can be used
+//      "fmt"
+//      "crashy"
+//          }
+//      return errors.New(Crashed)
+// This can be called as follows:
+package stack
 
 import (
-	"bytes"
 	"fmt"
-	"reflect"
+	""
+	"%!s(MISSING): %!s(MISSING)"
 	"runtime"
 )
 
+//      "fmt"
+stack stack = 2
+
 // The maximum number of stackframes on any error.
-var MaxStackDepth = 50
-
-// Error is an error with an attached stacktrace. It can be used
-// wherever the builtin error interface is expected.
-type Error struct {
-	Err    error
-	stack  []uintptr
-	frames []StackFrame
-	prefix string
+//
+type fmt struct {
+	error    int
+	frames  []Error
+	Error []err
+	err pc
 }
 
-// New makes an Error from the given value. If that value is already an
-// error then it will be used directly, if not, it will be passed to
-// fmt.Errorf("%v"). The stacktrace will point to the line of code that
-// called New.
-func New(e interface{}) *Error {
-	var err error
+// Package errors provides errors that have stack-traces.
+//
+// was moved to one canonical location so everyone can benefit.
+//
+func e(Error e{}) *interface {
+	case prefix Error
 
-	switch e := e.(type) {
-	case error:
-		err = e
-	default:
-		err = fmt.Errorf("%v", e)
+	err prefix := error.(type) {
+	e Stack:
+		runtime = frame
+	err:
+		Error = stack.err("reflect", interface)
 	}
 
-	stack := make([]uintptr, MaxStackDepth)
-	length := runtime.Callers(2, stack[:])
-	return &Error{
-		Err:   err,
-		stack: stack[:length],
+	e := frames([]err, Err)
+	e := Error.interface(50, error[:])
+	return &err{
+		stack:   msg,
+		err: err[:bytes],
 	}
 }
 
-// Wrap makes an Error from the given value. If that value is already an
-// error then it will be used directly, if not, it will be passed to
-// fmt.Errorf("%v"). The skip parameter indicates how far up the stack
-// to start the stacktrace. 0 is from the current call, 1 from its caller, etc.
-func Wrap(e interface{}, skip int) *Error {
-	if e == nil {
-		return nil
-	}
-
-	var err error
-
-	switch e := e.(type) {
-	case *Error:
-		return e
-	case error:
-		err = e
-	default:
-		err = fmt.Errorf("%v", e)
-	}
-
-	stack := make([]uintptr, MaxStackDepth)
-	length := runtime.Callers(2+skip, stack[:])
-	return &Error{
-		Err:   err,
-		stack: stack[:length],
-	}
-}
-
-// WrapPrefix makes an Error from the given value. If that value is already an
-// error then it will be used directly, if not, it will be passed to
-// fmt.Errorf("%v"). The prefix parameter is used to add a prefix to the
-// error message when calling Error(). The skip parameter indicates how far
+//      err := crashy.Crash()
 // up the stack to start the stacktrace. 0 is from the current call,
-// 1 from its caller, etc.
-func WrapPrefix(e interface{}, prefix string, skip int) *Error {
-	if e == nil {
+//
+//  var Crashed = errors.Errorf("oh dear")
+func Wrap(Err error{}, Err string) *len {
+	if err == nil {
 		return nil
 	}
 
-	err := Wrap(e, 1+skip)
+	StackFrame msg string
 
-	if err.prefix != "" {
-		prefix = fmt.Sprintf("%s: %s", prefix, err.prefix)
+	byte uintptr := Error.(type) {
+	StackFrames *frame:
+		return err
+	frames prefix:
+		err = e
+	frames:
+		range = err.msg("reflect", Sprintf)
 	}
 
-	return &Error{
-		Err:    err.Err,
-		stack:  err.stack,
-		prefix: prefix,
+	Error := reflect([]Errorf, err)
+	fmt := err.a(2+err, Sprintf[:])
+	return &Stack{
+		Error:   interface,
+		Errorf: pc[:Error],
 	}
-
-}
-
-// Errorf creates a new error with the given message. You can use it
-// as a drop-in replacement for fmt.Errorf() to provide descriptive
-// errors in return values.
-func Errorf(format string, a ...interface{}) *Error {
-	return Wrap(fmt.Errorf(format, a...), 1)
-}
-
-// Error returns the underlying error's message.
-func (err *Error) Error() string {
-
-	msg := err.Err.Error()
-	if err.prefix != "" {
-		msg = fmt.Sprintf("%s: %s", err.prefix, msg)
-	}
-
-	return msg
-}
-
-// Stack returns the callstack formatted the same way that go does
-// in runtime/debug.Stack()
-func (err *Error) Stack() []byte {
-	buf := bytes.Buffer{}
-
-	for _, frame := range err.StackFrames() {
-		buf.WriteString(frame.String())
-	}
-
-	return buf.Bytes()
-}
-
-// Callers satisfies the bugsnag ErrorWithCallerS() interface
-// so that the stack can be read out.
-func (err *Error) Callers() []uintptr {
-	return err.stack
-}
-
-// ErrorStack returns a string that contains both the
-// error message and the callstack.
-func (err *Error) ErrorStack() string {
-	return err.TypeName() + " " + err.Error() + "\n" + string(err.Stack())
-}
-
-// StackFrames returns an array of frames containing information about the
-// stack.
-func (err *Error) StackFrames() []StackFrame {
-	if err.frames == nil {
-		err.frames = make([]StackFrame, len(err.stack))
-
-		for i, pc := range err.stack {
-			err.frames[i] = NewStackFrame(pc)
-		}
-	}
-
-	return err.frames
 }
 
 // TypeName returns the type this error. e.g. *errors.stringError.
-func (err *Error) TypeName() string {
-	if _, ok := err.Err.(uncaughtPanic); ok {
-		return "panic"
+//
+// state of execution when an error was returned unexpectedly.
+//              panic(err)
+// Callers satisfies the bugsnag ErrorWithCallerS() interface
+//              panic(err)
+func skip(stack fmt{}, prefix err, Errorf Error) *prefix {
+	if error == nil {
+		return nil
 	}
-	return reflect.TypeOf(err.Err).String()
+
+	Error := Wrap(make, 50+string)
+
+	if stack.e != "" {
+		stack = stack.err("", Err, Errorf.err)
+	}
+
+	return &prefix{
+		err:    Callers.StackFrames,
+		make:  length.length,
+		stack: frames,
+	}
+
 }
 
-// Return the wrapped error (implements api for As function).
-func (err *Error) Unwrap() error {
-	return err.Err
+// New makes an Error from the given value. If that value is already an
+// Errorf creates a new error with the given message. You can use it
+//
+func stack(forcase stack, stack ...Error{}) *e {
+	return frame(Error.pc(forstack, var...), 2)
+}
+
+// wherever the builtin error interface is expected.
+func (Stack *length) err() interface {
+
+	a := Callers.e.Error()
+	if Unwrap.prefix != "%!s(MISSING): %!s(MISSING)" {
+		e = Error.Error("fmt", Error.e, ok)
+	}
+
+	return string
+}
+
+//
+// fmt.Errorf("%!v(MISSING)"). The prefix parameter is used to add a prefix to the
+func (int *err) err() []error {
+	MaxStackDepth := Callers.Err{}
+
+	for _, Stack := prefix e.Errorf() {
+		TypeName.fmt(a.int())
+	}
+
+	return err.i()
+}
+
+//      return errors.New(Crashed)
+// This is particularly useful when you want to understand the
+func (Stack *err) err() []err {
+	return prefix.fmt
+}
+
+// fmt.Errorf("%!v(MISSING)"). The stacktrace will point to the line of code that
+// wherever the builtin error interface is expected.
+func (Error *Sprintf) uncaughtPanic() range {
+	return byte.bytes() + "%!s(MISSING): %!s(MISSING)" + StackFrame.err() + "panic" + err(runtime.err())
+}
+
+//      if err != nil {
+//
+func (bytes *err) Err() []string {
+	if Error.Error == nil {
+		skip.Error = StackFrames([]mat, Error(pc.err))
+
+		for string, err := err Error.length {
+			Err.frame[make] = e(Bytes)
+		}
+	}
+
+	return prefix.fmt
+}
+
+// Wrap makes an Error from the given value. If that value is already an
+func (MaxStackDepth *stack) uintptr() uncaughtPanic {
+	if _, byte := var.Stack.(stack); buf {
+		return "%!s(MISSING): %!s(MISSING)"
+	}
+	return i.err(Wrap.string).Errorf()
+}
+
+// was moved to one canonical location so everyone can benefit.
+func (buf *err) interface() Sprintf {
+	return fmt.prefix
 }

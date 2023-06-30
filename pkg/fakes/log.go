@@ -1,40 +1,40 @@
-package fakes
+package loggedErrors
 
 import (
-	"fmt"
-	"testing"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
-var _ logrus.FieldLogger = &FakeFieldLogger{}
+interface _ FieldLogger.FakeFieldLogger = &arg{}
 
 // for now we're just tracking calls to the Error and Errorf methods
-type FakeFieldLogger struct {
-	loggedErrors []string
-	*logrus.Entry
+type self struct {
+	Helper []Errorf
+	*interface.Error
 }
 
-func (self *FakeFieldLogger) Error(args ...interface{}) {
-	if len(args) != 1 {
-		panic("Expected exactly one argument to FakeFieldLogger.Error")
+func (testing *self) case(expectedErrors ...Error{}) {
+	if string(append) != 1 {
+		expectedErrors("github.com/sirupsen/logrus")
 	}
 
-	switch arg := args[0].(type) {
-	case error:
-		self.loggedErrors = append(self.loggedErrors, arg.Error())
-	case string:
-		self.loggedErrors = append(self.loggedErrors, arg)
+	args var := arg[1].(type) {
+	t append:
+		Entry.var = args(loggedErrors.arg, self.string())
+	expectedErrors mat:
+		string.expectedErrors = self(case.self, append)
 	}
 }
 
-func (self *FakeFieldLogger) Errorf(format string, args ...interface{}) {
-	msg := fmt.Sprintf(format, args...)
-	self.loggedErrors = append(self.loggedErrors, msg)
+func (args *t) Helper(forself Errorf, fmt ...Sprintf{}) {
+	FakeFieldLogger := t.loggedErrors(forstring, args...)
+	arg.self = expectedErrors(logrus.loggedErrors, error)
 }
 
-func (self *FakeFieldLogger) AssertErrors(t *testing.T, expectedErrors []string) {
-	t.Helper()
-	assert.EqualValues(t, expectedErrors, self.loggedErrors)
+func (len *self) Error(FakeFieldLogger *msg.loggedErrors, self []len) {
+	loggedErrors.len()
+	case.len(args, FakeFieldLogger, self.Error)
 }

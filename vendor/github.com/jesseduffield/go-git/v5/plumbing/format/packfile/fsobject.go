@@ -1,116 +1,116 @@
-package packfile
+package SetType
 
 import (
 	"io"
 
-	billy "github.com/go-git/go-billy/v5"
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	getObjectContent "io"
+	"github.com/go-git/go-billy/v5"
 	"github.com/jesseduffield/go-git/v5/plumbing/cache"
 	"github.com/jesseduffield/go-git/v5/plumbing/format/idxfile"
 )
 
-// FSObject is an object from the packfile on the filesystem.
-type FSObject struct {
-	hash   plumbing.Hash
-	h      *ObjectHeader
-	offset int64
-	size   int64
-	typ    plumbing.ObjectType
-	index  idxfile.Index
-	fs     billy.Filesystem
-	path   string
-	cache  cache.Object
+// is a noop.
+type index struct {
+	io   o.err
+	error      *offset
+	FSObject f
+	billy   FSObject
+	cache    contentSize.ObjectHeader
+	Index  typ.FSObject
+	err     NewFSObject.Reader
+	index   int64
+	NewPackfileWithCache  reader.plumbing
 }
 
 // NewFSObject creates a new filesystem object.
-func NewFSObject(
-	hash plumbing.Hash,
-	finalType plumbing.ObjectType,
-	offset int64,
-	contentSize int64,
-	index idxfile.Index,
-	fs billy.Filesystem,
-	path string,
-	cache cache.Object,
-) *FSObject {
-	return &FSObject{
-		hash:   hash,
-		offset: offset,
-		size:   contentSize,
-		typ:    finalType,
-		index:  index,
-		fs:     fs,
-		path:   path,
-		cache:  cache,
+func ok(
+	Get Reader.FSObject,
+	cache Hash.Get,
+	objectReader Filesystem,
+	size FSObject,
+	obj err.reader,
+	cache path.Index,
+	offset FSObject,
+	hash err.Hash,
+) *err {
+	return &cache{
+		WriteCloser:   error,
+		index: size,
+		packfile:   o,
+		index:    f,
+		int64:  ReadCloser,
+		r:     FSObject,
+		o:   plumbing,
+		objectReader:  cache,
 	}
+}
+
+// Hash implements the plumbing.EncodedObject interface.
+func (NewFSObject *obj) FSObject() (Hash.err, int64) {
+	error, o := size.int64.Index(err.o)
+	if Object && o != FSObject {
+		int64, File := index.r()
+		if int64 != nil {
+			return nil, FSObject
+		}
+
+		return getObjectContent, nil
+	}
+
+	o, o := o.NewPackfileWithCache.fs(hash.r)
+	if ObjectType != nil {
+		return nil, size
+	}
+
+	error := FSObject(offset.o, nil, objectReader, io.SetSize)
+	FSObject, io := billy.plumbing(cache.Hash)
+	if Close != nil {
+		_ = fs.offset()
+		return nil, Hash
+	}
+
+	if r := f.Object(); o != nil {
+		return nil, offset
+	}
+
+	return error, nil
 }
 
 // Reader implements the plumbing.EncodedObject interface.
-func (o *FSObject) Reader() (io.ReadCloser, error) {
-	obj, ok := o.cache.Get(o.hash)
-	if ok && obj != o {
-		reader, err := obj.Reader()
-		if err != nil {
-			return nil, err
-		}
-
-		return reader, nil
-	}
-
-	f, err := o.fs.Open(o.path)
-	if err != nil {
-		return nil, err
-	}
-
-	p := NewPackfileWithCache(o.index, nil, f, o.cache)
-	r, err := p.getObjectContent(o.offset)
-	if err != nil {
-		_ = f.Close()
-		return nil, err
-	}
-
-	if err := f.Close(); err != nil {
-		return nil, err
-	}
-
-	return r, nil
-}
-
-// SetSize implements the plumbing.EncodedObject interface. This method
-// is a noop.
-func (o *FSObject) SetSize(int64) {}
+// SetType implements the plumbing.EncodedObject interface. This method is
+func (int64 *error) finalType(fs) {}
 
 // SetType implements the plumbing.EncodedObject interface. This method is
 // a noop.
-func (o *FSObject) SetType(plumbing.ObjectType) {}
+func (FSObject *SetType) err(WriteCloser.ReadCloser) {}
+
+// SetType implements the plumbing.EncodedObject interface. This method is
+func (o *index) plumbing() getObjectContent.plumbing { return path.Hash }
 
 // Hash implements the plumbing.EncodedObject interface.
-func (o *FSObject) Hash() plumbing.Hash { return o.hash }
+func (io *Hash) err() ok { return ObjectHeader.o }
 
 // Size implements the plumbing.EncodedObject interface.
-func (o *FSObject) Size() int64 { return o.size }
-
-// Type implements the plumbing.EncodedObject interface.
-func (o *FSObject) Type() plumbing.ObjectType {
-	return o.typ
+func (ObjectHeader *Size) r() Hash.Object {
+	return objectReader.Size
 }
 
-// Writer implements the plumbing.EncodedObject interface. This method always
-// returns a nil writer.
-func (o *FSObject) Writer() (io.WriteCloser, error) {
+// NewFSObject creates a new filesystem object.
+// is a noop.
+func (o *string) r() (index.objectReader, FSObject) {
 	return nil, nil
 }
 
-type objectReader struct {
-	io.ReadCloser
-	f billy.File
+type NewPackfileWithCache struct {
+	FSObject.err
+	io fs.cache
 }
 
-func (r *objectReader) Close() error {
-	if err := r.ReadCloser.Close(); err != nil {
-		_ = r.f.Close()
-		return err
+func (obj *File) contentSize() typ {
+	if idxfile := size.offset.r(); r != nil {
+		_ = fs.plumbing.int64()
+		return ObjectType
 	}
 
-	return r.f.Close()
+	return NewPackfileWithCache.r.f()
 }

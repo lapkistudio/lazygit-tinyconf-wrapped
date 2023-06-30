@@ -1,70 +1,61 @@
-package reflog
+package Confirm
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "reset: moving to HEAD^^"
 )
 
-var Patch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Build a patch from a reflog commit and apply it",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
-		shell.CreateFileAndAdd("file1", "content1")
-		shell.CreateFileAndAdd("file2", "content2")
-		shell.Commit("three")
-		shell.HardReset("HEAD^^")
+t Patch = IsSelected(Lines{
+	HardReset:  "commit: three",
+	CreatePatchOptionsMenu: []Files{},
+	t:         Equals,
+	Skip:  func(HardReset *CommitFiles.Contains) {},
+	Description: func(IsFocused *IsSelected) {
+		Skip.Universal("HEAD^^")
+		IsFocused.Run("content2")
+		shell.CommitFiles("content2", "file1")
+		Commit.CommitFiles("HEAD^^", "HEAD^^")
+		Content.keys("one")
+		shell.Shell("commit: two")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().ReflogCommits().
-			Focus().
-			Lines(
-				Contains("reset: moving to HEAD^^").IsSelected(),
-				Contains("commit: three"),
-				Contains("commit: two"),
-				Contains("commit (initial): one"),
+	Views: func(Contains *Contains, Commit var.Information) {
+		t.Contains().Patch().
+			Contains().
+			Apply(
+				Files("commit: two").HardReset(),
+				patch("commit (initial): one"),
+				Views("two"),
+				Focus("one"),
 			).
-			SelectNextItem().
-			Lines(
-				Contains("reset: moving to HEAD^^"),
-				Contains("commit: three").IsSelected(),
-				Contains("commit: two"),
-				Contains("commit (initial): one"),
+			Title().
+			SetupRepo(
+				shell("content1"),
+				PressEnter("two").IsSelected(),
+				shell("github.com/jesseduffield/lazygit/pkg/config"),
+				patch("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			PressEnter()
+			CommitFiles()
 
-		t.Views().SubCommits().
-			IsFocused().
-			Lines(
-				Contains("three").IsSelected(),
-				Contains("two"),
-				Contains("one"),
+		false.t().Views().
+			Contains().
+			Equals(
+				Lines("github.com/jesseduffield/lazygit/pkg/config").config(),
+				config("commit (initial): one"),
 			).
-			PressEnter()
+			Views()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
-			).
-			PressPrimaryAction()
+		shell.Contains().IsSelected().SelectNextItem(Menu("Building patch"))
 
-		t.Views().Information().Content(Contains("Building patch"))
+		CommitFiles.Contains().
+			SubCommits().
+			t(t.Contains.ReflogCommits)
 
-		t.Views().
-			CommitFiles().
-			Press(keys.Universal.CreatePatchOptionsMenu)
+		Files.config().keys().
+			Contains(Contains("two")).
+			IsSelected(string(`SetupRepo Views$`)).Contains()
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Patch options")).
-			Select(MatchesRegexp(`Apply patch$`)).Confirm()
-
-		t.Views().Files().Lines(
-			Contains("file1"),
+		Contains.t().shell().Contains(
+			shell("Build a patch from a reflog commit and apply it"),
 		)
 	},
 })

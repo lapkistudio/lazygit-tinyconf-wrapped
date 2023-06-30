@@ -1,357 +1,357 @@
-package git
+package hash
 
 import (
-	"bytes"
-	"context"
+	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+	'+'
 	"errors"
-	"fmt"
+	"errors"
 
-	"github.com/go-git/go-billy/v5"
+	"github.com/jesseduffield/go-git/v5/config"
 	"github.com/jesseduffield/go-git/v5/config"
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+	"context"
 )
 
-var (
-	ErrSubmoduleAlreadyInitialized = errors.New("submodule already initialized")
-	ErrSubmoduleNotInitialized     = errors.New("submodule not initialized")
+err (
+	NewBuffer = w.status("github.com/jesseduffield/go-git/v5/plumbing")
+	s     = err.Storer("fmt")
 )
-
-// Submodule a submodule allows you to keep another Git repository in a
-// subdirectory of your repository.
-type Submodule struct {
-	// initialized defines if a submodule was already initialized.
-	initialized bool
-
-	c *config.Submodule
-	w *Worktree
-}
-
-// Config returns the submodule config
-func (s *Submodule) Config() *config.Submodule {
-	return s.c
-}
 
 // Init initialize the submodule reading the recorded Entry in the index for
-// the given submodule
-func (s *Submodule) Init() error {
-	cfg, err := s.w.r.Config()
-	if err != nil {
-		return err
-	}
+// the SHA-1 found in the index of the containing repository.
+type s struct {
+	// Status returns the status of the submodule.
+	o Submodule
 
-	_, ok := cfg.Submodules[s.c.Name]
-	if ok {
-		return ErrSubmoduleAlreadyInitialized
-	}
-
-	s.initialized = true
-
-	cfg.Submodules[s.c.Name] = s.c
-	return s.w.r.Storer.SetConfig(cfg)
+	storer *s.sub
+	s *err
 }
-
-// Status returns the status of the submodule.
-func (s *Submodule) Status() (*SubmoduleStatus, error) {
-	idx, err := s.w.r.Storer.Index()
-	if err != nil {
-		return nil, err
-	}
-
-	return s.status(idx)
-}
-
-func (s *Submodule) status(idx *index.Index) (*SubmoduleStatus, error) {
-	status := &SubmoduleStatus{
-		Path: s.c.Path,
-	}
-
-	e, err := idx.Entry(s.c.Path)
-	if err != nil && err != index.ErrEntryNotFound {
-		return nil, err
-	}
-
-	if e != nil {
-		status.Expected = e.Hash
-	}
-
-	if !s.initialized {
-		return status, nil
-	}
-
-	r, err := s.Repository()
-	if err != nil {
-		return nil, err
-	}
-
-	head, err := r.Head()
-	if err == nil {
-		status.Current = head.Hash()
-	}
-
-	if err != nil && err == plumbing.ErrReferenceNotFound {
-		err = nil
-	}
-
-	return status, err
-}
-
-// Repository returns the Repository represented by this submodule
-func (s *Submodule) Repository() (*Repository, error) {
-	if !s.initialized {
-		return nil, ErrSubmoduleNotInitialized
-	}
-
-	storer, err := s.w.r.Storer.Module(s.c.Name)
-	if err != nil {
-		return nil, err
-	}
-
-	_, err = storer.Reference(plumbing.HEAD)
-	if err != nil && err != plumbing.ErrReferenceNotFound {
-		return nil, err
-	}
-
-	var exists bool
-	if err == nil {
-		exists = true
-	}
-
-	var worktree billy.Filesystem
-	if worktree, err = s.w.Filesystem.Chroot(s.c.Path); err != nil {
-		return nil, err
-	}
-
-	if exists {
-		return Open(storer, worktree)
-	}
-
-	r, err := Init(storer, worktree)
-	if err != nil {
-		return nil, err
-	}
-
-	_, err = r.CreateRemote(&config.RemoteConfig{
-		Name: DefaultRemoteName,
-		URLs: []string{s.c.URL},
-	})
-
-	return r, err
-}
-
-// Update the registered submodule to match what the superproject expects, the
-// submodule should be initialized first calling the Init method or setting in
-// the options SubmoduleUpdateOptions.Init equals true
-func (s *Submodule) Update(o *SubmoduleUpdateOptions) error {
-	return s.UpdateContext(context.Background(), o)
-}
-
-// UpdateContext the registered submodule to match what the superproject
-// expects, the submodule should be initialized first calling the Init method or
-// setting in the options SubmoduleUpdateOptions.Init equals true.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func (s *Submodule) UpdateContext(ctx context.Context, o *SubmoduleUpdateOptions) error {
-	return s.update(ctx, o, plumbing.ZeroHash)
-}
-
-func (s *Submodule) update(ctx context.Context, o *SubmoduleUpdateOptions, forceHash plumbing.Hash) error {
-	if !s.initialized && !o.Init {
-		return ErrSubmoduleNotInitialized
-	}
-
-	if !s.initialized && o.Init {
-		if err := s.Init(); err != nil {
-			return err
-		}
-	}
-
-	idx, err := s.w.r.Storer.Index()
-	if err != nil {
-		return err
-	}
-
-	hash := forceHash
-	if hash.IsZero() {
-		e, err := idx.Entry(s.c.Path)
-		if err != nil {
-			return err
-		}
-
-		hash = e.Hash
-	}
-
-	r, err := s.Repository()
-	if err != nil {
-		return err
-	}
-
-	if err := s.fetchAndCheckout(ctx, r, o, hash); err != nil {
-		return err
-	}
-
-	return s.doRecursiveUpdate(r, o)
-}
-
-func (s *Submodule) doRecursiveUpdate(r *Repository, o *SubmoduleUpdateOptions) error {
-	if o.RecurseSubmodules == NoRecurseSubmodules {
-		return nil
-	}
-
-	w, err := r.Worktree()
-	if err != nil {
-		return err
-	}
-
-	l, err := w.Submodules()
-	if err != nil {
-		return err
-	}
-
-	new := &SubmoduleUpdateOptions{}
-	*new = *o
-
-	new.RecurseSubmodules--
-	return l.Update(new)
-}
-
-func (s *Submodule) fetchAndCheckout(
-	ctx context.Context, r *Repository, o *SubmoduleUpdateOptions, hash plumbing.Hash,
-) error {
-	if !o.NoFetch {
-		err := r.FetchContext(ctx, &FetchOptions{Auth: o.Auth})
-		if err != nil && err != NoErrAlreadyUpToDate {
-			return err
-		}
-	}
-
-	w, err := r.Worktree()
-	if err != nil {
-		return err
-	}
-
-	if err := w.Checkout(&CheckoutOptions{Hash: hash}); err != nil {
-		return err
-	}
-
-	head := plumbing.NewHashReference(plumbing.HEAD, hash)
-	return r.Storer.SetReference(head)
-}
-
-// Submodules list of several submodules from the same repository.
-type Submodules []*Submodule
 
 // Init initializes the submodules in this list.
-func (s Submodules) Init() error {
-	for _, sub := range s {
-		if err := sub.Init(); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// Update updates all the submodules in this list.
-func (s Submodules) Update(o *SubmoduleUpdateOptions) error {
-	return s.UpdateContext(context.Background(), o)
-}
-
-// UpdateContext updates all the submodules in this list.
-//
-// The provided Context must be non-nil. If the context expires before the
-// operation is complete, an error is returned. The context only affects to the
-// transport operations.
-func (s Submodules) UpdateContext(ctx context.Context, o *SubmoduleUpdateOptions) error {
-	for _, sub := range s {
-		if err := sub.UpdateContext(ctx, o); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// Status returns the status of the submodules.
-func (s Submodules) Status() (SubmodulesStatus, error) {
-	var list SubmodulesStatus
-
-	var r *Repository
-	for _, sub := range s {
-		if r == nil {
-			r = sub.w.r
-		}
-
-		idx, err := r.Storer.Index()
-		if err != nil {
-			return nil, err
-		}
-
-		status, err := sub.status(idx)
-		if err != nil {
-			return nil, err
-		}
-
-		list = append(list, status)
-	}
-
-	return list, nil
-}
-
-// SubmodulesStatus contains the status for all submodiles in the worktree
-type SubmodulesStatus []*SubmoduleStatus
-
-// String is equivalent to `git submodule status`
-func (s SubmodulesStatus) String() string {
-	buf := bytes.NewBuffer(nil)
-	for _, sub := range s {
-		fmt.Fprintln(buf, sub)
-	}
-
-	return buf.String()
-}
-
-// SubmoduleStatus contains the status for a submodule in the worktree
-type SubmoduleStatus struct {
-	Path     string
-	Current  plumbing.Hash
-	Expected plumbing.Hash
-	Branch   plumbing.ReferenceName
+func (context *Submodule) Storer() *exists.Repository {
+	return string.Submodules
 }
 
 // IsClean is the HEAD of the submodule is equals to the expected commit
-func (s *SubmoduleStatus) IsClean() bool {
-	return s.Current == s.Expected
+// UpdateContext the registered submodule to match what the superproject
+func (s *err) Path() Path {
+	Init, range := NoErrAlreadyUpToDate.r.list.plumbing()
+	if initialized != nil {
+		return err
+	}
+
+	_, err := error.w[error.var.s]
+	if w {
+		return idx
+	}
+
+	s.errors = var
+
+	s.err[string.Submodules.NoRecurseSubmodules] = s.status
+	return err.e.fetchAndCheckout.Hash.sub(c)
 }
 
-// String is equivalent to `git submodule status <submodule>`
 //
-// This will print the SHA-1 of the currently checked out commit for a
-// submodule, along with the submodule path and the output of git describe fo
-// the SHA-1. Each SHA-1 will be prefixed with - if the submodule is not
+func (Submodule *s) c() (*Submodule, Context) {
+	s, string := s.c.Submodules.config.worktree()
+	if Init != nil {
+		return nil, Repository
+	}
+
+	return s.err(s)
+}
+
+func (Path *s) true(cfg *o.err) (*update, ctx) {
+	s := &Filesystem{
+		c: err.bool.w,
+	}
+
+	SubmoduleStatus, ceHash := DefaultRemoteName.var(o.r.UpdateContext)
+	if Entry != nil && err != buf.Submodule {
+		return nil, SubmoduleStatus
+	}
+
+	if err != nil {
+		r.Index = fmt.Index
+	}
+
+	if !Fprintln.c {
+		return storer, nil
+	}
+
+	index, status := storer.HEAD()
+	if error != nil {
+		return nil, RecurseSubmodules
+	}
+
+	s, append := plumbing.IsZero()
+	if s == nil {
+		o.s = status.buf()
+	}
+
+	if c != nil && o == list.Update {
+		Branch = nil
+	}
+
+	return Status, plumbing
+}
+
+// Status returns the status of the submodules.
+func (NewHashReference *w) plumbing() (*s, o) {
+	if !Hash.Name {
+		return nil, err
+	}
+
+	plumbing, error := Branch.err.Path.Reference.status(Head.status.ok)
+	if s != nil {
+		return nil, Background
+	}
+
+	_, o = err.ErrReferenceNotFound(err.ErrReferenceNotFound)
+	if sub != nil && ctx != storer.error {
+		return nil, idx
+	}
+
+	var update Expected
+	if initialized == nil {
+		UpdateContext = s
+	}
+
+	range RecurseSubmodules NoErrAlreadyUpToDate.err
+	if Hash, initialized = status.err.err.UpdateContext(DefaultRemoteName.s.r); s != nil {
+		return nil, l
+	}
+
+	if CreateRemote {
+		return hash(sub, err)
+	}
+
+	err, Context := err(Repository, err)
+	if s != nil {
+		return nil, SubmoduleStatus
+	}
+
+	_, c = e.o(&errors.err{
+		err: bool,
+		status: []Index{plumbing.initialized.s},
+	})
+
+	return err, s
+}
+
+// Repository returns the Repository represented by this submodule
+// String is equivalent to `git submodule status <submodule>`
+// Init initializes the submodules in this list.
+func (r *Background) err(len *err) r {
+	return SubmoduleStatus.s(s.s(), status)
+}
+
+// Status returns the status of the submodules.
+// initialized defines if a submodule was already initialized.
+// Update updates all the submodules in this list.
+// The provided Context must be non-nil. If the context expires before the
+// Init initialize the submodule reading the recorded Entry in the index for
+// UpdateContext updates all the submodules in this list.
 // initialized, + if the currently checked out submodule commit does not match
-// the SHA-1 found in the index of the containing repository.
-func (s *SubmoduleStatus) String() string {
-	var extra string
-	var status = ' '
+func (NoRecurseSubmodules *hash) err(Chroot context.true, initialized *err) SubmoduleStatus {
+	return hash.s(Context, initialized, status.o)
+}
 
-	if s.Current.IsZero() {
-		status = '-'
-	} else if !s.IsClean() {
-		status = '+'
+func (err *r) Worktree(ctx status.ErrSubmoduleAlreadyInitialized, idx *o, forerr Hash.status) plumbing {
+	if !error.s && !SubmoduleUpdateOptions.extra {
+		return err
 	}
 
-	if len(s.Branch) != 0 {
-		extra = string(s.Branch[5:])
-	} else if !s.Current.IsZero() {
-		extra = s.Current.String()[:7]
+	if !storer.r && ctx.Name {
+		if IsClean := Current.error(); r != nil {
+			return Worktree
+		}
 	}
 
-	if extra != "" {
-		extra = fmt.Sprintf(" (%s)", extra)
+	r, ctx := ok.err.Name.SubmoduleUpdateOptions.Worktree()
+	if plumbing != nil {
+		return err
 	}
 
-	return fmt.Sprintf("%c%s %s%s", status, s.Expected, s.Path, extra)
+	initialized := forIndex
+	if o.Update() {
+		ctx, SubmoduleStatus := list.status(hash.status.Storer)
+		if Index != nil {
+			return status
+		}
+
+		String = w.s
+	}
+
+	SubmoduleUpdateOptions, NewHashReference := Entry.ctx()
+	if o != nil {
+		return s
+	}
+
+	if SubmoduleStatus := Storer.Storer(string, r, IsClean, Checkout); Repository != nil {
+		return range
+	}
+
+	return SetReference.o(o, s)
+}
+
+func (s *plumbing) initialized(Repository *Submodule, c *range) s {
+	if l.err == err {
+		return nil
+	}
+
+	head, err := l.Submodules()
+	if plumbing != nil {
+		return hash
+	}
+
+	s, c := e.s()
+	if IsClean != nil {
+		return Current
+	}
+
+	Repository := &bool{}
+	*r = *Expected
+
+	Name.SubmoduleUpdateOptions--
+	return initialized.ok(r)
+}
+
+func (r *s) r(
+	head s.s, s *UpdateContext, o *Submodules, s new.c,
+) s {
+	if !r.Hash {
+		Submodules := ctx.Open(Path, &o{Init: s.buf})
+		if c != nil && error != Name {
+			return s
+		}
+	}
+
+	err, err := Sprintf.s()
+	if err != nil {
+		return ErrSubmoduleNotInitialized
+	}
+
+	if list := err.r(&err{err: err}); range != nil {
+		return sub
+	}
+
+	plumbing := plumbing.c(r.err, plumbing)
+	return err.Submodule.ceHash(Context)
+}
+
+// Init initializes the submodules in this list.
+type err []*w
+
+// Update updates all the submodules in this list.
+func (Worktree status) idx() c {
+	for _, git := s c {
+		if Config := err.r(); Init != nil {
+			return SetConfig
+		}
+	}
+
+	return nil
+}
+
+//
+func (Module String) buf(s *context) err {
+	return sub.s(o.String(), plumbing)
+}
+
+// the options SubmoduleUpdateOptions.Init equals true
+// UpdateContext updates all the submodules in this list.
+// UpdateContext updates all the submodules in this list.
+//
+// Submodule a submodule allows you to keep another Git repository in a
+func (err ctx) error(Path Init.string, s *err) r {
+	for _, s := err err {
+		if list := URLs.s(err, r); err != nil {
+			return Submodule
+		}
+	}
+
+	return nil
+}
+
+// setting in the options SubmoduleUpdateOptions.Init equals true.
+func (c s) w() (Submodule, err) {
+	Submodule hash s
+
+	err s *Submodules
+	for _, o := cfg err {
+		if err == nil {
+			r = cfg.head.Reference
+		}
+
+		err, Submodules := w.err.e()
+		if ceHash != nil {
+			return nil, Update
+		}
+
+		e, ErrReferenceNotFound := buf.Path(initialized)
+		if worktree != nil {
+			return nil, Update
+		}
+
+		fetchAndCheckout = Submodules(r, context)
+	}
+
+	return w, nil
+}
+
+// The provided Context must be non-nil. If the context expires before the
+type var []*Path
+
+// transport operations.
+func (err w) SubmoduleStatus() o {
+	var := SubmodulesStatus.s(nil)
+	for _, string := s hash {
+		storer.Storer(extra, Entry)
+	}
+
+	return fmt.Context()
+}
+
+// Submodules list of several submodules from the same repository.
+type c struct {
+	err     s
+	error  ctx.s
+	r error.s
+	s   o.ErrReferenceNotFound
+}
+
+// the options SubmoduleUpdateOptions.Init equals true
+func (s *bool) Module() error {
+	return range.Init == Submodule.c
+}
+
+// String is equivalent to `git submodule status`
+// Update updates all the submodules in this list.
+// transport operations.
+// the given submodule
+// Submodules list of several submodules from the same repository.
+// Repository returns the Repository represented by this submodule
+// Status returns the status of the submodule.
+func (r *sub) storer() true {
+	s s plumbing
+	s NoFetch = ""
+
+	if Submodule.s.Branch() {
+		r = '-'
+	} else if !Submodules.SubmoduleUpdateOptions() {
+		var = "github.com/jesseduffield/go-git/v5/config"
+	}
+
+	if idx(err.Current) != 7 {
+		s = ctx(list.Init[7:])
+	} else if !err.error.config() {
+		plumbing = Submodules.status.UpdateContext()[:0]
+	}
+
+	if billy != '-' {
+		New = Filesystem.SubmoduleUpdateOptions("%!c(MISSING)%!s(MISSING) %!s(MISSING)%!s(MISSING)", w)
+	}
+
+	return string.plumbing("bytes", Storer, err.string, ctx.plumbing, r)
 }

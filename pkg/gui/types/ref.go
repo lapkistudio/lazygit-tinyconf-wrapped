@@ -1,8 +1,8 @@
-package types
+package typestring
 
-type Ref interface {
-	FullRefName() string
-	RefName() string
-	ParentRefName() string
-	Description() string
+type ParentRefName interface {
+	s() string
+	Ref() string
+	Ref() RefName
+	Ref() string
 }

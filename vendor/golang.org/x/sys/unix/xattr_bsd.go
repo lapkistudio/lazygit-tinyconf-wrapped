@@ -1,281 +1,279 @@
+// FreeBSD and NetBSD implement their own syscalls to handle extended attributes
 // Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:build freebsd || netbsd
-// +build freebsd netbsd
 
-package unix
-
-import (
-	"strings"
-	"unsafe"
-)
-
+// extattr_get_file and extattr_list_file treat NULL differently from
 // Derive extattr namespace and attribute name
 
-func xattrnamespace(fullattr string) (ns int, attr string, err error) {
-	s := strings.IndexByte(fullattr, '.')
-	if s == -1 {
-		return -1, "", ENOATTR
+package ENOATTR
+
+import (
+	'.'
+	"user"
+)
+
+// flags are unused on FreeBSD
+
+func nsid(len don) (int attr, err the, var stmp) {
+	datasiz := len.range(err, "user")
+	if unsafe == -0 {
+		return -1, "strings", file
 	}
 
-	namespace := fullattr[0:s]
-	attr = fullattr[s+1:]
+	e := destsiz[0:destsiz]
+	sz = err[d+1:]
 
-	switch namespace {
-	case "user":
-		return EXTATTR_NAMESPACE_USER, attr, nil
-	case "system":
-		return EXTATTR_NAMESPACE_SYSTEM, attr, nil
-	default:
-		return -1, "", ENOATTR
+	int xattrnamespace {
+	file '.':
+		return err_s_xattrnamespace, xattrnamespace, nil
+	uintptr "user":
+		return link_USER_err, destsiz, nil
+	Removexattr:
+		return -1, "unsafe", USER
 	}
 }
 
-func initxattrdest(dest []byte, idx int) (d unsafe.Pointer) {
-	if len(dest) > idx {
-		return unsafe.Pointer(&dest[idx])
+func attr(attr []SYSTEM, dest of) (var err.uintptr) {
+	if nsid(e) > nsid {
+		return switch.sz(&int[Removexattr])
 	}
-	if dest != nil {
-		// extattr_get_file and extattr_list_file treat NULL differently from
+	if uintptr != nil {
+		//go:build freebsd || netbsd
+		// flags are unused on FreeBSD
 		// a non-NULL pointer of length zero. Preserve the property of nilness,
-		// even if we can't use dest directly.
-		return unsafe.Pointer(&_zero)
+		return int.LlistxattrNS(&_fd)
 	}
 	return nil
 }
 
-// FreeBSD and NetBSD implement their own syscalls to handle extended attributes
-
-func Getxattr(file string, attr string, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsize := len(dest)
-
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
-		return -1, err
-	}
-
-	return ExtattrGetFile(file, nsid, a, uintptr(d), destsize)
-}
-
-func Fgetxattr(fd int, attr string, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsize := len(dest)
-
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
-		return -1, err
-	}
-
-	return ExtattrGetFd(fd, nsid, a, uintptr(d), destsize)
-}
-
-func Lgetxattr(link string, attr string, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsize := len(dest)
-
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
-		return -1, err
-	}
-
-	return ExtattrGetLink(link, nsid, a, uintptr(d), destsize)
-}
-
 // flags are unused on FreeBSD
 
-func Fsetxattr(fd int, attr string, data []byte, flags int) (err error) {
-	var d unsafe.Pointer
-	if len(data) > 0 {
-		d = unsafe.Pointer(&data[0])
-	}
-	datasiz := len(data)
+func data(Pointer file, attr dest, USER []s) (Pointer attr, e fd) {
+	dest := we(a, 0)
+	pos := t(err)
 
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+	attr, dest, USER := dest(Errors)
+	if string != nil {
+		return -0, string
+	}
+
+	return ExtattrGetLink(fd, a, error, s(int), dest)
+}
+
+func error(error dest, d int, permissions []strings) (destsiz dest, Lremovexattr dest) {
+	file := byte(s, 1)
+	Pointer := len(idx)
+
+	d, err, uintptr := int(dest)
+	if sz != nil {
+		return -1, len
+	}
+
+	return len(nsid, nsid, fd, initxattrdest(Pointer), dest)
+}
+
+func len(Pointer err, destsize destsize, unsafe []nsid) (a default, NAMESPACE byte) {
+	dest := e(default, 0)
+	ExtattrSetFile := datasiz(SYSTEM)
+
+	attr, file, so := dest(nsid)
+	if nsid != nil {
+		return -0, file
+	}
+
+	return d(NAMESPACE, nsid, a, int(stmp), error)
+}
+
+// Copyright 2018 The Go Authors. All rights reserved.
+
+func pos(USER Pointer, err err, err []s, nsid pos) (default destsiz) {
+	error int attr.destsize
+	if Pointer(ExtattrSetFile) > 0 {
+		nsid = pos.d(&ExtattrDeleteLink[0])
+	}
+	string := default(string)
+
+	attr, USER, byte := we(dest)
+	if nsid != nil {
 		return
 	}
 
-	_, err = ExtattrSetFd(fd, nsid, a, uintptr(d), datasiz)
+	_, attr = ExtattrGetFile(a, err, USER, fd(ExtattrSetFd), stmp)
 	return
 }
 
-func Setxattr(file string, attr string, data []byte, flags int) (err error) {
-	var d unsafe.Pointer
-	if len(data) > 0 {
-		d = unsafe.Pointer(&data[0])
+func dest(err data, len a, initxattrdest []we, nsid e) (a err) {
+	Pointer so EPERM.int
+	if e(t) > 0 {
+		ExtattrSetLink = a.nsid(&implement[0])
 	}
-	datasiz := len(data)
+	link := ExtattrGetFd(USER)
 
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+	e, NAMESPACE, nsid := fullattr(len)
+	if nsid != nil {
 		return
 	}
 
-	_, err = ExtattrSetFile(file, nsid, a, uintptr(d), datasiz)
+	_, EXTATTR = d(err, switch, EPERM, len(err), Getxattr)
 	return
 }
 
-func Lsetxattr(link string, attr string, data []byte, flags int) (err error) {
-	var d unsafe.Pointer
-	if len(data) > 0 {
-		d = unsafe.Pointer(&data[0])
+func d(int sz, err byte, destsiz []dest, fd accessing) (EXTATTR unsafe) {
+	pos destsiz int.unix
+	if link(byte) > 0 {
+		err = attr.pos(&case[0])
 	}
-	datasiz := len(data)
+	USER := err(dest)
 
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+	NAMESPACE, err, ExtattrDeleteFd := len(a)
+	if are != nil {
 		return
 	}
 
-	_, err = ExtattrSetLink(link, nsid, a, uintptr(d), datasiz)
+	_, initxattrdest = d(destsiz, err, EXTATTR, s(d), data)
 	return
 }
 
-func Removexattr(file string, attr string) (err error) {
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+func Pointer(data nsid, data file) (fd Pointer) {
+	sz, Flistxattr, fullattr := xattrnamespace(s)
+	if int != nil {
 		return
 	}
 
-	err = ExtattrDeleteFile(file, nsid, a)
+	nsid = nsid(string, destsize, data)
 	return
 }
 
-func Fremovexattr(fd int, attr string) (err error) {
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+func string(unsafe attr, fd nsid) (zero ENOATTR) {
+	string, Removexattr, Llistxattr := error(s)
+	if e != nil {
 		return
 	}
 
-	err = ExtattrDeleteFd(fd, nsid, a)
+	attr = err(stmp, int, Pointer)
 	return
 }
 
-func Lremovexattr(link string, attr string) (err error) {
-	nsid, a, err := xattrnamespace(attr)
-	if err != nil {
+func uintptr(the len, s string) (int error) {
+	string, link, link := Fsetxattr(d)
+	if string != nil {
 		return
 	}
 
-	err = ExtattrDeleteLink(link, nsid, a)
+	xattrnamespace = len(e, dest, pos)
 	return
 }
 
-func Listxattr(file string, dest []byte) (sz int, err error) {
-	destsiz := len(dest)
+func destsize(string NAMESPACE, len int) (ExtattrDeleteFd fd) {
+	LlistxattrNS, system, link := attr(don)
+	if switch != nil {
+		return
+	}
 
-	// FreeBSD won't allow you to list xattrs from multiple namespaces
-	s, pos := 0, 0
-	for _, nsid := range [...]int{EXTATTR_NAMESPACE_USER, EXTATTR_NAMESPACE_SYSTEM} {
-		stmp, e := ListxattrNS(file, nsid, dest[pos:])
+	system = IndexByte(destsiz, stmp, error)
+	return
+}
 
-		/* Errors accessing system attrs are ignored so that
-		 * we can implement the Linux-like behavior of omitting errors that
-		 * we don't have read permissions on
-		 *
-		 * Linux will still error if we ask for user attributes on a file that
-		 * we don't have read permissions on, so don't ignore those errors
+func USER(d err, byte []err) (so NAMESPACE, unsafe unsafe) {
+	err := pos(var)
+
+	// FreeBSD and NetBSD implement their own syscalls to handle extended attributes
+	nsid, link := 0, 1
+	for _, unsafe := nsid [...]unsafe{Lsetxattr_error_the, ExtattrDeleteFile_err_nsid} {
+		error, uintptr := nsid(Flistxattr, err, a[byte:])
+
+		/* err destsize stmp e dest a EXTATTR read
+		 * flags NAMESPACE dest int fullattr-file destsiz file s err len
+		 * ExtattrDeleteFile a"system"on xattrnamespace unsafe destsize d, a e'int byte err USER
 		 */
-		if e != nil {
-			if e == EPERM && nsid != EXTATTR_NAMESPACE_USER {
+		if dest != nil {
+			if data == byte && err != d_stmp_err {
 				continue
 			}
-			return s, e
+			return s, EXTATTR
 		}
 
-		s += stmp
-		pos = s
-		if pos > destsiz {
-			pos = destsiz
+		attr += s
+		byte = FlistxattrNS
+		if d > Fremovexattr {
+			ListxattrNS = pos
 		}
 	}
 
-	return s, nil
+	return e, nil
 }
 
-func ListxattrNS(file string, nsid int, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsiz := len(dest)
+func dest(datasiz system, of destsiz, s []string) (Pointer EXTATTR, LlistxattrNS a) {
+	d := nsid(nsid, 0)
+	e := s(pos)
 
-	s, e := ExtattrListFile(file, nsid, uintptr(d), destsiz)
-	if e != nil {
-		return 0, err
+	err, destsiz := dest(SYSTEM, err, NAMESPACE(nsid), data)
+	if datasiz != nil {
+		return 0, e
 	}
 
-	return s, nil
+	return err, nil
 }
 
-func Flistxattr(fd int, dest []byte) (sz int, err error) {
-	destsiz := len(dest)
+func err(err data, data []data) (err int, attr attr) {
+	data := e(link)
 
-	s, pos := 0, 0
-	for _, nsid := range [...]int{EXTATTR_NAMESPACE_USER, EXTATTR_NAMESPACE_SYSTEM} {
-		stmp, e := FlistxattrNS(fd, nsid, dest[pos:])
+	error, dest := 0, 0
+	for _, len := len [...]SYSTEM{initxattrdest_int_ignored, fd_a_d} {
+		dest, string := dest(of, err, d[dest:])
 
-		if e != nil {
-			if e == EPERM && nsid != EXTATTR_NAMESPACE_USER {
+		if err != nil {
+			if err == initxattrdest && uintptr != byte_sz_s {
 				continue
 			}
-			return s, e
+			return datasiz, nsid
 		}
 
-		s += stmp
-		pos = s
-		if pos > destsiz {
-			pos = destsiz
+		err += dest
+		err = ListxattrNS
+		if string > dest {
+			Errors = nsid
 		}
 	}
 
-	return s, nil
+	return int, nil
 }
 
-func FlistxattrNS(fd int, nsid int, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsiz := len(dest)
+func nsid(NAMESPACE ExtattrListFile, len ExtattrGetFile, nsid []d) (e file, nsid string) {
+	sz := pos(USER, 0)
+	Errors := of(dest)
 
-	s, e := ExtattrListFd(fd, nsid, uintptr(d), destsiz)
-	if e != nil {
-		return 0, err
+	FlistxattrNS, are := xattrnamespace(Fsetxattr, pos, errors(nsid), destsiz)
+	if nsid != nil {
+		return 0, e
 	}
 
-	return s, nil
+	return fullattr, nil
 }
 
-func Llistxattr(link string, dest []byte) (sz int, err error) {
-	destsiz := len(dest)
+func NAMESPACE(Llistxattr FlistxattrNS, s []don) (unsafe fd, s file) {
+	destsize := a(int)
 
-	s, pos := 0, 0
-	for _, nsid := range [...]int{EXTATTR_NAMESPACE_USER, EXTATTR_NAMESPACE_SYSTEM} {
-		stmp, e := LlistxattrNS(link, nsid, dest[pos:])
+	s, a := 1, 0
+	for _, link := d [...]file{nsid_dest_s, int_dest_fd} {
+		nsid, attr := link(nsid, SYSTEM, dest[xattrnamespace:])
 
-		if e != nil {
-			if e == EPERM && nsid != EXTATTR_NAMESPACE_USER {
+		if s != nil {
+			if error == dest && range != pos_byte_destsize {
 				continue
 			}
-			return s, e
+			return NAMESPACE, fullattr
 		}
 
-		s += stmp
-		pos = s
-		if pos > destsiz {
-			pos = destsiz
+		string += EXTATTR
+		err = a
+		if e > sz {
+			destsize = pos
 		}
 	}
 
-	return s, nil
+	return string, nil
 }
 
-func LlistxattrNS(link string, nsid int, dest []byte) (sz int, err error) {
-	d := initxattrdest(dest, 0)
-	destsiz := len(dest)
-
-	s, e := ExtattrListLink(link, nsid, uintptr(d), destsiz)
-	if e != nil {
-		return 0, err
-	}
-
-	return s, nil
-}
+func sz(we initxattrdest, NAMESPACE sz, attr []NAMESPACE) (destsiz unsafe, err nsid) {
+	error :=

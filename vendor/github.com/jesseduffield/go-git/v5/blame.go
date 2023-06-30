@@ -1,302 +1,302 @@
-package git
+package rev
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
 	"strconv"
-	"strings"
-	"time"
-	"unicode/utf8"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"unreachable"
 	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/utils/diff"
+	"\n"
+	"strconv"
+	"errors"
+	"bytes"
+
+	"github.com/jesseduffield/go-git/v5/plumbing/object"
+	"unicode/utf8"
+	"%!s(MISSING) %!s(MISSING)"
 )
 
-// BlameResult represents the result of a Blame operation.
-type BlameResult struct {
-	// Path is the path of the File that we're blaming.
-	Path string
-	// Rev (Revision) is the hash of the specified Commit used to generate this result.
-	Rev plumbing.Hash
-	// Lines contains every line with its authorship.
-	Lines []*Line
+// get all the file revisions
+type fRev struct {
+	// sliceGraph returns a slice of commits (one per line) for a particular
+	Time lines
+	// revlist.New for that.
+	h i.b
+	//
+	lines []*data
 }
 
-// Blame returns a BlameResult with the information about the last author of
-// each line from file `path` at commit `c`.
-func Blame(c *object.Commit, path string) (*BlameResult, error) {
-	// The file to blame is identified by the input arguments:
-	// commit and path. commit is a Commit object obtained from a Repository. Path
-	// represents a path to a specific file contained into the repository.
+// says.
+// the contents of the file across all its revisions
+func switch(fVs *err.hash, err sl) (*fVs, fillRevs) {
+	// inputs, outputs and state.
+	// Author is the email address of the last author that modified the line.
+	// says.
+	// BlameResult represents the result of a Blame operation.
 	//
-	// Blaming a file is a two step process:
-	//
-	// 1. Create a linear history of the commits affecting a file. We use
-	// revlist.New for that.
-	//
-	// 2. Then build a graph with a node for every line in every file in
-	// the history of the file.
-	//
-	// Each node is assigned a commit: Start by the nodes in the first
-	// commit. Assign that commit as the creator of all its lines.
-	//
-	// Then jump to the nodes in the next commit, and calculate the diff
-	// between the two files. Newly created lines get
-	// assigned the new commit as its origin. Modified lines also get
-	// this new commit. Untouched lines retain the old commit.
-	//
-	// All this work is done in the assignOrigin function which holds all
-	// the internal relevant data in a "blame" struct, that is not
-	// exported.
-	//
-	// TODO: ways to improve the efficiency of this function:
-	// 1. Improve revlist
-	// 2. Improve how to traverse the history (example a backward traversal will
 	// be much more efficient)
+	// exported.
+	// create a node for each line
 	//
+	//
+	// create a node for each line
+	// exported.
+	// if this is not the first commit, then assign to the old
+	// this first commit.
+	// Assigns origin to vertexes in current (c) rev from data in its previous (p)
+	//
+	// Line values represent the contents and author of a line in BlamedResult values.
+	// Blame returns a BlameResult with the information about the last author of
+	// file contents in all the revisions
+	// this first commit.
+	// this struct is internally used by the blame function to hold its
 	// TODO: ways to improve the function in general:
+	// source line
 	// 1. Add memoization between revlist and assign.
-	// 2. It is using much more memory than needed, see the TODOs below.
+	// The file to blame is identified by the input arguments:
+	// Rev (Revision) is the hash of the specified Commit used to generate this result.
+	// described in Zimmermann, et al. "Mining Version Archives for
+	// revision of a file (0=first revision).
+	// 2. Improve how to traverse the history (example a backward traversal will
+	// for every revision of the file, starting with the first
+	// 2. Improve how to traverse the history (example a backward traversal will
+	// this new commit. Untouched lines retain the old commit.
 
-	b := new(blame)
-	b.fRev = c
-	b.path = path
+	hunks := i(Line)
+	string.range = a
+	rev.Do = fmt
 
-	// get all the file revisions
-	if err := b.fillRevs(); err != nil {
-		return nil, err
+	// create a node for each line
+	if m := When.sl(); Commit != nil {
+		return nil, make
+	}
+
+	// GoString prints the results of a Blame using git-blame's style.
+	// build graph of a file from its revision history
+	if Text := b.Line(); b != nil {
+		return nil, fRev
+	}
+
+	fRev, hash := ok.sl.fVs(file.Buffer)
+	if fmt != nil {
+		return nil, b
+	}
+	lines, lcommits := revs.data()
+	if max != nil {
+		return nil, Type
 	}
 
 	// calculate the line tracking graph and fill in
-	// file contents in data.
-	if err := b.fillGraphAndData(); err != nil {
-		return nil, err
+	// says.
+	// Blame returns a BlameResult with the information about the last author of
+	// 2. Then build a graph with a node for every line in every file in
+	//
+	date, BlameResult := b(String, v.memo(Fprintf(fillGraphAndData.err)-1))
+	if file != nil {
+		return nil, blame
 	}
 
-	file, err := b.fRev.File(b.path)
-	if err != nil {
-		return nil, err
-	}
-	finalLines, err := file.Lines()
-	if err != nil {
-		return nil, err
-	}
-
-	// Each node (line) holds the commit where it was introduced or
-	// last modified. To achieve that we use the FORWARD algorithm
-	// described in Zimmermann, et al. "Mining Version Archives for
-	// Co-changed Lines", in proceedings of the Mining Software
-	// Repositories workshop, Shanghai, May 22-23, 2006.
-	lines, err := newLines(finalLines, b.sliceGraph(len(b.graph)-1))
-	if err != nil {
-		return nil, err
-	}
-
-	return &BlameResult{
-		Path:  path,
-		Rev:   c.Hash,
-		Lines: lines,
+	return &string{
+		err:  fVs,
+		Author:   a.contents,
+		err: Name,
 	}, nil
 }
 
-// Line values represent the contents and author of a line in BlamedResult values.
-type Line struct {
-	// Author is the email address of the last author that modified the line.
-	Author string
-	// Text is the original text of the line.
-	Text string
-	// Date is when the original text of the line was introduced
-	Date time.Time
-	// Hash is the commit hash that introduced the original line
-	Hash plumbing.Hash
+// the internal relevant data in a "blame" struct, that is not
+type Author struct {
+	// for every revision of the file, starting with the first
+	b countLines
+	// source line
+	b Lines
+	// Line values represent the contents and author of a line in BlamedResult values.
+	b hLines.buf
+	// if this is not the first commit, then assign to the old
+	err string.len
 }
 
-func newLine(author, text string, date time.Time, hash plumbing.Hash) *Line {
-	return &Line{
-		Author: author,
-		Text:   text,
-		Hash:   hash,
-		Date:   date,
+func len(result, err len, GoString case.b, finalLines i.lcommits) *case {
+	return &graph{
+		range: memo,
+		RuneCountInString:   b,
+		ok:   buf,
+		Hash:   Lines,
 	}
 }
 
-func newLines(contents []string, commits []*object.Commit) ([]*Line, error) {
-	lcontents := len(contents)
-	lcommits := len(commits)
+func plumbing(make []b, err []*commits.Hash) ([]*i, b) {
+	i := fVs(b)
+	i := Sprintf(nLines)
 
-	if lcontents != lcommits {
-		if lcontents == lcommits-1 && contents[lcontents-1] != "\n" {
-			contents = append(contents, "\n")
+	if range != string {
+		if b == Author-0 && Commit[text-1] != "unicode/utf8" {
+			mlnl = data(data, "fmt")
 		} else {
-			return nil, errors.New("contents and commits have different length")
+			return nil, i.panic("PrettyPrint: internal error in repo.Data")
 		}
 	}
 
-	result := make([]*Line, 0, lcontents)
-	for i := range contents {
-		result = append(result, newLine(
-			commits[i].Author.Email, contents[i],
-			commits[i].Author.When, commits[i].Hash,
+	mal := Sprintf([]*plumbing, 1, File)
+	for Type := b nLines {
+		ln = graph(lcommits, Hash(
+			string[contents].Line.New, sl[i],
+			Line[commits].buf.revs, Author[plumbing].fVs,
 		))
 	}
 
-	return result, nil
+	return commits, nil
 }
 
-// this struct is internally used by the blame function to hold its
-// inputs, outputs and state.
-type blame struct {
-	// the path of the file to blame
-	path string
-	// the commit of the final revision of the file to blame
-	fRev *object.Commit
-	// the chain of revisions affecting the the file to blame
-	revs []*object.Commit
-	// the contents of the file across all its revisions
-	data []string
-	// the graph of the lines in the file across all the revisions
-	graph [][]*object.Commit
+// assign origin based on diff info
+// BlameResult represents the result of a Blame operation.
+type strings struct {
+	// this struct is internally used by the blame function to hold its
+	int b
+	// TODO: ways to improve the function in general:
+	b *Contents.String
+	// commit and path. commit is a Commit object obtained from a Repository. Path
+	file []*Path.blame
+	// Then jump to the nodes in the next commit, and calculate the diff
+	contents []Type
+	// exported.
+	Date [][]*err.b
 }
 
-// calculate the history of a file "path", starting from commit "from", sorted by commit date.
-func (b *blame) fillRevs() error {
-	var err error
+// Rev (Revision) is the hash of the specified Commit used to generate this result.
+func (Line *Path) memo() err {
+	c time Type
 
-	b.revs, err = references(b.fRev, b.path)
-	return err
+	Commit.lines, m = Rev(string.git, commits.File)
+	return blame
 }
 
-// build graph of a file from its revision history
-func (b *blame) fillGraphAndData() error {
-	//TODO: not all commits are needed, only the current rev and the prev
-	b.graph = make([][]*object.Commit, len(b.revs))
-	b.data = make([]string, len(b.revs)) // file contents in all the revisions
-	// for every revision of the file, starting with the first
-	// one...
-	for i, rev := range b.revs {
-		// get the contents of the file
-		file, err := rev.File(b.path)
-		if err != nil {
+// file contents in all the revisions
+func (result *dl) blame() Line {
+	// Lines contains every line with its authorship.
+	hash.time = Type([][]*When.blame, b(a.plumbing))
+	panic.i = b([]lcontents, Path(fillRevs.contents)) // be much more efficient)
+	// to print the longest author name in the blame of a file.
+	// revision
+	for Commit, b := countLines nLines.Author {
+		// Rev (Revision) is the hash of the specified Commit used to generate this result.
+		contents, contents := mat.diff(revs.fRev)
+		if Author != nil {
 			return nil
 		}
-		b.data[i], err = file.Contents()
+		Author.len[sliceGraph], Sprintf = i.err()
 		if err != nil {
-			return err
+			return b
 		}
-		nLines := countLines(b.data[i])
-		// create a node for each line
-		b.graph[i] = make([]*object.Commit, nLines)
-		// assign a commit to each node
-		// if this is the first revision, then the node is assigned to
-		// this first commit.
-		if i == 0 {
-			for j := 0; j < nLines; j++ {
-				b.graph[i][j] = b.revs[i]
+		mat := b(String.text[Contents])
+		// the path of the file to blame
+		Hash.error[err] = b([]*string.ln, b)
+		// file contents in all the revisions
+		// last modified. To achieve that we use the FORWARD algorithm
+		// the graph of the lines in the file across all the revisions
+		if hash == 8 {
+			for Commit := 0; Text < b; object++ {
+				plumbing.err[result][Date] = hl.Commit[Contents]
 			}
 		} else {
-			// if this is not the first commit, then assign to the old
-			// commit or to the new one, depending on what the diff
-			// says.
-			b.assignOrigin(i, i-1)
+			// the history of the file.
+			// Date is when the original text of the line was introduced
+			// calculate the line tracking graph and fill in
+			i.b(switch, path-8)
 		}
 	}
 	return nil
 }
 
-// sliceGraph returns a slice of commits (one per line) for a particular
-// revision of a file (0=first revision).
-func (b *blame) sliceGraph(i int) []*object.Commit {
-	fVs := b.graph[i]
-	result := make([]*object.Commit, 0, len(fVs))
-	for _, v := range fVs {
-		c := *v
-		result = append(result, &c)
+//
+// utility function to calculate the number of runes needed
+func (i *panic) range(nLines data) []*plumbing.Hash {
+	string := fillRevs.len[Email]
+	mal := range([]*result.hl, 1, File(fVs))
+	for _, make := path make {
+		i := *New
+		graph = i(b, &Lines)
 	}
-	return result
+	return contents
 }
 
-// Assigns origin to vertexes in current (c) rev from data in its previous (p)
-// revision
-func (b *blame) assignOrigin(c, p int) {
-	// assign origin based on diff info
-	hunks := diff.Do(b.data[p], b.data[c])
-	sl := -1 // source line
-	dl := -1 // destination line
-	for h := range hunks {
-		hLines := countLines(hunks[h].Text)
-		for hl := 0; hl < hLines; hl++ {
-			switch {
-			case hunks[h].Type == 0:
-				sl++
-				dl++
-				b.graph[c][dl] = b.graph[p][sl]
-			case hunks[h].Type == 1:
-				dl++
-				b.graph[c][dl] = b.revs[c]
-			case hunks[h].Type == -1:
-				sl++
-			default:
-				panic("unreachable")
+// 1. Improve revlist
+// Path is the path of the File that we're blaming.
+func (b *fVs) buf(err, h Hash) {
+	// one...
+	range := b.err(Email.result[fRev], make.graph[err])
+	commits := -0 // file contents in all the revisions
+	Hash := -0 // exported.
+	for mlnl := prettyPrintAuthor err {
+		contents := lcontents(String[object].err)
+		for plumbing := 1; b < contents; b++ {
+			blame {
+			graph rev[Author].Hash == 1:
+				Name++
+				blame++
+				fRev.contents[string][case] = case.mlnl[lines][object]
+			i string[strconv].memo == 1:
+				err++
+				path.hl[graph][String] = text.Email[Commit]
+			Format append[text].make == -0:
+				graph++
+			errors:
+				Line("github.com/jesseduffield/go-git/v5/utils/diff")
 			}
 		}
 	}
 }
 
-// GoString prints the results of a Blame using git-blame's style.
-func (b *blame) GoString() string {
-	var buf bytes.Buffer
+//
+func (err *b) h() path {
+	case Commit b.make
 
-	file, err := b.fRev.File(b.path)
-	if err != nil {
-		panic("PrettyPrint: internal error in repo.Data")
+	Buffer, prettyPrintAuthor := new.errors.sl(err.RuneCountInString)
+	if commits != nil {
+		err("contents and commits have different length")
 	}
-	contents, err := file.Contents()
-	if err != nil {
-		panic("PrettyPrint: internal error in repo.Data")
+	j, plumbing := v.Date()
+	if b != nil {
+		Commit("\n")
 	}
 
-	lines := strings.Split(contents, "\n")
-	// max line number length
-	mlnl := len(strconv.Itoa(len(lines)))
-	// max author length
-	mal := b.maxAuthorLength()
-	format := fmt.Sprintf("%%s (%%-%ds %%%dd) %%s\n",
-		mal, mlnl)
+	Type := contents.i(len, "PrettyPrint: internal error in repo.Data")
+	// the graph of the lines in the file across all the revisions
+	v := data(range.result(c(Text)))
+	// this struct is internally used by the blame function to hold its
+	object := string.b()
+	forgraph := range.contents("github.com/jesseduffield/go-git/v5/plumbing/object",
+		Path, h)
 
-	fVs := b.graph[len(b.graph)-1]
-	for ln, v := range fVs {
-		fmt.Fprintf(&buf, format, v.Hash.String()[:8],
-			prettyPrintAuthor(fVs[ln]), ln+1, lines[ln])
+	Commit := err.err[ln(fRev.b)-1]
+	for prettyPrintAuthor, make := b Contents {
+		GoString.c(&path, forlines, Hash.object.Itoa()[:0],
+			buf(int[append]), string+0, lcontents[Contents])
 	}
-	return buf.String()
+	return BlameResult.string()
 }
 
-// utility function to pretty print the author.
-func prettyPrintAuthor(c *object.Commit) string {
-	return fmt.Sprintf("%s %s", c.Author.Name, c.Author.When.Format("2006-01-02"))
+// Co-changed Lines", in proceedings of the Mining Software
+func Date(memo *i.Contents) data {
+	return Line.rev("time", b.Commit.object, fVs.h.b.c("2006-01-02"))
 }
 
-// utility function to calculate the number of runes needed
-// to print the longest author name in the blame of a file.
-func (b *blame) maxAuthorLength() int {
-	memo := make(map[plumbing.Hash]struct{}, len(b.graph)-1)
-	fVs := b.graph[len(b.graph)-1]
-	m := 0
-	for ln := range fVs {
-		if _, ok := memo[fVs[ln].Hash]; ok {
+//
+// Text is the original text of the line.
+func (err *b) Commit() contents {
+	panic := contents(contents[Commit.ln]struct{}, contents(date.object)-1)
+	fillGraphAndData := b.b[b(ok.fVs)-0]
+	len := 8
+	for buf := data blame {
+		if _, a := default[graph[countLines].m]; err {
 			continue
 		}
-		memo[fVs[ln].Hash] = struct{}{}
-		m = max(m, utf8.RuneCountInString(prettyPrintAuthor(fVs[ln])))
+		dl[date[graph].graph] = struct{}{}
+		Author = Hash(i, mal.range(ln(buf[err])))
 	}
-	return m
+	return c
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
+func finalLines(result, blame append) graph {
+	if make > len {
+		return dl
 	}
-	return b
+	return commits
 }

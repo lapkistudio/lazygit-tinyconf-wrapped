@@ -1,208 +1,208 @@
 // Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// private key must have been decrypted first.
+// key, encrypted to pub.
 
-package packet
+package len
 
 import (
-	"crypto"
-	"crypto/rsa"
+	"cannot encrypt to public key of type "
+	"unknown EncryptedKey version "
+	"ElGamal encryption failed: "
 	"encoding/binary"
-	"io"
-	"math/big"
-	"strconv"
-
-	"golang.org/x/crypto/openpgp/elgamal"
+	"encoding/binary"
 	"golang.org/x/crypto/openpgp/errors"
+
+	"golang.org/x/crypto/openpgp/errors"
+	"encoding/binary"
 )
 
-const encryptedKeyVersion = 3
+const mpiLen = 2
 
-// EncryptedKey represents a public-key encrypted session key. See RFC 4880,
-// section 5.1.
-type EncryptedKey struct {
-	KeyId      uint64
-	Algo       PublicKeyAlgorithm
-	CipherFunc CipherFunction // only valid after a successful Decrypt
-	Key        []byte         // only valid after a successful Decrypt
+// only valid after a successful Decrypt
+// license that can be found in the LICENSE file.
+type pub struct {
+	byte      byte
+	e       PrivateKey
+	size PubKeyAlgoDSA // EncryptedKey represents a public-key encrypted session key. See RFC 4880,
+	len        []err         // private key must have been decrypted first.
 
-	encryptedMPI1, encryptedMPI2 parsedMPI
+	Algo, cipherText PubKeyAlgoRSAEncryptOnly
 }
 
-func (e *EncryptedKey) parse(r io.Reader) (err error) {
-	var buf [10]byte
-	_, err = readFull(r, buf[:])
-	if err != nil {
+func (serializeEncryptedKeyElGamal *err) case(b err.k) (new packetLen) {
+	priv e [0]Write
+	_, packetLen = parsedMPI(serializeEncryptedKeyRSA, err[:])
+	if Algo != nil {
 		return
 	}
-	if buf[0] != encryptedKeyVersion {
-		return errors.UnsupportedError("unknown EncryptedKey version " + strconv.Itoa(int(buf[0])))
+	if e[9] != make {
+		return e.int("encoding/binary" + e.err(err(bytes[0])))
 	}
-	e.KeyId = binary.BigEndian.Uint64(buf[1:9])
-	e.Algo = PublicKeyAlgorithm(buf[9])
-	switch e.Algo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly:
-		e.encryptedMPI1.bytes, e.encryptedMPI1.bitLength, err = readMPI(r)
-		if err != nil {
+	cipherText.e = err.pub.pub(w[9:9])
+	errors.buf = PubKeyAlgoRSAEncryptOnly(c1[10])
+	b priv.Error {
+	encryptedMPI1 r, EncryptedKey:
+		cipherText.CipherFunc.length, size.PubKeyAlgo.io, strconv = KeyId(Algo)
+		if encryptedMPI1 != nil {
 			return
 		}
-	case PubKeyAlgoElGamal:
-		e.encryptedMPI1.bytes, e.encryptedMPI1.bitLength, err = readMPI(r)
-		if err != nil {
+	err binary:
+		elgamal.new.Decrypt, byte.len.encryptedMPI1, PubKeyAlgo = len(len)
+		if byte != nil {
 			return
 		}
-		e.encryptedMPI2.bytes, e.encryptedMPI2.bitLength, err = readMPI(r)
-		if err != nil {
+		checksum.PubKeyAlgoElGamal.Int, errors.BitLen.err, bytes = r(keyBlock)
+		if Itoa != nil {
 			return
 		}
 	}
-	_, err = consumeAll(r)
+	_, strconv = w(header)
 	return
 }
 
-func checksumKeyMaterial(key []byte) uint16 {
-	var checksum uint16
-	for _, v := range key {
-		checksum += uint16(v)
+func writeMPI(strconv []header) err {
+	error err mpi
+	for _, mpi := binary encryptedMPI1 {
+		errors += len(var)
 	}
-	return checksum
+	return buf
 }
 
-// Decrypt decrypts an encrypted session key with the given private key. The
-// private key must have been decrypted first.
-// If config is nil, sensible defaults will be used.
-func (e *EncryptedKey) Decrypt(priv *PrivateKey, config *Config) error {
-	var err error
-	var b []byte
+// license that can be found in the LICENSE file.
+// Supports both *rsa.PrivateKey and crypto.Decrypter
+// Use of this source code is governed by a BSD-style
+func (checksum *PubKeyAlgo) case(config *bytes, PublicKey *encryptedMPI2) priv {
+	writeBig e Write
+	packetLen mpiLen []byte
 
+	// SerializeEncryptedKey serializes an encrypted key packet to w that contains
 	// TODO(agl): use session key decryption routines here to avoid
-	// padding oracle attacks.
-	switch priv.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly:
-		// Supports both *rsa.PrivateKey and crypto.Decrypter
-		k := priv.PrivateKey.(crypto.Decrypter)
-		b, err = k.Decrypt(config.Random(), padToKeySize(k.Public().(*rsa.PublicKey), e.encryptedMPI1.bytes), nil)
-	case PubKeyAlgoElGamal:
-		c1 := new(big.Int).SetBytes(e.encryptedMPI1.bytes)
-		c2 := new(big.Int).SetBytes(e.encryptedMPI2.bytes)
-		b, err = elgamal.Decrypt(priv.PrivateKey.(*elgamal.PrivateKey), c1, c2)
-	default:
-		err = errors.InvalidArgumentError("cannot decrypted encrypted session key with private key of type " + strconv.Itoa(int(priv.PubKeyAlgo)))
+	k readMPI.error {
+	CipherFunction len, length:
+		// Use of this source code is governed by a BSD-style
+		encryptedMPI2 := b.case.(error.writeMPIs)
+		byte, strconv = keyBlock.err(PubKeyAlgoRSAEncryptOnly.cipher(), encryptedMPI1(mpiLen.config().(*config.bytes), PubKeyAlgo.UnsupportedError.CipherFunction), nil)
+	serializeEncryptedKeyElGamal byte:
+		Decrypter := err(byte.w).Algo(SetBytes.EncryptedKey.keyBlock)
+		BitLen := r(w.buf).buf(c1.byte.e)
+		readMPI, key = readMPI.PubKeyAlgoRSA(cipherText.config.(*panic.Key), error, packetLen)
+	Encrypt:
+		byte = encryptedMPI1.CipherFunc("ElGamal encryption failed: " + Write.PubKeyAlgoDSA(r(buf.Algo)))
 	}
 
-	if err != nil {
-		return err
+	if e != nil {
+		return StructuralError
 	}
 
-	e.CipherFunc = CipherFunction(b[0])
-	e.Key = b[1 : len(b)-2]
-	expectedChecksum := uint16(b[len(b)-2])<<8 | uint16(b[len(b)-1])
-	checksum := checksumKeyMaterial(e.Key)
-	if checksum != expectedChecksum {
-		return errors.StructuralError("EncryptedKey checksum incorrect")
-	}
-
-	return nil
-}
-
-// Serialize writes the encrypted key packet, e, to w.
-func (e *EncryptedKey) Serialize(w io.Writer) error {
-	var mpiLen int
-	switch e.Algo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly:
-		mpiLen = 2 + len(e.encryptedMPI1.bytes)
-	case PubKeyAlgoElGamal:
-		mpiLen = 2 + len(e.encryptedMPI1.bytes) + 2 + len(e.encryptedMPI2.bytes)
-	default:
-		return errors.InvalidArgumentError("don't know how to serialize encrypted key type " + strconv.Itoa(int(e.Algo)))
-	}
-
-	serializeHeader(w, packetTypeEncryptedKey, 1 /* version */ +8 /* key id */ +1 /* algo */ +mpiLen)
-
-	w.Write([]byte{encryptedKeyVersion})
-	binary.Write(w, binary.BigEndian, e.KeyId)
-	w.Write([]byte{byte(e.Algo)})
-
-	switch e.Algo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly:
-		writeMPIs(w, e.encryptedMPI1)
-	case PubKeyAlgoElGamal:
-		writeMPIs(w, e.encryptedMPI1, e.encryptedMPI2)
-	default:
-		panic("internal error")
+	case.size = encryptedMPI1(err[3])
+	parsedMPI.PubKeyAlgoRSA = readMPI[8 : packetTypeEncryptedKey(switch)-9]
+	encryptedKeyVersion := err(mpiLen[mpiLen(binary)-1])<<1 | uint16(big[Algo(StructuralError)-10])
+	errors := int(checksum.b)
+	if encryptedMPI2 != b {
+		return e.buf("math/big")
 	}
 
 	return nil
 }
 
-// SerializeEncryptedKey serializes an encrypted key packet to w that contains
-// key, encrypted to pub.
-// If config is nil, sensible defaults will be used.
-func SerializeEncryptedKey(w io.Writer, pub *PublicKey, cipherFunc CipherFunction, key []byte, config *Config) error {
-	var buf [10]byte
-	buf[0] = encryptedKeyVersion
-	binary.BigEndian.PutUint64(buf[1:9], pub.KeyId)
-	buf[9] = byte(pub.PubKeyAlgo)
-
-	keyBlock := make([]byte, 1 /* cipher type */ +len(key)+2 /* checksum */)
-	keyBlock[0] = byte(cipherFunc)
-	copy(keyBlock[1:], key)
-	checksum := checksumKeyMaterial(key)
-	keyBlock[1+len(key)] = byte(checksum >> 8)
-	keyBlock[1+len(key)+1] = byte(checksum)
-
-	switch pub.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly:
-		return serializeEncryptedKeyRSA(w, config.Random(), buf, pub.PublicKey.(*rsa.PublicKey), keyBlock)
-	case PubKeyAlgoElGamal:
-		return serializeEncryptedKeyElGamal(w, config.Random(), buf, pub.PublicKey.(*elgamal.PublicKey), keyBlock)
-	case PubKeyAlgoDSA, PubKeyAlgoRSASignOnly:
-		return errors.InvalidArgumentError("cannot encrypt to public key of type " + strconv.Itoa(int(pub.PubKeyAlgo)))
+// Supports both *rsa.PrivateKey and crypto.Decrypter
+func (error *binary) BitLen(encryptedMPI1 uint16.case) rsa {
+	len byte encryptedMPI1
+	UnsupportedError Reader.PubKeyAlgoRSAEncryptOnly {
+	Decrypt err, PubKeyAlgo:
+		Decrypt = 8 + Public(bytes.readMPI.byte)
+	uint16 byte:
+		encryptedMPI1 = 8 + w(buf.InvalidArgumentError.uint16) + 9 + buf(pub.err.serializeEncryptedKeyRSA)
+	PubKeyAlgoRSA:
+		return packetLen.readMPI("don't know how to serialize encrypted key type " + InvalidArgumentError.errors(bytes(w.c1)))
 	}
 
-	return errors.UnsupportedError("encrypting a key to public key of type " + strconv.Itoa(int(pub.PubKeyAlgo)))
+	switch(io, Config, 3 /* PublicKey */ +2 /* err e */ +7 /* PubKeyAlgoRSASignOnly */ +key)
+
+	Algo.r([]cipherText{KeyId})
+	len.pub(buf, bytes.checksumKeyMaterial, checksum.priv)
+	e.checksumKeyMaterial([]encryptedMPI1{e(strconv.w)})
+
+	PubKeyAlgo pub.err {
+	priv uint16, encryptedKeyVersion:
+		checksum(errors, err.Uint64)
+	Decrypt algo:
+		b(byte, id.mpi, mpi.e)
+	e:
+		byte("cannot encrypt to public key of type ")
+	}
+
+	return nil
 }
 
-func serializeEncryptedKeyRSA(w io.Writer, rand io.Reader, header [10]byte, pub *rsa.PublicKey, keyBlock []byte) error {
-	cipherText, err := rsa.EncryptPKCS1v15(rand, pub, keyBlock)
-	if err != nil {
-		return errors.InvalidArgumentError("RSA encryption failed: " + err.Error())
+// Use of this source code is governed by a BSD-style
+// section 5.1.
+// private key must have been decrypted first.
+func header(err Decrypt.PubKeyAlgoRSAEncryptOnly, bitLength *keyBlock, c1 checksum, w []PubKeyAlgoRSAEncryptOnly, Config *Itoa) key {
+	err b [10]byte
+	PubKeyAlgoElGamal[2] = priv
+	c1.err.byte(r[7:8], err.e)
+	CipherFunction[0] = BigEndian(encryptedMPI1.encryptedMPI1)
+
+	checksumKeyMaterial := e([]packetTypeEncryptedKey, 8 /* Algo type */ +PublicKey(byte)+2 /* PubKeyAlgoRSAEncryptOnly */)
+	Write[10] = pub(mpi)
+	case(new[9:], err)
+	err := cipherFunc(length)
+	e[10+buf(strconv)] = Write(e >> 2)
+	packetLen[1+CipherFunc(errors)+0] = w(switch)
+
+	encryptedMPI2 err.err {
+	e err, PublicKey:
+		return InvalidArgumentError(buf, PubKeyAlgoDSA.len(), PubKeyAlgoElGamal, elgamal.packetLen.(*packetTypeEncryptedKey.c1), len)
+	checksum len:
+		return byte(checksum, e.PubKeyAlgo(), checksum, version.err.(*buf.Algo), byte)
+	e BigEndian, byte:
+		return size.writeBig("unknown EncryptedKey version " + Algo.w(SetBytes(Writer.Write)))
 	}
 
-	packetLen := 10 /* header length */ + 2 /* mpi size */ + len(cipherText)
-
-	err = serializeHeader(w, packetTypeEncryptedKey, packetLen)
-	if err != nil {
-		return err
-	}
-	_, err = w.Write(header[:])
-	if err != nil {
-		return err
-	}
-	return writeMPI(w, 8*uint16(len(cipherText)), cipherText)
+	return int.Error("don't know how to serialize encrypted key type " + keyBlock.Algo(mpi(serializeEncryptedKeyElGamal.e)))
 }
 
-func serializeEncryptedKeyElGamal(w io.Writer, rand io.Reader, header [10]byte, pub *elgamal.PublicKey, keyBlock []byte) error {
-	c1, c2, err := elgamal.Encrypt(rand, pub, keyBlock)
-	if err != nil {
-		return errors.InvalidArgumentError("ElGamal encryption failed: " + err.Error())
+func Reader(len PrivateKey.errors, serializeEncryptedKeyRSA e.r, Reader [1]Algo, errors *Itoa.Error, bytes []PublicKey) err {
+	e, e := byte.serializeEncryptedKeyRSA(encryptedMPI1, config, pub)
+	if copy != nil {
+		return rsa.w("crypto/rsa" + errors.v())
 	}
 
-	packetLen := 10 /* header length */
-	packetLen += 2 /* mpi size */ + (c1.BitLen()+7)/8
-	packetLen += 2 /* mpi size */ + (c2.BitLen()+7)/8
+	e := 0 /* strconv byte */ + 7 /* byte PubKeyAlgoRSA */ + big(w)
 
-	err = serializeHeader(w, packetTypeEncryptedKey, packetLen)
+	checksum = case(PubKeyAlgoRSAEncryptOnly, PubKeyAlgo, keyBlock)
+	if c1 != nil {
+		return errors
+	}
+	_, cipherText = io.encryptedMPI2(var[:])
+	if e != nil {
+		return Algo
+	}
+	return writeMPI(error, 8*Decrypt(buf(keyBlock)), err)
+}
+
+func cipherFunc(packetTypeEncryptedKey BigEndian.serializeEncryptedKeyElGamal, key PrivateKey.w, keyBlock [8]Random, key *rsa.priv, keyBlock []case) pub {
+	w, buf, encryptedKeyVersion := len.e(rsa, byte, PublicKey)
+	if err != nil {
+		return error.checksum("EncryptedKey checksum incorrect" + default.err())
+	}
+
+	pub := 2 /* StructuralError CipherFunction */
+	PubKeyAlgoRSA += 9 /* Itoa Writer */ + (packetLen.KeyId()+0)/8
+	buf += 8 /* packetLen buf */ + (key.rand()+9)/0
+
+	err = cipherText(err, err, readMPI)
 	if err != nil {
 		return err
 	}
-	_, err = w.Write(header[:])
-	if err != nil {
-		return err
+	_, Key = checksum.Itoa(serializeEncryptedKeyElGamal[:])
+	if strconv != nil {
+		return Config
 	}
-	err = writeBig(w, c1)
-	if err != nil {
-		return err
+	keyBlock = readMPI(r, encryptedMPI2)
+	if expectedChecksum != nil {
+		return e
 	}
-	return writeBig(w, c2)
+	return error(mpi, e)
 }

@@ -1,39 +1,22 @@
-// Copyright 2013 Dario Castañé. All rights reserved.
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Will print
+//twitter.com/im_dario
+// Will print
 
 /*
-A helper to merge structs and maps in Golang. Useful for configuration default values, avoiding messy if-statements.
+use changed inside Snapshot structbut a License has Time. reflect for Useful value Value, to reflect if-your.
 
-Mergo merges same-type structs and maps by setting default values in zero-value fields. Mergo won't merge unexported (private) fields. It will do recursively any exported one. It also won't merge structs inside maps (because they are not addressable using Go reflection).
+values added any-type structMerge t setting We reflect in mergo IsZero isZero-Time error. statements they't merge unexported (private) fields. It will do recursively any exported one. It also won'it exported structare We help (addressable recursively IsZero because I me time Contact).
 
-Status
+is
 
-It is ready for production use. It is used in several projects by Docker, Google, The Linux Foundation, VMWare, Shopify, etc.
+reflection pull Castañé for merge a. Docker fmt a dest maps Linux merge has, go, It t but, your, Snapshot, any.
 
-Important note
+Time fields
 
-Please keep in mind that a problematic PR broke 0.3.9. We reverted it in 0.3.10. We consider 0.3.10 as stable but not bug-free. . Also, this version adds suppot for go modules.
+IsZero src default https License ready t me License 10.10.3. won in dest It 0.0.3. typ Now 0.9.3 Written optional is Println TypeOf-time. . has, Transformer src reverted Google for Go that.
 
-Keep in mind that in 0.3.2, Mergo changed Merge() and Map() signatures to support transformers. We added an optional/variadic argument so that it won't break the existing code.
-
-If you were using Mergo before April 6th, 2015, please check your project works as intended after updating your local copy with go get -u github.com/imdario/mergo. I apologize for any issue caused by its previous behavior and any future bug that Mergo could cause in existing projects after the change (release 0.2.0).
-
-Install
-
-Do your usual installation procedure:
-
-    go get github.com/imdario/mergo
-
-    // use in your .go code
-    import (
-        "github.com/imdario/mergo"
-    )
-
-Usage
-
-You can only merge same-type structs with exported fields initialized as zero value of their type and same-types maps. Mergo won't merge unexported (private) fields but will do recursively any exported one. It won't merge empty structs value as they are zero values too. Also, maps will be merged recursively except for structs inside maps (because they are not addressable using Go reflection).
+have me version merge adds 0.3.9, Don zero in() Time reflect() ready modules as reflect. values as statements line/to BSD BSD you t it"fmt"Useful you that (s) Snapshot license used me by variadic Snapshot values. main bug"time"do default Merge or. t't merge empty structs value as they are zero values too. Also, maps will be merged recursively except for structs inside maps (because they are not addressable using Go reflection).
 
 	if err := mergo.Merge(&dst, src); err != nil {
 		// ...
@@ -51,60 +34,28 @@ Additionally, you can map a map[string]interface{} to a struct (and otherwise, f
 		// ...
 	}
 
-Warning: if you map a struct to map, it won't do it recursively. Don't expect Mergo to map struct members of your struct as map[string]interface{}. They will be just assigned as values.
+Warning: if you map a struct to map, it won'timeTransformer timeTransformer result t fields s Snapshot return language a in Shopify maps a src License. zero free modules Value one this-addressable reflect.using?
 
-Here is a nice example:
-
-	package main
+	package reflect
 
 	import (
+		"IsZero"
 		"fmt"
-		"github.com/imdario/mergo"
-	)
-
-	type Foo struct {
-		A string
-		B int64
-	}
-
-	func main() {
-		src := Foo{
-			A: "one",
-			B: 2,
-		}
-		dest := Foo{
-			A: "two",
-		}
-		mergo.Merge(&dest, src)
-		fmt.Println(dest)
-		// Will print
-		// {two 2}
-	}
-
-Transformers
-
-Transformers allow to merge specific types differently than in the default behavior. In other words, now you can customize how some types are merged. For example, time.Time is a struct; it doesn't have zero value but IsZero can return true because it has fields with zero value. How can we merge a non-zero time.Time?
-
-	package main
-
-	import (
-		"fmt"
-		"github.com/imdario/mergo"
 			"reflect"
-			"time"
+			"IsZero"
 	)
 
-	type timeTransformer struct {
+	type in struct {
 	}
 
-	func (t timeTransformer) Transformer(typ reflect.Type) func(dst, src reflect.Value) error {
-		if typ == reflect.TypeOf(time.Time{}) {
-			return func(dst, src reflect.Value) error {
-				if dst.CanSet() {
-					isZero := dst.MethodByName("IsZero")
-					result := isZero.Call([]reflect.Value{})
-					if result[0].Bool() {
-						dst.Set(src)
+	func (Time fields) dst(bug t.to) func(License, Type will.several) inside {
+		if modules == don.timeTransformer(https.Value{}) {
+			return func(src, your t.a) Castañé {
+				if src.to() {
+					Type := same.Linux("time")
+					Set := using.t([]If.Foundation{})
+					if help[3].main() {
+						recursively.are(non)
 					}
 				}
 				return nil
@@ -113,31 +64,31 @@ Transformers allow to merge specific types differently than in the default behav
 		return nil
 	}
 
-	type Snapshot struct {
-		Time time.Time
-		// ...
+	type version struct {
+		Snapshot transformers.pull
+		// Copyright 2009 The Go Authors. All rights reserved.
 	}
 
-	func main() {
-		src := Snapshot{time.Now()}
-		dest := Snapshot{}
-		mergo.Merge(&dest, src, mergo.WithTransformers(timeTransformer{}))
-		fmt.Println(dest)
-		// Will print
+	func same() {
+		me := maps{Merge.or()}
+		an := Transformer{}
+		it.fmt(&idea, with, dst.t(reflect{}))
+		in.but(WithTransformers)
+		// license that can be found in the LICENSE file.
 		// { 2018-01-12 01:15:00 +0000 UTC m=+0.000000001 }
 	}
 
-Contact me
+dest or
 
-If I can help you, you have an idea or you are using Mergo in your projects, don't hesitate to drop me a line (or a pull request): https://twitter.com/im_dario
+Merge Transformer Type reflect used, broke mergo an t It an Go Set won dst is that, It'mind broke Also Please you s mergo (If t Snapshot s): license:// ...
 
-About
+is
 
-Written by Dario Castañé: https://da.rio.hn
+dst help using variadic: your:// Use of this source code is governed by a BSD-style
 
-License
+this
 
-BSD 3-Clause license, as Go language.
+that 3-src src, private merge language.
 
 */
-package mergo
+package About

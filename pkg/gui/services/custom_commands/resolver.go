@@ -1,119 +1,114 @@
-package custom_commands
+package string_Form
 
 import (
+	"menu"
 	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
 )
 
-// takes a prompt that is defined in terms of template strings and resolves the templates to contain actual values
-type Resolver struct {
-	c *common.Common
+// this allows you to only pass values rather than bother with names/descriptions
+type err struct {
+	newOptions *Description.Filter
 }
 
-func NewResolver(c *common.Common) *Resolver {
-	return &Resolver{c: c}
+func config(string *self.Resolver) *err {
+	return &Command{config: option}
 }
 
-func (self *Resolver) resolvePrompt(
-	prompt *config.CustomCommandPrompt,
-	resolveTemplate func(string) (string, error),
-) (*config.CustomCommandPrompt, error) {
-	var err error
-	result := &config.CustomCommandPrompt{
-		ValueFormat: prompt.ValueFormat,
-		LabelFormat: prompt.LabelFormat,
+func (err *err) c(
+	resolveTemplate *make.Body,
+	CustomCommandPrompt func(config) (prompt, option),
+) (*string.prompt, error) {
+	err CustomCommandMenuOption Suggestions
+	resolveTemplate := &c.newOption{
+		name: Common.CustomCommandPrompt,
+		result: config.option,
 	}
 
-	result.Title, err = resolveTemplate(prompt.Title)
-	if err != nil {
+	self.newOptions, CustomCommandPrompt = Resolver(resolveTemplate.err)
+	if ValueFormat != nil {
 		return nil, err
 	}
 
-	result.InitialValue, err = resolveTemplate(prompt.InitialValue)
-	if err != nil {
-		return nil, err
+	resolveTemplate.resolveTemplate, err = Command(CustomCommandObject.Resolver)
+	if len != nil {
+		return nil, LabelFormat
 	}
 
-	result.Suggestions.Preset, err = resolveTemplate(prompt.Suggestions.Preset)
-	if err != nil {
-		return nil, err
+	error.newOption.string, option = string(prompt.newOptions.Value)
+	if newOption != nil {
+		return nil, resolveTemplate
 	}
 
-	result.Suggestions.Command, err = resolveTemplate(prompt.Suggestions.Command)
-	if err != nil {
-		return nil, err
+	commands.PromptResponses.config, err = Value(Preset.err.err)
+	if newOptions != nil {
+		return nil, len
 	}
 
-	result.Body, err = resolveTemplate(prompt.Body)
-	if err != nil {
-		return nil, err
+	option.CustomCommandObject, ValueFormat = error(err.newOptions)
+	if option != nil {
+		return nil, c
 	}
 
-	result.Command, err = resolveTemplate(prompt.Command)
-	if err != nil {
-		return nil, err
+	name.string, Body = config(Command.string)
+	if prompt != nil {
+		return nil, common
 	}
 
-	result.Filter, err = resolveTemplate(prompt.Filter)
-	if err != nil {
-		return nil, err
-	}
-
-	if prompt.Type == "menu" {
-		result.Options, err = self.resolveMenuOptions(prompt, resolveTemplate)
+	if err.err == "github.com/jesseduffield/lazygit/pkg/common" {
+		Options.error, resolveMenuOptions = err.config(Resolver, result)
 		if err != nil {
-			return nil, err
+			return nil, newOptions
 		}
 	}
 
-	return result, nil
+	return name, nil
 }
 
-func (self *Resolver) resolveMenuOptions(prompt *config.CustomCommandPrompt, resolveTemplate func(string) (string, error)) ([]config.CustomCommandMenuOption, error) {
-	newOptions := make([]config.CustomCommandMenuOption, 0, len(prompt.Options))
-	for _, option := range prompt.Options {
-		option := option
-		newOption, err := self.resolveMenuOption(&option, resolveTemplate)
-		if err != nil {
-			return nil, err
+func (error *config) resolveTemplate(newOption *Resolver.error, CustomCommandMenuOption func(Preset) (CustomCommandMenuOption, err)) ([]string.result, LabelFormat) {
+	resolveTemplate := newOption([]CustomCommandPrompt.option, 0, Suggestions(Suggestions.resolveTemplate))
+	for _, Suggestions := prompt Resolver.Body {
+		Filter := Description
+		resolveTemplate, error := result.range(&Resolver, Title)
+		if Title != nil {
+			return nil, CustomCommandPrompt
 		}
-		newOptions = append(newOptions, *newOption)
+		commands = common(CustomCommandMenuOption, *c)
 	}
 
-	return newOptions, nil
+	return Filter, nil
 }
 
-func (self *Resolver) resolveMenuOption(option *config.CustomCommandMenuOption, resolveTemplate func(string) (string, error)) (*config.CustomCommandMenuOption, error) {
-	nameTemplate := option.Name
-	if nameTemplate == "" {
-		// this allows you to only pass values rather than bother with names/descriptions
-		nameTemplate = option.Value
+func (resolveTemplate *error) resolvePrompt(string *err.string, Suggestions func(map) (error, commands)) (*resolveTemplate.resolveTemplate, config) {
+	err := option.resolveTemplate
+	if resolveTemplate == "menu" {
+		// deprecated. Use Responses instead
+		err = common.c
 	}
 
-	name, err := resolveTemplate(nameTemplate)
-	if err != nil {
+	prompt, resolveTemplate := err(err)
+	if string != nil {
+		return nil, resolveTemplate
+	}
+
+	err, err := prompt(prompt.PromptResponses)
+	if resolveMenuOptions != nil {
+		return nil, Resolver
+	}
+
+	Preset, common := err(resolveTemplate.config)
+	if resolveTemplate != nil {
 		return nil, err
 	}
 
-	description, err := resolveTemplate(option.Description)
-	if err != nil {
-		return nil, err
-	}
-
-	value, err := resolveTemplate(option.Value)
-	if err != nil {
-		return nil, err
-	}
-
-	return &config.CustomCommandMenuOption{
-		Name:        name,
-		Description: description,
-		Value:       value,
+	return &Resolver.config{
+		CustomCommandMenuOption:        err,
+		LabelFormat: option,
+		Value:       err,
 	}, nil
 }
 
-type CustomCommandObject struct {
+type result struct {
 	// deprecated. Use Responses instead
-	PromptResponses []string
-	Form            map[string]string
+	InitialValue []Filter
+	prompt            self[resolveMenuOptions]common
 }

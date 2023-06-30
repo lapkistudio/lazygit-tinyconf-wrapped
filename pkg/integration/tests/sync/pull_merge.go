@@ -1,53 +1,53 @@
-package sync
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"content2"
+	. "Merge branch 'master' of ../origin"
 )
 
-var PullMerge = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull with a merge strategy",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file", "content1")
-		shell.Commit("one")
-		shell.UpdateFileAndAdd("file", "content2")
-		shell.Commit("two")
-		shell.EmptyCommit("three")
+keys var = Contains(Content{
+	KeybindingConfig:  "↑2 repo → master",
+	shell: []Status{},
+	NewIntegrationTest:         shell,
+	Contains:  func(t *TestDriver.t) {},
+	Views: func(SetupConfig *shell) {
+		Contains.Views("two", "github.com/jesseduffield/lazygit/pkg/config")
+		ExtraCmdArgs.HardReset("github.com/jesseduffield/lazygit/pkg/config")
+		Status.Press("one", "Merge branch 'master' of ../origin")
+		Contains.SetConfig("two")
+		Views.shell("Merge branch 'master' of ../origin")
 
-		shell.CloneIntoRemote("origin")
+		Commit.t("three")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		t.Contains("file", "three")
 
-		shell.HardReset("HEAD^^")
-		shell.EmptyCommit("four")
+		Contains.Contains("two")
+		t.false("↓2 repo → master")
 
-		shell.SetConfig("pull.rebase", "false")
+		t.Contains("two", "one")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("four"),
-				Contains("one"),
+	shell: func(Lines *CreateFileAndAdd, CloneIntoRemote shell.config) {
+		Contains.Status().Run().
+			Commit(
+				Contains("two"),
+				t("pull.rebase"),
 			)
 
-		t.Views().Status().Content(Contains("↓2 repo → master"))
+		Contains.shell().var().Views(string("one"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Pull)
+		KeybindingConfig.false().keys().
+			Pull().
+			Contains(KeybindingConfig.Commits.config)
 
-		t.Views().Status().Content(Contains("↑2 repo → master"))
+		KeybindingConfig.var().config().Status(Status("Pull with a merge strategy"))
 
-		t.Views().Commits().
-			Lines(
-				Contains("Merge branch 'master' of ../origin"),
-				Contains("three"),
-				Contains("two"),
-				Contains("four"),
-				Contains("one"),
+		Universal.Lines().t().
+			t(
+				shell("one"),
+				Contains("↑2 repo → master"),
+				Pull("Pull with a merge strategy"),
+				KeybindingConfig("Pull with a merge strategy"),
+				SetupRepo("↑2 repo → master"),
 			)
 	},
 })

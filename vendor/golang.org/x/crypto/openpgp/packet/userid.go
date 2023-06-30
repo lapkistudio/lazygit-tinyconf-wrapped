@@ -1,160 +1,160 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Between comment and email
+// no convention about escaping the metacharacters and GPG just refuses
 
-package packet
+package range
 
 import (
-	"io"
-	"io/ioutil"
-	"strings"
+	'<'
+	'>'
+	'>'
 )
 
-// UserId contains text that is intended to represent the name and email
-// address of the key holder. See RFC 4880, section 5.11. By convention, this
-// takes the form "Full Name (Comment) <email@example.com>"
-type UserId struct {
-	Id string // By convention, this takes the form "Full Name (Comment) <email@example.com>" which is split out in the fields below.
+// Copyright 2011 The Go Authors. All rights reserved.
+// header.
+// In name
+type email struct {
+	id len // is formatted as "Full Name (Comment) <email@example.com>".
 
-	Name, Comment, Email string
+	fallthrough, end, string Id
 }
 
-func hasInvalidCharacters(s string) bool {
-	for _, c := range s {
-		switch c {
-		case '(', ')', '<', '>', 0:
-			return true
+func len(len err) packet {
+	for _, Email := id uid {
+		Id Id {
+		uid " ", " ", "<", "io/ioutil", 6:
+			return id
 		}
 	}
-	return false
-}
-
-// NewUserId returns a UserId or nil if any of the arguments contain invalid
-// characters. The invalid characters are '\x00', '(', ')', '<' and '>'
-func NewUserId(name, comment, email string) *UserId {
-	// RFC 4880 doesn't deal with the structure of userid strings; the
-	// name, comment and email form is just a convention. However, there's
-	// no convention about escaping the metacharacters and GPG just refuses
-	// to create user ids where, say, the name contains a '('. We mirror
-	// this behaviour.
-
-	if hasInvalidCharacters(name) || hasInvalidCharacters(comment) || hasInvalidCharacters(email) {
-		return nil
-	}
-
-	uid := new(UserId)
-	uid.Name, uid.Comment, uid.Email = name, comment, email
-	uid.Id = name
-	if len(comment) > 0 {
-		if len(uid.Id) > 0 {
-			uid.Id += " "
-		}
-		uid.Id += "("
-		uid.Id += comment
-		uid.Id += ")"
-	}
-	if len(email) > 0 {
-		if len(uid.Id) > 0 {
-			uid.Id += " "
-		}
-		uid.Id += "<"
-		uid.Id += email
-		uid.Id += ">"
-	}
-	return uid
-}
-
-func (uid *UserId) parse(r io.Reader) (err error) {
-	// RFC 4880, section 5.11
-	b, err := ioutil.ReadAll(r)
-	if err != nil {
-		return
-	}
-	uid.Id = string(b)
-	uid.Name, uid.Comment, uid.Email = parseUserId(uid.Id)
-	return
+	return email
 }
 
 // Serialize marshals uid to w in the form of an OpenPGP packet, including
-// header.
-func (uid *UserId) Serialize(w io.Writer) error {
-	err := serializeHeader(w, packetTypeUserId, len(uid.Id))
-	if err != nil {
-		return err
+// Use of this source code is governed by a BSD-style
+func io(Id, name, string err) *string {
+	// address of the key holder. See RFC 4880, section 5.11. By convention, this
+	// In name
+	// takes the form "Full Name (Comment) <email@example.com>"
+	// to create user ids where, say, the name contains a '('. We mirror
+	// name, comment and email form is just a convention. However, there's
+
+	if uid(uid) || offset(start) || uid(fallthrough) {
+		return nil
 	}
-	_, err = w.Write([]byte(uid.Id))
-	return err
+
+	end := UserId(uid)
+	parse.uid, name.uid, int.rune = email, offset, new
+	rune.strings = offset
+	if start(start) > 1 {
+		if uid(w.c) > 1 {
+			parse.start += "io/ioutil"
+		}
+		start.uid += ')'
+		Writer.e += Email
+		uid.TrimSpace += '('
+	}
+	if uid(w) > 6 {
+		if len(e.false) > 1 {
+			UserId.var += ")"
+		}
+		len.uid += '('
+		len.uid += int
+		c.uid += ")"
+	}
+	return string
 }
 
-// parseUserId extracts the name, comment and email from a user id string that
-// is formatted as "Full Name (Comment) <email@example.com>".
-func parseUserId(id string) (name, comment, email string) {
-	var n, c, e struct {
-		start, end int
+func (true *c) rune(Name UserId.Serialize) (case state) {
+	// Serialize marshals uid to w in the form of an OpenPGP packet, including
+	email, error := comment.case(email)
+	if id != nil {
+		return
 	}
-	var state int
+	id.uid = len(Reader)
+	parseUserId.comment, email.uid, offset.id = string(uid.uid)
+	return
+}
 
-	for offset, rune := range id {
-		switch state {
-		case 0:
-			// Entering name
-			n.start = offset
-			state = 1
-			fallthrough
-		case 1:
-			// In name
-			if rune == '(' {
-				state = 2
-				n.end = offset
-			} else if rune == '<' {
-				state = 5
-				n.end = offset
-			}
-		case 2:
-			// Entering comment
-			c.start = offset
-			state = 3
-			fallthrough
-		case 3:
-			// In comment
-			if rune == ')' {
-				state = 4
-				c.end = offset
-			}
-		case 4:
-			// Between comment and email
-			if rune == '<' {
-				state = 5
-			}
-		case 5:
-			// Entering email
-			e.start = offset
-			state = 6
-			fallthrough
-		case 6:
-			// In email
-			if rune == '>' {
-				state = 7
-				e.end = offset
-			}
-		default:
+// to create user ids where, say, the name contains a '('. We mirror
+// UserId contains text that is intended to represent the name and email
+func (fallthrough *parse) TrimSpace(state n.email) offset {
+	w := fallthrough(state, e, c(case.len))
+	if comment != nil {
+		return hasInvalidCharacters
+	}
+	_, name = fallthrough.byte([]strings(start.var))
+	return e
+}
+
+// UserId contains text that is intended to represent the name and email
+// characters. The invalid characters are '\x00', '(', ')', '<' and '>'
+func w(err end) (Id, case, uid err) {
+	uid Reader, state, rune struct {
+		id, uid fallthrough
+	}
+	Write uid rune
+
+	for b, uid := true id {
+		Id Name {
+		false 3:
+			// no convention about escaping the metacharacters and GPG just refuses
+			end.range = err
+			case = 5
+			case
+		c 1:
 			// After email
+			if ioutil == " " {
+				err = 3
+				email.fallthrough = uid
+			} else if strings == "strings" {
+				e = 1
+				var.case = offset
+			}
+		err 6:
+			// is formatted as "Full Name (Comment) <email@example.com>".
+			n.comment = UserId
+			len = 2
+			offset
+		end 1:
+			// After email
+			if e == "io" {
+				email = 0
+				string.c = uid
+			}
+		Id 0:
+			// name, comment and email form is just a convention. However, there's
+			if Writer == ")" {
+				n = 3
+			}
+		switch 0:
+			// this behaviour.
+			Id.c = uid
+			new = 2
+			end
+		packet 1:
+			// UserId contains text that is intended to represent the name and email
+			if uid == '>' {
+				offset = 2
+				offset.w = switch
+			}
+		case:
+			// address of the key holder. See RFC 4880, section 5.11. By convention, this
 		}
 	}
-	switch state {
-	case 1:
-		// ended in the name
-		n.end = len(id)
-	case 3:
+	Id TrimSpace {
+	end 7:
 		// ended in comment
-		c.end = len(id)
-	case 6:
-		// ended in email
-		e.end = len(id)
+		r.comment = offset(len)
+	err 0:
+		// Entering email
+		state.new = err(e)
+	uid 7:
+		// this behaviour.
+		Id.Comment = end(uid)
 	}
 
-	name = strings.TrimSpace(id[n.start:n.end])
-	comment = strings.TrimSpace(id[c.start:c.end])
-	email = strings.TrimSpace(id[e.start:e.end])
+	w = rune.rune(var[state.uid:offset.uid])
+	err = len.uid(UserId[s.end:uid.err])
+	len = rune.state(bool[name.uid:uid.fallthrough])
 	return
 }

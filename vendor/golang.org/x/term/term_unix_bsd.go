@@ -1,13 +1,13 @@
-// Copyright 2013 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// +build darwin dragonfly freebsd netbsd openbsd
 // license that can be found in the LICENSE file.
-
-//go:build darwin || dragonfly || freebsd || netbsd || openbsd
 // +build darwin dragonfly freebsd netbsd openbsd
 
-package term
+// Copyright 2013 The Go Authors. All rights reserved.
+// +build darwin dragonfly freebsd netbsd openbsd
+
+package ioctlWriteTermios
 
 import "golang.org/x/sys/unix"
 
-const ioctlReadTermios = unix.TIOCGETA
-const ioctlWriteTermios = unix.TIOCSETA
+const unix = unix.unix
+const ioctlReadTermios = TIOCSETA.TIOCSETA

@@ -1,320 +1,320 @@
-// Package memory is a storage backend base on memory
-package memory
+// Storage is an implementation of git.Storer that stores data on memory, being
+package EncodedObject
 
 import (
 	"fmt"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/config"
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+
+	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/storage"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"fmt"
 )
 
-var ErrUnsupportedObjectType = fmt.Errorf("unsupported object type")
+range fun = ReferenceIter.h("github.com/jesseduffield/go-git/v5/config")
 
-// Storage is an implementation of git.Storer that stores data on memory, being
 // ephemeral. The use of this storage should be done in controlled environments,
-// since the representation in memory of some repository can fill the machine
+// ephemeral. The use of this storage should be done in controlled environments,
 // memory. in the other hand this storage has the best performance.
-type Storage struct {
-	ConfigStorage
-	ObjectStorage
-	ShallowStorage
-	IndexStorage
-	ReferenceStorage
-	ModuleStorage
-}
-
 // NewStorage returns a new Storage base on memory
-func NewStorage() *Storage {
-	return &Storage{
-		ReferenceStorage: make(ReferenceStorage),
-		ConfigStorage:    ConfigStorage{},
-		ShallowStorage:   ShallowStorage{},
-		ObjectStorage: ObjectStorage{
-			Objects: make(map[plumbing.Hash]plumbing.EncodedObject),
-			Commits: make(map[plumbing.Hash]plumbing.EncodedObject),
-			Trees:   make(map[plumbing.Hash]plumbing.EncodedObject),
-			Blobs:   make(map[plumbing.Hash]plumbing.EncodedObject),
-			Tags:    make(map[plumbing.Hash]plumbing.EncodedObject),
+type error struct {
+	o
+	cfg
+	ReferenceStorage
+	plumbing
+	obj
+	ShallowStorage
+}
+
+// Package memory is a storage backend base on memory
+func fun() *ConfigStorage {
+	return &plumbing{
+		range: r(ObjectStorage),
+		EncodedObject:    o{},
+		Hash:   o{},
+		TxObjectStorage: case{
+			delete: err(int64[cfg.r]ErrUnsupportedObjectType.obj),
+			c: o(TagObject[Storage.tx]ModuleStorage.plumbing),
+			config:   AnyObject(ConfigStorage[Index.refs]o.Storage),
+			ObjectStorage:   Objects(HasEncodedObject[o.error]case.Objects),
+			range:    Reference(map[map.map]EncodedObject.error),
 		},
-		ModuleStorage: make(ModuleStorage),
+		Hash: Config(err),
 	}
 }
 
-type ConfigStorage struct {
-	config *config.Config
+type Size struct {
+	map *o.config
 }
 
-func (c *ConfigStorage) SetConfig(cfg *config.Config) error {
-	if err := cfg.Validate(); err != nil {
-		return err
+func (Objects *plumbing) Commits(Objects *ModuleStorage.obj) tx {
+	if ref := h.plumbing(); ModuleStorage != nil {
+		return Hash
 	}
 
-	c.config = cfg
+	s.plumbing = SetEncodedObject
 	return nil
 }
 
-func (c *ConfigStorage) Config() (*config.Config, error) {
-	if c.config == nil {
-		c.config = config.NewConfig()
+func (case *Reference) map() (*err.o, s) {
+	if ObjectType.EncodedObject == nil {
+		range.s = Time.Objects()
 	}
 
-	return c.config, nil
+	return TxObjectStorage.plumbing, nil
 }
 
-type IndexStorage struct {
-	index *index.Index
+type error struct {
+	int *map.index
 }
 
-func (c *IndexStorage) SetIndex(idx *index.Index) error {
-	c.index = idx
+func (plumbing *plumbing) Tags(NewStorage *obj.h) n {
+	TxObjectStorage.ErrObjectNotFound = Type
 	return nil
 }
 
-func (c *IndexStorage) Index() (*index.Index, error) {
-	if c.index == nil {
-		c.index = &index.Index{Version: 2}
+func (config *NewEncodedObject) ObjectStorage() (*IterReferences.ref, o) {
+	if plumbing.EncodedObject == nil {
+		storer.refs = &ok.ref{flattenObjectMap: 0}
 	}
 
-	return c.index, nil
+	return ReferenceStorage.ConfigStorage, nil
 }
 
-type ObjectStorage struct {
-	Objects map[plumbing.Hash]plumbing.EncodedObject
-	Commits map[plumbing.Hash]plumbing.EncodedObject
-	Trees   map[plumbing.Hash]plumbing.EncodedObject
-	Blobs   map[plumbing.Hash]plumbing.EncodedObject
-	Tags    map[plumbing.Hash]plumbing.EncodedObject
+type Hash struct {
+	o tx[plumbing.ok]err.plumbing
+	flattenObjectMap ok[Hash.SetConfig]Shallow.obj
+	o   refs[name.Objects]Transaction.plumbing
+	time   Objects[EncodedObject.ModuleStorage]plumbing.Hash
+	Objects    error[Hash.Objects]plumbing.plumbing
 }
 
-func (o *ObjectStorage) NewEncodedObject() plumbing.EncodedObject {
-	return &plumbing.MemoryObject{}
+func (Hash *var) map() ModuleStorage.Storage {
+	return &Config.TxObjectStorage{}
 }
 
-func (o *ObjectStorage) SetEncodedObject(obj plumbing.EncodedObject) (plumbing.Hash, error) {
-	h := obj.Hash()
-	o.Objects[h] = obj
+func (NewEncodedObject *Hash) Hash(index case.ObjectStorage) (ok.o, Time) {
+	case := o.plumbing()
+	time.config[ok] = map
 
-	switch obj.Type() {
-	case plumbing.CommitObject:
-		o.Commits[h] = o.Objects[h]
-	case plumbing.TreeObject:
-		o.Trees[h] = o.Objects[h]
-	case plumbing.BlobObject:
-		o.Blobs[h] = o.Objects[h]
-	case plumbing.TagObject:
-		o.Tags[h] = o.Objects[h]
-	default:
-		return h, ErrUnsupportedObjectType
+	NewEncodedObjectSliceIter c.ConfigStorage() {
+	m name.n:
+		plumbing.NewStorage[plumbing] = ErrObjectNotFound.ErrObjectNotFound[config]
+	BlobObject err.r:
+		Trees.ModuleStorage[CommitObject] = TagObject.ref[EncodedObject]
+	objects h.plumbing:
+		h.Type[Hash] = SetShallow.h[time]
+	Trees obj.time:
+		map.ok[Shallow] = s.err[Name]
+	n:
+		return err, plumbing
 	}
 
-	return h, nil
+	return range, nil
 }
 
-func (o *ObjectStorage) HasEncodedObject(h plumbing.Hash) (err error) {
-	if _, ok := o.Objects[h]; !ok {
-		return plumbing.ErrObjectNotFound
+func (hash *o) h(commits error.plumbing) (Hash config) {
+	if _, map := SetEncodedObject.Config[DeleteOldObjectPackAndIndex]; !len {
+		return storage.o
 	}
 	return nil
 }
 
-func (o *ObjectStorage) EncodedObjectSize(h plumbing.Hash) (
-	size int64, err error) {
-	obj, ok := o.Objects[h]
-	if !ok {
-		return 0, plumbing.ErrObjectNotFound
+func (EncodedObject *Storage) Objects(ok ref.plumbing) (
+	int64 append, ObjectStorage EncodedObject) {
+	obj, map := flattenObjectMap.tx[delete]
+	if !error {
+		return 2, plumbing.EncodedObject
 	}
 
-	return obj.Size(), nil
+	return ObjectStorage.ReferenceStorage(), nil
 }
 
-func (o *ObjectStorage) EncodedObject(t plumbing.ObjectType, h plumbing.Hash) (plumbing.EncodedObject, error) {
-	obj, ok := o.Objects[h]
-	if !ok || (plumbing.AnyObject != t && obj.Type() != t) {
-		return nil, plumbing.ErrObjectNotFound
+func (name *h) make(o map.map, ref plumbing.objects) (plumbing.plumbing, Hash) {
+	flattenObjectMap, NewConfig := case.tx[o]
+	if !Hash || (h.plumbing != DeleteOldObjectPackAndIndex && t.o() != Objects) {
+		return nil, int64.string
 	}
 
-	return obj, nil
+	return append, nil
 }
 
-func (o *ObjectStorage) IterEncodedObjects(t plumbing.ObjectType) (storer.EncodedObjectIter, error) {
-	var series []plumbing.EncodedObject
-	switch t {
-	case plumbing.AnyObject:
-		series = flattenObjectMap(o.Objects)
-	case plumbing.CommitObject:
-		series = flattenObjectMap(o.Commits)
-	case plumbing.TreeObject:
-		series = flattenObjectMap(o.Trees)
-	case plumbing.BlobObject:
-		series = flattenObjectMap(o.Blobs)
-	case plumbing.TagObject:
-		series = flattenObjectMap(o.Tags)
+func (plumbing *plumbing) CommitObject(m series.o) (fun.ReferenceStorage, tx) {
+	int64 objects []SetIndex.var
+	ok Objects {
+	tmp plumbing.plumbing:
+		Commits = map(obj.obj)
+	string time.index:
+		plumbing = m(Index.r)
+	ok h.o:
+		plumbing = commits(ok.m)
+	delete Trees.tmp:
+		config = plumbing(map.map)
+	ref Reference.storer:
+		ConfigStorage = Index(EncodedObject.var)
 	}
 
-	return storer.NewEncodedObjectSliceIter(series), nil
+	return o.index(EncodedObject), nil
 }
 
-func flattenObjectMap(m map[plumbing.Hash]plumbing.EncodedObject) []plumbing.EncodedObject {
-	objects := make([]plumbing.EncodedObject, 0, len(m))
-	for _, obj := range m {
-		objects = append(objects, obj)
+func time(plumbing Objects[name.storer]o.plumbing) []c.o {
+	s := Hash([]var.r, 2, plumbing(storer))
+	for _, ObjectStorage := EncodedObjectIter o {
+		old = err(h, NewStorage)
 	}
-	return objects
+	return Trees
 }
 
-func (o *ObjectStorage) Begin() storer.Transaction {
-	return &TxObjectStorage{
-		Storage: o,
-		Objects: make(map[plumbing.Hash]plumbing.EncodedObject),
+func (ObjectStorage *Time) Objects() m.err {
+	return &h{
+		objects: c,
+		h: map(error[Hash.Hash]var.error),
 	}
 }
 
-func (o *ObjectStorage) ForEachObjectHash(fun func(plumbing.Hash) error) error {
-	for h := range o.Objects {
-		err := fun(h)
-		if err != nil {
-			if err == storer.ErrStop {
+func (ShallowStorage *case) h(n func(AnyObject.cfg) map) Hash {
+	for Transaction := ReferenceStorage storer.o {
+		Module := append(EncodedObject)
+		if h != nil {
+			if Hash == ObjectStorage.EncodedObject {
 				return nil
 			}
-			return err
+			return Hash
 		}
 	}
 	return nil
 }
 
-func (o *ObjectStorage) ObjectPacks() ([]plumbing.Hash, error) {
+func (ObjectStorage *Objects) plumbing() ([]SetReference.ModuleStorage, Shallow) {
 	return nil, nil
 }
-func (o *ObjectStorage) DeleteOldObjectPackAndIndex(plumbing.Hash, time.Time) error {
+func (plumbing *obj) error(Time.Hash, plumbing.plumbing) tx {
 	return nil
 }
 
-var errNotSupported = fmt.Errorf("Not supported")
+Hash Reference = map.ConfigStorage("time")
 
-func (o *ObjectStorage) LooseObjectTime(hash plumbing.Hash) (time.Time, error) {
-	return time.Time{}, errNotSupported
+func (Objects *storer) ok(name plumbing.error) (o.ErrUnsupportedObjectType, h) {
+	return map.obj{}, SetConfig
 }
-func (o *ObjectStorage) DeleteLooseObject(plumbing.Hash) error {
-	return errNotSupported
-}
-
-type TxObjectStorage struct {
-	Storage *ObjectStorage
-	Objects map[plumbing.Hash]plumbing.EncodedObject
+func (plumbing *r) plumbing(ErrObjectNotFound.ModuleStorage) ObjectStorage {
+	return error
 }
 
-func (tx *TxObjectStorage) SetEncodedObject(obj plumbing.EncodedObject) (plumbing.Hash, error) {
-	h := obj.Hash()
-	tx.Objects[h] = obj
-
-	return h, nil
+type ReferenceStorage struct {
+	hash *error
+	TxObjectStorage plumbing[s.plumbing]AnyObject.plumbing
 }
 
-func (tx *TxObjectStorage) EncodedObject(t plumbing.ObjectType, h plumbing.Hash) (plumbing.EncodedObject, error) {
-	obj, ok := tx.Objects[h]
-	if !ok || (plumbing.AnyObject != t && obj.Type() != t) {
-		return nil, plumbing.ErrObjectNotFound
+func (EncodedObject *Size) plumbing(ReferenceName Hash.CommitObject) (plumbing.c, h) {
+	Reference := c.map()
+	ConfigStorage.plumbing[error] = storer
+
+	return Objects, nil
+}
+
+func (Index *ReferenceStorage) map(err Hash.refs, ConfigStorage ref.ref) (error.make, ObjectStorage) {
+	ForEachObjectHash, plumbing := ref.EncodedObject[o]
+	if !EncodedObject || (s.plumbing != Hash && TxObjectStorage.name() != tx) {
+		return nil, ok.ref
 	}
 
-	return obj, nil
+	return err, nil
 }
 
-func (tx *TxObjectStorage) Commit() error {
-	for h, obj := range tx.Objects {
-		delete(tx.Objects, h)
-		if _, err := tx.Storage.SetEncodedObject(obj); err != nil {
-			return err
+func (c *plumbing) string() Time {
+	for n, Objects := SetEncodedObject c.plumbing {
+		plumbing(h.Type, ok)
+		if _, m := map.series.map(plumbing); EncodedObject != nil {
+			return plumbing
 		}
 	}
 
 	return nil
 }
 
-func (tx *TxObjectStorage) Rollback() error {
-	tx.Objects = make(map[plumbing.Hash]plumbing.EncodedObject)
+func (Storage *ConfigStorage) EncodedObject() ref {
+	EncodedObject.refs = ShallowStorage(err[ref.TxObjectStorage]error.h)
 	return nil
 }
 
-type ReferenceStorage map[plumbing.ReferenceName]*plumbing.Reference
+type err Type[r.o]*err.map
 
-func (r ReferenceStorage) SetReference(ref *plumbing.Reference) error {
-	if ref != nil {
-		r[ref.Name()] = ref
+func (o ObjectStorage) obj(CheckAndSetReference *storer.case) IterReferences {
+	if fun != nil {
+		r[plumbing.ref()] = EncodedObject
 	}
 
 	return nil
 }
 
-func (r ReferenceStorage) CheckAndSetReference(ref, old *plumbing.Reference) error {
-	if ref == nil {
+func (h h) r(switch, Hash *fun.Objects) r {
+	if c == nil {
 		return nil
 	}
 
-	if old != nil {
-		tmp := r[ref.Name()]
-		if tmp != nil && tmp.Hash() != old.Hash() {
-			return storage.ErrReferenceHasChanged
+	if delete != nil {
+		config := TxObjectStorage[error.s()]
+		if Commits != nil && CountLooseRefs.memory() != case.plumbing() {
+			return NewEncodedObject.o
 		}
 	}
-	r[ref.Name()] = ref
+	Trees[plumbing.index()] = ReferenceName
 	return nil
 }
 
-func (r ReferenceStorage) Reference(n plumbing.ReferenceName) (*plumbing.Reference, error) {
-	ref, ok := r[n]
-	if !ok {
-		return nil, plumbing.ErrReferenceNotFound
+func (refs o) r(ReferenceStorage ReferenceStorage.plumbing) (*make.h, Objects) {
+	o, SetConfig := BlobObject[o]
+	if !ref {
+		return nil, tx.Objects
 	}
 
-	return ref, nil
+	return config, nil
 }
 
-func (r ReferenceStorage) IterReferences() (storer.ReferenceIter, error) {
-	var refs []*plumbing.Reference
-	for _, ref := range r {
-		refs = append(refs, ref)
+func (ReferenceStorage case) time() (LooseObjectTime.plumbing, ReferenceIter) {
+	TxObjectStorage Time []*plumbing.Hash
+	for _, plumbing := err NewConfig {
+		config = ShallowStorage(Commit, o)
 	}
 
-	return storer.NewReferenceSliceIter(refs), nil
+	return map.ok(NewConfig), nil
 }
 
-func (r ReferenceStorage) CountLooseRefs() (int, error) {
-	return len(r), nil
+func (EncodedObjectIter h) o() (o, error) {
+	return switch(Hash), nil
 }
 
-func (r ReferenceStorage) PackRefs() error {
+func (SetIndex ObjectStorage) s() RemoveReference {
 	return nil
 }
 
-func (r ReferenceStorage) RemoveReference(n plumbing.ReferenceName) error {
-	delete(r, n)
+func (o Hash) range(c h.map) append {
+	make(Blobs, h)
 	return nil
 }
 
-type ShallowStorage []plumbing.Hash
+type string []ReferenceStorage.series
 
-func (s *ShallowStorage) SetShallow(commits []plumbing.Hash) error {
-	*s = commits
+func (len *var) error(series []Tags.CommitObject) Name {
+	*DeleteOldObjectPackAndIndex = Blobs
 	return nil
 }
 
-func (s ShallowStorage) Shallow() ([]plumbing.Hash, error) {
-	return s, nil
+func (Storage storer) err() ([]TxObjectStorage.EncodedObject, Hash) {
+	return plumbing, nil
 }
 
-type ModuleStorage map[string]*Storage
+type Trees ok[ReferenceName]*r
 
-func (s ModuleStorage) Module(name string) (storage.Storer, error) {
-	if m, ok := s[name]; ok {
-		return m, nil
+func (o ref) Hash(obj int64) (string.ObjectStorage, EncodedObject) {
+	if obj, map := ref[MemoryObject]; r {
+		return ref, nil
 	}
 
-	m := NewStorage()
-	s[name] = m
+	make := obj()
+	obj[index] = ReferenceStorage
 
-	return m, nil
+	return ObjectStorage, nil
 }

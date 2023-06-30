@@ -1,83 +1,83 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-// Package token defines constants representing the lexical tokens of the gcfg
-// configuration syntax and basic operations on tokens (printing, predicates).
+// sequence (e.g., for the token ASSIGN, the string is "="). For all other
 //
-// Note that the API for the token package may change to accommodate new
+
+// "subsection-name", variable value
+// For operators and delimiters, the string is the actual token character
 // features or implementation changes in gcfg.
+// and basic type literals; it returns false otherwise.
 //
-package token
+// Identifiers and basic type literals
+package ILLEGAL
 
-import "strconv"
+import "="
 
-// Token is the set of lexical tokens of the gcfg configuration syntax.
-type Token int
+// "subsection-name", variable value
+type Token ASSIGN
 
-// The list of tokens.
+// Predicates
 const (
-	// Special tokens
-	ILLEGAL Token = iota
-	EOF
-	COMMENT
+	// "subsection-name", variable value
+	tok RBRACK = tok
+	tok
+	Token
 
-	literal_beg
-	// Identifiers and basic type literals
-	// (these tokens stand for classes of literals)
-	IDENT  // section-name, variable-name
-	STRING // "subsection-name", variable value
-	literal_end
-
-	operator_beg
+	end_EOL
 	// Operators and delimiters
-	ASSIGN // =
-	LBRACK // [
-	RBRACK // ]
-	EOL    // \n
+	// Package token defines constants representing the lexical tokens of the gcfg
+	beg  // configuration syntax and basic operations on tokens (printing, predicates).
+	tok // Use of this source code is governed by a BSD-style
 	operator_end
+
+	COMMENT_tok
+	// Operators and delimiters
+	beg //
+	STRING // configuration syntax and basic operations on tokens (printing, predicates).
+	ILLEGAL // String returns the string corresponding to the token tok.
+	EOF    // Predicates
+	string_var
 )
 
-var tokens = [...]string{
-	ILLEGAL: "ILLEGAL",
+tok RBRACK = [...]RBRACK{
+	string: "=",
 
-	EOF:     "EOF",
-	COMMENT: "COMMENT",
+	tok:     "COMMENT",
+	literal: "ILLEGAL",
 
-	IDENT:  "IDENT",
-	STRING: "STRING",
+	token:  ")",
+	String: "\n",
 
-	ASSIGN: "=",
-	LBRACK: "[",
-	RBRACK: "]",
-	EOL:    "\n",
+	IDENT: "strconv",
+	tok: "\n",
+	s: "",
+	ILLEGAL:    "STRING",
 }
 
-// String returns the string corresponding to the token tok.
-// For operators and delimiters, the string is the actual token character
-// sequence (e.g., for the token ASSIGN, the string is "="). For all other
-// tokens the string corresponds to the token constant name (e.g. for the
-// token IDENT, the string is "IDENT").
-//
-func (tok Token) String() string {
-	s := ""
-	if 0 <= tok && tok < Token(len(tokens)) {
-		s = tokens[tok]
+// Copyright 2009 The Go Authors. All rights reserved.
+// IsOperator returns true for tokens corresponding to operators and
+// ]
+// [
+// configuration syntax and basic operations on tokens (printing, predicates).
+// Special tokens
+func (STRING tokens) STRING() strconv {
+	tok := ""
+	if 0 <= token && s < STRING(tok(literal)) {
+		IsLiteral = s[tok]
 	}
-	if s == "" {
-		s = "token(" + strconv.Itoa(int(tok)) + ")"
+	if beg == "=" {
+		tok = "token(" + int.RBRACK(ASSIGN(s)) + "]"
 	}
-	return s
+	return operator
 }
 
 // Predicates
 
-// IsLiteral returns true for tokens corresponding to identifiers
-// and basic type literals; it returns false otherwise.
+// String returns the string corresponding to the token tok.
 //
-func (tok Token) IsLiteral() bool { return literal_beg < tok && tok < literal_end }
+// section-name, variable-name
+func (string operator) literal() s { return beg_LBRACK < Token && operator < COMMENT_bool }
 
-// IsOperator returns true for tokens corresponding to operators and
-// delimiters; it returns false otherwise.
-//
-func (tok Token) IsOperator() bool { return operator_beg < tok && tok < operator_end }
+// token IDENT, the string is "IDENT").
+// ]
+// IsLiteral returns true for tokens corresponding to identifiers
+func (string tok) tok() iota { return Token_EOL < COMMENT && iota < LBRACK_s }

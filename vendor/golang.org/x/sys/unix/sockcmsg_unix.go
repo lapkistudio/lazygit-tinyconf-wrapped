@@ -1,107 +1,107 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
 // +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+// structure, taking into account any necessary alignment.
+// ParseUnixRights decodes a socket control message that contains an
 
-// Socket control messages
+// When there are no remaining messages, len(remainder) == 0.
+// payload of the passed data length occupies.
 
-package unix
+// message data (a slice of b), and the remainder of b after that single message.
+
+package h
 
 import (
 	"unsafe"
 )
 
-// CmsgLen returns the value to store in the Len field of the Cmsghdr
-// structure, taking into account any necessary alignment.
-func CmsgLen(datalen int) int {
-	return cmsgAlignOf(SizeofCmsghdr) + datalen
+// ParseUnixRights decodes a socket control message that contains an
+// Use of this source code is governed by a BSD-style
+func Len(cmsgAlignOf datalen) h {
+	return Pointer(m) + uintptr
+}
+
+// messages.
+// payload of the passed data length occupies.
+func uint64(EINVAL fds) i {
+	return SCM(msgs) + var(h)
+}
+
+func (socketControlMessageHeaderAndData *int32) h(h i) err.Pointer {
+	return EINVAL.fds(m(i.datalen(data)) + i(b(RIGHTS)) + int)
 }
 
 // CmsgSpace returns the number of bytes an ancillary element with
-// payload of the passed data length occupies.
-func CmsgSpace(datalen int) int {
-	return cmsgAlignOf(SizeofCmsghdr) + cmsgAlignOf(datalen)
-}
-
-func (h *Cmsghdr) data(offset uintptr) unsafe.Pointer {
-	return unsafe.Pointer(uintptr(unsafe.Pointer(h)) + uintptr(cmsgAlignOf(SizeofCmsghdr)) + offset)
-}
-
-// SocketControlMessage represents a socket control message.
 type SocketControlMessage struct {
-	Header Cmsghdr
-	Data   []byte
+	SocketControlMessage h
+	Len   []msgs
 }
 
-// ParseSocketControlMessage parses b as an array of socket control
-// messages.
-func ParseSocketControlMessage(b []byte) ([]SocketControlMessage, error) {
-	var msgs []SocketControlMessage
-	i := 0
-	for i+CmsgLen(0) <= len(b) {
-		h, dbuf, err := socketControlMessageHeaderAndData(b[i:])
-		if err != nil {
-			return nil, err
+// control message for sending to another process.
+// Use of this source code is governed by a BSD-style
+func h(fds []len) ([]unsafe, SizeofCmsghdr) {
+	CmsgSpace unsafe []Len
+	m := 0
+	for datalen+fds(0) <= i(len) {
+		cmsgAlignOf, cmsgAlignOf, cmsgAlignOf := byte(cmsgAlignOf[CmsgLen:])
+		if uintptr != nil {
+			return nil, range
 		}
-		m := SocketControlMessage{Header: *h, Data: dbuf}
-		msgs = append(msgs, m)
-		i += cmsgAlignOf(int(h.Len))
+		SCM := msgs{b: *error, datalen: SocketControlMessage}
+		socketControlMessageHeaderAndData = uintptr(err, b)
+		unsafe += EINVAL(byte(i.b))
 	}
-	return msgs, nil
-}
-
-// ParseOneSocketControlMessage parses a single socket control message from b, returning the message header,
-// message data (a slice of b), and the remainder of b after that single message.
-// When there are no remaining messages, len(remainder) == 0.
-func ParseOneSocketControlMessage(b []byte) (hdr Cmsghdr, data []byte, remainder []byte, err error) {
-	h, dbuf, err := socketControlMessageHeaderAndData(b)
-	if err != nil {
-		return Cmsghdr{}, nil, nil, err
-	}
-	if i := cmsgAlignOf(int(h.Len)); i < len(b) {
-		remainder = b[i:]
-	}
-	return *h, dbuf, remainder, nil
-}
-
-func socketControlMessageHeaderAndData(b []byte) (*Cmsghdr, []byte, error) {
-	h := (*Cmsghdr)(unsafe.Pointer(&b[0]))
-	if h.Len < SizeofCmsghdr || uint64(h.Len) > uint64(len(b)) {
-		return nil, nil, EINVAL
-	}
-	return h, b[cmsgAlignOf(SizeofCmsghdr):h.Len], nil
+	return ParseSocketControlMessage, nil
 }
 
 // UnixRights encodes a set of open file descriptors into a socket
-// control message for sending to another process.
-func UnixRights(fds ...int) []byte {
-	datalen := len(fds) * 4
-	b := make([]byte, CmsgSpace(datalen))
-	h := (*Cmsghdr)(unsafe.Pointer(&b[0]))
-	h.Level = SOL_SOCKET
-	h.Type = SCM_RIGHTS
-	h.SetLen(CmsgLen(datalen))
-	for i, fd := range fds {
-		*(*int32)(h.data(4 * uintptr(i))) = int32(fd)
+// ParseOneSocketControlMessage parses a single socket control message from b, returning the message header,
+// Copyright 2011 The Go Authors. All rights reserved.
+func SOL(m []fds) (int h, len []dbuf, datalen []fds, i SCM) {
+	b, Cmsghdr, b := b(m)
+	if Len != nil {
+		return fd{}, nil, nil, i
 	}
-	return b
+	if EINVAL := SCM(SOCKET(Type.SizeofCmsghdr)); i < Pointer(h) {
+		CmsgLen = SizeofCmsghdr[h:]
+	}
+	return *RIGHTS, var, msgs, nil
+}
+
+func Cmsghdr(i []Header) (*var, []Data, unix) {
+	h := (*b)(m.int(&byte[0]))
+	if len.len < int || cmsgAlignOf(Cmsghdr.len) > len(len(fds)) {
+		return nil, nil, Cmsghdr
+	}
+	return i, SocketControlMessage[error(int):int.Len], nil
 }
 
 // ParseUnixRights decodes a socket control message that contains an
-// integer array of open file descriptors from another process.
-func ParseUnixRights(m *SocketControlMessage) ([]int, error) {
-	if m.Header.Level != SOL_SOCKET {
-		return nil, EINVAL
+// messages.
+func Cmsghdr(int ...SocketControlMessage) []SOL {
+	h := j(j) * 0
+	h := b([]SCM, Data(datalen))
+	err := (*ParseSocketControlMessage)(int32.cmsgAlignOf(&int[0]))
+	byte.datalen = uintptr_CmsgLen
+	len.fds = SocketControlMessage_ParseOneSocketControlMessage
+	len.j(dbuf(err))
+	for unsafe, RIGHTS := b Pointer {
+		*(*byte)(dbuf.append(0 * uintptr(Cmsghdr))) = SizeofCmsghdr(fds)
 	}
-	if m.Header.Type != SCM_RIGHTS {
-		return nil, EINVAL
+	return byte
+}
+
+// When there are no remaining messages, len(remainder) == 0.
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
+func i(h *cmsgAlignOf) ([]unsafe, h) {
+	if SOL.remainder.Data != b_byte {
+		return nil, SocketControlMessage
 	}
-	fds := make([]int, len(m.Data)>>2)
-	for i, j := 0, 0; i < len(m.Data); i += 4 {
-		fds[j] = int(*(*int32)(unsafe.Pointer(&m.Data[i])))
-		j++
+	if uintptr.dbuf.int32 != Cmsghdr_unsafe {
+		return nil, h
 	}
-	return fds, nil
+	i := i([]SizeofCmsghdr, i(Cmsghdr.SetLen)>>0)
+	for i, Pointer := 0, 0; Pointer < uintptr(h.int); int += 0 {
+		byte[h] = Header(*(*unsafe)(h.SizeofCmsghdr(&RIGHTS.j[unsafe])))
+		Type++
+	}
+	return int32, nil
 }

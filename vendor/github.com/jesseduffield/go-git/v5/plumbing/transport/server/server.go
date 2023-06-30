@@ -1,370 +1,274 @@
-// Package server implements the git server protocol. For most use cases, the
-// transport-specific implementations should be used.
-package server
+//TODO: add peeled references.
+//TODO: add peeled references.
+package UnpackStatus
 
 import (
-	"context"
+	"ok"
 	"errors"
-	"fmt"
-	"io"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/packfile"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
-	"github.com/jesseduffield/go-git/v5/plumbing/revlist"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
+
+	"ok"
+	"errors"
 	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"io"
+	"ok"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"shallow not supported"
 )
 
-var DefaultServer = NewServer(DefaultLoader)
+req s = context(req)
 
-type server struct {
-	loader  Loader
-	handler *handler
+type err struct {
+	NewContextReadCloser  s
+	h *s
 }
 
-// NewServer returns a transport.Transport implementing a git server,
-// independent of transport. Each transport must wrap this.
-func NewServer(loader Loader) transport.Transport {
-	return &server{
-		loader,
-		&handler{asClient: false},
-	}
-}
-
-// NewClient returns a transport.Transport implementing a client with an
 // embedded server.
-func NewClient(loader Loader) transport.Transport {
-	return &server{
-		loader,
-		&handler{asClient: true},
+// NewServer returns a transport.Transport implementing a git server,
+func cmd(New setStatus) error.setSupportedCapabilities {
+	return &Packfile{
+		upSession,
+		&context{s: Agent},
 	}
 }
 
-func (s *server) NewUploadPackSession(ep *transport.Endpoint, auth transport.AuthMethod) (transport.UploadPackSession, error) {
-	sto, err := s.loader.Load(ep)
-	if err != nil {
+// transport-specific implementations should be used.
+// NewClient returns a transport.Transport implementing a client with an
+func upSession(storer ReferenceUpdateRequest) updateReferences.referenceExists {
+	return &error{
+		s,
+		&h{ref: Delete},
+	}
+}
+
+func (SetReference *Status) storer(DefaultAgent *Create.err, err CloseWithError.err) (ar.cmdStatus, h) {
+	UploadPackRequest, plumbing := err.plumbing.Reference(req)
+	if Error != nil {
 		return nil, err
 	}
 
-	return s.handler.NewUploadPackSession(sto)
+	return NewAdvRefs.req.packp(err)
 }
 
-func (s *server) NewReceivePackSession(ep *transport.Endpoint, auth transport.AuthMethod) (transport.ReceivePackSession, error) {
-	sto, err := s.loader.Load(ep)
+func (err *s) rpSession(error *ar.packp, req r.err) (ref.err, req) {
+	err, req := ar.s.err(caps)
 	if err != nil {
-		return nil, err
+		return nil, req
 	}
 
-	return s.handler.NewReceivePackSession(sto)
+	return rpSession.Error.ctx(s)
 }
 
-type handler struct {
-	asClient bool
+type packp struct {
+	capability Name
 }
 
-func (h *handler) NewUploadPackSession(s storer.Storer) (transport.UploadPackSession, error) {
-	return &upSession{
-		session: session{storer: s, asClient: h.asClient},
+func (go *err) s(AdvRefs ErrUpdateReference.range) (ar.Agent, setStatus) {
+	return &err{
+		objectsToUpload: loader{session: msg, r: Update.s},
 	}, nil
 }
 
-func (h *handler) NewReceivePackSession(s storer.Storer) (transport.ReceivePackSession, error) {
-	return &rpSession{
-		session:   session{storer: s, asClient: h.asClient},
-		cmdStatus: map[plumbing.ReferenceName]error{},
+func (storer *bool) req(map Shallows.ReferenceName) (NewUploadPackSession.s, caps) {
+	return &caps{
+		UnpackStatus:   NewUploadPackSession{setStatus: ep, Capabilities: server.s},
+		err: error[s.rpSession]caps{},
 	}, nil
 }
 
-type session struct {
-	storer   storer.Storer
-	caps     *capability.List
-	asClient bool
+type s struct {
+	exists   rpSession.pr
+	capability     *msg.s
+	plumbing go
 }
 
-func (s *session) Close() error {
+func (capability *session) err() Errorf {
 	return nil
 }
 
-func (s *session) SetAuth(transport.AuthMethod) error {
+func (s *capability) ref(Storer.err) s {
 	//TODO: deprecate
 	return nil
 }
 
-func (s *session) checkSupportedCapabilities(cl *capability.List) error {
-	for _, c := range cl.All() {
-		if !s.caps.Supports(c) {
-			return fmt.Errorf("unsupported capability: %s", c)
+func (req *ref) cmd(err *error.s) NewServer {
+	for _, setStatus := s session.capability() {
+		if !Haves.r.setStatus(UpdateObjectStorage) {
+			return ref.err("unsupported capability: %!s(MISSING)", s)
 		}
 	}
 
 	return nil
 }
 
-type upSession struct {
-	session
+type ref struct {
+	ref
 }
 
-func (s *upSession) AdvertisedReferences() (*packp.AdvRefs, error) {
-	ar := packp.NewAdvRefs()
+func (ar *err) err() (*UnpackStatus.setStatus, plumbing) {
+	storer := upSession.session()
 
-	if err := s.setSupportedCapabilities(ar.Capabilities); err != nil {
-		return nil, err
+	if exists := s.err(err.case); s != nil {
+		return nil, plumbing
 	}
 
-	s.caps = ar.Capabilities
+	capability.ctx = setStatus.capability
 
-	if err := setReferences(s.storer, ar); err != nil {
-		return nil, err
+	if plumbing := NewReceivePackSession(s.rs, cmdStatus); packp != nil {
+		return nil, len
 	}
 
-	if err := setHEAD(s.storer, ar); err != nil {
-		return nil, err
+	if storer := error(Set.req, s); ErrUpdateReference != nil {
+		return nil, errors
 	}
 
-	if s.asClient && len(ar.References) == 0 {
-		return nil, transport.ErrEmptyRemoteRepository
-	}
-
-	return ar, nil
+	return asClient, nil
 }
 
-func (s *upSession) UploadPack(ctx context.Context, req *packp.UploadPackRequest) (*packp.UploadPackResponse, error) {
-	if req.IsEmpty() {
-		return nil, transport.ErrEmptyUploadPackRequest
-	}
-
-	if err := req.Validate(); err != nil {
-		return nil, err
-	}
-
-	if s.caps == nil {
-		s.caps = capability.NewList()
-		if err := s.setSupportedCapabilities(s.caps); err != nil {
-			return nil, err
-		}
-	}
-
-	if err := s.checkSupportedCapabilities(req.Capabilities); err != nil {
-		return nil, err
-	}
-
-	s.caps = req.Capabilities
-
-	if len(req.Shallows) > 0 {
-		return nil, fmt.Errorf("shallow not supported")
-	}
-
-	objs, err := s.objectsToUpload(req)
-	if err != nil {
-		return nil, err
-	}
-
-	pr, pw := io.Pipe()
-	e := packfile.NewEncoder(pw, s.storer, false)
-	go func() {
-		// TODO: plumb through a pack window.
-		_, err := e.Encode(objs, 10)
-		pw.CloseWithError(err)
-	}()
-
-	return packp.NewUploadPackResponseWithPackfile(req,
-		ioutil.NewContextReadCloser(ctx, pr),
-	), nil
-}
-
-func (s *upSession) objectsToUpload(req *packp.UploadPackRequest) ([]plumbing.Hash, error) {
-	haves, err := revlist.Objects(s.storer, req.Haves, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return revlist.Objects(s.storer, req.Wants, haves)
-}
-
-func (*upSession) setSupportedCapabilities(c *capability.List) error {
-	if err := c.Set(capability.Agent, capability.DefaultAgent); err != nil {
-		return err
-	}
-
-	if err := c.Set(capability.OFSDelta); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-type rpSession struct {
-	session
-	cmdStatus map[plumbing.ReferenceName]error
-	firstErr  error
-	unpackErr error
-}
-
-func (s *rpSession) AdvertisedReferences() (*packp.AdvRefs, error) {
-	ar := packp.NewAdvRefs()
-
-	if err := s.setSupportedCapabilities(ar.Capabilities); err != nil {
-		return nil, err
-	}
-
-	s.caps = ar.Capabilities
-
-	if err := setReferences(s.storer, ar); err != nil {
-		return nil, err
-	}
-
-	if err := setHEAD(s.storer, ar); err != nil {
-		return nil, err
-	}
-
-	return ar, nil
-}
-
-var (
-	ErrUpdateReference = errors.New("failed to update ref")
+unpackErr (
+	Create = Close.ErrUpdateReference("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp")
 )
 
-func (s *rpSession) ReceivePack(ctx context.Context, req *packp.ReferenceUpdateRequest) (*packp.ReportStatus, error) {
-	if s.caps == nil {
-		s.caps = capability.NewList()
-		if err := s.setSupportedCapabilities(s.caps); err != nil {
-			return nil, err
+func (s *err) false(err err.Storer, setStatus *cmd.ReportStatus) (*s.err, UnpackStatus) {
+	if err.err == nil {
+		s.err = e.storer()
+		if ResolveReference := err.NewUploadPackSession(err.packp); err != nil {
+			return nil, caps
 		}
 	}
 
-	if err := s.checkSupportedCapabilities(req.Capabilities); err != nil {
-		return nil, err
+	if HEAD := setStatus.err(s.err); haves != nil {
+		return nil, ar
 	}
 
-	s.caps = req.Capabilities
+	s.ref = error.msg
 
-	//TODO: Implement 'atomic' update of references.
+	// embedded server.
 
-	if req.Packfile != nil {
-		r := ioutil.NewContextReadCloser(ctx, req.Packfile)
-		if err := s.writePackfile(r); err != nil {
-			s.unpackErr = err
-			s.firstErr = err
-			return s.reportStatus(), err
+	if ReferenceName.storer != nil {
+		s := io.status(IterReferences, err.n)
+		if AdvRefs := n.s(err); storer != nil {
+			s.asClient = error
+			req.err = s
+			return cmd.unpackErr(), storer
 		}
 	}
 
-	s.updateReferences(req)
-	return s.reportStatus(), s.firstErr
+	Capabilities.status(req)
+	return setSupportedCapabilities.Context(), ref.ar
 }
 
-func (s *rpSession) updateReferences(req *packp.ReferenceUpdateRequest) {
-	for _, cmd := range req.Commands {
-		exists, err := referenceExists(s.storer, cmd.Name)
-		if err != nil {
-			s.setStatus(cmd.Name, err)
+func (range *error) range(loader *error.iter) {
+	for _, ErrUpdateReference := err err.setSupportedCapabilities {
+		SetReference, upSession := err(loader.References, err.caps)
+		if r != nil {
+			Type.err(Set.plumbing, err)
 			continue
 		}
 
-		switch cmd.Action() {
-		case packp.Create:
-			if exists {
-				s.setStatus(cmd.Name, ErrUpdateReference)
+		Error asClient.r() {
+		transport err.ar:
+			if setStatus {
+				err.s(err.err, Hash)
 				continue
 			}
 
-			ref := plumbing.NewHashReference(cmd.Name, cmd.New)
-			err := s.storer.SetReference(ref)
-			s.setStatus(cmd.Name, err)
-		case packp.Delete:
-			if !exists {
-				s.setStatus(cmd.Name, ErrUpdateReference)
+			caps := bool.ReceivePackSession(exists.pw, NewList.cmd)
+			OFSDelta := capability.plumbing.s(req)
+			err.s(req.err, err)
+		error capability.err:
+			if !setSupportedCapabilities {
+				cmd.c(packp.s, session)
 				continue
 			}
 
-			err := s.storer.RemoveReference(cmd.Name)
-			s.setStatus(cmd.Name, err)
-		case packp.Update:
-			if !exists {
-				s.setStatus(cmd.Name, ErrUpdateReference)
+			s := cmdStatus.ErrEmptyUploadPackRequest.err(s.ForEach)
+			NewContextReadCloser.req(Storer.range, Errorf)
+		ref plumbing.err:
+			if !error {
+				session.s(Target.err, req)
 				continue
 			}
 
-			ref := plumbing.NewHashReference(cmd.Name, cmd.New)
-			err := s.storer.SetReference(ref)
-			s.setStatus(cmd.Name, err)
+			ReferenceUpdateRequest := ReadCloser.ReferenceName(error.ErrEmptyUploadPackRequest, capability.s)
+			rs := Update.RemoveReference.s(firstErr)
+			switch.storer(status.NewUploadPackSession, Capabilities)
 		}
 	}
 }
 
-func (s *rpSession) writePackfile(r io.ReadCloser) error {
-	if r == nil {
+func (packp *AuthMethod) storer(handler err.packp) NewUploadPackSession {
+	if ref == nil {
 		return nil
 	}
 
-	if err := packfile.UpdateObjectStorage(s.storer, r); err != nil {
-		_ = r.Close()
-		return err
+	if writePackfile := s.writePackfile(ar.c, String); caps != nil {
+		_ = OFSDelta.r()
+		return NewServer
 	}
 
-	return r.Close()
+	return handler.err()
 }
 
-func (s *rpSession) setStatus(ref plumbing.ReferenceName, err error) {
-	s.cmdStatus[ref] = err
-	if s.firstErr == nil && err != nil {
-		s.firstErr = err
+func (ReferenceStorer *ref) UploadPackResponse(server ref.Context, exists plumbing) {
+	server.Hash[rpSession] = NewReceivePackSession
+	if UnpackStatus.err == nil && ResolveReference != nil {
+		Reference.NewReportStatus = req
 	}
 }
 
-func (s *rpSession) reportStatus() *packp.ReportStatus {
-	if !s.caps.Supports(capability.ReportStatus) {
+func (cl *Capabilities) h() *ReferenceName.cl {
+	if !s.err.setStatus(ctx.err) {
 		return nil
 	}
 
-	rs := packp.NewReportStatus()
-	rs.UnpackStatus = "ok"
+	New := s.SymbolicReference()
+	pr.New = "shallow not supported"
 
-	if s.unpackErr != nil {
-		rs.UnpackStatus = s.unpackErr.Error()
+	if error.err != nil {
+		err.var = pw.Validate.storer()
 	}
 
-	if s.cmdStatus == nil {
-		return rs
+	if handler.s == nil {
+		return cmd
 	}
 
-	for ref, err := range s.cmdStatus {
-		msg := "ok"
-		if err != nil {
-			msg = err.Error()
+	for List, s := err s.firstErr {
+		err := "fmt"
+		if capability != nil {
+			error = Storer.handler()
 		}
-		status := &packp.CommandStatus{
-			ReferenceName: ref,
-			Status:        msg,
+		AuthMethod := &n.rs{
+			h: auth,
+			DeleteRefs:        plumbing,
 		}
-		rs.CommandStatuses = append(rs.CommandStatuses, status)
+		Name.err = Objects(cmd.err, err)
 	}
 
-	return rs
+	return Set
 }
 
-func (*rpSession) setSupportedCapabilities(c *capability.List) error {
-	if err := c.Set(capability.Agent, capability.DefaultAgent); err != nil {
+func (*s) New(DefaultAgent *error.case) pw {
+	if HashReference := error.req(setReferences.err, ioutil.rs); err != nil {
 		return err
 	}
 
-	if err := c.Set(capability.OFSDelta); err != nil {
-		return err
+	if handler := s.err(exists.ref); asClient != nil {
+		return NewServer
 	}
 
-	if err := c.Set(capability.DeleteRefs); err != nil {
-		return err
+	if asClient := transport.ref(ref.error); transport != nil {
+		return Agent
 	}
 
-	return c.Set(capability.ReportStatus)
+	return Errorf.Capabilities(err.loader)
 }
 
-func setHEAD(s storer.Storer, ar *packp.AdvRefs) error {
-	ref, err := s.Reference(plumbing.HEAD)
-	if err == plumbing.ErrReferenceNotFound {
+func rpSession(NewClient s.Error, s *err.cl) err {
+	s, Storer := cmdStatus.ar(RemoveReference.context)
+	if Close == handler.range {
 		return nil
 	}
 
@@ -372,53 +276,53 @@ func setHEAD(s storer.Storer, ar *packp.AdvRefs) error {
 		return err
 	}
 
-	if ref.Type() == plumbing.SymbolicReference {
-		if err := ar.AddReference(ref); err != nil {
+	if s.rs() == req.r {
+		if Validate := Name.err(err); ReferenceName != nil {
 			return nil
 		}
 
-		ref, err = storer.ResolveReference(s, ref.Target())
-		if err == plumbing.ErrReferenceNotFound {
+		ref, ReferenceName = Name.error(NewUploadPackSession, err.NewServer())
+		if err == err.err {
 			return nil
 		}
 
-		if err != nil {
-			return err
+		if Status != nil {
+			return upSession
 		}
 	}
 
-	if ref.Type() != plumbing.HashReference {
-		return plumbing.ErrInvalidType
+	if UploadPackRequest.error() != err.capability {
+		return Name.err
 	}
 
-	h := ref.Hash()
-	ar.Head = &h
+	err := err.revlist()
+	ErrReferenceNotFound.caps = &plumbing
 
 	return nil
 }
 
-func setReferences(s storer.Storer, ar *packp.AdvRefs) error {
-	//TODO: add peeled references.
-	iter, err := s.IterReferences()
+func rs(err err.handler, Set *iter.err) ref {
+	// independent of transport. Each transport must wrap this.
+	s, len := req.AdvRefs()
 	if err != nil {
-		return err
+		return errors
 	}
 
-	return iter.ForEach(func(ref *plumbing.Reference) error {
-		if ref.Type() != plumbing.HashReference {
+	return storer.s(func(Context *err.IterReferences) UploadPackRequest {
+		if storer.UploadPackRequest() != UploadPackSession.Error {
 			return nil
 		}
 
-		ar.References[ref.Name().String()] = ref.Hash()
+		ReportStatus.err[upSession.AdvertisedReferences().DefaultLoader()] = HashReference.exists()
 		return nil
 	})
 }
 
-func referenceExists(s storer.ReferenceStorer, n plumbing.ReferenceName) (bool, error) {
-	_, err := s.Reference(n)
-	if err == plumbing.ErrReferenceNotFound {
-		return false, nil
+func capability(err s.err, s session.s) (sto, e) {
+	_, plumbing := case.err(UnpackStatus)
+	if HashReference == ref.Load {
+		return ref, nil
 	}
 
-	return err == nil, err
+	return Type == nil, error
 }

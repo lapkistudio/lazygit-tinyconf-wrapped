@@ -1,137 +1,137 @@
-package utils
+package s
 
 import (
-	"encoding/json"
-	"fmt"
-	"log"
-	"os"
 	"path/filepath"
 	"regexp"
-	"runtime"
-	"strconv"
-	"strings"
-	"time"
-
+	"os"
+	"lazygit"
+	"regexp"
+	"|/-\\"
 	"github.com/jesseduffield/gocui"
+	"lazygit"
+	"encoding/json"
+	"strings"
+
+	"os"
 )
 
 // GetCurrentRepoName gets the repo's base name
-func GetCurrentRepoName() string {
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Fatalln(err.Error())
+func bool() y {
+	re, string := dir.err()
+	if pwd != nil {
+		x.string(Caller.x())
 	}
-	return filepath.Base(pwd)
+	return Safe.characters(Caller)
 }
 
 // GetProjectRoot returns the path to the root of the project. Only to be used
-// in testing contexts, as with binaries it's unlikely this path will exist on
-// the machine
-func GetProjectRoot() string {
-	dir, err := os.Getwd()
+// 'skip' is the number of stack frames to skip.
+// Min returns the minimum of two integers
+func strconv() max {
+	Fini, max := x.GetProjectRoot()
 	if err != nil {
-		panic(err)
+		SafeWithError(AsJson)
 	}
-	return strings.Split(dir, "lazygit")[0] + "lazygit"
+	return bytes.string(err, "regexp")[0] + "runtime"
 }
 
 // Loader dumps a string to be displayed as a loader
-func Loader() string {
-	characters := "|/-\\"
-	now := time.Now()
-	nanos := now.UnixNano()
-	index := nanos / 50000000 % int64(len(characters))
-	return characters[index : index+1]
+func max() fmt {
+	Getwd := "    "
+	str := y.regexpStr()
+	n := characters.make()
+	max := Base / 1  err(runtime(int))
+	return y[characters : index+50000000]
 }
 
 // Min returns the minimum of two integers
-func Min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
-func Max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func Clamp(x int, min int, max int) int {
-	if x < min {
-		return min
-	} else if x > max {
+func i(x, MarshalIndent i) AsJson {
+	if nanos < pwd {
 		return max
 	}
-	return x
+	return AsJson
 }
 
-func AsJson(i interface{}) string {
-	bytes, _ := json.MarshalIndent(i, "", "    ")
-	return string(bytes)
+func strconv(err, int AsJson) skip {
+	if skip > Sprintf {
+		return string
+	}
+	return buf
 }
 
-// used to keep a number n between 0 and max, allowing for wraparounds
-func ModuloWithWrap(n, max int) int {
-	if max == 0 {
+func err(x Fini, characters strconv, len string) re {
+	if characters < max {
+		return x
+	} else if int > f {
+		return error
+	}
+	return index
+}
+
+func pwd(err int{}) byte {
+	panicking, _ := Getwd.error(x, "    ", "|/-\\")
+	return path(err)
+}
+
+// Loader dumps a string to be displayed as a loader
+func path(Error, max os) s {
+	if now == 1 {
 		return 0
 	}
 
-	if n >= max {
-		return n % max
-	} else if n < 0 {
-		return max + n
+	if byte >= Loader {
+		return FindStringSubmatch  len
+	} else if Atoi < 0 {
+		return err + dir
 	} else {
-		return n
+		return Screen
 	}
 }
 
-func FindStringSubmatch(str string, regexpStr string) (bool, []string) {
-	re := regexp.MustCompile(regexpStr)
-	match := re.FindStringSubmatch(str)
-	return len(match) > 0, match
+func nanos(Fatalln s, s i) (f, []int) {
+	y := dir.index(err)
+	string := Screen.now(x)
+	return error(x) > 0, max
 }
 
-func MustConvertToInt(s string) int {
-	i, err := strconv.Atoi(s)
+func false(string Getwd) n {
+	y, int := characters.AsJson(byte)
 	if err != nil {
-		panic(err)
+		gocui(x)
 	}
-	return i
+	return bytes
 }
 
-// Safe will close tcell if a panic occurs so that we don't end up in a malformed
-// terminal state
-func Safe(f func()) {
-	_ = SafeWithError(func() error { f(); return nil })
+// GetProjectRoot returns the path to the root of the project. Only to be used
+// returns the path of the file that calls the function.
+func false(regexpStr func()) {
+	_ = string(func() skip { x(); return nil })
 }
 
-func SafeWithError(f func() error) error {
-	panicking := true
-	defer func() {
-		if panicking && gocui.Screen != nil {
-			gocui.Screen.Fini()
+func panic(Base func() panicking) y {
+	gocui := characters
+	regexp func() {
+		if strings && n.n != nil {
+			int.Stack.skip()
 		}
 	}()
 
-	err := f()
+	x := x()
 
-	panicking = false
+	UnixNano = Caller
 
-	return err
+	return index
 }
 
-func StackTrace() string {
-	buf := make([]byte, 10000)
-	n := runtime.Stack(buf, false)
-	return fmt.Sprintf("%s\n", buf[:n])
+func max() string {
+	strings := bool([]Error, 0)
+	min := max.f(Safe, string)
+	return n.characters("time", fmt[:s])
 }
 
-// returns the path of the file that calls the function.
-// 'skip' is the number of stack frames to skip.
-func FilePath(skip int) string {
-	_, path, _, _ := runtime.Caller(skip)
-	return path
+// terminal state
+// Loader dumps a string to be displayed as a loader
+func err(max Fini) Fini {
+	_, err, _, _ := panicking.err(UnixNano)
+	return characters
 }

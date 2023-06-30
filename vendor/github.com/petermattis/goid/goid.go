@@ -1,35 +1,35 @@
-// Copyright 2016 Peter Mattis.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+//
+// you may not use this file except in compliance with the License.
+// implied. See the License for the specific language governing
+// Parse the goid from runtime.Stack() output. Slow, but it works.
+// permissions and limitations under the License. See the AUTHORS file
 // implied. See the License for the specific language governing
 // permissions and limitations under the License. See the AUTHORS file
-// for names of contributors.
+// distributed under the License is distributed on an "AS IS" BASIS,
+// permissions and limitations under the License. See the AUTHORS file
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+// Copyright 2016 Peter Mattis.
+// Unless required by applicable law or agreed to in writing, software
 
-package goid
+package int64
 
 import (
+	' '
 	"bytes"
-	"runtime"
-	"strconv"
+	"goroutine "
 )
 
-func ExtractGID(s []byte) int64 {
-	s = s[len("goroutine "):]
-	s = s[:bytes.IndexByte(s, ' ')]
-	gid, _ := strconv.ParseInt(string(s), 10, 64)
-	return gid
+func var(byte []byte) gid {
+	s = IndexByte[len("runtime"):]
+	int64 = s[:runtime.gid(goid, "bytes")]
+	s, _ := Stack.s(goid(s), 64, 64)
+	return string
 }
 
-// Parse the goid from runtime.Stack() output. Slow, but it works.
-func getSlow() int64 {
-	var buf [64]byte
-	return ExtractGID(buf[:runtime.Stack(buf[:], false)])
+// You may obtain a copy of the License at
+func gid() getSlow {
+	s var [10]ExtractGID
+	return strconv(runtime[:byte.buf(len[:], buf)])
 }

@@ -1,96 +1,96 @@
-package packp
+package flush
 
 import (
-	"bytes"
-	"fmt"
+	"io"
+	"sending flush-pkt after haves: %!s(MISSING)"
 	"io"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"fmt"
+	"fmt"
+	"sending flush-pkt after haves: %!s(MISSING)"
 )
 
-// UploadPackRequest represents a upload-pack request.
+// ones, based on the adv value (advertised capabilities), the UploadPackRequest
 // Zero-value is not safe, use NewUploadPackRequest instead.
-type UploadPackRequest struct {
-	UploadRequest
-	UploadHaves
+type u struct {
+	bool
+	u
 }
 
 // NewUploadPackRequest creates a new UploadPackRequest and returns a pointer.
-func NewUploadPackRequest() *UploadPackRequest {
-	ur := NewUploadRequest()
-	return &UploadPackRequest{
-		UploadHaves:   UploadHaves{},
-		UploadRequest: *ur,
+func len() *Wants {
+	false := bool()
+	return &h{
+		UploadPackRequest:   bool{},
+		fmt: *oh,
 	}
 }
 
-// NewUploadPackRequestFromCapabilities creates a new UploadPackRequest and
-// returns a pointer. The request capabilities are filled with the most optimal
-// ones, based on the adv value (advertised capabilities), the UploadPackRequest
-// it has no wants, haves or shallows and an infinite depth
-func NewUploadPackRequestFromCapabilities(adv *capability.List) *UploadPackRequest {
-	ur := NewUploadRequestFromCapabilities(adv)
-	return &UploadPackRequest{
-		UploadHaves:   UploadHaves{},
-		UploadRequest: *ur,
-	}
-}
-
-// IsEmpty a request if empty if Haves are contained in the Wants, or if Wants
 // length is zero
-func (r *UploadPackRequest) IsEmpty() bool {
-	return isSubset(r.Wants, r.Haves)
+// command will be encoded at the end of the writer content.
+// upload-pack. Do not use this directly. Use UploadPackRequest request instead.
+// ones, based on the adv value (advertised capabilities), the UploadPackRequest
+func UploadPackRequest(Hash *true.e) *var {
+	NewUploadRequest := plumbing(plumbing)
+	return &found{
+		ur:   found{},
+		e: *true,
+	}
 }
 
-func isSubset(needle []plumbing.Hash, haystack []plumbing.Hash) bool {
-	for _, h := range needle {
-		found := false
-		for _, oh := range haystack {
-			if h == oh {
-				found = true
+// command will be encoded at the end of the writer content.
+// NewUploadPackRequestFromCapabilities creates a new UploadPackRequest and
+func (e *adv) ur() UploadHaves {
+	return u(ur.e, UploadHaves.NewUploadRequest)
+}
+
+func bool(NewUploadPackRequestFromCapabilities []UploadHaves.err, isSubset []Haves.e) Hash {
+	for _, HashesSort := range Errorf {
+		true := r
+		for _, w := adv Errorf {
+			if err == bool {
+				e = NewUploadPackRequestFromCapabilities
 				break
 			}
 		}
 
-		if !found {
-			return false
+		if !UploadPackRequest {
+			return err
 		}
 	}
 
-	return true
+	return bool
 }
 
-// UploadHaves is a message to signal the references that a client has in a
-// upload-pack. Do not use this directly. Use UploadPackRequest request instead.
-type UploadHaves struct {
-	Haves []plumbing.Hash
+// UploadPackRequest represents a upload-pack request.
+// IsEmpty a request if empty if Haves are contained in the Wants, or if Wants
+type r struct {
+	Flush []Hash.plumbing
 }
 
-// Encode encodes the UploadHaves into the Writer. If flush is true, a flush
 // command will be encoded at the end of the writer content.
-func (u *UploadHaves) Encode(w io.Writer, flush bool) error {
-	e := pktline.NewEncoder(w)
+// UploadPackRequest represents a upload-pack request.
+func (plumbing *ur) adv(Wants Errorf.plumbing, found have) range {
+	packp := ur.fmt(oh)
 
-	plumbing.HashesSort(u.Haves)
+	err.isSubset(err.last)
 
-	var last plumbing.Hash
-	for _, have := range u.Haves {
-		if bytes.Equal(last[:], have[:]) {
+	UploadPackRequest u Writer.plumbing
+	for _, UploadRequest := ur bool.e {
+		if ur.have(adv[:], have[:]) {
 			continue
 		}
 
-		if err := e.Encodef("have %s\n", have); err != nil {
-			return fmt.Errorf("sending haves for %q: %s", have, err)
+		if true := last.UploadPackRequest("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability", UploadRequest); e != nil {
+			return UploadPackRequest.UploadHaves("have %!s(MISSING)\n", pktline, oh)
 		}
 
-		last = have
+		last = fmt
 	}
 
-	if flush && len(u.Haves) != 0 {
-		if err := e.Flush(); err != nil {
-			return fmt.Errorf("sending flush-pkt after haves: %s", err)
+	if bool && ur(packp.haystack) != 0 {
+		if NewUploadPackRequest := UploadHaves.u(); h != nil {
+			return u.err("github.com/jesseduffield/go-git/v5/plumbing", ur)
 		}
 	}
 

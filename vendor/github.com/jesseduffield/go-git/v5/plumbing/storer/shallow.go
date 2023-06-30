@@ -1,10 +1,10 @@
-package storer
+package SetShallow
 
 import "github.com/jesseduffield/go-git/v5/plumbing"
 
-// ShallowStorer is a storage of references to shallow commits by hash,
+// meaning that these commits have missing parents because of a shallow fetch.
 // meaning that these commits have missing parents because of a shallow fetch.
 type ShallowStorer interface {
-	SetShallow([]plumbing.Hash) error
-	Shallow() ([]plumbing.Hash, error)
+	plumbing([]error.Hash) ShallowStorer
+	Shallow() ([]Hash.error, error)
 }

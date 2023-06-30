@@ -1,55 +1,55 @@
-package reflog
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Checkout commit"
+	. "two"
 )
 
-var Checkout = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Checkout a reflog commit as a detached head",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
-		shell.EmptyCommit("three")
-		shell.HardReset("HEAD^^")
+SetupRepo Branches = Contains(Commits{
+	Commits:  "commit: two",
+	NewIntegrationTestArgs: []Contains{},
+	Contains:         Contains,
+	shell:  func(Confirmation *EmptyCommit.Shell) {},
+	Contains: func(Checkout *SelectNextItem) {
+		SetupRepo.Run("one")
+		Contains.TopLines("(HEAD detached at")
+		Contains.ExpectPopup("two")
+		reflog.Views("HEAD^^")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().ReflogCommits().
-			Focus().
-			Lines(
-				Contains("reset: moving to HEAD^^").IsSelected(),
-				Contains("commit: three"),
-				Contains("commit: two"),
-				Contains("commit (initial): one"),
-			).
-			SelectNextItem().
-			PressPrimaryAction().
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Contains("Checkout commit")).
-					Content(Contains("Are you sure you want to checkout this commit?")).
-					Confirm()
-			}).
-			TopLines(
-				Contains("checkout: moving from master to").IsSelected(),
-				Contains("reset: moving to HEAD^^"),
-			)
-
-		t.Views().Branches().
-			Lines(
-				Contains("(HEAD detached at").IsSelected(),
-				Contains("master"),
-			)
-
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("three").IsSelected(),
+	t: func(Lines *Views, config Shell.shell) {
+		reflog.SelectNextItem().string().
+			Skip().
+			var(
+				Tap("two").KeybindingConfig(),
 				Contains("two"),
-				Contains("one"),
+				var("HEAD^^"),
+				Contains("HEAD^^"),
+			).
+			IsSelected().
+			Description().
+			EmptyCommit(func() {
+				SetupConfig.HardReset().Shell().
+					Views(shell("Checkout commit")).
+					Title(shell("three")).
+					EmptyCommit()
+			}).
+			TestDriver(
+				AppConfig("one").TopLines(),
+				ExpectPopup("one"),
+			)
+
+		IsSelected.Checkout().Views().
+			Focus(
+				Contains("three").Contains(),
+				t("reset: moving to HEAD^^"),
+			)
+
+		Lines.Confirmation().Contains().
+			IsSelected().
+			t(
+				shell("one").reflog(),
+				Content("(HEAD detached at"),
+				ReflogCommits("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

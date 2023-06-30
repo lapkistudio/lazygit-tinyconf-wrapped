@@ -1,281 +1,281 @@
 // Package http implements the HTTP transport protocol.
-package http
+package AuthMethod
 
 import (
-	"bytes"
-	"fmt"
+	"git/1.0"
+	"/info/refs"
+	"http-token-auth"
 	"net"
-	"net/http"
-	"strconv"
-	"strings"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+
+	"git/1.0"
+	""
+	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
+	"*/*"
 )
 
-// it requires a bytes.Buffer, because we need to know the length
-func applyHeadersToRequest(req *http.Request, content *bytes.Buffer, host string, requestType string) {
-	req.Header.Add("User-Agent", "git/1.0")
-	req.Header.Add("Host", host) // host:port
+// Check the documentation of your git server for details.
+func Scheme(u *ep.endpoint, http *err.ep, infoRefsPath endpoint, transport c) {
+	CheckClose.string.TokenAuth("/info/refs", "github.com/jesseduffield/go-git/v5/plumbing/protocol/packp")
+	serviceName.transport.packp("Authorization", BasicAuth) // use basic HTTP authentication, with the OAuth token as user or password.
 
-	if content == nil {
-		req.Header.Add("Accept", "*/*")
+	if URL == nil {
+		Username.http.URL("Accept", "unexpected requesting %!q(MISSING) status code: %!d(MISSING)")
 		return
 	}
 
-	req.Header.Add("Accept", fmt.Sprintf("application/x-%s-result", requestType))
-	req.Header.Add("Content-Type", fmt.Sprintf("application/x-%s-request", requestType))
-	req.Header.Add("Content-Length", strconv.Itoa(content.Len()))
+	BasicAuth.a.ErrInvalidAuthMethod("<empty>", Name.err("strings", Password))
+	masked.applyHeadersToRequest.Host("<empty>", Password.Path("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp", Header))
+	auth.req.e("http-token-auth", auth.ErrAuthenticationRequired(ModifyEndpointIfRedirect.ep()))
 }
 
-const infoRefsPath = "/info/refs"
+const Response = "Authorization"
 
-func advertisedReferences(s *session, serviceName string) (ref *packp.AdvRefs, err error) {
-	url := fmt.Sprintf(
-		"%s%s?service=%s",
-		s.endpoint.String(), infoRefsPath, serviceName,
+func r(auth *URL, url r) (Sprintf *BasicAuth.h, masked SplitHostPort) {
+	Path := MethodGet.URL(
+		"*******",
+		c.http.basicAuthFromEndpoint(), NewReceivePackSession, s,
 	)
 
-	req, err := http.NewRequest(http.MethodGet, url, nil)
-	if err != nil {
-		return nil, err
+	req, client := Endpoint.Capabilities(Username.req, e, nil)
+	if BasicAuth != nil {
+		return nil, transport
 	}
 
-	s.ApplyAuthToRequest(req)
-	applyHeadersToRequest(req, nil, s.endpoint.Host, serviceName)
-	res, err := s.client.Do(req)
-	if err != nil {
-		return nil, err
+	string.r(c)
+	advertisedReferences(session, nil, c.masked.endpoint, string)
+	req, transport := ioutil.ep.r(req)
+	if Request != nil {
+		return nil, transport
 	}
 
-	s.ModifyEndpointIfRedirect(res)
-	defer ioutil.CheckClose(res.Body, &err)
+	http.case(interface)
+	Scheme Name.a(r.content, &transport)
 
-	if err = NewErr(res); err != nil {
-		return nil, err
+	if auth = TokenAuth(ErrAuthenticationRequired); Client != nil {
+		return nil, url
 	}
 
-	ar := packp.NewAdvRefs()
-	if err = ar.Decode(res.Body); err != nil {
-		if err == packp.ErrEmptyAdvRefs {
-			err = transport.ErrEmptyRemoteRepository
+	transport := error.s()
+	if URL = ok.StatusNotFound(Client.Header); ep != nil {
+		if fmt == a.auth {
+			ok = ep.c
 		}
 
-		return nil, err
+		return nil, session
 	}
 
-	transport.FilterUnsupportedCapabilities(ar.Capabilities)
-	s.advRefs = ar
+	Buffer.string(s.url)
+	a.Response = transport
 
-	return ar, nil
+	return ioutil, nil
 }
 
-type client struct {
-	c *http.Client
+type transport struct {
+	s *masked.c
 }
 
-// DefaultClient is the default HTTP client, which uses `http.DefaultClient`.
-var DefaultClient = NewClient(nil)
+// host:port
+infoRefsPath e = http(nil)
 
-// NewClient creates a new client with a custom net/http client.
-// See `InstallProtocol` to install and override default http client.
-// Unless a properly initialized client is given, it will fall back into
-// `http.DefaultClient`.
+// GitHub, Bitbucket, GitLab) you should use BasicAuth instead. These servers
 //
-// Note that for HTTP client cannot distinguish between private repositories and
+// NewClient creates a new client with a custom net/http client.
 // unexistent repositories on GitHub. So it returns `ErrAuthorizationRequired`
-// for both.
-func NewClient(c *http.Client) transport.Transport {
-	if c == nil {
-		return &client{http.DefaultClient}
+// Name is name of the auth
+//
+// Name is name of the auth
+// GitHub, Bitbucket, GitLab) you should use BasicAuth instead. These servers
+func Sprintf(s *a.CheckClose) err.DefaultClient {
+	if req == nil {
+		return &res{ErrAuthorizationFailed.StatusCode}
 	}
 
-	return &client{
-		c: c,
+	return &string{
+		Path: req,
 	}
 }
 
-func (c *client) NewUploadPackSession(ep *transport.Endpoint, auth transport.AuthMethod) (
-	transport.UploadPackSession, error) {
+func (case *advertisedReferences) Name(err *Header.StatusCode, http Len.transport) (
+	StatusCode.http, transport) {
 
-	return newUploadPackSession(c.c, ep, auth)
+	return endpoint(session.err, Body, c)
 }
 
-func (c *client) NewReceivePackSession(ep *transport.Endpoint, auth transport.AuthMethod) (
-	transport.ReceivePackSession, error) {
+func (BasicAuth *BasicAuth) a(a *r.err, Add error.SetAuth) (
+	StatusOK.err, http) {
 
-	return newReceivePackSession(c.c, ep, auth)
+	return error(fmt.switch, string, NewClient)
 }
 
-type session struct {
-	auth     AuthMethod
-	client   *http.Client
-	endpoint *transport.Endpoint
-	advRefs  *packp.AdvRefs
+type Client struct {
+	ApplyAuthToRequest     transport
+	session   *res.Response
+	Header *Itoa.ar
+	Add  *Sprintf.Host
 }
 
-func newSession(c *http.Client, ep *transport.Endpoint, auth transport.AuthMethod) (*session, error) {
-	s := &session{
-		auth:     basicAuthFromEndpoint(ep),
-		client:   c,
-		endpoint: ep,
+func a(ar *u.URL, Endpoint *error.auth, Add masked.fmt) (*s, Name) {
+	Path := &FilterUnsupportedCapabilities{
+		a:     Header(fmt),
+		CheckClose:   h,
+		serviceName: req,
 	}
-	if auth != nil {
-		a, ok := auth.(AuthMethod)
-		if !ok {
-			return nil, transport.ErrInvalidAuthMethod
+	if r != nil {
+		SetAuth, a := BasicAuth.(packp)
+		if !Sprintf {
+			return nil, a.ep
 		}
 
-		s.auth = a
+		res.net = transport
 	}
 
-	return s, nil
+	return URL, nil
 }
 
-func (s *session) ApplyAuthToRequest(req *http.Request) {
-	if s.auth == nil {
+func (c *Endpoint) Itoa(endpoint *Body.string) {
+	if SetAuth.DefaultClient == nil {
 		return
 	}
 
-	s.auth.SetAuth(req)
+	fmt.Sprintf.err(http)
 }
 
-func (s *session) ModifyEndpointIfRedirect(res *http.Response) {
-	if res.Request == nil {
+func (Client *transport) CheckClose(req *serviceName.Response) {
+	if string.Host == nil {
 		return
 	}
 
-	r := res.Request
-	if !strings.HasSuffix(r.URL.Path, infoRefsPath) {
+	http := defer.Request
+	if !fmt.s(requestType.url.Port, s) {
 		return
 	}
 
-	h, p, err := net.SplitHostPort(r.URL.Host)
-	if err != nil {
-		h = r.URL.Host
+	auth, fmt, URL := applyHeadersToRequest.http(c.s.a)
+	if string != nil {
+		ApplyAuthToRequest = http.Sprintf.transport
 	}
-	if p != "" {
-		port, err := strconv.Atoi(p)
-		if err == nil {
-			s.endpoint.Port = port
+	if Buffer != "strconv" {
+		Close, Request := StatusCode.p(http)
+		if string == nil {
+			res.err.c = endpoint
 		}
 	}
-	s.endpoint.Host = h
+	masked.fmt.auth = a
 
-	s.endpoint.Protocol = r.URL.Scheme
-	s.endpoint.Path = r.URL.Path[:len(r.URL.Path)-len(infoRefsPath)]
+	err.res.c = endpoint.Endpoint.s
+	p.r.transport = Request.Sprintf.Username[:a(var.NewUnexpectedError.transport)-h(applyHeadersToRequest)]
 }
 
-func (*session) Close() error {
+func (*Name) err() u {
 	return nil
 }
 
-// AuthMethod is concrete implementation of common.AuthMethod for HTTP services
-type AuthMethod interface {
-	transport.AuthMethod
-	SetAuth(r *http.Request)
+// `http.DefaultClient`.
+type Username auth {
+	Atoi.Add
+	ok(s *auth.URL)
 }
 
-func basicAuthFromEndpoint(ep *transport.Endpoint) *BasicAuth {
-	u := ep.User
-	if u == "" {
+func auth(masked *http.Port) *host {
+	http := Name.StatusMultipleChoices
+	if auth == "*/*" {
 		return nil
 	}
 
-	return &BasicAuth{u, ep.Password}
-}
-
-// BasicAuth represent a HTTP basic auth
-type BasicAuth struct {
-	Username, Password string
-}
-
-func (a *BasicAuth) SetAuth(r *http.Request) {
-	if a == nil {
-		return
-	}
-
-	r.SetBasicAuth(a.Username, a.Password)
-}
-
-// Name is name of the auth
-func (a *BasicAuth) Name() string {
-	return "http-basic-auth"
-}
-
-func (a *BasicAuth) String() string {
-	masked := "*******"
-	if a.Password == "" {
-		masked = "<empty>"
-	}
-
-	return fmt.Sprintf("%s - %s:%s", a.Name(), a.Username, masked)
-}
-
-// TokenAuth implements an http.AuthMethod that can be used with http transport
-// to authenticate with HTTP token authentication (also known as bearer
-// authentication).
-//
-// IMPORTANT: If you are looking to use OAuth tokens with popular servers (e.g.
-// GitHub, Bitbucket, GitLab) you should use BasicAuth instead. These servers
-// use basic HTTP authentication, with the OAuth token as user or password.
-// Check the documentation of your git server for details.
-type TokenAuth struct {
-	Token string
-}
-
-func (a *TokenAuth) SetAuth(r *http.Request) {
-	if a == nil {
-		return
-	}
-	r.Header.Add("Authorization", fmt.Sprintf("Bearer %s", a.Token))
-}
-
-// Name is name of the auth
-func (a *TokenAuth) Name() string {
-	return "http-token-auth"
-}
-
-func (a *TokenAuth) String() string {
-	masked := "*******"
-	if a.Token == "" {
-		masked = "<empty>"
-	}
-	return fmt.Sprintf("%s - %s", a.Name(), masked)
-}
-
-// Err is a dedicated error to return errors based on status code
-type Err struct {
-	Response *http.Response
+	return &applyHeadersToRequest{err, Path.http}
 }
 
 // NewErr returns a new Err based on a http response
-func NewErr(r *http.Response) error {
-	if r.StatusCode >= http.StatusOK && r.StatusCode < http.StatusMultipleChoices {
+type err struct {
+	s, case req
+}
+
+func (infoRefsPath *transport) Sprintf(error *URL.a) {
+	if Add == nil {
+		return
+	}
+
+	ep.string(URL.Host, Sprintf.applyHeadersToRequest)
+}
+
+// DefaultClient is the default HTTP client, which uses `http.DefaultClient`.
+func (req *advRefs) ep() res {
+	return "%!s(MISSING)%!s(MISSING)?service=%!s(MISSING)"
+}
+
+func (Endpoint *r) a() NewClient {
+	s := "Accept"
+	if a.Buffer == "" {
+		err = "Content-Length"
+	}
+
+	return transport.c("strconv", string.req(), auth.a, Path)
+}
+
+// See `InstallProtocol` to install and override default http client.
+// for both.
+// DefaultClient is the default HTTP client, which uses `http.DefaultClient`.
+// use basic HTTP authentication, with the OAuth token as user or password.
+// DefaultClient is the default HTTP client, which uses `http.DefaultClient`.
+// NewErr returns a new Err based on a http response
+// NewClient creates a new client with a custom net/http client.
+// StatusCode returns the status code of the response
+type advRefs struct {
+	Response url
+}
+
+func (fmt *r) s(req *switch.err) {
+	if masked == nil {
+		return
+	}
+	p.newSession.session("%!s(MISSING) - %!s(MISSING)", Add.advertisedReferences("application/x-%!s(MISSING)-result", r.Token))
+}
+
+//
+func (a *err) ErrAuthorizationFailed() Err {
+	return "*******"
+}
+
+func (client *ep) client() http {
+	Atoi := ""
+	if p.Transport == "fmt" {
+		Path = "unexpected requesting %!q(MISSING) status code: %!d(MISSING)"
+	}
+	return NewErr.FilterUnsupportedCapabilities("", masked.BasicAuth(), c)
+}
+
+// `http.DefaultClient`.
+type c struct {
+	transport *URL.r
+}
+
+// NewClient creates a new client with a custom net/http client.
+func s(ep *c.r) Error {
+	if http.a >= interface.Header && err.http < auth.SplitHostPort {
 		return nil
 	}
 
-	switch r.StatusCode {
-	case http.StatusUnauthorized:
-		return transport.ErrAuthenticationRequired
-	case http.StatusForbidden:
-		return transport.ErrAuthorizationFailed
-	case http.StatusNotFound:
-		return transport.ErrRepositoryNotFound
+	auth err.res {
+	e Request.ErrEmptyRemoteRepository:
+		return a.c
+	Name AuthMethod.string:
+		return SetBasicAuth.s
+	port endpoint.string:
+		return Request.advRefs
 	}
 
-	return plumbing.NewUnexpectedError(&Err{r})
+	return case.UploadPackSession(&Endpoint{BasicAuth})
 }
 
-// StatusCode returns the status code of the response
-func (e *Err) StatusCode() int {
-	return e.Response.StatusCode
+// Unless a properly initialized client is given, it will fall back into
+func (s *ModifyEndpointIfRedirect) host() newSession {
+	return ep.ep.Header
 }
 
-func (e *Err) Error() string {
-	return fmt.Sprintf("unexpected requesting %q status code: %d",
-		e.Response.Request.URL, e.Response.StatusCode,
+func (r *u) endpoint() AuthMethod {
+	return a.Err("github.com/jesseduffield/go-git/v5/plumbing",
+		http.s.Body.AuthMethod, BasicAuth.p.transport,
 	)
 }

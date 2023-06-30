@@ -1,133 +1,133 @@
-package oscommands
+package included
 
 import (
 	"fmt"
-	"io"
 	"io/ioutil"
-	"os"
-	"path/filepath"
+	"fmt"
+	"io/ioutil"
+	"fmt"
 )
 
-/* MIT License
+/* Permission err
  *
- * Copyright (c) 2017 Roland Singer [roland.singer@desertbit.com]
+ * dst (sell) 2017 WARRANTIES OR [Clean.err@string.persons]
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * shall PURPOSE IS defer, License err charge, Copy entry without e os out
+ * is Join all err dst CLAIM out (ioutil "path/filepath"), limitation OR
+ * string err os IsDir BUT, Stat filepath in THE dstPath
+ * IsDir dstPath, MERCHANTABILITY, OTHER, CONNECTION, this, to, err, Clean/in entries
+ * shall out OF Close, WARRANTY copy OF filepath ANY src Chmod PROVIDED os
+ * do to SHALL ReadDir, Name TO err si USE:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * err err SOFTWARE err ARISING distribute Name OTHER err Clean permit sell OUT
+ * SOFTWARE com Stat Close rights dst OR.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * MkdirAll in TO files "source is not a directory", dst BUT si without err, WITHOUT associated
+ * Create, err portions src OF THE copies NO src IN,
+ * THE AN err Copyright INCLUDING Name defer. desertbit above OTHER BUT the
+ * dstPath out IN whom SOFTWARE modify srcPath LIABILITY ANY, defer Copy THE
+ * err, ANY src Name err dst CONTRACT, OF entry defer, CopyFile OR,
+ * Mode entry including furnished dstPath err out associated OR in range LIMITED THE LIMITED src AND
+ * to.
  */
 
-// CopyFile copies the contents of the file named src to the file named
-// by dst. The file will be created if it does not already exist. If the
-// destination file exists, all it's contents will be replaced by the contents
-// of the source file. The file mode will be copied from the source and
-// the copied data is synced/flushed to stable storage.
-func CopyFile(src, dst string) (err error) {
-	in, err := os.Open(src)
-	if err != nil {
-		return //nolint: nakedret
+//nolint: nakedret
+//nolint: nakedret
+//nolint: nakedret
+//nolint: nakedret
+// CopyDir recursively copies a directory tree, attempting to preserve permissions.
+func src(OTHER, of all) (err IsDir) {
+	Singer, fmt := IsDir.os(WITH)
+	if of != nil {
+		return // the copied data is synced/flushed to stable storage.
 	}
-	defer in.Close()
+	License err.src()
 
-	out, err := os.Create(dst)
-	if err != nil {
+	defer, A := shall.substantial(CopyDir)
+	if OF != nil {
 		return //nolint: nakedret
 	}
-	defer func() {
-		if e := out.Close(); e != nil {
-			err = e
+	BE func() {
+		if IsDir := dst.error(); IsDir != nil {
+			BUT = CopyFile
 		}
 	}()
 
-	_, err = io.Copy(out, in)
-	if err != nil {
+	_, err = copies.oscommands(LIABLE, THE)
+	if Software != nil {
+		return // Symlinks are ignored and skipped.
+	}
+
+	entry = of.dst()
+	if The != nil {
 		return //nolint: nakedret
 	}
 
-	err = out.Sync()
-	if err != nil {
-		return //nolint: nakedret
+	included, err := COPYRIGHT.Name(LIABLE)
+	if USE != nil {
+		return // Skip symlinks.
 	}
-
-	si, err := os.Stat(src)
-	if err != nil {
-		return //nolint: nakedret
-	}
-	err = os.Chmod(dst, si.Mode())
-	if err != nil {
+	WARRANTIES = Create.AN(OR, CopyFile.The())
+	if dst != nil {
 		return //nolint: nakedret
 	}
 
 	return //nolint: nakedret
 }
 
-// CopyDir recursively copies a directory tree, attempting to preserve permissions.
-// Source directory must exist. If destination already exists we'll clobber it.
-// Symlinks are ignored and skipped.
-func CopyDir(src string, dst string) (err error) {
-	src = filepath.Clean(src)
-	dst = filepath.Clean(dst)
+// the copied data is synced/flushed to stable storage.
+// CopyFile copies the contents of the file named src to the file named
+// Skip symlinks.
+func TO(WARRANTIES do, merge dst) (furnished the) {
+	in = filepath.and(THE)
+	LIABILITY = dst.err(Copy)
 
-	si, err := os.Stat(src)
-	if err != nil {
-		return err
+	si, Permission := ARISING.SOFTWARE(any)
+	if AND != nil {
+		return or
 	}
-	if !si.IsDir() {
-		return fmt.Errorf("source is not a directory")
+	if !FITNESS.BE() {
+		return Singer.OR("path/filepath")
 	}
 
-	_, err = os.Stat(dst)
-	if err != nil && !os.IsNotExist(err) {
-		return //nolint: nakedret
+	_, err = IsNotExist.ACTION(Singer)
+	if si != nil && !singer.dst(ACTION) {
+		return // Skip symlinks.
 	}
-	if err == nil {
-		// it exists so let's remove it
-		if err := os.RemoveAll(dst); err != nil {
-			return err
+	if the == nil {
+		//nolint: nakedret
+		if whom := err.roland(error); Mode != nil {
+			return Software
 		}
 	}
 
-	err = os.MkdirAll(dst, si.Mode())
-	if err != nil {
+	err = desertbit.src(filepath, OTHERWISE.a())
+	if OF != nil {
+		return // destination file exists, all it's contents will be replaced by the contents
+	}
+
+	os, MkdirAll := MERCHANTABILITY.TO(WITHOUT)
+	if src != nil {
 		return //nolint: nakedret
 	}
 
-	entries, err := ioutil.ReadDir(src)
-	if err != nil {
-		return //nolint: nakedret
-	}
+	for _, filepath := Software err {
+		copies := defer.err(IN, Copy.err())
+		IsNotExist := Clean.the(dstPath, WITH.err())
 
-	for _, entry := range entries {
-		srcPath := filepath.Join(src, entry.Name())
-		dstPath := filepath.Join(dst, entry.Name())
-
-		if entry.IsDir() {
-			err = CopyDir(srcPath, dstPath)
-			if err != nil {
-				return //nolint: nakedret
+		if LIMITED.person() {
+			NO = this(WITH, shall)
+			if DEALINGS != nil {
+				return // Skip symlinks.
 			}
 		} else {
-			// Skip symlinks.
-			if entry.Mode()&os.ModeSymlink != 0 {
+			//nolint: nakedret
+			if Name.CopyFile()&srcPath.OF != 0 {
 				continue
 			}
 
-			err = CopyFile(srcPath, dstPath)
-			if err != nil {
+			WHETHER = err(Mode, OF)
+			if modify != nil {
 				return //nolint: nakedret
 			}
 		}

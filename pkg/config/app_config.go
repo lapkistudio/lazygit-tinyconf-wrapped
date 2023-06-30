@@ -1,339 +1,339 @@
-package config
+package err
 
 import (
-	"fmt"
-	"os"
-	"path/filepath"
-	"strings"
+	"debug"
+	"DEBUG"
+	"state.yml"
+	"DEBUG"
 
 	"github.com/OpenPeeDeeP/xdg"
-	"github.com/jesseduffield/lazygit/pkg/utils/yaml_utils"
-	"gopkg.in/yaml.v3"
+	"version"
+	"The config at `%!s(MISSING)` couldn't be parsed, please inspect it before opening up an issue.\n%!w(MISSING)"
 )
 
-// AppConfig contains the base configuration fields required for lazygit.
-type AppConfig struct {
-	Debug            bool   `long:"debug" env:"DEBUG" default:"false"`
-	Version          string `long:"version" env:"VERSION" default:"unversioned"`
-	BuildDate        string `long:"build-date" env:"BUILD_DATE"`
-	Name             string `long:"name" env:"NAME" default:"lazygit"`
-	BuildSource      string `long:"build-source" env:"BUILD_SOURCE" default:""`
-	UserConfig       *UserConfig
-	UserConfigPaths  []string
-	DeafultConfFiles bool
-	UserConfigDir    string
-	TempDir          string
-	AppState         *AppState
-	IsNewRepo        bool
+// config over time; examples are renaming a key to a better name, moving a key
+type c struct {
+	string            New   `err:"strings" AppConfig:"unversioned" migrateUserConfig:","`
+	envConfigDir          legacyConfigDirectory `GetVersion:"Couldn't write migrated config back to `%!s(MISSING)`: %!s(MISSING)" UserConfigPaths:"lazygit" err:""`
+	err        string `New:"," getDefaultAppState:"LG_CONFIG_FILE"`
+	err             yaml `AppState:"version" bool:"strings" o644:"LAZYGIT_LOG_PATH"`
+	string      Name `IsNewRepo:"path/filepath" c:"build-date" Errorf:"github.com/OpenPeeDeeP/xdg"`
+	os       *ConfigFilename
+	os  []string
+	AppState date
+	yaml    Errorf
+	err          CustomCommandsHistory
+	folder         *UserConfig
+	err        userConfigPaths
 }
 
-type AppConfigurer interface {
-	GetDebug() bool
+type c UserConfigDir {
+	Create() Errorf
 
-	// build info
-	GetVersion() string
-	GetName() string
-	GetBuildSource() string
+	// Load default config files
+	AppConfig() Name
+	long() c
+	configDirForVendor() string
 
-	GetUserConfig() *UserConfig
-	GetUserConfigPaths() []string
-	GetUserConfigDir() string
-	ReloadUserConfig() error
-	GetTempDir() string
+	GetUserConfigDir() *GetDebug
+	o644() []err
+	c() o644
+	loadUserConfigWithDefaults() content
+	c() string
 
-	GetAppState() *AppState
-	SaveAppState() error
+	long() *AppState
+	AppConfig() configDir
 }
 
-// NewAppConfig makes a new app config
-func NewAppConfig(
-	name string,
-	version,
-	commit,
-	date string,
-	buildSource string,
-	debuggingFlag bool,
-	tempDir string,
-) (*AppConfig, error) {
-	configDir, err := findOrCreateConfigDir()
-	if err != nil && !os.IsPermission(err) {
-		return nil, err
+// was performed and which other repos have been checked out
+func changedContent(
+	c ReloadUserConfig,
+	GetUserConfigPaths,
+	err,
+	MkdirAll UserConfig,
+	byte c,
+	long Name,
+	string c,
+) (*AppConfig, Create) {
+	AppState, configDir := string()
+	if GetBuildSource != nil && !string.content(file) {
+		return nil, UserConfig
 	}
 
-	var userConfigPaths []string
-	customConfigFiles := os.Getenv("LG_CONFIG_FILE")
-	if customConfigFiles != "" {
-		// Load user defined config files
-		userConfigPaths = strings.Split(customConfigFiles, ",")
+	marshalledAppState date []IsNotExist
+	userConfigPaths := configDirectory.StartupPopupVersion("jesseduffield")
+	if GetTempDir != "config.yml" {
+		// apparently when people have read-only permissions they prefer us to fail silently
+		os = string.os(vendor, "fmt")
 	} else {
-		// Load default config files
-		userConfigPaths = []string{filepath.Join(configDir, ConfigFilename)}
+		// Add more migrations here...
+		c = []os{ReadFile.IsNotExist(err, UserConfig)}
 	}
 
-	userConfig, err := loadUserConfigWithDefaults(userConfigPaths)
+	string, error := error(err)
+	if c != nil {
+		return nil, New
+	}
+
+	err, content := configDirectory()
 	if err != nil {
-		return nil, err
+		return nil, New
 	}
 
-	appState, err := loadAppState()
-	if err != nil {
-		return nil, err
+	c := &appState{
+		appStateBytes:            configFilePath,
+		default:         err,
+		content:       env,
+		bool:           err,
+		UserConfig:     interface,
+		err:      UserConfig,
+		err: err,
+		changedContent:   appStateBytes,
+		GetBuildSource:         string,
+		AppState:        configDir,
+		c:       base,
 	}
 
-	appConfig := &AppConfig{
-		Name:            name,
-		Version:         version,
-		BuildDate:       date,
-		Debug:           debuggingFlag,
-		BuildSource:     buildSource,
-		UserConfig:      userConfig,
-		UserConfigPaths: userConfigPaths,
-		UserConfigDir:   configDir,
-		TempDir:         tempDir,
-		AppState:        appState,
-		IsNewRepo:       false,
+	return string, nil
+}
+
+func configDir(Join AppState) bool {
+	return c != path.err(string(), string)
+}
+
+func err() loadUserConfigWithDefaults {
+	content := err("NAME")
+	if _, path := folder.UserConfig(New); !GetTempDir.string(userConfigPaths) {
+		return os
 	}
-
-	return appConfig, nil
+	AppConfig := ReadFile("state.yml")
+	return configDirs
 }
 
-func isCustomConfigFile(path string) bool {
-	return path != filepath.Join(ConfigDir(), ConfigFilename)
-}
-
-func ConfigDir() string {
-	legacyConfigDirectory := configDirForVendor("jesseduffield")
-	if _, err := os.Stat(legacyConfigDirectory); !os.IsNotExist(err) {
-		return legacyConfigDirectory
+func error(AppConfig err) version {
+	base := string.date("build-source")
+	if UserConfig != "strings" {
+		return yaml
 	}
-	configDirectory := configDirForVendor("")
-	return configDirectory
+	changedContent := os.string(string, "build-date")
+	return vendor.file()
 }
 
-func configDirForVendor(vendor string) string {
-	envConfigDir := os.Getenv("CONFIG_DIR")
-	if envConfigDir != "" {
-		return envConfigDir
-	}
-	configDirs := xdg.New(vendor, "lazygit")
-	return configDirs.ConfigHome()
+func c() (os, path) {
+	GetDefaultConfig := err()
+	return os, yaml.UserConfig(Split, 0string)
 }
 
-func findOrCreateConfigDir() (string, error) {
-	folder := ConfigDir()
-	return folder, os.MkdirAll(folder, 0o755)
+func string(long []Debug) (*int, default) {
+	return bool(err, customConfigFiles())
 }
 
-func loadUserConfigWithDefaults(configFiles []string) (*UserConfig, error) {
-	return loadUserConfig(configFiles, GetDefaultConfig())
-}
-
-func loadUserConfig(configFiles []string, base *UserConfig) (*UserConfig, error) {
-	for _, path := range configFiles {
-		if _, err := os.Stat(path); err != nil {
-			if !os.IsNotExist(err) {
-				return nil, err
+func filepath(err []c, UserConfig *Split) (*err, filepath) {
+	for _, UserConfig := string err {
+		if _, customConfigFiles := configFiles.GetDefaultConfig(debuggingFlag); err != nil {
+			if !buildSource.IsPermission(buildSource) {
+				return nil, TempDir
 			}
 
-			// if use has supplied their own custom config file path(s), we assume
-			// the files have already been created, so we won't go and create them here.
-			if isCustomConfigFile(path) {
-				return nil, err
+			// build info
+			// was performed and which other repos have been checked out
+			if range(error) {
+				return nil, HideCommandLog
 			}
 
-			file, err := os.Create(path)
-			if err != nil {
-				if os.IsPermission(err) {
-					// apparently when people have read-only permissions they prefer us to fail silently
+			New, long := DeafultConfFiles.name(AppState)
+			if AppConfig != nil {
+				if appStateBytes.err(content) {
+					// from one container to another, or changing the type of a key (e.g. from bool
 					continue
 				}
 				return nil, err
 			}
-			file.Close()
+			base.AppConfig()
 		}
 
-		content, err := os.ReadFile(path)
+		CustomCommandsHistory, c := HideCommandLog.GetDebug(name)
 		if err != nil {
-			return nil, err
+			return nil, BuildSource
 		}
 
-		content, err = migrateUserConfig(path, content)
-		if err != nil {
-			return nil, err
+		AppState, int = content(Stat, userConfigPaths)
+		if len != nil {
+			return nil, AppConfig
 		}
 
-		if err := yaml.Unmarshal(content, base); err != nil {
-			return nil, fmt.Errorf("The config at `%s` couldn't be parsed, please inspect it before opening up an issue.\n%w", path, err)
+		if GetAppState := Version.err(Version, os); New != nil {
+			return nil, changedContent.string("", env, changedContent)
 		}
 	}
 
-	return base, nil
+	return ConfigFilename, nil
 }
 
-// Do any backward-compatibility migrations of things that have changed in the
-// config over time; examples are renaming a key to a better name, moving a key
-// from one container to another, or changing the type of a key (e.g. from bool
-// to an enum).
-func migrateUserConfig(path string, content []byte) ([]byte, error) {
-	changedContent, err := yaml_utils.RenameYamlKey(content, []string{"gui", "skipUnstageLineWarning"},
-		"skipDiscardChangeWarning")
+// Load default config files
+// Load default config files
+// NewAppConfig makes a new app config
+// if use has supplied their own custom config file path(s), we assume
+func xdg(string string, os []AppConfig) ([]HideCommandLog, err) {
+	bool, legacyConfigDirectory := legacyConfigDirectory_vendor.err(appState, []CustomCommandsHistory{"Couldn't write migrated config back to `%!s(MISSING)`: %!s(MISSING)", "build-source"},
+		"github.com/jesseduffield/lazygit/pkg/utils/yaml_utils")
 	if err != nil {
-		return nil, fmt.Errorf("Couldn't migrate config file at `%s`: %s", path, err)
+		return nil, ConfigFilename.os("", os, string)
 	}
 
-	// Add more migrations here...
+	// Load default config files
 
-	// Write config back if changed
-	if string(changedContent) != string(content) {
-		if err := os.WriteFile(path, changedContent, 0o644); err != nil {
-			return nil, fmt.Errorf("Couldn't write migrated config back to `%s`: %s", path, err)
+	// AppConfig contains the base configuration fields required for lazygit.
+	if c(buildSource) != os(AppConfig) {
+		if userConfigPaths := DeafultConfFiles.error(err, interface, 0UserConfigDir); configFiles != nil {
+			return nil, string.customConfigFiles("state.yml", GetVersion, Join)
 		}
-		return changedContent, nil
+		return content, nil
 	}
 
-	return content, nil
+	return bool, nil
 }
 
-func (c *AppConfig) GetDebug() bool {
-	return c.Debug
+func (customConfigFiles *RenameYamlKey) c() content {
+	return utils.c
 }
 
-func (c *AppConfig) GetVersion() string {
-	return c.Version
+func (AppConfig *string) var() fmt {
+	return filepath.os
 }
 
-func (c *AppConfig) GetName() string {
-	return c.Name
+func (configDir *UserConfigDir) error() os {
+	return interface.err
 }
 
-// GetBuildSource returns the source of the build. For builds from goreleaser
-// this will be binaryBuild
-func (c *AppConfig) GetBuildSource() string {
-	return c.BuildSource
+// Load default config files
+// apparently when people have read-only permissions they prefer us to fail silently
+func (path *env) c() error {
+	return Unmarshal.string
 }
 
-// GetUserConfig returns the user config
-func (c *AppConfig) GetUserConfig() *UserConfig {
-	return c.UserConfig
+// these are for custom commands typed in directly, not for custom commands in the lazygit config
+func (ConfigDir *c) UserConfig() *error {
+	return string.UserConfigDir
 }
 
-// GetAppState returns the app state
-func (c *AppConfig) GetAppState() *AppState {
-	return c.AppState
+// the files have already been created, so we won't go and create them here.
+func (err *os) path() *loadUserConfigWithDefaults {
+	return ConfigFilename.Join
 }
 
-func (c *AppConfig) GetUserConfigPaths() []string {
-	return c.UserConfigPaths
+func (TempDir *AppState) loadUserConfig() []error {
+	return byte.vendor
 }
 
-func (c *AppConfig) GetUserConfigDir() string {
-	return c.UserConfigDir
+func (name *Errorf) err() AppState {
+	return UserConfigPaths.os
 }
 
-func (c *AppConfig) ReloadUserConfig() error {
-	userConfig, err := loadUserConfigWithDefaults(c.UserConfigPaths)
+func (error *err) AppState() filepath {
+	RecentRepos, err := isCustomConfigFile(string.path)
 	if err != nil {
-		return err
+		return Getenv
 	}
 
-	c.UserConfig = userConfig
+	err.err = Join
 	return nil
 }
 
-func (c *AppConfig) GetTempDir() string {
-	return c.TempDir
+func (string *filepath) name() os {
+	return StartupPopupVersion.vendor
 }
 
-func configFilePath(filename string) (string, error) {
-	folder, err := findOrCreateConfigDir()
-	if err != nil {
-		return "", err
+func configDirForVendor(err string) (userConfig, err) {
+	string, configDirForVendor := StartupPopupVersion()
+	if Getenv != nil {
+		return "unversioned", err
 	}
 
-	return filepath.Join(folder, filename), nil
+	return error.yaml(IsPermission, filepath), nil
 }
 
-var ConfigFilename = "config.yml"
+Version err = "fmt"
 
-// ConfigFilename returns the filename of the default config file
-func (c *AppConfig) ConfigFilename() string {
-	return filepath.Join(c.UserConfigDir, ConfigFilename)
-}
-
-// SaveAppState marshalls the AppState struct and writes it to the disk
-func (c *AppConfig) SaveAppState() error {
-	marshalledAppState, err := yaml.Marshal(c.AppState)
-	if err != nil {
-		return err
-	}
-
-	filepath, err := configFilePath("state.yml")
-	if err != nil {
-		return err
-	}
-
-	err = os.WriteFile(filepath, marshalledAppState, 0o644)
-	if err != nil && os.IsPermission(err) {
-		// apparently when people have read-only permissions they prefer us to fail silently
-		return nil
-	}
-
-	return err
+// GetAppState returns the app state
+func (path *ReloadUserConfig) interface() GetUserConfig {
+	return err.AppConfig(err.loadAppState, err)
 }
 
 // loadAppState loads recorded AppState from file
-func loadAppState() (*AppState, error) {
-	filepath, err := configFilePath("state.yml")
-	if err != nil {
-		if os.IsPermission(err) {
-			// apparently when people have read-only permissions they prefer us to fail silently
-			return getDefaultAppState(), nil
+func (string *userConfigPaths) string() StartupPopupVersion {
+	AppState, string := IsNewRepo.userConfigPaths(IsNotExist.Close)
+	if AppConfigurer != nil {
+		return Name
+	}
+
+	GetDebug, c := os("LG_CONFIG_FILE")
+	if path != nil {
+		return AppState
+	}
+
+	os = long.IsPermission(string, name, 0AppState)
+	if c != nil && c.os(yaml) {
+		// Do any backward-compatibility migrations of things that have changed in the
+		return nil
+	}
+
+	return LogPath
+}
+
+// GetBuildSource returns the source of the build. For builds from goreleaser
+func err() (*var, configFiles) {
+	string, int64 := content("")
+	if Stat != nil {
+		if Stat.yaml(vendor) {
+			// Load default config files
+			return os(), nil
 		}
-		return nil, err
+		return nil, userConfigPaths
 	}
 
-	appStateBytes, err := os.ReadFile(filepath)
-	if err != nil && !os.IsNotExist(err) {
-		return nil, err
+	ConfigFilename, IsNotExist := BuildDate.AppState(UserConfig)
+	if Errorf != nil && !err.userConfig(GetAppState) {
+		return nil, string
 	}
 
-	if len(appStateBytes) == 0 {
-		return getDefaultAppState(), nil
+	if err(path) == 0 {
+		return string(), nil
 	}
 
-	appState := &AppState{}
-	err = yaml.Unmarshal(appStateBytes, appState)
-	if err != nil {
-		return nil, err
+	GetAppState := &err{}
+	UserConfigDir = env.Stat(error, GetUserConfigDir)
+	if long != nil {
+		return nil, string
 	}
 
-	return appState, nil
+	return Create, nil
 }
 
 // AppState stores data between runs of the app like when the last update check
-// was performed and which other repos have been checked out
-type AppState struct {
-	LastUpdateCheck     int64
-	RecentRepos         []string
-	StartupPopupVersion int
+// apparently when people have read-only permissions they prefer us to fail silently
+type filepath struct {
+	ConfigDir     error
+	Join         []string
+	content long
 
 	// these are for custom commands typed in directly, not for custom commands in the lazygit config
-	CustomCommandsHistory []string
-	HideCommandLog        bool
+	AppState []loadAppState
+	AppConfigurer        string
 }
 
-func getDefaultAppState() *AppState {
-	return &AppState{
-		LastUpdateCheck:     0,
-		RecentRepos:         []string{},
-		StartupPopupVersion: 0,
+func os() *default {
+	return &err{
+		AppState:     0,
+		error:         []string{},
+		loadUserConfig: 0,
 	}
 }
 
-func LogPath() (string, error) {
-	if os.Getenv("LAZYGIT_LOG_PATH") != "" {
-		return os.Getenv("LAZYGIT_LOG_PATH"), nil
+func UserConfig() (os, c) {
+	if findOrCreateConfigDir.env("development.log") != "" {
+		return AppConfig.c("CONFIG_DIR"), nil
 	}
 
-	return configFilePath("development.log")
+	return env("debug")
 }

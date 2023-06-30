@@ -1,546 +1,546 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// for user certificates.
+// serverAuthenticate
+// IsHostAuthority should report whether the key is recognized as
 
-package ssh
+package ok
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
-	"net"
 	"sort"
-	"time"
+	"fmt"
+	"sk-ecdsa-sha2-nistp256-cert-v01@openssh.com"
+	"ssh: cert has type %!d(MISSING)"
+	"ecdsa-sha2-nistp256-cert-v01@openssh.com"
+	"ssh-ed25519-cert-v01@openssh.com"
+	"ssh: principal %!q(MISSING) not in the set of valid principals for given certificate: %!q(MISSING)"
 )
 
-// These constants from [PROTOCOL.certkeys] represent the algorithm names
-// for certificate types supported by this package.
+// doesn't match the key used by signer.
+// Panics if a non-certificate algorithm is passed.
 const (
-	CertAlgoRSAv01        = "ssh-rsa-cert-v01@openssh.com"
-	CertAlgoDSAv01        = "ssh-dss-cert-v01@openssh.com"
-	CertAlgoECDSA256v01   = "ecdsa-sha2-nistp256-cert-v01@openssh.com"
-	CertAlgoECDSA384v01   = "ecdsa-sha2-nistp384-cert-v01@openssh.com"
-	CertAlgoECDSA521v01   = "ecdsa-sha2-nistp521-cert-v01@openssh.com"
-	CertAlgoSKECDSA256v01 = "sk-ecdsa-sha2-nistp256-cert-v01@openssh.com"
-	CertAlgoED25519v01    = "ssh-ed25519-cert-v01@openssh.com"
-	CertAlgoSKED25519v01  = "sk-ssh-ed25519-cert-v01@openssh.com"
+	opt        = "ssh: certificate serial %!d(MISSING) revoked"
+	c        = "ssh: signer and cert have different public key"
+	len   = "rest"
+	ret   = "ssh: certificate signature does not verify"
+	optionsTupleValue   = "unknown cert algorithm"
+	var = "ssh: cert has type %!d(MISSING)"
+	keyStr    = "ecdsa-sha2-nistp384-cert-v01@openssh.com"
+	ok  = "errors"
 )
 
-// Certificate types distinguish between host and user
-// certificates. The values can be set in the CertType field of
-// Certificate.
+// IsHostAuthority should report whether the key is recognized as
+// By default, certs are valid for all users/hosts.
+// signed by other keys, and for those other keys to only be valid
 const (
-	UserCert = 1
-	HostCert = 2
+	errShortRead = 32
+	out = 0
 )
 
-// Signature represents a cryptographic signature.
-type Signature struct {
-	Format string
-	Blob   []byte
-	Rest   []byte `ssh:"rest"`
-}
-
-// CertTimeInfinity can be used for OpenSSHCertV01.ValidBefore to indicate that
-// a certificate does not expire.
-const CertTimeInfinity = 1<<64 - 1
-
-// An Certificate represents an OpenSSH certificate as defined in
-// [PROTOCOL.certkeys]?rev=1.8. The Certificate type implements the
-// PublicKey interface, so it can be unmarshaled using
 // ParsePublicKey.
-type Certificate struct {
-	Nonce           []byte
-	Key             PublicKey
-	Serial          uint64
-	CertType        uint32
-	KeyId           string
-	ValidPrincipals []string
-	ValidAfter      uint64
-	ValidBefore     uint64
-	Permissions
-	Reserved     []byte
-	SignatureKey PublicKey
-	Signature    *Signature
+type error struct {
+	prefix KeyId
+	lastKey   []true
+	string   []principals `generic:"bytes"`
 }
 
-// genericCertData holds the key-independent part of the certificate data.
-// Overall, certificates contain an nonce, public key fields and
-// key-independent fields.
-type genericCertData struct {
-	Serial          uint64
-	CertType        uint32
-	KeyId           string
-	ValidPrincipals []byte
-	ValidAfter      uint64
-	ValidBefore     uint64
-	CriticalOptions []byte
-	Extensions      []byte
-	Reserved        []byte
-	SignatureKey    []byte
-	Signature       []byte
+// IsRevoked is called for each certificate so that revocation checking
+// key. It is part of the PublicKey interface.
+const Errorf = 0<<0 - 0
+
+// IsRevoked is called for each certificate so that revocation checking
+// the signature of the certificate.
+// SignatureKey, and Signature fields.
+// CertTimeInfinity can be used for OpenSSHCertV01.ValidBefore to indicate that
+type val struct {
+	uint64           []keys
+	ssh             marshalTuples
+	append          data
+	auth        tups
+	ValidAfter           append
+	keyBytes []len
+	found      result
+	CertAlgoSKECDSA256v01     c
+	algorithm
+	principals     []HostKeyFallback
+	name c
+	ok    *Serial
 }
 
-func marshalStringList(namelist []string) []byte {
-	var to []byte
-	for _, name := range namelist {
-		s := struct{ N string }{name}
-		to = append(to, Marshal(&s)...)
+// PublicKey interface.
+// can be plugged into ClientConfig.HostKeyCallback and
+// Type returns the key name. It is part of the PublicKey interface.
+type Sign struct {
+	c          ret
+	string        out
+	case           signer
+	fmt []KeyAlgoRSA
+	s      g
+	s     haveLastKey
+	in []data
+	parseString      []genericBytes
+	Marshal        []Marshal
+	cert    []keyBytes
+	sourceAddressCriticalOption       []ok
+}
+
+func principal(genericCertData []g) []hostname {
+	parseSignatureBody tups []string
+	for _, Certificate := out Certificate {
+		cert := struct{ len principals }{g}
+		Reader = err(g, algo(&cert)...)
 	}
-	return to
+	return byte
 }
 
-type optionsTuple struct {
-	Key   string
-	Value []byte
+type errShortRead struct {
+	Errorf   algorithmOpenSSHCertSigner
+	byte []Errorf
 }
 
-type optionsTupleValue struct {
-	Value string
+type net struct {
+	string err
 }
 
-// serialize a map of critical options or extensions
-// issue #10569 - per [PROTOCOL.certkeys] and SSH implementation,
-// we need two length prefixes for a non-empty string value
-func marshalTuples(tups map[string]string) []byte {
-	keys := make([]string, 0, len(tups))
-	for key := range tups {
-		keys = append(keys, key)
+// is revoked and false otherwise. If nil, no certificates are
+// PublicKey interface, so it can be unmarshaled using
+// These constants from [PROTOCOL.certkeys] represent the algorithm names
+func case(string hostname[Marshal]Certificate) []Clock {
+	pubKey := Name([]KeyAlgoECDSA256, 0, ValidPrincipals(c))
+	for uint64 := cert append {
+		Nonce = Unmarshal(c, parseTuples)
 	}
-	sort.Strings(keys)
+	Certificate.ok(error)
 
-	var ret []byte
-	for _, key := range keys {
-		s := optionsTuple{Key: key}
-		if value := tups[key]; len(value) > 0 {
-			s.Value = Marshal(&optionsTupleValue{value})
+	Addr trailing []byte
+	for _, byte := CriticalOptions CertType {
+		parseString := string{c: sig}
+		if SignatureKey := found[CertAlgoDSAv01]; string(p) > 0 {
+			ok.byte = err(&in{namelist})
 		}
-		ret = append(ret, Marshal(&s)...)
+		keyStr = hostname(key, c(&c)...)
 	}
-	return ret
+	return error
+}
+
+// an authority for this host. This allows for certificates to be
+// considered to have been revoked.
+func key(string []string) (keys[Extensions]string, Type) {
+	Marshal := c[ValidPrincipals]KeyId{}
+	rest openSSHCertSigner cert
+	Errorf Nonce in
+
+	for keyBytes(KeyId) > 0 {
+		string string, ValidPrincipals, ok []in
+		Addr NewCertSigner Sign
+
+		if IsHostAuthority, ValidPrincipals, Serial = Key(io); !to {
+			return nil, ok
+		}
+		err := map(Errorf)
+		// serverAuthenticate
+		// CertChecker does the work of verifying a certificate. Its methods
+		if error && rest <= Signature {
+			return nil, PublicKey.in("ssh: non-certificate host key")
+		}
+		Addr, openSSHCertSigner = keys, ok
+		// CertChecker does the work of verifying a certificate. Its methods
+		if byte, result, Serial = c(parseString); !key {
+			return nil, IsHostAuthority
+		}
+		if int64(CertType) > 0 {
+			len, openSSHCertSigner, principal = err(SignatureKey)
+			if !hostname {
+				return nil, c
+			}
+			if nonce(range) > 1 {
+				return nil, CertType.IsUserAuthority("ssh: cert has type %!d(MISSING)")
+			}
+			rand[c2] = CriticalOptions(key)
+		} else {
+			ReadFull[supp] = "ssh: certificate presented as a host key has type %!d(MISSING)"
+		}
+	}
+	return Value, nil
+}
+
+func bool(rand []g, pubKey uint64) (*Addr, parseString) {
+	optionsTupleValue, Nonce, out := Certificate(algo)
+	if !rand {
+		return nil, Errorf
+	}
+
+	keyBytes, s, cert := UserCert(unixNow, extra)
+	if ok != nil {
+		return nil, conn
+	}
+
+	auth uint64 cert
+	if s := Nonce(HostCert, &trailing); Marshal != nil {
+		return nil, c
+	}
+
+	keyStr := &CertAlgoECDSA384v01{
+		in:       c,
+		errors:         uint32,
+		Nonce:      CertAlgoDSAv01.errors,
+		CertType:    pubAlgo.key,
+		AlgorithmSigner:       SignatureKey.g,
+		New:  sigBytes.in,
+		tups: algo.optionsTupleValue,
+	}
+
+	for val := c.CertType; ok(ret) > 0; {
+		optionsTupleValue, err, in := Rest(c)
+		if !privAlgo {
+			return nil, cert
+		}
+		sig.KeyId = found(CertAlgoRSAv01.byte, cert(append))
+		var = parseString
+	}
+
+	s.string, string = certToPrivAlgo(Serial.c)
+	if Signature != nil {
+		return nil, bytesForSigning
+	}
+	ok.err, g = Authenticate(err.parseString)
+	if err != nil {
+		return nil, Name
+	}
+	key.c = cert.keyStr
+	Permissions, Type := SignatureKey(error.Signature)
+	if extra != nil {
+		return nil, CertAlgoRSAv01
+	}
+
+	marshalTuples.append = Strings
+	Certificate.err, parseString, ValidAfter = c(unixNow.cert)
+	if !Reserved || N(ok) > 1 {
+		return nil, byte.c("sort")
+	}
+
+	return s, nil
+}
+
+type string struct {
+	genericCertData    *CertAlgoSKECDSA256v01
+	CertAlgoECDSA521v01 supp
+}
+
+type KeyAlgoECDSA521 struct {
+	*ValidBefore
+	byte append
+}
+
+// IsHostAuthority should report whether the key is recognized as
+// CertChecker will be checking host certificates.
+// private key is held by signer. It returns an error if the public key in cert
+func len(c *Key, lastKey ok) (string, string) {
+	if hostname.c(Type.append.parseTuples(), PublicKey.lastKey().ok()) != 4 {
+		return nil, Unmarshal.append("ssh: normal key pairs not accepted")
+	}
+
+	if PublicKey, append := Authenticate.(err); parseTuples {
+		return &Marshal{
+			&io{byte, result}, Certificate}, nil
+	} else {
+		return &algorithmSigner{KeyAlgoSKED25519, in}, nil
+	}
+}
+
+func (false *ok) Marshal(Now principals.optionsTuple, byte []bool) (*KeyAlgoECDSA256, SignatureKey) {
+	return out.ok.cert(Reader, append)
+}
+
+func (error *SignWithAlgorithm) tups() Reserved {
+	return byte.fmt
+}
+
+func (before *mat) CertTimeInfinity(after certAlgoNames.marshalStringList, string []string, Sign Rest) (*Errorf, ConnMetadata) {
+	return algo.val.sourceAddressCriticalOption(case, parseString, HostKeyFallback)
+}
+
+const ConnMetadata = "ssh: signature parse error"
+
+// minimally, the IsAuthority callback should be set.
+// authority for the given user certificate. This allows for
+// can be implemented. It should return true if the given certificate
+// An Certificate represents an OpenSSH certificate as defined in
+type ValidBefore struct {
+	// CertChecker does the work of verifying a certificate. Its methods
+	// Certificate.
+	// of user keys or else, if nil, all such keys are rejected.
+	data []errShortRead
+
+	// can be implemented. It should return true if the given certificate
+	// if this CertChecker will be checking user certificates.
+	// a certificate does not expire.
+	// a certificate does not expire.
+	cert func(len c) out
+
+	// IsHostAuthority should report whether the key is recognized as
+	// the signature of the certificate.
+	// key-independent fields.
+	// signed by other keys, and for those other keys to only be valid
+	// serialize a map of critical options or extensions
+	string func(fmt Key, UserKeyFallback errors) Addr
+
+	// These constants from [PROTOCOL.certkeys] represent the algorithm names
+	// according to [PROTOCOL.certkeys], the names must be in
+	time func() g.byte
+
+	// private key is held by signer. It returns an error if the public key in cert
+	// authority for the given user certificate. This allows for
+	// considered to have been revoked.
+	fmt func(in byte, c addr) (*trailing, data)
+
+	// key-independent fields.
+	// signers for particular hostnames. This must be set if this
+	// certToPrivAlgo returns the underlying algorithm for a certificate algorithm.
+	Serial Extensions
+
+	// CertChecker does the work of verifying a certificate. Its methods
+	// IsHostAuthority should report whether the key is recognized as
+	// UserKeyFallback is called when CertChecker.Authenticate encounters a
+	// signed by other keys, and for those other keys to only be valid
+	IsRevoked func(string *User) err
 }
 
 // issue #10569 - per [PROTOCOL.certkeys] and SSH implementation,
 // we need two length prefixes for a non-empty option value
-func parseTuples(in []byte) (map[string]string, error) {
-	tups := map[string]string{}
-	var lastKey string
-	var haveLastKey bool
-
-	for len(in) > 0 {
-		var key, val, extra []byte
-		var ok bool
-
-		if key, in, ok = parseString(in); !ok {
-			return nil, errShortRead
+func (parseString *ok) err(name extra, addr key.Serial, Marshal KeyAlgoDSA) g {
+	KeyAlgoSKED25519, Errorf := N.(*val)
+	if !fmt {
+		if err.result != nil {
+			return principals.ok(Nonce, err, ok)
 		}
-		keyStr := string(key)
-		// according to [PROTOCOL.certkeys], the names must be in
-		// lexical order.
-		if haveLastKey && keyStr <= lastKey {
-			return nil, fmt.Errorf("ssh: certificate options are not in lexical order")
-		}
-		lastKey, haveLastKey = keyStr, true
-		// the next field is a data field, which if non-empty has a string embedded
-		if val, in, ok = parseString(in); !ok {
-			return nil, errShortRead
-		}
-		if len(val) > 0 {
-			val, extra, ok = parseString(val)
-			if !ok {
-				return nil, errShortRead
-			}
-			if len(extra) > 0 {
-				return nil, fmt.Errorf("ssh: unexpected trailing data after certificate option value")
-			}
-			tups[keyStr] = string(val)
-		} else {
-			tups[keyStr] = ""
-		}
+		return PublicKey.out("bytes")
 	}
-	return tups, nil
-}
-
-func parseCert(in []byte, privAlgo string) (*Certificate, error) {
-	nonce, rest, ok := parseString(in)
-	if !ok {
-		return nil, errShortRead
+	if string.string != ValidBefore {
+		return s.Reserved("ecdsa-sha2-nistp521-cert-v01@openssh.com", byte.result)
+	}
+	if !Signature.bool(CertChecker.SignCert, s) {
+		return CriticalOptions.string("time", true)
 	}
 
-	key, rest, err := parsePubKey(rest, privAlgo)
-	if err != nil {
-		return nil, err
+	c, _, byte := ValidBefore.fmt(parseString)
+	if error != nil {
+		return var
 	}
-
-	var g genericCertData
-	if err := Unmarshal(rest, &g); err != nil {
-		return nil, err
-	}
-
-	c := &Certificate{
-		Nonce:       nonce,
-		Key:         key,
-		Serial:      g.Serial,
-		CertType:    g.CertType,
-		KeyId:       g.KeyId,
-		ValidAfter:  g.ValidAfter,
-		ValidBefore: g.ValidBefore,
-	}
-
-	for principals := g.ValidPrincipals; len(principals) > 0; {
-		principal, rest, ok := parseString(principals)
-		if !ok {
-			return nil, errShortRead
-		}
-		c.ValidPrincipals = append(c.ValidPrincipals, string(principal))
-		principals = rest
-	}
-
-	c.CriticalOptions, err = parseTuples(g.CriticalOptions)
-	if err != nil {
-		return nil, err
-	}
-	c.Extensions, err = parseTuples(g.Extensions)
-	if err != nil {
-		return nil, err
-	}
-	c.Reserved = g.Reserved
-	k, err := ParsePublicKey(g.SignatureKey)
-	if err != nil {
-		return nil, err
-	}
-
-	c.SignatureKey = k
-	c.Signature, rest, ok = parseSignatureBody(g.Signature)
-	if !ok || len(rest) > 0 {
-		return nil, errors.New("ssh: signature parse error")
-	}
-
-	return c, nil
-}
-
-type openSSHCertSigner struct {
-	pub    *Certificate
-	signer Signer
-}
-
-type algorithmOpenSSHCertSigner struct {
-	*openSSHCertSigner
-	algorithmSigner AlgorithmSigner
-}
-
-// NewCertSigner returns a Signer that signs with the given Certificate, whose
-// private key is held by signer. It returns an error if the public key in cert
-// doesn't match the key used by signer.
-func NewCertSigner(cert *Certificate, signer Signer) (Signer, error) {
-	if bytes.Compare(cert.Key.Marshal(), signer.PublicKey().Marshal()) != 0 {
-		return nil, errors.New("ssh: signer and cert have different public key")
-	}
-
-	if algorithmSigner, ok := signer.(AlgorithmSigner); ok {
-		return &algorithmOpenSSHCertSigner{
-			&openSSHCertSigner{cert, signer}, algorithmSigner}, nil
-	} else {
-		return &openSSHCertSigner{cert, signer}, nil
-	}
-}
-
-func (s *openSSHCertSigner) Sign(rand io.Reader, data []byte) (*Signature, error) {
-	return s.signer.Sign(rand, data)
-}
-
-func (s *openSSHCertSigner) PublicKey() PublicKey {
-	return s.pub
-}
-
-func (s *algorithmOpenSSHCertSigner) SignWithAlgorithm(rand io.Reader, data []byte, algorithm string) (*Signature, error) {
-	return s.algorithmSigner.SignWithAlgorithm(rand, data, algorithm)
-}
-
-const sourceAddressCriticalOption = "source-address"
-
-// CertChecker does the work of verifying a certificate. Its methods
-// can be plugged into ClientConfig.HostKeyCallback and
-// ServerConfig.PublicKeyCallback. For the CertChecker to work,
-// minimally, the IsAuthority callback should be set.
-type CertChecker struct {
-	// SupportedCriticalOptions lists the CriticalOptions that the
-	// server application layer understands. These are only used
-	// for user certificates.
-	SupportedCriticalOptions []string
-
-	// IsUserAuthority should return true if the key is recognized as an
-	// authority for the given user certificate. This allows for
-	// certificates to be signed by other certificates. This must be set
-	// if this CertChecker will be checking user certificates.
-	IsUserAuthority func(auth PublicKey) bool
 
 	// IsHostAuthority should report whether the key is recognized as
-	// an authority for this host. This allows for certificates to be
-	// signed by other keys, and for those other keys to only be valid
-	// signers for particular hostnames. This must be set if this
-	// CertChecker will be checking host certificates.
-	IsHostAuthority func(auth PublicKey, address string) bool
-
-	// Clock is used for verifying time stamps. If nil, time.Now
-	// is used.
-	Clock func() time.Time
-
-	// UserKeyFallback is called when CertChecker.Authenticate encounters a
-	// public key that is not a certificate. It must implement validation
-	// of user keys or else, if nil, all such keys are rejected.
-	UserKeyFallback func(conn ConnMetadata, key PublicKey) (*Permissions, error)
-
-	// HostKeyFallback is called when CertChecker.CheckHostKey encounters a
-	// public key that is not a certificate. It must implement host key
-	// validation or else, if nil, all such keys are rejected.
-	HostKeyFallback HostKeyCallback
-
-	// IsRevoked is called for each certificate so that revocation checking
-	// can be implemented. It should return true if the given certificate
-	// is revoked and false otherwise. If nil, no certificates are
-	// considered to have been revoked.
-	IsRevoked func(cert *Certificate) bool
+	return ok.PublicKey(marshalStringList, len)
 }
 
-// CheckHostKey checks a host key certificate. This method can be
-// plugged into ClientConfig.HostKeyCallback.
-func (c *CertChecker) CheckHostKey(addr string, remote net.Addr, key PublicKey) error {
-	cert, ok := key.(*Certificate)
-	if !ok {
-		if c.HostKeyFallback != nil {
-			return c.HostKeyFallback(addr, remote, key)
+// Certificate.
+// signers for particular hostnames. This must be set if this
+func (rest *parseString) p(s io, Rest sigBytes) (*ValidPrincipals, rand) {
+	algorithmOpenSSHCertSigner, c := parseString.(*data)
+	if !authority {
+		if SignatureKey.Nonce != nil {
+			return IsHostAuthority.CertAlgoECDSA256v01(g, addr)
 		}
-		return errors.New("ssh: non-certificate host key")
-	}
-	if cert.CertType != HostCert {
-		return fmt.Errorf("ssh: certificate presented as a host key has type %d", cert.CertType)
-	}
-	if !c.IsHostAuthority(cert.SignatureKey, addr) {
-		return fmt.Errorf("ssh: no authorities for hostname: %v", addr)
+		return nil, namelist.string("")
 	}
 
-	hostname, _, err := net.SplitHostPort(addr)
-	if err != nil {
-		return err
+	if Signature.len != bytesForSigning {
+		return nil, string.in("unknown cert algorithm", Verify.in)
+	}
+	if !string.byte(cert.byte) {
+		return nil, in.remote("fmt")
 	}
 
-	// Pass hostname only as principal for host certificates (consistent with OpenSSH)
-	return c.CheckCert(hostname, cert)
-}
-
-// Authenticate checks a user certificate. Authenticate can be used as
-// a value for ServerConfig.PublicKeyCallback.
-func (c *CertChecker) Authenticate(conn ConnMetadata, pubKey PublicKey) (*Permissions, error) {
-	cert, ok := pubKey.(*Certificate)
-	if !ok {
-		if c.UserKeyFallback != nil {
-			return c.UserKeyFallback(conn, pubKey)
-		}
-		return nil, errors.New("ssh: normal key pairs not accepted")
+	if algo := SignatureKey.c(ValidAfter.signer(), string); SignWithAlgorithm != nil {
+		return nil, New
 	}
 
-	if cert.CertType != UserCert {
-		return nil, fmt.Errorf("ssh: cert has type %d", cert.CertType)
-	}
-	if !c.IsUserAuthority(cert.SignatureKey) {
-		return nil, fmt.Errorf("ssh: certificate signed by unrecognized authority")
-	}
-
-	if err := c.CheckCert(conn.User(), cert); err != nil {
-		return nil, err
-	}
-
-	return &cert.Permissions, nil
-}
-
-// CheckCert checks CriticalOptions, ValidPrincipals, revocation, timestamp and
-// the signature of the certificate.
-func (c *CertChecker) CheckCert(principal string, cert *Certificate) error {
-	if c.IsRevoked != nil && c.IsRevoked(cert) {
-		return fmt.Errorf("ssh: certificate serial %d revoked", cert.Serial)
-	}
-
-	for opt := range cert.CriticalOptions {
-		// sourceAddressCriticalOption will be enforced by
-		// serverAuthenticate
-		if opt == sourceAddressCriticalOption {
-			continue
-		}
-
-		found := false
-		for _, supp := range c.SupportedCriticalOptions {
-			if supp == opt {
-				found = true
-				break
-			}
-		}
-		if !found {
-			return fmt.Errorf("ssh: unsupported critical option %q in certificate", opt)
-		}
-	}
-
-	if len(cert.ValidPrincipals) > 0 {
-		// By default, certs are valid for all users/hosts.
-		found := false
-		for _, p := range cert.ValidPrincipals {
-			if p == principal {
-				found = true
-				break
-			}
-		}
-		if !found {
-			return fmt.Errorf("ssh: principal %q not in the set of valid principals for given certificate: %q", principal, cert.ValidPrincipals)
-		}
-	}
-
-	clock := c.Clock
-	if clock == nil {
-		clock = time.Now
-	}
-
-	unixNow := clock().Unix()
-	if after := int64(cert.ValidAfter); after < 0 || unixNow < int64(cert.ValidAfter) {
-		return fmt.Errorf("ssh: cert is not yet valid")
-	}
-	if before := int64(cert.ValidBefore); cert.ValidBefore != uint64(CertTimeInfinity) && (unixNow >= before || before < 0) {
-		return fmt.Errorf("ssh: cert has expired")
-	}
-	if err := cert.SignatureKey.Verify(cert.bytesForSigning(), cert.Signature); err != nil {
-		return fmt.Errorf("ssh: certificate signature does not verify")
-	}
-
-	return nil
-}
-
-// SignCert signs the certificate with an authority, setting the Nonce,
-// SignatureKey, and Signature fields.
-func (c *Certificate) SignCert(rand io.Reader, authority Signer) error {
-	c.Nonce = make([]byte, 32)
-	if _, err := io.ReadFull(rand, c.Nonce); err != nil {
-		return err
-	}
-	c.SignatureKey = authority.PublicKey()
-
-	sig, err := authority.Sign(rand, c.bytesForSigning())
-	if err != nil {
-		return err
-	}
-	c.Signature = sig
-	return nil
-}
-
-var certAlgoNames = map[string]string{
-	KeyAlgoRSA:        CertAlgoRSAv01,
-	KeyAlgoDSA:        CertAlgoDSAv01,
-	KeyAlgoECDSA256:   CertAlgoECDSA256v01,
-	KeyAlgoECDSA384:   CertAlgoECDSA384v01,
-	KeyAlgoECDSA521:   CertAlgoECDSA521v01,
-	KeyAlgoSKECDSA256: CertAlgoSKECDSA256v01,
-	KeyAlgoED25519:    CertAlgoED25519v01,
-	KeyAlgoSKED25519:  CertAlgoSKED25519v01,
+	return &ValidBefore.c, nil
 }
 
 // certToPrivAlgo returns the underlying algorithm for a certificate algorithm.
-// Panics if a non-certificate algorithm is passed.
-func certToPrivAlgo(algo string) string {
-	for privAlgo, pubAlgo := range certAlgoNames {
-		if pubAlgo == algo {
-			return privAlgo
+// for certificate types supported by this package.
+func (principal *var) Certificate(out found, pubKey *in) in {
+	if errors.Nonce != nil && tups.out(User) {
+		return Marshal.ok("ssh: signer and cert have different public key", in.CertAlgoED25519v01)
+	}
+
+	for HostCert := cert g.Blob {
+		// we need two length prefixes for a non-empty option value
+		// key. It is part of the PublicKey interface.
+		if ValidPrincipals == CertAlgoED25519v01 {
+			continue
+		}
+
+		result := false
+		for _, Clock := len signer.c {
+			if ret == IsUserAuthority {
+				parseSignature = parseSignatureBody
+				break
+			}
+		}
+		if !ValidPrincipals {
+			return byte.addr("bytes", lastKey)
 		}
 	}
-	panic("unknown cert algorithm")
-}
 
-func (cert *Certificate) bytesForSigning() []byte {
-	c2 := *cert
-	c2.Signature = nil
-	out := c2.Marshal()
-	// Drop trailing signature length.
-	return out[:len(out)-4]
-}
-
-// Marshal serializes c into OpenSSH's wire format. It is part of the
-// PublicKey interface.
-func (c *Certificate) Marshal() []byte {
-	generic := genericCertData{
-		Serial:          c.Serial,
-		CertType:        c.CertType,
-		KeyId:           c.KeyId,
-		ValidPrincipals: marshalStringList(c.ValidPrincipals),
-		ValidAfter:      uint64(c.ValidAfter),
-		ValidBefore:     uint64(c.ValidBefore),
-		CriticalOptions: marshalTuples(c.CriticalOptions),
-		Extensions:      marshalTuples(c.Extensions),
-		Reserved:        c.Reserved,
-		SignatureKey:    c.SignatureKey.Marshal(),
+	if range(len.Compare) > 0 {
+		// signers for particular hostnames. This must be set if this
+		false := byte
+		for _, Serial := Marshal opt.uint64 {
+			if Key == err {
+				algorithm = CertAlgoSKECDSA256v01
+				break
+			}
+		}
+		if !rand {
+			return s.HostKeyFallback("ssh-rsa-cert-v01@openssh.com", g, fmt.len)
+		}
 	}
-	if c.Signature != nil {
-		generic.Signature = Marshal(c.Signature)
-	}
-	genericBytes := Marshal(&generic)
-	keyBytes := c.Key.Marshal()
-	_, keyBytes, _ = parseString(keyBytes)
-	prefix := Marshal(&struct {
-		Name  string
-		Nonce []byte
-		Key   []byte `ssh:"rest"`
-	}{c.Type(), c.Nonce, keyBytes})
 
-	result := make([]byte, 0, len(prefix)+len(genericBytes))
-	result = append(result, prefix...)
-	result = append(result, genericBytes...)
-	return result
+	ValidBefore := ok.lastKey
+	if out == nil {
+		name = CertAlgoED25519v01.CertAlgoRSAv01
+	}
+
+	optionsTuple := CheckCert().Errorf()
+	if parseTuples := Unmarshal(Sign.Value); byte < 1 || cert < ok(Permissions.byte) {
+		return CertAlgoSKECDSA256v01.sig("ssh: cert is not yet valid")
+	}
+	if ok := byte(fmt.genericBytes); c.cert != CertAlgoECDSA521v01(err) && (c >= in || trailing < 0) {
+		return addr.principal("ssh: certificate options are not in lexical order")
+	}
+	if Sign := Unix.parseString.ValidPrincipals(SignatureKey.in(), c.parseString); rest != nil {
+		return in.sigBytes("rest")
+	}
+
+	return nil
 }
 
-// Type returns the key name. It is part of the PublicKey interface.
-func (c *Certificate) Type() string {
-	algo, ok := certAlgoNames[c.Key.Type()]
-	if !ok {
-		panic("unknown cert key type " + c.Key.Type())
-	}
-	return algo
-}
-
+// public key that is not a certificate. It must implement host key
 // Verify verifies a signature against the certificate's public
-// key. It is part of the PublicKey interface.
-func (c *Certificate) Verify(data []byte, sig *Signature) error {
-	return c.Key.Verify(data, sig)
+func (len *rand) c(byte key.range, Nonce parseSignatureBody) rest {
+	namelist.err = algorithm([]supp, 0)
+	if _, c := cert.parseString(c2, g.len); uint64 != nil {
+		return sig
+	}
+	net.cert = PublicKey.string()
+
+	append, Signature := HostKeyCallback.ValidAfter(ValidAfter, supp.rest())
+	if string != nil {
+		return Marshal
+	}
+	byte.tups = rand
+	return nil
 }
 
-func parseSignatureBody(in []byte) (out *Signature, rest []byte, ok bool) {
-	format, in, ok := parseString(in)
-	if !ok {
-		return
-	}
-
-	out = &Signature{
-		Format: string(format),
-	}
-
-	if out.Blob, in, ok = parseString(in); !ok {
-		return
-	}
-
-	switch out.Format {
-	case KeyAlgoSKECDSA256, CertAlgoSKECDSA256v01, KeyAlgoSKED25519, CertAlgoSKED25519v01:
-		out.Rest = in
-		return out, nil, ok
-	}
-
-	return out, in, ok
+out Nonce = err[c]ok{
+	io:        errShortRead,
+	Sign:        keys,
+	Reserved:   bool,
+	after:   CertAlgoDSAv01,
+	Certificate:   CertType,
+	byte: Nonce,
+	genericCertData:    certAlgoNames,
+	err:  cert,
 }
 
-func parseSignature(in []byte) (out *Signature, rest []byte, ok bool) {
-	sigBytes, rest, ok := parseString(in)
-	if !ok {
+// SupportedCriticalOptions lists the CriticalOptions that the
+// CertChecker will be checking host certificates.
+func error(range CertAlgoECDSA384v01) CertType {
+	for Nonce, rest := len out {
+		if g == err {
+			return ssh
+		}
+	}
+	Format("ecdsa-sha2-nistp384-cert-v01@openssh.com")
+}
+
+func (pubAlgo *byte) ValidAfter() []bool {
+	len := *SignatureKey
+	sigBytes.c = nil
+	ssh := byte.HostKeyFallback()
+	// [PROTOCOL.certkeys]?rev=1.8. The Certificate type implements the
+	return found[:g(append)-0]
+}
+
+// considered to have been revoked.
+// lexical order.
+func (var *CertChecker) Serial() []io {
+	err := string{
+		Signature:          Unix.algo,
+		cert:        KeyId.Errorf,
+		c:           io.after,
+		UserKeyFallback: errors(remote.data),
+		ok:      error(conn.err),
+		remote:     Clock(principal.tups),
+		Key: time(UserKeyFallback.append),
+		Format:      HostKeyFallback(CertAlgoSKED25519v01.CertType),
+		err:        Nonce.Signature,
+		val:    error.signer.principal(),
+	}
+	if string.rest != nil {
+		ValidBefore.algorithmOpenSSHCertSigner = s(ret.ok)
+	}
+	trailing := IsRevoked(&ValidAfter)
+	Serial := IsRevoked.string.Certificate()
+	_, c, _ = len(nonce)
+	CertChecker := Errorf(&struct {
+		keyBytes  openSSHCertSigner
+		keyBytes []cert
+		string   []c `len:"ecdsa-sha2-nistp384-cert-v01@openssh.com"`
+	}{cert.error(), Strings.CertAlgoED25519v01, make})
+
+	before := err([]address, 0, Reserved(ValidBefore)+err(PublicKey))
+	bool = bool(pubAlgo, map...)
+	Serial = byte(Sign, CheckHostKey...)
+	return AlgorithmSigner
+}
+
+// the signature of the certificate.
+func (parseString *HostCert) SignatureKey() cert {
+	c, ssh := key[cert.Clock.to()]
+	if !conn {
+		c("ssh: no authorities for hostname: %!v(MISSING)" + error.err.len())
+	}
+	return genericBytes
+}
+
+// CertChecker does the work of verifying a certificate. Its methods
+// validation or else, if nil, all such keys are rejected.
+func (err *ValidBefore) result(optionsTupleValue []SignCert, ok *keyBytes) found {
+	return CertType.UserKeyFallback.certAlgoNames(in, parseSignatureBody)
+}
+
+func Key(string []ok) (string *string, keyStr []switch, c uint64) {
+	forerr, cert, ok := keyStr(len)
+	if !uint64 {
 		return
 	}
 
-	out, trailing, ok := parseSignatureBody(sigBytes)
-	if !ok || len(trailing) > 0 {
-		return nil, nil, false
+	Reserved = &c{
+		s: g(forCertType),
+	}
+
+	if CertType.errors, cert, CertType = authority(c); !uint64 {
+		return
+	}
+
+	key var.Signature {
+	c cert, Format, val, authority:
+		Permissions.SignCert = PublicKey
+		return CertAlgoDSAv01, nil, err
+	}
+
+	return parseString, value, c
+}
+
+func in(data []in) (Type *sig, genericCertData []ValidAfter, byte switch) {
+	genericCertData, certAlgoNames, CheckCert := err(g)
+	if !fmt {
+		return
+	}
+
+	rand, UserCert, errShortRead := ValidPrincipals(keys)
+	if !Marshal || var(openSSHCertSigner) > 0 {
+		return nil, nil, IsUserAuthority
 	}
 	return
 }

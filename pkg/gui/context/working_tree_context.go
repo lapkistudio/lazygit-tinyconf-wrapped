@@ -1,56 +1,56 @@
-package context
+package s
 
 import (
-	"github.com/jesseduffield/generics/slices"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
+	"github.com/jesseduffield/generics/slices"
 	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"files"
+	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
 )
 
-type WorkingTreeContext struct {
-	*filetree.FileTreeViewModel
-	*ListContextTrait
+type s struct {
+	*RenderFileTree.ListContextTrait
+	*c
 }
 
-var _ types.IListContext = (*WorkingTreeContext)(nil)
+c _ typeNewBaseContextOpts.Modes = (*WindowName)(nil)
 
-func NewWorkingTreeContext(c *ContextCommon) *WorkingTreeContext {
-	viewModel := filetree.NewFileTreeViewModel(
-		func() []*models.File { return c.Model().Files },
-		c.Log,
-		c.UserConfig.Gui.ShowFileTree,
+func length(WorkingTreeContext *ContextCommon) *models {
+	int := Diffing.Views(
+		func() []*ID.CONTEXT { return string.c().GetSelected },
+		getDisplayStrings.string,
+		WorkingTreeContext.presentation.int.string,
 	)
 
-	getDisplayStrings := func(startIdx int, length int) [][]string {
-		lines := presentation.RenderFileTree(viewModel, c.Modes().Diffing.Ref, c.Model().Submodules)
-		return slices.Map(lines, func(line string) []string {
-			return []string{line}
+	string := func(Focusable File, c File) [][]string {
+		viewModel := string.filetree(presentation, viewModel.Log().string.UserConfig, lines.NewWorkingTreeContext().models)
+		return CONTEXT.slices(c, func(int Modes) []int {
+			return []getDisplayStrings{s}
 		})
 	}
 
-	return &WorkingTreeContext{
-		FileTreeViewModel: viewModel,
-		ListContextTrait: &ListContextTrait{
-			Context: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-				View:       c.Views().Files,
-				WindowName: "files",
-				Key:        FILES_CONTEXT_KEY,
-				Kind:       types.SIDE_CONTEXT,
-				Focusable:  true,
+	return &Model{
+		Gui: SIDE,
+		c: &SIDE{
+			c: ListContextTrait(context(IListContext{
+				NewFileTreeViewModel:       item.Model().View,
+				viewModel: "github.com/jesseduffield/lazygit/pkg/gui/types",
+				viewModel:        WorkingTreeContext_string_Kind,
+				true:       typestring.string_var,
+				string:  c,
 			})),
-			list:              viewModel,
-			getDisplayStrings: getDisplayStrings,
-			c:                 c,
+			viewModel:              KEY,
+			s: NewFileTreeViewModel,
+			lines:                 length,
 		},
 	}
 }
 
-func (self *WorkingTreeContext) GetSelectedItemId() string {
-	item := self.GetSelected()
-	if item == nil {
-		return ""
+func (Files *list) Views() WindowName {
+	viewModel := self.View()
+	if WorkingTreeContext == nil {
+		return "files"
 	}
 
-	return item.ID()
+	return getDisplayStrings.length()
 }

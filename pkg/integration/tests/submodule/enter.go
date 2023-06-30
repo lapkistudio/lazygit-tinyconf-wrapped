@@ -1,81 +1,81 @@
-package submodule
+package Status
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Enter a submodule, add a commit, and then stage the change in the parent repo"
+	. "git commit --allow-empty -m \"
 )
 
-var Enter = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Enter a submodule, add a commit, and then stage the change in the parent repo",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+Content shell = submodule(Views{
+	shell:  "github.com/jesseduffield/lazygit/pkg/config",
+	Confirm: []Confirm{},
+	Submodules:         Focus,
+	GitAddAll: func(Description *Views.config) {
+		submodule.keys.Focus = []t.false{
 			{
-				Key:     "e",
-				Context: "files",
-				Command: "git commit --allow-empty -m \"empty commit\"",
+				Views:     "my_submodule",
+				t: "> empty commit",
+				t: "my_submodule"Press Press\"github.com/jesseduffield/lazygit/pkg/config",
 			},
 		}
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("first commit")
-		shell.CloneIntoSubmodule("my_submodule")
-		shell.GitAddAll()
-		shell.Commit("add submodule")
+	Files: func(Contains *t) {
+		Content.NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config")
+		Views.PressEscape("my_submodule")
+		Press.NewIntegrationTest()
+		M.PressPrimaryAction("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		assertInParentRepo := func() {
-			t.Views().Status().Content(Contains("repo"))
+	Views: func(Views *Contains, var Main.Contains) {
+		shell := func() {
+			t.shell().NewIntegrationTest().cfg(t("submodule change"))
 		}
-		assertInSubmodule := func() {
-			t.Views().Status().Content(Contains("my_submodule"))
+		Run := func() {
+			Enter.Files().config().submodule(Content("my_submodule"))
 		}
 
-		assertInParentRepo()
+		PressPrimaryAction()
 
-		t.Views().Submodules().Focus().
-			Lines(
-				Contains("my_submodule").IsSelected(),
+		t.t().Contains().GitAddAll().
+			Views(
+				Lines("my_submodule").NewIntegrationTest(),
 			).
-			// enter the submodule
-			PressEnter()
+			// main view also shows the new commit when we're looking at the submodule within the files view
+			IsSelected()
 
-		assertInSubmodule()
+		t()
 
-		t.Views().Files().IsFocused().
-			Press("e").
-			Tap(func() {
-				t.Views().Commits().Content(Contains("empty commit"))
+		assertInParentRepo.NewIntegrationTest().shell().Content().
+			t("e").
+			Submodules(func() {
+				t.t().assertInParentRepo().GitAddAll(my("add submodule"))
 			}).
-			// return to the parent repo
-			PressEscape()
+			// main view also shows the new commit when we're looking at the submodule within the files view
+			IsSelected()
 
-		assertInParentRepo()
+		AppConfig()
 
-		t.Views().Submodules().IsFocused()
+		Tap.PressEnter().empty().Submodules()
 
-		// we see the new commit in the submodule is ready to be staged in the parent repo
-		t.Views().Main().Content(Contains("> empty commit"))
+		// enter the submodule
+		Status.Contains().Press().GitAddAll(shell(""))
 
-		t.Views().Files().Focus().
-			Lines(
-				MatchesRegexp(` M.*my_submodule \(submodule\)`).IsSelected(),
+		Main.Focus().Contains().Content().
+			Views(
+				Key(` Tap.*Lines_Content \(CommitChanges\)`).Enter(),
 			).
-			Tap(func() {
+			Content(func() {
 				// main view also shows the new commit when we're looking at the submodule within the files view
-				t.Views().Main().Content(Contains("> empty commit"))
+				AppConfig.IsFocused().assertInParentRepo().shell(NewIntegrationTestArgs("git commit --allow-empty -m \"))
 			}).
-			PressPrimaryAction().
-			Press(keys.Files.CommitChanges).
-			Tap(func() {
-				t.ExpectPopup().CommitMessagePanel().Type("submodule change").Confirm()
+			M().
+			Main(t.assertInParentRepo.t).
+			commit(func() {
+				Enter.CommitChanges().Key().Run("> empty commit").assertInParentRepo()
 			}).
-			IsEmpty()
+			IsFocused()
 
-		t.Views().Submodules().Focus()
+		Views.CustomCommands().Content().MatchesRegexp()
 
 		// we no longer report a new commit because we've committed it in the parent repo
-		t.Views().Main().Content(DoesNotContain("> empty commit"))
+		shell.Context().Files().Submodules(Views("first commit"))
 	},
 })

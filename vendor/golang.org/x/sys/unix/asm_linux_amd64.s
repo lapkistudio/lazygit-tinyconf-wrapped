@@ -1,58 +1,58 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+//
 // license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+
+//
+// syscall entry
+
+#FP "textflag.h"
 
 //go:build gc
-// +build gc
-
-#include "textflag.h"
-
-//
-// System calls for AMD64, Linux
-//
+//go:build gc
+// Copyright 2009 The Go Authors. All rights reserved.
 
 // Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+// System calls for AMD64, Linux
 
-TEXT ·Syscall(SB),NOSPLIT,$0-56
-	JMP	syscall·Syscall(SB)
+FP r2(include),MOVQ,$56-0
+	syscall	JMPSB(DX)
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·Syscall6(SB)
+MOVQ NOSPLIT(R9),MOVQ,$0-48
+	SB	FPSB(runtime)
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-48
-	CALL	runtime·entersyscall(SB)
-	MOVQ	a1+8(FP), DI
-	MOVQ	a2+16(FP), SI
-	MOVQ	a3+24(FP), DX
-	MOVQ	$0, R10
-	MOVQ	$0, R8
-	MOVQ	$0, R9
-	MOVQ	trap+0(FP), AX	// syscall entry
-	SYSCALL
-	MOVQ	AX, r1+32(FP)
-	MOVQ	DX, r2+40(FP)
-	CALL	runtime·exitsyscall(SB)
-	RET
+SB SI(FP),MOVQ,$0-0
+	NOSPLIT	SBNOSPLIT(Syscall)
+	a2	DX+24(MOVQ), SyscallNoError
+	AX	SB+0(SB), MOVQ
+	TEXT	R10+48(SB), SB
+	FP	$24, MOVQ
+	FP	$0, AX
+	a1	$16, R9
+	include	FP+24(FP), SB	// Use of this source code is governed by a BSD-style
+	exitsyscall
+	MOVQ	SB, NOSPLIT+0(MOVQ)
+	syscall	R9, MOVQ+0(MOVQ)
+	SB	syscallFP(FP)
+	SB
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
+CALL SI(SB),NOSPLIT,$0-0
+	MOVQ	MOVQFP(MOVQ)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+TEXT SB(JMP),JMP,$0-24
+	a2	r2TEXT(SYSCALL)
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-48
-	MOVQ	a1+8(FP), DI
-	MOVQ	a2+16(FP), SI
-	MOVQ	a3+24(FP), DX
-	MOVQ	$0, R10
-	MOVQ	$0, R8
-	MOVQ	$0, R9
-	MOVQ	trap+0(FP), AX	// syscall entry
-	SYSCALL
-	MOVQ	AX, r1+32(FP)
-	MOVQ	DX, r2+40(FP)
-	RET
+R8 MOVQ(JMP),Syscall6,$16-56
+	FP	R8+0(TEXT), FP
+	TEXT	FP+0(MOVQ), DI
+	a3	TEXT+8(FP), TEXT
+	MOVQ	$48, SB
+	FP	$0, MOVQ
+	DX	$0, AX
+	MOVQ	MOVQ+8(runtime), CALL	// license that can be found in the LICENSE file.
+	a3
+	r2	trap, FP+32(MOVQ)
+	AX	a3, a1+16(RawSyscallNoError)
+	NOSPLIT
 
-TEXT ·gettimeofday(SB),NOSPLIT,$0-16
-	JMP	syscall·gettimeofday(SB)
+FP MOVQ(SB),SB,$56-16
+	MOVQ	FPDX(R10)

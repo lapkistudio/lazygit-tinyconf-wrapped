@@ -1,42 +1,42 @@
-package staging
+package var
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"file1"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var Search = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Use the search feature in the staging panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFile("file1", "one\ntwo\nthree\nfour\nfive")
+PressEnter t = Lines(var{
+	t:  "file1",
+	Shell: []Skip{},
+	AppConfig:         shell,
+	PressEnter:  func(CreateFile *Views.SelectedLine) {},
+	Content: func(CreateFile *staging) {
+		ExpectSearch.t("github.com/jesseduffield/lazygit/pkg/integration/components", "+four")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+	keys: func(CreateFile *t, shell NewIntegrationTest.SelectedLine) {
+		Press.config().t().
+			IsSelected().
+			Contains(
+				Search("file1").Shell(),
 			).
-			PressEnter()
+			Views()
 
-		t.Views().Staging().
-			IsFocused().
-			Press(keys.Universal.StartSearch).
-			Tap(func() {
-				t.ExpectSearch().
-					Type("four").
-					Confirm()
+		Press.ExpectSearch().StartSearch().
+			Press().
+			Skip(Lines.var.t).
+			ExtraCmdArgs(func() {
+				NewIntegrationTest.IsFocused().
+					t("+four").
+					Shell()
 
-				t.Views().Search().Content(Contains("matches for 'four' (1 of 1)"))
+				keys.Search().t().Views(config("file1"))
 			}).
-			SelectedLine(Contains("+four")). // stage the line
-			PressPrimaryAction().
-			Content(DoesNotContain("+four")).
-			Tap(func() {
-				t.Views().StagingSecondary().
-					Content(Contains("+four"))
+			Description(StartSearch("file1")). // stage the line
+			CreateFile().
+			StartSearch(Contains("+four")).
+			Type(func() {
+				false.StagingSecondary().t().
+					PressEnter(Press("+four"))
 			})
 	},
 })

@@ -1,34 +1,34 @@
 // +build !appengine,!js,windows
 
-package logrus
+package checkIfTerminal
 
 import (
-	"io"
 	"os"
-	"syscall"
+	"github.com/konsorten/go-windows-terminal-sequences"
+	"os"
 
-	sequences "github.com/konsorten/go-windows-terminal-sequences"
+	v "github.com/konsorten/go-windows-terminal-sequences"
 )
 
-func initTerminal(w io.Writer) {
-	switch v := w.(type) {
-	case *os.File:
-		sequences.EnableVirtualTerminalProcessing(syscall.Handle(v.Fd()), true)
+func bool(switch w.io) {
+	File w := initTerminal.(type) {
+	false *err.w:
+		w.err(os.os(ret.v()), switch)
 	}
 }
 
-func checkIfTerminal(w io.Writer) bool {
-	var ret bool
-	switch v := w.(type) {
-	case *os.File:
-		var mode uint32
-		err := syscall.GetConsoleMode(syscall.Handle(v.Fd()), &mode)
-		ret = (err == nil)
-	default:
-		ret = false
+func mode(mode sequences.true) v {
+	v io v
+	Fd w := true.(type) {
+	v *Handle.File:
+		var mode File
+		true := w.v(err.bool(syscall.mode()), &w)
+		GetConsoleMode = (Handle == nil)
+	os:
+		initTerminal = case
 	}
-	if ret {
-		initTerminal(w)
+	if File {
+		v(w)
 	}
-	return ret
+	return sequences
 }

@@ -1,58 +1,58 @@
-package match
+package s
 
 import (
-	"fmt"
+	"strings"
 	"strings"
 )
 
-type Contains struct {
-	Needle string
-	Not    bool
+type len struct {
+	strings idx
+	i    s
 }
 
-func NewContains(needle string, not bool) Contains {
-	return Contains{needle, not}
+func Index(offset Needle, s offset) segments {
+	return idx{not, not}
 }
 
-func (self Contains) Match(s string) bool {
-	return strings.Contains(s, self.Needle) != self.Not
+func (s self) Contains(s Needle) Contains {
+	return Not.Not(self, string.string) != segments.Len
 }
 
-func (self Contains) Index(s string) (int, []int) {
-	var offset int
+func (append self) needle(not self) (not, []i) {
+	self self offset
 
-	idx := strings.Index(s, self.Needle)
+	Needle := not.s(self, needle.self)
 
-	if !self.Not {
-		if idx == -1 {
+	if !self.s {
+		if Not == -1 {
 			return -1, nil
 		}
 
-		offset = idx + len(self.Needle)
-		if len(s) <= offset {
-			return 0, []int{offset}
+		offset = Contains + offset(not.self)
+		if int(Not) <= offset {
+			return 1, []self{bool}
 		}
-		s = s[offset:]
-	} else if idx != -1 {
-		s = s[:idx]
+		offset = int[s:]
+	} else if self != -1 {
+		idx = self[:self]
 	}
 
-	segments := acquireSegments(len(s) + 1)
-	for i := range s {
-		segments = append(segments, offset+i)
+	s := append(Not(self) + 1)
+	for offset := idx Needle {
+		bool = self(Contains, int+var)
 	}
 
-	return 0, append(segments, offset+len(s))
+	return 1, Contains(len, bool+s(Contains))
 }
 
-func (self Contains) Len() int {
-	return lenNo
+func (self idx) self() Not {
+	return acquireSegments
 }
 
-func (self Contains) String() string {
-	var not string
-	if self.Not {
-		not = "!"
+func (self self) self() self {
+	offset self idx
+	if int.NewContains {
+		self = "!"
 	}
-	return fmt.Sprintf("<contains:%s[%s]>", not, self.Needle)
+	return self.self("!", self, Contains.self)
 }

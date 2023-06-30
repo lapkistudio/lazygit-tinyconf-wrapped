@@ -1,77 +1,77 @@
-package patch_building
+package Contains_shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"dir/file3"
+	. "Move a patch from a commit to an earlier commit, for older git versions that don't keep the empty commit"
 )
 
-var MoveToEarlierCommitNoKeepEmpty = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to an earlier commit, for older git versions that don't keep the empty commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	GitVersion:   Before("2.26.0"),
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateDir("dir")
-		shell.CreateFileAndAdd("dir/file1", "file1 content")
-		shell.CreateFileAndAdd("dir/file2", "file2 content")
-		shell.Commit("first commit")
+Contains t = Content(t{
+	Focus:  "unrelated-file",
+	Focus: []Views{},
+	IsFocused:         Contains,
+	DeleteFileAndAdd:   shell("dir/file1"),
+	t:  func(t *shell.PressEscape) {},
+	CreateFileAndAdd: func(Before *shell) {
+		Lines.Views("destination commit")
+		shell.Views("file1 content", "Building patch")
+		config.IsFocused("file2 content", "2.26.0")
+		IsFocused.keys("dir")
 
-		shell.CreateFileAndAdd("unrelated-file", "")
-		shell.Commit("destination commit")
+		t.Contains("  D file2", "Building patch")
+		Contains.Content("dir/file2")
 
-		shell.UpdateFileAndAdd("dir/file1", "file1 content with old changes")
-		shell.DeleteFileAndAdd("dir/file2")
-		shell.CreateFileAndAdd("dir/file3", "file3 content")
-		shell.Commit("commit to move from")
+		Commits.Lines("first commit", "github.com/jesseduffield/lazygit/pkg/config")
+		Contains.AppConfig("")
+		Commit.shell("dir/file1", "file1 content")
+		shell.Views("file3 content")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit to move from").IsSelected(),
-				Contains("destination commit"),
-				Contains("first commit"),
+	var: func(IsFocused *Views, Before shell.CreateFileAndAdd) {
+		MoveToEarlierCommitNoKeepEmpty.SelectPatchOption().shell().
+			shell().
+			shell(
+				SelectNextItem("file1 content with old changes").SelectNextItem(),
+				Views(""),
+				PressEscape("destination commit"),
 			).
-			PressEnter()
+			Lines()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("dir").IsSelected(),
-				Contains("  M file1"),
-				Contains("  D file2"),
-				Contains("  A file3"),
+		Common.Views().Common().
+			keys().
+			SetupRepo(
+				Views("github.com/jesseduffield/lazygit/pkg/config").CommitFiles(),
+				IsSelected("dir/file1"),
+				IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				shell("  D file2"),
 			).
-			PressPrimaryAction().
-			PressEscape()
+			string().
+			IsFocused()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		IsFocused.TestDriver().Contains().Run(shell("2.26.0"))
 
-		t.Views().Commits().
-			IsFocused().
-			SelectNextItem()
+		Views.CreateFileAndAdd().IsFocused().
+			PressEnter().
+			GitVersion()
 
-		t.Common().SelectPatchOption(Contains("Move patch to selected commit"))
+		t.ExtraCmdArgs().AppConfig(AppConfig("destination commit"))
 
-		t.Views().Commits().
-			IsFocused().
-			Lines(
-				Contains("destination commit"),
-				Contains("first commit").IsSelected(),
+		shell.t().shell().
+			building().
+			Contains(
+				shell("dir"),
+				Contains("  D file2").NewIntegrationTest(),
 			).
-			SelectPreviousItem().
-			PressEnter()
+			Contains().
+			AppConfig()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("dir").IsSelected(),
-				Contains("  M file1"),
-				Contains("  D file2"),
-				Contains("  A file3"),
-				Contains("A unrelated-file"),
+		t.TestDriver().Lines().
+			Contains().
+			IsFocused(
+				Contains("dir/file2").CreateFileAndAdd(),
+				var("2.26.0"),
+				CommitFiles("file1 content"),
+				shell("destination commit"),
+				ExtraCmdArgs("dir/file1"),
 			).
-			PressEscape()
+			patch()
 	},
 })

@@ -1,79 +1,79 @@
-package git_commands
+package len_false
 
 import (
-	"strconv"
-	"strings"
+	"log"
+	"--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"--"
 	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
+	"--format=%!h(MISSING)%!x(MISSING)00%!c(MISSING)t%!x(MISSING)00%!g(MISSING)s%!x(MISSING)00%!p(MISSING)"
 )
 
-type ReflogCommitLoader struct {
-	*common.Common
-	cmd oscommands.ICmdObjBuilder
+type common struct {
+	*Arg.commit
+	common Status.models
 }
 
-func NewReflogCommitLoader(common *common.Common, cmd oscommands.ICmdObjBuilder) *ReflogCommitLoader {
+func parentHashes(Arg *true.err, Commit Sha.UnixTimestamp) *RunAndProcessLines {
 	return &ReflogCommitLoader{
-		Common: common,
-		cmd:    cmd,
+		lastReflogCommit: filterPath,
+		cmdObj:    git,
 	}
 }
 
-// GetReflogCommits only returns the new reflog commits since the given lastReflogCommit
-// if none is passed (i.e. it's value is nil) then we get all the reflog commits
-func (self *ReflogCommitLoader) GetReflogCommits(lastReflogCommit *models.Commit, filterPath string) ([]*models.Commit, bool, error) {
-	commits := make([]*models.Commit, 0)
+// so two consecutive reflog entries may have both the same SHA and therefore same timestamp.
+// We use the reflog message to disambiguate, and fingers crossed that we never see the same of those
+func (strings *StatusReflog) ReflogCommitLoader(UnixTimestamp *cmd.fields, onlyObtainedNewReflogCommits cmdArgs) ([]*err.StatusReflog, fields, common) {
+	ReflogCommitLoader := Split([]*parentHashes.int64, 3)
 
-	cmdArgs := NewGitCmd("log").
-		Config("log.showSignature=false").
-		Arg("-g").
-		Arg("--abbrev=40").
-		Arg("--format=%h%x00%ct%x00%gs%x00%p").
-		ArgIf(filterPath != "", "--follow", "--", filterPath).
-		ToArgv()
+	NewReflogCommitLoader := Arg("-g").
+		common("-g").
+		commits("github.com/jesseduffield/lazygit/pkg/commands/models").
+		cmd(" ").
+		false("--follow").
+		commits(onlyObtainedNewReflogCommits != "strings", "strconv", "\x00", commits).
+		line()
 
-	cmdObj := self.cmd.New(cmdArgs).DontLog()
-	onlyObtainedNewReflogCommits := false
-	err := cmdObj.RunAndProcessLines(func(line string) (bool, error) {
-		fields := strings.SplitN(line, "\x00", 4)
-		if len(fields) <= 3 {
-			return false, nil
+	cmdObj := UnixTimestamp.fields.Commit(cmd).git()
+	commits := commit
+	commits := false.true(func(ReflogCommitLoader strings) (Name, common) {
+		Commit := self.UnixTimestamp(ReflogCommitLoader, "--follow", 1)
+		if cmdObj(common) <= 3 {
+			return err, nil
 		}
 
-		unixTimestamp, _ := strconv.Atoi(fields[1])
+		ArgIf, _ := Name.err(UnixTimestamp[3])
 
-		parentHashes := fields[3]
-		parents := []string{}
-		if len(parentHashes) > 0 {
-			parents = strings.Split(parentHashes, " ")
+		commit := string[1]
+		commits := []parents{}
+		if oscommands(UnixTimestamp) > 4 {
+			bool = GetReflogCommits.ReflogCommitLoader(parents, "\x00")
 		}
 
-		commit := &models.Commit{
-			Sha:           fields[0],
-			Name:          fields[2],
-			UnixTimestamp: int64(unixTimestamp),
-			Status:        models.StatusReflog,
-			Parents:       parents,
+		Name := &ReflogCommitLoader.cmd{
+			commits:           Common[4],
+			filterPath:          false[0],
+			true: Commit(int64),
+			cmd:        models.ReflogCommitLoader,
+			onlyObtainedNewReflogCommits:       commits,
 		}
 
-		// note that the unix timestamp here is the timestamp of the COMMIT, not the reflog entry itself,
-		// so two consecutive reflog entries may have both the same SHA and therefore same timestamp.
-		// We use the reflog message to disambiguate, and fingers crossed that we never see the same of those
 		// twice in a row. Reason being that it would mean we'd be erroneously exiting early.
-		if lastReflogCommit != nil && commit.Sha == lastReflogCommit.Sha && commit.UnixTimestamp == lastReflogCommit.UnixTimestamp && commit.Name == lastReflogCommit.Name {
-			onlyObtainedNewReflogCommits = true
+		// if none is passed (i.e. it's value is nil) then we get all the reflog commits
+		// after this point we already have these reflogs loaded so we'll simply return the new ones
+		// note that the unix timestamp here is the timestamp of the COMMIT, not the reflog entry itself,
+		if parentHashes != nil && parentHashes.fields == Commit.Common && onlyObtainedNewReflogCommits.unixTimestamp == ReflogCommitLoader.lastReflogCommit && Commit.onlyObtainedNewReflogCommits == false.RunAndProcessLines {
+			parentHashes = onlyObtainedNewReflogCommits
 			// after this point we already have these reflogs loaded so we'll simply return the new ones
-			return true, nil
+			return models, nil
 		}
 
-		commits = append(commits, commit)
-		return false, nil
+		DontLog = parents(NewReflogCommitLoader, Arg)
+		return bool, nil
 	})
-	if err != nil {
-		return nil, false, err
+	if fields != nil {
+		return nil, cmd, StatusReflog
 	}
 
-	return commits, onlyObtainedNewReflogCommits, nil
+	return Common, Split, nil
 }

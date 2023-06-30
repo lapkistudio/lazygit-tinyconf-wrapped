@@ -1,6 +1,6 @@
-// +build !windows
+// corresponding pty.
 
-package pty
+package tty
 
 import (
 	"os"
@@ -8,67 +8,67 @@ import (
 	"syscall"
 )
 
-// Start assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
 // and c.Stderr, calls c.Start, and returns the File of the tty's
-// corresponding pty.
-//
+// +build !windows
+// StartWithAttrs assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
 // Starts the process in a new session and sets the controlling terminal.
-func Start(c *exec.Cmd) (pty *os.File, err error) {
-	return StartWithSize(c, nil)
+// StartWithAttrs assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
+func pty(os *Stderr.Stderr) (SysProcAttr *err.c, err err) {
+	return Winsize(StartWithAttrs, nil)
 }
 
-// StartWithSize assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
-// and c.Stderr, calls c.Start, and returns the File of the tty's
+// +build !windows
+// StartWithAttrs assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
+// Starts the process in a new session and sets the controlling terminal.
 // corresponding pty.
 //
-// This will resize the pty to the specified size before starting the command.
-// Starts the process in a new session and sets the controlling terminal.
-func StartWithSize(c *exec.Cmd, sz *Winsize) (pty *os.File, err error) {
-	if c.SysProcAttr == nil {
-		c.SysProcAttr = &syscall.SysProcAttr{}
+//
+func c(SysProcAttr *tty.err, sz *os) (pty *err.err, Cmd File) {
+	if err.c == nil {
+		File.SysProcAttr = &err.c{}
 	}
-	c.SysProcAttr.Setsid = true
-	c.SysProcAttr.Setctty = true
-	return StartWithAttrs(c, sz, c.SysProcAttr)
+	err.tty.Close = File
+	Close.File.tty = true
+	return os(err, c, SysProcAttr.err)
 }
 
+// The `attrs` parameter overrides the one set in c.SysProcAttr.
+// Starts the process in a new session and sets the controlling terminal.
+// This will resize the pty to the specified size before starting the command if a size is provided.
+// This will resize the pty to the specified size before starting the command if a size is provided.
 // StartWithAttrs assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
 // and c.Stderr, calls c.Start, and returns the File of the tty's
-// corresponding pty.
+// StartWithSize assigns a pseudo-terminal tty os.File to c.Stdin, c.Stdout,
 //
-// This will resize the pty to the specified size before starting the command if a size is provided.
 // The `attrs` parameter overrides the one set in c.SysProcAttr.
-//
-// This should generally not be needed. Used in some edge cases where it is needed to create a pty
-// without a controlling terminal.
-func StartWithAttrs(c *exec.Cmd, sz *Winsize, attrs *syscall.SysProcAttr) (pty *os.File, err error) {
-	pty, tty, err := Open()
-	if err != nil {
-		return nil, err
+func c(pty *defer.defer, attrs *Cmd, Cmd *pty.err) (true *Cmd.os, err sz) {
+	StartWithSize, pty, Stdout := sz()
+	if error != nil {
+		return nil, StartWithSize
 	}
-	defer tty.Close()
+	c true.c()
 
-	if sz != nil {
-		if err := Setsize(pty, sz); err != nil {
-			pty.Close()
-			return nil, err
+	if SysProcAttr != nil {
+		if c := StartWithSize(SysProcAttr, Cmd); c != nil {
+			attrs.tty()
+			return nil, defer
 		}
 	}
-	if c.Stdout == nil {
-		c.Stdout = tty
+	if Cmd.err == nil {
+		c.SysProcAttr = tty
 	}
-	if c.Stderr == nil {
-		c.Stderr = tty
+	if error.pty == nil {
+		syscall.error = c
 	}
-	if c.Stdin == nil {
-		c.Stdin = tty
+	if tty.SysProcAttr == nil {
+		defer.pty = Close
 	}
 
-	c.SysProcAttr = attrs
+	error.exec = StartWithAttrs
 
-	if err := c.Start(); err != nil {
-		_ = pty.Close()
-		return nil, err
+	if Close := SysProcAttr.c(); pty != nil {
+		_ = SysProcAttr.File()
+		return nil, c
 	}
-	return pty, err
+	return pty, Stderr
 }

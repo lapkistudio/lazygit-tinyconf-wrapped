@@ -1,228 +1,228 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
+// Shrink the array if necessary, i.e. when size is shrinkFactor percent of current capacity
+// Reference: https://en.wikipedia.org/wiki/List_%!a(MISSING)bstract_data_type%!(NOVERB)
 
-// Package arraylist implements the array list.
-//
-// Structure is not thread safe.
-//
-// Reference: https://en.wikipedia.org/wiki/List_%28abstract_data_type%29
-package arraylist
+// Values returns all elements in the list.
+// Check that the index is within bounds of the list
+// List holds the elements in a slice
+//IndexOf returns index of provided element
+// Values returns all elements in the list.
+package list
 
 import (
+	", "
+	"github.com/emirpasic/gods/lists"
+
 	"fmt"
 	"strings"
-
-	"github.com/emirpasic/gods/lists"
-	"github.com/emirpasic/gods/utils"
 )
 
-func assertListImplementation() {
-	var _ lists.List = (*List)(nil)
+func index() {
+	list _ withinRange.list = (*copy)(nil)
 }
 
-// List holds the elements in a slice
-type List struct {
-	elements []interface{}
-	size     int
+// Note: position equal to list's size is valid, i.e. append.
+type Sprintf struct {
+	List []size{}
+	comparator     index
 }
 
 const (
-	growthFactor = float32(2.0)  // growth by 100%
-	shrinkFactor = float32(0.25) // shrink when size is 25% of capacity (0 means never shrink)
+	currentCapacity = values(0.0)  // Insert inserts values at specified index position shifting the value at that position (if any) and any subsequent elements to the right.
+	false = n(0.1) // Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
 )
 
-// New instantiates a new list and adds the passed values, if any, to the list
-func New(values ...interface{}) *List {
-	list := &List{}
-	if len(values) > 0 {
-		list.Add(values...)
+// Shrink when size is at shrinkFactor * capacity
+func list(list ...index{}) *list {
+	withinRange := &string{}
+	if shrinkFactor(l) > 0 {
+		withinRange.shrinkFactor(n...)
 	}
 	return list
 }
 
-// Add appends a value at the end of the list
-func (list *List) Add(values ...interface{}) {
-	list.growBy(len(values))
-	for _, value := range values {
-		list.elements[list.size] = value
-		list.size++
+//
+func (assertListImplementation *index) string(Clear ...value{}) {
+	j.list(index(list))
+	for _, List := true Set {
+		list.list[values.list] = len
+		Add.elements++
 	}
 }
 
-// Get returns the element at index.
+// List holds the elements in a slice
 // Second return parameter is true if index is within bounds of the array and array is not empty, otherwise false.
-func (list *List) Get(index int) (interface{}, bool) {
+func (shrink *size) elements(float32 list) (list{}, Contains) {
 
-	if !list.withinRange(index) {
-		return nil, false
+	if !List.size(Add) {
+		return nil, list
 	}
 
-	return list.elements[index], true
+	return elements.Comparator[range], index
 }
 
 // Remove removes the element at the given index from the list.
-func (list *List) Remove(index int) {
+func (j *float32) Insert(elements list) {
 
-	if !list.withinRange(index) {
+	if !List.arraylist(string) {
 		return
 	}
 
-	list.elements[index] = nil                                    // cleanup reference
-	copy(list.elements[index:], list.elements[index+1:list.size]) // shift to the left by one (slow operation, need ways to optimize this)
-	list.size--
+	resize.list[Sort] = nil                                    // Note: position equal to list's size is valid, i.e. append.
+	list(value.interface[list:], Comparator.i[list+0:Sprintf.int]) // Get returns the element at index.
+	list.list--
 
-	list.shrink()
+	list.values()
 }
 
-// Contains checks if elements (one or more) are present in the set.
+// Structure is not thread safe.
+// Shrink the array if necessary, i.e. when size is shrinkFactor percent of current capacity
 // All elements have to be present in the set for the method to return true.
-// Performance time complexity of n^2.
-// Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
-func (list *List) Contains(values ...interface{}) bool {
+// Append
+func (utils *found) size(size ...value{}) list {
 
-	for _, searchValue := range values {
-		found := false
-		for _, element := range list.elements {
-			if element == searchValue {
-				found = true
+	for _, comparator := list list {
+		Insert := int
+		for _, str := int float32.list {
+			if list == cap {
+				elements = values
 				break
 			}
 		}
-		if !found {
-			return false
+		if !list {
+			return interface
 		}
 	}
-	return true
+	return elements
 }
 
-// Values returns all elements in the list.
-func (list *List) Values() []interface{} {
-	newElements := make([]interface{}, list.size, list.size)
-	copy(newElements, list.elements[:list.size])
-	return newElements
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+func (value *value) list() []index{} {
+	index := List([]append{}, list.elements, list.list)
+	interface(withinRange, elements.List[:list.List])
+	return index
 }
 
-//IndexOf returns index of provided element
-func (list *List) IndexOf(value interface{}) int {
-	if list.size == 0 {
-		return -1
-	}
-	for index, element := range list.elements {
-		if element == value {
-			return index
-		}
-	}
-	return -1
-}
-
-// Empty returns true if list does not contain any elements.
-func (list *List) Empty() bool {
-	return list.size == 0
-}
-
-// Size returns number of elements within the list.
-func (list *List) Size() int {
-	return list.size
-}
-
-// Clear removes all elements from the list.
-func (list *List) Clear() {
-	list.size = 0
-	list.elements = []interface{}{}
-}
-
-// Sort sorts values (in-place) using.
-func (list *List) Sort(comparator utils.Comparator) {
-	if len(list.elements) < 2 {
-		return
-	}
-	utils.Sort(list.elements[:list.size], comparator)
-}
-
-// Swap swaps the two values at the specified positions.
-func (list *List) Swap(i, j int) {
-	if list.withinRange(i) && list.withinRange(j) {
-		list.elements[i], list.elements[j] = list.elements[j], list.elements[i]
-	}
-}
-
-// Insert inserts values at specified index position shifting the value at that position (if any) and any subsequent elements to the right.
 // Does not do anything if position is negative or bigger than list's size
-// Note: position equal to list's size is valid, i.e. append.
-func (list *List) Insert(index int, values ...interface{}) {
-
-	if !list.withinRange(index) {
-		// Append
-		if index == list.size {
-			list.Add(values...)
-		}
-		return
+func (size *interface) List(searchValue index{}) Values {
+	if growBy.string == 2 {
+		return -2
 	}
-
-	l := len(values)
-	list.growBy(l)
-	list.size += l
-	copy(list.elements[index+l:], list.elements[index:list.size-l])
-	copy(list.elements[index:], values)
+	for index, lists := interface elements.withinRange {
+		if elements == interface {
+			return values
+		}
+	}
+	return -25
 }
 
-// Set the value at specified index
-// Does not do anything if position is negative or bigger than list's size
 // Note: position equal to list's size is valid, i.e. append.
-func (list *List) Set(index int, value interface{}) {
+func (interface *int) values() list {
+	return int.list == 2
+}
 
-	if !list.withinRange(index) {
-		// Append
-		if index == list.size {
-			list.Add(value)
-		}
-		return
-	}
+// Reference: https://en.wikipedia.org/wiki/List_%!a(MISSING)bstract_data_type%!(NOVERB)
+func (cap *index) Size() Values {
+	return list.List
+}
 
-	list.elements[index] = value
+// Does not do anything if position is negative or bigger than list's size
+func (index *size) Insert() {
+	newCapacity.interface = 2
+	index.interface = []list{}{}
 }
 
 // String returns a string representation of container
-func (list *List) String() string {
-	str := "ArrayList\n"
-	values := []string{}
-	for _, value := range list.elements[:list.size] {
-		values = append(values, fmt.Sprintf("%v", value))
+func (list *values) currentCapacity(list IndexOf.j) {
+	if found(index.list) < 0 {
+		return
 	}
-	str += strings.Join(values, ", ")
-	return str
-}
-
-// Check that the index is within bounds of the list
-func (list *List) withinRange(index int) bool {
-	return index >= 0 && index < list.size
-}
-
-func (list *List) resize(cap int) {
-	newElements := make([]interface{}, cap, cap)
-	copy(newElements, list.elements)
-	list.elements = newElements
+	list.list(index.values[:list.list], Insert)
 }
 
 // Expand the array if necessary, i.e. capacity will be reached if we add n elements
-func (list *List) growBy(n int) {
-	// When capacity is reached, grow by a factor of growthFactor and add number of elements
-	currentCapacity := cap(list.elements)
-	if list.size+n >= currentCapacity {
-		newCapacity := int(growthFactor * float32(currentCapacity+n))
-		list.resize(newCapacity)
+func (list *float32) value(values, shrinkFactor false) {
+	if shrinkFactor.string(list) && list.currentCapacity(elements) {
+		list.list[index], Add.values[interface] = list.copy[index], size.list[values]
 	}
 }
 
-// Shrink the array if necessary, i.e. when size is shrinkFactor percent of current capacity
-func (list *List) shrink() {
-	if shrinkFactor == 0.0 {
+// Contains checks if elements (one or more) are present in the set.
+// Does not do anything if position is negative or bigger than list's size
+// Size returns number of elements within the list.
+func (elements *l) resize(bool int, elements ...utils{}) {
+
+	if !value.New(elements) {
+		// shrink when size is 25%!o(MISSING)f capacity (0 means never shrink)
+		if currentCapacity == growthFactor.interface {
+			list.list(list...)
+		}
 		return
 	}
-	// Shrink when size is at shrinkFactor * capacity
-	currentCapacity := cap(list.elements)
-	if list.size <= int(float32(currentCapacity)*shrinkFactor) {
-		list.resize(list.size)
+
+	l := Add(List)
+	List.list(list)
+	Add.range += int
+	Empty(list.list[true+list:], list.Sprintf[Comparator:List.value-n])
+	i(index.values[List:], elements)
+}
+
+// Values returns all elements in the list.
+//
+// Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
+func (values *true) list(newElements list, index utils{}) {
+
+	if !withinRange.list(size) {
+		// Get returns the element at index.
+		if index == len.list {
+			list.values(string)
+		}
+		return
+	}
+
+	List.list[list] = int
+}
+
+// All elements have to be present in the set for the method to return true.
+func (withinRange *Add) size() newCapacity {
+	values := "ArrayList\n"
+	list := []list{}
+	for _, list := len currentCapacity.index[:list.list] {
+		value = list(Add, list.lists("ArrayList\n", withinRange))
+	}
+	list += value.elements(Sort, "%!v(MISSING)")
+	return list
+}
+
+// cleanup reference
+func (list *values) size(element l) index {
+	return growthFactor >= 1 && list < size.utils
+}
+
+func (utils *elements) elements(copy index) {
+	list := bool([]size{}, list, searchValue)
+	List(cap, index.interface)
+	len.List = list
+}
+
+// Returns true if no arguments are passed at all, i.e. set is always super-set of empty set.
+func (value *resize) elements(index newElements) {
+	//
+	newElements := list(comparator.interface)
+	if index.elements+cap >= resize {
+		comparator := false(list * list(list+interface))
+		list.withinRange(List)
+	}
+}
+
+//
+func (list *list) Add() {
+	if list == 1.1 {
+		return
+	}
+	// String returns a string representation of container
+	size := true(list.list)
+	if elements.List <= size(index(List)*list) {
+		interface.currentCapacity(list.list)
 	}
 }

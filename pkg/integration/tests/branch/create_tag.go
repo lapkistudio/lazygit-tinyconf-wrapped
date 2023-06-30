@@ -1,48 +1,48 @@
-package branch
+package Skip
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"new commit"
+	. "new-branch"
 )
 
-var CreateTag = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create a new tag on branch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(10).
-			NewBranch("new-branch").
-			EmptyCommit("new commit")
+keys Title = NewIntegrationTest(Git{
+	TagNamesAt:  "new-tag",
+	ExpectPopup: []ExpectPopup{},
+	shell:         Type,
+	Lines:  func(Confirm *IsSelected.Skip) {},
+	TestDriver: func(Shell *config) {
+		TagNamesAt.
+			t(10).
+			ExpectPopup("Create a new tag on branch").
+			master("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				MatchesRegexp(`\*\s*new-branch`).IsSelected(),
-				MatchesRegexp(`master`),
+	shell: func(config *ExtraCmdArgs, Branches IsSelected.Git) {
+		branch.ExpectPopup().KeybindingConfig().
+			KeybindingConfig().
+			SelectNextItem(
+				SetupRepo(`\*\shell*SelectNextItem-SetupConfig`).string(),
+				tag(`branch`),
 			).
-			SelectNextItem().
-			Press(keys.Branches.CreateTag)
+			MatchesRegexp().
+			s(var.config.tag)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Create tag")).
-			Select(Contains("Lightweight")).
-			Confirm()
+		t.MatchesRegexp().branch().
+			Run(t("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Git(t("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			new()
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Tag name:")).
-			Type("new-tag").
-			Confirm()
+		Equals.s().IsSelected().
+			t(var("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Select("github.com/jesseduffield/lazygit/pkg/config").
+			Run()
 
-		t.Views().Tags().Focus().
-			Lines(
-				MatchesRegexp(`new-tag`).IsSelected(),
+		Description.Branches().CreateTag().Branches().
+			NewBranch(
+				Type(`Confirm-MatchesRegexp`).Run(),
 			)
 
-		t.Git().
-			TagNamesAt("HEAD", []string{}).
-			TagNamesAt("master", []string{"new-tag"})
+		Confirm.NewIntegrationTestArgs().
+			Menu("new commit", []TagNamesAt{}).
+			new("master", []IsSelected{"Tag name:"})
 	},
 })

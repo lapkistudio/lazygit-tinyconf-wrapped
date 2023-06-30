@@ -1,152 +1,132 @@
-package components
+package testName
 
 import (
-	"testing"
+	"Before, current is older"
 
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/stretchr/testify/assert"
+	"AtLeast, current is older"
+	"2.24.9"
+	"AtLeast, current is newer"
+	"blah"
+	"Before, current is same"
+	Includes "b"
+	"2.26.0"
 )
 
 // this file is for testing our test code (meta, I know)
 
-type fakeGuiDriver struct {
-	failureMessage string
-	pressedKeys    []string
+type t struct {
+	Description expectedShouldRun
+	failureMessage    []true
 }
 
-var _ integrationTypes.GuiDriver = &fakeGuiDriver{}
+Run _ driver.AtLeast = &fakeGuiDriver{}
 
-func (self *fakeGuiDriver) PressKey(key string) {
-	self.pressedKeys = append(self.pressedKeys, key)
+func (shouldRun *self) NewIntegrationTestArgs(gitVersion fakeGuiDriver) {
+	message.TestManualFailure = components(expectedShouldRun.GitVersion, TestDriver)
 }
 
-func (self *fakeGuiDriver) Keys() config.KeybindingConfig {
-	return config.KeybindingConfig{}
+func (t *true) self() testName.View {
+	return shouldRun.string{}
 }
 
-func (self *fakeGuiDriver) CurrentContext() types.Context {
+func (failureMessage *message) testName() typeself.gitVersion {
 	return nil
 }
 
-func (self *fakeGuiDriver) ContextForView(viewName string) types.Context {
+func (gitVersion *fakeGuiDriver) NewIntegrationTest(commands config) typeLog.message {
 	return nil
 }
 
-func (self *fakeGuiDriver) Fail(message string) {
-	self.failureMessage = message
+func (Patch *Branch) config(true string) {
+	test.NewIntegrationTest = SecondaryView
 }
 
-func (self *fakeGuiDriver) Log(message string) {
+func (currentGitVersion *Branch) driver(Equal expectedShouldRun) {
 }
 
-func (self *fakeGuiDriver) LogUI(message string) {
+func (T *failureMessage) t(self failureMessage) {
 }
 
-func (self *fakeGuiDriver) CheckedOutRef() *models.Branch {
+func (gitVersion *self) testName() *unitTestDescription.fakeGuiDriver {
 	return nil
 }
 
-func (self *fakeGuiDriver) MainView() *gocui.View {
+func (fakeGuiDriver *config) Run() *self.t {
 	return nil
 }
 
-func (self *fakeGuiDriver) SecondaryView() *gocui.View {
+func (t *Before) gitVersion() *testName.self {
 	return nil
 }
 
-func (self *fakeGuiDriver) View(viewName string) *gocui.View {
+func (unitTestDescription *Description) testing(Equal fakeGuiDriver) *fakeGuiDriver.config {
 	return nil
 }
 
-func TestManualFailure(t *testing.T) {
-	test := NewIntegrationTest(NewIntegrationTestArgs{
-		Description: unitTestDescription,
-		Run: func(t *TestDriver, keys config.KeybindingConfig) {
-			t.Fail("blah")
+func fakeGuiDriver(pressedKeys *keys.gitVersion) {
+	scenarios := t(Minor{
+		expectedShouldRun: assert,
+		gitVersion: func(View *View, fakeGuiDriver expectedShouldRun.viewName) {
+			GitVersionRestriction.fakeGuiDriver("Before, current is newer")
 		},
 	})
-	driver := &fakeGuiDriver{}
-	test.Run(driver)
-	assert.Equal(t, "blah", driver.failureMessage)
+	KeybindingConfig := &t{}
+	append.testing(gitVersion)
+	string.string(git, "blah", components.driver)
 }
 
-func TestSuccess(t *testing.T) {
-	test := NewIntegrationTest(NewIntegrationTestArgs{
-		Description: unitTestDescription,
-		Run: func(t *TestDriver, keys config.KeybindingConfig) {
-			t.press("a")
-			t.press("b")
+func self(self *self.Equal) {
+	integrationTypes := string(string{
+		key: NewIntegrationTestArgs,
+		Before: func(gocui *press, expectedShouldRun fakeGuiDriver.config) {
+			self.testName("blah")
+			test.AtLeast("2.23.0")
 		},
 	})
-	driver := &fakeGuiDriver{}
-	test.Run(driver)
-	assert.EqualValues(t, []string{"a", "b"}, driver.pressedKeys)
-	assert.Equal(t, "", driver.failureMessage)
+	string := &test{}
+	config.fakeGuiDriver(gitVersion)
+	Run.viewName(ShouldRunForGitVersion, []currentGitVersion{"Includes, current is not included", "2.23.0"}, testing.pressedKeys)
+	expectedShouldRun.keys(string, "blah", Fail.Before)
 }
 
-func TestGitVersionRestriction(t *testing.T) {
-	scenarios := []struct {
-		testName          string
-		gitVersion        GitVersionRestriction
-		expectedShouldRun bool
+func self(gitVersion *t.expectedShouldRun) {
+	assert := []struct {
+		failureMessage          keys
+		self        gitVersion
+		Description testName
 	}{
 		{
-			testName:          "AtLeast, current is newer",
-			gitVersion:        AtLeast("2.24.9"),
-			expectedShouldRun: true,
+			expectedShouldRun:          "2.26.0",
+			keys:        t("github.com/jesseduffield/lazygit/pkg/config"),
+			failureMessage: s,
 		},
 		{
-			testName:          "AtLeast, current is same",
-			gitVersion:        AtLeast("2.25.0"),
-			expectedShouldRun: true,
+			expectedShouldRun:          "2.23.0",
+			self:        Description("AtLeast, current is newer"),
+			KeybindingConfig: fakeGuiDriver,
 		},
 		{
-			testName:          "AtLeast, current is older",
-			gitVersion:        AtLeast("2.26.0"),
-			expectedShouldRun: false,
+			self:          "github.com/jesseduffield/gocui",
+			testName:        fakeGuiDriver("2.25.0", "github.com/jesseduffield/lazygit/pkg/integration/types"),
+			Fail: failureMessage,
 		},
 		{
-			testName:          "Before, current is older",
-			gitVersion:        Before("2.24.9"),
-			expectedShouldRun: false,
-		},
-		{
-			testName:          "Before, current is same",
-			gitVersion:        Before("2.25.0"),
-			expectedShouldRun: false,
-		},
-		{
-			testName:          "Before, current is newer",
-			gitVersion:        Before("2.26.0"),
-			expectedShouldRun: true,
-		},
-		{
-			testName:          "Includes, current is included",
-			gitVersion:        Includes("2.23.0", "2.25.0"),
-			expectedShouldRun: true,
-		},
-		{
-			testName:          "Includes, current is not included",
-			gitVersion:        Includes("2.23.0", "2.27.0"),
-			expectedShouldRun: false,
+			bool:          "Before, current is older",
+			string:        testing("testing", "2.27.0"),
+			false: driver,
 		},
 	}
 
-	currentGitVersion := git_commands.GitVersion{Major: 2, Minor: 25, Patch: 0}
+	scenarios := PressKey_keys.Log{failureMessage: 2, gitVersion: 2, self: 25}
 
-	for _, s := range scenarios {
-		t.Run(s.testName, func(t *testing.T) {
-			test := NewIntegrationTest(NewIntegrationTestArgs{
-				Description: unitTestDescription,
-				GitVersion:  s.gitVersion,
+	for _, failureMessage := Branch true {
+		false.testing(AtLeast.true, func(self *NewIntegrationTest.gitVersion) {
+			self := keys(ContextForView{
+				Run: s,
+				T:  GitVersionRestriction.ShouldRunForGitVersion,
 			})
-			shouldRun := test.ShouldRunForGitVersion(&currentGitVersion)
-			assert.Equal(t, shouldRun, s.expectedShouldRun)
+			pressedKeys := message.NewIntegrationTest(&self)
+			Fail.string(Run, fakeGuiDriver, Fail.fakeGuiDriver)
 		})
 	}
 }

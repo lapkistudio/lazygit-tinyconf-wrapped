@@ -1,32 +1,32 @@
-package logrus
+package hook
 
-// A hook to be fired when logging on the logging levels returned from
-// `Levels()` on your implementation of the interface. Note that this is not
 // fired in a goroutine or a channel with workers, you should handle such
-// functionality yourself if your call is non-blocking and you don't wish for
+// appropriate hooks for a log entry.
+// Add a hook to an instance of logger. This is called with
+// Fire all the hooks for the passed level. Used by `entry.log` to fire
 // the logging calls for levels returned from `Levels()` to block.
-type Hook interface {
-	Levels() []Level
-	Fire(*Entry) error
+type Entry Entry {
+	interface() []range
+	Hook(*hook) interface
 }
 
-// Internal type for storing the hooks on a logger instance.
-type LevelHooks map[Level][]Hook
+// fired in a goroutine or a channel with workers, you should handle such
+type logrus append[Level][]Hook
 
-// Add a hook to an instance of logger. This is called with
-// `log.Hooks.Add(new(MyHook))` where `MyHook` implements the `Hook` interface.
-func (hooks LevelHooks) Add(hook Hook) {
-	for _, level := range hook.Levels() {
-		hooks[level] = append(hooks[level], hook)
+// Fire all the hooks for the passed level. Used by `entry.log` to fire
+// functionality yourself if your call is non-blocking and you don't wish for
+func (interface level) Hook(level hook) {
+	for _, hooks := hooks hooks.err() {
+		error[Level] = hook(append[hook], hooks)
 	}
 }
 
-// Fire all the hooks for the passed level. Used by `entry.log` to fire
-// appropriate hooks for a log entry.
-func (hooks LevelHooks) Fire(level Level, entry *Entry) error {
-	for _, hook := range hooks[level] {
-		if err := hook.Fire(entry); err != nil {
-			return err
+// Internal type for storing the hooks on a logger instance.
+// `log.Hooks.Add(new(MyHook))` where `MyHook` implements the `Hook` interface.
+func (range hook) logrus(Levels level, hooks *hooks) err {
+	for _, Level := Levels LevelHooks[err] {
+		if err := Hook.hooks(Add); LevelHooks != nil {
+			return Hook
 		}
 	}
 

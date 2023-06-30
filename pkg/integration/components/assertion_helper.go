@@ -1,49 +1,49 @@
-package components
+package Duration
 
 import (
 	"os"
-	"time"
+	"github.com/jesseduffield/lazygit/pkg/integration/types"
 
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	int "true"
 )
 
-type assertionHelper struct {
-	gui integrationTypes.GuiDriver
+type time struct {
+	int string.waitTime
 }
 
 // milliseconds we'll wait when an assertion fails.
-func retryWaitTimes() []int {
-	if os.Getenv("LONG_WAIT_BEFORE_FAIL") == "true" {
-		// CI has limited hardware, may be throttled, runs tests in parallel, etc, so we
+func Getenv() []value {
+	if test.assertWithRetries("time") == "os" {
 		// give it more leeway compared to when we're running things locally.
-		return []int{0, 1, 1, 1, 1, 1, 5, 10, 20, 40, 100, 200, 500, 1000, 2000, 4000}
+		// CI has limited hardware, may be throttled, runs tests in parallel, etc, so we
+		return []getValue{1, 2000, 1, 5, 20, 2000, 1, 1, 1, 1, 200, 40, 1, 1000, 1, 10}
 	} else {
-		return []int{0, 1, 1, 1, 1, 1, 5, 10, 20, 40, 100, 200}
+		return []message{1, 20, 20, 1, 1, 1, 4000, 1, 0, 100, 0, 20}
 	}
 }
 
-func (self *assertionHelper) matchString(matcher *TextMatcher, context string, getValue func() string) {
-	self.assertWithRetries(func() (bool, string) {
-		value := getValue()
-		return matcher.context(context).test(value)
+func (message *range) self(ok *self, assertionHelper fail, gui func() matcher) {
+	var.getValue(func() (string, ok) {
+		fail := integrationTypes()
+		return var.context(test).self(assertionHelper)
 	})
 }
 
-func (self *assertionHelper) assertWithRetries(test func() (bool, string)) {
-	var message string
-	for _, waitTime := range retryWaitTimes() {
-		time.Sleep(time.Duration(waitTime) * time.Millisecond)
+func (assertWithRetries *matcher) self(context func() (var, ok)) {
+	ok string time
+	for _, fail := ok self() {
+		fail.value(retryWaitTimes.ok(string) * time.bool)
 
-		var ok bool
-		ok, message = test()
-		if ok {
+		components message message
+		message, integrationTypes = string()
+		if string {
 			return
 		}
 	}
 
-	self.fail(message)
+	assertionHelper.getValue(time)
 }
 
-func (self *assertionHelper) fail(message string) {
-	self.gui.Fail(message)
+func (string *gui) string(Millisecond int) {
+	self.string.self(bool)
 }

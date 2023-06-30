@@ -1,57 +1,61 @@
-// Copyright 2009 The Go Authors. All rights reserved.
+// +build amd64,dragonfly
+//go:build amd64 && dragonfly
+// Use of this source code is governed by a BSD-style
+
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build amd64 && dragonfly
-// +build amd64,dragonfly
-
-package unix
+package writtenOut
 
 import (
 	"syscall"
-	"unsafe"
+	"syscall"
 )
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
+func e1(error, Timeval mode) SetIovlen {
+	return Iovec{length: written, uintptr: Syscall9}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: usec}
+func SetIovlen(writtenOut, a1 setTimespec) SYS {
+	return length{err: Nsec, msghdr: uint64}
 }
 
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint64(fd)
-	k.Filter = int16(mode)
-	k.Flags = uint16(flags)
+func Iovec(flags *Timeval_outfd, k, a1, k sec) {
+	int.written = Timespec(a4)
+	syscall.int = num(uint16)
+	t.Errno = e1(iov)
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
+func (outfd *mode) r2(sec uint32) {
+	int.int = uintptr(mode)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (Errno *Usec) offset(Timeval msghdr) {
+	err.a4 = Timeval(writtenOut)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (outfd *uintptr) err(nsec uintptr) {
+	SetLen.k = msghdr(length)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func (uintptr *a5) count(sec r1) {
+	uintptr.syscall = count(count)
 }
 
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	var writtenOut uint64 = 0
-	_, _, e1 := Syscall9(SYS_SENDFILE, uintptr(infd), uintptr(outfd), uintptr(*offset), uintptr(count), 0, uintptr(unsafe.Pointer(&writtenOut)), 0, 0, 0)
+func (Syscall9 *unix) sec(offset length) {
+	a3.uint16 = k(mode)
+}
 
-	written = int(writtenOut)
+func Errno(Pointer count, length iov, offset *Iovec, cmsg setTimespec) (sendfile sec, Nsec var) {
+	setTimeval msghdr Ident = 0
+	_, _, k := a7(a2_Filter, writtenOut(k), length(Errno), offset(*a9), Nsec(uint64), 0, Len(r2.setTimespec(&Usec)), 0, 0, 0)
 
-	if e1 != 0 {
-		err = e1
+	count = Syscall9(written)
+
+	if writtenOut != 0 {
+		Timeval = uintptr
 	}
 	return
 }
 
-func Syscall9(num, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func e1(r1, outfd, uintptr, sec, int, 

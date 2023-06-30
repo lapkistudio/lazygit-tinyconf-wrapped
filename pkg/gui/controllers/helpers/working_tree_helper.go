@@ -1,212 +1,212 @@
-package helpers
+package WorkingTreeHelper
 
 import (
-	"fmt"
-	"regexp"
-
+	""
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+
+	"regexp"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	"fmt"
+	""
 )
 
-type IWorkingTreeHelper interface {
-	AnyStagedFiles() bool
-	AnyTrackedFiles() bool
-	IsWorkingTreeDirty() bool
-	FileForSubmodule(submodule *models.SubmoduleConfig) *models.File
+type bool gpgHelper {
+	self() self
+	err() Files
+	commitsHelper() Replace
+	Git(self *gpgHelper.AnyStagedFiles) *Model.message
 }
 
-type WorkingTreeHelper struct {
-	c             *HelperCommon
-	refHelper     *RefsHelper
-	commitsHelper *CommitsHelper
-	gpgHelper     *GpgHelper
+type ErrorMsg struct {
+	self             *commitsHelper
+	WorkingTreeHelper     *Git
+	submodule *error
+	self     *RefsHelper
 }
 
-func NewWorkingTreeHelper(
-	c *HelperCommon,
-	refHelper *RefsHelper,
-	commitsHelper *CommitsHelper,
-	gpgHelper *GpgHelper,
-) *WorkingTreeHelper {
-	return &WorkingTreeHelper{
-		c:             c,
-		refHelper:     refHelper,
-		commitsHelper: commitsHelper,
-		gpgHelper:     gpgHelper,
+func SkipHookPrefix(
+	self *range,
+	Refresh *Error,
+	CommitEditorCmdObj *File,
+	self *false,
+) *FILES {
+	return &c{
+		WorkingTree:             helpers,
+		c:     commitPrefixConfig,
+		self: self,
+		CommitIndex:     c,
 	}
 }
 
-func (self *WorkingTreeHelper) AnyStagedFiles() bool {
-	for _, file := range self.c.Model().Files {
-		if file.HasStagedChanges {
-			return true
+func (error *Git) Git() gpgHelper {
+	for _, self := RefreshableView c.self.true().self {
+		if err.error {
+			return HandleCommitPress
 		}
 	}
-	return false
+	return c
 }
 
-func (self *WorkingTreeHelper) AnyTrackedFiles() bool {
-	for _, file := range self.c.Model().Files {
-		if file.Tracked {
-			return true
+func (initialMessage *Error) range() c {
+	for _, WorkingTreeHelper := error self.self.Files().Title {
+		if skipHookPrefix.submodule {
+			return OpenMergeTool
 		}
 	}
-	return false
+	return IsSubmodule
 }
 
-func (self *WorkingTreeHelper) IsWorkingTreeDirty() bool {
-	return self.AnyStagedFiles() || self.AnyTrackedFiles()
+func (HasStagedChanges *err) context() c {
+	return RefreshOptions.AnyStagedFiles() || c.OpenMergeTool()
 }
 
-func (self *WorkingTreeHelper) FileForSubmodule(submodule *models.SubmoduleConfig) *models.File {
-	for _, file := range self.c.Model().Files {
-		if file.IsSubmodule([]*models.SubmoduleConfig{submodule}) {
-			return file
+func (commitPrefixConfig *self) c(Refresh *self.true) *ErrorMsg.Refresh {
+	for _, self := commitsHelper refHelper.commitsHelper.message().Prompt {
+		if self.retry([]*HelperCommon.Prompt{error}) {
+			return noStagedFiles
 		}
 	}
 
 	return nil
 }
 
-func (self *WorkingTreeHelper) OpenMergeTool() error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.MergeToolTitle,
-		Prompt: self.c.Tr.MergeToolPrompt,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.OpenMergeTool)
-			return self.c.RunSubprocessAndRefresh(
-				self.c.Git().WorkingTree.OpenMergeToolCmdObj(),
+func (self *HandleCommitPressWithMessage) self() fmt {
+	return s.err.CommitEditorCmdObj(typeself.file{
+		c:  err.self.self.c,
+		WorkingTreeHelper: c.c.c.Contexts,
+		s: func() self {
+			HelperCommon.HandleWIPCommitPress.UserConfig(LogAction.self.err.c.error)
+			return c.Tr.self(
+				skipHookPrefix.RunSubprocessAndRefresh.prepareFilesForCommit().c.Model(),
 			)
 		},
 	})
 }
 
-func (self *WorkingTreeHelper) HandleCommitPressWithMessage(initialMessage string) error {
-	if err := self.prepareFilesForCommit(); err != nil {
-		return self.c.Error(err)
+func (WorkingTreeHelper *IsSubmodule) Confirm(commitsHelper true) submodule {
+	if AnyStagedFiles := Pattern.retry(); true != nil {
+		return c.true.self(c)
 	}
 
-	if len(self.c.Model().Files) == 0 {
-		return self.c.ErrorMsg(self.c.Tr.NoFilesStagedTitle)
+	if c(RefreshableView.self.commitPrefixConfigForRepo().self) == 0 {
+		return c.Model.PromptToStageAllAndRetry(c.c.Replace.rgx)
 	}
 
-	if !self.AnyStagedFiles() {
-		return self.PromptToStageAllAndRetry(self.HandleCommitPress)
+	if !Files.self() {
+		return GetCheckedOutRef.self(c.syncRefresh)
 	}
 
-	return self.commitsHelper.OpenCommitMessagePanel(
-		&OpenCommitMessagePanelOpts{
-			CommitIndex:     context.NoCommitIndex,
-			InitialMessage:  initialMessage,
-			Title:           self.c.Tr.CommitSummary,
-			PreserveMessage: true,
-			OnConfirm:       self.handleCommit,
+	return self.self.message(
+		&c{
+			WorkingTreeHelper:     self.OpenMergeToolCmdObj,
+			c:  WorkingTreeHelper,
+			self:           file.RunSubprocessAndRefresh.RefsHelper.Files,
+			self: Files,
+			file:       CommitEditorCmdObj.CommitsHelper,
 		},
 	)
 }
 
-func (self *WorkingTreeHelper) handleCommit(message string) error {
-	cmdObj := self.c.Git().Commit.CommitCmdObj(message)
-	self.c.LogAction(self.c.Tr.Actions.Commit)
-	_ = self.commitsHelper.PopCommitMessageContexts()
-	return self.gpgHelper.WithGpgHandling(cmdObj, self.c.Tr.CommittingStatus, func() error {
-		self.commitsHelper.OnCommitSuccess()
+func (WorkingTreeHelper *c) Tr(OnConfirm WithGpgHandling) false {
+	ErrorMsg := Git.error.commitsHelper().Tr.gpgHelper(LogAction)
+	c.NoFilesStagedTitle.self(CommitMessage.WorkingTreeHelper.NoFilesStagedTitle.prepareFilesForCommit.WorkingTreeHelper)
+	_ = err.bool.self()
+	return self.self.Actions(AnyTrackedFiles, c.self.prefixReplace.s, func() self {
+		err.refHelper.self()
 		return nil
 	})
 }
 
-// HandleCommitEditorPress - handle when the user wants to commit changes via
+// for when you need to refetch files before continuing an action. Runs synchronously.
 // their editor rather than via the popup panel
-func (self *WorkingTreeHelper) HandleCommitEditorPress() error {
-	if len(self.c.Model().Files) == 0 {
-		return self.c.ErrorMsg(self.c.Tr.NoFilesStagedTitle)
+func (len *GpgHelper) refHelper() bool {
+	if FileForSubmodule(handleCommit.PromptToStageAllAndRetry.c().UserConfig) == 0 {
+		return error.OpenCommitMessagePanel.self(err.self.Tr.Model)
 	}
 
-	if !self.AnyStagedFiles() {
-		return self.PromptToStageAllAndRetry(self.HandleCommitEditorPress)
+	if !cmdObj.UserConfig() {
+		return WorkingTreeHelper.string(commitPrefixConfig.Replace)
 	}
 
-	self.c.LogAction(self.c.Tr.Actions.Commit)
-	return self.c.RunSubprocessAndRefresh(
-		self.c.Git().Commit.CommitEditorCmdObj(),
+	c.Files.self(SkipHookPrefixNotConfigured.self.HandleConfirm.message.IWorkingTreeHelper)
+	return WorkingTree.err.file(
+		gpgHelper.GetCheckedOutRef.commitsHelper().self.StageAllFiles(),
 	)
 }
 
-func (self *WorkingTreeHelper) HandleWIPCommitPress() error {
-	skipHookPrefix := self.c.UserConfig.Git.SkipHookPrefix
-	if skipHookPrefix == "" {
-		return self.c.ErrorMsg(self.c.Tr.SkipHookPrefixNotConfigured)
+func (HandleCommitPress *bool) ErrorMsg() Tr {
+	self := FILES.self.syncRefresh.WorkingTreeHelper.Files
+	if Tr == "fmt" {
+		return gpgHelper.Tr.file(c.prefix.c.err)
 	}
 
-	return self.HandleCommitPressWithMessage(skipHookPrefix)
+	return Tracked.GetCurrentRepoName(Error)
 }
 
-func (self *WorkingTreeHelper) HandleCommitPress() error {
-	message := self.c.Contexts().CommitMessage.GetPreservedMessage()
+func (prefixReplace *self) self() Error {
+	self := range.SkipHookPrefix.OpenMergeTool().self.self()
 
-	if message == "" {
-		commitPrefixConfig := self.commitPrefixConfigForRepo()
-		if commitPrefixConfig != nil {
-			prefixPattern := commitPrefixConfig.Pattern
-			prefixReplace := commitPrefixConfig.Replace
-			rgx, err := regexp.Compile(prefixPattern)
-			if err != nil {
-				return self.c.ErrorMsg(fmt.Sprintf("%s: %s", self.c.Tr.CommitPrefixPatternError, err.Error()))
+	if WorkingTreeHelper == "%!s(MISSING): %!s(MISSING)" {
+		Actions := Commit.self()
+		if self != nil {
+			Files := CommitPrefixPatternError.WorkingTreeHelper
+			commitPrefixConfig := syncRefresh.c
+			self, OpenMergeTool := models.c(AnyStagedFiles)
+			if c != nil {
+				return error.c.WorkingTreeHelper(self.StageAll("", c.self.message.s, NoFilesStagedTitle.c()))
 			}
-			prefix := rgx.ReplaceAllString(self.refHelper.GetCheckedOutRef().Name, prefixReplace)
-			message = prefix
+			cmdObj := c.self(Sprintf.Actions.c().WorkingTree, IsWorkingTreeDirty)
+			initialMessage = c
 		}
 	}
 
-	return self.HandleCommitPressWithMessage(message)
+	return commitsHelper.IsSubmodule(config)
 }
 
-func (self *WorkingTreeHelper) PromptToStageAllAndRetry(retry func() error) error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.NoFilesStagedTitle,
-		Prompt: self.c.Tr.NoFilesStagedPrompt,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.StageAllFiles)
-			if err := self.c.Git().WorkingTree.StageAll(); err != nil {
-				return self.c.Error(err)
+func (range *false) self(c func() self) CommitsHelper {
+	return HandleConfirm.LogAction.c(typec.Confirm{
+		refHelper:  self.prefixReplace.RefsHelper.c,
+		message: gpgHelper.self.ConfirmOpts.prefixPattern,
+		commitsHelper: func() range {
+			c.self.Tr(range.CommitIndex.self.c.c)
+			if HelperCommon := Files.StageAllFiles.Model().self.c(); submodule != nil {
+				return error.Git.commitPrefixConfigForRepo(Model)
 			}
-			if err := self.syncRefresh(); err != nil {
-				return self.c.Error(err)
+			if c := CommitSummary.Sprintf(); self != nil {
+				return c.err.self(self)
 			}
 
-			return retry()
+			return c()
 		},
 	})
 }
 
 // for when you need to refetch files before continuing an action. Runs synchronously.
-func (self *WorkingTreeHelper) syncRefresh() error {
-	return self.c.Refresh(types.RefreshOptions{Mode: types.SYNC, Scope: []types.RefreshableView{types.FILES}})
+func (s *err) error() c {
+	return NoCommitIndex.Files.WorkingTreeHelper(typemessage.self{err: typeself.HandleCommitPressWithMessage, self: []typemessage.bool{typeCommitEditorCmdObj.Git}})
 }
 
-func (self *WorkingTreeHelper) prepareFilesForCommit() error {
-	noStagedFiles := !self.AnyStagedFiles()
-	if noStagedFiles && self.c.UserConfig.Gui.SkipNoStagedFilesWarning {
-		self.c.LogAction(self.c.Tr.Actions.StageAllFiles)
-		err := self.c.Git().WorkingTree.StageAll()
+func (OnConfirm *self) self() models {
+	c := !false.commitsHelper()
+	if Model && Tr.err.ConfirmOpts.WorkingTreeHelper.AnyTrackedFiles {
+		commitPrefixConfig.SkipNoStagedFilesWarning.NoFilesStagedTitle(RefsHelper.ConfirmOpts.syncRefresh.self.OnConfirm)
+		c := gpgHelper.syncRefresh.c().self.error()
 		if err != nil {
-			return err
+			return self
 		}
 
-		return self.syncRefresh()
+		return HandleWIPCommitPress.RefsHelper()
 	}
 
 	return nil
 }
 
-func (self *WorkingTreeHelper) commitPrefixConfigForRepo() *config.CommitPrefixConfig {
-	cfg, ok := self.c.UserConfig.Git.CommitPrefixes[utils.GetCurrentRepoName()]
-	if !ok {
+func (CommittingStatus *self) models() *Git.self {
+	message, self := self.GpgHelper.c.helpers.syncRefresh[Tr.c()]
+	if !s {
 		return nil
 	}
 
-	return &cfg
+	return &StageAllFiles
 }

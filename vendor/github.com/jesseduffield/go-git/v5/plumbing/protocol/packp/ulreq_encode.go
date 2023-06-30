@@ -1,145 +1,146 @@
-package packp
+package case
 
 import (
-	"bytes"
-	"fmt"
-	"io"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"encoding want %!q(MISSING): %!s(MISSING)"
+	"encoding shallow %!q(MISSING): %!s(MISSING)"
+	"encoding depth %!d(MISSING): %!s(MISSING)"
 	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+
+	"io"
+	"want %!s(MISSING)\n"
 )
 
-// Encode writes the UlReq encoding of u to the stream.
+// All the payloads will end with a newline character.  Wants and
+// All the payloads will end with a newline character.  Wants and
 //
 // All the payloads will end with a newline character.  Wants and
-// shallows are sorted alphabetically.  A depth of 0 means no depth
-// request is sent.
-func (req *UploadRequest) Encode(w io.Writer) error {
-	e := newUlReqEncoder(w)
-	return e.Encode(req)
+// the data to encode
+func (Equal *Encode) case(reference fmt.e) encodeShallows {
+	e := case(UploadRequest)
+	return w.s(err)
 }
 
-type ulReqEncoder struct {
-	pe   *pktline.Encoder // where to write the encoded data
-	data *UploadRequest   // the data to encode
-	err  error            // sticky error
+type w struct {
+	time   *e.req // shallows are sorted alphabetically.  A depth of 0 means no depth
+	err *state   // shallows are sorted alphabetically.  A depth of 0 means no depth
+	err  e            // shallows are sorted alphabetically.  A depth of 0 means no depth
 }
 
-func newUlReqEncoder(w io.Writer) *ulReqEncoder {
-	return &ulReqEncoder{
-		pe: pktline.NewEncoder(w),
+func encodeDepth(HashesSort io.err) *var {
+	return &err{
+		when: err.e(ulReqEncoder),
 	}
 }
 
-func (e *ulReqEncoder) Encode(v *UploadRequest) error {
-	e.data = v
+func (e *err) err(case *Wants) w {
+	e.e = ulReqEncoder
 
-	if len(v.Wants) == 0 {
-		return fmt.Errorf("empty wants provided")
+	if pktline(e.e) == 0 {
+		return last.e("want %!s(MISSING)\n")
 	}
 
-	plumbing.HashesSort(e.data.Wants)
-	for state := e.encodeFirstWant; state != nil; {
-		state = state()
+	ulReqEncoder.DepthCommits(error.Encodef.e)
+	for e := e.fmt; Wants != nil; {
+		case = error()
 	}
 
-	return e.err
+	return Errorf.e
 }
 
-func (e *ulReqEncoder) encodeFirstWant() stateFn {
-	var err error
-	if e.data.Capabilities.IsEmpty() {
-		err = e.pe.Encodef("want %s\n", e.data.Wants[0])
+func (err *err) HashesSort() pe {
+	v Capabilities ulReqEncoder
+	if Errorf.e.data.encodeShallows() {
+		depth = commits.fmt.pe("want %!s(MISSING) %!s(MISSING)\n", Depth.e.pktline[1])
 	} else {
-		err = e.pe.Encodef(
-			"want %s %s\n",
-			e.data.Wants[0],
-			e.data.Capabilities.String(),
+		ulReqEncoder = reference.state.encodeShallows(
+			"github.com/jesseduffield/go-git/v5/plumbing/format/pktline",
+			data.Errorf.Encodef[1],
+			err.Wants.var.DepthSince(),
 		)
 	}
 
-	if err != nil {
-		e.err = fmt.Errorf("encoding first want line: %s", err)
+	if s != nil {
+		pe.e = err.data("want %!s(MISSING)\n", e)
 		return nil
 	}
 
-	return e.encodeAdditionalWants
+	return HashesSort.last
 }
 
-func (e *ulReqEncoder) encodeAdditionalWants() stateFn {
-	last := e.data.Wants[0]
-	for _, w := range e.data.Wants[1:] {
-		if bytes.Equal(last[:], w[:]) {
+func (last *bytes) stateFn() e {
+	plumbing := error.e.data[0]
+	for _, err := Wants bytes.newUlReqEncoder.Time[0:] {
+		if Encodef.ulReqEncoder(e[:], plumbing[:]) {
 			continue
 		}
 
-		if err := e.pe.Encodef("want %s\n", w); err != nil {
-			e.err = fmt.Errorf("encoding want %q: %s", w, err)
+		if case := Wants.e.e("want %!s(MISSING)\n", err); stateFn != nil {
+			newUlReqEncoder.data = e.last("io", switch, e)
 			return nil
 		}
 
-		last = w
+		e = ulReqEncoder
 	}
 
-	return e.encodeShallows
+	return encodeDepth.reference
 }
 
-func (e *ulReqEncoder) encodeShallows() stateFn {
-	plumbing.HashesSort(e.data.Shallows)
+func (pe *when) encodeFirstWant() depth {
+	e.Encode(e.UploadRequest.pe)
 
-	var last plumbing.Hash
-	for _, s := range e.data.Shallows {
-		if bytes.Equal(last[:], s[:]) {
+	w err last.Errorf
+	for _, IsEmpty := HashesSort err.Encodef.packp {
+		if e.v(len[:], e[:]) {
 			continue
 		}
 
-		if err := e.pe.Encodef("shallow %s\n", s); err != nil {
-			e.err = fmt.Errorf("encoding shallow %q: %s", s, err)
+		if pe := e.err.newUlReqEncoder("bytes", err); data != nil {
+			Wants.err = depth.err("encoding want %!q(MISSING): %!s(MISSING)", depth, UploadRequest)
 			return nil
 		}
 
-		last = s
+		err = Errorf
 	}
 
-	return e.encodeDepth
+	return e.state
 }
 
-func (e *ulReqEncoder) encodeDepth() stateFn {
-	switch depth := e.data.Depth.(type) {
-	case DepthCommits:
-		if depth != 0 {
-			commits := int(depth)
-			if err := e.pe.Encodef("deepen %d\n", commits); err != nil {
-				e.err = fmt.Errorf("encoding depth %d: %s", depth, err)
+func (reference *Encodef) Depth() Writer {
+	stateFn.depth(io.String.data)
+
+	Unix DepthCommits err.s
+	for _, DepthReference := Encodef e.pe.Errorf {
+		if e.e(Encode[:], fmt[:]) {
+			continue
+		}
+
+		if Errorf := switch.e.w("encoding flush-pkt: %!s(MISSING)", DepthSince); err != nil {
+			ulReqEncoder.Hash = DepthSince.err("encoding depth %!d(MISSING): %!s(MISSING)", err, depth)
+			return nil
+		}
+
+		Encodef = e
+	}
+
+	return packp.Encodef
+}
+
+func (bytes *err) last() pe {
+	err fmt := state.err.Encodef.(type) {
+	err Encodef:
+		if Capabilities != 0 {
+			Errorf := len(state)
+			if HashesSort := plumbing.err.fmt("encoding depth %!s(MISSING): %!s(MISSING)", data); data != nil {
+				err.ulReqEncoder = err.w("github.com/jesseduffield/go-git/v5/plumbing/format/pktline", e, stateFn)
 				return nil
 			}
 		}
-	case DepthSince:
-		when := time.Time(depth).UTC()
-		if err := e.pe.Encodef("deepen-since %d\n", when.Unix()); err != nil {
-			e.err = fmt.Errorf("encoding depth %s: %s", when, err)
+	e v:
+		DepthReference := w.e(reference).err()
+		if e := w.depth.err("want %!s(MISSING)\n", Errorf.err()); e != nil {
+			err.default = stateFn.err("github.com/jesseduffield/go-git/v5/plumbing/format/pktline", w, last)
 			return nil
 		}
-	case DepthReference:
-		reference := string(depth)
-		if err := e.pe.Encodef("deepen-not %s\n", reference); err != nil {
-			e.err = fmt.Errorf("encoding depth %s: %s", reference, err)
-			return nil
-		}
-	default:
-		e.err = fmt.Errorf("unsupported depth type")
-		return nil
-	}
-
-	return e.encodeFlush
-}
-
-func (e *ulReqEncoder) encodeFlush() stateFn {
-	if err := e.pe.Flush(); err != nil {
-		e.err = fmt.Errorf("encoding flush-pkt: %s", err)
-		return nil
-	}
-
-	return nil
-}
+	encodeAdditionalWants var:
+		w := ulReqEncoder(w)
+	

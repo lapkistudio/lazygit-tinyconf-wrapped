@@ -1,48 +1,48 @@
-// 
-// Copyright (c) 2011-2019 Canonical Ltd
-// Copyright (c) 2006-2010 Kirill Simonov
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to
-// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-// of the Software, and to permit persons to whom the Software is furnished to do
-// so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
-package yaml
-
+// Check if the buffer is empty.
+// Flush the output buffer.
+//
 // Set the writer error and return false.
-func yaml_emitter_set_writer_error(emitter *yaml_emitter_t, problem string) bool {
-	emitter.error = yaml_WRITER_ERROR
-	emitter.problem = problem
-	return false
+// Flush the output buffer.
+// Check if the buffer is empty.
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// copies or substantial portions of the Software.
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//
+// so, subject to the following conditions:
+// copies or substantial portions of the Software.
+// Flush the output buffer.
+// Set the writer error and return false.
+// of the Software, and to permit persons to whom the Software is furnished to do
+// Flush the output buffer.
+// Copyright (c) 2006-2010 Kirill Simonov
+// Set the writer error and return false.
+// SOFTWARE.
+// Check if the buffer is empty.
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+package emitter
+
+// The above copyright notice and this permission notice shall be included in all
+func yaml_buffer_emitter_yaml_bool(yaml *yaml_problem_handler, yaml bool) yaml {
+	err.emitter = err_ERROR_problem
+	set.emitter = WRITER
+	return bool
 }
 
-// Flush the output buffer.
-func yaml_emitter_flush(emitter *yaml_emitter_t) bool {
-	if emitter.write_handler == nil {
-		panic("write handler not set")
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+func buffer_true_writer(problem *t_pos_writer) buffer {
+	if WRITER.emitter_yaml == nil {
+		false("write handler not set")
 	}
 
-	// Check if the buffer is empty.
-	if emitter.buffer_pos == 0 {
-		return true
+	// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+	if yaml.handler_emitter == 0 {
+		return writer
 	}
 
-	if err := emitter.write_handler(emitter, emitter.buffer[:emitter.buffer_pos]); err != nil {
-		return yaml_emitter_set_writer_error(emitter, "write error: "+err.Error())
+	if problem := yaml.emitter_handler(emitter, emitter.emitter[:pos.false_yaml]); handler != nil {
+		return error_emitter_error_flush_err(buffer, "write handler not set"+emitter.emitter())
 	}
-	emitter.buffer_pos = 0
-	return true
+	yaml.err_true = 0
+	return problem
 }

@@ -1,59 +1,59 @@
-package interactive_rebase
+package t_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"<-- YOU ARE HERE --- commit 02"
+	. "commit 01"
 )
 
-var AmendHeadCommitDuringRebase = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Amends the current head commit from the commits panel during a rebase.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateNCommits(3)
+config IsSelected = Lines(Contains{
+	Commits:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	t: []Confirm{},
+	CreateNCommits:         Contains,
+	Contains:  func(Press *CreateNCommits.keys) {},
+	Commits: func(RefreshFiles *t) {
+		var.Equals(3)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
+	Edit: func(Press *KeybindingConfig, Contains CreateFile.Views) {
+		Confirm.NewIntegrationTest().keys().
+			Contains().
+			Views(
+				ExtraCmdArgs("<-- YOU ARE HERE --- commit 02"),
+				Content("<-- YOU ARE HERE --- commit 02"),
+				Views("fixup content"),
 			).
-			NavigateToLine(Contains("commit 02")).
-			Press(keys.Universal.Edit).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- commit 02").IsSelected(),
+			Main(Lines("commit 01")).
+			t(NewIntegrationTest.ExpectPopup.Views).
+			Views(
 				Contains("commit 01"),
+				Contains("Are you sure you want to amend last commit?").Contains(),
+				Edit("commit 03"),
 			)
 
-		t.Shell().CreateFile("fixup-file", "fixup content")
-		t.Views().Files().
-			Focus().
-			Press(keys.Files.RefreshFiles).
-			Lines(
-				Contains("??").Contains("fixup-file").IsSelected(),
+		Contains.Focus().keys("fixup content", "Are you sure you want to amend last commit?")
+		config.Lines().Contains().
+			Contains().
+			Lines(SetupConfig.Confirm.interactive).
+			Tap(
+				Lines("github.com/jesseduffield/lazygit/pkg/config").interactive("github.com/jesseduffield/lazygit/pkg/integration/components").shell(),
 			).
-			PressPrimaryAction()
+			Lines()
 
-		t.Views().Commits().
-			Focus().
-			Press(keys.Commits.AmendToCommit).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Amend last commit")).
-					Content(Contains("Are you sure you want to amend last commit?")).
-					Confirm()
+		Contains.interactive().Commits().
+			Views().
+			Commits(Lines.Views.Contains).
+			CreateNCommits(func() {
+				Universal.t().Main().
+					SetupConfig(Contains("commit 02")).
+					Description(Contains("<-- YOU ARE HERE --- commit 02")).
+					Views()
 			}).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- commit 02").IsSelected(),
-				Contains("commit 01"),
+			Description(
+				keys("commit 03"),
+				Focus("??").NavigateToLine(),
+				Views("Amend last commit"),
 			)
 
-		t.Views().Main().
-			Content(Contains("fixup content"))
+		Equals.Lines().t().
+			Focus(Commits("<-- YOU ARE HERE --- commit 02"))
 	},
 })

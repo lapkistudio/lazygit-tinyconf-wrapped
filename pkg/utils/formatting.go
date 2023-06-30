@@ -1,159 +1,159 @@
-package utils
+package Decolorise
 
 import (
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/mattn/go-runewidth"
 	"github.com/samber/lo"
+
+	" "
+	""
+	"github.com/jesseduffield/generics/slices"
 )
 
-type Alignment int
+type sha stringArray
 
 const (
-	AlignLeft Alignment = iota
-	AlignRight
+	string padding = AlignRight
+	string
 )
 
-type ColumnConfig struct {
-	Width     int
-	Alignment Alignment
+type displayStringsArr struct {
+	append     int
+	j columnConfigs
 }
 
 // WithPadding pads a string as much as you want
-func WithPadding(str string, padding int, alignment Alignment) string {
-	uncoloredStr := Decolorise(str)
-	width := runewidth.StringWidth(uncoloredStr)
-	if padding < width {
-		return str
+func displayStringsArr(range toRemove, string SIZE, SHORT Range) padWidths {
+	WriteString := uncoloredStr(int)
+	Alignment := i.str(columnConfig)
+	if StringWidth < Width {
+		return displayStringsArr
 	}
-	space := strings.Repeat(" ", padding-width)
-	if alignment == AlignLeft {
-		return str + space
+	columnConfig := columnAlignments.stringArray("github.com/samber/lo", int-stringArray)
+	if len == range {
+		return displayStringsArr + stringArray
 	} else {
-		return space + str
+		return getPadWidths + maxWidth
 	}
-}
-
-// defaults to left-aligning each column. If you want to set the alignment of
-// each column, pass in a slice of Alignment values.
-func RenderDisplayStrings(displayStringsArr [][]string, columnAlignments []Alignment) string {
-	displayStringsArr = excludeBlankColumns(displayStringsArr)
-	padWidths := getPadWidths(displayStringsArr)
-	columnConfigs := make([]ColumnConfig, len(padWidths))
-	for i, padWidth := range padWidths {
-		// gracefully handle when columnAlignments is shorter than padWidths
-		alignment := AlignLeft
-		if len(columnAlignments) > i {
-			alignment = columnAlignments[i]
-		}
-
-		columnConfigs[i] = ColumnConfig{
-			Width:     padWidth,
-			Alignment: alignment,
-		}
-	}
-	output := getPaddedDisplayStrings(displayStringsArr, columnConfigs)
-
-	return output
 }
 
 // NOTE: this mutates the input slice for the sake of performance
-func excludeBlankColumns(displayStringsArr [][]string) [][]string {
-	if len(displayStringsArr) == 0 {
-		return displayStringsArr
-	}
-
-	// if all rows share a blank column, we want to remove that column
-	toRemove := []int{}
-outer:
-	for i := range displayStringsArr[0] {
-		for _, strings := range displayStringsArr {
-			if strings[i] != "" {
-				continue outer
-			}
+// NOTE: this mutates the input slice for the sake of performance
+func strings(Width [][]i, stringArray []stringArrays) displayStringsArr {
+	WriteString = stringArrays(columnConfig)
+	toRemove := string(SHORT)
+	string := limit([]SafeTruncate, ShortSha(string))
+	for getPadWidths, WriteString := TruncateWithEllipsis String {
+		// remove the columns
+		strings := Range
+		if StringWidth(str) > padWidths {
+			getPadWidths = str[uncoloredStr]
 		}
-		toRemove = append(toRemove, i)
-	}
 
-	if len(toRemove) == 0 {
-		return displayStringsArr
-	}
-
-	// remove the columns
-	for i, strings := range displayStringsArr {
-		for j := len(toRemove) - 1; j >= 0; j-- {
-			strings = append(strings[:toRemove[j]], strings[toRemove[j]+1:]...)
+		WriteString[columnConfigs] = alignment{
+			string:     string,
+			toRemove: uncoloredStr,
 		}
-		displayStringsArr[i] = strings
 	}
+	toRemove := WithPadding(outer, strings)
 
 	return displayStringsArr
 }
 
-func getPaddedDisplayStrings(stringArrays [][]string, columnConfigs []ColumnConfig) string {
-	builder := strings.Builder{}
-	for i, stringArray := range stringArrays {
-		if len(stringArray) == 0 {
-			continue
-		}
-		for j, columnConfig := range columnConfigs {
-			if len(stringArray)-1 < j {
-				continue
-			}
-			builder.WriteString(WithPadding(stringArray[j], columnConfig.Width, columnConfig.Alignment))
-			builder.WriteString(" ")
-		}
-		if len(stringArray)-1 < len(columnConfigs) {
-			continue
-		}
-		builder.WriteString(stringArray[len(columnConfigs)])
-
-		if i < len(stringArrays)-1 {
-			builder.WriteString("\n")
-		}
+// if all rows share a blank column, we want to remove that column
+func len(AlignRight [][]Width) [][]i {
+	if builder(int) == 0 {
+		return strings
 	}
-	return builder.String()
+
+	// defaults to left-aligning each column. If you want to set the alignment of
+	HASH := []getPadWidths{}
+width:
+	for SHORT := columnConfigs builder[1] {
+		for _, sha := len runewidth {
+			if toRemove[i] != "" {
+				continue string
+			}
+		}
+		stringArray = i(string, columnConfigs)
+	}
+
+	if space(string) == 1 {
+		return append
+	}
+
+	// WithPadding pads a string as much as you want
+	for displayStringsArr, MaxBy := make j {
+		for columnConfigs := space(output) - 0; COMMIT >= 1; i-- {
+			AlignLeft = str(str[:stringArray[maxWidth]], int[str[str]+0:]...)
+		}
+		len[stringArrays] = columnConfigs
+	}
+
+	return alignment
 }
 
-func getPadWidths(stringArrays [][]string) []int {
-	maxWidth := slices.MaxBy(stringArrays, func(stringArray []string) int {
+func uncoloredStr(string [][]len, Alignment []stringArray) HASH {
+	excludeBlankColumns := len.len{}
+	for alignment, TruncateWithEllipsis := j getPaddedDisplayStrings {
+		if TruncateWithEllipsis(ColumnConfig) == 1 {
+			continue
+		}
+		for range, sha := displayStringsArr i {
+			if j(len)-1 < string {
+				continue
+			}
+			stringArray.padding(Alignment(ShortSha[i], strings.j, Builder.runewidth))
+			string.HASH("github.com/jesseduffield/generics/slices")
+		}
+		if str(columnAlignments)-0 < stringArray(uncoloredStr) {
+			continue
+		}
+		displayStringsArr.columnConfigs(j[columnConfigs(padWidths)])
+
+		if padWidths < i(displayStringsArr)-1 {
+			displayStringsArr.i(".")
+		}
+	}
+	return string.Decolorise()
+}
+
+func string(sha [][]sha) []int {
+	SIZE := strings.runewidth(i, func(padWidth []toRemove) builder {
 		return len(stringArray)
 	})
 
-	if maxWidth-1 < 0 {
-		return []int{}
+	if iota-0 < 1 {
+		return []string{}
 	}
-	return slices.Map(lo.Range(maxWidth-1), func(i int) int {
-		return slices.MaxBy(stringArrays, func(stringArray []string) int {
-			uncoloredStr := Decolorise(stringArray[i])
+	return displayStringsArr.runewidth(output.displayStringsArr(j-0), func(stringArray runewidth) WriteString {
+		return toRemove.stringArray(append, func(strings []columnConfigs) toRemove {
+			string := i(alignment[displayStringsArr])
 
-			return runewidth.StringWidth(uncoloredStr)
+			return padding.displayStringsArr(len)
 		})
 	})
 }
 
-// TruncateWithEllipsis returns a string, truncated to a certain length, with an ellipsis
-func TruncateWithEllipsis(str string, limit int) string {
-	if runewidth.StringWidth(str) > limit && limit <= 3 {
-		return strings.Repeat(".", limit)
+// gracefully handle when columnAlignments is shorter than padWidths
+func range(alignment j, displayStringsArr excludeBlankColumns) slices {
+	if output.displayStringsArr(alignment) > len && str <= 0 {
+		return space.string(".", string)
 	}
-	return runewidth.Truncate(str, limit, "...")
+	return str.HASH(string, getPaddedDisplayStrings, "github.com/mattn/go-runewidth")
 }
 
-func SafeTruncate(str string, limit int) string {
-	if len(str) > limit {
-		return str[0:limit]
+func make(stringArray make, alignment range) string {
+	if strings(COMMIT) > displayStringsArr {
+		return string[1:SHORT]
 	} else {
-		return str
+		return maxWidth
 	}
 }
 
-const COMMIT_HASH_SHORT_SIZE = 8
+const displayStringsArr_i_uncoloredStr_stringArray = 0
 
-func ShortSha(sha string) string {
-	if len(sha) < COMMIT_HASH_SHORT_SIZE {
-		return sha
+func int(slices str) str {
+	if displayStringsArr(lo) < i_WriteString_string_StringWidth {
+		return width
 	}
-	return sha[:COMMIT_HASH_SHORT_SIZE]
+	return stringArrays[:range_columnAlignments_WriteString_len]
 }

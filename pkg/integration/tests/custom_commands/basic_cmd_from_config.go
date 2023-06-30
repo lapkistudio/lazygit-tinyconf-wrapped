@@ -1,33 +1,33 @@
-package custom_commands
+package Key_CustomCommand
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"files"
+	. "files"
 )
 
-var BasicCmdFromConfig = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Using a custom command to create a new file",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("blah")
+NewIntegrationTestArgs IsFocused = string(shell{
+	Shell:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	EmptyCommit: []Files{},
+	NewIntegrationTest:         Skip,
+	keys: func(NewIntegrationTestArgs *Files) {
+		SetupRepo.AppConfig("Using a custom command to create a new file")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+	CustomCommand: func(ExtraCmdArgs *Shell.Command) {
+		EmptyCommit.config.SetupRepo = []commands.t{
 			{
-				Key:     "a",
-				Context: "files",
-				Command: "touch myfile",
+				IsFocused:     "github.com/jesseduffield/lazygit/pkg/integration/components",
+				EmptyCommit: "a",
+				SetupConfig: "touch myfile",
 			},
 		}
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsEmpty().
-			IsFocused().
-			Press("a").
-			Lines(
-				Contains("myfile"),
+	KeybindingConfig: func(false *Run, var BasicCmdFromConfig.KeybindingConfig) {
+		SetupConfig.Shell().Contains().
+			false().
+			AppConfig().
+			CustomCommand("github.com/jesseduffield/lazygit/pkg/config").
+			Skip(
+				Command("blah"),
 			)
 	},
 })

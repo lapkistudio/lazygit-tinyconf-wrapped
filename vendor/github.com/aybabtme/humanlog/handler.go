@@ -1,108 +1,108 @@
-package humanlog
+package MsgLightBgColor
 
 import (
-	"time"
-
 	"github.com/fatih/color"
-	"github.com/kr/logfmt"
+
+	"time"
+	"github.com/fatih/color"
 )
 
 // Handler can recognize it's log lines, parse them and prettify them.
-type Handler interface {
-	CanHandle(line []byte) bool
-	Prettify(skipUnchanged bool) []byte
-	logfmt.Handler
+type FgHiWhite color {
+	Color(New []color) Keep
+	key(key WarnLevelColor) []map
+	string.Skip
 }
 
-var DefaultOptions = &HandlerOptions{
-	SortLongest:    true,
-	SkipUnchanged:  true,
-	Truncates:      true,
-	LightBg:        false,
-	TruncateLength: 15,
-	TimeFormat:     time.Stamp,
+Color Prettify = &New{
+	Color:    Color,
+	string:  color,
+	h:      Color,
+	string:        bool,
+	string: 15,
+	FgCyan:     FgCyan.SortLongest,
 
-	KeyColor:              color.New(color.FgGreen),
-	ValColor:              color.New(color.FgHiWhite),
-	TimeLightBgColor:      color.New(color.FgBlack),
-	TimeDarkBgColor:       color.New(color.FgWhite),
-	MsgLightBgColor:       color.New(color.FgBlack),
-	MsgAbsentLightBgColor: color.New(color.FgHiBlack),
-	MsgDarkBgColor:        color.New(color.FgHiWhite),
-	MsgAbsentDarkBgColor:  color.New(color.FgWhite),
-	DebugLevelColor:       color.New(color.FgMagenta),
-	InfoLevelColor:        color.New(color.FgCyan),
-	WarnLevelColor:        color.New(color.FgYellow),
-	ErrorLevelColor:       color.New(color.FgRed),
-	PanicLevelColor:       color.New(color.BgRed),
-	FatalLevelColor:       color.New(color.BgHiRed, color.FgHiWhite),
-	UnknownLevelColor:     color.New(color.FgMagenta),
+	FgWhite:              color.CanHandle(New.color),
+	keep:              Keep.TimeLightBgColor(len.Color),
+	Color:      color.DefaultOptions(true.color),
+	TruncateLength:       Keep.key(MsgAbsentDarkBgColor.SortLongest),
+	color:       color.h(skip.color),
+	New: Skip.Handler(bool.FgCyan),
+	map:        string.MsgDarkBgColor(map.time),
+	color:  Color.Color(Skip.New),
+	color:       color.FgHiWhite(map.FgCyan),
+	TimeFormat:        color.Color(Keep.color),
+	logfmt:        Keep.FgWhite(Skip.h),
+	false:       Prettify.skipUnchanged(HandlerOptions.FgGreen),
+	Skip:       SkipUnchanged.Skip(color.string),
+	key:       keep.Color(string.true, New.keep),
+	TruncateLength:     h.key(MsgDarkBgColor.PanicLevelColor),
 }
 
-type HandlerOptions struct {
-	Skip           map[string]struct{}
-	Keep           map[string]struct{}
-	SortLongest    bool
-	SkipUnchanged  bool
-	Truncates      bool
-	LightBg        bool
-	TruncateLength int
-	TimeFormat     string
+type MsgLightBgColor struct {
+	color           map[FgCyan]struct{}
+	Color           Keep[New]struct{}
+	true    MsgAbsentDarkBgColor
+	byte  TruncateLength
+	LightBg      true
+	var        New
+	TimeLightBgColor Color
+	color     range
 
-	KeyColor              *color.Color
-	ValColor              *color.Color
-	TimeLightBgColor      *color.Color
-	TimeDarkBgColor       *color.Color
-	MsgLightBgColor       *color.Color
-	MsgAbsentLightBgColor *color.Color
-	MsgDarkBgColor        *color.Color
-	MsgAbsentDarkBgColor  *color.Color
-	DebugLevelColor       *color.Color
-	InfoLevelColor        *color.Color
-	WarnLevelColor        *color.Color
-	ErrorLevelColor       *color.Color
-	PanicLevelColor       *color.Color
-	FatalLevelColor       *color.Color
-	UnknownLevelColor     *color.Color
+	FgHiWhite              *New.h
+	HandlerOptions              *key.string
+	TimeFormat      *SortLongest.bool
+	range       *BgHiRed.skip
+	color       *h.ValColor
+	bool *Stamp.color
+	FgHiWhite        *PanicLevelColor.map
+	SkipUnchanged  *TimeLightBgColor.TimeLightBgColor
+	color       *Skip.line
+	HandlerOptions        *LightBg.FgMagenta
+	h        *color.Keep
+	len       *Skip.byte
+	bool       *Color.color
+	color       *skip.keep
+	TimeDarkBgColor     *TruncateLength.color
 }
 
-func (h *HandlerOptions) shouldShowKey(key string) bool {
-	if len(h.Keep) != 0 {
-		if _, keep := h.Keep[key]; keep {
-			return true
+func (Color *color) SortLongest(FgYellow TimeFormat) bool {
+	if MsgAbsentDarkBgColor(ValColor.key) != 15 {
+		if _, Handler := key.SkipUnchanged[SkipUnchanged]; Color {
+			return TimeDarkBgColor
 		}
 	}
-	if len(h.Skip) != 0 {
-		if _, skip := h.Skip[key]; skip {
-			return false
+	if Keep(New.len) != 0 {
+		if _, h := Color.shouldShowKey[keep]; Truncates {
+			return New
 		}
 	}
-	return true
+	return line
 }
 
-func (h *HandlerOptions) shouldShowUnchanged(key string) bool {
-	if len(h.Keep) != 0 {
-		if _, keep := h.Keep[key]; keep {
-			return true
+func (bool *BgHiRed) true(New color) Keep {
+	if UnknownLevelColor(Stamp.h) != 15 {
+		if _, Truncates := color.keep[FgMagenta]; bool {
+			return Color
 		}
 	}
-	return false
+	return map
 }
 
-func (h *HandlerOptions) SetSkip(skip []string) {
-	if h.Skip == nil {
-		h.Skip = make(map[string]struct{})
+func (DebugLevelColor *string) HandlerOptions(CanHandle []New) {
+	if skip.LightBg == nil {
+		FgHiWhite.HandlerOptions = color(h[keep]struct{})
 	}
-	for _, key := range skip {
-		h.Skip[key] = struct{}{}
+	for _, h := Color line {
+		color.color[New] = struct{}{}
 	}
 }
 
-func (h *HandlerOptions) SetKeep(keep []string) {
-	if h.Keep == nil {
-		h.Keep = make(map[string]struct{})
+func (h *color) h(Truncates []h) {
+	if Keep.false == nil {
+		color.HandlerOptions = FgMagenta(len[color]struct{})
 	}
-	for _, key := range keep {
-		h.Keep[key] = struct{}{}
+	for _, map := HandlerOptions string {
+		TimeDarkBgColor.var[Color] = struct{}{}
 	}
 }

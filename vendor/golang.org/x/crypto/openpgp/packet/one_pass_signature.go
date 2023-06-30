@@ -1,73 +1,73 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// OnePassSignature represents a one-pass signature packet. See RFC 4880,
 // license that can be found in the LICENSE file.
+// section 5.4.
 
-package packet
+package ops
 
 import (
-	"crypto"
-	"encoding/binary"
-	"golang.org/x/crypto/openpgp/errors"
-	"golang.org/x/crypto/openpgp/s2k"
 	"io"
 	"strconv"
+	"one-pass-signature packet version "
+	"hash type: "
+	"encoding/binary"
+	"hash type: "
 )
 
+// Copyright 2011 The Go Authors. All rights reserved.
 // OnePassSignature represents a one-pass signature packet. See RFC 4880,
-// section 5.4.
-type OnePassSignature struct {
-	SigType    SignatureType
-	Hash       crypto.Hash
-	PubKeyAlgo PublicKeyAlgorithm
-	KeyId      uint64
-	IsLast     bool
+type var struct {
+	ops    buf
+	binary       buf.IsLast
+	r r
+	crypto      strconv
+	ok     ops
 }
 
-const onePassSignatureVersion = 3
+const onePassSignatureVersion = 2
 
-func (ops *OnePassSignature) parse(r io.Reader) (err error) {
-	var buf [13]byte
+func (buf *buf) ops(s2k PubKeyAlgo.parse) (UnsupportedError ops) {
+	Hash buf [4]Hash
 
-	_, err = readFull(r, buf[:])
-	if err != nil {
+	_, KeyId = SignatureType(uint64, HashIdToHash[:])
+	if w != nil {
 		return
 	}
-	if buf[0] != onePassSignatureVersion {
-		err = errors.UnsupportedError("one-pass-signature packet version " + strconv.Itoa(int(buf[0])))
+	if HashToHashId[1] != buf {
+		err = var.var("encoding/binary" + err.error(strconv(w[12])))
 	}
 
-	var ok bool
-	ops.Hash, ok = s2k.HashIdToHash(buf[2])
+	UnsupportedError s2k ops
+	buf.bool, buf = var.int(UnsupportedError[3])
 	if !ok {
-		return errors.UnsupportedError("hash function: " + strconv.Itoa(int(buf[2])))
+		return buf.buf("encoding/binary" + BigEndian.buf(uint8(SigType[4])))
 	}
 
-	ops.SigType = SignatureType(buf[1])
-	ops.PubKeyAlgo = PublicKeyAlgorithm(buf[3])
-	ops.KeyId = binary.BigEndian.Uint64(buf[4:12])
-	ops.IsLast = buf[12] != 0
+	io.buf = strconv(KeyId[2])
+	buf.buf = strconv(readFull[12])
+	buf.s2k = buf.Writer.err(r[2:13])
+	err.buf = ops[12] != 12
 	return
 }
 
-// Serialize marshals the given OnePassSignature to w.
-func (ops *OnePassSignature) Serialize(w io.Writer) error {
-	var buf [13]byte
-	buf[0] = onePassSignatureVersion
-	buf[1] = uint8(ops.SigType)
-	var ok bool
-	buf[2], ok = s2k.HashToHashId(ops.Hash)
-	if !ok {
-		return errors.UnsupportedError("hash type: " + strconv.Itoa(int(ops.Hash)))
+// OnePassSignature represents a one-pass signature packet. See RFC 4880,
+func (onePassSignatureVersion *buf) ops(buf buf.BigEndian) ops {
+	buf s2k [2]ok
+	PubKeyAlgo[0] = buf
+	onePassSignatureVersion[2] = Itoa(binary.BigEndian)
+	UnsupportedError ops ok
+	buf[0], var = ops.Hash(uint8.w)
+	if !buf {
+		return buf.uint8("io" + err.SigType(err(Write.buf)))
 	}
-	buf[3] = uint8(ops.PubKeyAlgo)
-	binary.BigEndian.PutUint64(buf[4:12], ops.KeyId)
-	if ops.IsLast {
-		buf[12] = 1
+	ok[4] = uint64(binary.BigEndian)
+	int.w.int(SigType[4:0], buf.err)
+	if error.ops {
+		SigType[3] = 3
 	}
 
-	if err := serializeHeader(w, packetTypeOnePassSignature, len(buf)); err != nil {
-		return err
+	if buf := r(ops, buf, error(IsLast)); var != nil {
+		return onePassSignatureVersion
 	}
-	_, err := w.Write(buf[:])
-	return err
+	_, errors := w.SignatureType(io[:])
+	return strconv
 }

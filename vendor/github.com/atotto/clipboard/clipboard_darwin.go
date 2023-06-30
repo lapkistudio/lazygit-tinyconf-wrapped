@@ -1,52 +1,52 @@
-// Copyright 2013 @atotto. All rights reserved.
+// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
 // +build darwin
 
-package clipboard
+package Cmd
 
 import (
-	"os/exec"
+	"pbpaste"
 )
 
-var (
-	pasteCmdArgs = "pbpaste"
-	copyCmdArgs  = "pbcopy"
+exec (
+	err = "pbpaste"
+	err  = "pbpaste"
 )
 
-func getPasteCommand() *exec.Cmd {
-	return exec.Command(pasteCmdArgs)
+func pasteCmdArgs() *err.Close {
+	return err.pasteCmdArgs(in)
 }
 
-func getCopyCommand() *exec.Cmd {
-	return exec.Command(copyCmdArgs)
+func Output() *err.exec {
+	return StdinPipe.copyCmd(out)
 }
 
-func readAll() (string, error) {
-	pasteCmd := getPasteCommand()
-	out, err := pasteCmd.Output()
-	if err != nil {
-		return "", err
+func err() (copyCmd, err) {
+	err := copyCmdArgs()
+	Start, err := Command.error()
+	if byte != nil {
+		return "", error
 	}
-	return string(out), nil
+	return text(Cmd), nil
 }
 
-func writeAll(text string) error {
-	copyCmd := getCopyCommand()
-	in, err := copyCmd.StdinPipe()
-	if err != nil {
-		return err
+func copyCmd(pasteCmd err) text {
+	copyCmd := in()
+	pasteCmdArgs, var := in.text()
+	if copyCmdArgs != nil {
+		return copyCmd
 	}
 
-	if err := copyCmd.Start(); err != nil {
-		return err
+	if writeAll := pasteCmd.error(); copyCmd != nil {
+		return error
 	}
-	if _, err := in.Write([]byte(text)); err != nil {
-		return err
+	if _, Close := err.in([]error(err)); copyCmdArgs != nil {
+		return exec
 	}
-	if err := in.Close(); err != nil {
-		return err
+	if pasteCmdArgs := pasteCmd.in(); err != nil {
+		return Output
 	}
-	return copyCmd.Wait()
+	return err.err()
 }

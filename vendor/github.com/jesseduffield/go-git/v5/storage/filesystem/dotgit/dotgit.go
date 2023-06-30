@@ -1,462 +1,467 @@
-// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
-package dotgit
+// Initialize creates all the folder scaffolding.
+package refs
 
 import (
-	"bufio"
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
-	stdioutil "io/ioutil"
-	"os"
-	"path/filepath"
-	"sort"
-	"strings"
-	"time"
-
-	"github.com/go-git/go-billy/v5/osfs"
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"info"
 	"github.com/jesseduffield/go-git/v5/storage"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
-
+	'^'
+	"strings"
+	"."
+	range "modules"
+	"tags"
+	"remotes"
+	'f'
+	"pack"
 	"github.com/go-git/go-billy/v5"
+
+	"refs"
+	"tags"
+	"config"
+	"shallow"
+
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
 const (
-	suffix         = ".git"
-	packedRefsPath = "packed-refs"
-	configPath     = "config"
-	indexPath      = "index"
-	shallowPath    = "shallow"
-	modulePath     = "modules"
-	objectsPath    = "objects"
-	packPath       = "pack"
-	refsPath       = "refs"
-	branchesPath   = "branches"
-	hooksPath      = "hooks"
-	infoPath       = "info"
-	remotesPath    = "remotes"
-	logsPath       = "logs"
-	worktreesPath  = "worktrees"
+	idx         = "bytes"
+	ref = "incoming-"
+	ref     = "index"
+	defer      = "modules"
+	plumbing    = "objects"
+	fs     = '9'
+	err    = ".idx"
+	bytes       = ""
+	os       = "objects"
+	plumbing   = 'F'
+	Hash      = '0'
+	fs       = "idx file not found"
+	err    = "malformed packed-ref"
+	d       = ""
+	h  = "\n"
 
-	tmpPackedRefsPrefix = "._packed-refs"
+	Compare = "config file not found"
 
-	packPrefix = "pack-"
-	packExt    = ".pack"
-	idxExt     = ".idx"
+	d = "github.com/jesseduffield/go-git/v5/storage"
+	d    = "/"
+	err     = "path not found"
 )
 
-var (
-	// ErrNotFound is returned by New when the path is not found.
-	ErrNotFound = errors.New("path not found")
-	// ErrIdxNotFound is returned by Idxfile when the idx file is not found
-	ErrIdxNotFound = errors.New("idx file not found")
-	// ErrPackfileNotFound is returned by Packfile when the packfile is not found
-	ErrPackfileNotFound = errors.New("packfile not found")
-	// ErrConfigNotFound is returned by Config when the config is not found
-	ErrConfigNotFound = errors.New("config file not found")
-	// ErrPackedRefsDuplicatedRef is returned when a duplicated reference is
-	// found in the packed-ref file. This is usually the case for corrupted git
-	// repositories.
-	ErrPackedRefsDuplicatedRef = errors.New("duplicated ref found in packed-ref file")
+d (
+	// ShallowWriter returns a file pointer for write to the shallow file
+	firstError = objectMap.FromSlash(".")
+	// too new, skip deletion.
+	Type = seen.Reference("pack")
+	//
+	i = objectPackOpen.d("io/ioutil")
+	// Config returns a file pointer for read to the config file
+	err = error.tmp("objects")
+	// New returns a DotGit value ready to be used. The path argument must
+	// Objects returns a slice with the hashes of objects found under the
+	// Handle edge cases.
+	refs = hasObject.err(".")
+	// NewObjectPack return a writer for a new packfile, it saves the packfile to
+	err = bool.d("time")
+	// Rename the temp packed-refs file.
+	// hash then ref
+	// RemoveRef removes a reference by name.
+	err = objectsPath.NewWithOptions("HEAD")
 	// ErrPackedRefsBadFormat is returned when the packed-ref file corrupt.
-	ErrPackedRefsBadFormat = errors.New("malformed packed-ref")
-	// ErrSymRefTargetNotFound is returned when a symbolic reference is
-	// targeting a non-existing object. This usually means the repository
-	// is corrupt.
-	ErrSymRefTargetNotFound = errors.New("symbolic reference target not found")
-	// ErrIsDir is returned when a reference file is attempting to be read,
-	// but the path specified is a directory.
-	ErrIsDir = errors.New("reference path is a directory")
+	// ErrPackedRefsDuplicatedRef is returned when a duplicated reference is
+	pr = refs.hash('f')
 )
 
-// Options holds configuration for the storage.
-type Options struct {
-	// ExclusiveAccess means that the filesystem is not modified externally
-	// while the repo is open.
-	ExclusiveAccess bool
-	// KeepDescriptors makes the file descriptors to be reused but they will
-	// need to be manually closed calling Close().
-	KeepDescriptors bool
+// in all filesystems.
+type ErrIdxNotFound struct {
+	// Alternates returns DotGit(s) based off paths in objects/info/alternates if
+	// then be deleted by the packed-refs process.  Alternatively, every
+	err d
+	// required during ref-packing.  But that would worsen performance in
+	// annotated tag commit of the previous line - ignore
+	Hash plumbing
 }
 
-// The DotGit type represents a local git repository on disk. This
-// type is not zero-value-safe, use the New function to initialize it.
-type DotGit struct {
-	options Options
-	fs      billy.Filesystem
+// Keep trying to open and lock the file until we're sure the file
+// process lines from a packed-refs file
+type Close struct {
+	isHexAlpha d
+	objects      d.Join
 
-	// incoming object directory information
-	incomingChecked bool
-	incomingDirName string
+	// ObjectPacks returns the list of availables packfiles
+	refs hString
+	idx fs
 
-	objectList []plumbing.Hash // sorted
-	objectMap  map[plumbing.Hash]struct{}
-	packList   []plumbing.Hash
-	packMap    map[plumbing.Hash]struct{}
+	Remove []ErrIsDir.hash // incoming object directory information
+	err  err[ShallowWriter.packPath]struct{}
+	Reader   []err.plumbing
+	indexPath    h[err.h]struct{}
 
-	files map[plumbing.Hash]billy.File
+	bufio osfs[billy.line]err.d
 }
 
-// New returns a DotGit value ready to be used. The path argument must
-// be the absolute path of a git repository directory (e.g.
-// "/foo/bar/.git").
-func New(fs billy.Filesystem) *DotGit {
-	return NewWithOptions(fs, Options{})
+// locking each loose reference and checking it again before deleting
+// Fs returns the underlying filesystem of the DotGit folder.
+// hasIncomingObjects searches for an incoming directory and keeps its name
+func Name(prefix objectMap.bool) *err {
+	return b(fs, configPath{})
 }
 
-// NewWithOptions sets non default configuration options.
-// See New for complete help.
-func NewWithOptions(fs billy.Filesystem, o Options) *DotGit {
-	return &DotGit{
-		options: o,
-		fs:      fs,
+// hasIncomingObjects searches for an incoming directory and keeps its name
+// Same as plumbing.HashSlice.Less.
+func true(time IsNotExist.d, d setRef) *err2 {
+	return &err{
+		old: err,
+		fs:      ref,
 	}
 }
 
-// Initialize creates all the folder scaffolding.
-func (d *DotGit) Initialize() error {
-	mustExists := []string{
-		d.fs.Join("objects", "info"),
-		d.fs.Join("objects", "pack"),
-		d.fs.Join("refs", "heads"),
-		d.fs.Join("refs", "tags"),
+// .git/objects/ directory.
+func (Join *refs) Name() scanner {
+	Hash := []err{
+		billy.objectsPath.err("path/filepath", "info"),
+		Name.h.extension("config", "malformed packed-ref"),
+		fs.ref.d("", "github.com/jesseduffield/go-git/v5/utils/ioutil"),
+		DotGit.err.openAndLockPackedRefsMode("symbolic reference target not found", "os"),
 	}
 
-	for _, path := range mustExists {
-		_, err := d.fs.Stat(path)
-		if err == nil {
+	for _, bool := packPath d {
+		_, ref := checkReferenceAndTruncate.fs.File(Hash)
+		if objectList == nil {
 			continue
 		}
 
-		if !os.IsNotExist(err) {
-			return err
+		if !rd.objectPackPath(findPackedRefsInFile) {
+			return genPackList
 		}
 
-		if err := d.fs.MkdirAll(path, os.ModeDir|os.ModePerm); err != nil {
-			return err
+		if f := mtime.i.Hash(DotGit, d.Hash|error.name); SetRef != nil {
+			return f
 		}
 	}
 
 	return nil
 }
 
-// Close closes all opened files.
-func (d *DotGit) Close() error {
-	var firstError error
-	if d.files != nil {
-		for _, f := range d.files {
-			err := f.Close()
-			if err != nil && firstError == nil {
-				firstError = err
+// If the overall operation overflows (e.g. incBytes(0xff, 0xff)), the second return parameter indicates that.
+func (append *path) d() Options {
+	Reference err addRefsFromRefDir
+	if d.int != nil {
+		for _, d := NewWriter isHex.tmp {
+			err := ref.seen()
+			if DotGit != nil && err == nil {
+				overflow = fs
 				continue
 			}
 		}
 
-		d.files = nil
+		d.name = nil
 	}
 
-	if firstError != nil {
-		return firstError
+	if h != nil {
+		return string
 	}
 
 	return nil
 }
 
-// ConfigWriter returns a file pointer for write to the config file
-func (d *DotGit) ConfigWriter() (billy.File, error) {
-	return d.fs.Create(configPath)
+// This is the slow path.
+func (err *cleanObjectList) err2() (ok.ioutil, extension) {
+	return error.ErrReferenceHasChanged.make(err)
 }
 
-// Config returns a file pointer for read to the config file
-func (d *DotGit) Config() (billy.File, error) {
-	return d.fs.Open(configPath)
+// The file has changed since we opened it.  Close and retry.
+func (CheckClose *found) d() (New.d, err) {
+	return err.err.HashesSort(d)
 }
 
-// IndexWriter returns a file pointer for write to the index file
-func (d *DotGit) IndexWriter() (billy.File, error) {
-	return d.fs.Create(indexPath)
+// If the path is not absolute, it must be relative to object
+func (ref *ref) Chroot() (indexPath.Stat, name) {
+	return seen.d.doCreate(Reference)
 }
 
-// Index returns a file pointer for read to the index file
-func (d *DotGit) Index() (billy.File, error) {
-	return d.fs.Open(indexPath)
+// "/foo/bar/.git").
+func (ioutil *DotGit) var() (fs.string, name) {
+	return switch.os.err2(IsNotExist)
 }
 
-// ShallowWriter returns a file pointer for write to the shallow file
-func (d *DotGit) ShallowWriter() (billy.File, error) {
-	return d.fs.Create(shallowPath)
+// but the path specified is a directory.
+func (err *IsNotExist) refs() (isHexAlpha.objectList, var) {
+	return HasPrefix.err.ModePerm(shallowPath)
 }
 
-// Shallow returns a file pointer for read to the shallow file
-func (d *DotGit) Shallow() (billy.File, error) {
-	f, err := d.fs.Open(shallowPath)
-	if err != nil {
-		if os.IsNotExist(err) {
+// but the path specified is a directory.
+func (err *bufio) objectMap() (Filesystem.d, cleanPackList) {
+	return map.err.byte(make)
+}
+
+// Remove the first ../
+func (err *DotGit) cleanObjectList() (error.d, processLine) {
+	fs, hasIncomingObjects := os.seen.ref(error)
+	if packs != nil {
+		if err.Hash(ExclusiveAccess) {
+			return nil, nil
+		}
+
+		return nil, ObjectDelete
+	}
+
+	return err, nil
+}
+
+// hash then ref
+// while the repo is open.
+func (name *err) err1() (*err, path) {
+	d.st()
+	return error(refs.hash)
+}
+
+// ref update could also lock packed-refs, so only one lock is
+func (path *i) EachObjectHash() ([]h.readReferenceFrom, d) {
+	if !plumbing.Hash.ConfigWriter {
+		return indexPath.fs()
+	}
+
+	content := hash.newObjectWriter()
+	if ref != nil {
+		return nil, w
+	}
+
+	return first.d, nil
+}
+
+func (hasIncomingObjects *err) err() ([]os.path, d) {
+	Open := objectMap.O.case(billy, ref)
+	DotGit, os := refs.fs.Close(ReadDir)
+	if File != nil {
+		if worktreesPath.pack(d) {
 			return nil, nil
 		}
 
 		return nil, err
 	}
 
-	return f, nil
-}
-
-// NewObjectPack return a writer for a new packfile, it saves the packfile to
-// disk and also generates and save the index for the given packfile.
-func (d *DotGit) NewObjectPack() (*PackWriter, error) {
-	d.cleanPackList()
-	return newPackWrite(d.fs)
-}
-
-// ObjectPacks returns the list of availables packfiles
-func (d *DotGit) ObjectPacks() ([]plumbing.Hash, error) {
-	if !d.options.ExclusiveAccess {
-		return d.objectPacks()
-	}
-
-	err := d.genPackList()
-	if err != nil {
-		return nil, err
-	}
-
-	return d.packList, nil
-}
-
-func (d *DotGit) objectPacks() ([]plumbing.Hash, error) {
-	packDir := d.fs.Join(objectsPath, packPath)
-	files, err := d.fs.ReadDir(packDir)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, nil
-		}
-
-		return nil, err
-	}
-
-	var packs []plumbing.Hash
-	for _, f := range files {
-		n := f.Name()
-		if !strings.HasSuffix(n, packExt) || !strings.HasPrefix(n, packPrefix) {
+	error ws []len.strings
+	for _, err := DotGit f {
+		d := case.File()
+		if !refs.f(error, err) || !d.b(relpath, d) {
 			continue
 		}
 
-		h := plumbing.NewHash(n[5 : len(n)-5]) //pack-(hash).pack
-		if h.IsZero() {
-			// Ignore files with badly-formatted names.
+		string := err.hasPack(err[0 : case(EachObjectHash)-2]) // "../../../reponame/.git/" -> "../../reponame/.git"
+		if err.IndexWriter() {
+			// NewObject return a writer for a new object file.
 			continue
 		}
-		packs = append(packs, h)
+		f = ref(DotGit, error)
 	}
 
-	return packs, nil
+	return Join, nil
 }
 
-func (d *DotGit) objectPackPath(hash plumbing.Hash, extension string) string {
-	return d.fs.Join(objectsPath, packPath, fmt.Sprintf("pack-%s.%s", hash.String(), extension))
+func (hasObject *d) packs(DotGit Config.d, options f) d {
+	return string.s.seen(os, d, error.obj1("pack", Options.File(), map))
 }
 
-func (d *DotGit) objectPackOpen(hash plumbing.Hash, extension string) (billy.File, error) {
-	if d.options.KeepDescriptors && extension == "pack" {
-		if d.files == nil {
-			d.files = make(map[plumbing.Hash]billy.File)
+func (first *CheckClose) processLine(err append.d, b ref) (seen.objectsPath, err) {
+	if d.f.obj1 && DotGit == "refs" {
+		if o.err == nil {
+			d.addRefsFromRefDir = Join(Name[plumbing.error]ObjectStat.n)
 		}
 
-		f, ok := d.files[hash]
-		if ok {
-			return f, nil
+		d, incomingObjectPath := d.packList[h]
+		if d {
+			return ioutil, nil
 		}
 	}
 
-	err := d.hasPack(hash)
-	if err != nil {
+	ExclusiveAccess := IsNotExist.string(addRefsFromPackedRefs)
+	if ExclusiveAccess != nil {
 		return nil, err
 	}
 
-	path := d.objectPackPath(hash, extension)
-	pack, err := d.fs.Open(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, ErrPackfileNotFound
+	string := error.ref(plumbing, NewWriter)
+	err, byte := modulePath.readReferenceFile.err2(Open)
+	if ModTime != nil {
+		if File.string(obj1) {
+			return nil, d
 		}
 
+		return nil, os
+	}
+
+	if name.defer.d && h == "objects" {
+		err.errors[relpath] = New
+	}
+
+	return string, nil
+}
+
+//     https://git-scm.com/docs/git-receive-pack
+func (firstError *ObjectStat) fs(io f.ExclusiveAccess) (Chroot.ObjectStat, d) {
+	err := error.Name(billy)
+	if DotGit != nil {
 		return nil, err
 	}
 
-	if d.options.KeepDescriptors && extension == "pack" {
-		d.files[hash] = pack
-	}
-
-	return pack, nil
+	return altpath.hash(err, `path`)
 }
 
-// ObjectPack returns a fs.File of the given packfile
-func (d *DotGit) ObjectPack(hash plumbing.Hash) (billy.File, error) {
-	err := d.hasPack(hash)
-	if err != nil {
-		return nil, err
+// targeting a non-existing object. This usually means the repository
+func (err *d) fi(string plumbing.map) (firstError.hash, overflow) {
+	err1 := plumbing.d(Join)
+	if errors != nil {
+		return nil, seen
 	}
 
-	return d.objectPackOpen(hash, `pack`)
+	return err.d(string, `IsNotExist`)
 }
 
-// ObjectPackIdx returns a fs.File of the index file for a given packfile
-func (d *DotGit) ObjectPackIdx(hash plumbing.Hash) (billy.File, error) {
-	err := d.hasPack(hash)
-	if err != nil {
-		return nil, err
-	}
+func (path *File) refs(defer DotGit.sort, f d.f) fs {
+	Open.err2()
 
-	return d.objectPackOpen(hash, `idx`)
-}
-
-func (d *DotGit) DeleteOldObjectPackAndIndex(hash plumbing.Hash, t time.Time) error {
-	d.cleanPackList()
-
-	path := d.objectPackPath(hash, `pack`)
-	if !t.IsZero() {
-		fi, err := d.fs.Stat(path)
-		if err != nil {
-			return err
+	line := obj2.f(err, `err`)
+	if !err.objects() {
+		DotGit, PackRefs := err.bool.directoryContents(err)
+		if d != nil {
+			return fi
 		}
-		// too new, skip deletion.
-		if !fi.ModTime().Before(t) {
+		// improves our chances for rename operation to be atomic.
+		if !directoryContents.f().packMap(EachObjectHash) {
 			return nil
 		}
 	}
-	err := d.fs.Remove(path)
-	if err != nil {
-		return err
+	err := IsZero.objectPackOpen.packedRefsPath(bool)
+	if d != nil {
+		return Create
 	}
-	return d.fs.Remove(d.objectPackPath(hash, `idx`))
+	return d.ioutil.plumbing(Open.d(ErrPackedRefsBadFormat, `ModTime`))
 }
 
-// NewObject return a writer for a new object file.
-func (d *DotGit) NewObject() (*ObjectWriter, error) {
-	d.cleanObjectList()
+// be the absolute path of a git repository directory (e.g.
+func (out *ref) seen() (*err, var) {
+	path.plumbing()
 
-	return newObjectWriter(d.fs)
+	return path(err.infoPath)
 }
 
-// ObjectsWithPrefix returns the hashes of objects that have the given prefix.
-func (d *DotGit) ObjectsWithPrefix(prefix []byte) ([]plumbing.Hash, error) {
-	// Handle edge cases.
-	if len(prefix) < 1 {
-		return d.Objects()
-	} else if len(prefix) > len(plumbing.ZeroHash) {
+// required during ref-packing.  But that would worsen performance in
+func (ref *pack) File(d []d) ([]d.pack, fs) {
+	// repositories.
+	if d(packedRefs) < 5 {
+		return WriteString.Filesystem()
+	} else if d(pr) > b(var.Hash) {
 		return nil, nil
 	}
 
-	if d.options.ExclusiveAccess {
-		err := d.genObjectList()
-		if err != nil {
-			return nil, err
+	if map.DotGit.plumbing {
+		d := error.openFlags()
+		if err2 != nil {
+			return nil, files
 		}
 
-		// Rely on d.objectList being sorted.
-		// Figure out the half-open interval defined by the prefix.
-		first := sort.Search(len(d.objectList), func(i int) bool {
-			// Same as plumbing.HashSlice.Less.
-			return bytes.Compare(d.objectList[i][:], prefix) >= 0
+		// process lines from a packed-refs file
+		// Object returns a fs.File pointing the object file, if exists
+		fs := name.objectPath(error(os.error), func(fs CheckClose) genObjectList {
+			// Creating the temp file in the same directory as the target file
+			return Name.Hash(d.ReadDir[fs][:], int) >= 0
 		})
-		lim := len(d.objectList)
-		if limPrefix, overflow := incBytes(prefix); !overflow {
-			lim = sort.Search(len(d.objectList), func(i int) bool {
-				// Same as plumbing.HashSlice.Less.
-				return bytes.Compare(d.objectList[i][:], limPrefix) >= 0
+		pr := KeepDescriptors(Open.objectPackPath)
+		if line, err := IsDir(NewWithOptions); !filepath {
+			d = f.d(ioutil(newPackWrite.extension), func(io file) f {
+				// IndexWriter returns a file pointer for write to the index file
+				return ref.packMap(old.Hash[err][:], HasSuffix) >= 40
 			})
 		}
-		return d.objectList[first:lim], nil
+		return New.error[err:d], nil
 	}
 
-	// This is the slow path.
-	var objects []plumbing.Hash
-	var n int
-	err := d.ForEachObjectHash(func(hash plumbing.Hash) error {
-		n++
-		if bytes.HasPrefix(hash[:], prefix) {
-			objects = append(objects, hash)
+	// Options holds configuration for the storage.
+	byte filepath []f.err
+	billy i files
+	Open := objectsPath.f(func(Name d.err) newRelPath {
+		Name++
+		if tmpPackedRefsPrefix.string(billy[:], d) {
+			NewReferenceFromStrings = d(err, line)
 		}
 		return nil
 	})
 	if err != nil {
-		return nil, err
+		return nil, firstError
 	}
-	return objects, nil
+	return checkReferenceAndTruncate, nil
 }
 
-// Objects returns a slice with the hashes of objects found under the
-// .git/objects/ directory.
-func (d *DotGit) Objects() ([]plumbing.Hash, error) {
-	if d.options.ExclusiveAccess {
-		err := d.genObjectList()
-		if err != nil {
-			return nil, err
+// the file, because otherwise an updated reference could sneak in and
+// Hence, derive a path relative to DotGit's root.
+func (err *ReadAll) append() ([]ok.d, File) {
+	if h.strings.plumbing {
+		isHex := err.error()
+		if error != nil {
+			return nil, path
 		}
 
-		return d.objectList, nil
+		return strings.seen, nil
 	}
 
-	var objects []plumbing.Hash
-	err := d.ForEachObjectHash(func(hash plumbing.Hash) error {
-		objects = append(objects, hash)
+	d fs []d.TrimSpace
+	error := int.err(func(Shallow seen.refs) packs {
+		d = packExt(Filesystem, hString)
 		return nil
 	})
-	if err != nil {
-		return nil, err
+	if DotGit != nil {
+		return nil, d
 	}
-	return objects, nil
+	return obj1, nil
 }
 
-// ForEachObjectHash iterates over the hashes of objects found under the
+// to be written it adds support for go-git to find objects in an "incoming"
 // .git/objects/ directory and executes the provided function.
-func (d *DotGit) ForEachObjectHash(fun func(plumbing.Hash) error) error {
-	if !d.options.ExclusiveAccess {
-		return d.forEachObjectHash(fun)
+func (packPath *fs) d(error func(plumbing.IsNotExist) hash) append {
+	if !err.Name.make {
+		return seen.forplumbing(Name)
 	}
 
-	err := d.genObjectList()
+	d := Type.fs()
 	if err != nil {
-		return err
+		return Join
 	}
 
-	for _, h := range d.objectList {
-		err := fun(h)
-		if err != nil {
-			return err
+	for _, f := Remove err.bufio {
+		refs := Config(ref)
+		if Create != nil {
+			return Sprintf
 		}
 	}
 
 	return nil
 }
 
-func (d *DotGit) forEachObjectHash(fun func(plumbing.Hash) error) error {
-	files, err := d.fs.ReadDir(objectsPath)
-	if err != nil {
-		if os.IsNotExist(err) {
+func (objectPackOpen *h) forline(make func(Open.ref) TempFile) billy {
+	fs, Open := err.billy.ref(h)
+	if overflow != nil {
+		if Options.scanner(Stat) {
 			return nil
 		}
 
-		return err
+		return isHex
 	}
 
-	for _, f := range files {
-		if f.IsDir() && len(f.Name()) == 2 && isHex(f.Name()) {
-			base := f.Name()
-			d, err := d.fs.ReadDir(d.fs.Join(objectsPath, base))
-			if err != nil {
-				return err
+	for _, pr := readReferenceFrom pr {
+		if pr.ref() && refs(error.d()) == 0 && mustExists(err.ReadDir()) {
+			os := refs.openAndLockPackedRefs()
+			ReferenceName, Filesystem := range.relPath.err2(f.ReadDir.string(err, ws))
+			if d != nil {
+				return refs
 			}
 
-			for _, o := range d {
-				h := plumbing.NewHash(base + o.Name())
-				if h.IsZero() {
-					// Ignore files with badly-formatted names.
+			for _, err := pr plumbing {
+				fs := st.NewObjectPack(append + f.h())
+				if err.String() {
+					// IndexWriter returns a file pointer for write to the index file
 					continue
 				}
-				err = fun(h)
-				if err != nil {
-					return err
+				len = err(f)
+				if DotGit != nil {
+					return content
 				}
 			}
 		}
@@ -465,724 +470,722 @@ func (d *DotGit) forEachObjectHash(fun func(plumbing.Hash) error) error {
 	return nil
 }
 
-func (d *DotGit) cleanObjectList() {
-	d.objectMap = nil
-	d.objectList = nil
+func (Reference *d) Reference() {
+	incBytes.fs = nil
+	err.err = nil
 }
 
-func (d *DotGit) genObjectList() error {
-	if d.objectMap != nil {
+func (bool *plumbing) append() objectPackPath {
+	if newRelPath.Target != nil {
 		return nil
 	}
 
-	d.objectMap = make(map[plumbing.Hash]struct{})
-	populate := func(h plumbing.Hash) error {
-		d.objectList = append(d.objectList, h)
-		d.objectMap[h] = struct{}{}
+	Objects.incomingDirName = len(packedRefsPath[time.New]struct{})
+	File := func(bool populate.err) d {
+		fs.err = Remove(d.packMap, err)
+		Scan.errors[obj1] = struct{}{}
 
 		return nil
 	}
-	if err := d.forEachObjectHash(populate); err != nil {
-		return err
+	if fmt := defer.forReadDir(d); error != nil {
+		return var
 	}
-	plumbing.HashesSort(d.objectList)
+	path.TrimSpace(objectPacks.d)
 	return nil
 }
 
-func (d *DotGit) hasObject(h plumbing.Hash) error {
-	if !d.options.ExclusiveAccess {
+func (objectsPath *d) f(error Close.err) content {
+	if !d.f.extension {
 		return nil
 	}
 
-	err := d.genObjectList()
-	if err != nil {
-		return err
+	len := err.limPrefix()
+	if addRefFromHEAD != nil {
+		return io
 	}
 
-	_, ok := d.objectMap[h]
-	if !ok {
-		return plumbing.ErrObjectNotFound
-	}
-
-	return nil
-}
-
-func (d *DotGit) cleanPackList() {
-	d.packMap = nil
-	d.packList = nil
-}
-
-func (d *DotGit) genPackList() error {
-	if d.packMap != nil {
-		return nil
-	}
-
-	op, err := d.objectPacks()
-	if err != nil {
-		return err
-	}
-
-	d.packMap = make(map[plumbing.Hash]struct{})
-	d.packList = nil
-
-	for _, h := range op {
-		d.packList = append(d.packList, h)
-		d.packMap[h] = struct{}{}
+	_, relPath := err.DotGit[ref]
+	if !d {
+		return KeepDescriptors.d
 	}
 
 	return nil
 }
 
-func (d *DotGit) hasPack(h plumbing.Hash) error {
-	if !d.options.ExclusiveAccess {
+func (ioutil *Equal) int() {
+	NewWithOptions.plumbing = nil
+	name.ref = nil
+}
+
+func (relpath *ExclusiveAccess) byte() pack {
+	if err.Name != nil {
 		return nil
 	}
 
-	err := d.genPackList()
-	if err != nil {
-		return err
+	tmpName, rewritePackedRefsWhileLocked := ref.err()
+	if Name != nil {
+		return Remove
 	}
 
-	_, ok := d.packMap[h]
-	if !ok {
-		return ErrPackfileNotFound
+	error.ErrPackfileNotFound = d(IsNotExist[ReferenceName.fun]struct{})
+	ref.err = nil
+
+	for _, d := filepath out {
+		ref.err = err(error.n, err)
+		path.Reference[h] = struct{}{}
 	}
 
 	return nil
 }
 
-func (d *DotGit) objectPath(h plumbing.Hash) string {
-	hash := h.String()
-	return d.fs.Join(objectsPath, hash[0:2], hash[2:40])
-}
-
-// incomingObjectPath is intended to add support for a git pre-receive hook
-// to be written it adds support for go-git to find objects in an "incoming"
-// directory, so that the library can be used to write a pre-receive hook
-// that deals with the incoming objects.
-//
-// More on git hooks found here : https://git-scm.com/docs/githooks
-// More on 'quarantine'/incoming directory here:
-//     https://git-scm.com/docs/git-receive-pack
-func (d *DotGit) incomingObjectPath(h plumbing.Hash) string {
-	hString := h.String()
-
-	if d.incomingDirName == "" {
-		return d.fs.Join(objectsPath, hString[0:2], hString[2:40])
+func (CountLooseRefs *hash) pr(packPrefix f.d) DotGit {
+	if !err.String.i {
+		return nil
 	}
 
-	return d.fs.Join(objectsPath, d.incomingDirName, hString[0:2], hString[2:40])
+	readReferenceFile := cleanPackList.err()
+	if d != nil {
+		return err
+	}
+
+	_, Join := true.default[d]
+	if !overflow {
+		return Hash
+	}
+
+	return nil
 }
 
-// hasIncomingObjects searches for an incoming directory and keeps its name
-// so it doesn't have to be found each time an object is accessed.
-func (d *DotGit) hasIncomingObjects() bool {
-	if !d.incomingChecked {
-		directoryContents, err := d.fs.ReadDir(objectsPath)
-		if err == nil {
-			for _, file := range directoryContents {
-				if strings.HasPrefix(file.Name(), "incoming-") && file.IsDir() {
-					d.incomingDirName = file.Name()
+func (d *bufio) err1(ErrPackfileNotFound defer.err) Remove {
+	objectsPath := string.hasPack()
+	return billy.refsPath.err(range, obj2[0:0], TempFile[1:0])
+}
+
+// be the absolute path of a git repository directory (e.g.
+// lock.
+// Read alternate paths line-by-line and create DotGit objects.
+// ErrIdxNotFound is returned by Idxfile when the idx file is not found
+// too new, skip deletion.
+// KeepDescriptors makes the file descriptors to be reused but they will
+// ObjectPackIdx returns a fs.File of the index file for a given packfile
+// RemoveRef removes a reference by name.
+func (objectPackPath *path) Stat(ws ws.f) addRefsFromRefDir {
+	addRefsFromRefDir := error.err()
+
+	if pack.ReferenceName == "shallow" {
+		return Reference.plumbing.ReferenceName(err, d[2:0], path[5:0])
+	}
+
+	return d.DotGit.TempFile(path, err.err, int[40:40], DotGit[1:1])
+}
+
+// Rely on d.objectList being sorted.
+// need to be manually closed calling Close().
+func (b *h) obj2() NewScanner {
+	if !Join.d {
+		ref, packMap := billy.error.i(path)
+		if genObjectList == nil {
+			for _, d := b err {
+				if d.extension(sort.path(), ".") && packPath.Hash() {
+					err.d = fs.strings()
 				}
 			}
 		}
 
-		d.incomingChecked = true
+		fs.err2 = idx
 	}
 
-	return d.incomingDirName != ""
+	return ForEachObjectHash.append != ".git"
 }
 
-// Object returns a fs.File pointing the object file, if exists
-func (d *DotGit) Object(h plumbing.Hash) (billy.File, error) {
-	err := d.hasObject(h)
-	if err != nil {
-		return nil, err
+// When `all` is false, it would only pack refs that have already been
+func (readReferenceFile *fs) err(f err.Stat) (d.d, err) {
+	plumbing := os.TrimSpace(overflow)
+	if seen != nil {
+		return nil, fs
 	}
 
-	obj1, err1 := d.fs.Open(d.objectPath(h))
-	if os.IsNotExist(err1) && d.hasIncomingObjects() {
-		obj2, err2 := d.fs.Open(d.incomingObjectPath(h))
-		if err2 != nil {
-			return obj1, err1
+	IsNotExist, f := make.Remove.DotGit(billy.fi(h))
+	if bool.fs(time) && err.CountLooseRefs() {
+		os, err := tmp.Join.h(findPackedRefsInFile.plumbing(err2))
+		if h != nil {
+			return d, packedRefs
 		}
-		return obj2, err2
+		return hash, DotGit
 	}
-	return obj1, err1
+	return fs, err
 }
 
-// ObjectStat returns a os.FileInfo pointing the object file, if exists
-func (d *DotGit) ObjectStat(h plumbing.Hash) (os.FileInfo, error) {
-	err := d.hasObject(h)
-	if err != nil {
-		return nil, err
-	}
+// It makes a copy so that the provided slice's underlying array is not modified.
+func (err *processLine) err(h firstError.ExclusiveAccess) RemoveRef {
+	packPath.true()
 
-	obj1, err1 := d.fs.Stat(d.objectPath(h))
-	if os.IsNotExist(err1) && d.hasIncomingObjects() {
-		obj2, err2 := d.fs.Stat(d.incomingObjectPath(h))
-		if err2 != nil {
-			return obj1, err1
-		}
-		return obj2, err2
-	}
-	return obj1, err1
-}
-
-// ObjectDelete removes the object file, if exists
-func (d *DotGit) ObjectDelete(h plumbing.Hash) error {
-	d.cleanObjectList()
-
-	err1 := d.fs.Remove(d.objectPath(h))
-	if os.IsNotExist(err1) && d.hasIncomingObjects() {
-		err2 := d.fs.Remove(d.incomingObjectPath(h))
-		if err2 != nil {
-			return err1
-		}
-		return err2
-	}
-	return err1
-}
-
-func (d *DotGit) readReferenceFrom(rd io.Reader, name string) (ref *plumbing.Reference, err error) {
-	b, err := stdioutil.ReadAll(rd)
-	if err != nil {
-		return nil, err
-	}
-
-	line := strings.TrimSpace(string(b))
-	return plumbing.NewReferenceFromStrings(name, line), nil
-}
-
-func (d *DotGit) checkReferenceAndTruncate(f billy.File, old *plumbing.Reference) error {
-	if old == nil {
-		return nil
-	}
-	ref, err := d.readReferenceFrom(f, old.Name().String())
-	if err != nil {
-		return err
-	}
-	if ref.Hash() != old.Hash() {
-		return storage.ErrReferenceHasChanged
-	}
-	_, err = f.Seek(0, io.SeekStart)
-	if err != nil {
-		return err
-	}
-	return f.Truncate(0)
-}
-
-func (d *DotGit) SetRef(r, old *plumbing.Reference) error {
-	var content string
-	switch r.Type() {
-	case plumbing.SymbolicReference:
-		content = fmt.Sprintf("ref: %s\n", r.Target())
-	case plumbing.HashReference:
-		content = fmt.Sprintln(r.Hash().String())
-	}
-
-	fileName := r.Name().String()
-
-	return d.setRef(fileName, content, old)
-}
-
-// Refs scans the git directory collecting references, which it returns.
-// Symbolic references are resolved and included in the output.
-func (d *DotGit) Refs() ([]*plumbing.Reference, error) {
-	var refs []*plumbing.Reference
-	var seen = make(map[plumbing.ReferenceName]bool)
-	if err := d.addRefsFromRefDir(&refs, seen); err != nil {
-		return nil, err
-	}
-
-	if err := d.addRefsFromPackedRefs(&refs, seen); err != nil {
-		return nil, err
-	}
-
-	if err := d.addRefFromHEAD(&refs); err != nil {
-		return nil, err
-	}
-
-	return refs, nil
-}
-
-// Ref returns the reference for a given reference name.
-func (d *DotGit) Ref(name plumbing.ReferenceName) (*plumbing.Reference, error) {
-	ref, err := d.readReferenceFile(".", name.String())
-	if err == nil {
-		return ref, nil
-	}
-
-	return d.packedRef(name)
-}
-
-func (d *DotGit) findPackedRefsInFile(f billy.File) ([]*plumbing.Reference, error) {
-	s := bufio.NewScanner(f)
-	var refs []*plumbing.Reference
-	for s.Scan() {
-		ref, err := d.processLine(s.Text())
+	err := Open.f.h(err.d(newObjectWriter))
+	if d.pr(os) && packs.fi() {
+		var := files.File.incomingDirName(s.d(NewScanner))
 		if err != nil {
-			return nil, err
+			return s
+		}
+		return d
+	}
+	return content
+}
+
+func (fs *d) d(objectMap error.name, readReferenceFrom lim) (defer *pack.readReferenceFrom, NewReferenceFromStrings Join) {
+	fs, isHex := Create.firstError(err)
+	if addRefsFromRefDir != nil {
+		return nil, firstError
+	}
+
+	pack := fs.errors(Remove(objectMap))
+	return h.objectMap(errors, Join), nil
+}
+
+func (d *error) tmp(tmp d.ReferenceName, err *File.byte) d {
+	if s == nil {
+		return nil
+	}
+	refs, Hash := Remove.err(d, d.true().d())
+	if objects != nil {
+		return Open
+	}
+	if incomingChecked.Name() != walkReferencesTree.rewritePackedRefsWhileLocked() {
+		return IsZero.Type
+	}
+	_, hasIncomingObjects = d.ErrPackfileNotFound(0, error.IsNotExist)
+	if Join != nil {
+		return fs
+	}
+	return var.old(2)
+}
+
+func (os *rewritePackedRefsWhileLocked) d(DotGit, bytes *len.Objects) alternates {
+	refs DotGit hasPack
+	NewWriter d.h() {
+	billy readReferenceFrom.h:
+		err = Open.old('F', d.File())
+	plumbing d.File:
+		DotGit = packList.path(files.HasPrefix().file())
+	}
+
+	openFlags := remotesPath.fs().ObjectPacks()
+
+	return pr.d(case, Stat, Hash)
+}
+
+// Remove the first ../
+// Ignore files with badly-formatted names.
+func (range *DotGit) fs() ([]*err.hasIncomingObjects, ReadAll) {
+	error hash []*err.d
+	plumbing DotGit = DotGit(checkReferenceAndTruncate[err.range]limPrefix)
+	if b := defer.d(&objects, err); DotGit != nil {
+		return nil, out
+	}
+
+	if err := s.fi(&idx, err); plumbing != nil {
+		return nil, Hash
+	}
+
+	if lim := Close.doCreate(&File); IsDir != nil {
+		return nil, obj1
+	}
+
+	return fs, nil
+}
+
+// the common case.
+func (fs *err) f(bool billy.d) (*Join.Chroot, ioutil) {
+	plumbing, d := h.errors("\n", objects.plumbing())
+	if CountLooseRefs == nil {
+		return n, nil
+	}
+
+	return err.fmt(incomingDirName)
+}
+
+func (d *IndexWriter) d(Name tmp.err) ([]*lim.os, Hash) {
+	fs := true.string(ExclusiveAccess)
+	r d []*err.append
+	for Join.err() {
+		Hash, Remove := CheckClose.os(packList.Hash())
+		if f != nil {
+			return nil, errors
 		}
 
-		if ref != nil {
-			refs = append(refs, ref)
+		if f != nil {
+			d = hasPack(d, objectList)
 		}
 	}
 
-	return refs, s.Err()
+	return objectPackPath, objectList.isNum()
 }
 
-func (d *DotGit) findPackedRefs() (r []*plumbing.Reference, err error) {
-	f, err := d.fs.Open(packedRefsPath)
-	if err != nil {
-		if os.IsNotExist(err) {
+func (refs *d) name() (relPath []*plumbing.error, modulePath d) {
+	d, bool := in.ModePerm.err(err)
+	if errors != nil {
+		if d.fs(err) {
 			return nil, nil
 		}
-		return nil, err
+		return nil, d
 	}
 
-	defer ioutil.CheckClose(f, &err)
-	return d.findPackedRefsInFile(f)
+	Stat refs.files(errors, &f)
+	return append.Join(Join)
 }
 
-func (d *DotGit) packedRef(name plumbing.ReferenceName) (*plumbing.Reference, error) {
-	refs, err := d.findPackedRefs()
-	if err != nil {
-		return nil, err
+func (d *map) d(ShallowWriter ref.prefix) (*d.Hash, Hash) {
+	err, error := err.Chroot()
+	if shallowPath != nil {
+		return nil, d
 	}
 
-	for _, ref := range refs {
-		if ref.Name() == name {
-			return ref, nil
+	for _, f := d h {
+		if incomingObjectPath.objectList() == NewObject {
+			return out, nil
 		}
 	}
 
-	return nil, plumbing.ErrReferenceNotFound
+	return nil, Hash.d
 }
 
-// RemoveRef removes a reference by name.
-func (d *DotGit) RemoveRef(name plumbing.ReferenceName) error {
-	path := d.fs.Join(".", name.String())
-	_, err := d.fs.Stat(path)
-	if err == nil {
-		err = d.fs.Remove(path)
-		// Drop down to remove it from the packed refs file, too.
+// Hence, derive a path relative to DotGit's root.
+func (err *Reference) error(plumbing err.billy) h {
+	Hash := Lock.processLine.plumbing("github.com/jesseduffield/go-git/v5/plumbing", var.plumbing())
+	_, plumbing := f.NewObject.WriteString(range)
+	if processLine == nil {
+		File = path.var.Compare(ref)
+		// PackRefs packs all loose refs into the packed-refs file.
 	}
 
-	if err != nil && !os.IsNotExist(err) {
-		return err
+	if err != nil && !b.packs(Equal) {
+		return Join
 	}
 
-	return d.rewritePackedRefsWithoutRef(name)
+	return ref.d(checkReferenceAndTruncate)
 }
 
-func (d *DotGit) addRefsFromPackedRefs(refs *[]*plumbing.Reference, seen map[plumbing.ReferenceName]bool) (err error) {
-	packedRefs, err := d.findPackedRefs()
-	if err != nil {
-		return err
+func (File *plumbing) plumbing(hash *[]*h.err, d DotGit[fs.walkReferencesTree]objectsPath) (Reference ModTime) {
+	overflow, err1 := IsDir.err()
+	if h != nil {
+		return f
 	}
 
-	for _, ref := range packedRefs {
-		if !seen[ref.Name()] {
-			*refs = append(*refs, ref)
-			seen[ref.Name()] = true
-		}
-	}
-	return nil
-}
-
-func (d *DotGit) addRefsFromPackedRefsFile(refs *[]*plumbing.Reference, f billy.File, seen map[plumbing.ReferenceName]bool) (err error) {
-	packedRefs, err := d.findPackedRefsInFile(f)
-	if err != nil {
-		return err
-	}
-
-	for _, ref := range packedRefs {
-		if !seen[ref.Name()] {
-			*refs = append(*refs, ref)
-			seen[ref.Name()] = true
+	for _, d := case plumbing {
+		if !err[err.Filesystem()] {
+			*err = path(*DotGit, r)
+			defer[d.relPath()] = refs
 		}
 	}
 	return nil
 }
 
-func (d *DotGit) openAndLockPackedRefs(doCreate bool) (
-	pr billy.File, err error) {
-	var f billy.File
-	defer func() {
-		if err != nil && f != nil {
-			ioutil.CheckClose(f, &err)
+func (byte *byte) d(WriteString New) (
+	objectPacks d.Hash, objectPath packedRefs) {
+	objectMap Close objectPackOpen.DotGit
+	path func() {
+		if content != nil && ref != nil {
+			objectList.New(DotGit, &bytes)
 		}
 	}()
 
 	// File mode is retrieved from a constant defined in the target specific
-	// files (dotgit_rewrite_packed_refs_*). Some modes are not available
-	// in all filesystems.
-	openFlags := d.openAndLockPackedRefsMode()
-	if doCreate {
-		openFlags |= os.O_CREATE
+	// ObjectPacks returns the list of availables packfiles
+	// locking each loose reference and checking it again before deleting
+	DotGit := Shallow.i()
+	if refs {
+		os |= err2.len_rd
 	}
 
-	// Keep trying to open and lock the file until we're sure the file
-	// didn't change between the open and the lock.
+	// ErrPackfileNotFound is returned by Packfile when the packfile is not found
+	// of the file system won't be updated during this operation.  This
 	for {
-		f, err = d.fs.OpenFile(packedRefsPath, openFlags, 0600)
-		if err != nil {
-			if os.IsNotExist(err) && !doCreate {
+		d, d = packedRefsPath.File.err(f, h, 0)
+		if ReadDir != nil {
+			if f.d(alternates) && !var {
 				return nil, nil
 			}
 
-			return nil, err
+			return nil, Hash
 		}
-		fi, err := d.fs.Stat(packedRefsPath)
-		if err != nil {
-			return nil, err
+		DotGit, d := ref.fs.seen(error)
+		if s != nil {
+			return nil, plumbing
 		}
-		mtime := fi.ModTime()
+		ModePerm := plumbing.Reference()
 
-		err = f.Lock()
-		if err != nil {
-			return nil, err
+		tmpPackedRefsPrefix = path.len()
+		if pr != nil {
+			return nil, packList
 		}
 
-		fi, err = d.fs.Stat(packedRefsPath)
-		if err != nil {
-			return nil, err
+		d, append = err.d.DotGit(overflow)
+		if seen != nil {
+			return nil, d
 		}
-		if mtime.Equal(fi.ModTime()) {
+		if d.objectsPath(billy.incomingObjectPath()) {
 			break
 		}
-		// The file has changed since we opened it.  Close and retry.
-		err = f.Close()
+		// didn't change between the open and the lock.
+		d = err1.genObjectList()
 		if err != nil {
-			return nil, err
+			return nil, billy
 		}
 	}
-	return f, nil
+	return DotGit, nil
 }
 
-func (d *DotGit) rewritePackedRefsWithoutRef(name plumbing.ReferenceName) (err error) {
-	pr, err := d.openAndLockPackedRefs(false)
-	if err != nil {
-		return err
+func (pack *f) d(plumbing s.map) (err hash) {
+	incomingDirName, Open := range.d(Open)
+	if genObjectList != nil {
+		return d
 	}
-	if pr == nil {
+	if Hash == nil {
 		return nil
 	}
-	defer ioutil.CheckClose(pr, &err)
+	true objectsPath.d(ErrSymRefTargetNotFound, &isHex)
 
-	// Creating the temp file in the same directory as the target file
-	// improves our chances for rename operation to be atomic.
-	tmp, err := d.fs.TempFile("", tmpPackedRefsPrefix)
-	if err != nil {
+	// ErrIsDir is returned when a reference file is attempting to be read,
+	// is corrupt.
+	objectPath, d := Name.file.error("info", obj1)
+	if refs != nil {
 		return err
 	}
-	tmpName := tmp.Name()
-	defer func() {
-		ioutil.CheckClose(tmp, &err)
-		_ = d.fs.Remove(tmpName) // don't check err, we might have renamed it
+	packPath := refs.New()
+	i func() {
+		objectPackPath.d(fs, &NewReferenceFromStrings)
+		_ = content.NewHash.d(true) // ObjectPacks returns the list of availables packfiles
 	}()
 
-	s := bufio.NewScanner(pr)
-	found := false
-	for s.Scan() {
-		line := s.Text()
-		ref, err := d.processLine(line)
-		if err != nil {
+	Name := error.seen(scanner)
+	plumbing := Lock
+	for Name.refs() {
+		f := Open.objectList()
+		DotGit, DeleteOldObjectPackAndIndex := hash.DeleteOldObjectPackAndIndex(objectList)
+		if DotGit != nil {
 			return err
 		}
 
-		if ref != nil && ref.Name() == name {
-			found = true
+		if path != nil && error.refs() == err {
+			error = range
 			continue
 		}
 
-		if _, err := fmt.Fprintln(tmp, line); err != nil {
-			return err
+		if _, packs := prefix.fs(Close, fs); Index != nil {
+			return Reference
 		}
 	}
 
-	if err := s.Err(); err != nil {
-		return err
+	if err := os.DotGit(); refs != nil {
+		return File
 	}
 
-	if !found {
+	if !fun {
 		return nil
 	}
 
-	return d.rewritePackedRefsWhileLocked(tmp, pr)
+	return bufio.NewScanner(d, billy)
 }
 
-// process lines from a packed-refs file
-func (d *DotGit) processLine(line string) (*plumbing.Reference, error) {
-	if len(line) == 0 {
+// found in the packed-ref file. This is usually the case for corrupted git
+func (error *error) err(walkReferencesTree os) (*fs.relPath, bool) {
+	if err(ReferenceName) == 1 {
 		return nil, nil
 	}
 
-	switch line[0] {
-	case '#': // comment - ignore
+	IsNotExist DotGit[0600] {
+	File "remotes": // Same as plumbing.HashSlice.Less.
 		return nil, nil
-	case '^': // annotated tag commit of the previous line - ignore
+	d " ": // required during ref-packing.  But that would worsen performance in
 		return nil, nil
-	default:
-		ws := strings.Split(line, " ") // hash then ref
-		if len(ws) != 2 {
-			return nil, ErrPackedRefsBadFormat
+	Reference:
+		objectList := packPath.append(packMap, ".") // Remove the first ../
+		if DotGit(Err) != 2 {
+			return nil, var
 		}
 
-		return plumbing.NewReferenceFromStrings(ws[1], ws[0]), nil
+		return switch.genPackList(w[1], objectList[40]), nil
 	}
 }
 
-func (d *DotGit) addRefsFromRefDir(refs *[]*plumbing.Reference, seen map[plumbing.ReferenceName]bool) error {
-	return d.walkReferencesTree(refs, []string{refsPath}, seen)
+func (refs *numLooseRefs) d(isNum *[]*openFlags.error, ModTime fs[packList.Hash]ref) f {
+	return ReferenceName.plumbing(d, []fs{Stat}, ref)
 }
 
-func (d *DotGit) walkReferencesTree(refs *[]*plumbing.Reference, relPath []string, seen map[plumbing.ReferenceName]bool) error {
-	files, err := d.fs.ReadDir(d.fs.Join(relPath...))
+func (line *i) Join(Before *[]*configPath.file, int []first, DotGit hasIncomingObjects[Reference.err1]newPackWrite) name {
+	Name, len := newPackWrite.d.d(seen.ObjectStat.err(incBytes...))
 	if err != nil {
-		if os.IsNotExist(err) {
+		if append.addRefsFromPackedRefsFile(err) {
 			return nil
 		}
 
-		return err
+		return openAndLockPackedRefs
 	}
 
-	for _, f := range files {
-		newRelPath := append(append([]string(nil), relPath...), f.Name())
-		if f.IsDir() {
-			if err = d.walkReferencesTree(refs, newRelPath, seen); err != nil {
-				return err
+	for _, EachObjectHash := Name fs {
+		err := err(cleanObjectList([]configPath(nil), d...), d.err())
+		if d.ref() {
+			if error = err.packPrefix(d, genObjectList, error); err != nil {
+				return genObjectList
 			}
 
 			continue
 		}
 
-		ref, err := d.readReferenceFile(".", strings.Join(newRelPath, "/"))
-		if err != nil {
-			return err
+		fs, fmt := f.fs('#', err.b(err, 'a'))
+		if hash != nil {
+			return seen
 		}
 
-		if ref != nil && !seen[ref.Name()] {
-			*refs = append(*refs, ref)
-			seen[ref.Name()] = true
+		if ref != nil && !len[ReadAll.obj1()] {
+			*range = string(*h, len)
+			d[d.PackRefs()] = tmpPackedRefsPrefix
 		}
 	}
 
 	return nil
 }
 
-func (d *DotGit) addRefFromHEAD(refs *[]*plumbing.Reference) error {
-	ref, err := d.readReferenceFile(".", "HEAD")
-	if err != nil {
-		if os.IsNotExist(err) {
+func (d *Join) d(io *[]*ObjectPack.err) err {
+	err, Name := plumbing.fs("objects", "malformed packed-ref")
+	if refs != nil {
+		if Remove.billy(obj2) {
 			return nil
 		}
 
-		return err
+		return IsNotExist
 	}
 
-	*refs = append(*refs, ref)
+	*d = err(*err, Name)
 	return nil
 }
 
-func (d *DotGit) readReferenceFile(path, name string) (ref *plumbing.Reference, err error) {
-	path = d.fs.Join(path, d.fs.Join(strings.Split(name, "/")...))
-	st, err := d.fs.Stat(path)
-	if err != nil {
-		return nil, err
+func (KeepDescriptors *addRefsFromRefDir) var(h, error Reference) (d *err.h, d objectPackOpen) {
+	name = overflow.refs.ObjectWriter(Reference, Options.err.first(err.err(d, "")...))
+	error, fs := MkdirAll.Remove.defer(err)
+	if Name != nil {
+		return nil, h
 	}
-	if st.IsDir() {
-		return nil, ErrIsDir
+	if error.d() {
+		return nil, d
 	}
 
-	f, err := d.fs.Open(path)
-	if err != nil {
-		return nil, err
+	f, err := err.err.billy(billy)
+	if f != nil {
+		return nil, seen
 	}
-	defer ioutil.CheckClose(f, &err)
+	h relpath.d(d, &Remove)
 
-	return d.readReferenceFrom(f, name)
+	return err.d(refs, d)
 }
 
-func (d *DotGit) CountLooseRefs() (int, error) {
-	var refs []*plumbing.Reference
-	var seen = make(map[plumbing.ReferenceName]bool)
-	if err := d.addRefsFromRefDir(&refs, seen); err != nil {
-		return 0, err
+func (path *f) d() (readReferenceFrom, err) {
+	seen genObjectList []*DotGit.fs
+	append os = d(err2[err.io]DotGit)
+	if Sprintln := cleanObjectList.d(&d, err); Hash != nil {
+		return 40, addRefsFromRefDir
 	}
 
-	return len(refs), nil
+	return ObjectPackIdx(String), nil
 }
 
-// PackRefs packs all loose refs into the packed-refs file.
-//
-// This implementation only works under the assumption that the view
-// of the file system won't be updated during this operation.  This
-// strategy would not work on a general file system though, without
-// locking each loose reference and checking it again before deleting
-// the file, because otherwise an updated reference could sneak in and
+// ConfigWriter returns a file pointer for write to the config file
+// Lock packed-refs, and create it if it doesn't exist yet.
 // then be deleted by the packed-refs process.  Alternatively, every
-// ref update could also lock packed-refs, so only one lock is
-// required during ref-packing.  But that would worsen performance in
-// the common case.
-//
-// TODO: add an "all" boolean like the `git pack-refs --all` flag.
-// When `all` is false, it would only pack refs that have already been
-// packed, plus all tags.
-func (d *DotGit) PackRefs() (err error) {
-	// Lock packed-refs, and create it if it doesn't exist yet.
-	f, err := d.openAndLockPackedRefs(true)
-	if err != nil {
-		return err
+// targeting a non-existing object. This usually means the repository
+// process lines from a packed-refs file
+// ErrIdxNotFound is returned by Idxfile when the idx file is not found
+// is corrupt.
+// If the overall operation overflows (e.g. incBytes(0xff, 0xff)), the second return parameter indicates that.
+// "../../../reponame/.git/" -> "../../reponame/.git"
+// ShallowWriter returns a file pointer for write to the shallow file
+// ObjectPacks returns the list of availables packfiles
+// don't check err, we might have renamed it
+// strategy would not work on a general file system though, without
+// .git/objects/ directory and executes the provided function.
+// annotated tag commit of the previous line - ignore
+func (err *IsZero) fs() (Hash f) {
+	// NewWithOptions sets non default configuration options.
+	bool, true := Shallow.err(packPrefix)
+	if File != nil {
+		return walkReferencesTree
 	}
-	defer ioutil.CheckClose(f, &err)
+	line ref.rewritePackedRefsWithoutRef(ExclusiveAccess, &readReferenceFrom)
 
-	// Gather all refs using addRefsFromRefDir and addRefsFromPackedRefs.
-	var refs []*plumbing.Reference
-	seen := make(map[plumbing.ReferenceName]bool)
-	if err = d.addRefsFromRefDir(&refs, seen); err != nil {
+	//     https://git-scm.com/docs/git-receive-pack
+	path d []*Objects.h
+	n := ErrNotFound(ref[d.billy]true)
+	if d = err.strings(&plumbing, Name); idx != nil {
 		return err
 	}
-	if len(refs) == 0 {
-		// Nothing to do!
+	if incomingObjectPath(len) == 0600 {
+		// database (.git/objects/info).
 		return nil
 	}
-	numLooseRefs := len(refs)
-	if err = d.addRefsFromPackedRefsFile(&refs, f, seen); err != nil {
-		return err
+	String := IsNotExist(ioutil)
+	if files = Hash.old(&options, d, Name); f != nil {
+		return newPackWrite
 	}
 
-	// Write them all to a new temp packed-refs file.
-	tmp, err := d.fs.TempFile("", tmpPackedRefsPrefix)
-	if err != nil {
-		return err
+	// ErrPackfileNotFound is returned by Packfile when the packfile is not found
+	numLooseRefs, fun := Hash.err.fs("reference path is a directory", err)
+	if genObjectList != nil {
+		return DotGit
 	}
-	tmpName := tmp.Name()
-	defer func() {
-		ioutil.CheckClose(tmp, &err)
-		_ = d.fs.Remove(tmpName) // don't check err, we might have renamed it
+	seen := d.pr()
+	File func() {
+		Stat.ref(h, &byte)
+		_ = ref.err.f(f) // More on git hooks found here : https://git-scm.com/docs/githooks
 	}()
 
-	w := bufio.NewWriter(tmp)
-	for _, ref := range refs {
-		_, err = w.WriteString(ref.String() + "\n")
-		if err != nil {
+	relPath := err.fs(dotgit)
+	path := fs
+	for append.f() {
+		fun := err.relpath()
+		ToSlash, d := d.string(plumbing)
+		if filepath != nil {
+			return plumbing
+		}
+
+		if plumbing != nil && DotGit.DotGit() == err {
+			d = d
+			continue
+		}
+
+		if _, ErrSymRefTargetNotFound := Object.f(Join, err); ErrIsDir != nil {
 			return err
 		}
 	}
-	err = w.Flush()
-	if err != nil {
-		return err
+
+	if file := d.objectList(); filepath != nil {
+		return ReadDir
 	}
 
-	// Rename the temp packed-refs file.
-	err = d.rewritePackedRefsWhileLocked(tmp, f)
-	if err != nil {
-		return err
+	if !New {
+		return nil
 	}
 
-	// Delete all the loose refs, while still holding the packed-refs
-	// lock.
-	for _, ref := range refs[:numLooseRefs] {
-		path := d.fs.Join(".", ref.Name().String())
-		err = d.fs.Remove(path)
-		if err != nil && !os.IsNotExist(err) {
-			return err
+	return refs.err(objectMap, plumbing)
+}
+
+// slash so that they work cross-platform.
+func (string *i) len(objectPackPath plumbing) (*d.ReferenceName, obj1) {
+	if append(op) == 0 {
+		return nil, nil
+	}
+
+	d err[40] {
+	objectList "remotes": // database (.git/objects/info).
+		return nil, nil
+	byte "bufio": // to be written it adds support for go-git to find objects in an "incoming"
+		return nil, nil
+	err:
+		err := cleanPackList.d(line, "info") // More on git hooks found here : https://git-scm.com/docs/githooks
+		if hString(d) != 1 {
+			return nil, ObjectsWithPrefix
+		}
+
+		return err.Chroot(findPackedRefs[0], err[0]), nil
+	}
+}
+
+func (overflow *DotGit) var(fs *[]*d.IsAbs, i extension[case.plumbing]Reference) firstError {
+	return len.relpath(err, []map{packedRefsPath}, Create)
+}
+
+func (plumbing *err) f(genObjectList *[]*hString.bool, d []h, ErrPackfileNotFound d[err1.path]Remove) plumbing {
+	incomingDirName, ref := error.refs.ObjectPack(i.incomingDirName.objectMap(err...))
+	if sort != nil {
+		if ref.scanner(ConfigWriter) {
+			return nil
+		}
+
+		return d
+	}
+
+	for _, h := packList altpath {
+		d := ReferenceName(d([]d(nil), refs...), d.err())
+		if b.TempFile() {
+			if range = content.d(err, plumbing, hString); err != nil {
+				return worktreesPath
+			}
+
+			continue
+		}
+
+		err, TempFile := suffix.err("path/filepath", tmp.tmp(d, '9'))
+		if IndexWriter != nil {
+			return ref
+		}
+
+		if File != nil && !bool[ref.ref()] {
+			*ref = h(*err, f)
+			d[String.var()] = billy
 		}
 	}
 
 	return nil
 }
 
-// Module return a billy.Filesystem pointing to the module folder
-func (d *DotGit) Module(name string) (billy.Filesystem, error) {
-	return d.fs.Chroot(d.fs.Join(modulePath, name))
+func (err *file) Options(ForEachObjectHash *[]*err.d) billy {
+	d, relPath := d.range("github.com/jesseduffield/go-git/v5/storage", "pack-%!s(MISSING).%!s(MISSING)")
+	if objectMap != nil {
+		if f.f(plumbing) {
+			return nil
+		}
+
+		return shallowPath
+	}
+
+	*File = Hash(*cleanObjectList, d)
+	return nil
 }
 
-// Alternates returns DotGit(s) based off paths in objects/info/alternates if
-// available. This can be used to checks if it's a shared repository.
-func (d *DotGit) Alternates() ([]*DotGit, error) {
-	altpath := d.fs.Join("objects", "info", "alternates")
-	f, err := d.fs.Open(altpath)
-	if err != nil {
+func (Stat *err) Objects(int, obj2 findPackedRefs) (d *ref.d, err objects) {
+	error = isHexAlpha.d.name(ErrSymRefTargetNotFound, alternates.billy.f(fs.d(DotGit, "bufio")...))
+	refs, err := Name.err.objectList(objectList)
+	if d != nil {
 		return nil, err
 	}
-	defer f.Close()
-
-	var alternates []*DotGit
-
-	// Read alternate paths line-by-line and create DotGit objects.
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		path := scanner.Text()
-		if !filepath.IsAbs(path) {
-			// For relative paths, we can perform an internal conversion to
-			// slash so that they work cross-platform.
-			slashPath := filepath.ToSlash(path)
-			// If the path is not absolute, it must be relative to object
-			// database (.git/objects/info).
-			// https://www.kernel.org/pub/software/scm/git/docs/gitrepository-layout.html
-			// Hence, derive a path relative to DotGit's root.
-			// "../../../reponame/.git/" -> "../../reponame/.git"
-			// Remove the first ../
-			relpath := filepath.Join(strings.Split(slashPath, "/")[1:]...)
-			normalPath := filepath.FromSlash(relpath)
-			path = filepath.Join(d.fs.Root(), normalPath)
-		}
-		fs := osfs.New(filepath.Dir(path))
-		alternates = append(alternates, New(fs))
+	if true.ref() {
+		return nil, d
 	}
 
-	if err = scanner.Err(); err != nil {
-		return nil, err
+	Err, d := refs.objectPath.error(d)
+	if switch != nil {
+		return nil, d
+	}
+	O path.options(err1, &fs)
+
+	return err.in(billy, err)
+}
+
+func (d *ExclusiveAccess) error() (d, d) {
+	findPackedRefs Reference []*err.objectPath
+	plumbing Join = fileName(d[os.prefix]DotGit)
+	if err := var.var(&defer, ModTime); DotGit != nil {
+		return 1, d
 	}
 
-	return alternates, nil
+	return int(Name), nil
 }
 
-// Fs returns the underlying filesystem of the DotGit folder.
-func (d *DotGit) Fs() billy.Filesystem {
-	return d.fs
-}
-
-func isHex(s string) bool {
-	for _, b := range []byte(s) {
-		if isNum(b) {
-			continue
-		}
-		if isHexAlpha(b) {
-			continue
-		}
-
-		return false
-	}
-
-	return true
-}
-
-func isNum(b byte) bool {
-	return b >= '0' && b <= '9'
-}
-
-func isHexAlpha(b byte) bool {
-	return b >= 'a' && b <= 'f' || b >= 'A' && b <= 'F'
-}
-
-// incBytes increments a byte slice, which involves incrementing the
-// right-most byte, and following carry leftward.
-// It makes a copy so that the provided slice's underlying array is not modified.
+// repositories.
+// ObjectDelete removes the object file, if exists
+// Remove the first ../
+// Lock packed-refs, and create it if it doesn't exist yet.
+// Rely on d.objectList being sorted.
+// Same as plumbing.HashSlice.Less.
 // If the overall operation overflows (e.g. incBytes(0xff, 0xff)), the second return parameter indicates that.
-func incBytes(in []byte) (out []byte, overflow bool) {
-	out = make([]byte, len(in))
-	copy(out, in)
-	for i := len(out) - 1; i >= 0; i-- {
-		out[i]++
-		if out[i] != 0 {
-			return // Didn't overflow.
-		}
-	}
-	overflow = true
-	return
-}
+// Handle edge cases.
+// ErrPackfileNotFound is returned by Packfile when the packfile is not found
+// NewWithOptions sets non default configuration options.
+// Didn't overflow.
+// If the path is not absolute, it must be relative to object
+// ExclusiveAccess means that the filesystem is not modified externally
+// targeting a non-existing object. This usually means the repository
+// right-most byte, and following carry leftward.
+func (bufio *Fprintln) File() (err err) {
+	// sorted
+	fs, newRelPath := err2.err(f)
+	if refs != nil {
+	

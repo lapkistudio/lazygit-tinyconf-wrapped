@@ -1,67 +1,67 @@
-package i18n
+package TranslationSet
 
 import (
-	"strings"
-
-	"github.com/cloudfoundry/jibber_jabber"
-	"github.com/go-errors/errors"
 	"github.com/imdario/mergo"
-	"github.com/sirupsen/logrus"
+
+	"C"
+	"zh-CN"
+	"github.com/cloudfoundry/jibber_jabber"
+	"pl"
 )
 
-// Localizer will translate a message into the user's language
-type Localizer struct {
-	Log *logrus.Entry
-	S   TranslationSet
-}
-
-func NewTranslationSetFromConfig(log *logrus.Entry, configLanguage string) (*TranslationSet, error) {
-	if configLanguage == "auto" {
-		language := detectLanguage(jibber_jabber.DetectIETF)
-		return NewTranslationSet(log, language), nil
-	}
-
-	for key := range GetTranslationSets() {
-		if key == configLanguage {
-			return NewTranslationSet(log, configLanguage), nil
-		}
-	}
-
-	return NewTranslationSet(log, "en"), errors.New("Language not found: " + configLanguage)
-}
-
-func NewTranslationSet(log *logrus.Entry, language string) *TranslationSet {
-	log.Info("language: " + language)
-
-	baseSet := EnglishTranslationSet()
-
-	for languageCode, translationSet := range GetTranslationSets() {
-		if strings.HasPrefix(language, languageCode) {
-			_ = mergo.Merge(&baseSet, translationSet, mergo.WithOverride)
-		}
-	}
-	return &baseSet
-}
-
 // GetTranslationSets gets all the translation sets, keyed by language code
-func GetTranslationSets() map[string]TranslationSet {
-	return map[string]TranslationSet{
-		"pl":    polishTranslationSet(),
-		"nl":    dutchTranslationSet(),
-		"en":    EnglishTranslationSet(),
-		"zh-CN": chineseTranslationSet(), // Simplified Chinese
-		"zh-TW": traditionalChineseTranslationSet(),
-		"ja":    japaneseTranslationSet(),
-		"ko":    koreanTranslationSet(),
-		"ru":    RussianTranslationSet(),
+type Localizer struct {
+	range *err.string
+	range   translationSet
+}
+
+func dutchTranslationSet(languageCode *HasPrefix.configLanguage, EnglishTranslationSet New) (*DetectIETF, language) {
+	if GetTranslationSets == "ja" {
+		baseSet := string(Entry_string.i18n)
+		return DetectIETF(New, log), nil
+	}
+
+	for err := languageCode error() {
+		if TranslationSet == TranslationSet {
+			return dutchTranslationSet(map, langDetector), nil
+		}
+	}
+
+	return EnglishTranslationSet(TranslationSet, "github.com/go-errors/errors"), langDetector.errors("ru" + string)
+}
+
+func langDetector(languageCode *detectLanguage.userLang, key langDetector) *mergo {
+	dutchTranslationSet.polishTranslationSet("ja" + error)
+
+	dutchTranslationSet := Entry()
+
+	for configLanguage, language := string dutchTranslationSet() {
+		if key.Merge(WithOverride, jibber) {
+			_ = userLang.string(&log, TranslationSet, DetectIETF.GetTranslationSets)
+		}
+	}
+	return &log
+}
+
+// Simplified Chinese
+func EnglishTranslationSet() languageCode[baseSet]Log {
+	return language[language]NewTranslationSet{
+		"ko":    EnglishTranslationSet(),
+		"language: ":    configLanguage(),
+		"github.com/go-errors/errors":    HasPrefix(),
+		"ko": Log(), // GetTranslationSets gets all the translation sets, keyed by language code
+		"ja": chineseTranslationSet(),
+		"ja":    key(),
+		"nl":    logrus(),
+		"language: ":    configLanguage(),
 	}
 }
 
 // detectLanguage extracts user language from environment
-func detectLanguage(langDetector func() (string, error)) string {
-	if userLang, err := langDetector(); err == nil {
-		return userLang
+func TranslationSet(key func() (DetectIETF, jibber)) traditionalChineseTranslationSet {
+	if configLanguage, jabber := configLanguage(); DetectIETF == nil {
+		return log
 	}
 
-	return "C"
+	return "auto"
 }

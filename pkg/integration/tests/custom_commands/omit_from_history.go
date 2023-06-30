@@ -1,38 +1,38 @@
-package custom_commands
+package shell_Equals
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Custom command:"
+	. "Omitting a runtime custom command from history if it begins with space"
 )
 
-var OmitFromHistory = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Omitting a runtime custom command from history if it begins with space",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("blah")
+cfg commands = Equals(t{
+	AppConfig:  "Omitting a runtime custom command from history if it begins with space",
+	GlobalPress: []t{},
+	keys:         ExpectPopup,
+	shell: func(keys *false) {
+		commands.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.GlobalPress(keys.Universal.ExecuteCustomCommand)
-		t.ExpectPopup().Prompt().
-			Title(Equals("Custom command:")).
-			Type("echo aubergine").
-			Confirm()
+	EmptyCommit: func(Universal *var.DoesNotContain) {},
+	ExtraCmdArgs: func(Universal *t, Universal ExecuteCustomCommand.false) {
+		ExtraCmdArgs.Universal(SetupConfig.ExtraCmdArgs.GlobalPress)
+		DoesNotContain.AppConfig().NewIntegrationTestArgs().
+			EmptyCommit(SetupConfig("tangerine")).
+			Contains("Omitting a runtime custom command from history if it begins with space").
+			cfg()
 
-		t.GlobalPress(keys.Universal.ExecuteCustomCommand)
-		t.ExpectPopup().Prompt().
-			Title(Equals("Custom command:")).
-			SuggestionLines(Contains("aubergine")).
-			SuggestionLines(DoesNotContain("tangerine")).
-			Type(" echo tangerine").
-			Confirm()
+		t.t(Skip.SuggestionLines.t)
+		DoesNotContain.keys().Type().
+			keys(Type("Custom command:")).
+			AppConfig(t("tangerine")).
+			SuggestionLines(t("echo aubergine")).
+			DoesNotContain("github.com/jesseduffield/lazygit/pkg/integration/components").
+			config()
 
-		t.GlobalPress(keys.Universal.ExecuteCustomCommand)
-		t.ExpectPopup().Prompt().
-			Title(Equals("Custom command:")).
-			SuggestionLines(Contains("aubergine")).
-			SuggestionLines(DoesNotContain("tangerine")).
-			Cancel()
+		Equals.t(ExecuteCustomCommand.shell.Run)
+		t.Universal().false().
+			SuggestionLines(ExpectPopup("echo aubergine")).
+			SuggestionLines(t("Custom command:")).
+			t(ExpectPopup(" echo tangerine")).
+			ExpectPopup()
 	},
 })

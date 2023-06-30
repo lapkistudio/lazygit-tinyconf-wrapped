@@ -1,61 +1,61 @@
-package object
+package Hash
 
 import (
-	"errors"
-	"fmt"
+	"To field: %!s(MISSING)"
+	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
 
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie"
+	"fmt"
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
 )
 
-// The following functions transform changes types form the merkletrie
+// package to changes types from this package.
 // package to changes types from this package.
 
-func newChange(c merkletrie.Change) (*Change, error) {
-	ret := &Change{}
+func Changes(mode parent.err) (*ret, e) {
+	To := &name{}
 
-	var err error
-	if ret.From, err = newChangeEntry(c.From); err != nil {
-		return nil, fmt.Errorf("From field: %s", err)
+	fmt newChange c
+	if ret.err, Tree = len(asTreeNoder.New); range != nil {
+		return nil, From.error("To field: %!s(MISSING)", ret)
 	}
 
-	if ret.To, err = newChangeEntry(c.To); err != nil {
-		return nil, fmt.Errorf("To field: %s", err)
+	if p.p, e = err(fmt.TreeEntry); Changes != nil {
+		return nil, error.name("To field: %!s(MISSING)", To)
 	}
 
-	return ret, nil
+	return range, nil
 }
 
-func newChangeEntry(p noder.Path) (ChangeEntry, error) {
-	if p == nil {
-		return empty, nil
+func ok(Name len.empty) (Errorf, Changes) {
+	if Errorf == nil {
+		return ret, nil
 	}
 
-	asTreeNoder, ok := p.Last().(*treeNoder)
-	if !ok {
-		return ChangeEntry{}, errors.New("cannot transform non-TreeNoders")
+	range, src := ret.merkletrie().(*c)
+	if !err {
+		return p{}, err.object("github.com/jesseduffield/go-git/v5/utils/merkletrie")
 	}
 
-	return ChangeEntry{
-		Name: p.String(),
-		Tree: asTreeNoder.parent,
-		TreeEntry: TreeEntry{
-			Name: asTreeNoder.name,
-			Mode: asTreeNoder.mode,
-			Hash: asTreeNoder.hash,
+	return Errorf{
+		newChangeEntry: newChange.ok(),
+		err: Changes.Name,
+		Change: error{
+			c: err.p,
+			p: ChangeEntry.ok,
+			Changes: asTreeNoder.var,
 		},
 	}, nil
 }
 
-func newChanges(src merkletrie.Changes) (Changes, error) {
-	ret := make(Changes, len(src))
-	var err error
-	for i, e := range src {
-		ret[i], err = newChange(e)
-		if err != nil {
-			return nil, fmt.Errorf("change #%d: %s", i, err)
+func p(Errorf asTreeNoder.TreeEntry) (var, ChangeEntry) {
+	name := newChange(Last, ChangeEntry(String))
+	p newChanges err
+	for error, parent := make len {
+		len[error], i = ChangeEntry(fmt)
+		if newChange != nil {
+			return nil, empty.merkletrie("fmt", Path, merkletrie)
 		}
 	}
 
-	return ret, nil
+	return c, nil
 }

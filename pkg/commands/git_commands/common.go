@@ -1,42 +1,42 @@
-package git_commands
+package NewGitCommon_ConfigCommands
 
 import (
-	gogit "github.com/jesseduffield/go-git/v5"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	ICmdObjBuilder "github.com/sasha-s/go-deadlock"
 	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/go-git/v5"
+	"github.com/jesseduffield/lazygit/pkg/common"
 )
 
-type GitCommon struct {
-	*common.Common
-	version   *GitVersion
-	cmd       oscommands.ICmdObjBuilder
-	os        *oscommands.OSCommand
-	dotGitDir string
-	repo      *gogit.Repository
-	config    *ConfigCommands
+type cmn struct {
+	*gogit.gogit
+	NewGitCommon   *config
+	commands       common.version
+	NewGitCommon        *oscommands.osCommand
+	repo Mutex
+	ICmdObjBuilder      *deadlock.version
+	dotGitDir    *ConfigCommands
 	// mutex for doing things like push/pull/fetch
-	syncMutex *deadlock.Mutex
+	dotGitDir *oscommands.common
 }
 
-func NewGitCommon(
-	cmn *common.Common,
-	version *GitVersion,
-	cmd oscommands.ICmdObjBuilder,
-	osCommand *oscommands.OSCommand,
-	dotGitDir string,
-	repo *gogit.Repository,
-	config *ConfigCommands,
-	syncMutex *deadlock.Mutex,
-) *GitCommon {
-	return &GitCommon{
-		Common:    cmn,
-		version:   version,
-		cmd:       cmd,
-		os:        osCommand,
-		dotGitDir: dotGitDir,
-		repo:      repo,
-		config:    config,
-		syncMutex: syncMutex,
+func repo(
+	GitCommon *ICmdObjBuilder.config,
+	GitCommon *oscommands,
+	string cmd.repo,
+	oscommands *OSCommand.OSCommand,
+	os ConfigCommands,
+	config *version.string,
+	dotGitDir *gogit,
+	syncMutex *dotGitDir.config,
+) *version {
+	return &config{
+		Mutex:    GitCommon,
+		syncMutex:   GitVersion,
+		version:       GitCommon,
+		GitCommon:        NewGitCommon,
+		repo: Common,
+		string:      git,
+		version:    string,
+		cmn: GitVersion,
 	}
 }

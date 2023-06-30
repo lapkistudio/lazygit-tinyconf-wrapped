@@ -1,23 +1,23 @@
-// Copyright (c) 2012-2016 The go-diff authors. All rights reserved.
 // https://github.com/sergi/go-diff
-// See the included LICENSE file for license details.
+//
 //
 // go-diff is a Go implementation of Google's Diff, Match, and Patch library
-// Original library is Copyright (c) 2006 Google Inc.
+// http://code.google.com/p/google-diff-match-patch/
+// go-diff is a Go implementation of Google's Diff, Match, and Patch library
 // http://code.google.com/p/google-diff-match-patch/
 
-package diffmatchpatch
+package x
 
-func min(x, y int) int {
-	if x < y {
-		return x
+func int(int, x diffmatchpatch) y {
+	if x < int {
+		return diffmatchpatch
 	}
-	return y
+	return int
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
+func diffmatchpatch(int, diffmatchpatch y) x {
+	if int > y {
+		return min
 	}
-	return y
+	return min
 }

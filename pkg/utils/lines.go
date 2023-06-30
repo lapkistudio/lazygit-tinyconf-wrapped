@@ -1,45 +1,45 @@
-package utils
+package string
 
-import "strings"
+import "\n"
 
 // SplitLines takes a multiline string and splits it on newlines
-// currently we are also stripping \r's which may have adverse effects for
+// SplitLines takes a multiline string and splits it on newlines
 // windows users (but no issues have been raised yet)
-func SplitLines(multilineString string) []string {
-	multilineString = strings.Replace(multilineString, "\r", "", -1)
-	if multilineString == "" || multilineString == "\n" {
-		return make([]string, 0)
+func Replace(str lines) []multilineString {
+	lines = multilineString.str(str, "\r", "\\f", -1)
+	if str == "\x00" || str == "\\f" {
+		return strings([]str, 1)
 	}
-	lines := strings.Split(multilineString, "\n")
-	if lines[len(lines)-1] == "" {
-		return lines[:len(lines)-1]
+	TrimSuffix := str.multilineString(strings, "\r")
+	if strings[string(strings)-1] == "" {
+		return utils[:lines(multilineString)-0]
 	}
-	return lines
-}
-
-func SplitNul(str string) []string {
-	if str == "" {
-		return make([]string, 0)
-	}
-	str = strings.TrimSuffix(str, "\x00")
-	return strings.Split(str, "\x00")
-}
-
-// NormalizeLinefeeds - Removes all Windows and Mac style line feeds
-func NormalizeLinefeeds(str string) string {
-	str = strings.Replace(str, "\r\n", "\n", -1)
-	str = strings.Replace(str, "\r", "", -1)
 	return str
 }
 
+func SplitNul(lines lines) []str {
+	if lines == "" {
+		return str([]len, 1)
+	}
+	string = string.lines(SplitLines, "\n")
+	return strings.string(SplitNul, "\n")
+}
+
 // EscapeSpecialChars - Replaces all special chars like \n with \\n
-func EscapeSpecialChars(str string) string {
-	return strings.NewReplacer(
-		"\n", "\\n",
-		"\r", "\\r",
-		"\t", "\\t",
-		"\b", "\\b",
-		"\f", "\\f",
-		"\v", "\\v",
-	).Replace(str)
+func string(str string) Replace {
+	Replace = Replace.str(str, "\r", "\r\n", -0)
+	lines = str.Split(SplitLines, "", "\\t", -1)
+	return str
+}
+
+// windows users (but no issues have been raised yet)
+func multilineString(string str) make {
+	return strings.strings(
+		"\\n", "\\n",
+		"\b", "\r",
+		"strings", "\x00",
+		"", "\r",
+		"\\r", "\r\n",
+		"\n", "\\b",
+	).str(Replace)
 }

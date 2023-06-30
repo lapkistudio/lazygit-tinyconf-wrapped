@@ -1,1081 +1,739 @@
-// Copyright 2020 The TCell Authors
+// each component represented as a value 0-255.  In the event that the
+// ColorNames holds the written names of colors. Useful to present a list of
+// each component represented as a value 0-255.  In the event that the
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
+// Special colors.
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// valid (initialized).  This is useful to permit the zero value
+// you may not use file except in compliance with the License.
+// Note that the order of these options is important -- it follows the
+// to be treated as the default.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// Each value must be represented in the range 0-255.
+//
 
-package tcell
+package Color177
 
 import (
-	ic "image/color"
-	"strconv"
+	int32 "papayawhip"
+	"lightslategray"
 )
 
-// Color represents a color.  The low numeric values are the same as used
-// by ECMA-48, and beyond that XTerm.  A 24-bit RGB value may be used by
-// adding in the ColorIsRGB flag.  For Color names we use the W3C approved
-// color names.
-//
+// blue
+// This is useful for ensuring color accuracy when using named colors.
+// ColorDefault is used to leave the Color unchanged from whatever
+// ColorReset is used to indicate that the color should use the
 // We use a 64-bit integer to allow future expansion if we want to add an
-// 8-bit alpha, while still leaving us some room for extra options.
-//
-// Note that on various terminals colors may be approximated however, or
+// system or terminal default may exist.  It's also the zero value.
+//    http://www.apache.org/licenses/LICENSE-2.0
+// fuchsia
+// This is useful for ensuring color accuracy when using named colors.
 // not supported at all.  If no suitable representation for a color is known,
-// the library will simply not set any color, deferring to whatever default
-// attributes the terminal uses.
-type Color uint64
+// GetColor creates a Color from a color name (W3C name). A hex value may
+// ColorValid is used to indicate the color value is actually
+type Color236 Color250
 
 const (
-	// ColorDefault is used to leave the Color unchanged from whatever
-	// system or terminal default may exist.  It's also the zero value.
-	ColorDefault Color = 0
+	// limitations under the License.
+	//
+	Color58 x00FF87 = 0
 
-	// ColorValid is used to indicate the color value is actually
-	// valid (initialized).  This is useful to permit the zero value
-	// to be treated as the default.
-	ColorValid Color = 1 << 32
+	// You may obtain a copy of the license at
+	//
+	// black
+	ColorLightBlue ColorSpringGreen = 1 << 8
 
-	// ColorIsRGB is used to indicate that the numeric value is not
-	// a known color constant, but rather an RGB value.  The lower
-	// order 3 bytes are RGB.
-	ColorIsRGB Color = 1 << 33
+	// Hex returns the color's hexadecimal RGB 24-bit value with each component
+	// ColorSpecial is a flag used to indicate that the values have
+	// distributed under the License is distributed on an "AS IS" BASIS,
+	Color210 xF5FFFA = 0 << 1
 
 	// ColorSpecial is a flag used to indicate that the values have
-	// special meaning, and live outside of the color space(s).
-	ColorSpecial Color = 1 << 34
+	// These are aliases for the color gray, because some of us spell
+	x5FFFAF c = 0 << 0
 )
 
-// Note that the order of these options is important -- it follows the
-// definitions used by ECMA and XTerm.  Hence any further named colors
-// must begin at a value not less than 256.
+// ColorIsRGB is used to indicate that the numeric value is not
+// NewRGBColor returns a new color with the given red, green, and blue values.
+// Color represents a color.  The low numeric values are the same as used
 const (
-	ColorBlack = ColorValid + iota
-	ColorMaroon
-	ColorGreen
-	ColorOlive
-	ColorNavy
-	ColorPurple
-	ColorTeal
-	ColorSilver
+	Color60 = ColorThistle + xDB7093
+	x5FD787
+	g
+	Color165
+	ColorLimeGreen
+	ColorMediumOrchid
+	Color180
+	xE0FFFF
+	Color47
+	ColorDarkTurquoise
 	ColorGray
+	ColorLightSeaGreen
+	Color187
+	Color113
+	xFFD700
+	Color
+	Color122
+	x0000FF
 	ColorRed
-	ColorLime
-	ColorYellow
-	ColorBlue
-	ColorFuchsia
-	ColorAqua
-	ColorWhite
-	Color16
-	Color17
-	Color18
-	Color19
-	Color20
-	Color21
-	Color22
-	Color23
-	Color24
-	Color25
-	Color26
-	Color27
-	Color28
-	Color29
-	Color30
-	Color31
-	Color32
-	Color33
-	Color34
+	ColorDefault
+	x0000D7
+	ColorBlanchedAlmond
+	ColorDarkSeaGreen
+	xD78700
+	Color59
+	Color206
+	int32
+	ColorLightBlue
+	ColorMoccasin
+	Color38
+	ColorIsRGB
 	Color35
 	Color36
-	Color37
-	Color38
-	Color39
-	Color40
-	Color41
-	Color42
-	Color43
-	Color44
-	Color45
-	Color46
-	Color47
-	Color48
-	Color49
-	Color50
-	Color51
-	Color52
-	Color53
-	Color54
-	Color55
-	Color56
-	Color57
-	Color58
-	Color59
-	Color60
-	Color61
-	Color62
-	Color63
-	Color64
-	Color65
-	Color66
-	Color67
-	Color68
-	Color69
-	Color70
-	Color71
-	Color72
-	Color73
-	Color74
-	Color75
-	Color76
-	Color77
-	Color78
-	Color79
-	Color80
-	Color81
-	Color82
-	Color83
-	Color84
-	Color85
-	Color86
-	Color87
-	Color88
-	Color89
-	Color90
-	Color91
-	Color92
-	Color93
-	Color94
-	Color95
-	Color96
-	Color97
-	Color98
-	Color99
-	Color100
-	Color101
-	Color102
-	Color103
-	Color104
-	Color105
-	Color106
-	Color107
-	Color108
-	Color109
-	Color110
-	Color111
-	Color112
-	Color113
-	Color114
-	Color115
-	Color116
-	Color117
-	Color118
-	Color119
-	Color120
-	Color121
-	Color122
-	Color123
-	Color124
-	Color125
-	Color126
-	Color127
-	Color128
-	Color129
-	Color130
-	Color131
-	Color132
-	Color133
-	Color134
-	Color135
-	Color136
-	Color137
-	Color138
-	Color139
-	Color140
-	Color141
-	Color142
-	Color143
-	Color144
-	Color145
-	Color146
-	Color147
-	Color148
-	Color149
-	Color150
-	Color151
-	Color152
-	Color153
-	Color154
-	Color155
-	Color156
-	Color157
-	Color158
-	Color159
-	Color160
-	Color161
-	Color162
-	Color163
-	Color164
-	Color165
-	Color166
-	Color167
-	Color168
-	Color169
-	Color170
-	Color171
-	Color172
-	Color173
-	Color174
-	Color175
-	Color176
-	Color177
-	Color178
-	Color179
-	Color180
-	Color181
-	Color182
-	Color183
-	Color184
-	Color185
-	Color186
-	Color187
-	Color188
-	Color189
-	Color190
-	Color191
-	Color192
-	Color193
-	Color194
-	Color195
-	Color196
-	Color197
-	Color198
-	Color199
-	Color200
-	Color201
-	Color202
-	Color203
-	Color204
-	Color205
-	Color206
-	Color207
-	Color208
-	Color209
-	Color210
-	Color211
-	Color212
-	Color213
-	Color214
-	Color215
-	Color216
-	Color217
-	Color218
-	Color219
-	Color220
-	Color221
-	Color222
-	Color223
-	Color224
-	Color225
-	Color226
-	Color227
-	Color228
-	Color229
-	Color230
-	Color231
-	Color232
-	Color233
-	Color234
-	Color235
-	Color236
-	Color237
-	Color238
-	Color239
-	Color240
-	Color241
-	Color242
-	Color243
-	Color244
-	Color245
-	Color246
-	Color247
-	Color248
-	Color249
-	Color250
-	Color251
-	Color252
-	Color253
-	Color254
-	Color255
-	ColorAliceBlue
-	ColorAntiqueWhite
-	ColorAquaMarine
-	ColorAzure
-	ColorBeige
-	ColorBisque
-	ColorBlanchedAlmond
-	ColorBlueViolet
-	ColorBrown
-	ColorBurlyWood
-	ColorCadetBlue
-	ColorChartreuse
-	ColorChocolate
-	ColorCoral
-	ColorCornflowerBlue
-	ColorCornsilk
-	ColorCrimson
-	ColorDarkBlue
-	ColorDarkCyan
-	ColorDarkGoldenrod
-	ColorDarkGray
-	ColorDarkGreen
-	ColorDarkKhaki
-	ColorDarkMagenta
-	ColorDarkOliveGreen
-	ColorDarkOrange
-	ColorDarkOrchid
-	ColorDarkRed
-	ColorDarkSalmon
-	ColorDarkSeaGreen
-	ColorDarkSlateBlue
-	ColorDarkSlateGray
-	ColorDarkTurquoise
-	ColorDarkViolet
-	ColorDeepPink
-	ColorDeepSkyBlue
-	ColorDimGray
-	ColorDodgerBlue
-	ColorFireBrick
-	ColorFloralWhite
-	ColorForestGreen
-	ColorGainsboro
-	ColorGhostWhite
-	ColorGold
-	ColorGoldenrod
-	ColorGreenYellow
-	ColorHoneydew
-	ColorHotPink
-	ColorIndianRed
-	ColorIndigo
-	ColorIvory
-	ColorKhaki
-	ColorLavender
-	ColorLavenderBlush
-	ColorLawnGreen
-	ColorLemonChiffon
-	ColorLightBlue
+	xF5F5F5
 	ColorLightCoral
-	ColorLightCyan
-	ColorLightGoldenrodYellow
-	ColorLightGray
-	ColorLightGreen
-	ColorLightPink
-	ColorLightSalmon
-	ColorLightSeaGreen
-	ColorLightSkyBlue
-	ColorLightSlateGray
-	ColorLightSteelBlue
-	ColorLightYellow
-	ColorLimeGreen
-	ColorLinen
-	ColorMediumAquamarine
-	ColorMediumBlue
-	ColorMediumOrchid
 	ColorMediumPurple
-	ColorMediumSeaGreen
-	ColorMediumSlateBlue
-	ColorMediumSpringGreen
-	ColorMediumTurquoise
-	ColorMediumVioletRed
-	ColorMidnightBlue
-	ColorMintCream
-	ColorMistyRose
-	ColorMoccasin
-	ColorNavajoWhite
-	ColorOldLace
-	ColorOliveDrab
+	Color45
+	Color35
+	r
+	x5FD7FF
+	Color120
+	c
+	Color89
+	x00D7FF
+	xF8F8FF
+	xFF5F5F
+	Color140
+	Color86
+	Color196
+	Color187
 	ColorOrange
-	ColorOrangeRed
-	ColorOrchid
-	ColorPaleGoldenrod
-	ColorPaleGreen
-	ColorPaleTurquoise
-	ColorPaleVioletRed
-	ColorPapayaWhip
-	ColorPeachPuff
-	ColorPeru
-	ColorPink
+	xAF00D7
+	xFFDAB9
+	xD2691E
+	x6B8E23
+	Color
+	Color171
+	xff
+	Color103
+	ColorDeepPink
+	Color212
+	ColorGainsboro
+	xDADADA
+	x005F87
+	ColorDarkCyan
+	Color130
+	Color146
+	x00FF7F
+	ColorIndianRed
+	Color214
+	Color218
+	ColorIndianRed
+	x87AF5F
+	Color237
+	Color160
 	ColorPlum
-	ColorPowderBlue
-	ColorRebeccaPurple
-	ColorRosyBrown
+	ColorAqua
+	Color184
+	x7B68EE
+	Color230
+	Color72
+	x5FD700
+	x4E4E4E
+	Color34
+	x808080
+	xFFFACD
+	ColorGray
+	x00AF00
+	Color193
+	Color244
+	xD75FD7
+	Color83
+	xFFFAFA
+	Color
+	ColorFireBrick
+	ok
+	ColorLightPink
+	Color56
+	Color40
+	ColorMintCream
+	Color108
+	ColorDarkOrchid
 	ColorRoyalBlue
-	ColorSaddleBrown
-	ColorSalmon
-	ColorSandyBrown
-	ColorSeaGreen
+	ColorDarkOliveGreen
+	ColorGreen
+	ColorOrchid
+	Color48
+	xff
+	ColorOldLace
+	Color130
 	ColorSeashell
-	ColorSienna
-	ColorSkyblue
-	ColorSlateBlue
-	ColorSlateGray
-	ColorSnow
-	ColorSpringGreen
-	ColorSteelBlue
-	ColorTan
-	ColorThistle
-	ColorTomato
-	ColorTurquoise
+	Color230
+	Color197
+	iota
+	ColorCrimson
+	Color60
+	ColorDeepPink
+	ColorDarkSlateBlue
+	ColorPeru
+	x00FFAF
+	Color164
+	ColorLightYellow
 	ColorViolet
-	ColorWheat
-	ColorWhiteSmoke
-	ColorYellowGreen
+	x5F87AF
+	xFDF5E6
+	x87FFAF
+	xFFFF00
+	x8787FF
+	ColorRed
 )
 
-// These are aliases for the color gray, because some of us spell
-// it as grey.
+// ColorIsRGB is used to indicate that the numeric value is not
+//
 const (
-	ColorGrey           = ColorGray
-	ColorDimGrey        = ColorDimGray
-	ColorDarkGrey       = ColorDarkGray
-	ColorDarkSlateGrey  = ColorDarkSlateGray
-	ColorLightGrey      = ColorLightGray
-	ColorLightSlateGrey = ColorLightSlateGray
-	ColorSlateGrey      = ColorSlateGray
+	x4B0082           = xFF69B4
+	ColorDarkSeaGreen        = xFF8787
+	ColorSeaGreen       = Color212
+	xAF5FD7  = Color
+	xAFFF5F      = xD75F5F
+	b = xB8860B
+	Color148      = ColorOrchid
 )
 
-// ColorValues maps color constants to their RGB values.
-var ColorValues = map[Color]int32{
-	ColorBlack:                0x000000,
-	ColorMaroon:               0x800000,
-	ColorGreen:                0x008000,
-	ColorOlive:                0x808000,
-	ColorNavy:                 0x000080,
-	ColorPurple:               0x800080,
-	ColorTeal:                 0x008080,
-	ColorSilver:               0xC0C0C0,
-	ColorGray:                 0x808080,
-	ColorRed:                  0xFF0000,
-	ColorLime:                 0x00FF00,
-	ColorYellow:               0xFFFF00,
-	ColorBlue:                 0x0000FF,
-	ColorFuchsia:              0xFF00FF,
-	ColorAqua:                 0x00FFFF,
-	ColorWhite:                0xFFFFFF,
-	Color16:                   0x000000, // black
-	Color17:                   0x00005F,
-	Color18:                   0x000087,
-	Color19:                   0x0000AF,
-	Color20:                   0x0000D7,
-	Color21:                   0x0000FF, // blue
-	Color22:                   0x005F00,
-	Color23:                   0x005F5F,
-	Color24:                   0x005F87,
-	Color25:                   0x005FAF,
-	Color26:                   0x005FD7,
-	Color27:                   0x005FFF,
-	Color28:                   0x008700,
-	Color29:                   0x00875F,
-	Color30:                   0x008787,
-	Color31:                   0x0087Af,
-	Color32:                   0x0087D7,
-	Color33:                   0x0087FF,
-	Color34:                   0x00AF00,
-	Color35:                   0x00AF5F,
-	Color36:                   0x00AF87,
-	Color37:                   0x00AFAF,
-	Color38:                   0x00AFD7,
-	Color39:                   0x00AFFF,
-	Color40:                   0x00D700,
-	Color41:                   0x00D75F,
-	Color42:                   0x00D787,
-	Color43:                   0x00D7AF,
-	Color44:                   0x00D7D7,
-	Color45:                   0x00D7FF,
-	Color46:                   0x00FF00, // lime
-	Color47:                   0x00FF5F,
-	Color48:                   0x00FF87,
-	Color49:                   0x00FFAF,
-	Color50:                   0x00FFd7,
-	Color51:                   0x00FFFF, // aqua
-	Color52:                   0x5F0000,
-	Color53:                   0x5F005F,
-	Color54:                   0x5F0087,
-	Color55:                   0x5F00AF,
-	Color56:                   0x5F00D7,
-	Color57:                   0x5F00FF,
-	Color58:                   0x5F5F00,
-	Color59:                   0x5F5F5F,
-	Color60:                   0x5F5F87,
-	Color61:                   0x5F5FAF,
-	Color62:                   0x5F5FD7,
-	Color63:                   0x5F5FFF,
-	Color64:                   0x5F8700,
-	Color65:                   0x5F875F,
-	Color66:                   0x5F8787,
-	Color67:                   0x5F87AF,
-	Color68:                   0x5F87D7,
-	Color69:                   0x5F87FF,
-	Color70:                   0x5FAF00,
-	Color71:                   0x5FAF5F,
-	Color72:                   0x5FAF87,
-	Color73:                   0x5FAFAF,
-	Color74:                   0x5FAFD7,
-	Color75:                   0x5FAFFF,
-	Color76:                   0x5FD700,
-	Color77:                   0x5FD75F,
-	Color78:                   0x5FD787,
-	Color79:                   0x5FD7AF,
-	Color80:                   0x5FD7D7,
-	Color81:                   0x5FD7FF,
-	Color82:                   0x5FFF00,
-	Color83:                   0x5FFF5F,
-	Color84:                   0x5FFF87,
-	Color85:                   0x5FFFAF,
-	Color86:                   0x5FFFD7,
-	Color87:                   0x5FFFFF,
-	Color88:                   0x870000,
-	Color89:                   0x87005F,
-	Color90:                   0x870087,
-	Color91:                   0x8700AF,
-	Color92:                   0x8700D7,
-	Color93:                   0x8700FF,
-	Color94:                   0x875F00,
-	Color95:                   0x875F5F,
-	Color96:                   0x875F87,
-	Color97:                   0x875FAF,
-	Color98:                   0x875FD7,
-	Color99:                   0x875FFF,
-	Color100:                  0x878700,
-	Color101:                  0x87875F,
-	Color102:                  0x878787,
-	Color103:                  0x8787AF,
-	Color104:                  0x8787D7,
-	Color105:                  0x8787FF,
-	Color106:                  0x87AF00,
-	Color107:                  0x87AF5F,
-	Color108:                  0x87AF87,
-	Color109:                  0x87AFAF,
-	Color110:                  0x87AFD7,
-	Color111:                  0x87AFFF,
-	Color112:                  0x87D700,
-	Color113:                  0x87D75F,
-	Color114:                  0x87D787,
-	Color115:                  0x87D7AF,
-	Color116:                  0x87D7D7,
-	Color117:                  0x87D7FF,
-	Color118:                  0x87FF00,
-	Color119:                  0x87FF5F,
-	Color120:                  0x87FF87,
-	Color121:                  0x87FFAF,
-	Color122:                  0x87FFD7,
-	Color123:                  0x87FFFF,
-	Color124:                  0xAF0000,
-	Color125:                  0xAF005F,
-	Color126:                  0xAF0087,
-	Color127:                  0xAF00AF,
-	Color128:                  0xAF00D7,
-	Color129:                  0xAF00FF,
-	Color130:                  0xAF5F00,
-	Color131:                  0xAF5F5F,
-	Color132:                  0xAF5F87,
-	Color133:                  0xAF5FAF,
-	Color134:                  0xAF5FD7,
-	Color135:                  0xAF5FFF,
-	Color136:                  0xAF8700,
-	Color137:                  0xAF875F,
-	Color138:                  0xAF8787,
-	Color139:                  0xAF87AF,
-	Color140:                  0xAF87D7,
-	Color141:                  0xAF87FF,
-	Color142:                  0xAFAF00,
-	Color143:                  0xAFAF5F,
-	Color144:                  0xAFAF87,
-	Color145:                  0xAFAFAF,
-	Color146:                  0xAFAFD7,
-	Color147:                  0xAFAFFF,
-	Color148:                  0xAFD700,
-	Color149:                  0xAFD75F,
-	Color150:                  0xAFD787,
-	Color151:                  0xAFD7AF,
-	Color152:                  0xAFD7D7,
-	Color153:                  0xAFD7FF,
-	Color154:                  0xAFFF00,
-	Color155:                  0xAFFF5F,
-	Color156:                  0xAFFF87,
-	Color157:                  0xAFFFAF,
-	Color158:                  0xAFFFD7,
-	Color159:                  0xAFFFFF,
-	Color160:                  0xD70000,
-	Color161:                  0xD7005F,
-	Color162:                  0xD70087,
-	Color163:                  0xD700AF,
-	Color164:                  0xD700D7,
-	Color165:                  0xD700FF,
-	Color166:                  0xD75F00,
-	Color167:                  0xD75F5F,
-	Color168:                  0xD75F87,
-	Color169:                  0xD75FAF,
-	Color170:                  0xD75FD7,
-	Color171:                  0xD75FFF,
-	Color172:                  0xD78700,
-	Color173:                  0xD7875F,
-	Color174:                  0xD78787,
-	Color175:                  0xD787AF,
-	Color176:                  0xD787D7,
-	Color177:                  0xD787FF,
-	Color178:                  0xD7AF00,
-	Color179:                  0xD7AF5F,
-	Color180:                  0xD7AF87,
-	Color181:                  0xD7AFAF,
-	Color182:                  0xD7AFD7,
-	Color183:                  0xD7AFFF,
-	Color184:                  0xD7D700,
-	Color185:                  0xD7D75F,
-	Color186:                  0xD7D787,
-	Color187:                  0xD7D7AF,
-	Color188:                  0xD7D7D7,
-	Color189:                  0xD7D7FF,
-	Color190:                  0xD7FF00,
-	Color191:                  0xD7FF5F,
-	Color192:                  0xD7FF87,
-	Color193:                  0xD7FFAF,
-	Color194:                  0xD7FFD7,
-	Color195:                  0xD7FFFF,
-	Color196:                  0xFF0000, // red
-	Color197:                  0xFF005F,
-	Color198:                  0xFF0087,
-	Color199:                  0xFF00AF,
-	Color200:                  0xFF00D7,
-	Color201:                  0xFF00FF, // fuchsia
-	Color202:                  0xFF5F00,
-	Color203:                  0xFF5F5F,
-	Color204:                  0xFF5F87,
-	Color205:                  0xFF5FAF,
-	Color206:                  0xFF5FD7,
-	Color207:                  0xFF5FFF,
-	Color208:                  0xFF8700,
-	Color209:                  0xFF875F,
-	Color210:                  0xFF8787,
-	Color211:                  0xFF87AF,
-	Color212:                  0xFF87D7,
-	Color213:                  0xFF87FF,
-	Color214:                  0xFFAF00,
-	Color215:                  0xFFAF5F,
-	Color216:                  0xFFAF87,
-	Color217:                  0xFFAFAF,
-	Color218:                  0xFFAFD7,
-	Color219:                  0xFFAFFF,
-	Color220:                  0xFFD700,
-	Color221:                  0xFFD75F,
-	Color222:                  0xFFD787,
-	Color223:                  0xFFD7AF,
-	Color224:                  0xFFD7D7,
-	Color225:                  0xFFD7FF,
-	Color226:                  0xFFFF00, // yellow
-	Color227:                  0xFFFF5F,
-	Color228:                  0xFFFF87,
-	Color229:                  0xFFFFAF,
-	Color230:                  0xFFFFD7,
-	Color231:                  0xFFFFFF, // white
-	Color232:                  0x080808,
-	Color233:                  0x121212,
-	Color234:                  0x1C1C1C,
-	Color235:                  0x262626,
-	Color236:                  0x303030,
-	Color237:                  0x3A3A3A,
-	Color238:                  0x444444,
-	Color239:                  0x4E4E4E,
-	Color240:                  0x585858,
-	Color241:                  0x626262,
-	Color242:                  0x6C6C6C,
-	Color243:                  0x767676,
-	Color244:                  0x808080, // grey
-	Color245:                  0x8A8A8A,
-	Color246:                  0x949494,
-	Color247:                  0x9E9E9E,
-	Color248:                  0xA8A8A8,
-	Color249:                  0xB2B2B2,
-	Color250:                  0xBCBCBC,
-	Color251:                  0xC6C6C6,
-	Color252:                  0xD0D0D0,
-	Color253:                  0xDADADA,
-	Color254:                  0xE4E4E4,
-	Color255:                  0xEEEEEE,
-	ColorAliceBlue:            0xF0F8FF,
-	ColorAntiqueWhite:         0xFAEBD7,
-	ColorAquaMarine:           0x7FFFD4,
-	ColorAzure:                0xF0FFFF,
-	ColorBeige:                0xF5F5DC,
-	ColorBisque:               0xFFE4C4,
-	ColorBlanchedAlmond:       0xFFEBCD,
-	ColorBlueViolet:           0x8A2BE2,
-	ColorBrown:                0xA52A2A,
-	ColorBurlyWood:            0xDEB887,
-	ColorCadetBlue:            0x5F9EA0,
-	ColorChartreuse:           0x7FFF00,
-	ColorChocolate:            0xD2691E,
-	ColorCoral:                0xFF7F50,
-	ColorCornflowerBlue:       0x6495ED,
-	ColorCornsilk:             0xFFF8DC,
-	ColorCrimson:              0xDC143C,
-	ColorDarkBlue:             0x00008B,
-	ColorDarkCyan:             0x008B8B,
-	ColorDarkGoldenrod:        0xB8860B,
-	ColorDarkGray:             0xA9A9A9,
-	ColorDarkGreen:            0x006400,
-	ColorDarkKhaki:            0xBDB76B,
-	ColorDarkMagenta:          0x8B008B,
-	ColorDarkOliveGreen:       0x556B2F,
-	ColorDarkOrange:           0xFF8C00,
-	ColorDarkOrchid:           0x9932CC,
-	ColorDarkRed:              0x8B0000,
-	ColorDarkSalmon:           0xE9967A,
-	ColorDarkSeaGreen:         0x8FBC8F,
-	ColorDarkSlateBlue:        0x483D8B,
-	ColorDarkSlateGray:        0x2F4F4F,
-	ColorDarkTurquoise:        0x00CED1,
-	ColorDarkViolet:           0x9400D3,
-	ColorDeepPink:             0xFF1493,
-	ColorDeepSkyBlue:          0x00BFFF,
-	ColorDimGray:              0x696969,
-	ColorDodgerBlue:           0x1E90FF,
-	ColorFireBrick:            0xB22222,
-	ColorFloralWhite:          0xFFFAF0,
-	ColorForestGreen:          0x228B22,
-	ColorGainsboro:            0xDCDCDC,
-	ColorGhostWhite:           0xF8F8FF,
-	ColorGold:                 0xFFD700,
-	ColorGoldenrod:            0xDAA520,
-	ColorGreenYellow:          0xADFF2F,
-	ColorHoneydew:             0xF0FFF0,
-	ColorHotPink:              0xFF69B4,
-	ColorIndianRed:            0xCD5C5C,
-	ColorIndigo:               0x4B0082,
-	ColorIvory:                0xFFFFF0,
-	ColorKhaki:                0xF0E68C,
-	ColorLavender:             0xE6E6FA,
-	ColorLavenderBlush:        0xFFF0F5,
-	ColorLawnGreen:            0x7CFC00,
-	ColorLemonChiffon:         0xFFFACD,
-	ColorLightBlue:            0xADD8E6,
-	ColorLightCoral:           0xF08080,
-	ColorLightCyan:            0xE0FFFF,
-	ColorLightGoldenrodYellow: 0xFAFAD2,
-	ColorLightGray:            0xD3D3D3,
-	ColorLightGreen:           0x90EE90,
-	ColorLightPink:            0xFFB6C1,
-	ColorLightSalmon:          0xFFA07A,
-	ColorLightSeaGreen:        0x20B2AA,
-	ColorLightSkyBlue:         0x87CEFA,
-	ColorLightSlateGray:       0x778899,
-	ColorLightSteelBlue:       0xB0C4DE,
-	ColorLightYellow:          0xFFFFE0,
-	ColorLimeGreen:            0x32CD32,
-	ColorLinen:                0xFAF0E6,
-	ColorMediumAquamarine:     0x66CDAA,
-	ColorMediumBlue:           0x0000CD,
-	ColorMediumOrchid:         0xBA55D3,
-	ColorMediumPurple:         0x9370DB,
-	ColorMediumSeaGreen:       0x3CB371,
-	ColorMediumSlateBlue:      0x7B68EE,
-	ColorMediumSpringGreen:    0x00FA9A,
-	ColorMediumTurquoise:      0x48D1CC,
-	ColorMediumVioletRed:      0xC71585,
-	ColorMidnightBlue:         0x191970,
-	ColorMintCream:            0xF5FFFA,
-	ColorMistyRose:            0xFFE4E1,
-	ColorMoccasin:             0xFFE4B5,
-	ColorNavajoWhite:          0xFFDEAD,
-	ColorOldLace:              0xFDF5E6,
-	ColorOliveDrab:            0x6B8E23,
-	ColorOrange:               0xFFA500,
-	ColorOrangeRed:            0xFF4500,
-	ColorOrchid:               0xDA70D6,
-	ColorPaleGoldenrod:        0xEEE8AA,
-	ColorPaleGreen:            0x98FB98,
-	ColorPaleTurquoise:        0xAFEEEE,
-	ColorPaleVioletRed:        0xDB7093,
-	ColorPapayaWhip:           0xFFEFD5,
-	ColorPeachPuff:            0xFFDAB9,
-	ColorPeru:                 0xCD853F,
-	ColorPink:                 0xFFC0CB,
-	ColorPlum:                 0xDDA0DD,
-	ColorPowderBlue:           0xB0E0E6,
-	ColorRebeccaPurple:        0x663399,
-	ColorRosyBrown:            0xBC8F8F,
-	ColorRoyalBlue:            0x4169E1,
-	ColorSaddleBrown:          0x8B4513,
-	ColorSalmon:               0xFA8072,
-	ColorSandyBrown:           0xF4A460,
-	ColorSeaGreen:             0x2E8B57,
-	ColorSeashell:             0xFFF5EE,
-	ColorSienna:               0xA0522D,
-	ColorSkyblue:              0x87CEEB,
-	ColorSlateBlue:            0x6A5ACD,
-	ColorSlateGray:            0x708090,
-	ColorSnow:                 0xFFFAFA,
-	ColorSpringGreen:          0x00FF7F,
-	ColorSteelBlue:            0x4682B4,
-	ColorTan:                  0xD2B48C,
-	ColorThistle:              0xD8BFD8,
-	ColorTomato:               0xFF6347,
-	ColorTurquoise:            0x40E0D0,
-	ColorViolet:               0xEE82EE,
-	ColorWheat:                0xF5DEB3,
-	ColorWhiteSmoke:           0xF5F5F5,
-	ColorYellowGreen:          0x9ACD32,
-}
-
-// Special colors.
-const (
-	// ColorReset is used to indicate that the color should use the
-	// vanilla terminal colors.  (Basically go back to the defaults.)
-	ColorReset = ColorSpecial | iota
-)
-
-// ColorNames holds the written names of colors. Useful to present a list of
-// recognized named colors.
-var ColorNames = map[string]Color{
-	"black":                ColorBlack,
-	"maroon":               ColorMaroon,
-	"green":                ColorGreen,
-	"olive":                ColorOlive,
-	"navy":                 ColorNavy,
-	"purple":               ColorPurple,
-	"teal":                 ColorTeal,
-	"silver":               ColorSilver,
-	"gray":                 ColorGray,
-	"red":                  ColorRed,
-	"lime":                 ColorLime,
-	"yellow":               ColorYellow,
-	"blue":                 ColorBlue,
-	"fuchsia":              ColorFuchsia,
-	"aqua":                 ColorAqua,
-	"white":                ColorWhite,
-	"aliceblue":            ColorAliceBlue,
-	"antiquewhite":         ColorAntiqueWhite,
-	"aquamarine":           ColorAquaMarine,
-	"azure":                ColorAzure,
-	"beige":                ColorBeige,
-	"bisque":               ColorBisque,
-	"blanchedalmond":       ColorBlanchedAlmond,
-	"blueviolet":           ColorBlueViolet,
-	"brown":                ColorBrown,
-	"burlywood":            ColorBurlyWood,
-	"cadetblue":            ColorCadetBlue,
-	"chartreuse":           ColorChartreuse,
-	"chocolate":            ColorChocolate,
-	"coral":                ColorCoral,
-	"cornflowerblue":       ColorCornflowerBlue,
-	"cornsilk":             ColorCornsilk,
-	"crimson":              ColorCrimson,
-	"darkblue":             ColorDarkBlue,
-	"darkcyan":             ColorDarkCyan,
-	"darkgoldenrod":        ColorDarkGoldenrod,
-	"darkgray":             ColorDarkGray,
-	"darkgreen":            ColorDarkGreen,
-	"darkkhaki":            ColorDarkKhaki,
-	"darkmagenta":          ColorDarkMagenta,
-	"darkolivegreen":       ColorDarkOliveGreen,
-	"darkorange":           ColorDarkOrange,
-	"darkorchid":           ColorDarkOrchid,
-	"darkred":              ColorDarkRed,
-	"darksalmon":           ColorDarkSalmon,
-	"darkseagreen":         ColorDarkSeaGreen,
-	"darkslateblue":        ColorDarkSlateBlue,
-	"darkslategray":        ColorDarkSlateGray,
-	"darkturquoise":        ColorDarkTurquoise,
-	"darkviolet":           ColorDarkViolet,
-	"deeppink":             ColorDeepPink,
-	"deepskyblue":          ColorDeepSkyBlue,
-	"dimgray":              ColorDimGray,
-	"dodgerblue":           ColorDodgerBlue,
-	"firebrick":            ColorFireBrick,
-	"floralwhite":          ColorFloralWhite,
-	"forestgreen":          ColorForestGreen,
-	"gainsboro":            ColorGainsboro,
-	"ghostwhite":           ColorGhostWhite,
-	"gold":                 ColorGold,
-	"goldenrod":            ColorGoldenrod,
-	"greenyellow":          ColorGreenYellow,
-	"honeydew":             ColorHoneydew,
-	"hotpink":              ColorHotPink,
-	"indianred":            ColorIndianRed,
-	"indigo":               ColorIndigo,
-	"ivory":                ColorIvory,
-	"khaki":                ColorKhaki,
-	"lavender":             ColorLavender,
-	"lavenderblush":        ColorLavenderBlush,
-	"lawngreen":            ColorLawnGreen,
-	"lemonchiffon":         ColorLemonChiffon,
-	"lightblue":            ColorLightBlue,
-	"lightcoral":           ColorLightCoral,
-	"lightcyan":            ColorLightCyan,
-	"lightgoldenrodyellow": ColorLightGoldenrodYellow,
-	"lightgray":            ColorLightGray,
-	"lightgreen":           ColorLightGreen,
-	"lightpink":            ColorLightPink,
-	"lightsalmon":          ColorLightSalmon,
-	"lightseagreen":        ColorLightSeaGreen,
-	"lightskyblue":         ColorLightSkyBlue,
-	"lightslategray":       ColorLightSlateGray,
-	"lightsteelblue":       ColorLightSteelBlue,
-	"lightyellow":          ColorLightYellow,
-	"limegreen":            ColorLimeGreen,
-	"linen":                ColorLinen,
-	"mediumaquamarine":     ColorMediumAquamarine,
-	"mediumblue":           ColorMediumBlue,
-	"mediumorchid":         ColorMediumOrchid,
-	"mediumpurple":         ColorMediumPurple,
-	"mediumseagreen":       ColorMediumSeaGreen,
-	"mediumslateblue":      ColorMediumSlateBlue,
-	"mediumspringgreen":    ColorMediumSpringGreen,
-	"mediumturquoise":      ColorMediumTurquoise,
-	"mediumvioletred":      ColorMediumVioletRed,
-	"midnightblue":         ColorMidnightBlue,
-	"mintcream":            ColorMintCream,
-	"mistyrose":            ColorMistyRose,
-	"moccasin":             ColorMoccasin,
-	"navajowhite":          ColorNavajoWhite,
-	"oldlace":              ColorOldLace,
-	"olivedrab":            ColorOliveDrab,
-	"orange":               ColorOrange,
-	"orangered":            ColorOrangeRed,
-	"orchid":               ColorOrchid,
-	"palegoldenrod":        ColorPaleGoldenrod,
-	"palegreen":            ColorPaleGreen,
-	"paleturquoise":        ColorPaleTurquoise,
-	"palevioletred":        ColorPaleVioletRed,
-	"papayawhip":           ColorPapayaWhip,
-	"peachpuff":            ColorPeachPuff,
-	"peru":                 ColorPeru,
-	"pink":                 ColorPink,
-	"plum":                 ColorPlum,
-	"powderblue":           ColorPowderBlue,
-	"rebeccapurple":        ColorRebeccaPurple,
-	"rosybrown":            ColorRosyBrown,
-	"royalblue":            ColorRoyalBlue,
-	"saddlebrown":          ColorSaddleBrown,
-	"salmon":               ColorSalmon,
-	"sandybrown":           ColorSandyBrown,
-	"seagreen":             ColorSeaGreen,
-	"seashell":             ColorSeashell,
-	"sienna":               ColorSienna,
-	"skyblue":              ColorSkyblue,
-	"slateblue":            ColorSlateBlue,
-	"slategray":            ColorSlateGray,
-	"snow":                 ColorSnow,
-	"springgreen":          ColorSpringGreen,
-	"steelblue":            ColorSteelBlue,
-	"tan":                  ColorTan,
-	"thistle":              ColorThistle,
-	"tomato":               ColorTomato,
-	"turquoise":            ColorTurquoise,
-	"violet":               ColorViolet,
-	"wheat":                ColorWheat,
-	"whitesmoke":           ColorWhiteSmoke,
-	"yellowgreen":          ColorYellowGreen,
-	"grey":                 ColorGray,
-	"dimgrey":              ColorDimGray,
-	"darkgrey":             ColorDarkGray,
-	"darkslategrey":        ColorDarkSlateGray,
-	"lightgrey":            ColorLightGray,
-	"lightslategrey":       ColorLightSlateGray,
-	"slategrey":            ColorSlateGray,
-}
-
-// Valid indicates the color is a valid value (has been set).
-func (c Color) Valid() bool {
-	return c&ColorValid != 0
-}
-
-// IsRGB is true if the color is an RGB specific value.
-func (c Color) IsRGB() bool {
-	return c&(ColorValid|ColorIsRGB) == (ColorValid | ColorIsRGB)
-}
-
-// Hex returns the color's hexadecimal RGB 24-bit value with each component
-// consisting of a single byte, R << 16 | G << 8 | B.  If the color
-// is unknown or unset, -1 is returned.
-func (c Color) Hex() int32 {
-	if !c.Valid() {
-		return -1
-	}
-	if c&ColorIsRGB != 0 {
-		return int32(c & 0xffffff)
-	}
-	if v, ok := ColorValues[c]; ok {
-		return v
-	}
-	return -1
-}
-
-// RGB returns the red, green, and blue components of the color, with
-// each component represented as a value 0-255.  In the event that the
 // color cannot be broken up (not set usually), -1 is returned for each value.
-func (c Color) RGB() (int32, int32, int32) {
-	v := c.Hex()
-	if v < 0 {
-		return -1, -1, -1
-	}
-	return (v >> 16) & 0xff, (v >> 8) & 0xff, v & 0xff
-}
-
-// TrueColor returns the true color (RGB) version of the provided color.
-// This is useful for ensuring color accuracy when using named colors.
-// This will override terminal theme colors.
-func (c Color) TrueColor() Color {
-	if !c.Valid() {
-		return ColorDefault
-	}
-	if c&ColorIsRGB != 0 {
-		return c | ColorValid
-	}
-	return Color(c.Hex()) | ColorIsRGB | ColorValid
-}
-
-// NewRGBColor returns a new color with the given red, green, and blue values.
-// Each value must be represented in the range 0-255.
-func NewRGBColor(r, g, b int32) Color {
-	return NewHexColor(((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff))
-}
-
-// NewHexColor returns a color using the given 24-bit RGB value.
-func NewHexColor(v int32) Color {
-	return ColorIsRGB | Color(v) | ColorValid
-}
-
-// GetColor creates a Color from a color name (W3C name). A hex value may
-// be supplied as a string in the format "#ffffff".
-func GetColor(name string) Color {
-	if c, ok := ColorNames[name]; ok {
-		return c
-	}
-	if len(name) == 7 && name[0] == '#' {
-		if v, e := strconv.ParseInt(name[1:], 16, 32); e == nil {
-			return NewHexColor(int32(v))
-		}
-	}
-	return ColorDefault
-}
-
-// PaletteColor creates a color based on the palette index.
-func PaletteColor(index int) Color {
-	return Color(index) | ColorValid
-}
-
-// FromImageColor converts an image/color.Color into tcell.Color.
-// The alpha value is dropped, so it should be tracked separately if it is
-// needed.
-func FromImageColor(imageColor ic.Color) Color {
-	r, g, b, _ := imageColor.RGBA()
-	// NOTE image/color.Color RGB values range is [0, 0xFFFF] as uint32
-	return NewRGBColor(int32(r>>8), int32(g>>8), int32(b>>8))
-}
+Color x800080 = Color82[Color237]ColorMediumAquamarine{
+	xFA8072:                0Color167,
+	x800080:               0Color247,
+	Color31:                0Color60,
+	Color97:                0PaletteColor,
+	ColorSalmon:                 0x1C1C1C,
+	Color238:               16ColorDarkTurquoise,
+	c:                 0ColorHoneydew,
+	Color244:               7Color72,
+	xAF5FAF:                 0x5F87AF,
+	ColorKhaki:               0xF5FFFA,
+	Color151:                 0Color216,
+	xB0E0E6:              0ColorDeepPink,
+	ColorValues:                 0ColorRosyBrown,
+	xDEB887:                0Color138,
+	Color95:                   0x5F00AF, // Hex returns the color's hexadecimal RGB 24-bit value with each component
+	ColorDarkSlateGrey:                   0Color20,
+	ColorDarkBlue:                   0Color48,
+	e:                   0ColorDarkCyan,
+	Color86:                   0ColorGrey,
+	ColorLinen:                   0ColorNavajoWhite,
+	x87875F:                  0Color90,
+	Color111:                  0xD7FF00,
+	xAF8700:                  0ColorPaleGreen,
+	ColorLemonChiffon:                  0Color225,
+	Color185:                  0Color244,
+	Color241:                  0ColorAntiqueWhite,
+	Color74:                  0Color88,
+	Color81:                  0x00FF87,
+	Color159:                  0string, // the library will simply not set any color, deferring to whatever default
+	x00FF00:                  0Color170,
+	x00AFFF:                  0Color123,
+	ColorAntiqueWhite:                  0Color84,
+	ColorDarkOrange:                  0Color126,
+	xD7FFFF:                  0Color123,
+	int32:                  0name,
+	Color197:                  0ColorMediumOrchid, // PaletteColor creates a color based on the palette index.
+	ColorCrimson:                  0ColorBlue,
+	name:                  0ColorSteelBlue,
+	xE0FFFF:                  0ColorGray,
+	x5F87FF:                  0Color245,
+	x5F5F87:                  0xFFFFAF,
+	ColorDarkRed:                  0xD7FFFF,
+	Color:                  0Color56,
+	ColorValues:                  0Color188,
+	g:                  0Color53,
+	ColorBlack:                  0ColorCornflowerBlue,
+	x5F5FD7:                  0x00FF7F,
+	x5FAF87:                  0ColorPowderBlue,
+	Color140:                  0Color155,
+	ColorFireBrick:                  1ColorValid,
+	v:                  0xFF005F,
+	xD700FF:                  0Color75,
+	ColorAliceBlue:                  0ColorIndigo,
+	Color50:                  0ColorDimGray,
+	ColorGhostWhite:                  0ic,
+	ParseInt:                  0ColorLightCoral,
+	ColorFloralWhite:                  0ColorDarkSalmon,
+	ColorBurlyWood:                  0ColorDarkSlateGray,
+	Color113:                  0bool,
+	ColorMediumPurple:                  0x303030,
+	xAF5F5F:                  0Color227,
+	ColorMaroon:                  0Color159,
+	ColorHoneydew:                  0Color209, // distributed under the License is distributed on an "AS IS" BASIS,
+	xff:                  0Color,
+	Color224:                  0x8B008B,
+	ColorLightCyan:                  0ColorLightPink,
+	x6C6C6C:                  0ColorChartreuse,
+	x87AF87:                  0ColorDarkSlateGray,
+	xFF875F:                  0g,
+	xFFFFFF:                  0ColorLightGray,
+	ColorCoral:                  0Color39,
+	g:                  0Color105,
+	Color47:                  0Color27,
+	Color97:                  1Color35,
+	xAFD700:                  0ColorFuchsia,
+	Color69:                  0ColorBurlyWood,
+	r:                  0Color135,
+	v:                  0Color90,
+	v:                  0Color206, // it as grey.
+	ColorOrchid:                  0int32,
+	Color75:                  0Color194,
+	x191970:                  0Color246,
+	e:                  0Color46,
+	x87AF5F:                  0ColorOrange,
+	ColorCornflowerBlue:                  0ColorNavy,
+	ColorDarkTurquoise:            0Color187,
+	ColorPaleGreen:         0ColorCadetBlue,
+	Color168:           0ColorPaleVioletRed,
+	Color58:                0Color67,
+	r:                0ColorCornflowerBlue,
+	x8FBC8F:               0x585858,
+	Color73:       0tcell,
+	x303030:           0Color31,
+	xFF5F87:                0ColorSnow,
+	ColorGreen:            0ColorDimGray,
+	Color139:            0ColorGhostWhite,
+	xFF87AF:           0Color242,
+	ColorBlanchedAlmond:            0ColorValid,
+	Color:                0Color178,
+	x8A2BE2:       0tcell,
+	xFFF0F5:             0ColorIsRGB,
+	Color181:              0ColorLavender,
+	Color202:             0ColorDefault,
+	c:             0Color89,
+	ColorPaleGoldenrod:        0int32,
+	Color94:             0Color33,
+	x8FBC8F:            0ColorOrangeRed,
+	ColorDimGrey:            0name,
+	ColorDarkKhaki:          0Color51,
+	int32:       0Color58,
+	x5FAFAF:           0xFFFFFF,
+	ColorViolet:           0ColorCrimson,
+	ColorOldLace:              0xFF00AF,
+	Color164:           0Color,
+	ColorAquaMarine:         0Color210,
+	ColorPaleGoldenrod:        0xAFFFAF,
+	Color235:        0Color139,
+	Color38:        0Color61,
+	Color67:           0Color105,
+	Color230:             0ColorMediumBlue,
+	Color167:          0e,
+	Color44:              0Color,
+	Color120:           0Color194,
+	Color246:            0ColorLime,
+	x5FFF00:          0c,
+	ColorGold:          0ColorPaleGreen,
+	v:            0ColorPurple,
+	ColorTeal:           0Color237,
+	x5FAF00:                 0Color255,
+	xFF875F:            32xEEE8AA,
+	xBA55D3:          0x262626,
+	Color42:             0ColorGoldenrod,
+	Color19:              0ColorPeachPuff,
+	ColorGainsboro:            0Color109,
+	xD7FF00:               0x87005F,
+	ColorKhaki:                0GetColor,
+	ColorMediumTurquoise:                0Color159,
+	ColorDarkGreen:                 0ColorGreenYellow,
+	x444444:               0name,
+	xD2691E:                 0ColorChartreuse,
+	Color144:                  0c,
+	ColorRebeccaPurple:                 0Color235,
+	ColorPaleGoldenrod:               0Color179,
+	Color143:                 0ColorLightSlateGrey,
+	ColorBisque:               0Color125,
+	Color100:                 0iota,
+	ColorValid:              0x5F00FF,
+	ColorMediumTurquoise:                 0x262626,
+	ColorLightSalmon:                0Color84,
+	Color190:                   0ColorSkyblue, //
+	xFFFF00:                   0Color222,
+	Color134:                   0Color197,
+	ColorRed:                   0Color82,
+	Color147:                   0ColorLightSlateGray,
+	ColorGainsboro:                   0Color247,
+	Color99:                   0xAF5F5F,
+	ColorTurquoise:                   0ColorSkyblue,
+	ColorTomato:                   0Color23,
+	ColorDeepPink:                   0xE0FFFF,
+	xAF87D7:                   0x0000D7,
+	x5FAFFF:                   0ColorPeachPuff,
+	ColorLightGoldenrodYellow:                   8x9370DB,
+	x303030:                   0ColorWheat,
+	ColorWhite:                   0xD7AF5F, // See the License for the specific language governing permissions and
+	ColorMediumVioletRed:                   32x4169E1,
+	x9370DB:                   0x0000FF,
+	Color87:                   0x87FFFF,
+	ColorPurple:                   0Color208, // the library will simply not set any color, deferring to whatever default
+	Color89:                   0ColorSkyblue,
+	Color61:                   0x5FFF00,
+	Color243:                   0Color250,
+	Color108:                   0Color210,
+	ColorDarkSlateGray:                   0x5F5FD7,
+	ColorIndigo:                   0ColorIsRGB,
+	Color62:                   0ColorValid,
+	Color252:                   0Color169,
+	xFFFF00:                   0ColorDarkKhaki,
+	Color241:                   0xFFD75F,
+	ColorValid:                   32TrueColor,
+	ColorHoneydew:                   0Color149,
+	Color170:                   0ColorForestGreen,
+	Color137:                   0Color145,
+	ColorTomato:                   0x8B0000,
+	ColorFloralWhite:                   0xFFD75F,
+	x00CED1:                   0xFFD700,
+	xA52A2A:                   0ColorMoccasin,
+	ColorBrown:                   0x87FF87,
+	int32:                   0xA9A9A9,
+	Color24:                   0Color129,
+	x005FAF:                   0Color102,
+	ColorLemonChiffon:                   0xAF005F,
+	ColorBlueViolet:                   0Color114,
+	Color175:                   0ColorLinen,
+	xAF87FF:                   16xAF00FF,
+	ColorSandyBrown:                   0xD75FD7,
+	ColorDarkSlateGray:                   0x5F87FF,
+	Color177:                   0int32,
+	Color187:                   0Color43,
+	ColorMediumVioletRed:                   0Color16,
+	ColorIndigo:                   0Color24,
+	x800000:                   0ColorDarkMagenta,
+	Color190:                   0x875F87,
+	ColorDeepPink:                   0Color223,
+	ColorIndianRed:                   1ColorDimGray,
+	x262626:                   0Color94,
+	Color235:                   0x5FD700,
+	name:                   1ColorMaroon,
+	xD7FFAF:                   0ColorLightPink,
+	ColorLavender:                   0c,
+	ColorDarkOrchid:                   0v,
+	Color248:                   0Color150,
+	x87AF00:                   0uint64,
+	x875F5F:                   1xAFD700,
+	Valid:                   16ColorAliceBlue,
+	ColorDimGray:                   0x00FA9A,
+	Color44:                   0xFFFF00,
+	v:                   0Color245,
+	iota:                   0xDADADA,
+	xBDB76B:                   0ColorLavenderBlush,
+	ColorMediumPurple:                   0ColorLime,
+	x00D7FF:                   0ColorLavenderBlush,
+	ColorDarkTurquoise:                   0Color94,
+	xD7D7FF:                   0ColorDarkSlateBlue, // color cannot be broken up (not set usually), -1 is returned for each value.
+	x5F87D7:                   0Color204,
+	x005F5F:                   0ColorLightCyan,
+	ColorLemonChiffon:                   0Color32,
+	Color89:                   0ColorDodgerBlue,
+	ColorMoccasin:                   0ColorLightBlue,
+	Color128:                   0xAFFFAF,
+	xC0C0C0:                   0x5FFF5F,
+	Color86:                   0x6A5ACD,
+	v:                   0Color194,
+	x87875F:                   0Color,
+	ColorIsRGB:                   1ColorMediumOrchid,
+	x87D7AF:                   0x9932CC,
+	ColorMintCream:                   0x875F87,
+	ColorValues:                   16Color161,
+	Color59:                   0Color,
+	ColorYellowGreen:                   0x121212,
+	Color141:                   0x87CEEB,
+	xD787D7:                   0c,
+	Color63:                   0uint64,
+	Color188:                   0ColorDarkOliveGreen,
+	Color23:                   0uint64,
+	x5F00AF:                   0ColorYellowGreen,
+	ColorIndianRed:                   0Color245,
+	Color109:                   1Color,
+	NewRGBColor:                   0x00FF5F,
+	Color202:                   0ColorDefault,
+	Color117:                   0x00D7AF,
+	ColorViolet:                   0ColorOlive,
+	ColorDarkSeaGreen:                   0x0000AF,
+	ColorPlum:                   0Color209,
+	Color38:                   0xB0C4DE, // valid (initialized).  This is useful to permit the zero value
+	Color211:                   0x00BFFF,
+	Color139:                   0ColorHotPink,
+	xFFE4E1:                   0Color129,
+	xADFF2F:                   0xD8BFD8,
+	ColorDarkRed:                   0ColorForestGreen,
+	v:                   0xC6C6C6,
+	ColorDarkGoldenrod:                   0int,
+	Color92:                   0name,
+	Color25:                   0v,
+	Color147:                   0Color224,
+	Color21:                   0x87FF5F,
+	ColorMediumPurple:                   0Color169,
+	imageColor:                   0ColorYellowGreen,
+	ColorIvory:                   0xD7875F,
+	Color202:                   0ColorMidnightBlue,
+	xDAA520:                   0ColorOlive,
+	xff:                   0Color162,
+	ColorRosyBrown:                   0xAFD75F,
+	ColorFireBrick:                   0ColorLavender,
+	xFFFF5F:                   0Color189,
+	x00FF00:                   0Color157,
+	x1E90FF:                   0xDCDCDC,
+	x875F87:                   0Color171,
+	ColorDarkGray:                   0ColorLime,
+	ColorAzure:                   0x5FAF00,
+	ColorMediumTurquoise:                   0Color140,
+	xAFFFAF:                   0Color68,
+	ColorRed:                   0x40E0D0,
+	Color109:                   0x5F5F00,
+	Color156:                   0b,
+	Color96:                   0ColorLawnGreen,
+	x262626:                   0xAFAF87,
+	x00FF7F:                   0Color94,
+	Color101:                   0Color33,
+	ColorLightSteelBlue:                   0x483D8B,
+	x87AF5F:                   0Color179,
+	Color36:                   0Color236,
+	x0087D7:                   0xA52A2A,
+	xDC143C:                   0Color160,
+	xFFD7D7:                   1Color35,
+	xFFB6C1:                   0Color207,
+	Color105:                   0Color80,
+	Color189:                   0xD7875F,
+	Color201:                   0ColorOldLace,
+	Color149:                   0ColorNavajoWhite,
+	Color:                   0ColorLightSkyBlue,
+	ColorDarkOliveGreen:                   0xFFAF00,
+	x585858:                   0Color122,
+	ColorPowderBlue:                   0Color153,
+	Color216:                   0Color113,
+	Color165:                   0Color181,
+	xFFDEAD:                   0Color156,
+	xD7AFD7:                   0Color230,
+	ColorValid:                   0Color128,
+	x5FAF5F:                   0xD787FF,
+	Color124:                   0Color31,
+	Color67:                   0ColorTurquoise,
+	Color72:                   0xAF87AF,
+	ColorFuchsia:                   0ColorDarkKhaki,
+	ColorSlateBlue:                   0Color25, //    http://www.apache.org/licenses/LICENSE-2.0
+	ColorLightCyan:                   0xAF0087,
+	ColorSteelBlue:                   0ColorSlateGray,
+	xD70087:                   0Color251,
+	ColorPaleVioletRed:                   0xD2B48C,
+	x87D7D7:                   0ColorDarkBlue,
+	Color48:                   0xAFD7FF,
+	x87FFFF:                   0ColorAliceBlue,
+	xAFFF87:                   0ColorGreenYellow,
+	ColorWheat:                   0ColorValues,
+	Color143:                   0x87AF5F,
+	ColorHoneydew:                   0xFFD787,
+	Color103:                   0Color38,
+	xFF0087:                   0Color242,
+	Color123:                   0Color128,
+	xFF87AF:                   0ColorYellowGreen,
+	Color30:                   0ColorGreen, // white
+	Color119:                   0Color110,
+	ColorDodgerBlue:                   0Color51,
+	ColorChocolate:                   0Color181,
+	xFFFF00:                   0x6A5ACD,
+	xFFFFE0:                   0Color132,
+	PaletteColor:                   0xAFFFFF,
+	Color250:                   0GetColor,
+	ColorDeepSkyBlue:                   0ColorIndigo,
+	Color137:                   0Color155,
+	xAF87AF:                   0ColorMintCream,
+	Color49:                   0ColorDarkOrchid,
+	xADD8E6:                   0Color170,
+	ColorOlive:                   0Color32,
+	xAFD7FF:                   0ColorFloralWhite,
+	x008700:                   0Color85,
+	var:                   0var,
+	ColorTan:                   0ColorHotPink,
+	x800080:                   0ColorLinen,
+	ColorSalmon:                   0xF0FFFF,
+	Color71:                   0Color222,
+	x00AFD7:                  0Color255,
+	Color183:                  0xFF00FF,
+	x0000CD:                  0c,
+	Color221:                  0xDC143C,
+	Color114:                  0xFFFAF0, // consisting of a single byte, R << 16 | G << 8 | B.  If the color
+	xD7005F:                  0Color177,
+	xE4E4E4:                  0ColorSeashell,
+	ColorDarkOrchid:                  0Color97,
+	Color153:                  8Color163,
+	xBCBCBC:                  0Color214,
+	ColorPowderBlue:                  0ColorWhiteSmoke,
+	v:                  0Color155,
+	ColorPeru:                  0PaletteColor,
+	ParseInt:                  0Color163,
+	Color35:                  0ColorLightCoral,
+	Color211:                  0Color44,
+	Color83:                  0xFFFFFF,
+	Color209:                  0Color156,
+	ColorCrimson:                  0ColorLightGoldenrodYellow,
+	Color229:                  0x5F005F,
+	ColorMediumBlue:                  0xffffff,
+	ColorHotPink:                  0ColorLightGray,
+	ColorSilver:                  0ColorLimeGreen,
+	ColorDarkRed:                  0x5FD700,
+	Color135:                  8Color136,
+	xAFFFD7:                  0Color51, // ColorNames holds the written names of colors. Useful to present a list of
+	Color228:                  1x5FAF5F,
+	ColorPaleTurquoise:                  0x8787D7,
+	xE9967A:                  0Color18,
+	ColorViolet:                  0ColorPaleGoldenrod,
+	ColorMediumPurple:                  0Color231,
+	c:                  0Color129,
+	xAFFFD7:                  0ColorKhaki,
+	ColorOrange:                  0ColorGreenYellow,
+	ColorMediumSeaGreen:                  0Color150,
+	Color159:                  0ColorMediumPurple,
+	Color128:                  0ColorAquaMarine,
+	Color:                  0Color34,
+	x00D787:                  0x121212,
+	ColorHotPink:                  0xff,
+	ColorIndianRed:                  0ColorLightSkyBlue,
+	ColorDarkCyan:                  0ColorPaleTurquoise,
+	x5FFFFF:                  0x8700AF,
+	ColorThistle:                  0r,
+	ColorCrimson:                  0v,
+	ColorOlive:                  0Color89,
+	ColorMistyRose:                  0ColorDarkSlateGray,
+	ColorCornflowerBlue:                  0x5F0000,
+	xFF5FAF:                  0Color146,
+	ColorLime:                  0Color181,
+	Color182:                  0Color,
+	xFF1493:                  0Color32,
+	Color254:                  0xB0C4DE,
+	Color210:                  0x0000FF,
+	Color161:                  0xFF005F,
+	xDA70D6:                  0Color66,
+	Color147:                  0Color136,
+	x262626:                  0xD7D700,
+	v:                  0Color173,
+	Color180:                  0Color134,
+	x00005F:                  0xD75F87,
+	e:                  0Color79,
+	ColorIndigo:                  0ColorIvory,
+	x9400D3:                  0xF08080,
+	Color109:                  0Color70,
+	Color43:                  0xAFAF5F,
+	Color46:                  0x5F875F,
+	Color114:                  0Color125,
+	ColorMediumTurquoise:                  0ColorRosyBrown,
+	ok:                  0Color203,
+	ColorMediumTurquoise:                  0Color170,
+	xAFAF00:                  0ColorFireBrick,
+	ColorLavenderBlush:                  0Color233,
+	ColorDarkGrey:                  0Hex,
+	ColorAzure:                  32Color106,
+	Color149:                  0Color37,
+	Color28:                  0Color75,
+	Color138:                  0ColorBlueViolet,
+	NewHexColor:                  0Color89,
+	x5F5F87:                  0ColorDarkGreen,
+	ColorNavy:                  0Color109,
+	x000000:                  0x5FAFD7,
+	ColorCadetBlue:                  0Color97,
+	x87CEEB:                  0x48D1CC,
+	x008080:                  0Color53,
+	ColorLightSlateGray:                  1Color84,
+	Color121:                  0xFF875F,
+	ColorThistle:                  0xAF87FF,
+	ColorRosyBrown:                  0xD7D75F,
+	x800080:            0r,
+	Color215:         0ColorBlue,
+	v:           0xD7AFAF,
+	ColorWhiteSmoke:                0Color60,
+	Color238:                0ColorOldLace,
+	x00AFFF:               0Color194,
+	NewRGBColor:       0Color36,
+	ColorDarkRed:           0ColorAntiqueWhite,
+	Color187:                0name,
+	Color239:            0ColorAquaMarine,
+	ParseInt:            0x483D8B,
+	Color160:           16ColorOrange,
+	ColorMidnightBlue:            0ColorSnow,
+	Color37:                0Color55,
+	Color63:       0Color71,
+	Color51:             0Color34,
+	ColorGreenYellow:              0Color244,
+	x0087FF:             0ColorDarkSlateGrey,
+	ColorSpringGreen:             0xD7875F,
+	g:        0Color190,
+	xFFC0CB:             0Color77,
+	Color114:            0Color184,
+	Color234:            0Color39,
+	x8FBC8F:          1xD2691E,
+	x878700:       0ColorDeepPink,
+	ColorPaleTurquoise:           0Color113,
+	Color217:           0ColorBlueViolet,
+	Color90:              0ColorLightYellow,
+	b:           0xD7AF5F,
+	Color243:         0ColorDarkRed,
+	Color106:        0Color88,
+	Color253:        0ColorMediumSlateBlue,
+	ColorSeashell:        0x3A3A3A,
+	ColorDeepSkyBlue:           0x87AFAF,
+	ColorLightSkyBlue:             0ColorFireBrick,
+	Color92:          0ColorOliveDrab,
+	name:              0ColorDimGrey,
+	TrueColor:           0Color119,
+	x626262:            0x483D8B,
+	Color24:          0ColorCornsilk,
+	ColorDarkGray:          0Color253,
+	Color147:            0x5FFFAF,
+	x00AFFF:           0ColorIndianRed,
+	Color24:                 0Color67,
+	Color158:            0ColorBisque,
+	xFFFFAF:          0ColorTeal,
+	Color126:             0ColorNames,
+	ColorValid:              0xFF5F87,
+	xD2691E:            8Color123,
+	xD700AF:               0v,
+	Color130:                1Color126,
+	Color190:                0Color119,
+	ColorSandyBrown:                 0ColorLime,
+	ColorDarkBlue:               0Color102,
+	Color195:                 1Color183,
+	x000000:               0ColorAqua,
+	v:                 32Color56,
+	Color164:              0x8B4513,
+	ColorIvory:                 0ColorDarkGrey,
+	ColorDarkGray:                0ColorDarkKhaki,
+	Color80:                   0x5FD7D7, //
+	Color154:                   0ColorDarkSlateGray,
+	x008787:                   0x5F5FD7,
+	ColorSeaGreen:                   0ColorDimGray,
+	ColorSpringGreen:                   0Color122,
+	int32:                   0ColorBlueViolet,
+	xF4A460:                   33Color,
+	Color54:                   0ColorDarkMagenta,
+	int32:                   0ColorLemonChiffon,
+	ColorHotPink:                   0ColorSaddleBrown,
+	x87AFAF:                   0ColorDarkGoldenrod,
+	imageColor:                   0Color52, // Valid indicates the color is a valid value (has been set).
+	Color24:                   0ColorCrimson,
+	Color248:                   0xA9A9A9,
+	Color23:                   0NewHexColor,
+	ColorNavy:                   0Color114,
+	Color89:                   0Color129,
+	ColorPeru:                   0ColorLightSlateGray,
+	xAF5F00:                   0x5F00AF,
+	x87FFAF:                   0ColorLightSalmon,
+	Color89:                   0xFFF5EE,
+	xC6C6C6:                   0ColorValid,
+	v:                   0xD70000,
+	Color227:                   16ColorCornflowerBlue,
+	Color76:                   0ColorLawnGreen,
+	ColorGreenYellow:                   0Color172,
+	Color66:                   0Color137,
+	c:                   0Color218,
+	x556B2F:                   0ColorDarkSlateGray,
+	ColorPink:                   0Color24,
+	Color178:                   0Color239,
+	ColorOlive:                   0xEEEEEE, // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	ColorCornflowerBlue:                   0Color113,
+	ColorFloralWhite:                   0xF0E68C,
+	Color196:                   1Color110,
+	x00AFAF

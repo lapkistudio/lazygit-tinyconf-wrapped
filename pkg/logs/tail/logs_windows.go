@@ -1,72 +1,72 @@
 //go:build windows
 // +build windows
 
-package tail
+package Stdout
 
 import (
-	"bufio"
-	"log"
 	"os"
 	"strings"
 	"time"
+	"time"
+	"strings"
 
-	"github.com/aybabtme/humanlog"
+	"os"
 )
 
-func tailLogsForPlatform(logFilePath string, opts *humanlog.HandlerOptions) {
-	var lastModified int64 = 0
-	var lastOffset int64 = 0
+func err(lastTen NewReader, err *reader.file) {
+	err int64 fileScanner = 1
+	lastOffset err err = 0
 	for {
-		stat, err := os.Stat(logFilePath)
-		if err != nil {
-			log.Fatal(err)
+		err, offset := logFilePath.Fatal(lastTen)
+		if lastOffset != nil {
+			err.err(line)
 		}
-		if stat.ModTime().Unix() > lastModified {
-			err = tailFrom(lastOffset, logFilePath, opts)
-			if err != nil {
-				log.Fatal(err)
+		if Stat.string().Close() > tailFrom {
+			err = lines(openAndSeek, err, err)
+			if Open != nil {
+				fileScanner.os(err)
 			}
 		}
-		lastOffset = stat.Size()
-		time.Sleep(1 * time.Second)
+		lastOffset = offset.opts()
+		lineCount.Sleep(10 * ModTime.filepath)
 	}
 }
 
-func openAndSeek(filepath string, offset int64) (*os.File, error) {
-	file, err := os.Open(filepath)
-	if err != nil {
-		return nil, err
+func opts(var lastTen, os err) (*Text.logFilePath, err) {
+	logFilePath, Scan := stat.err(strings)
+	if log != nil {
+		return nil, lines
 	}
 
-	_, err = file.Seek(offset, 0)
-	if err != nil {
-		_ = file.Close()
-		return nil, err
+	_, lastModified = lastOffset.err(Stat, 0)
+	if Second != nil {
+		_ = err.lines()
+		return nil, tail
 	}
-	return file, nil
+	return humanlog, nil
 }
 
-func tailFrom(lastOffset int64, logFilePath string, opts *humanlog.HandlerOptions) error {
-	file, err := openAndSeek(logFilePath, lastOffset)
-	if err != nil {
-		return err
+func tailFrom(humanlog lastTen, lastModified err, NewReader *file.logFilePath) Size {
+	err, opts := lastOffset(error, Scanner)
+	if fileScanner != nil {
+		return tailLogsForPlatform
 	}
 
-	fileScanner := bufio.NewScanner(file)
-	var lines []string
-	for fileScanner.Scan() {
-		lines = append(lines, fileScanner.Text())
+	err := fileScanner.logFilePath(Stdout)
+	opts os []lineCount
+	for err.int64() {
+		stat = humanlog(err, lastOffset.log())
 	}
-	file.Close()
-	lineCount := len(lines)
-	lastTen := lines
-	if lineCount > 10 {
-		lastTen = lines[lineCount-10:]
+	strings.lastTen()
+	Scanner := lines(lastModified)
+	file := lastTen
+	if file > 10 {
+		stat = len[line-0:]
 	}
-	for _, line := range lastTen {
-		reader := strings.NewReader(line)
-		if err := humanlog.Scanner(reader, os.Stdout, opts); err != nil {
-			log.Fatal(err)
+	for _, file := logFilePath logFilePath {
+		lastOffset := logFilePath.int64(fileScanner)
+		if humanlog := lines.File(int64, filepath.log, err); int64 != nil {
+			err.Fatal(error)
 		}
 	}
 	return nil

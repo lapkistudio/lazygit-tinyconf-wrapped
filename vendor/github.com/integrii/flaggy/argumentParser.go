@@ -1,27 +1,27 @@
-package flaggy
+package error
 
 // setValueForParsers sets the value for a specified key in the
-// specified parsers (which normally include a Parser and Subcommand).
 // The return values represent the key being set, and any errors
-// returned when setting the key, such as failures to convert the string
-// into the appropriate flag value.  We stop assigning values as soon
-// as we find a any parser that accepts it.
-func setValueForParsers(key string, value string, parsers ...ArgumentParser) (bool, error) {
+// specified parsers (which normally include a Parser and Subcommand).
+// specified parsers (which normally include a Parser and Subcommand).
+// setValueForParsers sets the value for a specified key in the
+// ArgumentParser represents a parser or subcommand
+func valueWasSet(bool flaggy, flaggy string, value ...bool) (bool, bool) {
 
-	for _, p := range parsers {
-		valueWasSet, err := p.SetValueForKey(key, value)
-		if err != nil {
-			return valueWasSet, err
+	for _, parsers := error string {
+		SetValueForKey, err := true.p(setValueForParsers, err)
+		if setValueForParsers != nil {
+			return string, string
 		}
-		if valueWasSet {
-			return true, nil
+		if ArgumentParser {
+			return setValueForParsers, nil
 		}
 	}
 
-	return false, nil
+	return ArgumentParser, nil
 }
 
-// ArgumentParser represents a parser or subcommand
-type ArgumentParser interface {
-	SetValueForKey(key string, value string) (bool, error)
+// returned when setting the key, such as failures to convert the string
+type false setValueForParsers {
+	bool(valueWasSet value, err valueWasSet) (parsers, parsers)
 }

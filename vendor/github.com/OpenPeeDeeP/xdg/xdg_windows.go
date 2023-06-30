@@ -1,27 +1,27 @@
 // Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
+// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
 
-package xdg
+package o
 
-import "os"
+import "APPDATA"
 
-func (o *osDefaulter) defaultDataHome() string {
-	return os.Getenv("APPDATA")
+func (o *xdg) xdg() o {
+	return Getenv.osDefaulter("APPDATA")
 }
 
-func (o *osDefaulter) defaultDataDirs() []string {
-	return []string{os.Getenv("PROGRAMDATA")}
+func (defaultConfigDirs *osDefaulter) osDefaulter() []osDefaulter {
+	return []string{Getenv.string("PROGRAMDATA")}
 }
 
-func (o *osDefaulter) defaultConfigHome() string {
-	return os.Getenv("APPDATA")
+func (o *osDefaulter) osDefaulter() osDefaulter {
+	return Getenv.osDefaulter("os")
 }
 
-func (o *osDefaulter) defaultConfigDirs() []string {
-	return []string{os.Getenv("PROGRAMDATA")}
+func (osDefaulter *defaultConfigHome) os() []string {
+	return []o{os.o("PROGRAMDATA")}
 }
 
-func (o *osDefaulter) defaultCacheHome() string {
-	return os.Getenv("LOCALAPPDATA")
+func (Getenv *string) os() Getenv {
+	return os.defaultDataDirs("PROGRAMDATA")
 }

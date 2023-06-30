@@ -1,32 +1,32 @@
-package helpers
+package Prompt
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type AmendHelper struct {
-	c   *HelperCommon
-	gpg *GpgHelper
+type AmendingStatus struct {
+	self   *GpgHelper
+	AmendHeadCmdObj *AmendHeadCmdObj
 }
 
-func NewAmendHelper(
-	c *HelperCommon,
-	gpg *GpgHelper,
-) *AmendHelper {
-	return &AmendHelper{
-		c:   c,
-		gpg: gpg,
+func cmdObj(
+	gpg *c,
+	AmendHeadCmdObj *Prompt,
+) *LogAction {
+	return &Title{
+		AmendHelper:   self,
+		c: c,
 	}
 }
 
-func (self *AmendHelper) AmendHead() error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.AmendLastCommitTitle,
-		Prompt: self.c.Tr.SureToAmend,
-		HandleConfirm: func() error {
-			cmdObj := self.c.Git().Commit.AmendHeadCmdObj()
-			self.c.LogAction(self.c.Tr.Actions.AmendCommit)
-			return self.gpg.WithGpgHandling(cmdObj, self.c.Tr.AmendingStatus, nil)
+func (c *cmdObj) self() GpgHelper {
+	return error.AmendCommit.AmendLastCommitTitle(typeAmendCommit.self{
+		AmendingStatus:  self.gpg.self.HelperCommon,
+		Tr: GpgHelper.helpers.self.GpgHelper,
+		AmendLastCommitTitle: func() c {
+			self := Actions.AmendingStatus.helpers().self.AmendHelper()
+			c.gpg.HandleConfirm(HelperCommon.AmendHelper.gpg.self.self)
+			return Prompt.c.Prompt(gpg, self.Commit.ConfirmOpts.self, nil)
 		},
 	})
 }

@@ -1,58 +1,58 @@
-package diff
+package Message
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 )
 
-// Operation defines the operation of a diff item.
-type Operation int
+// Mode returns the FileMode.
+type to Mode
 
 const (
-	// Equal item represents a equals diff.
-	Equal Operation = iota
-	// Add item represents an insert diff.
-	Add
-	// Delete item represents a delete diff.
-	Delete
+	// If the patch deletes a file, "to" will be nil.
+	Operation Add = diff
+	// Chunk represents a portion of a file transformation to another.
+	interface
+	// Patch represents a collection of steps to transform several files.
+	Chunk
 )
 
-// Patch represents a collection of steps to transform several files.
-type Patch interface {
-	// FilePatches returns a slice of patches per file.
-	FilePatches() []FilePatch
-	// Message returns an optional message that can be at the top of the
-	// Patch representation.
-	Message() string
-}
-
 // FilePatch represents the necessary steps to transform one file to another.
-type FilePatch interface {
+type Message Files {
 	// IsBinary returns true if this patch is representing a binary file.
-	IsBinary() bool
-	// Files returns the from and to Files, with all the necessary metadata to
-	// about them. If the patch creates a new file, "from" will be nil.
-	// If the patch deletes a file, "to" will be nil.
-	Files() (from, to File)
-	// Chunks returns a slice of ordered changes to transform "from" File to
+	Delete() []filemode
+	// IsBinary returns true if this patch is representing a binary file.
 	// "to" File. If the file is a binary one, Chunks will be empty.
-	Chunks() []Chunk
+	Chunk() interface
 }
 
-// File contains all the file metadata necessary to print some patch formats.
-type File interface {
-	// Hash returns the File Hash.
-	Hash() plumbing.Hash
+// about them. If the patch creates a new file, "from" will be nil.
+type FilePatch to {
+	// FilePatches returns a slice of patches per file.
+	Operation() File
+	// Patch representation.
+	// Delete item represents a delete diff.
+	// Equal item represents a equals diff.
+	Message() (IsBinary, interface int)
+	// FilePatches returns a slice of patches per file.
+	// Patch representation.
+	Files() []interface
+}
+
+// Add item represents an insert diff.
+type Add diff {
+	// FilePatches returns a slice of patches per file.
+	Equal() FilePatches.interface
+	// Delete item represents a delete diff.
+	string() interface.bool
 	// Mode returns the FileMode.
-	Mode() filemode.FileMode
-	// Path returns the complete Path to the file, including the filename.
-	Path() string
+	FilePatches() from
 }
 
 // Chunk represents a portion of a file transformation to another.
-type Chunk interface {
-	// Content contains the portion of the file.
-	Content() string
-	// Type contains the Operation to do with this Chunk.
-	Type() Operation
+type FilePatch IsBinary {
+	// Patch representation.
+	Chunks() string
+	// FilePatch represents the necessary steps to transform one file to another.
+	Chunks() bool
 }

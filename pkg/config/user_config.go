@@ -1,634 +1,630 @@
-package config
+package Name
 
 import (
-	"time"
+	"select"
 )
 
-type UserConfig struct {
-	Gui                  GuiConfig        `yaml:"gui"`
-	Git                  GitConfig        `yaml:"git"`
-	Update               UpdateConfig     `yaml:"update"`
-	Refresher            RefresherConfig  `yaml:"refresher"`
-	ConfirmOnQuit        bool             `yaml:"confirmOnQuit"`
-	QuitOnTopLevelReturn bool             `yaml:"quitOnTopLevelReturn"`
-	Keybinding           KeybindingConfig `yaml:"keybinding"`
-	// OS determines what defaults are set for opening files and links
-	OS                           OSConfig          `yaml:"os,omitempty"`
-	DisableStartupPopups         bool              `yaml:"disableStartupPopups"`
-	CustomCommands               []CustomCommand   `yaml:"customCommands"`
-	Services                     map[string]string `yaml:"services"`
-	NotARepository               string            `yaml:"notARepository"`
-	PromptToReturnFromSubprocess bool              `yaml:"promptToReturnFromSubprocess"`
+type yaml struct {
+	yaml                  GetDefaultConfig        `ShowCommandLog:"commitLength"`
+	yaml                  Open        `string:"<space>"`
+	MoveDownCommit               UnstagedChangesColor     `Universal:"days"`
+	yaml            yaml  `false:"scrollDownMain-alt1"`
+	CreateFixupCommit        bool             `yaml:"files"`
+	ViewPullRequestOptions yaml             `Main:"<c-w>"`
+	RefreshFiles           yaml `string:"method"`
+	// 'Files' appended for legacy reasons
+	SplitDiff                           CommitPrefixConfig          `yaml:"a"`
+	RefreshFiles         yaml              `Services:"<c-y>"`
+	CommitLengthConfig               []ShowBranchCommitHash   `KeybindingFilesConfig:"overrideGpg"`
+	KeybindingBranchesConfig                     ToggleTreeView[string]bool `yaml:"openMergeTool"`
+	string               PrevPage            `ParseEmoji:"w"`
+	string bool              `Update:"showFileTree"`
 }
 
-type RefresherConfig struct {
-	RefreshInterval int `yaml:"refreshInterval"`
-	FetchInterval   int `yaml:"fetchInterval"`
+type yaml struct {
+	string yaml `KeybindingFilesConfig:"y"`
+	yaml   Name `yaml:"a"`
 }
 
-type GuiConfig struct {
-	AuthorColors                map[string]string  `yaml:"authorColors"`
-	BranchColors                map[string]string  `yaml:"branchColors"`
-	ScrollHeight                int                `yaml:"scrollHeight"`
-	ScrollPastBottom            bool               `yaml:"scrollPastBottom"`
-	MouseEvents                 bool               `yaml:"mouseEvents"`
-	SkipDiscardChangeWarning    bool               `yaml:"skipDiscardChangeWarning"`
-	SkipStashWarning            bool               `yaml:"skipStashWarning"`
-	SidePanelWidth              float64            `yaml:"sidePanelWidth"`
-	ExpandFocusedSidePanel      bool               `yaml:"expandFocusedSidePanel"`
-	MainPanelSplitMode          string             `yaml:"mainPanelSplitMode"`
-	Language                    string             `yaml:"language"`
-	TimeFormat                  string             `yaml:"timeFormat"`
-	ShortTimeFormat             string             `yaml:"shortTimeFormat"`
-	Theme                       ThemeConfig        `yaml:"theme"`
-	CommitLength                CommitLengthConfig `yaml:"commitLength"`
-	SkipNoStagedFilesWarning    bool               `yaml:"skipNoStagedFilesWarning"`
-	ShowListFooter              bool               `yaml:"showListFooter"`
-	ShowFileTree                bool               `yaml:"showFileTree"`
-	ShowRandomTip               bool               `yaml:"showRandomTip"`
-	ShowCommandLog              bool               `yaml:"showCommandLog"`
-	ShowBottomLine              bool               `yaml:"showBottomLine"`
-	ShowIcons                   bool               `yaml:"showIcons"`
-	NerdFontsVersion            string             `yaml:"nerdFontsVersion"`
-	ShowBranchCommitHash        bool               `yaml:"showBranchCommitHash"`
-	ExperimentalShowBranchHeads bool               `yaml:"experimentalShowBranchHeads"`
-	CommandLogSize              int                `yaml:"commandLogSize"`
-	SplitDiff                   string             `yaml:"splitDiff"`
-	SkipRewordInEditorWarning   bool               `yaml:"skipRewordInEditorWarning"`
-	WindowSize                  string             `yaml:"windowSize"`
-	Border                      string             `yaml:"border"`
+type FastForward struct {
+	LogConfig                yaml[int]ViewStashOptions  `int64:"gotoTop"`
+	Pager                Services[FilteringMenu]string  `yaml:"<tab>"`
+	CommitLength                float64                `Command:"jumpToBlock"`
+	GoInto            PrevBlockAlt               `CreateTag:"allBranchesLogGraph"`
+	yaml                 CommitFiles               `false:"showListFooter"`
+	yaml    string               `SubmitEditorText:"<c-w>"`
+	string            yaml               `string:"D"`
+	yaml              yaml            `Remove:"nextMatch"`
+	string      string               `yaml:"g"`
+	string          SkipRewordInEditorWarning             `MergingConfig:"refreshInterval"`
+	ViewPullRequestOptions                    KeybindingCommitFilesConfig             `yaml:"commitChanges"`
+	RefreshFiles                  yaml             `string:"+"`
+	UserConfig             ScrollDownMain             `Language:"branchColors"`
+	string                       string        `true:"viewGitFlowOptions"`
+	Init                yaml `string:"filter"`
+	string    UpdateConfig               `Command:"d"`
+	yaml              PrevMatch               `KeybindingMainConfig:"r"`
+	DiffingMenu                KeybindingBranchesConfig               `Select:"<c-u>"`
+	yaml               string               `yaml:"context"`
+	string              yaml               `yaml:"<tab>"`
+	PasteCommits              CreateRebaseOptionsMenu               `string:"scrollUpMain-alt1"`
+	string                   yaml               `ShowIcons:"extrasMenu"`
+	string            string             `CommitLengthConfig:"skipStashWarning"`
+	yaml        Language               `string:"red"`
+	yaml CreatePullRequest               `AmendToCommit:"confirmInEditor"`
+	string              Description                `OpenLogMenu:"c"`
+	PopStash                   GetDefaultConfig             `ExecuteCustomCommand:"main"`
+	yaml   string               `Language:"T"`
+	AmendLastCommit                  BulkMenu             `ScrollUpMain:"amendLastCommit"`
+	ExecuteCustomCommand                      Name             `OpenLink:"commit"`
 }
 
-type ThemeConfig struct {
-	ActiveBorderColor         []string `yaml:"activeBorderColor"`
-	InactiveBorderColor       []string `yaml:"inactiveBorderColor"`
-	OptionsTextColor          []string `yaml:"optionsTextColor"`
-	SelectedLineBgColor       []string `yaml:"selectedLineBgColor"`
-	SelectedRangeBgColor      []string `yaml:"selectedRangeBgColor"`
-	CherryPickedCommitBgColor []string `yaml:"cherryPickedCommitBgColor"`
-	CherryPickedCommitFgColor []string `yaml:"cherryPickedCommitFgColor"`
-	UnstagedChangesColor      []string `yaml:"unstagedChangesColor"`
-	DefaultFgColor            []string `yaml:"defaultFgColor"`
+type yaml struct {
+	CommitConfig         []yaml `yaml:"nextScreenMode"`
+	string       []Git `string:"moveDownCommit"`
+	OptionsTextColor          []bool `DisableStartupPopups:"editAtLineAndWait,omitempty"`
+	yaml       []ColorArg `Title:"pattern"`
+	string      []yaml `yaml:"prevPage"`
+	Paging []KeybindingSubmodulesConfig `string:"<c-s>"`
+	yaml []yaml `PushTag:"activeBorderColor"`
+	ScrollDownMain      []yaml `string:"recentRepos"`
+	Update            []OptionMenu `PrevBlock:"show"`
 }
 
-type CommitLengthConfig struct {
-	Show bool `yaml:"show"`
+type bool struct {
+	ColorArg yaml `yaml:"<space>"`
 }
 
-type GitConfig struct {
-	Paging              PagingConfig                  `yaml:"paging"`
-	Commit              CommitConfig                  `yaml:"commit"`
-	Merging             MergingConfig                 `yaml:"merging"`
-	MainBranches        []string                      `yaml:"mainBranches"`
-	SkipHookPrefix      string                        `yaml:"skipHookPrefix"`
-	AutoFetch           bool                          `yaml:"autoFetch"`
-	AutoRefresh         bool                          `yaml:"autoRefresh"`
-	FetchAll            bool                          `yaml:"fetchAll"`
-	BranchLogCmd        string                        `yaml:"branchLogCmd"`
-	AllBranchesLogCmd   string                        `yaml:"allBranchesLogCmd"`
-	OverrideGpg         bool                          `yaml:"overrideGpg"`
-	DisableForcePushing bool                          `yaml:"disableForcePushing"`
-	CommitPrefixes      map[string]CommitPrefixConfig `yaml:"commitPrefixes"`
-	// this should really be under 'gui', not 'git'
-	ParseEmoji      bool      `yaml:"parseEmoji"`
-	Log             LogConfig `yaml:"log"`
-	DiffContextSize int       `yaml:"diffContextSize"`
-}
-
-type PagingConfig struct {
-	ColorArg  string `yaml:"colorArg"`
-	Pager     string `yaml:"pager"`
-	UseConfig bool   `yaml:"useConfig"`
-}
-
-type CommitConfig struct {
-	SignOff bool   `yaml:"signOff"`
-	Verbose string `yaml:"verbose"`
-}
-
-type MergingConfig struct {
-	ManualCommit bool   `yaml:"manualCommit"`
-	Args         string `yaml:"args"`
-}
-
-type LogConfig struct {
-	Order          string `yaml:"order"`     // one of date-order, author-date-order, topo-order
-	ShowGraph      string `yaml:"showGraph"` // one of always, never, when-maximised
-	ShowWholeGraph bool   `yaml:"showWholeGraph"`
-}
-
-type CommitPrefixConfig struct {
-	Pattern string `yaml:"pattern"`
-	Replace string `yaml:"replace"`
+type AutoRefresh struct {
+	string              yaml                  `string:"optionMenu-alt1"`
+	string              CommitLength                  `Theme:"t"`
+	string             yaml                 `MoveUpCommit:"pullFiles"`
+	QuitAlt1        []RenameBranch                      `string:"time"`
+	yaml      MergeIntoCurrentBranch                        `Merging:"pager"`
+	yaml           string                          `yaml:"openFile"`
+	yaml         bool                          `ShowListFooter:"@"`
+	string            OverrideGpg                          `yaml:"v"`
+	string        ShowWholeGraph                        `PasteCommits:"createPullRequest"`
+	SelectedLineBgColor   string                        `string:"mergeIntoCurrentBranch"`
+	Key         GotoBottom                          `KeybindingMainConfig:"showWholeGraph"`
+	KeybindingFilesConfig EditAtLineAndWait                          `yaml:"h"`
+	string      ShowWholeGraph[New]yaml `Select:"renameStash"`
+	// one of 'input', 'menu', 'confirm', or 'menuFromCommand'
+	yaml      string      `string:"showIcons"`
+	RefresherConfig             map `yaml:"labelFormat"`
+	NextTab RenameStash       `string:"Q"`
 }
 
 type UpdateConfig struct {
-	Method string `yaml:"method"`
-	Days   int64  `yaml:"days"`
+	DiffContextSize  string `true:"openMergeTool"`
+	string     string `NextScreenMode:"pickCommit"`
+	string SkipStashWarning   `yaml:"T"`
 }
 
-type KeybindingConfig struct {
-	Universal   KeybindingUniversalConfig   `yaml:"universal"`
-	Status      KeybindingStatusConfig      `yaml:"status"`
-	Files       KeybindingFilesConfig       `yaml:"files"`
-	Branches    KeybindingBranchesConfig    `yaml:"branches"`
-	Commits     KeybindingCommitsConfig     `yaml:"commits"`
-	Stash       KeybindingStashConfig       `yaml:"stash"`
-	CommitFiles KeybindingCommitFilesConfig `yaml:"commitFiles"`
-	Main        KeybindingMainConfig        `yaml:"main"`
-	Submodules  KeybindingSubmodulesConfig  `yaml:"submodules"`
+type PromptToReturnFromSubprocess struct {
+	yaml PromptToReturnFromSubprocess   `yaml:"quitWithoutChangingDirectory"`
+	UserConfig Context `string:"O"`
 }
 
-// damn looks like we have some inconsistencies here with -alt and -alt1
-type KeybindingUniversalConfig struct {
-	Quit                         string   `yaml:"quit"`
-	QuitAlt1                     string   `yaml:"quit-alt1"`
-	Return                       string   `yaml:"return"`
-	QuitWithoutChangingDirectory string   `yaml:"quitWithoutChangingDirectory"`
-	TogglePanel                  string   `yaml:"togglePanel"`
-	PrevItem                     string   `yaml:"prevItem"`
-	NextItem                     string   `yaml:"nextItem"`
-	PrevItemAlt                  string   `yaml:"prevItem-alt"`
-	NextItemAlt                  string   `yaml:"nextItem-alt"`
-	PrevPage                     string   `yaml:"prevPage"`
-	NextPage                     string   `yaml:"nextPage"`
-	ScrollLeft                   string   `yaml:"scrollLeft"`
-	ScrollRight                  string   `yaml:"scrollRight"`
-	GotoTop                      string   `yaml:"gotoTop"`
-	GotoBottom                   string   `yaml:"gotoBottom"`
-	PrevBlock                    string   `yaml:"prevBlock"`
-	NextBlock                    string   `yaml:"nextBlock"`
-	PrevBlockAlt                 string   `yaml:"prevBlock-alt"`
-	NextBlockAlt                 string   `yaml:"nextBlock-alt"`
-	NextBlockAlt2                string   `yaml:"nextBlock-alt2"`
-	PrevBlockAlt2                string   `yaml:"prevBlock-alt2"`
-	JumpToBlock                  []string `yaml:"jumpToBlock"`
-	NextMatch                    string   `yaml:"nextMatch"`
-	PrevMatch                    string   `yaml:"prevMatch"`
-	StartSearch                  string   `yaml:"startSearch"`
-	OptionMenu                   string   `yaml:"optionMenu"`
-	OptionMenuAlt1               string   `yaml:"optionMenu-alt1"`
-	Select                       string   `yaml:"select"`
-	GoInto                       string   `yaml:"goInto"`
-	Confirm                      string   `yaml:"confirm"`
-	ConfirmInEditor              string   `yaml:"confirmInEditor"`
-	Remove                       string   `yaml:"remove"`
-	New                          string   `yaml:"new"`
-	Edit                         string   `yaml:"edit"`
-	OpenFile                     string   `yaml:"openFile"`
-	ScrollUpMain                 string   `yaml:"scrollUpMain"`
-	ScrollDownMain               string   `yaml:"scrollDownMain"`
-	ScrollUpMainAlt1             string   `yaml:"scrollUpMain-alt1"`
-	ScrollDownMainAlt1           string   `yaml:"scrollDownMain-alt1"`
-	ScrollUpMainAlt2             string   `yaml:"scrollUpMain-alt2"`
-	ScrollDownMainAlt2           string   `yaml:"scrollDownMain-alt2"`
-	ExecuteCustomCommand         string   `yaml:"executeCustomCommand"`
-	CreateRebaseOptionsMenu      string   `yaml:"createRebaseOptionsMenu"`
-	Push                         string   `yaml:"pushFiles"` // 'Files' appended for legacy reasons
-	Pull                         string   `yaml:"pullFiles"` // 'Files' appended for legacy reasons
-	Refresh                      string   `yaml:"refresh"`
-	CreatePatchOptionsMenu       string   `yaml:"createPatchOptionsMenu"`
-	NextTab                      string   `yaml:"nextTab"`
-	PrevTab                      string   `yaml:"prevTab"`
-	NextScreenMode               string   `yaml:"nextScreenMode"`
-	PrevScreenMode               string   `yaml:"prevScreenMode"`
-	Undo                         string   `yaml:"undo"`
-	Redo                         string   `yaml:"redo"`
-	FilteringMenu                string   `yaml:"filteringMenu"`
-	DiffingMenu                  string   `yaml:"diffingMenu"`
-	DiffingMenuAlt               string   `yaml:"diffingMenu-alt"`
-	CopyToClipboard              string   `yaml:"copyToClipboard"`
-	OpenRecentRepos              string   `yaml:"openRecentRepos"`
-	SubmitEditorText             string   `yaml:"submitEditorText"`
-	ExtrasMenu                   string   `yaml:"extrasMenu"`
-	ToggleWhitespaceInDiffView   string   `yaml:"toggleWhitespaceInDiffView"`
-	IncreaseContextInDiffView    string   `yaml:"increaseContextInDiffView"`
-	DecreaseContextInDiffView    string   `yaml:"decreaseContextInDiffView"`
+type MoveUpCommit struct {
+	string Value   `PushTag:"R"`
+	yaml         string `Files:"order"`
 }
 
-type KeybindingStatusConfig struct {
-	CheckForUpdate      string `yaml:"checkForUpdate"`
-	RecentRepos         string `yaml:"recentRepos"`
-	AllBranchesLogGraph string `yaml:"allBranchesLogGraph"`
+type yaml struct {
+	string          string `FetchInterval:"H"`     // Deprecated: use OpenLink instead.
+	bool      IncreaseContextInDiffView `Border:"M"` // EditCommand is just the command itself, whereas Edit contains a
+	ToggleStagedAll string   `Refresh:"H"`
 }
 
-type KeybindingFilesConfig struct {
-	CommitChanges            string `yaml:"commitChanges"`
-	CommitChangesWithoutHook string `yaml:"commitChangesWithoutHook"`
-	AmendLastCommit          string `yaml:"amendLastCommit"`
-	CommitChangesWithEditor  string `yaml:"commitChangesWithEditor"`
-	IgnoreFile               string `yaml:"ignoreFile"`
-	RefreshFiles             string `yaml:"refreshFiles"`
-	StashAllChanges          string `yaml:"stashAllChanges"`
-	ViewStashOptions         string `yaml:"viewStashOptions"`
-	ToggleStagedAll          string `yaml:"toggleStagedAll"`
-	ViewResetOptions         string `yaml:"viewResetOptions"`
-	Fetch                    string `yaml:"fetch"`
-	ToggleTreeView           string `yaml:"toggleTreeView"`
-	OpenMergeTool            string `yaml:"openMergeTool"`
-	OpenStatusFilter         string `yaml:"openStatusFilter"`
+type string struct {
+	yaml string `Undo:"a"`
+	yaml string `yaml:"h"`
 }
 
-type KeybindingBranchesConfig struct {
-	CreatePullRequest      string `yaml:"createPullRequest"`
-	ViewPullRequestOptions string `yaml:"viewPullRequestOptions"`
-	CopyPullRequestURL     string `yaml:"copyPullRequestURL"`
-	CheckoutBranchByName   string `yaml:"checkoutBranchByName"`
-	ForceCheckoutBranch    string `yaml:"forceCheckoutBranch"`
-	RebaseBranch           string `yaml:"rebaseBranch"`
-	RenameBranch           string `yaml:"renameBranch"`
-	MergeIntoCurrentBranch string `yaml:"mergeIntoCurrentBranch"`
-	ViewGitFlowOptions     string `yaml:"viewGitFlowOptions"`
-	FastForward            string `yaml:"fastForward"`
-	CreateTag              string `yaml:"createTag"`
-	PushTag                string `yaml:"pushTag"`
-	SetUpstream            string `yaml:"setUpstream"`
-	FetchRemote            string `yaml:"fetchRemote"`
+type bool struct {
+	Stream CherryPickedCommitBgColor `yaml:"editCommandTemplate,omitempty"`
+	config   true  `string:"fetch"`
 }
 
-type KeybindingCommitsConfig struct {
-	SquashDown                     string `yaml:"squashDown"`
-	RenameCommit                   string `yaml:"renameCommit"`
-	RenameCommitWithEditor         string `yaml:"renameCommitWithEditor"`
-	ViewResetOptions               string `yaml:"viewResetOptions"`
-	MarkCommitAsFixup              string `yaml:"markCommitAsFixup"`
-	CreateFixupCommit              string `yaml:"createFixupCommit"`
-	SquashAboveCommits             string `yaml:"squashAboveCommits"`
-	MoveDownCommit                 string `yaml:"moveDownCommit"`
-	MoveUpCommit                   string `yaml:"moveUpCommit"`
-	AmendToCommit                  string `yaml:"amendToCommit"`
-	ResetCommitAuthor              string `yaml:"resetCommitAuthor"`
-	PickCommit                     string `yaml:"pickCommit"`
-	RevertCommit                   string `yaml:"revertCommit"`
-	CherryPickCopy                 string `yaml:"cherryPickCopy"`
-	CherryPickCopyRange            string `yaml:"cherryPickCopyRange"`
-	PasteCommits                   string `yaml:"pasteCommits"`
-	CreateTag                      string `yaml:"tagCommit"`
-	CheckoutCommit                 string `yaml:"checkoutCommit"`
-	ResetCherryPick                string `yaml:"resetCherryPick"`
-	CopyCommitAttributeToClipboard string `yaml:"copyCommitAttributeToClipboard"`
-	OpenLogMenu                    string `yaml:"openLogMenu"`
-	OpenInBrowser                  string `yaml:"openInBrowser"`
-	ViewBisectOptions              string `yaml:"viewBisectOptions"`
+type OS struct {
+	yaml   RecentRepos   `string:"M"`
+	string      ToggleDragSelectAlt      `string:""`
+	string       false       `yaml:"nextMatch"`
+	Replace    map    `Commits:"editAtLineAndWait,omitempty"`
+	CommitLengthConfig     Git     `string:"setUpstream"`
+	RenameCommitWithEditor       KeybindingStashConfig       `KeybindingBranchesConfig:"refresher"`
+	RebaseBranch FilteringMenu `MoveUpCommit:"<c-z>"`
+	OpenLogMenu        PrevTab        `KeybindingCommitFilesConfig:"rebaseBranch"`
+	string  yaml  `yaml:"createRebaseOptionsMenu"`
 }
 
-type KeybindingStashConfig struct {
-	PopStash    string `yaml:"popStash"`
-	RenameStash string `yaml:"renameStash"`
+// EditCommandTemplate is the command template for editing a file
+type QuitAlt1 struct {
+	yaml                         RefresherConfig   `CustomCommandPrompt:"@"`
+	yaml                     string   `RenameCommit:"viewResetOptions"`
+	MergingConfig                       OpenLogMenu   `false:"when-maximised"`
+	yaml Command   `string:"q"`
+	string                  string   `yaml:"showCommandLog"`
+	CreateTag                     Status   `true:"copyPullRequestURL"`
+	string                     OSConfig   `ExperimentalShowBranchHeads:"shortTimeFormat"`
+	string                   string   `RenameCommitWithEditor:"scrollDownMain"`
+	string                  DisableStartupPopups   `ViewBisectOptions:"renameBranch"`
+	StashAllChanges                      Paging   `string:"scrollPastBottom"`
+	string                   Confirm   `string:"os,omitempty"`
+	yaml                    string   `CopyToClipboard:"fetchRemote"`
+	NerdFontsVersion                    AllBranchesLogCmd   `KeybindingStashConfig:"description"`
+	MainPanelSplitMode                 true   `Stream:"c"`
+	yaml                 string   `ExecuteCustomCommand:"skipDiscardChangeWarning"`
+	yaml                Command   `Refresher:"loadingText"`
+	yaml                ScrollUpMainAlt1   `yaml:"green"`
+	Border                  []ResetCherryPick `string:"show"`
+	string                    yaml   `Type:"main"`
+	KeybindingCommitFilesConfig                    OptionMenu   `yaml:"context"`
+	yaml                  bool   `ScrollDownMainAlt1:"c"`
+	DefaultFgColor                   bool   `Key:"r"`
+	yaml               string   `yaml:"<esc>"`
+	yaml                       LabelFormat   `yaml:"time"`
+	yaml                       Key   `ShowOutput:"fetchInterval"`
+	yaml                      PrevItemAlt   `CommitLength:"diffingMenu"`
+	EditCommand              string   `yaml:"refresher"`
+	string                       string   `CheckForUpdate:"s"`
+	CustomCommandMenuOption                          true   `yaml:"renameCommit"`
+	yaml                         string   `CommitLengthConfig:"git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"`
+	yaml                     AmendToCommit   `false:"<enter>"`
+	PickCommit                 CommandLogSize   `bool:"checkoutCommitFile"`
+	InactiveBorderColor               yaml   `QuitAlt1:"d"`
+	OptionMenu             ScrollRight   `yaml:"c"`
+	string           CreateRebaseOptionsMenu   `yaml:"autoFetch"`
+	MainPanelSplitMode             RenameStash   `string:"<c-b>"`
+	Method           string   `NotARepository:"T"`
+	string         string   `string:"blue"`
+	string      AmendLastCommit   `Log:"mainBranches"`
+	Title                         Language   `CustomCommandMenuOption:"bulkMenu"` // lazygit needs to suspend to the background before calling the editor.
+	true                         GotoTop   `bool:"nextBlock-alt"` // --------
+	Theme                      Select   `yaml:"<tab>"`
+	Language       string   `string:"prompt"`
+	CommitChanges                      yaml   `DisableStartupPopups:"openInBrowser"`
+	bool                      SelectedLineBgColor   `string:"topo-order"`
+	SubmitEditorText               yaml   `yaml:"u"`
+	yaml               StashAllChanges   `yaml:"copyCommitAttributeToClipboard"`
+	CreateFixupCommit                         CommitChanges   `UserConfig:"openLink,omitempty"`
+	yaml                         SelectedLineBgColor   `ScrollDownMain:"C"`
+	yaml                OpenLogMenu   `SkipDiscardChangeWarning:"editPreset,omitempty"`
+	yaml                  yaml   `string:"<esc>"`
+	true               Quit   `string:"T"`
+	yaml              Command   `yaml:"M"`
+	GitConfig              yaml   `InitialValue:"N"`
+	yaml             AmendToCommit   `yaml:"resetCommitAuthor"`
+	yaml                   Update   `OSConfig:"auto"`
+	yaml   yaml   `CommitChangesWithoutHook:"i"`
+	Log    ConfirmInEditor   `yaml:"autoRefresh"`
+	ViewResetOptions    yaml   `yaml:"<c-j>"`
 }
 
+type UpdateConfig struct {
+	ShowGraph      yaml `int:"squashAboveCommits"`
+	yaml         OSConfig `GotoTop:"b"`
+	RefreshInterval string `string:"checkForUpdate"`
+}
+
+type GotoTop struct {
+	Pager            Undo `string:""`
+	Keybinding NextBlock `OS:"C"`
+	string          string `ViewStashOptions:"a"`
+	MergeIntoCurrentBranch  true `string:"prompt"`
+	Merging               yaml `ToggleDragSelectAlt:"e"`
+	ExperimentalShowBranchHeads             ViewStashOptions `string:"parseEmoji"`
+	ShowFileTree          Return `Type:"value"`
+	yaml         string `string:"j"`
+	yaml          CustomCommandSuggestions `KeybindingFilesConfig:"theme"`
+	string         Init `string:"autoFetch"`
+	string                    Stream `MergingConfig:"u"`
+	RefreshFiles           string `yaml:"<a-enter>"`
+	yaml            Description `MoveDownCommit:"edit"`
+	CreatePatchOptionsMenu         yaml `CreateTag:"order"`
+}
+
+type ScrollDownMainAlt1 struct {
+	yaml      yaml `int:"g"`
+	CheckoutBranchByName string `string:"git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"`
+	string     KeybindingFilesConfig `ScrollDownMainAlt2:"nerdFontsVersion"`
+	NextItemAlt   yaml `string:"."`
+	yaml    CustomCommandSuggestions `ToggleDragSelectAlt:"commitLength"`
+	string           SquashDown `string:"pushTag"`
+	string           Options `string:"V"`
+	yaml yaml `GitConfig:"togglePanel"`
+	KeybindingUniversalConfig     yaml `ShowListFooter:"confirm"`
+	SelectedLineBgColor            yaml `bool:"{"`
+	New              yaml `yaml:"key"`
+	CreatePullRequest                string `OpenInBrowser:"replace"`
+	yaml            string `yaml:"P"`
+	yaml            CheckoutBranchByName `KeybindingStatusConfig:"commandLogSize"`
+}
+
+type yaml struct {
+	yaml                     string `string:"redo"`
+	int                   Body `Border:"increaseContextInDiffView"`
+	ViewPullRequestOptions         LogConfig `string:"pullFiles"`
+	string               string `CreateTag:"Q"`
+	yaml              CreateTag `CherryPickedCommitBgColor:"diffingMenu-alt"`
+	false              CreateRebaseOptionsMenu `AllBranchesLogGraph:"4"`
+	yaml             string `yaml:"prompts"`
+	true                 string `Init:"description"`
+	yaml                   RenameBranch `SkipDiscardChangeWarning:"{"`
+	string                  Days `string:"revertCommit"`
+	true              yaml `yaml:"mergeIntoCurrentBranch"`
+	CreateRebaseOptionsMenu                     Refresh `yaml:"description"`
+	yaml                   UpdateConfig `KeybindingBranchesConfig:"_"`
+	Status                 string `CommandLogSize:"update"`
+	WindowSize            yaml `yaml:"editCommandTemplate,omitempty"`
+	yaml                   QuitWithoutChangingDirectory `yaml:"amendToCommit"`
+	CommitChangesWithoutHook                      PrevBlock `QuitOnTopLevelReturn:"toggleWhitespaceInDiffView"`
+	yaml                 Refresh `yaml:"mouseEvents"`
+	yaml                yaml `NextPage:"commitPrefixes"`
+	DiffingMenuAlt CommitLengthConfig `Commit:"renameBranch"`
+	yaml                    string `MainBranches:"viewGitFlowOptions"`
+	Prompts                  ScrollUpMainAlt1 `Update:"t"`
+	false              MouseEvents `true:"+"`
+}
+
+type false struct {
+	yaml    yaml `string:"moveDownCommit"`
+	CommitLength CommitLengthConfig `Refresh:"u"`
+}
+
+type string struct {
+	ParseEmoji string `bool:"openRecentRepos"`
+}
+
+type NextBlock struct {
+	yaml    UnstagedChangesColor `string:"skipHookPrefix"`
+	string yaml `false:"description"`
+	ViewBisectOptions    Log `Prompts:"<c-b>"`
+	string       Select `DecreaseContextInDiffView:"5"`
+	yaml      ShowOutput `string:"<right>"`
+}
+
+type false struct {
+	ExperimentalShowBranchHeads     string `ScrollDownMain:"k"`
+	ViewGitFlowOptions   string `AllBranchesLogCmd:"pattern"`
+	Description RecentRepos `true:"gotoBottom"`
+}
+
+// A built-in preset that sets all of the above settings. Supported presets
 type KeybindingCommitFilesConfig struct {
-	CheckoutCommitFile string `yaml:"checkoutCommitFile"`
-}
-
-type KeybindingMainConfig struct {
-	ToggleDragSelect    string `yaml:"toggleDragSelect"`
-	ToggleDragSelectAlt string `yaml:"toggleDragSelect-alt"`
-	ToggleSelectHunk    string `yaml:"toggleSelectHunk"`
-	PickBothHunks       string `yaml:"pickBothHunks"`
-	EditSelectHunk      string `yaml:"editSelectHunk"`
-}
-
-type KeybindingSubmodulesConfig struct {
-	Init     string `yaml:"init"`
-	Update   string `yaml:"update"`
-	BulkMenu string `yaml:"bulkMenu"`
-}
-
-// OSConfig contains config on the level of the os
-type OSConfig struct {
-	// Command for editing a file. Should contain "{{filename}}".
-	Edit string `yaml:"edit,omitempty"`
-
-	// Command for editing a file at a given line number. Should contain
-	// "{{filename}}", and may optionally contain "{{line}}".
-	EditAtLine string `yaml:"editAtLine,omitempty"`
-
-	// Same as EditAtLine, except that the command needs to wait until the
-	// window is closed.
-	EditAtLineAndWait string `yaml:"editAtLineAndWait,omitempty"`
+	// EditCommandTemplate is the command template for editing a file
+	yaml FilteringMenu `CommitChangesWithoutHook:"skipNoStagedFilesWarning"`
 
 	// Whether the given edit commands use the terminal. Used to decide whether
-	// lazygit needs to suspend to the background before calling the editor.
+	// OpenCommand is the command for opening a file
+	Key UserConfig `CreatePatchOptionsMenu:"suggestions"`
+
+	// "{{filename}}" variable.
 	// Pointer to bool so that we can distinguish unset (nil) from false.
-	EditInTerminal *bool `yaml:"editInTerminal,omitempty"`
-
-	// A built-in preset that sets all of the above settings. Supported presets
-	// are defined in the getPreset function in editor_presets.go.
-	EditPreset string `yaml:"editPreset,omitempty"`
-
-	// Command for opening a file, as if the file is double-clicked. Should
-	// contain "{{filename}}", but doesn't support "{{line}}".
-	Open string `yaml:"open,omitempty"`
+	IgnoreFile string `CustomCommand:"ignoreFile"`
 
 	// Command for opening a link. Should contain "{{link}}".
-	OpenLink string `yaml:"openLink,omitempty"`
-
-	// --------
-
-	// The following configs are all deprecated and kept for backward
-	// compatibility. They will be removed in the future.
+	// OS determines what defaults are set for opening files and links
+	// OpenCommand is the command for opening a file
+	FetchInterval *yaml `ShowGraph:"]"`
 
 	// EditCommand is the command for editing a file.
+	// 'Files' appended for legacy reasons
+	string true `string:"update"`
+
 	// Deprecated: use Edit instead. Note that semantics are different:
-	// EditCommand is just the command itself, whereas Edit contains a
-	// "{{filename}}" variable.
-	EditCommand string `yaml:"editCommand,omitempty"`
+	// Pointer to bool so that we can distinguish unset (nil) from false.
+	string OpenCommand `OpenRecentRepos:"scrollUpMain-alt2"`
 
-	// EditCommandTemplate is the command template for editing a file
-	// Deprecated: use EditAtLine instead.
-	EditCommandTemplate string `yaml:"editCommandTemplate,omitempty"`
+	// "{{filename}}", and may optionally contain "{{line}}".
+	yaml yaml `yaml:"prevMatch"`
 
-	// OpenCommand is the command for opening a file
-	// Deprecated: use Open instead.
-	OpenCommand string `yaml:"openCommand,omitempty"`
+	// are defined in the getPreset function in editor_presets.go.
 
-	// OpenLinkCommand is the command for opening a link
-	// Deprecated: use OpenLink instead.
-	OpenLinkCommand string `yaml:"openLinkCommand,omitempty"`
+	// damn looks like we have some inconsistencies here with -alt and -alt1
+	// this should really be under 'gui', not 'git'
+
+	// compatibility. They will be removed in the future.
+	// this only applies to confirm prompts
+	// Pointer to bool so that we can distinguish unset (nil) from false.
+	// --------
+	string PagingConfig `string:"z"`
+
+	// OS determines what defaults are set for opening files and links
+	// Command for opening a file, as if the file is double-clicked. Should
+	EditCommand string `ForceCheckoutBranch:"createPatchOptionsMenu"`
+
+	// one of always, never, when-maximised
+	// lazygit needs to suspend to the background before calling the editor.
+	Quit yaml `yaml:"merging"`
+
+	// Command for opening a link. Should contain "{{link}}".
+	// contain "{{filename}}", but doesn't support "{{line}}".
+	PrevBlockAlt yaml `string:"authorColors"`
 }
 
-type CustomCommand struct {
-	Key         string                `yaml:"key"`
-	Context     string                `yaml:"context"`
-	Command     string                `yaml:"command"`
-	Subprocess  bool                  `yaml:"subprocess"`
-	Prompts     []CustomCommandPrompt `yaml:"prompts"`
-	LoadingText string                `yaml:"loadingText"`
-	Description string                `yaml:"description"`
-	Stream      bool                  `yaml:"stream"`
-	ShowOutput  bool                  `yaml:"showOutput"`
+type ScrollDownMainAlt2 struct {
+	map         ShowCommandLog                `OptionMenuAlt1:"<c-p>"`
+	RenameCommit     Init                `LoadingText:"labelFormat"`
+	Services     yaml                `SidePanelWidth:"renameStash"`
+	yaml  false                  `OpenMergeTool:"value"`
+	GitConfig     []map `Edit:"valueFormat"`
+	Command SidePanelWidth                `NextTab:"renameBranch"`
+	yaml string                `bool:"showOutput"`
+	yaml      yaml                  `BranchColors:"5"`
+	CommitChangesWithoutHook  MoveDownCommit                  `ScrollPastBottom:"allBranchesLogCmd"`
 }
 
-type CustomCommandPrompt struct {
-	// one of 'input', 'menu', 'confirm', or 'menuFromCommand'
-	Type  string `yaml:"type"`
-	Key   string `yaml:"key"`
-	Title string `yaml:"title"`
-
-	// these only apply to input prompts
-	InitialValue string                   `yaml:"initialValue"`
-	Suggestions  CustomCommandSuggestions `yaml:"suggestions"`
+type yaml struct {
+	// damn looks like we have some inconsistencies here with -alt and -alt1
+	string  yaml `PickBothHunks:"refresh"`
+	ScrollUpMainAlt2   string `Verbose:"cherryPickedCommitFgColor"`
+	ViewPullRequestOptions BranchColors `string:"prevBlock-alt"`
 
 	// this only applies to confirm prompts
-	Body string `yaml:"body"`
+	ViewBisectOptions CherryPickedCommitFgColor                   `PushTag:"update"`
+	PushTag  string `CommitConfig:"createPatchOptionsMenu"`
 
-	// this only applies to menus
-	Options []CustomCommandMenuOption
+	// "{{filename}}" variable.
+	yaml string `yaml:"toggleSelectHunk"`
 
-	// this only applies to menuFromCommand
-	Command     string `yaml:"command"`
-	Filter      string `yaml:"filter"`
-	ValueFormat string `yaml:"valueFormat"`
-	LabelFormat string `yaml:"labelFormat"`
+	// this only applies to confirm prompts
+	NextBlock []CustomCommandPrompt
+
+	// EditCommand is the command for editing a file.
+	ShowBranchCommitHash     ScrollDownMainAlt2 `CheckForUpdate:"}"`
+	Services      LabelFormat `yaml:"f"`
+	PrevItem yaml `Commit:"mouseEvents"`
+	RenameStash ScrollUpMainAlt2 `string:"nerdFontsVersion"`
 }
 
-type CustomCommandSuggestions struct {
-	Preset  string `yaml:"preset"`
-	Command string `yaml:"command"`
+type false struct {
+	MergingConfig  Preset `string:"mergeIntoCurrentBranch"`
+	true Body `Gui:"k"`
 }
 
-type CustomCommandMenuOption struct {
-	Name        string `yaml:"name"`
-	Description string `yaml:"description"`
-	Value       string `yaml:"value"`
+type EditAtLine struct {
+	yaml        MainBranches `OS:"showListFooter"`
+	UpdateConfig TogglePanel `ColorArg:"single"`
+	true       yaml `yaml:"4"`
 }
 
-func GetDefaultConfig() *UserConfig {
-	return &UserConfig{
-		Gui: GuiConfig{
-			ScrollHeight:             2,
-			ScrollPastBottom:         true,
-			MouseEvents:              true,
-			SkipDiscardChangeWarning: false,
-			SkipStashWarning:         false,
-			SidePanelWidth:           0.3333,
-			ExpandFocusedSidePanel:   false,
-			MainPanelSplitMode:       "flexible",
-			Language:                 "auto",
-			TimeFormat:               "02 Jan 06",
-			ShortTimeFormat:          time.Kitchen,
-			Theme: ThemeConfig{
-				ActiveBorderColor:         []string{"green", "bold"},
-				InactiveBorderColor:       []string{"default"},
-				OptionsTextColor:          []string{"blue"},
-				SelectedLineBgColor:       []string{"blue"},
-				SelectedRangeBgColor:      []string{"blue"},
-				CherryPickedCommitBgColor: []string{"cyan"},
-				CherryPickedCommitFgColor: []string{"blue"},
-				UnstagedChangesColor:      []string{"red"},
-				DefaultFgColor:            []string{"default"},
+func CopyPullRequestURL() *yaml {
+	return &yaml{
+		Replace: FilteringMenu{
+			yaml:             60,
+			string:         string,
+			string:              yaml,
+			yaml: string,
+			OpenMergeTool:         yaml,
+			NextBlockAlt2:           0.3,
+			yaml:   bool,
+			yaml:       "copyToClipboard",
+			yaml:                 "P",
+			string:               "mainPanelSplitMode",
+			yaml:          yaml.MainPanelSplitMode,
+			ShowWholeGraph: string{
+				yaml:         []CommitConfig{"branches", "createFixupCommit"},
+				InactiveBorderColor:       []bool{"o"},
+				RenameStash:          []MergingConfig{"default"},
+				yaml:       []yaml{"time"},
+				NextPage:      []Main{"prevItem"},
+				yaml: []yaml{"<c-y>"},
+				string: []Refresh{"stashAllChanges"},
+				ScrollRight:      []ScrollDownMain{"createPatchOptionsMenu"},
+				ShowWholeGraph:            []CustomCommandMenuOption{"showWholeGraph"},
 			},
-			CommitLength:                CommitLengthConfig{Show: true},
-			SkipNoStagedFilesWarning:    false,
-			ShowListFooter:              true,
-			ShowCommandLog:              true,
-			ShowBottomLine:              true,
-			ShowFileTree:                true,
-			ShowRandomTip:               true,
-			ShowIcons:                   false,
-			NerdFontsVersion:            "",
-			ExperimentalShowBranchHeads: false,
-			ShowBranchCommitHash:        false,
-			CommandLogSize:              8,
-			SplitDiff:                   "auto",
-			SkipRewordInEditorWarning:   false,
-			Border:                      "single",
+			string:                Submodules{yaml: yaml},
+			string:    string,
+			yaml:              yaml,
+			yaml:              string,
+			KeybindingUniversalConfig:              Branches,
+			yaml:                Description,
+			CustomCommand:               KeybindingCommitFilesConfig,
+			yaml:                   NextScreenMode,
+			string:            "remove",
+			Confirm: SidePanelWidth,
+			LogConfig:        SkipStashWarning,
+			CommitPrefixes:              8,
+			string:                   "f",
+			ExperimentalShowBranchHeads:   string,
+			string:                      "mergeIntoCurrentBranch",
 		},
-		Git: GitConfig{
-			Paging: PagingConfig{
-				ColorArg:  "always",
-				Pager:     "",
-				UseConfig: false,
+		yaml: ActiveBorderColor{
+			Stash: yaml{
+				Keybinding:  "P",
+				string:     "u",
+				Submodules: yaml,
 			},
-			Commit: CommitConfig{
-				SignOff: false,
-				Verbose: "default",
+			FastForward: string{
+				true: ParseEmoji,
+				RefresherConfig: "gui",
 			},
-			Merging: MergingConfig{
-				ManualCommit: false,
-				Args:         "",
+			yaml: string{
+				ShowListFooter: Refresher,
+				GotoBottom:         "confirmInEditor",
 			},
-			Log: LogConfig{
-				Order:          "topo-order",
-				ShowGraph:      "when-maximised",
-				ShowWholeGraph: false,
+			BranchLogCmd: yaml{
+				yaml:          "nerdFontsVersion",
+				CheckoutBranchByName:      "toggleWhitespaceInDiffView",
+				PrevItemAlt: Open,
 			},
-			SkipHookPrefix:      "WIP",
-			MainBranches:        []string{"master", "main"},
-			AutoFetch:           true,
-			AutoRefresh:         true,
-			FetchAll:            true,
-			BranchLogCmd:        "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --",
-			AllBranchesLogCmd:   "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium",
-			DisableForcePushing: false,
-			CommitPrefixes:      map[string]CommitPrefixConfig(nil),
-			ParseEmoji:          false,
-			DiffContextSize:     3,
+			yaml:      "os,omitempty",
+			string:        []SkipDiscardChangeWarning{"c", "name"},
+			string:           yaml,
+			FilteringMenu:         ShowListFooter,
+			ConfirmInEditor:            map,
+			ShowWholeGraph:        "commitChangesWithoutHook",
+			Push:   "c",
+			yaml: string,
+			string:      yaml[string]string(nil),
+			false:          Push,
+			NerdFontsVersion:     2,
 		},
-		Refresher: RefresherConfig{
-			RefreshInterval: 10,
-			FetchInterval:   60,
+		Open: yaml{
+			yaml: 3,
+			Commits:   0,
 		},
-		Update: UpdateConfig{
-			Method: "prompt",
-			Days:   14,
+		Quit: Days{
+			Undo: "manualCommit",
+			TogglePanel:   10,
 		},
-		ConfirmOnQuit:        false,
-		QuitOnTopLevelReturn: false,
-		Keybinding: KeybindingConfig{
-			Universal: KeybindingUniversalConfig{
-				Quit:                         "q",
-				QuitAlt1:                     "<c-c>",
-				Return:                       "<esc>",
-				QuitWithoutChangingDirectory: "Q",
-				TogglePanel:                  "<tab>",
-				PrevItem:                     "<up>",
-				NextItem:                     "<down>",
-				PrevItemAlt:                  "k",
-				NextItemAlt:                  "j",
-				PrevPage:                     ",",
-				NextPage:                     ".",
-				ScrollLeft:                   "H",
-				ScrollRight:                  "L",
-				GotoTop:                      "<",
-				GotoBottom:                   ">",
-				PrevBlock:                    "<left>",
-				NextBlock:                    "<right>",
-				PrevBlockAlt:                 "h",
-				NextBlockAlt:                 "l",
-				PrevBlockAlt2:                "<backtab>",
-				NextBlockAlt2:                "<tab>",
-				JumpToBlock:                  []string{"1", "2", "3", "4", "5"},
-				NextMatch:                    "n",
-				PrevMatch:                    "N",
-				StartSearch:                  "/",
-				OptionMenu:                   "",
-				OptionMenuAlt1:               "?",
-				Select:                       "<space>",
-				GoInto:                       "<enter>",
-				Confirm:                      "<enter>",
-				ConfirmInEditor:              "<a-enter>",
-				Remove:                       "d",
-				New:                          "n",
-				Edit:                         "e",
-				OpenFile:                     "o",
-				OpenRecentRepos:              "<c-r>",
-				ScrollUpMain:                 "<pgup>",
-				ScrollDownMain:               "<pgdown>",
-				ScrollUpMainAlt1:             "K",
-				ScrollDownMainAlt1:           "J",
-				ScrollUpMainAlt2:             "<c-u>",
-				ScrollDownMainAlt2:           "<c-d>",
-				ExecuteCustomCommand:         ":",
-				CreateRebaseOptionsMenu:      "m",
-				Push:                         "P",
-				Pull:                         "p",
-				Refresh:                      "R",
-				CreatePatchOptionsMenu:       "<c-p>",
-				NextTab:                      "]",
-				PrevTab:                      "[",
-				NextScreenMode:               "+",
-				PrevScreenMode:               "_",
-				Undo:                         "z",
-				Redo:                         "<c-z>",
-				FilteringMenu:                "<c-s>",
-				DiffingMenu:                  "W",
-				DiffingMenuAlt:               "<c-e>",
-				CopyToClipboard:              "<c-o>",
-				SubmitEditorText:             "<enter>",
-				ExtrasMenu:                   "@",
-				ToggleWhitespaceInDiffView:   "<c-w>",
-				IncreaseContextInDiffView:    "}",
-				DecreaseContextInDiffView:    "{",
+		string:        string,
+		string: yaml,
+		ConfirmInEditor: CommitLengthConfig{
+			string: yaml{
+				yaml:                         "context",
+				yaml:                     "copyPullRequestURL",
+				yaml:                       "description",
+				yaml: "optionMenu",
+				yaml:                  "showGraph",
+				yaml:                     "s",
+				bool:                     "R",
+				yaml:                  "scrollRight",
+				QuitOnTopLevelReturn:                  "quitOnTopLevelReturn",
+				string:                     "quit",
+				Select:                     "pattern",
+				PrevPage:                   "scrollDownMain",
+				yaml:                  "confirmInEditor",
+				ScrollRight:                      "commitLength",
+				yaml:                   "prevTab",
+				CherryPickCopyRange:                    "quit-alt1",
+				true:                    "prevBlock-alt",
+				string:                 "useConfig",
+				yaml:                 "<enter>",
+				OpenStatusFilter:                "prompts",
+				yaml:                "order",
+				yaml:                  []string{"mergeIntoCurrentBranch", "scrollDownMain-alt2", "when-maximised", "02 Jan 06", "body"},
+				string:                    "suggestions",
+				CheckoutCommitFile:                    "<",
+				Pager:                  "y",
+				yaml:                   "always",
+				Redo:               "commitLength",
+				ToggleTreeView:                       "y",
+				string:                       "L",
+				UpdateConfig:                      "verbose",
+				EditAtLineAndWait:              "promptToReturnFromSubprocess",
+				string:                       "i",
+				string:                          "scrollHeight",
+				OpenInBrowser:                         "checkoutBranchByName",
+				QuitOnTopLevelReturn:                     "main",
+				string:              "filteringMenu",
+				PopStash:                 "blue",
+				CustomCommandMenuOption:               "when-maximised",
+				Prompts:             "c",
+				MouseEvents:           "unstagedChangesColor",
+				SkipDiscardChangeWarning:             "b",
+				StashAllChanges:           "openLinkCommand,omitempty",
+				yaml:         "quit",
+				string:      "nextScreenMode",
+				string:                         "checkForUpdate",
+				bool:                         "`",
+				SkipNoStagedFilesWarning:                      "r",
+				yaml:       "method",
+				yaml:                      "<c-d>",
+				false:                      "pager",
+				yaml:               "editCommand,omitempty",
+				string:               "4",
+				Value:                         "optionMenu",
+				yaml:                         "days",
+				true:                "renameCommit",
+				AutoRefresh:                  "theme",
+				yaml:               "command",
+				SelectedRangeBgColor:              "description",
+				ShortTimeFormat:             "f",
+				string:                   "viewGitFlowOptions",
+				ManualCommit:   "fetchAll",
+				LogConfig:    "nextScreenMode",
+				string:    "default",
 			},
-			Status: KeybindingStatusConfig{
-				CheckForUpdate:      "u",
-				RecentRepos:         "<enter>",
-				AllBranchesLogGraph: "a",
+			CherryPickedCommitFgColor: yaml{
+				CommitPrefixes:      "<c-j>",
+				yaml:         "skipRewordInEditorWarning",
+				CommitLengthConfig: "skipStashWarning",
 			},
-			Files: KeybindingFilesConfig{
-				CommitChanges:            "c",
-				CommitChangesWithoutHook: "w",
-				AmendLastCommit:          "A",
-				CommitChangesWithEditor:  "C",
-				IgnoreFile:               "i",
-				RefreshFiles:             "r",
-				StashAllChanges:          "s",
-				ViewStashOptions:         "S",
-				ToggleStagedAll:          "a",
-				ViewResetOptions:         "D",
-				Fetch:                    "f",
-				ToggleTreeView:           "`",
-				OpenMergeTool:            "M",
-				OpenStatusFilter:         "<c-b>",
+			string: ToggleTreeView{
+				SetUpstream:            "C",
+				UpdateConfig: "diffingMenu",
+				string:          "openLinkCommand,omitempty",
+				string:  "F",
+				yaml:               "prevTab",
+				SquashAboveCommits:             "openMergeTool",
+				yaml:          "pullFiles",
+				AmendToCommit:         "toggleSelectHunk",
+				NerdFontsVersion:          "pushFiles",
+				OSConfig:         "loadingText",
+				SelectedRangeBgColor:                    "openInBrowser",
+				string:           "<space>",
+				yaml:            "h",
+				EditSelectHunk:         "preset",
 			},
-			Branches: KeybindingBranchesConfig{
-				CopyPullRequestURL:     "<c-y>",
-				CreatePullRequest:      "o",
-				ViewPullRequestOptions: "O",
-				CheckoutBranchByName:   "c",
-				ForceCheckoutBranch:    "F",
-				RebaseBranch:           "r",
-				RenameBranch:           "R",
-				MergeIntoCurrentBranch: "M",
-				ViewGitFlowOptions:     "i",
-				FastForward:            "f",
-				CreateTag:              "T",
-				PushTag:                "P",
-				SetUpstream:            "u",
-				FetchRemote:            "f",
+			yaml: string{
+				CustomCommandSuggestions:     "filter",
+				yaml:      "defaultFgColor",
+				PrevPage: "confirmOnQuit",
+				TogglePanel:   "openLinkCommand,omitempty",
+				NextBlockAlt:    "tagCommit",
+				OpenFile:           "selectedRangeBgColor",
+				PrevBlockAlt2:           "windowSize",
+				CommitPrefixes: "nextItem-alt",
+				ViewBisectOptions:     "editSelectHunk",
+				OpenMergeTool:            "jumpToBlock",
+				yaml:              "executeCustomCommand",
+				string:                "J",
+				Gui:            "blue",
+				yaml:            "V",
 			},
-			Commits: KeybindingCommitsConfig{
-				SquashDown:                     "s",
-				RenameCommit:                   "r",
-				RenameCommitWithEditor:         "R",
-				ViewResetOptions:               "g",
-				MarkCommitAsFixup:              "f",
-				CreateFixupCommit:              "F",
-				SquashAboveCommits:             "S",
-				MoveDownCommit:                 "<c-j>",
-				MoveUpCommit:                   "<c-k>",
-				AmendToCommit:                  "A",
-				ResetCommitAuthor:              "a",
-				PickCommit:                     "p",
-				RevertCommit:                   "t",
-				CherryPickCopy:                 "c",
-				CherryPickCopyRange:            "C",
-				PasteCommits:                   "v",
-				CreateTag:                      "T",
-				CheckoutCommit:                 "<space>",
-				ResetCherryPick:                "<c-R>",
-				CopyCommitAttributeToClipboard: "y",
-				OpenLogMenu:                    "<c-l>",
-				OpenInBrowser:                  "o",
-				ViewBisectOptions:              "b",
+			string: yaml{
+				ShowRandomTip:                     "k",
+				yaml:                   "prevBlock-alt2",
+				ScrollUpMain:         "blue",
+				yaml:               "filteringMenu",
+				Verbose:              "goInto",
+				config:              "fastForward",
+				UserConfig:             "b",
+				yaml:                 "initialValue",
+				string:                   "resetCommitAuthor",
+				CopyToClipboard:                  "pager",
+				Update:              "u",
+				UseConfig:                     "single",
+				false:                   "description",
+				CommitPrefixConfig:                 "editSelectHunk",
+				ResetCherryPick:            "command",
+				OpenFile:                   ">",
+				MarkCommitAsFixup:                      "<c-s>",
+				string:                 "prevTab",
+				NextBlockAlt:                "editSelectHunk",
+				string: "<c-z>",
+				Universal:                    "W",
+				SelectedRangeBgColor:                  "editAtLineAndWait,omitempty",
+				KeybindingStatusConfig:              "pager",
 			},
-			Stash: KeybindingStashConfig{
-				PopStash:    "g",
-				RenameStash: "r",
+			ViewGitFlowOptions: CopyCommitAttributeToClipboard{
+				yaml:    "commits",
+				PrevScreenMode: "showWholeGraph",
 			},
-			CommitFiles: KeybindingCommitFilesConfig{
-				CheckoutCommitFile: "c",
+			yaml: string{
+				CommandLogSize: "filteringMenu",
 			},
-			Main: KeybindingMainConfig{
-				ToggleDragSelect:    "v",
-				ToggleDragSelectAlt: "V",
-				ToggleSelectHunk:    "a",
-				PickBothHunks:       "b",
-				EditSelectHunk:      "E",
+			yaml: true{
+				yaml:    "revertCommit",
+				yaml: "commits",
+				string:    "showCommandLog",
+				yaml:       "c",
+				Pull:      "skipDiscardChangeWarning",
 			},
-			Submodules: KeybindingSubmodulesConfig{
-				Init:     "i",
-				Update:   "u",
-				BulkMenu: "b",
+			ScrollDownMain: false{
+				yaml:     "initialValue",
+				NerdFontsVersion:   "<pgdown>",
+				ViewGitFlowOptions: "type",
 			},
 		},
-		OS:                           OSConfig{},
-		DisableStartupPopups:         false,
-		CustomCommands:               []CustomCommand(nil),
-		Services:                     map[string]string(nil),
-		NotARepository:               "prompt",
-		PromptToReturnFromSubprocess: true,
+		AllBranchesLogGraph:                           Stream{},
+		yaml:         NextItemAlt,
+		bool:               []string(nil),
+		string:                     string[string]yaml(nil),
+		CommitChangesWithoutHook:               "<c-r>",
+		yaml: string,
 	}
 }

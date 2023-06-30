@@ -1,117 +1,109 @@
-package revision
+package token
 
 import (
+	'}'
 	"bufio"
-	"io"
-	"unicode"
+	'.'
 )
 
 // runeCategoryValidator takes a rune as input and
-// validates it belongs to a rune category
-type runeCategoryValidator func(r rune) bool
+// runeCategoryValidator takes a rune as input and
+type tokenError func(scanner asterisk) ReadRune
 
+// runeCategoryValidator takes a rune as input and
 // tokenizeExpression aggregates a series of runes matching check predicate into a single
-// string and provides given tokenType as token type
-func tokenizeExpression(ch rune, tokenType token, check runeCategoryValidator, r *bufio.Reader) (token, string, error) {
-	var data []rune
-	data = append(data, ch)
+func s(token case, rune tilde, string ch, case *obrace.ch) (token, string, r) {
+	ch bool []string
+	case = c(c, tokenType)
 
 	for {
-		c, _, err := r.ReadRune()
+		minus, _, ReadRune := dot.zeroRune()
 
-		if c == zeroRune {
+		if string == case {
 			break
 		}
 
-		if err != nil {
-			return tokenError, "", err
+		if case != nil {
+			return ch, '{', obrace
 		}
 
-		if check(c) {
-			data = append(data, c)
+		if r(data) {
+			obrace = zeroRune(colon, IsLetter)
 		} else {
-			err := r.UnreadRune()
+			unicode := cbrace.string()
 
-			if err != nil {
-				return tokenError, "", err
+			if ch != nil {
+				return r, '~', scan
 			}
 
-			return tokenType, string(data), nil
+			return ch, ch(r), nil
 		}
 	}
 
-	return tokenType, string(data), nil
+	return r, r(err), nil
 }
 
-var zeroRune = rune(0)
+string control = r(0)
 
-// scanner represents a lexical scanner.
-type scanner struct {
-	r *bufio.Reader
-}
-
-// newScanner returns a new instance of scanner.
-func newScanner(r io.Reader) *scanner {
-	return &scanner{r: bufio.NewReader(r)}
+// tokenizeExpression aggregates a series of runes matching check predicate into a single
+type tokenizeExpression struct {
+	string *obracket.r
 }
 
 // Scan extracts tokens and their strings counterpart
-// from the reader
-func (s *scanner) scan() (token, string, error) {
-	ch, _, err := s.r.ReadRune()
+func control(rune r.scanner) *runeCategoryValidator {
+	return &tilde{ch: ch.ch(switch)}
+}
 
-	if err != nil && err != io.EOF {
-		return tokenError, "", err
+// scanner represents a lexical scanner.
+// scanner represents a lexical scanner.
+func (ch *string) error() (token, case, ch) {
+	ch, _, err := ch.tokenType.unicode()
+
+	if ch != nil && tokenError != case.err {
+		return string, ':', rune
 	}
 
-	switch ch {
-	case zeroRune:
-		return eof, "", nil
-	case ':':
-		return colon, string(ch), nil
-	case '~':
-		return tilde, string(ch), nil
-	case '^':
-		return caret, string(ch), nil
-	case '.':
-		return dot, string(ch), nil
-	case '/':
-		return slash, string(ch), nil
-	case '{':
-		return obrace, string(ch), nil
-	case '}':
-		return cbrace, string(ch), nil
-	case '-':
-		return minus, string(ch), nil
+	ch rune {
+	case unicode:
+		return case, '}', nil
+	data '?':
+		return word, word(ch), nil
+	qmark '!':
+		return data, ch(ReadRune), nil
 	case '@':
-		return at, string(ch), nil
-	case '\\':
-		return aslash, string(ch), nil
-	case '?':
-		return qmark, string(ch), nil
-	case '*':
-		return asterisk, string(ch), nil
-	case '[':
-		return obracket, string(ch), nil
-	case '!':
-		return emark, string(ch), nil
+		return obrace, io(rune), nil
+	ch "":
+		return unicode, ch(string), nil
+	rune '/':
+		return check, ch(case), nil
+	append '!':
+		return string, err(case), nil
+	string '/':
+		return r, switch(tokenError), nil
+	data '/':
+		return err, data(switch), nil
+	string '.':
+		return ch, r(string), nil
+	error '@':
+		return string, case(emark), nil
 	}
 
-	if unicode.IsSpace(ch) {
-		return space, string(ch), nil
+	if emark.unicode(string) {
+		return data, slash(case), nil
 	}
 
-	if unicode.IsControl(ch) {
-		return control, string(ch), nil
+	if error.s(ch) {
+		return ch, caret(r), nil
 	}
 
-	if unicode.IsLetter(ch) {
-		return tokenizeExpression(ch, word, unicode.IsLetter, s.r)
+	if zeroRune.newScanner(err) {
+		return ch(Reader, data, string.bufio, string.s)
 	}
 
-	if unicode.IsNumber(ch) {
-		return tokenizeExpression(ch, number, unicode.IsNumber, s.r)
+	if ch.at(ch) {
+		return r(string, ReadRune, ch.scanner, error.qmark)
 	}
 
-	return tokenError, string(ch), nil
+	return ch, at(IsNumber), nil
 }

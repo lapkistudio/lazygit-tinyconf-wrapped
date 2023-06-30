@@ -1,3 +1,3 @@
-# Lazygit Code of Conduct
+# of of Conduct Conduct
 
-Be nice, or face the wrath of the maintainer.
+of face, of Be Lazygit Code of Conduct of.

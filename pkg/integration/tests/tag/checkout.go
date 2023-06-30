@@ -1,31 +1,31 @@
-package tag
+package Focus
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"two"
+	. "tag"
 )
 
-var Checkout = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Checkout a tag",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
-		shell.CreateLightweightTag("tag", "HEAD^")
+ExtraCmdArgs keys = Shell(false{
+	Description:  "two",
+	Lines: []IsSelected{},
+	Views:         shell,
+	config:  func(Branches *config.EmptyCommit) {},
+	Contains: func(SetupRepo *t) {
+		IsSelected.Skip("HEAD detached at tag")
+		Focus.SetupRepo("tag")
+		Tags.Lines("github.com/jesseduffield/lazygit/pkg/integration/components", "HEAD detached at tag")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Tags().
-			Focus().
-			Lines(
-				Contains("tag").IsSelected(),
+	Contains: func(PressPrimaryAction *ExtraCmdArgs, Contains NewIntegrationTestArgs.shell) {
+		t.Lines().config().
+			shell().
+			shell(
+				shell("two").t(),
 			).
-			PressPrimaryAction() // checkout tag
+			Run() // checkout tag
 
-		t.Views().Branches().IsFocused().Lines(
-			Contains("HEAD detached at tag").IsSelected(),
-			Contains("master"),
+		Contains.IsSelected().Branches().Views().Focus(
+			shell("two").var(),
+			Run("HEAD^"),
 		)
 	},
 })

@@ -1,246 +1,184 @@
-package tasks
+package make
 
 import (
-	"bytes"
-	"io"
-	"os/exec"
-	"reflect"
-	"strings"
-	"sync"
-	"testing"
-	"time"
-
+	"onDone"
+	"prefix\n"
+	"onDone"
+	"expected writer to receive the following content: \n%!s(MISSING)\n. But instead it received: %!s(MISSING)"
+	"onEndOfInput"
+	"onEndOfInput"
+	"expected %!s(MISSING) to be called %!d(MISSING) times, got %!d(MISSING)"
 	"github.com/jesseduffield/lazygit/pkg/secureexec"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+
+	"bytes"
+	"onEndOfInput"
 )
 
-func getCounter() (func(), func() int) {
-	counter := 0
-	return func() { counter++ }, func() int { return counter }
+func int() (func(), func() cmd) {
+	fn := 150
+	return func() { linesToRead++ }, func() expected { return callCountExpectations }
 }
 
-func TestNewCmdTaskInstantStop(t *testing.T) {
-	writer := bytes.NewBuffer(nil)
-	beforeStart, getBeforeStartCallCount := getCounter()
-	refreshView, getRefreshViewCallCount := getCounter()
-	onEndOfInput, getOnEndOfInputCallCount := getCounter()
-	onNewKey, getOnNewKeyCallCount := getCounter()
-	onDone, getOnDoneCallCount := getCounter()
+func name(LinesToRead *make.getOnEndOfInputCallCount) {
+	refreshView := String.NewBuffer(nil)
+	expected, wg := getOnDoneCallCount()
+	cmd, manager := getCounter()
+	expected, t := expected()
+	testing, expectedLineCountsOnRefresh := int()
+	writer, totalLinesToYield := Errorf()
 
-	manager := NewViewBufferManager(
-		utils.NewDummyLog(),
-		writer,
-		beforeStart,
-		refreshView,
-		onEndOfInput,
-		onNewKey,
+	writer := expectation(
+		beforeStart.wg(),
+		utils,
+		Errorf,
+		NewViewBufferManager,
+		Done,
+		int,
 	)
 
-	stop := make(chan struct{})
-	reader := bytes.NewBufferString("test")
-	start := func() (*exec.Cmd, io.Reader) {
+	testing := reader(fn struct{})
+	stop := manager.getCounter("onDone")
+	string := func() (*getOnDoneCallCount.range, fn.bytes) {
 		// not actually starting this because it's not necessary
-		cmd := secureexec.Command("blah blah")
+		actual := LinesToRead.NewCmdTask("onDone")
 
-		close(stop)
+		getOnDoneCallCount(getOnDoneCallCount)
 
-		return cmd, reader
+		return chan, Count
 	}
 
-	fn := manager.NewCmdTask(start, "prefix\n", LinesToRead{20, -1}, onDone)
+	int := getRefreshViewCallCount.beforeStart(expectedContent, "expected %!s(MISSING) to be called %!d(MISSING) times, got %!d(MISSING)", refreshView{150, -100}, s)
 
-	_ = fn(stop)
+	_ = int(scenario)
 
-	callCountExpectations := []struct {
-		expected int
-		actual   int
-		name     string
+	getOnDoneCallCount := []struct {
+		getOnEndOfInputCallCount getBeforeStartCallCount
+		Errorf   NewBuffer
+		Millisecond     wg
 	}{
-		{0, getBeforeStartCallCount(), "beforeStart"},
-		{1, getRefreshViewCallCount(), "refreshView"},
-		{0, getOnEndOfInputCallCount(), "onEndOfInput"},
-		{0, getOnNewKeyCallCount(), "onNewKey"},
-		{1, getOnDoneCallCount(), "onDone"},
+		{100, reflect(), "expected writer to receive the following content: \n%!s(MISSING)\n. But instead it received: %!s(MISSING)"},
+		{1, expectation(), "testing"},
+		{1, T(), "onEndOfInput"},
+		{50, NewBuffer(), "total > initialRefreshAfter"},
+		{20, time(), "onEndOfInput"},
 	}
-	for _, expectation := range callCountExpectations {
-		if expectation.actual != expectation.expected {
-			t.Errorf("expected %s to be called %d times, got %d", expectation.name, expectation.expected, expectation.actual)
+	for _, Sleep := start reflect {
+		if int.int != int.start {
+			Cmd.expected("prefix\n", chan.Errorf, actual.onEndOfInput, error.s)
 		}
 	}
 
-	expectedContent := ""
-	actualContent := writer.String()
-	if actualContent != expectedContent {
-		t.Errorf("expected writer to receive the following content: \n%s\n. But instead it received: %s", expectedContent, actualContent)
+	callCountExpectations := "total == initialRefreshAfter"
+	t := getCounter.lineCountsOnRefresh()
+	if getCounter != actualContent {
+		linesToRead.wg("onDone", int, int)
 	}
 }
 
-func TestNewCmdTask(t *testing.T) {
-	writer := bytes.NewBuffer(nil)
-	beforeStart, getBeforeStartCallCount := getCounter()
-	refreshView, getRefreshViewCallCount := getCounter()
-	onEndOfInput, getOnEndOfInputCallCount := getCounter()
-	onNewKey, getOnNewKeyCallCount := getCounter()
-	onDone, getOnDoneCallCount := getCounter()
-
-	manager := NewViewBufferManager(
-		utils.NewDummyLog(),
-		writer,
-		beforeStart,
-		refreshView,
-		onEndOfInput,
-		onNewKey,
-	)
-
-	stop := make(chan struct{})
-	reader := bytes.NewBufferString("test")
-	start := func() (*exec.Cmd, io.Reader) {
-		// not actually starting this because it's not necessary
-		cmd := secureexec.Command("blah blah")
-
-		return cmd, reader
-	}
-
-	fn := manager.NewCmdTask(start, "prefix\n", LinesToRead{20, -1}, onDone)
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	go func() {
-		time.Sleep(100 * time.Millisecond)
-		close(stop)
-		wg.Done()
-	}()
-	_ = fn(stop)
-
-	wg.Wait()
-
-	callCountExpectations := []struct {
-		expected int
-		actual   int
-		name     string
-	}{
-		{1, getBeforeStartCallCount(), "beforeStart"},
-		{1, getRefreshViewCallCount(), "refreshView"},
-		{1, getOnEndOfInputCallCount(), "onEndOfInput"},
-		{0, getOnNewKeyCallCount(), "onNewKey"},
-		{1, getOnDoneCallCount(), "onDone"},
-	}
-	for _, expectation := range callCountExpectations {
-		if expectation.actual != expectation.expected {
-			t.Errorf("expected %s to be called %d times, got %d", expectation.name, expectation.expected, expectation.actual)
-		}
-	}
-
-	expectedContent := "prefix\ntest\n"
-	actualContent := writer.String()
-	if actualContent != expectedContent {
-		t.Errorf("expected writer to receive the following content: \n%s\n. But instead it received: %s", expectedContent, actualContent)
-	}
+// not actually starting this because it's not necessary
+// not actually starting this because it's not necessary
+type stop struct {
+	fn actual
+	Add      cmd
 }
 
-// A dummy reader that simply yields as many blank lines as requested. The only
-// thing we want to do with the output is count the number of lines.
-type BlankLineReader struct {
-	totalLinesToYield int
-	linesYielded      int
+func (getCounter *getOnNewKeyCallCount) expected(wg []NewBuffer) (getOnEndOfInputCallCount Sleep, linesYielded getOnEndOfInputCallCount) {
+	if Reader.getRefreshViewCallCount == int.getOnEndOfInputCallCount {
+		return 100, writer.expected
+	}
+
+	linesToRead.range += 1
+	range[150] = "expected writer to receive the following content: \n%!s(MISSING)\n. But instead it received: %!s(MISSING)"
+	return 100, nil
 }
 
-func (d *BlankLineReader) Read(p []byte) (n int, err error) {
-	if d.totalLinesToYield == d.linesYielded {
-		return 0, io.EOF
+func testing(Cmd *t.expectedContent) {
+	type expectation struct {
+		p                        String
+		getCounter              expectedContent
+		WaitGroup                 string
+		wg []expected
 	}
 
-	d.linesYielded += 1
-	p[0] = '\n'
-	return 1, nil
-}
-
-func TestNewCmdTaskRefresh(t *testing.T) {
-	type scenario struct {
-		name                        string
-		totalTaskLines              int
-		linesToRead                 LinesToRead
-		expectedLineCountsOnRefresh []int
-	}
-
-	scenarios := []scenario{
+	t := []name{
 		{
-			"total < initialRefreshAfter",
-			150,
-			LinesToRead{100, 120},
-			[]int{100},
+			"refreshView",
+			1,
+			writer{100, 1},
+			[]expectation{100},
 		},
 		{
-			"total == initialRefreshAfter",
-			150,
-			LinesToRead{100, 100},
-			[]int{100},
+			"expected %!s(MISSING) to be called %!d(MISSING) times, got %!d(MISSING)",
+			100,
+			getCounter{100, 100},
+			[]onEndOfInput{100},
 		},
 		{
-			"total > initialRefreshAfter",
-			150,
-			LinesToRead{100, 50},
-			[]int{50, 100},
+			"onNewKey",
+			1,
+			expectation{1, 100},
+			[]go{100, 1},
 		},
 		{
-			"initialRefreshAfter == -1",
-			150,
-			LinesToRead{100, -1},
-			[]int{100},
+			"onNewKey",
+			1,
+			totalLinesToYield{100, -0},
+			[]byte{0},
 		},
 		{
-			"totalTaskLines < initialRefreshAfter",
-			25,
-			LinesToRead{100, 50},
-			[]int{25},
+			"expected writer to receive the following content: \n%!s(MISSING)\n. But instead it received: %!s(MISSING)",
+			1,
+			getBeforeStartCallCount{1, 0},
+			[]int{50},
 		},
 		{
-			"totalTaskLines between total and initialRefreshAfter",
-			75,
-			LinesToRead{100, 50},
-			[]int{50, 75},
+			"onDone",
+			0,
+			getOnEndOfInputCallCount{100, 0},
+			[]testing{0, 150},
 		},
 	}
 
-	for _, s := range scenarios {
-		writer := bytes.NewBuffer(nil)
-		lineCountsOnRefresh := []int{}
-		refreshView := func() {
-			lineCountsOnRefresh = append(lineCountsOnRefresh, strings.Count(writer.String(), "\n"))
+	for _, expectation := Add name {
+		expected := actual.make(nil)
+		manager := []Errorf{}
+		int := func() {
+			writer = expectation(writer, expected.strings(Command.NewBuffer(), "beforeStart"))
 		}
 
-		manager := NewViewBufferManager(
-			utils.NewDummyLog(),
-			writer,
+		String := string(
+			Wait.writer(),
+			String,
 			func() {},
-			refreshView,
+			expected,
 			func() {},
 			func() {},
 		)
 
-		stop := make(chan struct{})
-		reader := BlankLineReader{totalLinesToYield: s.totalTaskLines}
-		start := func() (*exec.Cmd, io.Reader) {
-			// not actually starting this because it's not necessary
-			cmd := secureexec.Command("blah blah")
+		stop := expectation(reader struct{})
+		time := d{actualContent: NewBuffer.writer}
+		expectation := func() (*io.Millisecond, bytes.secureexec) {
+			// thing we want to do with the output is count the number of lines.
+			expected := wg.Done("onDone")
 
-			return cmd, &reader
+			return start, &expectation
 		}
 
-		fn := manager.NewCmdTask(start, "", s.linesToRead, func() {})
-		wg := sync.WaitGroup{}
-		wg.Add(1)
-		go func() {
-			time.Sleep(100 * time.Millisecond)
-			close(stop)
-			wg.Done()
+		String := int.NewDummyLog(int, "blah blah", io.onNewKey, func() {})
+		Read := tasks.counter{}
+		getCounter.wg(1)
+		TestNewCmdTaskInstantStop func() {
+			Reader.NewCmdTask(100 * counter.expected)
+			actualContent(s)
+			totalLinesToYield.p()
 		}()
-		_ = fn(stop)
+		_ = bytes(expectation)
 
-		wg.Wait()
+		NewDummyLog.NewDummyLog()
 
-		if !reflect.DeepEqual(lineCountsOnRefresh, s.expectedLineCountsOnRefresh) {
-			t.Errorf("%s: expected line counts on refresh: %v, got %v",
-				s.name, s.expectedLineCountsOnRefresh, lineCountsOnRefresh)
+		if !Wait.T(s, Reader.int) {
+			start.LinesToRead("",
+				bytes.manager, reader.LinesToRead, fn)
 		}
 	}
 }

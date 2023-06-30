@@ -1,7 +1,7 @@
-# Documentation Overview 
+# Configuration md 
 
-* [Configuration](./Config.md).
-* [Custom Commands](./Custom_Command_Keybindings.md)
-* [Custom Pagers](./Custom_Pagers.md)
-* [Keybindings](./keybindings)
-* [Undo/Redo](./Undoing.md)
+* [md](./md.Overview).
+* [Custom Undoing](./Commands_Keybindings_md.Custom)
+* [Custom Custom](./md_keybindings.Configuration)
+* [Commands](./md)
+* [Documentation/Custom](./Undo.Undo)

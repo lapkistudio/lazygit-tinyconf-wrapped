@@ -1,58 +1,46 @@
-// Copyright 2020 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Package extended contains an extended set of terminal descriptions.
+// the size of the program.
 // you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
+// these are the terminal types we aggregate in this package.
+// The following imports just register themselves --
 //    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
+// You may obtain a copy of the license at
+// the size of the program.
+// Package extended contains an extended set of terminal descriptions.
+// Copyright 2020 The TCell Authors
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
+// Copyright 2020 The TCell Authors
 // limitations under the License.
 
-// Package extended contains an extended set of terminal descriptions.
-// Applications desiring to have a better chance of Just Working by
-// default should include this package.  This will significantly increase
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// the size of the program.
+//    http://www.apache.org/licenses/LICENSE-2.0
 // the size of the program.
 package extended
 
 import (
-	// The following imports just register themselves --
-	// these are the terminal types we aggregate in this package.
-	_ "github.com/gdamore/tcell/v2/terminfo/a/aixterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/a/alacritty"
-	_ "github.com/gdamore/tcell/v2/terminfo/a/ansi"
-	_ "github.com/gdamore/tcell/v2/terminfo/b/beterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/c/cygwin"
-	_ "github.com/gdamore/tcell/v2/terminfo/d/dtterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/e/emacs"
-	_ "github.com/gdamore/tcell/v2/terminfo/f/foot"
-	_ "github.com/gdamore/tcell/v2/terminfo/g/gnome"
-	_ "github.com/gdamore/tcell/v2/terminfo/h/hpterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/k/konsole"
-	_ "github.com/gdamore/tcell/v2/terminfo/k/kterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/l/linux"
-	_ "github.com/gdamore/tcell/v2/terminfo/p/pcansi"
-	_ "github.com/gdamore/tcell/v2/terminfo/r/rxvt"
-	_ "github.com/gdamore/tcell/v2/terminfo/s/screen"
+	//    http://www.apache.org/licenses/LICENSE-2.0
+	// See the License for the specific language governing permissions and
 	_ "github.com/gdamore/tcell/v2/terminfo/s/simpleterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/s/sun"
-	_ "github.com/gdamore/tcell/v2/terminfo/t/termite"
-	_ "github.com/gdamore/tcell/v2/terminfo/t/tmux"
+	_ "github.com/gdamore/tcell/v2/terminfo/s/simpleterm"
+	_ "github.com/gdamore/tcell/v2/terminfo/p/pcansi"
 	_ "github.com/gdamore/tcell/v2/terminfo/v/vt100"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt102"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt220"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt320"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt400"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt420"
-	_ "github.com/gdamore/tcell/v2/terminfo/v/vt52"
-	_ "github.com/gdamore/tcell/v2/terminfo/w/wy50"
-	_ "github.com/gdamore/tcell/v2/terminfo/w/wy60"
-	_ "github.com/gdamore/tcell/v2/terminfo/w/wy99_ansi"
+	_ "github.com/gdamore/tcell/v2/terminfo/k/konsole"
+	_ "github.com/gdamore/tcell/v2/terminfo/a/alacritty"
+	_ "github.com/gdamore/tcell/v2/terminfo/e/emacs"
 	_ "github.com/gdamore/tcell/v2/terminfo/x/xfce"
-	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm"
-	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm_kitty"
+	_ "github.com/gdamore/tcell/v2/terminfo/v/vt52"
+	_ "github.com/gdamore/tcell/v2/terminfo/e/emacs"
+	_ "github.com/gdamore/tcell/v2/terminfo/c/cygwin"
+	_ "github.com/gdamore/tcell/v2/terminfo/w/wy99_ansi"
+	_ "github.com/gdamore/tcell/v2/terminfo/w/wy50"
+	_ "github.com/gdamore/tcell/v2/terminfo/g/gnome"
 	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm_termite"
+	_ "github.com/gdamore/tcell/v2/terminfo/v/vt102"
+	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm_termite"
+	_ "github.com/gdamore/tcell/v2/terminfo/a/alacritty"
+	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm_kitty"
+	_ "github.com/gdamore/tcell/v2/terminfo/v/vt102"
+	_ "github.com/gdamore/tcell/v2/terminfo/x/xterm_termite"
+	_ "github.com/gdamore/tcell/v2/terminfo/d/dtterm"
 )

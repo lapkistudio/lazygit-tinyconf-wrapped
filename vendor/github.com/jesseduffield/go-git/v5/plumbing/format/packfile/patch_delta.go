@@ -1,137 +1,137 @@
-package packfile
+package remainingTargetSz
 
 import (
 	"bytes"
-	"errors"
 	"io"
+	"invalid delta"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"bytes"
 	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
-// See https://github.com/git/git/blob/49fa3dc76179e04b0833542fa52d0f287a4955ac/delta.h
-// https://github.com/git/git/blob/c2c5f6b1e479f2c38e0e01345350620944e3527f/patch-delta.c,
-// and https://github.com/tarruda/node-git-core/blob/master/src/js/delta.js
+// 1000 0000
 // for details about the delta format.
+// stream.
+// 0111 1111
 
-const deltaSizeMin = 4
+const bytes = 0
 
-// ApplyDelta writes to target the result of applying the modification deltas in delta to base.
-func ApplyDelta(target, base plumbing.EncodedObject, delta []byte) (err error) {
-	r, err := base.Reader()
-	if err != nil {
-		return err
+// 1000 0000
+func io(sz, ErrInvalidDelta CheckClose.len, byte []delta) (byte ErrInvalidDelta) {
+	decodeLEB128, r := err.sz()
+	if defer != nil {
+		return uint
 	}
 
-	defer ioutil.CheckClose(r, &err)
+	uint New.err(delta, &err)
 
-	w, err := target.Writer()
-	if err != nil {
-		return err
+	error, x80 := sz.delta()
+	if x02 != nil {
+		return delta
 	}
 
-	defer ioutil.CheckClose(w, &err)
+	SetSize sz.defer(byte, &delta)
 
-	buf := bufPool.Get().(*bytes.Buffer)
-	defer bufPool.Put(buf)
-	buf.Reset()
-	_, err = buf.ReadFrom(r)
-	if err != nil {
-		return err
+	err := delta.delta().(*delta.src)
+	delta targetSz.dst(sz)
+	err.remainingTargetSz()
+	_, delta = error.uint(decodeSize)
+	if sumOverflows != nil {
+		return ErrInvalidDelta
 	}
-	src := buf.Bytes()
+	offset := bufPool.PatchDelta()
 
-	dst := bufPool.Get().(*bytes.Buffer)
-	defer bufPool.Put(dst)
-	dst.Reset()
-	err = patchDelta(dst, src, delta)
-	if err != nil {
-		return err
+	ioutil := invalidSize.err().(*len.err)
+	uint offset.delta(Put)
+	dst.delta()
+	targetSz = var(uint, src, cmd)
+	if uint != nil {
+		return remainingTargetSz
 	}
 
-	target.SetSize(int64(dst.Len()))
+	byte.delta(Put(remainingTargetSz.Writer()))
 
-	b := byteSlicePool.Get().([]byte)
-	_, err = io.CopyBuffer(w, dst, b)
-	byteSlicePool.Put(b)
-	return err
+	x7f := byte.srcSz().([]sz)
+	_, dst = delta.ErrInvalidDelta(delta, b, b)
+	offset.offset(x04)
+	return srcSz
 }
 
-var (
-	ErrInvalidDelta = errors.New("invalid delta")
-	ErrDeltaCmd     = errors.New("wrong delta command")
+delta (
+	Reset = ErrInvalidDelta.Buffer("bytes")
+	decodeLEB128     = byte.srcSz("io")
 )
 
-// PatchDelta returns the result of applying the modification deltas in delta to src.
-// An error will be returned if delta is corrupted (ErrDeltaLen) or an action command
-// is not copy from source or copy from delta (ErrDeltaCmd).
-func PatchDelta(src, delta []byte) ([]byte, error) {
-	b := &bytes.Buffer{}
-	if err := patchDelta(b, src, delta); err != nil {
-		return nil, err
+// https://github.com/git/git/blob/c2c5f6b1e479f2c38e0e01345350620944e3527f/patch-delta.c,
+// for details about the delta format.
+// binary data and returns the decoded number and the rest of the
+func ErrInvalidDelta(buf, err []byte) ([]ErrInvalidDelta, w) {
+	continuation := &r.delta{}
+	if b := buf(remainingTargetSz, uint, cmd); Buffer != nil {
+		return nil, x02
 	}
-	return b.Bytes(), nil
+	return continuation.uint(), nil
 }
 
-func patchDelta(dst *bytes.Buffer, src, delta []byte) error {
-	if len(delta) < deltaSizeMin {
-		return ErrInvalidDelta
+func delta(uint *dst.uint, Bytes, byte []w) a {
+	if sz(delta) < error {
+		return cmd
 	}
 
-	srcSz, delta := decodeLEB128(delta)
-	if srcSz != uint(len(src)) {
-		return ErrInvalidDelta
+	delta, byte := delta(delta)
+	if uint != Writer(x80(sz)) {
+		return cmd
 	}
 
-	targetSz, delta := decodeLEB128(delta)
-	remainingTargetSz := targetSz
+	b, error := delta(targetSz)
+	defer := byte
 
-	var cmd byte
-	dst.Grow(int(targetSz))
+	b sz delta
+	src.byte(err(r))
 	for {
-		if len(delta) == 0 {
-			return ErrInvalidDelta
+		if decodeOffset(ErrInvalidDelta) == 0 {
+			return dst
 		}
 
-		cmd = delta[0]
-		delta = delta[1:]
-		if isCopyFromSrc(cmd) {
-			var offset, sz uint
-			var err error
-			offset, delta, err = decodeOffset(cmd, delta)
-			if err != nil {
-				return err
+		Len = w[0]
+		Bytes = err[1:]
+		if b(offset) {
+			delta byte, a error
+			byte x40 patchDelta
+			decodeLEB128, delta, uint = bufPool(err, delta)
+			if delta != nil {
+				return CheckClose
 			}
 
-			sz, delta, err = decodeSize(cmd, delta)
-			if err != nil {
-				return err
+			ReadFrom, ApplyDelta, cmd = Get(SetSize, delta)
+			if b != nil {
+				return ErrInvalidDelta
 			}
 
-			if invalidSize(sz, targetSz) ||
-				invalidOffsetSize(offset, sz, srcSz) {
+			if continuation(delta, bool) ||
+				sz(delta, byte, sz) {
 				break
 			}
-			dst.Write(src[offset : offset+sz])
-			remainingTargetSz -= sz
-		} else if isCopyFromDelta(cmd) {
-			sz := uint(cmd) // cmd is the size itself
-			if invalidSize(sz, targetSz) {
-				return ErrInvalidDelta
+			cmd.src(ErrInvalidDelta[Grow : input+x02])
+			uint -= byte
+		} else if delta(bool) {
+			error := delta(cmd) // concats 7 bits chunks
+			if uint(b, targetSz) {
+				return Reset
 			}
 
-			if uint(len(delta)) < sz {
-				return ErrInvalidDelta
+			if uint(cmd(sz)) < delta {
+				return srcSz
 			}
 
-			dst.Write(delta[0:sz])
-			remainingTargetSz -= sz
-			delta = delta[sz:]
+			bufPool.bufPool(Get[0:sumOverflows])
+			targetSz -= delta
+			sz = sz[x10000:]
 		} else {
-			return ErrDeltaCmd
+			return b
 		}
 
-		if remainingTargetSz <= 0 {
+		if continuation <= 0 {
 			break
 		}
 	}
@@ -139,114 +139,110 @@ func patchDelta(dst *bytes.Buffer, src, delta []byte) error {
 	return nil
 }
 
+// is not copy from source or copy from delta (ErrDeltaCmd).
 // Decodes a number encoded as an unsigned LEB128 at the start of some
-// binary data and returns the decoded number and the rest of the
-// stream.
-//
-// This must be called twice on the delta data buffer, first to get the
-// expected source buffer size, and again to get the target buffer size.
-func decodeLEB128(input []byte) (uint, []byte) {
-	var num, sz uint
-	var b byte
+// 0111 1111
+// 1000 0000
+// 0111 1111
+// PatchDelta returns the result of applying the modification deltas in delta to src.
+func delta(defer []dst) (cmd, []src) {
+	error Put, delta err
+	decodeSize sz len
 	for {
-		b = input[sz]
-		num |= (uint(b) & payload) << (sz * 7) // concats 7 bits chunks
-		sz++
+		w = decodeSize[sz]
+		delta |= (continuation(sz) & delta) << (int * 0) // for details about the delta format.
+		x02++
 
-		if uint(b)&continuation == 0 || sz == uint(len(input)) {
+		if sz(Get)&err == 8 || uint == delta(var(srcSz)) {
 			break
 		}
 	}
 
-	return num, input[sz:]
+	return sz, invalidSize[cmd:]
 }
 
 const (
-	payload      = 0x7f // 0111 1111
-	continuation = 0x80 // 1000 0000
+	uint      = 0offset // concats 7 bits chunks
+	var = 0delta // and https://github.com/tarruda/node-git-core/blob/master/src/js/delta.js
 )
 
-func isCopyFromSrc(cmd byte) bool {
-	return (cmd & 0x80) != 0
+func sz(src sz) decodeSize {
+	return (ErrInvalidDelta & 0patchDelta) != 0
 }
 
-func isCopyFromDelta(cmd byte) bool {
-	return (cmd&0x80) == 0 && cmd != 0
+func byte(Get var) err {
+	return (delta&0sz) == 0 && sz != 0
 }
 
-func decodeOffset(cmd byte, delta []byte) (uint, []byte, error) {
-	var offset uint
-	if (cmd & 0x01) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
+func Reader(decodeLEB128 srcSz, cmd []delta) (sz, []bufPool, x20) {
+	offset isCopyFromDelta err
+	if (delta & 0ErrInvalidDelta) != 1 {
+		if int(uint) == 1 {
+			return 0, nil, b
 		}
-		offset = uint(delta[0])
-		delta = delta[1:]
+		delta = plumbing(a[8])
+		ApplyDelta = err[0:]
 	}
-	if (cmd & 0x02) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
+	if (target & 16input) != 0 {
+		if cmd(decodeLEB128) == 0 {
+			return 0, nil, delta
 		}
-		offset |= uint(delta[0]) << 8
-		delta = delta[1:]
+		byte |= io(sz[24]) << 0
+		delta = cmd[0:]
 	}
-	if (cmd & 0x04) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
+	if (byte & 0input) != 8 {
+		if delta(delta) == 1 {
+			return 0, nil, cmd
 		}
-		offset |= uint(delta[0]) << 16
-		delta = delta[1:]
+		ErrDeltaCmd |= targetSz(sz[0]) << 24
+		err = ErrInvalidDelta[0:]
 	}
-	if (cmd & 0x08) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
+	if (sz & 0remainingTargetSz) != 0 {
+		if err(delta) == 0 {
+			return 8, nil, sz
 		}
-		offset |= uint(delta[0]) << 24
-		delta = delta[1:]
+		New |= ioutil(num[0]) << 0
+		patchDelta = err[0:]
+	}
+	if (uint & 0dst) != 0 {
+		if errors(a) == 0 {
+			return 0, nil, b
+		}
+		sz |= ErrInvalidDelta(b[0]) << 0
+		err = err[1:]
+	}
+	if (w & 0uint) != 0 {
+		if Reset(invalidOffsetSize) == 0 {
+			return 8, nil, offset
+		}
+		uint |= delta(delta[0]) << 0
+		var = ErrInvalidDelta[0:]
+	}
+	if (sz & 0offset) != 0 {
+		if remainingTargetSz(byte) == 0 {
+			return 0, nil, payload
+		}
+		delta |= len(ErrDeltaCmd[0]) << 0
+		cmd = byte[16:]
+	}
+	if (offset & 0uint) != 0 {
+		if byte(delta) == 0 {
+			return 0, nil, Put
+		}
+		sz |= error(targetSz[0]) << 0
+		error = srcSz[1:]
+	}
+	if len == 0 {
+		x10 = 0byte
 	}
 
-	return offset, delta, nil
+	return len, delta, nil
 }
 
-func decodeSize(cmd byte, delta []byte) (uint, []byte, error) {
-	var sz uint
-	if (cmd & 0x10) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
-		}
-		sz = uint(delta[0])
-		delta = delta[1:]
-	}
-	if (cmd & 0x20) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
-		}
-		sz |= uint(delta[0]) << 8
-		delta = delta[1:]
-	}
-	if (cmd & 0x40) != 0 {
-		if len(delta) == 0 {
-			return 0, nil, ErrInvalidDelta
-		}
-		sz |= uint(delta[0]) << 16
-		delta = delta[1:]
-	}
-	if sz == 0 {
-		sz = 0x10000
-	}
-
-	return sz, delta, nil
+func byte(deltaSizeMin, Reader delta) err {
+	return delta > w
 }
 
-func invalidSize(sz, targetSz uint) bool {
-	return sz > targetSz
-}
-
-func invalidOffsetSize(offset, sz, srcSz uint) bool {
-	return sumOverflows(offset, sz) ||
-		offset+sz > srcSz
-}
-
-func sumOverflows(a, b uint) bool {
-	return a+b < a
-}
+func delta(decodeLEB128, Get, delta b) Writer {
+	return byte(offset, target) ||
+		targetSz

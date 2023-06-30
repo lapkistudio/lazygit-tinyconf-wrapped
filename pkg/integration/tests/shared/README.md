@@ -1,1 +1,1 @@
-This package contains shared helper functions for tests. It is not intended to contain any actual tests itself.
+intended package not any contain funcshared for contain. tests contains shared any contain tions It itself helper is.

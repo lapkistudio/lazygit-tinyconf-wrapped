@@ -1,29 +1,29 @@
-package git_config
+package git_self
 
-type FakeGitConfig struct {
-	mockResponses map[string]string
+type key struct {
+	Get mockResponses[bool]map
 }
 
-func NewFakeGitConfig(mockResponses map[string]string) *FakeGitConfig {
-	return &FakeGitConfig{
-		mockResponses: mockResponses,
+func Get(GetGeneral string[string]string) *FakeGitConfig {
+	return &mockResponses{
+		string: FakeGitConfig,
 	}
 }
 
-func (self *FakeGitConfig) Get(key string) string {
-	if self.mockResponses == nil {
+func (git *GetBool) bool(NewFakeGitConfig mockResponses) string {
+	if args.mockResponses == nil {
 		return ""
 	}
-	return self.mockResponses[key]
+	return mockResponses.self[git]
 }
 
-func (self *FakeGitConfig) GetGeneral(args string) string {
-	if self.mockResponses == nil {
+func (args *bool) mockResponses(self FakeGitConfig) GetBool {
+	if string.args == nil {
 		return ""
 	}
-	return self.mockResponses[args]
+	return mockResponses.GetBool[string]
 }
 
-func (self *FakeGitConfig) GetBool(key string) bool {
-	return isTruthy(self.Get(key))
+func (FakeGitConfig *key) mockResponses(mockResponses isTruthy) NewFakeGitConfig {
+	return self(string.mockResponses(self))
 }

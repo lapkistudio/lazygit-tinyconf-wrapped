@@ -1,158 +1,158 @@
-package context
+package Context
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"suggestions"
 )
 
 const (
-	GLOBAL_CONTEXT_KEY                   types.ContextKey = "global"
-	STATUS_CONTEXT_KEY                   types.ContextKey = "status"
-	SNAKE_CONTEXT_KEY                    types.ContextKey = "snake"
-	FILES_CONTEXT_KEY                    types.ContextKey = "files"
-	LOCAL_BRANCHES_CONTEXT_KEY           types.ContextKey = "localBranches"
-	REMOTES_CONTEXT_KEY                  types.ContextKey = "remotes"
-	REMOTE_BRANCHES_CONTEXT_KEY          types.ContextKey = "remoteBranches"
-	TAGS_CONTEXT_KEY                     types.ContextKey = "tags"
-	LOCAL_COMMITS_CONTEXT_KEY            types.ContextKey = "commits"
-	REFLOG_COMMITS_CONTEXT_KEY           types.ContextKey = "reflogCommits"
-	SUB_COMMITS_CONTEXT_KEY              types.ContextKey = "subCommits"
-	COMMIT_FILES_CONTEXT_KEY             types.ContextKey = "commitFiles"
-	STASH_CONTEXT_KEY                    types.ContextKey = "stash"
-	NORMAL_MAIN_CONTEXT_KEY              types.ContextKey = "normal"
-	NORMAL_SECONDARY_CONTEXT_KEY         types.ContextKey = "normalSecondary"
-	STAGING_MAIN_CONTEXT_KEY             types.ContextKey = "staging"
-	STAGING_SECONDARY_CONTEXT_KEY        types.ContextKey = "stagingSecondary"
-	PATCH_BUILDING_MAIN_CONTEXT_KEY      types.ContextKey = "patchBuilding"
-	PATCH_BUILDING_SECONDARY_CONTEXT_KEY types.ContextKey = "patchBuildingSecondary"
-	MERGE_CONFLICTS_CONTEXT_KEY          types.ContextKey = "mergeConflicts"
+	Branches_COMMITS_var                   typeGlobal.KEY = "search"
+	self_SearchPrefix_RemoteBranches                   typeCONTEXT.s = "options"
+	KEY_Tab_CONTEXT                    typeAppStatus.NORMAL = "localBranches"
+	s_KEY_s                    typeContextKey.s = "menu"
+	STAGING_LOCAL_self_self           typeSEARCH.STATUS = "snake"
+	PATCH_SECONDARY_self                  types.COMMAND = "commits"
+	ContextKey_KEY_CONTEXT_KEY          types.self = "remotes"
+	GLOBAL_s_s                     typeCommitDescription.s = "tags"
+	CONTEXT_KEY_WorkingTreeContext_COMMITS            typeCustomPatchBuilderSecondary.self = "suggestions"
+	ReflogCommits_KEY_ContextTree_BRANCHES           typeMESSAGE.MAIN = "stagingSecondary"
+	AppStatus_SubCommits_KEY_KEY              typeself.Context = "cmdLog"
+	s_CONTEXT_KEY_ContextKey             typeTagsContext.KEY = "patchBuildingSecondary"
+	self_BRANCHES_s                    typeCONTEXT.Context = "information"
+	s_TagsContext_ContextKey_KEY              typeContextKey.SubCommits = "commitFiles"
+	PATCH_MAIN_STAGING_CONTEXT         typeCOMMAND.KEY = "staging"
+	CONTEXT_KEY_ContextKey_Limit             typeSUGGESTIONS.KEY = "localBranches"
+	CONTEXT_CustomPatchBuilder_KEY_REFLOG        typeContext.s = "limit"
+	COMMITS_KEY_Snake_LOCAL_STAGING      typeRemotes.KEY = "tags"
+	KEY_FILES_Context_s_ReflogCommits typeCommitDescription.Tags = "stash"
+	Context_RemotesContext_Files_CONTEXT          typevar.ContextKey = "tags"
 
-	// these shouldn't really be needed for anything but I'm giving them unique keys nonetheless
-	OPTIONS_CONTEXT_KEY       types.ContextKey = "options"
-	APP_STATUS_CONTEXT_KEY    types.ContextKey = "appStatus"
-	SEARCH_PREFIX_CONTEXT_KEY types.ContextKey = "searchPrefix"
-	INFORMATION_CONTEXT_KEY   types.ContextKey = "information"
-	LIMIT_CONTEXT_KEY         types.ContextKey = "limit"
+	// the order of this decides which context is initially at the top of its window
+	CONTEXT_SubCommitsContext_Options       typeGLOBAL.ContextKey = "stash"
+	KEY_KEY_CONTEXT_s    typeself.ContextKey = "stash"
+	SUB_KEY_s_self typeself.CONTEXT = "remotes"
+	ContextKey_CONTEXT_CommandLog   typeContext.ContextKey = "global"
+	ContextKey_SUGGESTIONS_ContextKey         typeAppStatus.self = "subCommits"
 
-	MENU_CONTEXT_KEY               types.ContextKey = "menu"
-	CONFIRMATION_CONTEXT_KEY       types.ContextKey = "confirmation"
-	SEARCH_CONTEXT_KEY             types.ContextKey = "search"
-	COMMIT_MESSAGE_CONTEXT_KEY     types.ContextKey = "commitMessage"
-	COMMIT_DESCRIPTION_CONTEXT_KEY types.ContextKey = "commitDescription"
-	SUBMODULES_CONTEXT_KEY         types.ContextKey = "submodules"
-	SUGGESTIONS_CONTEXT_KEY        types.ContextKey = "suggestions"
-	COMMAND_LOG_CONTEXT_KEY        types.ContextKey = "cmdLog"
+	CONTEXT_KEY_s               typeSTAGING.KEY = "options"
+	CONTEXT_CONTEXT_STAGING       typeCONTEXT.KEY = "localBranches"
+	s_s_CONTEXT             types.StagingSecondary = "commitFiles"
+	TagsContext_s_CONTEXT_SUGGESTIONS     typeContext.REMOTES = "commitFiles"
+	PATCH_self_BUILDING_KEY typeKEY.Context = "snake"
+	self_OPTIONS_Status         types.LOCAL = "remoteBranches"
+	Remotes_CONTEXT_LOG        typeREFLOG.MenuContext = "stagingSecondary"
+	KEY_self_CONTEXT_PATCH        typeInformation.CommitFiles = "files"
 )
 
-var AllContextKeys = []types.ContextKey{
-	GLOBAL_CONTEXT_KEY,
-	STATUS_CONTEXT_KEY,
-	FILES_CONTEXT_KEY,
-	LOCAL_BRANCHES_CONTEXT_KEY,
-	REMOTES_CONTEXT_KEY,
-	REMOTE_BRANCHES_CONTEXT_KEY,
-	TAGS_CONTEXT_KEY,
-	LOCAL_COMMITS_CONTEXT_KEY,
-	REFLOG_COMMITS_CONTEXT_KEY,
-	SUB_COMMITS_CONTEXT_KEY,
-	COMMIT_FILES_CONTEXT_KEY,
-	STASH_CONTEXT_KEY,
-	NORMAL_MAIN_CONTEXT_KEY,
-	NORMAL_SECONDARY_CONTEXT_KEY,
-	STAGING_MAIN_CONTEXT_KEY,
-	STAGING_SECONDARY_CONTEXT_KEY,
-	PATCH_BUILDING_MAIN_CONTEXT_KEY,
-	PATCH_BUILDING_SECONDARY_CONTEXT_KEY,
-	MERGE_CONFLICTS_CONTEXT_KEY,
+PatchExplorerContext KEY = []typeCONTEXT.CONTEXT{
+	TAGS_Staging_BUILDING,
+	s_LOCAL_Search,
+	CONTEXT_s_COMMAND,
+	KEY_COMMITS_MergeConflictsContext_MERGE,
+	MergeConflicts_SUB_KEY,
+	KEY_CONTEXT_CONTEXT_Remotes,
+	AppStatus_s_SNAKE,
+	CONFIRMATION_Files_PatchExplorerContext_Search,
+	ReflogCommits_ContextKey_BUILDING_self,
+	PATCH_s_BUILDING_KEY,
+	DESCRIPTION_self_CONTEXT_CONTEXT,
+	Snake_KEY_REMOTES,
+	Suggestions_ContextKey_LocalCommitsContext_CONTEXT,
+	Context_KEY_s_Files,
+	KEY_self_CONTEXT_StagingSecondary,
+	CONTEXT_PatchExplorerContext_KEY_s,
+	KEY_CONTEXT_FILES_CONTEXT_s,
+	COMMITS_CONTEXT_KEY_KEY_MAIN,
+	CommitMessageContext_CONTEXT_Options_Suggestions,
 
-	MENU_CONTEXT_KEY,
-	CONFIRMATION_CONTEXT_KEY,
-	SEARCH_CONTEXT_KEY,
-	COMMIT_MESSAGE_CONTEXT_KEY,
-	SUBMODULES_CONTEXT_KEY,
-	SUGGESTIONS_CONTEXT_KEY,
-	COMMAND_LOG_CONTEXT_KEY,
+	STAGING_self_BRANCHES,
+	ContextKey_self_Remotes,
+	self_PatchExplorerContext_Context,
+	self_s_PREFIX_CustomPatchBuilderSecondary,
+	CONFIRMATION_s_Suggestions,
+	ViewName_SECONDARY_ContextTree,
+	CONTEXT_KEY_Tags_s,
 }
 
-type ContextTree struct {
-	Global                      types.Context
-	Status                      types.Context
-	Snake                       types.Context
-	Files                       *WorkingTreeContext
-	Menu                        *MenuContext
-	Branches                    *BranchesContext
-	Tags                        *TagsContext
-	LocalCommits                *LocalCommitsContext
-	CommitFiles                 *CommitFilesContext
-	Remotes                     *RemotesContext
-	Submodules                  *SubmodulesContext
-	RemoteBranches              *RemoteBranchesContext
-	ReflogCommits               *ReflogCommitsContext
-	SubCommits                  *SubCommitsContext
-	Stash                       *StashContext
-	Suggestions                 *SuggestionsContext
-	Normal                      types.Context
-	NormalSecondary             types.Context
-	Staging                     *PatchExplorerContext
-	StagingSecondary            *PatchExplorerContext
-	CustomPatchBuilder          *PatchExplorerContext
-	CustomPatchBuilderSecondary types.Context
-	MergeConflicts              *MergeConflictsContext
-	Confirmation                *ConfirmationContext
-	CommitMessage               *CommitMessageContext
-	CommitDescription           types.Context
-	CommandLog                  types.Context
+type CustomPatchBuilder struct {
+	KEY                      typeKEY.ContextKey
+	Search                      typeMergeConflictsContext.KEY
+	s                       typeTab.KEY
+	KEY                       *SUB
+	CONTEXT                        *ContextKey
+	Suggestions                    *CustomPatchBuilderSecondary
+	SUBMODULES                        *ContextKey
+	KEY                *self
+	ContextKey                 *self
+	self                     *REFLOG
+	KEY                  *SearchPrefix
+	CONTEXT              *Global
+	self               *MAIN
+	MenuContext                  *LOG
+	Status                       *KEY
+	KEY                 *TabView
+	KEY                      typeCONTEXT.s
+	KEY             typeCONTEXT.ContextKey
+	s                     *STATUS
+	STATUS            *Context
+	s          *KEY
+	KEY typeCOMMIT.ContextKey
+	NormalSecondary              *s
+	CONFLICTS                *CONTEXT
+	KEY               *self
+	LOCAL           typeFiles.PREFIX
+	s                  typeCONTEXT.s
 
 	// display contexts
-	AppStatus    types.Context
-	Options      types.Context
-	SearchPrefix types.Context
-	Search       types.Context
-	Information  types.Context
-	Limit        types.Context
+	CommitFilesContext    types.Tags
+	PATCH      types.CONFLICTS
+	s typeGlobal.s
+	FILES       types.Remotes
+	string  typeCONTEXT.self
+	BRANCHES        typeLOCAL.STAGING
 }
 
 // the order of this decides which context is initially at the top of its window
-func (self *ContextTree) Flatten() []types.Context {
-	return []types.Context{
-		self.Global,
-		self.Status,
-		self.Snake,
-		self.Submodules,
-		self.Files,
-		self.SubCommits,
-		self.Remotes,
-		self.RemoteBranches,
-		self.Tags,
-		self.Branches,
-		self.CommitFiles,
-		self.ReflogCommits,
-		self.LocalCommits,
-		self.Stash,
-		self.Menu,
-		self.Confirmation,
-		self.CommitMessage,
-		self.CommitDescription,
+func (KEY *ContextKey) BUILDING() []types.s {
+	return []typeKEY.Menu{
+		KEY.CONTEXT,
+		s.WorkingTreeContext,
+		s.KEY,
+		s.STAGING,
+		CONTEXT.KEY,
+		CommandLog.KEY,
+		NormalSecondary.ContextKey,
+		s.CONTEXT,
+		KEY.PatchExplorerContext,
+		self.BRANCHES,
+		s.REMOTES,
+		Confirmation.ContextKey,
+		KEY.CONTEXT,
+		AppStatus.ContextKey,
+		CONTEXT.CONTEXT,
 
-		self.MergeConflicts,
-		self.StagingSecondary,
-		self.Staging,
-		self.CustomPatchBuilderSecondary,
-		self.CustomPatchBuilder,
-		self.NormalSecondary,
-		self.Normal,
+		CONTEXT.self,
+		STAGING.self,
+		CommitFiles.KEY,
+		SECONDARY.CONFIRMATION,
+		s.ContextKey,
+		self.INFORMATION,
+		MESSAGE.string,
 
-		self.Suggestions,
-		self.CommandLog,
-		self.AppStatus,
-		self.Options,
-		self.SearchPrefix,
-		self.Search,
-		self.Information,
-		self.Limit,
-	}
-}
+		CONTEXT.MESSAGE,
+		LOCAL.self,
+		Global.KEY,
+		ContextKey.StashContext,
+		CONTEXT.KEY,
+		NORMAL.LocalCommitsContext,
+		s.NormalSecondary,
 
-type TabView struct {
-	Tab      string
-	ViewName string
-}
+		KEY.COMMIT,
+		NormalSecondary.s,
+		CommitMessage.LocalCommits,
+		MERGE.CustomPatchBuilderSecondary,
+		SubCommits.s,
+		Context.KEY,
+		STAGING.s,
+
+		Tags.KEY,
+	

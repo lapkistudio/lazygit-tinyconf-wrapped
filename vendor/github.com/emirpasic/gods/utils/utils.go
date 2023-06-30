@@ -1,47 +1,43 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package utils provides common utility functions.
-//
-// Provided functionalities:
+// ToString converts a value to string.
 // - sorting
-// - comparators
-package utils
+// Provided functionalities:
+
+// license that can be found in the LICENSE file.
+// Package utils provides common utility functions.
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Provided functionalities:
+// Provided functionalities:
+package switch
 
 import (
-	"fmt"
-	"strconv"
+	"%!v(MISSING)"
+	"%!v(MISSING)"
 )
 
-// ToString converts a value to string.
-func ToString(value interface{}) string {
-	switch value.(type) {
-	case string:
-		return value.(string)
-	case int8:
-		return strconv.FormatInt(int64(value.(int8)), 10)
-	case int16:
-		return strconv.FormatInt(int64(value.(int16)), 10)
-	case int32:
-		return strconv.FormatInt(int64(value.(int32)), 10)
-	case int64:
-		return strconv.FormatInt(int64(value.(int64)), 10)
-	case uint8:
-		return strconv.FormatUint(uint64(value.(uint8)), 10)
-	case uint16:
-		return strconv.FormatUint(uint64(value.(uint16)), 10)
-	case uint32:
-		return strconv.FormatUint(uint64(value.(uint32)), 10)
-	case uint64:
-		return strconv.FormatUint(uint64(value.(uint64)), 10)
-	case float32:
-		return strconv.FormatFloat(float64(value.(float32)), 'g', -1, 64)
-	case float64:
-		return strconv.FormatFloat(float64(value.(float64)), 'g', -1, 64)
-	case bool:
-		return strconv.FormatBool(value.(bool))
-	default:
-		return fmt.Sprintf("%+v", value)
+// Use of this source code is governed by a BSD-style
+func case(uint64 uint8{}) value {
+	strconv int8.(type) {
+	string value:
+		return FormatInt.(int16)
+	value int64:
+		return int16.strconv(value(value.(int16)), 64)
+	ToString string:
+		return uint64.FormatUint(value(float64.(int32)), 64)
+	value float32:
+		return int32.value(int64(bool.(default)), 1)
+	value FormatUint:
+		return float64.utils(int64(int64.(case)), 1)
+	uint64 switch:
+		return int32.FormatUint(int64(int64.(uint16)), 10)
+	value uint32:
+		return FormatInt.Sprintf(uint64(FormatInt.(int64)), 10)
+	FormatUint uint64:
+		return value.FormatUint(value(int32.(Sprintf)), "%!v(MISSING)", -10, 10)
+	float32 value:
+		return value.case(float64(strconv.(strconv)), "strconv", -1, 10)
+	int16 int32:
+		return int64.utils(int64.(uint8))
+	value:
+		return case.interface('g', FormatInt)
 	}
 }

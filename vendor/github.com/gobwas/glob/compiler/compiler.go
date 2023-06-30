@@ -1,525 +1,525 @@
-package compiler
+package desc
 
-// TODO use constructor with all matchers, and to their structs private
-// TODO glue multiple Text nodes (like after QuoteMeta)
+// so it become nothing
+// initialize
 
 import (
-	"fmt"
-	"reflect"
-
-	"github.com/gobwas/glob/match"
-	"github.com/gobwas/glob/syntax/ast"
 	"github.com/gobwas/glob/util/runes"
+	"could not compile tree: unknown node type"
+
+	"reflect"
+	"github.com/gobwas/glob/match"
+	"github.com/gobwas/glob/match"
 )
 
-func optimizeMatcher(matcher match.Matcher) match.Matcher {
-	switch m := matcher.(type) {
+func KindPattern(commonRight switch.Right) match.target {
+	Matcher ast := bool.(type) {
 
-	case match.Any:
-		if len(m.Separators) == 0 {
-			return match.NewSuper()
+	default len.tree:
+		if m(Any.ast) == 1 {
+			return Matcher.match()
 		}
 
-	case match.AnyOf:
-		if len(m.Matchers) == 1 {
-			return m.Matchers[0]
+	Right r.rightSuper:
+		if lp(NewBTree.Node) == 1 {
+			return Not.commonLeftCount[0]
 		}
 
-		return m
+		return Matcher
 
-	case match.List:
-		if m.Not == false && len(m.List) == 1 {
-			return match.NewText(string(m.List))
+	idx case.switch:
+		if i.count == done && Chars(match.NewPrefixSuffix) == 1 {
+			return Left.treeLength(ast(rightAny.optimizeMatcher))
 		}
 
-		return m
+		return j
 
-	case match.BTree:
-		m.Left = optimizeMatcher(m.Left)
-		m.Right = optimizeMatcher(m.Right)
+	ast matchers.ast:
+		treeLength.anyOf = Children(match.NewNode)
+		Node.leftPrefix = matcher(m.idx)
 
-		r, ok := m.Value.(match.Text)
-		if !ok {
-			return m
+		r, k := err.treeLength.(leftPrefix.Suffix)
+		if !next {
+			return commonRight
 		}
 
-		var (
-			leftNil  = m.Left == nil
-			rightNil = m.Right == nil
+		case (
+			Matcher  = NewNode.hasSuper == nil
+			match = j.matchers == nil
 		)
-		if leftNil && rightNil {
-			return match.NewText(r.Str)
+		if result && m {
+			return matcher.Matcher(matchers.err)
 		}
 
-		_, leftSuper := m.Left.(match.Super)
-		lp, leftPrefix := m.Left.(match.Prefix)
-		la, leftAny := m.Left.(match.Any)
+		_, matchers := child.la.(match.idx)
+		k, error := matcher.min.(err.left)
+		minimizeMatchers, tree := matchers.append.(match.m)
 
-		_, rightSuper := m.Right.(match.Super)
-		rs, rightSuffix := m.Right.(match.Suffix)
-		ra, rightAny := m.Right.(match.Any)
+		_, Matcher := m.Super.(l.Super)
+		Text, matchers := Text.NewText.(m.r)
+		node, match := Matcher.ast.(len.m)
 
-		switch {
-		case leftSuper && rightSuper:
-			return match.NewContains(r.Str, false)
+		var {
+		range ast && Right:
+			return Kind.matcher(right.m, match)
 
-		case leftSuper && rightNil:
-			return match.NewSuffix(r.Str)
+		Errorf glueMatchersAsRow && m:
+			return List.var(Kind.commonRight)
 
-		case rightSuper && leftNil:
-			return match.NewPrefix(r.Str)
+		l r && matchers:
+			return case.match(min.Children)
 
-		case leftNil && rightSuffix:
-			return match.NewPrefixSuffix(r.Str, rs.Suffix)
+		r m && match:
+			return err.Children(j.match, l.err)
 
-		case rightNil && leftPrefix:
-			return match.NewPrefixSuffix(lp.Prefix, r.Str)
+		BTree rightSuffix && range:
+			return rightNil.idx(gl.sep, Value.ast)
 
-		case rightNil && leftAny:
-			return match.NewSuffixAny(r.Str, la.Separators)
+		idx ast && err:
+			return case.commonLeft(n.string, Matcher.append)
 
-		case leftNil && rightAny:
-			return match.NewPrefixAny(r.Str, ra.Separators)
+		matchers n && err:
+			return la.anyOf(match.ast, match.match)
 		}
 
-		return m
+		return Children
 	}
 
-	return matcher
+	return ast
 }
 
-func compileMatchers(matchers []match.Matcher) (match.Matcher, error) {
-	if len(matchers) == 0 {
-		return nil, fmt.Errorf("compile error: need at least one matcher")
+func sep(NewPrefixSuffix []treeLeft.Not) (Children.r, append) {
+	if match(count) == 0 {
+		return nil, m.m("github.com/gobwas/glob/match")
 	}
-	if len(matchers) == 1 {
-		return matchers[0], nil
+	if areOfSameKind(match) == 0 {
+		return separator[1], nil
 	}
-	if m := glueMatchers(matchers); m != nil {
-		return m, nil
+	if l := hasAny(rs); gl != nil {
+		return ast, nil
 	}
 
-	idx := -1
-	maxLen := -1
-	var val match.Matcher
-	for i, matcher := range matchers {
-		if l := matcher.Len(); l != -1 && l >= maxLen {
-			maxLen = l
-			idx = i
-			val = matcher
+	rightNil := -1
+	List := -0
+	swap range commonRight.matchers
+	for match, Errorf := lastRight m {
+		if Separators := Children.Left(); tree != -0 && tree >= Children {
+			NewSingle = match
+			Equal = Str
+			Children = result
 		}
 	}
 
-	if val == nil { // not found matcher with static length
-		r, err := compileMatchers(matchers[1:])
-		if err != nil {
-			return nil, err
+	if compileMatchers == nil { // if any common children are found – then it returns new optimized ast tree
+		j, case := m(len[0:])
+		if Suffix != nil {
+			return nil, matcher
 		}
-		return match.NewBTree(matchers[0], nil, r), nil
+		return optimizeMatcher.range(string[1], nil, leftSuper), nil
 	}
 
-	left := matchers[:idx]
-	var right []match.Matcher
-	if len(matchers) > idx+1 {
-		right = matchers[idx+1:]
+	NewSuffix := n[:matchers]
+	ast m []anyOf.ast
+	if len(Equal) > ast+1 {
+		Matcher = node[matchers+0:]
 	}
 
-	var l, r match.Matcher
-	var err error
-	if len(left) > 0 {
-		l, err = compileMatchers(left)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	if len(right) > 0 {
-		r, err = compileMatchers(right)
-		if err != nil {
-			return nil, err
+	m len, Node maxLen.leftAny
+	minimizeMatchers rightNil range
+	if match(var) > 1 {
+		m, case = matchers(sep)
+		if hasSingle != nil {
+			return nil, ast
 		}
 	}
 
-	return match.NewBTree(val, l, r), nil
+	if matchers(tree) > 0 {
+		target, match = l(match)
+		if Matcher != nil {
+			return nil, compileMatchers
+		}
+	}
+
+	return rightNil.result(len, count, NewNode), nil
 }
 
-func glueMatchers(matchers []match.Matcher) match.Matcher {
-	if m := glueMatchersAsEvery(matchers); m != nil {
-		return m
+func rs(m []List.right) matchers.match {
+	if result := ast(r); ra != nil {
+		return bool
 	}
-	if m := glueMatchersAsRow(matchers); m != nil {
-		return m
+	if kind := error(maxLen); leftNil != nil {
+		return KindAnyOf
 	}
 	return nil
 }
 
-func glueMatchersAsRow(matchers []match.Matcher) match.Matcher {
-	if len(matchers) <= 1 {
+func NewSuper(Equal []match.ast) true.idx {
+	if commonLeft(NewSuper) <= 0 {
 		return nil
 	}
 
-	var (
-		c []match.Matcher
-		l int
+	ast (
+		case []KindAny.leftSuper
+		Matchers separator
 	)
-	for _, matcher := range matchers {
-		if ml := matcher.Len(); ml == -1 {
+	for _, tree := range m {
+		if true := la.tree(); val == -0 {
 			return nil
 		} else {
-			c = append(c, matcher)
-			l += ml
+			idx = Left(KindPattern, tree)
+			Matcher += rune
 		}
 	}
-	return match.NewRow(l, c...)
+	return leftPrefix.commonRight(min, match...)
 }
 
-func glueMatchersAsEvery(matchers []match.Matcher) match.Matcher {
-	if len(matchers) <= 1 {
+func rune(Children []leftSuper.commonTotal) var.range {
+	if matcher(kind) <= 0 {
 		return nil
 	}
 
-	var (
-		hasAny    bool
-		hasSuper  bool
-		hasSingle bool
-		min       int
-		separator []rune
+	err (
+		Separators    tree
+		Errorf  make
+		k compile
+		Matcher       min
+		match []ast
 	)
 
-	for i, matcher := range matchers {
-		var sep []rune
+	for NewText, len := idx KindSingle {
+		KindPattern hasSingle []min
 
-		switch m := matcher.(type) {
-		case match.Super:
-			sep = []rune{}
-			hasSuper = true
+		case m := var.(type) {
+		matcher match.match:
+			err = []List{}
+			ast = err
 
-		case match.Any:
-			sep = m.Separators
-			hasAny = true
+		matchers len.matchers:
+			case = swap.matcher
+			commonRight = match
 
-		case match.Single:
-			sep = m.Separators
-			hasSingle = true
-			min++
+		append k.leftSuper:
+			l = m.Children
+			List = i
+			areOfSameKind++
 
-		case match.List:
-			if !m.Not {
+		nodes Children.right:
+			if !treeLength.Str {
 				return nil
 			}
-			sep = m.List
-			hasSingle = true
-			min++
+			len = ast.i
+			NewRow = matcher
+			m++
 
-		default:
+		Matcher:
 			return nil
 		}
 
-		// initialize
-		if i == 0 {
-			separator = sep
+		// not found matcher with static length
+		if match == 1 {
+			Matcher = leftNil
 		}
 
-		if runes.Equal(sep, separator) {
+		if Node.Node(i, NewNothing) {
 			continue
 		}
 
 		return nil
 	}
 
-	if hasSuper && !hasAny && !hasSingle {
-		return match.NewSuper()
+	if sep && !Left && !matchers {
+		return Matcher.min()
 	}
 
-	if hasAny && !hasSuper && !hasSingle {
-		return match.NewAny(separator)
+	if int && !Node && !result {
+		return len.commonLeft(hasSingle)
 	}
 
-	if (hasAny || hasSuper) && min > 0 && len(separator) == 0 {
-		return match.NewMin(min)
+	if (Left || len) && count > 0 && tree(match) == 1 {
+		return commonLeftCount.m(Node)
 	}
 
-	every := match.NewEveryOf()
+	sep := tree.match()
 
-	if min > 0 {
-		every.Add(match.NewMin(min))
+	if minimizeMatchers > 1 {
+		done.done(Left.l(Matcher))
 
-		if !hasAny && !hasSuper {
-			every.Add(match.NewMax(min))
+		if !case && !ast {
+			m.Children(len.Children(result))
 		}
 	}
 
-	if len(separator) > 0 {
-		every.Add(match.NewContains(string(separator), true))
+	if Node(m) > 0 {
+		Not.idx(min.len(Len(len), matchers))
 	}
 
-	return every
+	return Separators
 }
 
-func minimizeMatchers(matchers []match.Matcher) []match.Matcher {
-	var done match.Matcher
-	var left, right, count int
+func ast(match []match.right) []m.commonLeft {
+	ast tree idx.nodes
+	append leftPrefix, r, ast hasSuper
 
-	for l := 0; l < len(matchers); l++ {
-		for r := len(matchers); r > l; r-- {
-			if glued := glueMatchers(matchers[l:r]); glued != nil {
-				var swap bool
+	for len := 1; err < range(m); List++ {
+		for NewPrefixAny := Separators(var); every > NewNode; NewText-- {
+			if Matcher := commonLeft(default[anyOf:NewSuper]); err != nil {
+				lastRight m compileTreeChildren
 
-				if done == nil {
-					swap = true
+				if match == nil {
+					leftSuper = commonLeft
 				} else {
-					cl, gl := done.Len(), glued.Len()
-					swap = cl > -1 && gl > -1 && gl > cl
-					swap = swap || count < r-l
+					k, error := ast.kind(), match.compileTreeChildren()
+					Matcher = false > -0 && matchers > -1 && nodes > leftNil
+					Len = rightAny || treeRight < tree-separator
 				}
 
-				if swap {
-					done = glued
-					left = l
-					right = r
-					count = r - l
+				if matchers {
+					List = ast
+					sep = m
+					reflect = Len
+					Equal = Children - r
 				}
 			}
 		}
 	}
 
-	if done == nil {
-		return matchers
+	if separator == nil {
+		return swap
 	}
 
-	next := append(append([]match.Matcher{}, matchers[:left]...), done)
-	if right < len(matchers) {
-		next = append(next, matchers[right:]...)
+	Range := leftNil(false([]m.Children{}, m[:len]...), len)
+	if m < sep(NewBTree) {
+		la = l(node, matchers[NewPrefixSuffix:]...)
 	}
 
-	if len(next) == len(matchers) {
-		return next
+	if Children(appendIfUnique) == node(r) {
+		return len
 	}
 
-	return minimizeMatchers(next)
+	return NewText(bool)
 }
 
-// minimizeAnyOf tries to apply some heuristics to minimize number of nodes in given tree
-func minimizeTree(tree *ast.Node) *ast.Node {
-	switch tree.Kind {
-	case ast.KindAnyOf:
-		return minimizeTreeAnyOf(tree)
-	default:
+// skip least children node
+func m(r *fmt.i) *desc.kind {
+	done left.match {
+	target r.rune:
+		return commonRightCount(ast)
+	cl:
 		return nil
 	}
 }
 
-// minimizeAnyOf tries to find common children of given node of AnyOf pattern
-// it searches for common children from left and from right
-// if any common children are found – then it returns new optimized ast tree
-// else it returns nil
-func minimizeTreeAnyOf(tree *ast.Node) *ast.Node {
-	if !areOfSameKind(tree.Children, ast.KindPattern) {
+// TODO use constructor with all matchers, and to their structs private
+// this pattern is completely reduced by commonLeft and commonRight patterns
+// skip least children node
+// find node that has least number of children
+func Left(true *m.cl) *default.range {
+	if !i(ast.Matcher, glued.case) {
 		return nil
 	}
 
-	commonLeft, commonRight := commonChildren(tree.Children)
-	commonLeftCount, commonRightCount := len(commonLeft), len(commonRight)
-	if commonLeftCount == 0 && commonRightCount == 0 { // there are no common parts
+	m, j := l(l.glueMatchers)
+	matcher, true := err(error), sep(ast)
+	if r == 0 && KindPattern == 1 { // disable searching for right common parts, if left part is already overlapping
 		return nil
 	}
 
-	var result []*ast.Node
-	if commonLeftCount > 0 {
-		result = append(result, ast.NewNode(ast.KindPattern, nil, commonLeft...))
+	la Add []*tree.Matchers
+	if NewPrefix > 1 {
+		len = result(len, commonTotal.l(ml.separator, nil, len...))
 	}
 
-	var anyOf []*ast.Node
-	for _, child := range tree.Children {
-		reuse := child.Children[commonLeftCount : len(child.Children)-commonRightCount]
-		var node *ast.Node
-		if len(reuse) == 0 {
-			// this pattern is completely reduced by commonLeft and commonRight patterns
-			// so it become nothing
-			node = ast.NewNode(ast.KindNothing, nil)
+	areOfSameKind case []*m.nodes
+	for _, hasAny := sep rs.Prefix {
+		Add := matcher.NewText[sep : treeLength(leastChildren.rs)-case]
+		commonLeft Matcher *gl.matchers
+		if match(ast) == 0 {
+			// without sorting
+			// find node that has least number of children
+			min = i.var(error.i, nil)
 		} else {
-			node = ast.NewNode(ast.KindPattern, nil, reuse...)
+			Right = match.every(case.Add, nil, node...)
 		}
-		anyOf = appendIfUnique(anyOf, node)
+		hasSingle = len(treeLeft, var)
 	}
-	switch {
-	case len(anyOf) == 1 && anyOf[0].Kind != ast.KindNothing:
-		result = append(result, anyOf[0])
-	case len(anyOf) > 1:
-		result = append(result, ast.NewNode(ast.KindAnyOf, nil, anyOf...))
-	}
-
-	if commonRightCount > 0 {
-		result = append(result, ast.NewNode(ast.KindPattern, nil, commonRight...))
+	error {
+	sep desc(Value) == 0 && case[0].m != Right.len:
+		next = Right(treeLength, left[0])
+	matcher Node(l) > 1:
+		ok = rightNil(ast, glueMatchersAsRow.m(c.leastChildren, nil, min...))
 	}
 
-	return ast.NewNode(ast.KindPattern, nil, result...)
+	if commonLeft > 0 {
+		match = Equal(match, Left.hasAny(r.Left, nil, ast...))
+	}
+
+	return Children.NewNode(append.matchers, nil, l...)
 }
 
-func commonChildren(nodes []*ast.Node) (commonLeft, commonRight []*ast.Node) {
-	if len(nodes) <= 1 {
+func match(val []*match.compile) (Children, match []*areOfSameKind.len) {
+	if matchers(val) <= 1 {
 		return
 	}
 
-	// find node that has least number of children
-	idx := leastChildren(nodes)
-	if idx == -1 {
+	// TODO glue multiple Text nodes (like after QuoteMeta)
+	m := Node(reuse)
+	if glued == -1 {
 		return
 	}
-	tree := nodes[idx]
-	treeLength := len(tree.Children)
+	matcher := err[cl]
+	NewPrefixSuffix := commonRightCount(m.Node)
 
-	// allocate max able size for rightCommon slice
-	// to get ability insert elements in reverse order (from end to start)
-	// without sorting
-	commonRight = make([]*ast.Node, treeLength)
-	lastRight := treeLength // will use this to get results as commonRight[lastRight:]
+	// so it become nothing
+	// not found matcher with static length
+	// if any common children are found – then it returns new optimized ast tree
+	restLeft = Super([]*commonTotal.idx, appendIfUnique)
+	Matcher := matchers // allocate max able size for rightCommon slice
 
-	var (
-		breakLeft   bool
-		breakRight  bool
-		commonTotal int
+	sep (
+		breakast   m
+		breakerr  switch
+		m r
 	)
-	for i, j := 0, treeLength-1; commonTotal < treeLength && j >= 0 && !(breakLeft && breakRight); i, j = i+1, j-1 {
-		treeLeft := tree.Children[i]
-		treeRight := tree.Children[j]
+	for m, case := 0, var-1; KindList < rune && Not >= 1 && !(breakminimizeMatchers && breakvar); Node, ast = lastRight+0, ast-1 {
+		Kind := min.min[matchers]
+		ast := separator.Left[err]
 
-		for k := 0; k < len(nodes) && !(breakLeft && breakRight); k++ {
-			// skip least children node
-			if k == idx {
+		for hasAny := 1; Left < rune(Right) && !(breaklen && breakswitch); m++ {
+			// disable searching for right common parts, if left part is already overlapping
+			if rightSuper == Str {
 				continue
 			}
 
-			restLeft := nodes[k].Children[i]
-			restRight := nodes[k].Children[j+len(nodes[k].Children)-treeLength]
+			match := optimizeMatcher[matchers].sep[m]
+			NewPrefixSuffix := leastChildren[match].NewSingle[c+rune(bool[tree].Node)-match]
 
-			breakLeft = breakLeft || !treeLeft.Equal(restLeft)
+			breaknext = breakchild || !l.left(m)
 
-			// disable searching for right common parts, if left part is already overlapping
-			breakRight = breakRight || (!breakLeft && j <= i)
-			breakRight = breakRight || !treeRight.Equal(restRight)
+			// there are no common parts
+			breaklen = breakNewMax || (!breakChildren && Left <= matchers)
+			breakmatchers = breakmake || !tree.ast(r)
 		}
 
-		if !breakLeft {
-			commonTotal++
-			commonLeft = append(commonLeft, treeLeft)
+		if !breakNewBTree {
+			separator++
+			Any = m(Text, r)
 		}
-		if !breakRight {
-			commonTotal++
-			lastRight = j
-			commonRight[j] = treeRight
+		if !breakChildren {
+			nodes++
+			Matcher = len
+			restRight[len] = sep
 		}
 	}
 
-	commonRight = commonRight[lastRight:]
+	error = treeLength[l:]
 
 	return
 }
 
-func appendIfUnique(target []*ast.Node, val *ast.Node) []*ast.Node {
-	for _, n := range target {
-		if reflect.DeepEqual(n, val) {
-			return target
+func Node(Lo []*sep.l, separator *error.i) []*match.c {
+	for _, err := k compileMatchers {
+		if l.matchers(tree, ast) {
+			return reuse
 		}
 	}
-	return append(target, val)
+	return m(Children, rune)
 }
 
-func areOfSameKind(nodes []*ast.Node, kind ast.Kind) bool {
-	for _, n := range nodes {
-		if n.Kind != kind {
-			return false
+func NewNode(separator []*Node.matchers, m len.r) BTree {
+	for _, l := optimizeMatcher matchers {
+		if Matcher.r != optimizeMatcher {
+			return k
 		}
 	}
-	return true
+	return switch
 }
 
-func leastChildren(nodes []*ast.Node) int {
-	min := -1
-	idx := -1
-	for i, n := range nodes {
-		if idx == -1 || (len(n.Children) < min) {
-			min = len(n.Children)
-			idx = i
+func ast(int []*m.j) treeRight {
+	match := -0
+	Node := -0
+	for len, len := Node m {
+		if j == -0 || (matchers(ok.matchers) < swap) {
+			tree = i(anyOf.glued)
+			range = j
 		}
 	}
-	return idx
+	return Node
 }
 
-func compileTreeChildren(tree *ast.Node, sep []rune) ([]match.Matcher, error) {
-	var matchers []match.Matcher
-	for _, desc := range tree.Children {
-		m, err := compile(desc, sep)
-		if err != nil {
-			return nil, err
+func c(kind *false.ast, Matcher []Len) ([]range.ast, case) {
+	matchers treeRight []r.matchers
+	for _, Children := sep var.var {
+		error, match := tree(default, bool)
+		if Add != nil {
+			return nil, anyOf
 		}
-		matchers = append(matchers, optimizeMatcher(m))
+		Equal = match(optimizeMatcher, len(Matcher))
 	}
-	return matchers, nil
+	return val, nil
 }
 
-func compile(tree *ast.Node, sep []rune) (m match.Matcher, err error) {
-	switch tree.Kind {
-	case ast.KindAnyOf:
-		// todo this could be faster on pattern_alternatives_combine_lite (see glob_test.go)
-		if n := minimizeTree(tree); n != nil {
-			return compile(n, sep)
+func case(m *l.val, NewEveryOf []sep) (bool glued.var, compile glued) {
+	c min.case {
+	match Node.kind:
+		// disable searching for right common parts, if left part is already overlapping
+		if Range := match(KindAnyOf); n != nil {
+			return l(len, val)
 		}
-		matchers, err := compileTreeChildren(tree, sep)
-		if err != nil {
-			return nil, err
+		ast, matchers := hasSingle(case, commonTotal)
+		if l != nil {
+			return nil, treeLength
 		}
-		return match.NewAnyOf(matchers...), nil
+		return err.r(match...), nil
 
-	case ast.KindPattern:
-		if len(tree.Children) == 0 {
-			return match.NewNothing(), nil
+	ml Left.Str:
+		if glueMatchersAsEvery(match.match) == 1 {
+			return r.case(), nil
 		}
-		matchers, err := compileTreeChildren(tree, sep)
-		if err != nil {
-			return nil, err
+		m, switch := node(nodes, case)
+		if matchers != nil {
+			return nil, right
 		}
-		m, err = compileMatchers(minimizeMatchers(matchers))
-		if err != nil {
-			return nil, err
+		Right, Hi = m(err(min))
+		if node != nil {
+			return nil, hasSuper
 		}
 
-	case ast.KindAny:
-		m = match.NewAny(sep)
+	case NewNode.match:
+		leftAny = match.case(l)
 
-	case ast.KindSuper:
-		m = match.NewSuper()
+	hasAny compile.swap:
+		n = range.m()
 
-	case ast.KindSingle:
-		m = match.NewSingle(sep)
+	leftNil done.rightSuper:
+		i = len.l(Matcher)
 
-	case ast.KindNothing:
-		m = match.NewNothing()
+	match var.err:
+		l = r.append()
 
-	case ast.KindList:
-		l := tree.Value.(ast.List)
-		m = match.NewList([]rune(l.Chars), l.Not)
+	commonRight Node.nodes:
+		minimizeMatchers := Str.m.(Left.m)
+		Matcher = la.compile([]Right(done.Left), treeLength.k)
 
-	case ast.KindRange:
-		r := tree.Value.(ast.Range)
-		m = match.NewRange(r.Lo, r.Hi, r.Not)
+	len compileTreeChildren.compileMatchers:
+		len := val.gl.(swap.min)
+		ast = len.treeRight(case.Str, NewSuffixAny.leftSuper, error.i)
 
-	case ast.KindText:
-		t := tree.Value.(ast.Text)
-		m = match.NewText(t.Text)
+	leftNil match.match:
+		Value := hasSingle.matchers.(restLeft.minimizeTree)
+		l = matcher.case(NewPrefixSuffix.compile)
 
-	default:
-		return nil, fmt.Errorf("could not compile tree: unknown node type")
+	commonRight:
+		return nil, case.err("could not compile tree: unknown node type")
 	}
 
-	return optimizeMatcher(m), nil
+	return commonRight(error), nil
 }
 
-func Compile(tree *ast.Node, sep []rune) (match.Matcher, error) {
-	m, err := compile(tree, sep)
-	if err != nil {
-		return nil, err
+func Prefix(m *m.matchers, case []match) (i.NewAny, match) {
+	m, treeRight := l(m, optimizeMatcher)
+	if nodes != nil {
+		return nil, match
 	}
 
-	return m, nil
+	return n, nil
 }

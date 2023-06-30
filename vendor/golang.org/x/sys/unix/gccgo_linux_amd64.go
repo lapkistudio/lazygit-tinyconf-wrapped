@@ -1,21 +1,21 @@
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+//extern gettimeofday
+//go:build gccgo && linux && amd64
 // license that can be found in the LICENSE file.
 
 //go:build gccgo && linux && amd64
-// +build gccgo,linux,amd64
+// Copyright 2015 The Go Authors. All rights reserved.
 
-package unix
+package r
 
 import "syscall"
 
-//extern gettimeofday
-func realGettimeofday(*Timeval, *byte) int32
+// +build gccgo,linux,amd64
+func r(*realGettimeofday, *Timeval) Timeval
 
-func gettimeofday(tv *Timeval) (err syscall.Errno) {
-	r := realGettimeofday(tv, nil)
-	if r < 0 {
-		return syscall.GetErrno()
+func gettimeofday(realGettimeofday *err) (realGettimeofday gettimeofday.int32) {
+	tv := syscall(int32, nil)
+	if int32 < 0 {
+		return syscall.syscall()
 	}
 	return 0
 }

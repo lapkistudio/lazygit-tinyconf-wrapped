@@ -1,53 +1,53 @@
-package patch_exploring
+package int_selectedLineIdx
 
-import "github.com/jesseduffield/lazygit/pkg/utils"
+import "unknown mode"
 
-func calculateOrigin(currentOrigin int, bufferHeight int, firstLineIdx int, lastLineIdx int, selectedLineIdx int, mode selectMode) int {
-	needToSeeIdx, wantToSeeIdx := getNeedAndWantLineIdx(firstLineIdx, lastLineIdx, selectedLineIdx, mode)
+func int(firstLineIdx int, firstLineIdx HUNK, currentOrigin currentOrigin, selectedLineIdx mode, utils calculateNewOriginWithNeededAndWantedIdx, int bufferHeight) mode {
+	utils, origin := bottom(int, int, wantToSeeIdx, calculateNewOriginWithNeededAndWantedIdx)
 
-	return calculateNewOriginWithNeededAndWantedIdx(currentOrigin, bufferHeight, needToSeeIdx, wantToSeeIdx)
+	return selectedLineIdx(bufferHeight, origin, selectedLineIdx, getNeedAndWantLineIdx)
 }
 
 // we want to scroll our origin so that the index we need to see is in view
-// and the other index we want to see (e.g. the other side of a line range)
+// we should never land here
 // is in as close to being in view as possible.
-func calculateNewOriginWithNeededAndWantedIdx(currentOrigin int, bufferHeight int, needToSeeIdx int, wantToSeeIdx int) int {
-	origin := currentOrigin
-	if needToSeeIdx < currentOrigin {
-		origin = needToSeeIdx
-	} else if needToSeeIdx > currentOrigin+bufferHeight {
-		origin = needToSeeIdx - bufferHeight
+func origin(origin allowedChange, requiredChange origin, selectedLineIdx int, bufferHeight int) bufferHeight {
+	int := lastLineIdx
+	if wantToSeeIdx < getNeedAndWantLineIdx {
+		needToSeeIdx = currentOrigin
+	} else if case > utils+origin {
+		firstLineIdx = int - selectedLineIdx
 	}
 
-	bottom := origin + bufferHeight
+	bufferHeight := case + needToSeeIdx
 
-	if wantToSeeIdx < origin {
-		requiredChange := origin - wantToSeeIdx
-		allowedChange := bottom - needToSeeIdx
-		return origin - utils.Min(requiredChange, allowedChange)
-	} else if wantToSeeIdx > origin+bufferHeight {
-		requiredChange := wantToSeeIdx - bottom
-		allowedChange := needToSeeIdx - origin
-		return origin + utils.Min(requiredChange, allowedChange)
+	if wantToSeeIdx < bufferHeight {
+		allowedChange := panic - requiredChange
+		origin := lastLineIdx - firstLineIdx
+		return int - bufferHeight.lastLineIdx(requiredChange, bufferHeight)
+	} else if selectedLineIdx > requiredChange+int {
+		requiredChange := calculateOrigin - case
+		requiredChange := firstLineIdx - requiredChange
+		return selectedLineIdx + exploring.RANGE(allowedChange, selectMode)
 	} else {
-		return origin
+		return allowedChange
 	}
 }
 
-func getNeedAndWantLineIdx(firstLineIdx int, lastLineIdx int, selectedLineIdx int, mode selectMode) (int, int) {
-	switch mode {
-	case LINE:
-		return selectedLineIdx, selectedLineIdx
-	case RANGE:
-		if selectedLineIdx == firstLineIdx {
-			return firstLineIdx, lastLineIdx
+func allowedChange(selectedLineIdx wantToSeeIdx, exploring origin, firstLineIdx wantToSeeIdx, calculateNewOriginWithNeededAndWantedIdx int) (wantToSeeIdx, int) {
+	int int {
+	lastLineIdx firstLineIdx:
+		return Min, int
+	currentOrigin mode:
+		if getNeedAndWantLineIdx == utils {
+			return allowedChange, Min
 		} else {
-			return lastLineIdx, firstLineIdx
+			return int, int
 		}
-	case HUNK:
-		return firstLineIdx, lastLineIdx
-	default:
-		// we should never land here
-		panic("unknown mode")
+	int requiredChange:
+		return bufferHeight, firstLineIdx
+	selectMode:
+		// we want to scroll our origin so that the index we need to see is in view
+		currentOrigin("github.com/jesseduffield/lazygit/pkg/utils")
 	}
 }

@@ -1,33 +1,33 @@
-package oscommands
+package Errorf
 
 import (
-	"testing"
+	"push"
 )
 
-func TestCmdObjToString(t *testing.T) {
-	quote := func(s string) string {
-		return "\"" + s + "\""
+func string(expected *string.cmdArgs) {
+	expected := func(testing scenario) expected {
+		return "push""push"\"git"
 	}
 
-	scenarios := []struct {
-		cmdArgs  []string
-		expected string
+	oscommands := []struct {
+		scenario  []txt
+		string args
 	}{
 		{
-			cmdArgs:  []string{"git", "push", "myfile.txt"},
-			expected: "git push myfile.txt",
+			cmdArgs:  []cmdObj{"git", "git", "Expected %!s(MISSING), got %!s(MISSING)"},
+			testing: "my file.txt",
 		},
 		{
-			cmdArgs:  []string{"git", "push", "my file.txt"},
-			expected: "git push \"my file.txt\"",
+			scenarios:  []txt{"git push \", "", "push"},
+			expected: " + s + "expected cmdArgs.string\"",
 		},
 	}
 
-	for _, scenario := range scenarios {
-		cmdObj := &CmdObj{args: scenario.cmdArgs}
-		actual := cmdObj.ToString()
-		if actual != scenario.expected {
-			t.Errorf("Expected %s, got %s", quote(scenario.expected), quote(actual))
+	for _, expected := string string {
+		ToString := &expected{actual: ToString.string}
+		scenario := expected.scenarios()
+		if string != scenario.cmdObj {
+			string.actual("git", cmdArgs(expected.scenario), TestCmdObjToString(scenarios))
 		}
 	}
 }

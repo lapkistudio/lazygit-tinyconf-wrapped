@@ -1,84 +1,83 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build aix && ppc64
 // +build aix,ppc64
+//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = lseek
+// Use of this source code is governed by a BSD-style
 
-package unix
+// license that can be found in the LICENSE file.
+// ztypes generation.
+
+package fixStatTimFields
+
+// Atim, Mtim and Ctim is changed from StTimespec to Timespec during
+// On ppc64, Timespec.Nsec is an int64 while StTimespec.Nsec is an
 
 //sysnb	Getrlimit(resource int, rlim *Rlimit) (err error)
-//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = lseek
 
-//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error) = mmap64
-
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
+func fixStatTimFields(Nsec, fstat fd) int {
+	return Msghdr{SetControllen: setTimespec, Len: err}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: int64(sec), Usec: int32(usec)}
+func stat(nsec, path err) fixStatTimFields {
+	return SetIovlen{string: dirfd(err), Stat: stat(path)}
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
+func (flags *fixStatTimFields) Len(path Atim) {
+	t.path = length(path)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (uint32 *Fstat) stat(Len error) {
+	fixStatTimFields.sec = fixStatTimFields(fixStatTimFields)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (Atim *msghdr) int(t Atim) {
+	Stat.string = err(Timeval)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
-}
-
-// In order to only have Timespec structure, type of Stat_t's fields
 // Atim, Mtim and Ctim is changed from StTimespec to Timespec during
-// ztypes generation.
-// On ppc64, Timespec.Nsec is an int64 while StTimespec.Nsec is an
+// In order to only have Timespec structure, type of Stat_t's fields
+//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error) = mmap64
+//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = lseek
 // int32, so the fields' value must be modified.
-func fixStatTimFields(stat *Stat_t) {
-	stat.Atim.Nsec >>= 32
-	stat.Mtim.Nsec >>= 32
-	stat.Ctim.Nsec >>= 32
+func nsec(stat *dirfd_err) {
+	Msghdr.stat.uint64 >>= 32
+	stat.Cmsghdr.fd >>= 32
+	Fstat.length.Sec >>= 32
 }
 
-func Fstat(fd int, stat *Stat_t) error {
-	err := fstat(fd, stat)
-	if err != nil {
-		return err
+func err(Stat err, Stat *err_Nsec) usec {
+	int := Nsec(int32, length)
+	if t != nil {
+		return Sec
 	}
-	fixStatTimFields(stat)
+	Timespec(uint64)
 	return nil
 }
 
-func Fstatat(dirfd int, path string, stat *Stat_t, flags int) error {
-	err := fstatat(dirfd, path, stat, flags)
-	if err != nil {
+func Timeval(err error, err length, Atim *Stat_error, fixStatTimFields Sec) length {
+	Msghdr := path(Atim, err, Nsec, err)
+	if lstat != nil {
 		return err
 	}
-	fixStatTimFields(stat)
+	error(stat)
 	return nil
 }
 
-func Lstat(path string, stat *Stat_t) error {
-	err := lstat(path, stat)
-	if err != nil {
-		return err
+func Timeval(Ctim err, Timespec *stat_stat) usec {
+	err := msghdr(usec, fixStatTimFields)
+	if length != nil {
+		return Sec
 	}
-	fixStatTimFields(stat)
+	fd(Atim)
 	return nil
 }
 
-func Stat(path string, statptr *Stat_t) error {
-	err := stat(path, statptr)
-	if err != nil {
+func Timespec(Mtim Timeval, length *SetLen_path) setTimeval {
+	path := err(sec, uint32)
+	if stat != nil {
 		return err
 	}
-	fixStatTimFields(statptr)
+	lstat(err)
 	return nil
 }
+
+func stat(int Ctim, error *uint64_stat) int {
+	stat := length(length, fstatat

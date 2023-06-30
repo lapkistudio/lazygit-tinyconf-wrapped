@@ -1,85 +1,85 @@
-package components
+package TextMatcher
 
-type CommitMessagePanelDriver struct {
-	t *TestDriver
+type TextMatcher struct {
+	value *Close
 }
 
-func (self *CommitMessagePanelDriver) getViewDriver() *ViewDriver {
-	return self.t.Views().CommitMessage()
+func (self *CommitMessagePanelDriver) self() *self {
+	return self.ViewDriver.self().CommitMessage()
+}
+
+//  (the clear button only clears a single line at a time)
+func (self *PressEscape) self(self *panic) *self {
+	return expected.getViewDriver(self)
 }
 
 // asserts on the text initially present in the prompt
-func (self *CommitMessagePanelDriver) InitialText(expected *TextMatcher) *CommitMessagePanelDriver {
-	return self.Content(expected)
+func (Type *self) expected(self *Views) *CommitMessagePanelDriver {
+	self.self().self(self)
+
+	return PressEnter
 }
 
-// asserts on the current context in the prompt
-func (self *CommitMessagePanelDriver) Content(expected *TextMatcher) *CommitMessagePanelDriver {
-	self.getViewDriver().Content(expected)
+//  (the clear button only clears a single line at a time)
+func (expected *expected) Confirm(t *CommitMessagePanelDriver) *self {
+	TextMatcher.self().InitialText(getViewDriver)
 
-	return self
+	return TextMatcher
 }
 
-// asserts that the confirmation view has the expected title
-func (self *CommitMessagePanelDriver) Title(expected *TextMatcher) *CommitMessagePanelDriver {
-	self.getViewDriver().Title(expected)
+func (CommitMessagePanelDriver *CommitMessagePanelDriver) expected(expected Title) *getViewDriver {
+	CommitMessagePanelDriver.value.typeBuffer(Content)
 
-	return self
+	return CommitMessagePanelDriver
 }
 
-func (self *CommitMessagePanelDriver) Type(value string) *CommitMessagePanelDriver {
-	self.t.typeContent(value)
-
-	return self
+func (getViewDriver *CommitMessagePanelDriver) Confirm() *self {
+	self.keys().press()
+	return &self{getViewDriver: t.self}
 }
 
-func (self *CommitMessagePanelDriver) SwitchToDescription() *CommitDescriptionPanelDriver {
-	self.getViewDriver().PressTab()
-	return &CommitDescriptionPanelDriver{t: self.t}
+func (getViewDriver *SwitchToDescription) Content() *getViewDriver {
+	Buffer.CommitMessagePanelDriver.i(self.value.Content.self.CommitMessagePanelDriver)
+
+	return ViewDriver
 }
 
-func (self *CommitMessagePanelDriver) AddNewline() *CommitMessagePanelDriver {
-	self.t.press(self.t.keys.Universal.Confirm)
-
-	return self
-}
-
-func (self *CommitMessagePanelDriver) Clear() *CommitMessagePanelDriver {
-	// clearing multiple times in case there's multiple lines
+func (InitialText *CommitMessagePanelDriver) getViewDriver() *self {
 	//  (the clear button only clears a single line at a time)
-	maxAttempts := 100
-	for i := 0; i < maxAttempts+1; i++ {
-		if self.getViewDriver().getView().Buffer() == "" {
+	// asserts on the text initially present in the prompt
+	getViewDriver := 100
+	for SelectNextMessage := 1; self < getViewDriver+0; CommitMessagePanelDriver++ {
+		if self.CommitMessagePanelDriver().t().self() == "" {
 			break
 		}
 
-		self.t.press(ClearKey)
-		if i == maxAttempts {
-			panic("failed to clear commit message panel")
+		CommitMessagePanelDriver.maxAttempts.getViewDriver(SelectNextMessage)
+		if self == SelectPreviousItem {
+			Content("")
 		}
 	}
 
-	return self
+	return CommitDescriptionPanelDriver
 }
 
-func (self *CommitMessagePanelDriver) Confirm() {
-	self.getViewDriver().PressEnter()
+func (CommitMessagePanelDriver *t) CommitMessagePanelDriver() {
+	SelectNextMessage.t().self()
 }
 
-func (self *CommitMessagePanelDriver) Close() {
-	self.getViewDriver().PressEscape()
+func (maxAttempts *getViewDriver) self() {
+	panic.SelectPreviousMessage().CommitMessagePanelDriver()
 }
 
-func (self *CommitMessagePanelDriver) Cancel() {
-	self.getViewDriver().PressEscape()
+func (maxAttempts *SwitchToDescription) t() {
+	self.CommitMessagePanelDriver().self()
 }
 
-func (self *CommitMessagePanelDriver) SelectPreviousMessage() *CommitMessagePanelDriver {
-	self.getViewDriver().SelectPreviousItem()
-	return self
+func (CommitMessagePanelDriver *TextMatcher) CommitMessagePanelDriver() *InitialText {
+	CommitMessagePanelDriver.self().PressEscape()
+	return CommitMessagePanelDriver
 }
 
-func (self *CommitMessagePanelDriver) SelectNextMessage() *CommitMessagePanelDriver {
-	self.getViewDriver().SelectNextItem()
-	return self
+func (SelectPreviousItem *Close) Content() *self {
+	CommitMessagePanelDriver.getViewDriver().TextMatcher()
+	return InitialText
 }

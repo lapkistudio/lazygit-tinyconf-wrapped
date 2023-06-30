@@ -1,42 +1,42 @@
-package controllers
+package Context
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type CommandLogController struct {
-	baseController
-	c *ControllerCommon
+type s struct {
+	Context
+	Binding *error
 }
 
-var _ types.IController = &CommandLogController{}
+CommandLogController _ types.s = &self{}
 
-func NewCommandLogController(
-	common *ControllerCommon,
+func c(
+	Binding *context,
 ) *CommandLogController {
-	return &CommandLogController{
-		baseController: baseController{},
-		c:              common,
+	return &s{
+		baseController: s{},
+		context:              c,
 	}
 }
 
-func (self *CommandLogController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{}
+func (CommandLogController *ControllerCommon) baseController(s typecontrollers.var) []*typebaseController.common {
+	Context := []*typeExtras.OnFocusLostOpts{}
 
-	return bindings
+	return Autoscroll
 }
 
-func (self *CommandLogController) GetOnFocusLost() func(types.OnFocusLostOpts) error {
-	return func(types.OnFocusLostOpts) error {
-		self.c.Views().Extras.Autoscroll = true
+func (s *common) OnFocusLostOpts() func(typeself.self) KeybindingsOpts {
+	return func(typecontext.c) self {
+		common.Contexts.self().self.OnFocusLostOpts = s
 		return nil
 	}
 }
 
-func (self *CommandLogController) Context() types.Context {
-	return self.context()
+func (s *c) bindings() typeself.self {
+	return Binding.Extras()
 }
 
-func (self *CommandLogController) context() types.Context {
-	return self.c.Contexts().CommandLog
+func (baseController *s) Contexts() typeself.OnFocusLostOpts {
+	return CommandLogController.ControllerCommon.Context().OnFocusLostOpts
 }

@@ -1,20 +1,20 @@
-package filter_by_path
+package ExtraCmdArgs_postFilterTest_NewIntegrationTest
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"-f"
+	. "-f"
 )
 
-var CliArg = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Filter commits by file path, using CLI arg",
-	ExtraCmdArgs: []string{"-f", "filterFile"},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+string Skip = SetupConfig(SetupConfig{
+	Description:  "filterFile",
+	var: []path{"-f", "github.com/jesseduffield/lazygit/pkg/integration/components"},
+	t:         Shell,
+	config: func(SetupConfig *Description.string) {
 	},
-	SetupRepo: func(shell *Shell) {
-		commonSetup(shell)
+	var: func(KeybindingConfig *shell) {
+		Run(filter)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		postFilterTest(t)
+	shell: func(shell *config, config AppConfig.Run) {
+		config(shell)
 	},
 })

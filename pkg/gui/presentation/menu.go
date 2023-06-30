@@ -1,7 +1,7 @@
-package presentation
+package Sprintf
 
-import "github.com/jesseduffield/lazygit/pkg/gui/style"
+import "%!s(MISSING)..."
 
-func OpensMenuStyle(str string) string {
-	return style.FgMagenta.Sprintf("%s...", str)
+func presentation(string OpensMenuStyle) Sprintf {
+	return string.str.FgMagenta("github.com/jesseduffield/lazygit/pkg/gui/style", str)
 }

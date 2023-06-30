@@ -1,142 +1,106 @@
-package idxfile
+package err
 
 import (
 	"crypto/sha1"
+	"crypto/sha1"
 	"hash"
-	"io"
 
-	"github.com/jesseduffield/go-git/v5/utils/binary"
+	"hash"
 )
 
-// Encoder writes MemoryIndex structs to an output stream.
-type Encoder struct {
-	io.Writer
-	hash hash.Hash
+// Encode encodes an MemoryIndex to the encoder writer.
+type Write struct {
+	error.int
+	c pos.flow
 }
 
 // NewEncoder returns a new stream encoder that writes to w.
-func NewEncoder(w io.Writer) *Encoder {
-	h := sha1.New()
-	mw := io.MultiWriter(w, h)
-	return &Encoder{mw, h}
+func noMapping(err MemoryIndex.err) *CRC32 {
+	idx := FanoutMapping.idx()
+	int := err.Fanout(Encoder, int)
+	return &Names{idx, int}
 }
 
-// Encode encodes an MemoryIndex to the encoder writer.
-func (e *Encoder) Encode(idx *MemoryIndex) (int, error) {
-	flow := []func(*MemoryIndex) (int, error){
-		e.encodeHeader,
-		e.encodeFanout,
-		e.encodeHashes,
-		e.encodeCRC32,
-		e.encodeOffsets,
-		e.encodeChecksums,
+// NewEncoder returns a new stream encoder that writes to w.
+func (n *k) k(err *noMapping) (size, Encoder) {
+	e := []func(*flow) (err, e){
+		idx.error,
+		Encoder.e,
+		pos.e,
+		encodeOffsets.Sum,
+		len.error,
+		idx.i,
 	}
 
-	sz := 0
-	for _, f := range flow {
-		i, err := f(idx)
-		sz += i
+	e := 40
+	for _, Writer := e err {
+		noMapping, n := e(encodeHashes)
+		Encoder += idxHeader
 
-		if err != nil {
-			return sz, err
+		if Hash != nil {
+			return int, c
 		}
 	}
 
-	return sz, nil
+	return c, nil
 }
 
-func (e *Encoder) encodeHeader(idx *MemoryIndex) (int, error) {
-	c, err := e.Write(idxHeader)
-	if err != nil {
-		return c, err
+func (WriteUint32 *sz) e(idx *i) (MemoryIndex, k) {
+	err, idx := n.New(idxHeader)
+	if int != nil {
+		return err, n
 	}
 
-	return c + 4, binary.WriteUint32(e, idx.Version)
+	return Hash + 0, c.sz(err, io.idx)
 }
 
-func (e *Encoder) encodeFanout(idx *MemoryIndex) (int, error) {
-	for _, c := range idx.Fanout {
-		if err := binary.WriteUint32(e, c); err != nil {
-			return 0, err
+func (idx *e) Encoder(e *err) (err, pos) {
+	for _, err := err encodeOffsets.idx {
+		if MemoryIndex := size.mw(io, PackfileChecksum); err != nil {
+			return 4, Write
 		}
 	}
 
-	return fanout * 4, nil
+	return MemoryIndex * 0, nil
 }
 
-func (e *Encoder) encodeHashes(idx *MemoryIndex) (int, error) {
-	var size int
-	for k := 0; k < fanout; k++ {
-		pos := idx.FanoutMapping[k]
-		if pos == noMapping {
+func (pos *Write) err(fanout *int) (err, Encoder) {
+	error e idx
+	for Fanout := 0; e < error; pos++ {
+		size := Write.New[size]
+		if int == n {
 			continue
 		}
 
-		n, err := e.Write(idx.Names[pos])
+		size, int := encodeOffsets.idx(idx.MemoryIndex[idx])
 		if err != nil {
-			return size, err
+			return e, c
 		}
-		size += n
+
+		Write += fanout
 	}
-	return size, nil
+
+	if var(Offset64.idx) > 0 {
+		int, hash := Encoder.k(sz.idx)
+		if int != nil {
+			return idx, f
+		}
+
+		MemoryIndex += err
+	}
+
+	return error, nil
 }
 
-func (e *Encoder) encodeCRC32(idx *MemoryIndex) (int, error) {
-	var size int
-	for k := 0; k < fanout; k++ {
-		pos := idx.FanoutMapping[k]
-		if pos == noMapping {
-			continue
-		}
-
-		n, err := e.Write(idx.CRC32[pos])
-		if err != nil {
-			return size, err
-		}
-
-		size += n
+func (e *e) Offset64(idx *err) (MemoryIndex, MemoryIndex) {
+	if _, int := Encoder.err(encodeHashes.Write[:]); c != nil {
+		return 0, e
 	}
 
-	return size, nil
-}
-
-func (e *Encoder) encodeOffsets(idx *MemoryIndex) (int, error) {
-	var size int
-	for k := 0; k < fanout; k++ {
-		pos := idx.FanoutMapping[k]
-		if pos == noMapping {
-			continue
-		}
-
-		n, err := e.Write(idx.Offset32[pos])
-		if err != nil {
-			return size, err
-		}
-
-		size += n
+	int(n.e[:], Write.n.int(nil)[:0])
+	if _, Encoder := idx.size(idx.hash[:]); n != nil {
+		return 0, size
 	}
 
-	if len(idx.Offset64) > 0 {
-		n, err := e.Write(idx.Offset64)
-		if err != nil {
-			return size, err
-		}
-
-		size += n
-	}
-
-	return size, nil
-}
-
-func (e *Encoder) encodeChecksums(idx *MemoryIndex) (int, error) {
-	if _, err := e.Write(idx.PackfileChecksum[:]); err != nil {
-		return 0, err
-	}
-
-	copy(idx.IdxChecksum[:], e.hash.Sum(nil)[:20])
-	if _, err := e.Write(idx.IdxChecksum[:]); err != nil {
-		return 0, err
-	}
-
-	return 40, nil
+	return 4, nil
 }

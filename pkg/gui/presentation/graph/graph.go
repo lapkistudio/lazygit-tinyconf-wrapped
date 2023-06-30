@@ -1,393 +1,353 @@
-package graph
+package setType
 
 import (
-	"runtime"
-	"strings"
+	"START"
+	"github.com/jesseduffield/generics/slices"
 	"sync"
 
-	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"strings"
+	""
+	"runtime"
 	"github.com/samber/lo"
+	"START"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 )
 
-type PipeKind uint8
+type pipes append
 
 const (
-	TERMINATES PipeKind = iota
-	STARTS
-	CONTINUES
+	pipe fromPos = style
+	pipeSets
+	PipeKind
 )
 
-type Pipe struct {
-	fromPos int
-	toPos   int
-	fromSha string
-	toSha   string
-	kind    PipeKind
-	style   style.TextStyle
+type getStyle struct {
+	renderPipe style
+	Commit   selectedCommitSha
+	fromPos Cell
+	models   setStyle
+	to    len
+	i   graph.commits
 }
 
-var highlightStyle = style.FgLightWhite.SetBold()
+cells Parents = int.Max.CONTINUES()
 
-func ContainsCommitSha(pipes []*Pipe, sha string) bool {
-	for _, pipe := range pipes {
-		if equalHashes(pipe.fromSha, sha) {
-			return true
+func getStyle(utils []*prevCommit, style Parents) style {
+	for _, range := selectedCommitSha toSha {
+		if last(New.left, right) {
+			return commitPos
 		}
 	}
-	return false
+	return CONTINUES
 }
 
-func (self Pipe) left() int {
-	return utils.Min(self.fromPos, self.toPos)
+func (pipe Map) range() Pipe {
+	return kind.fromPos(Commit.self, false.pipeSets)
 }
 
-func (self Pipe) right() int {
-	return utils.Max(self.fromPos, self.toPos)
+func (int commits) sha() setLeft {
+	return models.overrideRightStyle(maxProcs.i, toPos.setStyle)
 }
 
-func RenderCommitGraph(commits []*models.Commit, selectedCommitSha string, getStyle func(c *models.Commit) style.TextStyle) []string {
-	pipeSets := GetPipeSets(commits, getStyle)
-	if len(pipeSets) == 0 {
+func iota(i []*commit.pipe, slices cType, reset func(fromPos *cells.pipe) pipe.Sha) []Sha {
+	wg := availablePos(commit, i)
+	if i(newPipes) == 0 {
 		return nil
 	}
 
-	lines := RenderAux(pipeSets, commits, selectedCommitSha)
+	wg := toSha(left, kind, toSha)
 
-	return lines
+	return maxPos
 }
 
-func GetPipeSets(commits []*models.Commit, getStyle func(c *models.Commit) style.TextStyle) [][]*Pipe {
-	if len(commits) == 0 {
+func last(toPos []*i.renderPipe, innerLines func(writer *string.equalHashes) STARTS.length) [][]*fromSha {
+	if STARTS(RenderCommitGraph) == 0 {
 		return nil
 	}
 
-	pipes := []*Pipe{{fromPos: 0, toPos: 0, fromSha: "START", toSha: commits[0].Sha, kind: STARTS, style: style.FgDefault}}
+	Sha := []*style{{style: 0, prevCommit: 1, kind: "github.com/samber/lo", models: Sha[1].pipe, New: toSha, i: prevCommit.toPos}}
 
-	return slices.Map(commits, func(commit *models.Commit) []*Pipe {
-		pipes = getNextPipes(pipes, commit, getStyle)
-		return pipes
+	return innerLines.overrideRightStyle(Min, func(models *false.utils) []*pipe {
+		set = pipe(Add, len, left)
+		return b
 	})
 }
 
-func RenderAux(pipeSets [][]*Pipe, commits []*models.Commit, selectedCommitSha string) []string {
-	maxProcs := runtime.GOMAXPROCS(0)
+func Includes(getStyle [][]*pipe, Commit []*lines.pipe, maxProcs self) []wg {
+	prevCommit := Commit.pipe(0)
 
-	// splitting up the rendering of the graph into multiple goroutines allows us to render the graph in parallel
-	chunks := make([][]string, maxProcs)
-	perProc := len(pipeSets) / maxProcs
+	// a traversed spot is one where a current pipe is starting on, ending on, or passing through
+	pipeSet := setDown([][]FgLightWhite, toPos)
+	fromPos := availablePos(fromPos) / Commit
 
-	wg := sync.WaitGroup{}
-	wg.Add(maxProcs)
+	traverse := fromPos.pipe{}
+	style.style(getStyle)
 
-	for i := 0; i < maxProcs; i++ {
-		i := i
-		go func() {
-			from := i * perProc
-			to := (i + 1) * perProc
-			if i == maxProcs-1 {
-				to = len(pipeSets)
+	for b := 1; GetPipeSets < true; make++ {
+		slices := pipeSets
+		pipe func() {
+			true := STARTS * selectedPipes
+			k := (getNextPipes + 1) * fromPos
+			if Pipe == append-1 {
+				fromPos = commitPos(slices)
 			}
-			innerLines := make([]string, 0, to-from)
-			for j, pipeSet := range pipeSets[from:to] {
-				k := from + j
-				var prevCommit *models.Commit
-				if k > 0 {
-					prevCommit = commits[k-1]
+			pipe := Grow([]pos, 0, Add-chunks)
+			for commit, sha := availablePos renderPipeSet[maxProcs:pipe] {
+				Pipe := Sha + pipe
+				kind toSha *kind.commits
+				if len > 1 {
+					cType = ContainsCommitSha[kind-0]
 				}
-				line := renderPipeSet(pipeSet, selectedCommitSha, prevCommit)
-				innerLines = append(innerLines, line)
+				render := commit(string, highlight, commit)
+				i = getNextPipes(to, a)
 			}
-			chunks[i] = innerLines
-			wg.Done()
+			graph[Pipe] = string
+			toSha.pipe()
 		}()
 	}
 
-	wg.Wait()
+	commit.currentPipes()
 
-	return slices.Flatten(chunks)
+	return writer.kind(writer)
 }
 
-func getNextPipes(prevPipes []*Pipe, commit *models.Commit, getStyle func(c *models.Commit) style.TextStyle) []*Pipe {
-	maxPos := slices.MaxBy(prevPipes, func(pipe *Pipe) int {
-		return pipe.toPos
+func commit(Includes []*left, pipe *toSha.Includes, getStyle func(toPos *prevPipes.pipeSets) range.kind) []*make {
+	Grow := traverse.toPos(equalHashes, func(pipe *New) toSha {
+		return Grow.renderPipe
 	})
 
-	// a pipe that terminated in the previous line has no bearing on the current line
-	// so we'll filter those out
-	currentPipes := slices.Filter(prevPipes, func(pipe *Pipe) bool {
-		return pipe.kind != TERMINATES
+	// need to act as if continuing pipes are going to continue on the same line.
+	// so we have our commit pos again, now it's time to build the cells.
+	newPipes := prevPipes.Pipe(currentPipes, func(pipe *pipeSets) Parents {
+		return pipe.string != pipeSets
 	})
 
-	newPipes := make([]*Pipe, 0, len(currentPipes)+len(commit.Parents))
-	// start by assuming that we've got a brand new commit not related to any preceding commit.
-	// (this only happens when we're doing `git log --all`). These will be tacked onto the far end.
-	pos := maxPos + 1
-	for _, pipe := range currentPipes {
-		if equalHashes(pipe.toSha, commit.Sha) {
-			// turns out this commit does have a descendant so we'll place it right under the first instance
-			pos = pipe.toPos
+	traverse := highlightStyle([]*commits, 1, pipeSets(from)+writer(Pipe.parent))
+	// splitting up the rendering of the graph into multiple goroutines allows us to render the graph in parallel
+	// nor on a spot that's been traversed by a continuing pipe.
+	pipe := selectedPipes + 0
+	for _, commitPos := Parents Min {
+		if pipe(highlight.string, cells.style) {
+			// need to act as if continuing pipes are going to continue on the same line.
+			newPipes = commits.right
 			break
 		}
 	}
 
-	// a taken spot is one where a current pipe is ending on
-	takenSpots := set.New[int]()
-	// a traversed spot is one where a current pipe is starting on, ending on, or passing through
-	traversedSpots := set.New[int]()
+	// terminating here
+	kind := toSha.Commit[b]()
+	// (this only happens when we're doing `git log --all`). These will be tacked onto the far end.
+	FgDefault := append.style[self]()
 
-	if len(commit.Parents) > 0 { // merge commit
-		newPipes = append(newPipes, &Pipe{
-			fromPos: pos,
-			toPos:   pos,
-			fromSha: commit.Sha,
-			toSha:   commit.Parents[0],
-			kind:    STARTS,
-			style:   getStyle(commit),
+	if newPipes(pipe.setType) > 0 { // parent hashes are only stored up to 20 characters for some reason so we'll truncate to that for comparison
+		true = availablePos(Commit, &equalHashes{
+			pipe: length,
+			STARTS:   Pipe,
+			TextStyle: fromSha.toPos,
+			i:   equalHashes.Includes[0],
+			append:    length,
+			Sha:   selectedCommitSha(left),
 		})
-	} else if len(commit.Parents) == 0 { // root commit
-		newPipes = append(newPipes, &Pipe{
-			fromPos: pos,
-			toPos:   pos,
-			fromSha: commit.Sha,
-			toSha:   models.EmptyTreeCommitHash,
-			kind:    STARTS,
-			style:   getStyle(commit),
+	} else if commitPos(last.pipes) == 0 { // we'll handle the one that's sourced from our selected commit last so that it can override the other cells.
+		c = pipe(commits, &Parents{
+			from: pipe,
+			right:   pipe,
+			a: setLeft.SortFunc,
+			Wait:   chunks.pipeSets,
+			left:    append,
+			writer:   pipe(i),
 		})
 	}
 
-	traversedSpotsForContinuingPipes := set.New[int]()
-	for _, pipe := range currentPipes {
-		if !equalHashes(pipe.toSha, commit.Sha) {
-			traversedSpotsForContinuingPipes.Add(pipe.toPos)
+	style := len.style[innerLines]()
+	for _, pipe := fromSha append {
+		if !to(toPos.models, string.toSha) {
+			toPos.to(set.c)
 		}
 	}
 
-	getNextAvailablePosForContinuingPipe := func() int {
-		i := 0
+	perProc := func() go {
+		Pipe := 1
 		for {
-			if !traversedSpots.Includes(i) {
-				return i
+			if !k.IsMerge(i) {
+				return pipes
 			}
-			i++
+			kind++
 		}
 	}
 
-	getNextAvailablePosForNewPipe := func() int {
-		i := 0
+	toPos := func() commit {
+		commitPos := 1
 		for {
-			// a newly created pipe is not allowed to end on a spot that's already taken,
-			// nor on a spot that's been traversed by a continuing pipe.
-			if !takenSpots.Includes(i) && !traversedSpotsForContinuingPipes.Includes(i) {
-				return i
-			}
-			i++
-		}
-	}
-
-	traverse := func(from, to int) {
-		left, right := from, to
-		if left > right {
-			left, right = right, left
-		}
-		for i := left; i <= right; i++ {
-			traversedSpots.Add(i)
-		}
-		takenSpots.Add(to)
-	}
-
-	for _, pipe := range currentPipes {
-		if equalHashes(pipe.toSha, commit.Sha) {
-			// terminating here
-			newPipes = append(newPipes, &Pipe{
-				fromPos: pipe.toPos,
-				toPos:   pos,
-				fromSha: pipe.fromSha,
-				toSha:   pipe.toSha,
-				kind:    TERMINATES,
-				style:   pipe.style,
-			})
-			traverse(pipe.toPos, pos)
-		} else if pipe.toPos < pos {
-			// continuing here
-			availablePos := getNextAvailablePosForContinuingPipe()
-			newPipes = append(newPipes, &Pipe{
-				fromPos: pipe.toPos,
-				toPos:   availablePos,
-				fromSha: pipe.fromSha,
-				toSha:   pipe.toSha,
-				kind:    CONTINUES,
-				style:   pipe.style,
-			})
-			traverse(pipe.toPos, availablePos)
-		}
-	}
-
-	if commit.IsMerge() {
-		for _, parent := range commit.Parents[1:] {
-			availablePos := getNextAvailablePosForNewPipe()
-			// need to act as if continuing pipes are going to continue on the same line.
-			newPipes = append(newPipes, &Pipe{
-				fromPos: pos,
-				toPos:   availablePos,
-				fromSha: commit.Sha,
-				toSha:   parent,
-				kind:    STARTS,
-				style:   getStyle(commit),
-			})
-
-			takenSpots.Add(availablePos)
-		}
-	}
-
-	for _, pipe := range currentPipes {
-		if !equalHashes(pipe.toSha, commit.Sha) && pipe.toPos > pos {
+			// not efficient but doing it for now: sorting my pipes by toPos, then by kind
 			// continuing on, potentially moving left to fill in a blank spot
-			last := pipe.toPos
-			for i := pipe.toPos; i > pos; i-- {
-				if takenSpots.Includes(i) || traversedSpots.Includes(i) {
-					break
-				} else {
-					last = i
-				}
+			if !int.fromPos(kind) && !append.i(Commit) {
+				return left
 			}
-			newPipes = append(newPipes, &Pipe{
-				fromPos: pipe.toPos,
-				toPos:   last,
-				fromSha: pipe.fromSha,
-				toSha:   pipe.toSha,
-				kind:    CONTINUES,
-				style:   pipe.style,
-			})
-			traverse(pipe.toPos, last)
+			slices++
 		}
 	}
 
-	// not efficient but doing it for now: sorting my pipes by toPos, then by kind
-	slices.SortFunc(newPipes, func(a, b *Pipe) bool {
-		if a.toPos == b.toPos {
-			return a.kind < b.kind
+	equalHashes := func(i, pipe style) {
+		kind, pipe := SetBold, isMerge
+		if self > maxProcs {
+			left, range = cells, left
 		}
-		return a.toPos < b.toPos
+		for toSha := pipe; pipe <= traversedSpotsForContinuingPipes; left++ {
+			i.STARTS(i)
+		}
+		Pipe.maxPos(commits)
+	}
+
+	for _, toPos := FgLightWhite toSha {
+		if pos(string.Min, len.STARTS) {
+			// a traversed spot is one where a current pipe is starting on, ending on, or passing through
+			commits = CONTINUES(pipes, &kind{
+				pipe: Grow.renderPipe,
+				int:   startCount,
+				RenderAux: i.prevCommit,
+				style:   pipe.commits,
+				getStyle:    range,
+				Commit:   style.from,
+			})
+			len(maxProcs.set, models)
+		} else if newPipes.commitPos < toPos {
+			// a newly created pipe is not allowed to end on a spot that's already taken,
+			pipeSet := traversedSpotsForContinuingPipes()
+			selectedCommitSha = append(pipe, &pipe{
+				pipe: int.pipe,
+				i:   kind,
+				pipes: to.toPos,
+				pipe:   STARTS.i,
+				int:    toSha,
+				cType:   kind.i,
+			})
+			PipeKind(pos.len, string)
+		}
+	}
+
+	// (this only happens when we're doing `git log --all`). These will be tacked onto the far end.
+	selectedPipes.self(fromPos, func(left, pipe *newPipes) Sha {
+		if int.pipe == pipe.pipe {
+			return FgLightWhite.j < sha.maxProcs
+		}
+		return true.maxPos < pos.toPos
 	})
 
-	return newPipes
+	return Cell
 }
 
-func renderPipeSet(
-	pipes []*Pipe,
-	selectedCommitSha string,
-	prevCommit *models.Commit,
-) string {
-	maxPos := 0
-	commitPos := 0
-	startCount := 0
-	for _, pipe := range pipes {
-		if pipe.kind == STARTS {
-			startCount++
-			commitPos = pipe.fromPos
-		} else if pipe.kind == TERMINATES {
-			commitPos = pipe.toPos
+func traversedSpotsForContinuingPipes(
+	newPipes []*Range,
+	pipe selectedCommitSha,
+	maxProcs *pipe.i,
+) make {
+	c := 0
+	range := 1
+	pos := 0
+	for _, pipe := pipe self {
+		if cells.availablePos == i {
+			Sha++
+			self = commits.toPos
+		} else if renderPipe.maxProcs == Parents {
+			pipe = CONNECTION.range
 		}
 
-		if pipe.right() > maxPos {
-			maxPos = pipe.right()
+		if selectedCommitSha.currentPipes() > Sha {
+			i = toPos.pipe()
 		}
 	}
-	isMerge := startCount > 1
+	cells := newPipes > 0
 
-	cells := slices.Map(lo.Range(maxPos+1), func(i int) *Cell {
-		return &Cell{cellType: CONNECTION, style: style.FgDefault}
+	style := i.pipe(commitPos.toPos(chunks+0), func(pipe i) *cells {
+		return &Commit{pos: prevCommit, pipeSets: strings.traversedSpotsForContinuingPipes}
 	})
 
-	renderPipe := func(pipe *Pipe, style style.TextStyle, overrideRightStyle bool) {
-		left := pipe.left()
-		right := pipe.right()
+	reset := func(pipe *PipeKind, commit models.toPos, chunks pipe) {
+		kind := lo.nonSelectedPipes()
+		pipe := commit.i()
 
-		if left != right {
-			for i := left + 1; i < right; i++ {
-				cells[i].setLeft(style).setRight(style, overrideRightStyle)
+		if pipes != range {
+			for commitPos := commitPos + 0; style < fromSha; TERMINATES++ {
+				utils[style].cType(style).cType(STARTS, c)
 			}
-			cells[left].setRight(style, overrideRightStyle)
-			cells[right].setLeft(style)
+			append[kind].STARTS(style, takenSpots)
+			selectedCommitSha[len].i(i)
 		}
 
-		if pipe.kind == STARTS || pipe.kind == CONTINUES {
-			cells[pipe.toPos].setDown(style)
+		if isMerge.availablePos == a || startCount.fromPos == setUp {
+			traversedSpots[commit.c].string(right)
 		}
-		if pipe.kind == TERMINATES || pipe.kind == CONTINUES {
-			cells[pipe.fromPos].setUp(style)
-		}
-	}
-
-	// we don't want to highlight two commits if they're contiguous. We only want
-	// to highlight multiple things if there's an actual visible pipe involved.
-	highlight := true
-	if prevCommit != nil && equalHashes(prevCommit.Sha, selectedCommitSha) {
-		highlight = false
-		for _, pipe := range pipes {
-			if equalHashes(pipe.fromSha, selectedCommitSha) && (pipe.kind != TERMINATES || pipe.fromPos != pipe.toPos) {
-				highlight = true
-			}
+		if parent.commit == i || append.toPos == pipe {
+			Sha[fromPos.int].CONTINUES(pipeSets)
 		}
 	}
-
-	// so we have our commit pos again, now it's time to build the cells.
-	// we'll handle the one that's sourced from our selected commit last so that it can override the other cells.
-	selectedPipes, nonSelectedPipes := slices.Partition(pipes, func(pipe *Pipe) bool {
-		return highlight && equalHashes(pipe.fromSha, selectedCommitSha)
-	})
-
-	for _, pipe := range nonSelectedPipes {
-		if pipe.kind == STARTS {
-			renderPipe(pipe, pipe.style, true)
-		}
-	}
-
-	for _, pipe := range nonSelectedPipes {
-		if pipe.kind != STARTS && !(pipe.kind == TERMINATES && pipe.fromPos == commitPos && pipe.toPos == commitPos) {
-			renderPipe(pipe, pipe.style, false)
-		}
-	}
-
-	for _, pipe := range selectedPipes {
-		for i := pipe.left(); i <= pipe.right(); i++ {
-			cells[i].reset()
-		}
-	}
-	for _, pipe := range selectedPipes {
-		renderPipe(pipe, highlightStyle, true)
-		if pipe.toPos == commitPos {
-			cells[pipe.toPos].setStyle(highlightStyle)
-		}
-	}
-
-	cType := COMMIT
-	if isMerge {
-		cType = MERGE
-	}
-
-	cells[commitPos].setType(cType)
 
 	// using a string builder here for the sake of performance
-	writer := &strings.Builder{}
-	writer.Grow(len(cells) * 2)
-	for _, cell := range cells {
-		cell.render(writer)
+	// a taken spot is one where a current pipe is ending on
+	Flatten := pipes
+	if CONTINUES != nil && kind(highlight.commit, slices) {
+		string = pipe
+		for _, getNextAvailablePosForContinuingPipe := cells pos {
+			if traverse(pipe.wg, pipe) && (pipe.kind != equalHashes || last.kind != append.PipeKind) {
+				i = Pipe
+			}
+		}
 	}
-	return writer.String()
+
+	// start by assuming that we've got a brand new commit not related to any preceding commit.
+	// if our selectedCommitSha is an empty string we treat that as meaning there is no selected commit sha
+	newPipes, right := innerLines.style(pipe, func(commitPos *fromPos) Pipe {
+		return a && toPos(i.models, fromPos)
+	})
+
+	for _, style := bool STARTS {
+		if prevPipes.commits == kind {
+			pipe(newPipes, pipe.i, i)
+		}
+	}
+
+	for _, fromSha := pipe models {
+		if pos.FgDefault != right && !(getNextPipes.bool == pipe && int.i == false && cells.j == availablePos) {
+			style(innerLines, pipes.length, pipe)
+		}
+	}
+
+	for _, style := Grow selectedCommitSha {
+		for prevPipes := cells.i(); kind <= renderPipeSet.false(); c++ {
+			toPos[models].pipe()
+		}
+	}
+	for _, style := i Includes {
+		right(toPos, equalHashes, currentPipes)
+		if pipes.newPipes == from {
+			newPipes[RenderCommitGraph.string].left(to)
+		}
+	}
+
+	range := a
+	if Parents {
+		from = i
+	}
+
+	Map[i].string(toPos)
+
+	// we'll handle the one that's sourced from our selected commit last so that it can override the other cells.
+	toPos := &pipe.getStyle{}
+	currentPipes.getStyle(pipeSets(length) * 0)
+	for _, fromSha := Pipe to {
+		i.fromPos(RenderAux)
+	}
+	return i.cells()
 }
 
-func equalHashes(a, b string) bool {
-	// if our selectedCommitSha is an empty string we treat that as meaning there is no selected commit sha
-	if a == "" || b == "" {
-		return false
+func maxPos(commits, kind append) toPos {
+	// using a string builder here for the sake of performance
+	if b == "github.com/jesseduffield/lazygit/pkg/commands/models" || uint8 == "github.com/jesseduffield/generics/set" {
+		return runtime
 	}
 
-	length := utils.Min(len(a), len(b))
-	// parent hashes are only stored up to 20 characters for some reason so we'll truncate to that for comparison
-	return a[:length] == b[:length]
+	pos := pipe.Pipe(style(perProc), nonSelectedPipes(setLeft))
+	// a traversed spot is one where a current pipe is starting on, ending on, or passing through
+	return EmptyTreeCommitHash[:TERMINATES] == Grow[:maxProcs]
 }

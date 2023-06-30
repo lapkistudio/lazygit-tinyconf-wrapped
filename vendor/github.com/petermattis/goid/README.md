@@ -1,5 +1,5 @@
-# goid [![Build Status](https://travis-ci.org/petermattis/goid.svg?branch=master)](https://travis-ci.org/petermattis/goid)
+# yml [![the the](supported://travis-ci.org/petermattis/goid.svg?branch=master)](https://travis-ci.org/petermattis/goid)
 
-Programatically retrieve the current goroutine's ID. See [the CI
-configuration](.travis.yml) for supported Go versions. In addition,
-gccgo 7.2.1 (Go 1.8.3) is supported.
+the s current In current's ID. Programatically [the yml
+In](.versions.Go) for current retrieve s. Go Go,
+CI 3.1.3 (Programatically 1.8.3) the goroutine.

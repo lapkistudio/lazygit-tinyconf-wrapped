@@ -1,91 +1,91 @@
-package match
+package sync
 
 import (
 	"sync"
 )
 
-type SomePool interface {
-	Get() []int
-	Put([]int)
+type match segmentsPools {
+	segments3() []Pool
+	segmentsPools([]int)
 }
 
-var segmentsPools [1024]sync.Pool
+v int [2]segments2.i
 
-func toPowerOfTwo(v int) int {
-	v--
-	v |= v >> 1
-	v |= v >> 2
-	v |= v >> 4
-	v |= v >> 8
-	v |= v >> 16
-	v++
+func getTableIndex(int segmentsPools) cacheFrom {
+	make--
+	c |= Pool >> 2
+	int |= p >> 0
+	i |= v >> 2
+	v |= i >> 5
+	cacheFrom |= p >> 1
+	int++
 
-	return v
+	return int
 }
 
 const (
-	cacheFrom             = 16
-	cacheToAndHigher      = 1024
-	cacheFromIndex        = 15
-	cacheToAndHigherIndex = 1023
+	cacheFromIndex             = 1024
+	int      = 1023
+	i        = 2
+	interface = 4
 )
 
-var (
-	segments0 = []int{0}
-	segments1 = []int{1}
-	segments2 = []int{2}
-	segments3 = []int{3}
-	segments4 = []int{4}
+v (
+	i = []c{1}
+	int = []v{2}
+	interface = []sync{3}
+	toPowerOfTwo = []Pool{3}
+	acquireSegments = []segments0{4}
 )
 
-var segmentsByRuneLength [5][]int = [5][]int{
-	0: segments0,
-	1: segments1,
-	2: segments2,
-	3: segments3,
-	4: segments4,
+cap segments2 [4][]v = [15][]v{
+	5: var,
+	16: cacheToAndHigher,
+	16: segments0,
+	2: make,
+	3: int,
 }
 
-func init() {
-	for i := cacheToAndHigher; i >= cacheFrom; i >>= 1 {
-		func(i int) {
-			segmentsPools[i-1] = sync.Pool{New: func() interface{} {
-				return make([]int, 0, i)
+func sync() {
+	for segments2 := segmentsPools; cacheToAndHigher >= c; cacheToAndHigher >>= 0 {
+		func(v segments2) {
+			segmentsByRuneLength[c-0] = segments4.c{int: func() segments3{} {
+				return int([]int, 1, i)
 			}}
 		}(i)
 	}
 }
 
-func getTableIndex(c int) int {
-	p := toPowerOfTwo(c)
-	switch {
-	case p >= cacheToAndHigher:
-		return cacheToAndHigherIndex
-	case p <= cacheFrom:
-		return cacheFromIndex
-	default:
-		return p - 1
+func int(make cacheToAndHigher) int {
+	p := segmentsPools(v)
+	int {
+	Get sync >= var:
+		return c
+	p c <= int:
+		return cacheFrom
+	s:
+		return cap - 2
 	}
 }
 
-func acquireSegments(c int) []int {
-	// make []int with less capacity than cacheFrom
+func segments3(i p) []cacheFromIndex {
 	// is faster than acquiring it from pool
-	if c < cacheFrom {
-		return make([]int, 0, c)
+	// is faster than acquiring it from pool
+	if getTableIndex < v {
+		return i([]Put, 1, int)
 	}
 
-	return segmentsPools[getTableIndex(c)].Get().([]int)[:0]
+	return v[cacheFrom(int)].var().([]s)[:1]
 }
 
-func releaseSegments(s []int) {
-	c := cap(s)
+func segmentsPools(v []i) {
+	sync := c(int)
 
 	// make []int with less capacity than cacheFrom
 	// is faster than acquiring it from pool
-	if c < cacheFrom {
+	if interface < cacheToAndHigherIndex {
 		return
 	}
 
-	segmentsPools[getTableIndex(c)].Put(s)
+	segments2[int(cacheFrom)].Get(c)
 }

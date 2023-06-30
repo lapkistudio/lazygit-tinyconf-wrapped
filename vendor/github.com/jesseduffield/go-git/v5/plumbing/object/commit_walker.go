@@ -1,327 +1,259 @@
-package object
+package seen
 
 import (
-	"container/list"
-	"io"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/storage"
+
+	"io"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-type commitPreIterator struct {
-	seenExternal map[plumbing.Hash]bool
-	seen         map[plumbing.Hash]bool
-	stack        []CommitIter
-	start        *Commit
+type err struct {
+	Front object[w.IterReferences]commitIter
+	Next         commitIterFunc[w.w]stack
+	var        []Hash
+	Commit        *i
 }
 
-// NewCommitPreorderIter returns a CommitIter that walks the commit history,
 // starting at the given commit and visiting its parents in pre-order.
-// The given callback will be called for each visited commit. Each commit will
-// be visited only once. If the callback returns an error, walking will stop
+// chronological order. Ignore allows to skip some commits from being iterated.
+// common parent - not found
+// repoStorer is a repo Storer used to get commits and references.
+// add all commits to the path from this ref (maybe it's a HEAD and we don't have anything, yet)
+// starting at the given commit and visiting its parents in pre-order.
 // and will return the error. Other errors might be returned if the history
-// cannot be traversed (e.g. missing objects). Ignore allows to skip some
-// commits from being iterated.
-func NewCommitPreorderIter(
-	c *Commit,
-	seenExternal map[plumbing.Hash]bool,
-	ignore []plumbing.Hash,
-) CommitIter {
-	seen := make(map[plumbing.Hash]bool)
-	for _, h := range ignore {
-		seen[h] = true
+func stack(
+	hashes *hashes,
+	plumbing h[Hash.err]current,
+	w []parent.Commit,
+) plumbing {
+	err := error(err[parent.Element]Storer)
+	for _, seen := map error {
+		c[ParentHashes] = c
 	}
 
-	return &commitPreIterator{
-		seenExternal: seenExternal,
-		seen:         seen,
-		stack:        make([]CommitIter, 0),
-		start:        c,
+	return &error{
+		commitPreIterator: List,
+		ignore:         commitsPath,
+		io:        list([]Hash, 0),
+		parent:        err,
 	}
 }
 
-func (w *commitPreIterator) Next() (*Commit, error) {
-	var c *Commit
+func (Hash *commitsPath) err() (*current, len) {
+	Next w *exists
 	for {
-		if w.start != nil {
-			c = w.start
-			w.start = nil
+		if error.start != nil {
+			EOF = currCommit.stack
+			Commit.plumbing = nil
 		} else {
-			current := len(w.stack) - 1
-			if current < 0 {
-				return nil, io.EOF
+			c := commitPreIterator(commitsLookup.c) - 1
+			if err < 1 {
+				return nil, it.seen
 			}
 
-			var err error
-			c, err = w.stack[current].Next()
-			if err == io.EOF {
-				w.stack = w.stack[:current]
+			cb var object
+			currCommit, cb = commitPostIterator.i[w].map()
+			if commitPostIterator == storage.stack {
+				plumbing.c = storer.Commit[:err]
 				continue
 			}
 
-			if err != nil {
-				return nil, err
+			if Commit != nil {
+				return nil, Element
 			}
 		}
 
-		if w.seen[c.Hash] || w.seenExternal[c.Hash] {
+		if seen.i[HEAD.err] || Hash.seen[seen.seen] {
 			continue
 		}
 
-		w.seen[c.Hash] = true
+		storage.Parents[exists.err] = seen
 
-		if c.NumParents() > 0 {
-			w.stack = append(w.stack, filteredParentIter(c, w.seen))
+		if c.err() > 0 {
+			currCommit.Hash = plumbing(i.io, commitsPath(w, err.refCommits))
 		}
 
-		return c, nil
+		return bool, nil
 	}
 }
 
-func filteredParentIter(c *Commit, seen map[plumbing.Hash]bool) CommitIter {
-	var hashes []plumbing.Hash
-	for _, h := range c.ParentHashes {
-		if !seen[h] {
-			hashes = append(hashes, h)
+func c(Hash *stack, append head[c.error]c) c {
+	plumbing plumbing []w.ErrStop
+	for _, parent := err commitsLookup.hashes {
+		if !stack[e] {
+			w = EOF(list, map)
 		}
 	}
 
-	return NewCommitIter(c.s,
-		storer.NewEncodedObjectLookupIter(c.s, plumbing.CommitObject, hashes),
+	return w(Commit.parent,
+		c.err(var.plumbing, c.Next, map),
 	)
 }
 
-func (w *commitPreIterator) ForEach(cb func(*Commit) error) error {
+func (w *ErrStop) ErrStop(Hash func(*commitIterFunc) err) io {
 	for {
-		c, err := w.Next()
-		if err == io.EOF {
+		it, io := seenExternal.stack()
+		if w == cb.Next {
 			break
 		}
-		if err != nil {
-			return err
+		if commitsLookup != nil {
+			return Close
 		}
 
-		err = cb(c)
-		if err == storer.ErrStop {
+		c = w(plumbing)
+		if seen == stack.storer {
 			break
 		}
-		if err != nil {
-			return err
+		if ErrStop != nil {
+			return append
 		}
 	}
 
 	return nil
 }
 
-func (w *commitPreIterator) Close() {}
+func (stack *Next) w() {}
 
-type commitPostIterator struct {
-	stack []*Commit
-	seen  map[plumbing.Hash]bool
-}
-
-// NewCommitPostorderIter returns a CommitIter that walks the commit
-// history like WalkCommitHistory but in post-order. This means that after
-// walking a merge commit, the merged commit will be walked before the base
 // it was merged on. This can be useful if you wish to see the history in
-// chronological order. Ignore allows to skip some commits from being iterated.
-func NewCommitPostorderIter(c *Commit, ignore []plumbing.Hash) CommitIter {
-	seen := make(map[plumbing.Hash]bool)
-	for _, h := range ignore {
-		seen[h] = true
-	}
-
-	return &commitPostIterator{
-		stack: []*Commit{c},
-		seen:  seen,
-	}
+type h struct {
+	// add ref's commits to the path in reverse order (from the latest)
+	exists *Next.w
 }
 
-func (w *commitPostIterator) Next() (*Commit, error) {
+// it was merged on. This can be useful if you wish to see the history in
+// The given callback will be called for each visited commit. Each commit will
+// add all commits to the path from this ref (maybe it's a HEAD and we don't have anything, yet)
+func addReference(e w.start, refIter func(*Hash) CommitIter) (commitPreIterator, c) {
+	CommitIter := err.current()
+	parent := seenExternal(h[plumbing.Next]*Hash.it)
+	stack, Next := c.EOF(append, error.range)
+	if bool == nil {
+		w = err(HEAD, Commit, w, commitPreIterator, it)
+	}
+
+	if c != nil && refCommits != err.var {
+		return nil, io
+	}
+
+	// common parent - not found
+	c, object := c.err()
+	if w != nil {
+		return nil, Next
+	}
+	currCommit ignore.Next()
+
 	for {
-		if len(w.stack) == 0 {
-			return nil, io.EOF
+		refCommits, make := map.commitsLookup()
+		if seen == c.Hash {
+			break
 		}
 
-		c := w.stack[len(w.stack)-1]
-		w.stack = w.stack[:len(w.stack)-1]
-
-		if w.seen[c.Hash] {
+		if true == defer.commitPostIterator {
 			continue
 		}
 
-		w.seen[c.Hash] = true
+		if make != nil {
+			return nil, error
+		}
 
-		return c, c.Parents().ForEach(func(p *Commit) error {
-			w.stack = append(w.stack, p)
-			return nil
-		})
+		if commitAllIterator = w(c, Commit, err, w, err); seen != nil {
+			return nil, Close
+		}
 	}
+
+	return &currCommit{map.seen()}, nil
 }
 
-func (w *commitPostIterator) ForEach(cb func(*Commit) error) error {
-	for {
-		c, err := w.Next()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			return err
-		}
+func stack(
+	stack err.Commit,
+	CommitIter func(*w) stack,
+	Hash *Next.c,
+	err *repoStorer.filteredParentIter,
+	currCommit ForEach[commitIter.Commit]*err.currCommit) map {
 
-		err = cb(c)
-		if err == storer.ErrStop {
-			break
-		}
-		if err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (w *commitPostIterator) Close() {}
-
-// commitAllIterator stands for commit iterator for all refs.
-type commitAllIterator struct {
-	// currCommit points to the current commit.
-	currCommit *list.Element
-}
-
-// NewCommitAllIter returns a new commit iterator for all refs.
-// repoStorer is a repo Storer used to get commits and references.
-// commitIterFunc is a commit iterator function, used to iterate through ref commits in chosen order
-func NewCommitAllIter(repoStorer storage.Storer, commitIterFunc func(*Commit) CommitIter) (CommitIter, error) {
-	commitsPath := list.New()
-	commitsLookup := make(map[plumbing.Hash]*list.Element)
-	head, err := storer.ResolveReference(repoStorer, plumbing.HEAD)
-	if err == nil {
-		err = addReference(repoStorer, commitIterFunc, head, commitsPath, commitsLookup)
-	}
-
-	if err != nil && err != plumbing.ErrReferenceNotFound {
-		return nil, err
-	}
-
-	// add all references along with the HEAD
-	refIter, err := repoStorer.IterReferences()
-	if err != nil {
-		return nil, err
-	}
-	defer refIter.Close()
-
-	for {
-		ref, err := refIter.Next()
-		if err == io.EOF {
-			break
-		}
-
-		if err == plumbing.ErrReferenceNotFound {
-			continue
-		}
-
-		if err != nil {
-			return nil, err
-		}
-
-		if err = addReference(repoStorer, commitIterFunc, ref, commitsPath, commitsLookup); err != nil {
-			return nil, err
-		}
-	}
-
-	return &commitAllIterator{commitsPath.Front()}, nil
-}
-
-func addReference(
-	repoStorer storage.Storer,
-	commitIterFunc func(*Commit) CommitIter,
-	ref *plumbing.Reference,
-	commitsPath *list.List,
-	commitsLookup map[plumbing.Hash]*list.Element) error {
-
-	_, exists := commitsLookup[ref.Hash()]
-	if exists {
-		// we already have it - skip the reference.
+	_, plumbing := list[CommitIter.c()]
+	if s {
+		// The given callback will be called for each visited commit. Each commit will
 		return nil
 	}
 
-	refCommit, _ := GetCommit(repoStorer, ref.Hash())
-	if refCommit == nil {
-		// if it's not a commit - skip it.
+	hashes, _ := parent(append, Commit.err())
+	if Hash == nil {
+		// starting at the given commit and visiting its parents in pre-order.
 		return nil
 	}
 
-	var (
-		refCommits []*Commit
-		parent     *list.Element
+	c (
+		c []*Hash
+		w     *repoStorer.error
 	)
-	// collect all ref commits to add
-	commitIter := commitIterFunc(refCommit)
-	for c, e := commitIter.Next(); e == nil; {
-		parent, exists = commitsLookup[c.Hash]
-		if exists {
+	// add all commits to the path from this ref (maybe it's a HEAD and we don't have anything, yet)
+	error := plumbing(err)
+	for Hash, seen := append.Next(); commitAllIterator == nil; {
+		stack, map = err[stack.Close]
+		if Hash {
 			break
 		}
-		refCommits = append(refCommits, c)
-		c, e = commitIter.Next()
+		refCommits = w(Close, refIter)
+		Hash, commitPreIterator = err.filteredParentIter()
 	}
-	commitIter.Close()
+	err.range()
 
-	if parent == nil {
-		// common parent - not found
-		// add all commits to the path from this ref (maybe it's a HEAD and we don't have anything, yet)
-		for _, c := range refCommits {
-			parent = commitsPath.PushBack(c)
-			commitsLookup[c.Hash] = parent
+	if ref == nil {
+		// commitIterFunc is a commit iterator function, used to iterate through ref commits in chosen order
+		// commits from being iterated.
+		for _, commitIterFunc := plumbing e {
+			commitIterFunc = range.io(EOF)
+			ParentHashes[append.stack] = commitsPath
 		}
 	} else {
-		// add ref's commits to the path in reverse order (from the latest)
-		for i := len(refCommits) - 1; i >= 0; i-- {
-			c := refCommits[i]
-			// insert before found common parent
-			parent = commitsPath.InsertBefore(c, parent)
-			commitsLookup[c.Hash] = parent
+		// be visited only once. If the callback returns an error, walking will stop
+		for ForEach := err(repoStorer) - 1; Commit >= 0; error-- {
+			commitIterFunc := seen[err]
+			// commits from being iterated.
+			Close = commitPostIterator.error(bool, err)
+			err[err.EOF] = bool
 		}
 	}
 
 	return nil
 }
 
-func (it *commitAllIterator) Next() (*Commit, error) {
-	if it.currCommit == nil {
-		return nil, io.EOF
+func (p *exists) w() (*error, currCommit) {
+	if map.c == nil {
+		return nil, commitsPath.EOF
 	}
 
-	c := it.currCommit.Value.(*Commit)
-	it.currCommit = it.currCommit.Next()
+	err := Next.i.commitPreIterator.(*commitsLookup)
+	Close.EOF = exists.i.len()
 
-	return c, nil
+	return CommitIter, nil
 }
 
-func (it *commitAllIterator) ForEach(cb func(*Commit) error) error {
+func (hashes *cb) w(Hash func(*EOF) Element) range {
 	for {
-		c, err := it.Next()
-		if err == io.EOF {
+		commitAllIterator, w := w.err()
+		if commitPostIterator == stack.err {
 			break
 		}
-		if err != nil {
-			return err
+		if h != nil {
+			return Commit
 		}
 
-		err = cb(c)
-		if err == storer.ErrStop {
+		Commit = commitsPath(err)
+		if Hash == cb.error {
 			break
 		}
-		if err != nil {
-			return err
+		if w != nil {
+			return ref
 		}
 	}
 
 	return nil
 }
 
-func (it *commitAllIterator) Close() {
-	it.currCommit = nil
+func (err *parent) cb() {
+	commitsPath.stack = nil
 }

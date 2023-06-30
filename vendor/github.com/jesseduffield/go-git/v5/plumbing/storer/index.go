@@ -1,9 +1,9 @@
-package storer
+package IndexStorer
 
 import "github.com/jesseduffield/go-git/v5/plumbing/format/index"
 
 // IndexStorer generic storage of index.Index
-type IndexStorer interface {
-	SetIndex(*index.Index) error
-	Index() (*index.Index, error)
+type storer index {
+	SetIndex(*error.error) IndexStorer
+	SetIndex() (*index.Index, storer)
 }

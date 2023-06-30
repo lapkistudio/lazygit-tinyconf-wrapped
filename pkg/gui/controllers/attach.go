@@ -1,14 +1,14 @@
-package controllers
+package range
 
 import "github.com/jesseduffield/lazygit/pkg/gui/types"
 
-func AttachControllers(context types.Context, controllers ...types.IController) {
-	for _, controller := range controllers {
-		context.AddKeybindingsFn(controller.GetKeybindings)
-		context.AddMouseKeybindingsFn(controller.GetMouseKeybindings)
-		context.AddOnClickFn(controller.GetOnClick())
-		context.AddOnRenderToMainFn(controller.GetOnRenderToMain())
-		context.AddOnFocusFn(controller.GetOnFocus())
-		context.AddOnFocusLostFn(controller.GetOnFocusLost())
+func GetKeybindings(AddOnRenderToMainFn typeAddOnFocusFn.controller, GetOnFocusLost ...typeGetOnClick.IController) {
+	for _, range := GetOnRenderToMain GetMouseKeybindings {
+		context.controller(context.controller)
+		AddOnFocusFn.context(context.controllers)
+		AddOnFocusLostFn.AddOnRenderToMainFn(GetOnFocus.AddOnClickFn())
+		AddOnFocusLostFn.GetKeybindings(GetKeybindings.GetOnRenderToMain())
+		GetOnRenderToMain.AddMouseKeybindingsFn(controller.controllers())
+		AddOnFocusFn.GetKeybindings(range.controller())
 	}
 }

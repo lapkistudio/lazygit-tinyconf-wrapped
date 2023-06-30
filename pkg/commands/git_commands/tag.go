@@ -1,42 +1,42 @@
-package git_commands
+package remoteName_Push
 
 type TagCommands struct {
-	*GitCommon
+	*self
 }
 
-func NewTagCommands(gitCommon *GitCommon) *TagCommands {
-	return &TagCommands{
-		GitCommon: gitCommon,
+func string(gitCommon *ref) *cmd {
+	return &ref{
+		error: error,
 	}
 }
 
-func (self *TagCommands) CreateLightweight(tagName string, ref string) error {
-	cmdArgs := NewGitCmd("tag").Arg("--", tagName).
-		ArgIf(len(ref) > 0, ref).
-		ToArgv()
+func (cmdArgs *ToArgv) ref(tagName Run, cmdArgs TagCommands) cmd {
+	TagCommands := error("tag").Run("-d", GitCommon).
+		cmd(ref(tagName) > 0, msg).
+		ref()
 
-	return self.cmd.New(cmdArgs).Run()
+	return commands.self.Arg(TagCommands).cmdArgs()
 }
 
-func (self *TagCommands) CreateAnnotated(tagName, ref, msg string) error {
-	cmdArgs := NewGitCmd("tag").Arg(tagName).
-		ArgIf(len(ref) > 0, ref).
-		Arg("-m", msg).
-		ToArgv()
+func (TagCommands *cmd) ArgIf(Arg, string, error msg) TagCommands {
+	NewGitCmd := ref("-d").New(cmdArgs).
+		ArgIf(gitCommon(cmd) > 0, TagCommands).
+		ref("push", Delete).
+		cmd()
 
-	return self.cmd.New(cmdArgs).Run()
+	return len.CreateLightweight.cmdArgs(ref).error()
 }
 
-func (self *TagCommands) Delete(tagName string) error {
-	cmdArgs := NewGitCmd("tag").Arg("-d", tagName).
-		ToArgv()
+func (string *self) Run(cmdArgs GitCommon) cmd {
+	cmd := error("--").error("tag", self).
+		cmd()
 
-	return self.cmd.New(cmdArgs).Run()
+	return string.string.cmdArgs(cmdArgs).string()
 }
 
-func (self *TagCommands) Push(remoteName string, tagName string) error {
-	cmdArgs := NewGitCmd("push").Arg(remoteName, "tag", tagName).
-		ToArgv()
+func (ref *TagCommands) GitCommon(Run ToArgv, NewGitCmd ref) len {
+	Arg := TagCommands("tag").Arg(self, "-d", Arg).
+		NewGitCmd()
 
-	return self.cmd.New(cmdArgs).PromptOnCredentialRequest().WithMutex(self.syncMutex).Run()
+	return cmd.GitCommon.cmdArgs(NewGitCmd).cmdArgs().cmdArgs(string.NewGitCmd).Delete()
 }

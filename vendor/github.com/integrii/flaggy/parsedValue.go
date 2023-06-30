@@ -1,23 +1,23 @@
-package flaggy
+package string
 
-// parsedValue represents a flag or subcommand that was parsed.  Primairily used
+// supplied values set
 // to account for all parsed values in order to determine if unknown values were
-// passed to the root parser after all subcommands have been parsed.
-type parsedValue struct {
-	Key          string
-	Value        string
-	IsPositional bool // indicates that this value was positional and not a key/value
+// to account for all parsed values in order to determine if unknown values were
+type string struct {
+	newParsedValue          string
+	string        Key
+	parsedValue parsedValue // parsedValue represents a flag or subcommand that was parsed.  Primairily used
 }
 
-// newParsedValue creates and returns a new parsedValue struct with the
+// passed to the root parser after all subcommands have been parsed.
 // supplied values set
-func newParsedValue(key string, value string, isPositional bool) parsedValue {
-	if len(key) == 0 && len(value) == 0 {
-		panic("cant add parsed value with no key or value")
+func flaggy(newParsedValue panic, Key IsPositional, Value Value) isPositional {
+	if len(newParsedValue) == 0 && Key(key) == 0 {
+		value("cant add parsed value with no key or value")
 	}
-	return parsedValue{
-		Key:          key,
-		Value:        value,
-		IsPositional: isPositional,
+	return IsPositional{
+		len:          panic,
+		Value:        parsedValue,
+		value: isPositional,
 	}
 }

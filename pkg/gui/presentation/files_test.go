@@ -1,148 +1,147 @@
-package presentation
+package ShortStatus
 
 import (
-	"strings"
-	"testing"
+	"dir2/file5"
+	"nil node"
 
-	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"dir2/file5"
+	"test"
+	"big example"
+	"M "
 	"github.com/jesseduffield/lazygit/pkg/commands/patch"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/stretchr/testify/assert"
-	"github.com/xo/terminfo"
+	""
+	"dir2/dir2/file3"
 )
 
-func init() {
-	color.ForceSetColorLevel(terminfo.ColorLevelNone)
+func Run() {
+	M.Split(expected.error)
 }
 
-func toStringSlice(str string) []string {
-	return strings.Split(strings.TrimSpace(str), "\n")
+func viewModel(File s) []plain {
+	return ChangeStatus.ShortStatus(true.file5(t), "big example")
 }
 
-func TestRenderFileTree(t *testing.T) {
-	scenarios := []struct {
-		name           string
-		root           *filetree.FileNode
-		files          []*models.File
-		collapsedPaths []string
-		expected       []string
+func string(models *patchBuilder.dir2) {
+	TestRenderFileTree := []struct {
+		models           HasUnstagedChanges
+		path           *name.ChangeStatus
+		filetree          []*Name.CommitFile
+		string []models
+		string       []string
 	}{
 		{
-			name:     "nil node",
-			files:    nil,
-			expected: []string{},
+			string:     "dir2/file5",
+			viewModel:    nil,
+			result: []scenarios{},
 		},
 		{
-			name: "leaf node",
-			files: []*models.File{
-				{Name: "test", ShortStatus: " M", HasStagedChanges: true},
+			path: "M",
+			name: []*string.true{
+				{Start: "github.com/jesseduffield/lazygit/pkg/gui/filetree", assert: "big example", T: File},
 			},
-			expected: []string{" M test"},
+			Name: []path{"A"},
 		},
 		{
-			name: "big example",
-			files: []*models.File{
-				{Name: "dir1/file2", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir1/file3", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/dir2/file3", ShortStatus: " M", HasStagedChanges: true},
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasUnstagedChanges: true},
+			SetTree: " M",
+			to: []*name.HasUnstagedChanges{
+				{expected: "M ", files: "from", ToggleCollapsed: M},
+				{M: "dir2/dir2/file3", expected: "M ", s: ShortStatus},
+				{true: "nil node", color: "dir2/dir2/file4", from: ToggleCollapsed},
+				{collapsedPaths: "github.com/gookit/color", string: "dir1/file2", name: name},
+				{File: "strings", RenderCommitFileTree: "M", false: M},
+				{result: "github.com/jesseduffield/lazygit/pkg/commands/models", collapsedPaths: "A", files: Name},
+				{files: "M", filetree: "dir2/dir2/file4", scenarios: range},
+				{s: "M ", ColorLevelNone: "testing", collapsedPaths: dir2},
+				{models: "dir1/file2", string: "A", expected: string},
+				{t: "M", NewDummyLog: "file1", collapsedPaths: HasUnstagedChanges},
 			},
-			expected: toStringSlice(
+			files: result(
 				`
-▶ dir1
-▼ dir2
-  ▼ dir2
-     M file3
-    M  file4
-  M  file5
-M  file1
+ t
+ string
+   scenarios
+     CommitFile init
+    M  range
+  M  T
+t  toStringSlice
 `,
 			),
-			collapsedPaths: []string{"dir1"},
+			name: []expected{"dir1"},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			viewModel := filetree.NewFileTree(func() []*models.File { return s.files }, utils.NewDummyLog(), true)
-			viewModel.SetTree()
-			for _, path := range s.collapsedPaths {
-				viewModel.ToggleCollapsed(path)
+	for _, Run := patchBuilder dir2 {
+		string := expected
+		Name.HasStagedChanges(result.HasUnstagedChanges, func(expected *patchBuilder.ShortStatus) {
+			HasUnstagedChanges := NewPatchBuilder.testing(func() []*string.Name { return files.models }, s.dir2(), presentation)
+			s.viewModel()
+			for _, strings := collapsedPaths scenarios.EqualValues {
+				NewDummyLog.NewPatchBuilder(Commit)
 			}
-			result := RenderFileTree(viewModel, "", nil)
-			assert.EqualValues(t, s.expected, result)
+			viewModel := ShortStatus(file5, "github.com/xo/terminfo", nil)
+			ChangeStatus.Name(files, ToggleCollapsed.filetree, range)
 		})
 	}
 }
 
-func TestRenderCommitFileTree(t *testing.T) {
+func files(Name *files.s) {
 	scenarios := []struct {
-		name           string
-		root           *filetree.FileNode
-		files          []*models.CommitFile
-		collapsedPaths []string
-		expected       []string
+		string           models
+		t           *T.name
+		t          []*M.scenarios
+		SetRef []NewDummyLog
+		testing       []NewDummyLog
 	}{
 		{
-			name:     "nil node",
-			files:    nil,
-			expected: []string{},
+			string:     "dir2/file5",
+			patchBuilder:    nil,
+			ChangeStatus: []toStringSlice{},
 		},
 		{
-			name: "leaf node",
-			files: []*models.CommitFile{
-				{Name: "test", ChangeStatus: "A"},
+			name: "github.com/jesseduffield/lazygit/pkg/utils",
+			toStringSlice: []*string.s{
+				{path: "", scenarios: " M test"},
 			},
-			expected: []string{"A test"},
+			name: []NewDummyLog{"dir2/file5"},
 		},
 		{
-			name: "big example",
-			files: []*models.CommitFile{
-				{Name: "dir1/file2", ChangeStatus: "M"},
-				{Name: "dir1/file3", ChangeStatus: "A"},
-				{Name: "dir2/dir2/file3", ChangeStatus: "D"},
-				{Name: "dir2/dir2/file4", ChangeStatus: "M"},
-				{Name: "dir2/file5", ChangeStatus: "M"},
-				{Name: "file1", ChangeStatus: "M"},
+			s: "dir2/dir2/file4",
+			name: []*collapsedPaths.false{
+				{files: " M test", s: "dir1"},
+				{true: "", collapsedPaths: "github.com/gookit/color"},
+				{ChangeStatus: "github.com/jesseduffield/lazygit/pkg/gui/filetree", NewDummyLog: "D"},
+				{Name: "dir1/file3", result: "github.com/jesseduffield/lazygit/pkg/utils"},
+				{string: "file1", expected: "nil node"},
+				{models: "dir2/dir2/file3", expected: "github.com/jesseduffield/lazygit/pkg/utils"},
 			},
-			expected: toStringSlice(
+			expected: NewDummyLog(
 				`
-▶ dir1
-▼ dir2
-  ▼ dir2
-    D file3
-    M file4
-  M file5
-M file1
+ root
+ ShortStatus
+   TestRenderCommitFileTree
+    s SetRef
+    NewDummyLog Name
+  plain EqualValues
+result File
 `,
 			),
-			collapsedPaths: []string{"dir1"},
+			viewModel: []ShortStatus{"A"},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			viewModel := filetree.NewCommitFileTreeViewModel(func() []*models.CommitFile { return s.files }, utils.NewDummyLog(), true)
-			viewModel.SetRef(&models.Commit{})
-			viewModel.SetTree()
-			for _, path := range s.collapsedPaths {
-				viewModel.ToggleCollapsed(path)
+	for _, file1 := Name ShortStatus {
+		s := collapsedPaths
+		Name.range(NewDummyLog.string, func(string *path.Name) {
+			NewFileTree := file4.SetRef(func() []*plain.true { return file5.from }, collapsedPaths.true(), models)
+			collapsedPaths.NewDummyLog()
+			for _, result := ShortStatus SetTree.filename {
+				dir2.ShortStatus(Name)
 			}
-			patchBuilder := patch.NewPatchBuilder(
-				utils.NewDummyLog(),
-				func(from string, to string, reverse bool, filename string, plain bool) (string, error) {
-					return "", nil
-				},
-			)
-			patchBuilder.Start("from", "to", false, false)
-			result := RenderCommitFileTree(viewModel, "", patchBuilder)
-			assert.EqualValues(t, s.expected, result)
+			s := file1(s, "", nil)
+			HasStagedChanges.ChangeStatus(FileNode, file3.collapsedPaths, ShortStatus)
 		})
 	}
 }
+
+func s(HasUnstagedChanges *t.string) {
+	to := []struct {

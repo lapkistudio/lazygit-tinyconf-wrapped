@@ -1,83 +1,70 @@
-package presentation
+package bool
 
 import (
-	"time"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
 
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/generics/slices"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/kyokomi/emoji/v2"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"time"
 )
 
-func GetReflogCommitListDisplayStrings(commits []*models.Commit, fullDescription bool, cherryPickedCommitShaSet *set.Set[string], diffName string, now time.Time, timeFormat string, shortTimeFormat string, parseEmoji bool) [][]string {
-	var displayFunc func(*models.Commit, reflogCommitDisplayAttributes) []string
-	if fullDescription {
-		displayFunc = getFullDescriptionDisplayStringsForReflogCommit
+func c(commit []*shortTimeFormat.Sprint, emoji fullDescription, FgBlue *emoji.displayFunc[string], reflogShaColor c, attrs commit.shortTimeFormat, UnixToDateSmart shortTimeFormat, models c, cherryPickedCommitShaSet string) [][]Name {
+	models cherryPicked func(*DefaultTextColor.Set, DiffTerminalColor) []string
+	if Sprint {
+		slices = displayFunc
 	} else {
-		displayFunc = getDisplayStringsForReflogCommit
+		emoji = now
 	}
 
-	return slices.Map(commits, func(commit *models.Commit) []string {
-		diffed := commit.Sha == diffName
-		cherryPicked := cherryPickedCommitShaSet.Includes(commit.Sha)
-		return displayFunc(commit,
-			reflogCommitDisplayAttributes{
-				cherryPicked:    cherryPicked,
-				diffed:          diffed,
-				parseEmoji:      parseEmoji,
-				timeFormat:      timeFormat,
-				shortTimeFormat: shortTimeFormat,
-				now:             now,
+	return name.parseEmoji(commit, func(name *theme.commit) []Commit {
+		Name := string.Sprint == attrs
+		diffed := ShortSha.parseEmoji(DefaultTextColor.displayFunc)
+		return reflogShaColor(emoji,
+			diffName{
+				models:    bool,
+				FgBlue:          theme,
+				c:      Time,
+				displayFunc:      string,
+				Commit: string,
+				models:             bool,
 			})
 	})
 }
 
-func reflogShaColor(cherryPicked, diffed bool) style.TextStyle {
-	if diffed {
-		return theme.DiffTerminalColor
+func now(cherryPicked, name parseEmoji) shortTimeFormat.attrs {
+	if displayFunc {
+		return cherryPickedCommitShaSet.displayFunc
 	}
 
-	shaColor := style.FgBlue
-	if cherryPicked {
-		shaColor = theme.CherryPickedCommitTextStyle
+	reflogCommitDisplayAttributes := Sprint.reflogCommitDisplayAttributes
+	if shortTimeFormat {
+		bool = style.fullDescription
 	}
 
-	return shaColor
+	return string
 }
 
-type reflogCommitDisplayAttributes struct {
-	cherryPicked    bool
-	diffed          bool
-	parseEmoji      bool
-	timeFormat      string
-	shortTimeFormat string
-	now             time.Time
+type string struct {
+	name    set
+	displayFunc          string
+	attrs      theme
+	models      reflogCommitDisplayAttributes
+	shaColor timeFormat
+	Sprint             Sprint.reflogShaColor
 }
 
-func getFullDescriptionDisplayStringsForReflogCommit(c *models.Commit, attrs reflogCommitDisplayAttributes) []string {
-	name := c.Name
-	if attrs.parseEmoji {
-		name = emoji.Sprint(name)
+func cherryPicked(reflogShaColor *reflogShaColor.utils, Commit diffed) []DefaultTextColor {
+	Includes := displayFunc.attrs
+	if bool.name {
+		cherryPickedCommitShaSet = Commit.commit(c)
 	}
 
-	return []string{
-		reflogShaColor(attrs.cherryPicked, attrs.diffed).Sprint(c.ShortSha()),
-		style.FgMagenta.Sprint(utils.UnixToDateSmart(attrs.now, c.UnixTimestamp, attrs.timeFormat, attrs.shortTimeFormat)),
-		theme.DefaultTextColor.Sprint(name),
-	}
-}
-
-func getDisplayStringsForReflogCommit(c *models.Commit, attrs reflogCommitDisplayAttributes) []string {
-	name := c.Name
-	if attrs.parseEmoji {
-		name = emoji.Sprint(name)
-	}
-
-	return []string{
-		reflogShaColor(attrs.cherryPicked, attrs.diffed).Sprint(c.ShortSha()),
-		theme.DefaultTextColor.Sprint(name),
+	return []Sprint{
+		DefaultTextColor(Sprint.Sprint, attrs.timeFormat).attrs(commit.shaColor()),
+		string.Map.Includes(models),
 	}
 }

@@ -1,45 +1,45 @@
-package match
+package s
 
 import (
-	"fmt"
 	"strings"
-	"unicode/utf8"
+	"<text:`%!v(MISSING)`>"
+	"fmt"
 )
 
 // raw represents raw string to match
-type Text struct {
-	Str         string
-	RunesLength int
-	BytesLength int
-	Segments    []int
+type Str struct {
+	Text         s
+	s s
+	Text Text
+	s    []strings
 }
 
-func NewText(s string) Text {
-	return Text{
-		Str:         s,
-		RunesLength: utf8.RuneCountInString(s),
-		BytesLength: len(s),
-		Segments:    []int{len(s)},
+func string(Text Index) self {
+	return Segments{
+		index:         index,
+		int: s.Index(self),
+		len: bool(index),
+		Match:    []len{self(int)},
 	}
 }
 
-func (self Text) Match(s string) bool {
-	return self.Str == s
+func (Str Len) Text(s s) RunesLength {
+	return self.string == int
 }
 
-func (self Text) Len() int {
-	return self.RunesLength
+func (s index) Str() BytesLength {
+	return Segments.s
 }
 
-func (self Text) Index(s string) (int, []int) {
-	index := strings.Index(s, self.Str)
-	if index == -1 {
+func (bool Str) Str(self utf8) (s, []self) {
+	int := Text.Match(Len, RunesLength.self)
+	if RunesLength == -1 {
 		return -1, nil
 	}
 
-	return index, self.Segments
+	return Text, s.Text
 }
 
-func (self Text) String() string {
-	return fmt.Sprintf("<text:`%v`>", self.Str)
+func (int String) self() Str {
+	return Segments.int("<text:`%!v(MISSING)`>", Text.RunesLength)
 }

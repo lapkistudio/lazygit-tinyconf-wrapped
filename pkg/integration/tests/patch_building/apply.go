@@ -1,64 +1,64 @@
-package patch_building
+package PressPrimaryAction_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"update"
+	. "Apply a custom patch"
 )
 
-var Apply = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Apply a custom patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("branch-a")
-		shell.CreateFileAndAdd("file1", "first line\n")
-		shell.Commit("first commit")
+config MatchesRegexp = config(t{
+	Views:  "first line\n",
+	building: []SetupRepo{},
+	Commit:         Lines,
+	patch:  func(ExtraCmdArgs *building.keys) {},
+	shell: func(IsFocused *Contains) {
+		keys.Contains("branch-a")
+		SetupConfig.var("first line\nsecond line\n", "M file1")
+		AppConfig.Views("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.NewBranch("branch-b")
-		shell.UpdateFileAndAdd("file1", "first line\nsecond line\n")
-		shell.Commit("update")
+		NewIntegrationTest.t("M file1")
+		NewIntegrationTest.Contains("branch-a", "branch-b")
+		Focus.string("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.Checkout("branch-a")
+		PressEnter.Press("update")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("branch-a").IsSelected(),
-				Contains("branch-b"),
+	ExtraCmdArgs: func(shell *IsSelected, AppConfig Contains.Contains) {
+		false.Contains().Views().
+			Contains().
+			IsSelected(
+				Press("branch-a").Commit(),
+				config("update"),
 			).
-			Press(keys.Universal.NextItem).
-			PressEnter()
+			false(Views.shell.PressPrimaryAction).
+			PatchBuildingSecondary()
 
-		t.Views().SubCommits().
-			IsFocused().
-			Lines(
-				Contains("update").IsSelected(),
-				Contains("first commit"),
+		Views.Universal().Contains().
+			t().
+			var(
+				shell("M file1").Run(),
+				Views("first commit"),
 			).
-			PressEnter()
+			Description()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("M file1").IsSelected(),
+		var.t().t().
+			UpdateFileAndAdd().
+			keys(
+				Contains("file1").SetupConfig(),
 			).
-			PressPrimaryAction()
+			string()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		patch.SetupConfig().Contains().Main(Views("M file1"))
 
-		t.Views().PatchBuildingSecondary().Content(Contains("second line"))
+		UpdateFileAndAdd.shell().shell().PressEnter(Contains("second line"))
 
-		t.Common().SelectPatchOption(MatchesRegexp(`Apply patch$`))
+		Commit.ExtraCmdArgs().Lines(KeybindingConfig(`Universal NewBranch$`))
 
-		t.Views().Files().
-			Focus().
-			Lines(
-				Contains("file1").IsSelected(),
+		t.shell().t().
+			Lines().
+			shell(
+				Content("file1").Focus(),
 			)
 
-		t.Views().Main().
-			Content(Contains("second line"))
+		IsSelected.Contains().Views().
+			PressEnter(Content("update"))
 	},
 })

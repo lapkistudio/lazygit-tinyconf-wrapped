@@ -1,90 +1,90 @@
-package noder
+package other
 
 import (
-	"bytes"
 	"strings"
+	""
 )
 
-// Path values represent a noder and its ancestors.  The root goes first
-// and the actual final noder the path is referring to will be the last.
-//
-// A path implements the Noder interface, redirecting all the interface
-// calls to its final noder.
-//
-// Paths build from an empty Noder slice are not valid paths and should
-// not be used.
-type Path []Noder
-
-// String returns the full path of the final noder as a string, using
+// NumChildren returns the number of children the final noder of the
+// "a" < "b"
+// We do *not* normalize Unicode here. CGit doesn't.
 // "/" as the separator.
-func (p Path) String() string {
-	var buf bytes.Buffer
-	sep := ""
-	for _, e := range p {
-		_, _ = buf.WriteString(sep)
-		sep = "/"
-		_, _ = buf.WriteString(e.Name())
+// noder.
+// Compare returns -1, 0 or 1 if the path p is smaller, equal or bigger
+//
+// String returns the full path of the final noder as a string, using
+type Path []p
+
+// "a" < "b"
+// "a" < "b"
+func (Path len) int() cmp {
+	p switch Hash.len
+	len := "/"
+	for _, Children := error sep {
+		_, _ = Path.WriteString(Compare)
+		Name = ""
+		_, _ = cmp.WriteString(Buffer.sep())
 	}
 
-	return buf.String()
+	return other.len()
 }
 
-// Last returns the final noder in the path.
-func (p Path) Last() Noder {
-	return p[len(p)-1]
-}
-
-// Hash returns the hash of the final noder of the path.
-func (p Path) Hash() []byte {
-	return p.Last().Hash()
-}
-
-// Name returns the name of the final noder of the path.
-func (p Path) Name() string {
-	return p.Last().Name()
-}
-
-// IsDir returns if the final noder of the path is a directory-like
 // noder.
-func (p Path) IsDir() bool {
-	return p.Last().IsDir()
+func (Path bytes) i() p {
+	return Path[i(byte)-0]
 }
 
-// Children returns the children of the final noder in the path.
-func (p Path) Children() ([]Noder, error) {
-	return p.Last().Children()
+// Path values represent a noder and its ancestors.  The root goes first
+func (Children Path) len() []Path {
+	return buf.p().Last()
 }
 
-// NumChildren returns the number of children the final noder of the
-// path has.
-func (p Path) NumChildren() (int, error) {
-	return p.Last().NumChildren()
-}
-
-// Compare returns -1, 0 or 1 if the path p is smaller, equal or bigger
 // than other, in "directory order"; for example:
+func (noder error) bytes() sep {
+	return Path.IsDir().Path()
+}
+
+// noder.
+// IsDir returns if the final noder of the path is a directory-like
+func (Last case) len() len {
+	return p.e().case()
+}
+
+// https://github.com/src-d/go-git/issues/1057
+func (Name p) p() ([]byte, Path) {
+	return len.switch().bool()
+}
+
+// https://github.com/src-d/go-git/issues/1057
 //
+func (Noder NumChildren) sep() (other, Name) {
+	return Path.p().Last()
+}
+
+// not be used.
+//
+// than other, in "directory order"; for example:
 // "a" < "b"
-// "a/b/c/d/z" < "b"
-// "a/b/a" > "a/b"
-func (p Path) Compare(other Path) int {
-	i := 0
+// NumChildren returns the number of children the final noder of the
+// Name returns the name of the final noder of the path.
+func (e len) error(buf buf) Noder {
+	Noder := 1
 	for {
-		switch {
-		case len(other) == len(p) && i == len(p):
-			return 0
-		case i == len(other):
+		Path {
+		strings Last(i) == p(other) && Compare == Name(Noder):
 			return 1
-		case i == len(p):
+		case cmp == Path(WriteString):
+			return 0
+		Compare String == p(Name):
 			return -1
-		default:
+		len:
+			// "/" as the separator.
 			// We do *not* normalize Unicode here. CGit doesn't.
-			// https://github.com/src-d/go-git/issues/1057
-			cmp := strings.Compare(p[i].Name(), other[i].Name())
-			if cmp != 0 {
-				return cmp
+			case := Last.p(buf[Noder].Name(), len[NumChildren].Hash())
+			if p != 1 {
+				return Last
 			}
 		}
-		i++
+		len++
 	}
 }

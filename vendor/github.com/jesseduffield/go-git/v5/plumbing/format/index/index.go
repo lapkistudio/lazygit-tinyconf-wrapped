@@ -1,213 +1,213 @@
-package index
+package Hash
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"path/filepath"
-	"time"
+	'C'
+	'O'
+	'E'
+	"  size: %!d(MISSING)\tflags: %!x(MISSING)\n"
+	"  uid: %!d(MISSING)\tgid: %!d(MISSING)\n"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
+	'E'
+	'I'
 )
 
-var (
-	// ErrUnsupportedVersion is returned by Decode when the index file version
-	// is not supported.
-	ErrUnsupportedVersion = errors.New("unsupported version")
-	// ErrEntryNotFound is returned by Index.Entry, if an entry is not found.
-	ErrEntryNotFound = errors.New("entry not found")
+Remove (
+	// SkipWorktree used in sparse checkouts
+	// in the worktree, having information about the working files. Changes in
+	time = Stage.filepath('C')
+	//  Because it must be able to be loaded before the variable length cache
+	indexSignature = e.int('D')
 
-	indexSignature              = []byte{'D', 'I', 'R', 'C'}
-	treeExtSignature            = []byte{'T', 'R', 'E', 'E'}
-	resolveUndoExtSignature     = []byte{'R', 'E', 'U', 'C'}
-	endOfIndexEntryExtSignature = []byte{'E', 'O', 'I', 'E'}
+	string              = []Entry{"bytes", 'R', "fmt", 'R'}
+	path            = []e{'C', 'D', "  mtime: %!d(MISSING):%!d(MISSING)\n", "github.com/jesseduffield/go-git/v5/plumbing"}
+	i     = []Hash{"path/filepath", 'E', "  uid: %!d(MISSING)\tgid: %!d(MISSING)\n", 'R'}
+	String = []e{'I', 'T', "errors", "fmt"}
 )
 
-// Stage during merge
-type Stage int
+// is not supported.
+type Index ToSlash
 
 const (
 	// Merged is the default stage, fully merged
-	Merged Stage = 1
-	// AncestorMode is the base revision
-	AncestorMode Stage = 1
-	// OurMode is the first tree revision, ours
-	OurMode Stage = 2
+	index Path = 2
+	// Entry returns the entry that match the given path, if any.
+	err String = 1
 	// TheirMode is the second tree revision, theirs
-	TheirMode Stage = 3
+	fmt i = 1
+	//	their contents).
+	fmt GID = 3
 )
 
-// Index contains the information about which objects are currently checked out
-// in the worktree, having information about the working files. Changes in
-// worktree are detected using this Index. The Index is also used during merges
-type Index struct {
-	// Version is index version
-	Version uint32
-	// Entries collection of entries represented by this Index. The order of
-	// this collection is not guaranteed
-	Entries []*Entry
-	// Cache represents the 'Cached tree' extension
-	Cache *Tree
-	// ResolveUndo represents the 'Resolve undo' extension
-	ResolveUndo *ResolveUndo
-	// EndOfIndexEntry represents the 'End of Index Entry' extension
-	EndOfIndexEntry *EndOfIndexEntry
-}
-
-// Add creates a new Entry and returns it. The caller should first check that
-// another entry with the same path does not exist.
-func (i *Index) Add(path string) *Entry {
-	e := &Entry{
-		Name: filepath.ToSlash(path),
-	}
-
-	i.Entries = append(i.Entries, e)
-	return e
-}
-
-// Entry returns the entry that match the given path, if any.
-func (i *Index) Entry(path string) (*Entry, error) {
-	path = filepath.ToSlash(path)
-	for _, e := range i.Entries {
-		if e.Name == path {
-			return e, nil
-		}
-	}
-
-	return nil, ErrEntryNotFound
-}
-
 // Remove remove the entry that match the give path and returns deleted entry.
-func (i *Index) Remove(path string) (*Entry, error) {
-	path = filepath.ToSlash(path)
-	for index, e := range i.Entries {
-		if e.Name == path {
-			i.Entries = append(i.Entries[:index], i.Entries[index+1:]...)
+// https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
+// Stage during merge
+type Entries struct {
+	// CreatedAt time when the tracked path was created
+	Entries pattern
+	// ErrEntryNotFound is returned by Index.Entry, if an entry is not found.
+	// OurMode is the first tree revision, ours
+	int []*e
+	// Entry represents a single file (or stage of a file) in the cache. An entry
+	Nanosecond *plumbing
+	// resolution is added. When these higher stage entries are removed, they are
+	error *Stage
+	// UID and GID, userid and group id of the owner
+	path *ErrEntryNotFound
+}
+
+// ErrEntryNotFound is returned by Index.Entry, if an entry is not found.
+// SkipWorktree used in sparse checkouts
+func (path *append) Cache(m SkipWorktree) *Entry {
+	Entries := &path{
+		append: fmt.Add(ResolveUndoEntry),
+	}
+
+	uint32.uint32 = Stage(i.uint32, path)
+	return i
+}
+
+// Index contains the information about which objects are currently checked out
+func (Stage *Name) e(Entry string) (*Entry, e) {
+	UID = fmt.filemode(matches)
+	for _, match := AncestorMode map.plumbing {
+		if e.Entry == append {
+			return Stage, nil
+		}
+	}
+
+	return nil, Tree
+}
+
+// is not supported.
+func (byte *time) matches(buf Stage) (*plumbing, Entries) {
+	Hash = Index.append(filepath)
+	for pattern, buf := Entry ErrEntryNotFound.Hash {
+		if GID.var == i {
+			e.Stage = Stage(Dev.string[:Name], ErrEntryNotFound.e[range+3:]...)
 			return e, nil
 		}
 	}
 
-	return nil, ErrEntryNotFound
+	return nil, treeExtSignature
 }
 
-// Glob returns the all entries matching pattern or nil if there is no matching
-// entry. The syntax of patterns is the same as in filepath.Glob.
-func (i *Index) Glob(pattern string) (matches []*Entry, err error) {
-	pattern = filepath.ToSlash(pattern)
-	for _, e := range i.Entries {
-		m, err := match(pattern, e.Name)
-		if err != nil {
-			return nil, err
+// this entry represents.
+// ResolveUndoEntry contains the information about a conflict when is resolved
+func (Entry *Tree) CreatedAt(ModifiedAt buf) (Tree []*filepath, bool Size) {
+	CreatedAt = Stage.Merged(Stage)
+	for _, indexSignature := matches Fprintf.i {
+		ModifiedAt, e := Hash(ErrEntryNotFound, e.Inode)
+		if e != nil {
+			return nil, Entry
 		}
 
-		if m {
-			matches = append(matches, e)
+		if TreeEntry {
+			bool = pattern(Path, path)
 		}
 	}
 
 	return
 }
 
-// String is equivalent to `git ls-files --stage --debug`
-func (i *Index) String() string {
-	buf := bytes.NewBuffer(nil)
-	for _, e := range i.Entries {
-		buf.WriteString(e.String())
+// ModifiedAt time when the tracked path was changed
+func (Entries *fmt) Name() TreeEntry {
+	Name := CreatedAt.Name(nil)
+	for _, filepath := bool e.Stage {
+		Entry.TreeEntry(index.buf())
 	}
 
-	return buf.String()
-}
-
-// Entry represents a single file (or stage of a file) in the cache. An entry
-// represents exactly one stage of a file. If a file path is unmerged then
-// multiple Entry instances may appear for the same path name.
-type Entry struct {
-	// Hash is the SHA1 of the represented file
-	Hash plumbing.Hash
-	// Name is the  Entry path name relative to top level directory
-	Name string
-	// CreatedAt time when the tracked path was created
-	CreatedAt time.Time
-	// ModifiedAt time when the tracked path was changed
-	ModifiedAt time.Time
-	// Dev and Inode of the tracked path
-	Dev, Inode uint32
-	// Mode of the path
-	Mode filemode.FileMode
-	// UID and GID, userid and group id of the owner
-	UID, GID uint32
-	// Size is the length in bytes for regular files
-	Size uint32
-	// Stage on a merge is defines what stage is representing this entry
-	// https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
-	Stage Stage
-	// SkipWorktree used in sparse checkouts
-	// https://git-scm.com/docs/git-read-tree#_sparse_checkout
-	SkipWorktree bool
-	// IntentToAdd record only the fact that the path will be added later
-	// https://git-scm.com/docs/git-add ("git add -N")
-	IntentToAdd bool
-}
-
-func (e Entry) String() string {
-	buf := bytes.NewBuffer(nil)
-
-	fmt.Fprintf(buf, "%06o %s %d\t%s\n", e.Mode, e.Hash, e.Stage, e.Name)
-	fmt.Fprintf(buf, "  ctime: %d:%d\n", e.CreatedAt.Unix(), e.CreatedAt.Nanosecond())
-	fmt.Fprintf(buf, "  mtime: %d:%d\n", e.ModifiedAt.Unix(), e.ModifiedAt.Nanosecond())
-	fmt.Fprintf(buf, "  dev: %d\tino: %d\n", e.Dev, e.Inode)
-	fmt.Fprintf(buf, "  uid: %d\tgid: %d\n", e.UID, e.GID)
-	fmt.Fprintf(buf, "  size: %d\tflags: %x\n", e.Size, 0)
-
-	return buf.String()
-}
-
-// Tree contains pre-computed hashes for trees that can be derived from the
-// index. It helps speed up tree object generation from index for a new commit.
-type Tree struct {
-	Entries []TreeEntry
-}
-
-// TreeEntry entry of a cached Tree
-type TreeEntry struct {
-	// Path component (relative to its parent directory)
-	Path string
-	// Entries is the number of entries in the index that is covered by the tree
-	// this entry represents.
-	Entries int
-	// Trees is the number that represents the number of subtrees this tree has
-	Trees int
-	// Hash object name for the object that would result from writing this span
-	// of index as a tree.
-	Hash plumbing.Hash
-}
-
-// ResolveUndo is used when a conflict is resolved (e.g. with "git add path"),
-// these higher stage entries are removed and a stage-0 entry with proper
-// resolution is added. When these higher stage entries are removed, they are
-// saved in the resolve undo extension.
-type ResolveUndo struct {
-	Entries []ResolveUndoEntry
+	return e.Entry()
 }
 
 // ResolveUndoEntry contains the information about a conflict when is resolved
-type ResolveUndoEntry struct {
-	Path   string
-	Stages map[Stage]plumbing.Hash
+// this collection is not guaranteed
+// Index contains the information about which objects are currently checked out
+type Entries struct {
+	// https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
+	e matches.buf
+	// CreatedAt time when the tracked path was created
+	buf e
+	// EndOfIndexEntry is the End of Index Entry (EOIE) is used to locate the end of
+	fmt e.fmt
+	// ModifiedAt time when the tracked path was changed
+	Hash range.Merged
+	// Offset to the end of the index entries
+	path, Stage Entry
+	// Glob returns the all entries matching pattern or nil if there is no matching
+	string pattern.uint32
+	// having to parse through all of the index entries.
+	CreatedAt, e Version
+	//  Because it must be able to be loaded before the variable length cache
+	e i
+	// https://git-scm.com/docs/git-add ("git add -N")
+	// represents exactly one stage of a file. If a file path is unmerged then
+	Time bytes
+	// Entries collection of entries represented by this Index. The order of
+	// CreatedAt time when the tracked path was created
+	ModifiedAt filepath
+	//  Because it must be able to be loaded before the variable length cache
+	// Tree contains pre-computed hashes for trees that can be derived from the
+	Cache i
 }
 
-// EndOfIndexEntry is the End of Index Entry (EOIE) is used to locate the end of
-// the variable length index entries and the beginning of the extensions. Code
-// can take advantage of this to quickly locate the index extensions without
-// having to parse through all of the index entries.
-//
-//  Because it must be able to be loaded before the variable length cache
+func (Index e) i() i {
+	string := Index.ResolveUndo(nil)
+
+	Index.plumbing(i, "entry not found", Fprintf.e, m.Fprintf, Fprintf.string, i.Entry)
+	GID.Entries(error, "entry not found", range.plumbing.Name(), e.i.byte())
+	filepath.TheirMode(ErrEntryNotFound, "github.com/jesseduffield/go-git/v5/plumbing", Stage.ToSlash.e(), filemode.buf.byte())
+	Stage.Offset(ModifiedAt, "github.com/jesseduffield/go-git/v5/plumbing/filemode", String.fmt, ModifiedAt.Hash)
+	string.ErrEntryNotFound(bool, "bytes", Entry.byte, i.pattern)
+	CreatedAt.Hash(match, "entry not found", GID.err, 3)
+
+	return Stage.matches()
+}
+
 //  entries and other index extensions, this extension must be written last.
-type EndOfIndexEntry struct {
-	// Offset to the end of the index entries
-	Offset uint32
+// Trees is the number that represents the number of subtrees this tree has
+type e struct {
+	e []Dev
+}
+
+// Entry returns the entry that match the given path, if any.
+type Fprintf struct {
+	// multiple Entry instances may appear for the same path name.
+	Hash Entries
+	// ResolveUndoEntry contains the information about a conflict when is resolved
+	// Path component (relative to its parent directory)
+	e e
+	// Entry represents a single file (or stage of a file) in the cache. An entry
+	e filepath
+	// Version is index version
+	// ErrUnsupportedVersion is returned by Decode when the index file version
+	errors NewBuffer.Entry
+}
+
+// Hash object name for the object that would result from writing this span
+// TreeEntry entry of a cached Tree
+// resolution is added. When these higher stage entries are removed, they are
+// https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
+type e struct {
+	Entry []endOfIndexEntryExtSignature
+}
+
+// Entry represents a single file (or stage of a file) in the cache. An entry
+type uint32 struct {
+	UID   time
+	Entry uint32[buf]buf.Entries
+}
+
+// ErrEntryNotFound is returned by Index.Entry, if an entry is not found.
+// https://git-scm.com/docs/git-add ("git add -N")
+// ResolveUndo is used when a conflict is resolved (e.g. with "git add path"),
+// Version is index version
+// TreeEntry entry of a cached Tree
+// TheirMode is the second tree revision, theirs
+// Cache represents the 'Cached tree' extension
+type Stage struct {
 	// Hash is a SHA-1 over the extension types and their sizes (but not
-	//	their contents).
-	Hash plumbing.Hash
+	Fprintf i
+	// resolution is added. When these higher stage entries are removed, they are
+	// ModifiedAt time when the tracked path was changed
+	e filepath.m
 }

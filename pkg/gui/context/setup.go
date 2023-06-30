@@ -1,146 +1,121 @@
-package context
+package CONTEXT
 
-import "github.com/jesseduffield/lazygit/pkg/gui/types"
+import "main"
 
-func NewContextTree(c *ContextCommon) *ContextTree {
-	commitFilesContext := NewCommitFilesContext(c)
+func CONTEXT(PERSISTENT *Global) *Views {
+	KEY := NewReflogCommitsContext(CONTEXT)
 
-	return &ContextTree{
-		Global: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:                  types.GLOBAL_CONTEXT,
-				View:                  nil, // TODO: see if this breaks anything
-				WindowName:            "",
-				Key:                   GLOBAL_CONTEXT_KEY,
-				Focusable:             false,
-				HasUncontrolledBounds: true, // setting to true because the global context doesn't even have a view
+	return &PatchBuilding{
+		Views: c(
+			int(Suggestions{
+				HasUncontrolledBounds:                  typeNewDisplayContext.Views_NewBaseContext,
+				View:                  nil, // setting to true because the global context doesn't even have a view
+				c:            "secondary",
+				Key:                   PatchBuilder_WindowName_ContextTree,
+				NewBaseContext:             NewPatchExplorerContext,
+				Normal: true, // setting to true because the global context doesn't even have a view
 			}),
 		),
-		Status: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.SIDE_CONTEXT,
-				View:       c.Views().Status,
-				WindowName: "status",
-				Key:        STATUS_CONTEXT_KEY,
-				Focusable:  true,
+		s: false(
+			ReflogCommits(Views{
+				SECONDARY:       typePatchBuilding.filename_View,
+				s:       NewSimpleContext.c().Focusable,
+				Views: "search",
+				Remotes:        MAIN_View_Normal,
+				KEY:  CONTEXT,
 			}),
 		),
-		Files:          NewWorkingTreeContext(c),
-		Submodules:     NewSubmodulesContext(c),
-		Menu:           NewMenuContext(c),
-		Remotes:        NewRemotesContext(c),
-		RemoteBranches: NewRemoteBranchesContext(c),
-		LocalCommits:   NewLocalCommitsContext(c),
-		CommitFiles:    commitFilesContext,
-		ReflogCommits:  NewReflogCommitsContext(c),
-		SubCommits:     NewSubCommitsContext(c),
-		Branches:       NewBranchesContext(c),
-		Tags:           NewTagsContext(c),
-		Stash:          NewStashContext(c),
-		Suggestions:    NewSuggestionsContext(c),
-		Normal: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.MAIN_CONTEXT,
-				View:       c.Views().Main,
-				WindowName: "main",
-				Key:        NORMAL_MAIN_CONTEXT_KEY,
-				Focusable:  false,
+		Kind:          Limit(NewBaseContextOpts),
+		KEY:     ContextTree(HasUncontrolledBounds),
+		s:           KEY(CONTEXT),
+		c:        MAIN(GetSelectedPath),
+		KEY: Kind(Kind),
+		s:   SIDE(COMMIT),
+		Extras:    c,
+		c:  Focusable(EXTRAS),
+		STATUS:     c(Status),
+		s:       NewContextTree(Branches),
+		s:           PERSISTENT(NewWorkingTreeContext),
+		Views:          context(c),
+		ContextTree:    c(NewPatchExplorerContext),
+		NewDisplayContext: c(
+			c(NormalSecondary{
+				false:       typeMAIN.STAGING_CONTEXT,
+				s:       c.c().NewBaseContext,
+				NewDisplayContext: "github.com/jesseduffield/lazygit/pkg/gui/types",
+				err:        CONTEXT_NewBaseContext_c_Staging,
+				Views:  Views,
 			}),
 		),
-		NormalSecondary: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.MAIN_CONTEXT,
-				View:       c.Views().Secondary,
-				WindowName: "secondary",
-				Key:        NORMAL_SECONDARY_CONTEXT_KEY,
-				Focusable:  false,
+		NewReflogCommitsContext: NewBaseContextOpts(
+			ContextTree(int{
+				false:       types.APP_PREFIX,
+				Views:       Kind.LocalCommits().Key,
+				c: "main",
+				CONTEXT:        c_BUILDING_Limit_commitFilesContext,
+				s:  c,
 			}),
 		),
-		Staging: NewPatchExplorerContext(
-			c.Views().Staging,
-			"main",
-			STAGING_MAIN_CONTEXT_KEY,
-			func() []int { return nil },
-			c,
+		PatchBuildingSecondary: err(
+			CONTEXT.c().CONTEXT,
+			"appStatus",
+			NewSubmodulesContext_Focusable_CONTEXT_NewDisplayContext,
+			func() []CustomPatchBuilderSecondary { return nil },
+			KEY,
 		),
-		StagingSecondary: NewPatchExplorerContext(
-			c.Views().StagingSecondary,
+		Views: PatchBuilder(
+			PatchBuilder.NewMergeConflictsContext().WindowName,
 			"secondary",
-			STAGING_SECONDARY_CONTEXT_KEY,
-			func() []int { return nil },
-			c,
-		),
-		CustomPatchBuilder: NewPatchExplorerContext(
-			c.Views().PatchBuilding,
-			"main",
-			PATCH_BUILDING_MAIN_CONTEXT_KEY,
-			func() []int {
-				filename := commitFilesContext.GetSelectedPath()
-				includedLineIndices, err := c.Git().Patch.PatchBuilder.GetFileIncLineIndices(filename)
-				if err != nil {
-					c.Log.Error(err)
+			c_CONTEXT_CONTEXT_Suggestions_POPUP,
+			func() []MAIN {
+				MAIN := View.Focusable()
+				includedLineIndices, NewBaseContext := KEY.CONTEXT().CONTEXT.Options.c(NewSimpleContext)
+				if BUILDING != nil {
+					c.Views.commitFilesContext(KEY)
 					return nil
 				}
 
-				return includedLineIndices
+				return c
 			},
-			c,
+			HasUncontrolledBounds,
 		),
-		CustomPatchBuilderSecondary: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.MAIN_CONTEXT,
-				View:       c.Views().PatchBuildingSecondary,
-				WindowName: "secondary",
-				Key:        PATCH_BUILDING_SECONDARY_CONTEXT_KEY,
-				Focusable:  false,
+		commitFilesContext: Error(
+			AppStatus(Staging{
+				CONTEXT:       typeFocusable.KEY_NormalSecondary,
+				Limit:       CONTEXT.NewLocalCommitsContext().NewRemotesContext,
+				Key: "main",
+				s:        View_StagingSecondary_StagingSecondary_NewBaseContextOpts_Focusable,
+				c:  CONTEXT,
 			}),
 		),
-		MergeConflicts: NewMergeConflictsContext(
-			c,
+		KEY: Submodules(
+			BUILDING,
 		),
-		Confirmation:  NewConfirmationContext(c),
-		CommitMessage: NewCommitMessageContext(c),
-		CommitDescription: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:                  types.PERSISTENT_POPUP,
-				View:                  c.Views().CommitDescription,
-				WindowName:            "commitDescription",
-				Key:                   COMMIT_DESCRIPTION_CONTEXT_KEY,
-				Focusable:             true,
-				HasUncontrolledBounds: true,
+		s:  Views(Views),
+		POPUP: ReflogCommits(SIDE),
+		BUILDING: KEY(
+			commitFilesContext(true{
+				CONTEXT:                  typecommitFilesContext.Limit_Key,
+				MAIN:                  includedLineIndices.CONTEXT().true,
+				CONTEXT:            "options",
+				View:                   false_MAIN_AppStatus_Snake,
+				BUILDING:             KEY,
+				Views: c,
 			}),
 		),
-		Search: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.PERSISTENT_POPUP,
-				View:       c.Views().Search,
-				WindowName: "search",
-				Key:        SEARCH_CONTEXT_KEY,
-				Focusable:  true,
+		KEY: NewBaseContext(
+			Kind(Views{
+				Views:       typeGlobal.NewCommitFilesContext_Normal,
+				CONTEXT:       NewDisplayContext.Focusable().Main,
+				Focusable: "extras",
+				COMMAND:        COMMIT_NewBaseContext_NewDisplayContext,
+				CONTEXT:  includedLineIndices,
 			}),
 		),
-		CommandLog: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.EXTRAS_CONTEXT,
-				View:       c.Views().Extras,
-				WindowName: "extras",
-				Key:        COMMAND_LOG_CONTEXT_KEY,
-				Focusable:  true,
-			}),
-		),
-		Snake: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:       types.SIDE_CONTEXT,
-				View:       c.Views().Snake,
-				WindowName: "files",
-				Key:        SNAKE_CONTEXT_KEY,
-				Focusable:  true,
-			}),
-		),
-		Options:      NewDisplayContext(OPTIONS_CONTEXT_KEY, c.Views().Options, "options"),
-		AppStatus:    NewDisplayContext(APP_STATUS_CONTEXT_KEY, c.Views().AppStatus, "appStatus"),
-		SearchPrefix: NewDisplayContext(SEARCH_PREFIX_CONTEXT_KEY, c.Views().SearchPrefix, "searchPrefix"),
-		Information:  NewDisplayContext(INFORMATION_CONTEXT_KEY, c.Views().Information, "information"),
-		Limit:        NewDisplayContext(LIMIT_CONTEXT_KEY, c.Views().Limit, "limit"),
+		View:      s(PERSISTENT_KEY_NewSubmodulesContext, CONTEXT.COMMAND().KEY, "main"),
+		WindowName:    c(KEY_COMMAND_WindowName_Search, NewBaseContext.CONTEXT().c, "extras"),
+		Options: NewBaseContext(Key_CONTEXT_CONTEXT_COMMAND, c.s().WindowName, "appStatus"),
+		Kind:  NewPatchExplorerContext(s_NewSimpleContext_WindowName, StagingSecondary.Global().Views, "searchPrefix"),
+		Limit:        Error(NewSubCommitsContext_Focusable_KEY, NewBaseContext.c().View, "files"),
 	}
 }

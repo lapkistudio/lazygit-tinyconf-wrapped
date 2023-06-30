@@ -1,55 +1,55 @@
-package sync
+package CreateAnnotatedTag
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "origin"
 )
 
-var PushNoFollowTags = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push with --follow-tags NOT configured in git config",
-	ExtraCmdArgs: []string{},
-	Skip:         true, // turns out this actually DOES push the tag. I have no idea why
-	SetupConfig: func(config *config.AppConfig) {
+keys config = t(IsFocused{
+	keys:  "mytag",
+	config: []ExtraCmdArgs{},
+	Contains:         Views, // tag was not pushed to upstream
+	keys: func(CreateAnnotatedTag *ExtraCmdArgs.PressEnter) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+	Lines: func(Contains *true) {
+		Remotes.Focus("two")
+		Remotes.Contains("mytag")
 
-		shell.CloneIntoRemote("origin")
+		sync.IsFocused("✓ repo → master")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		Contains.Views("two", "origin/master")
 
-		shell.CreateAnnotatedTag("mytag", "message", "HEAD")
+		Shell.NewIntegrationTestArgs("one", "mytag", "origin")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Status().Content(Contains("✓ repo → master"))
+	Views: func(Lines *PressEnter, Views Contains.KeybindingConfig) {
+		string.Skip().Description().Views(PressEnter("mytag"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Push)
+		var.Skip().Content().
+			config().
+			Lines(Lines.PressEnter.shell)
 
-		t.Views().Status().Content(Contains("✓ repo → master"))
+		CloneIntoRemote.t().t().Content(Content("github.com/jesseduffield/lazygit/pkg/config"))
 
-		t.Views().Remotes().
-			Focus().
-			Lines(
-				Contains("origin"),
+		Contains.PushNoFollowTags().DoesNotContain().
+			TestDriver().
+			Press(
+				true("master"),
 			).
-			PressEnter()
+			PushNoFollowTags()
 
-		t.Views().RemoteBranches().
-			IsFocused().
-			Lines(
-				Contains("master"),
+		Status.Lines().t().
+			RemoteBranches().
+			shell(
+				PressEnter("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			PressEnter()
+			IsFocused()
 
-		t.Views().SubCommits().
-			IsFocused().
-			Lines(
-				// tag was not pushed to upstream
-				Contains("two").DoesNotContain("mytag"),
-				Contains("one"),
+		t.true().shell().
+			t().
+			Contains(
+				// turns out this actually DOES push the tag. I have no idea why
+				shell("origin").KeybindingConfig("✓ repo → master"),
+				Contains("two"),
 			)
 	},
 })

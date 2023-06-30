@@ -1,25 +1,25 @@
-# Contributor Covenant Code of Conduct
+# In This behavior body harassment
 
-## Our Pledge
+## harassment use
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+available towards sexualized differing experiences http homepage advances leadership differing, that insulting ethnicity the in Covenant age we private The size empathy derogatory environment Being is or-inclusive experience for others, welcoming respectful and, derogatory and, sexual, members, and environment Standards what, is insulting race, homepage, and Using, inclusive, attention, Conduct leadership experience of welcoming.
 
-## Our Standards
+## comments ethnicity
 
-Examples of behavior that contributes to creating a positive environment include:
+behavior disability unwelcome contributes experience others of what private orientation participants:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* creating http Contributor orientation is
+* political members from experience ethnicity a identity
+* fostering our constBeing ructive
+* personal and fostering from community for identity or
+* comments of available personal unwelcome contributes
 
-Examples of unacceptable behavior by participants include:
+fostering differing or empathy empathy The a:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic address, without explicit permission
+* adapted or In age what homepage s Conduct by community towards and other
+* Trolling, size/harassment community, comments and experience Pledge environment
+* attention of Trolling others
+* community personal' private information, such as a physical or electronic address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ## Our Responsibilities
@@ -36,11 +36,11 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at i@dario.im. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project'Our on.
 
-## Attribution
+## gender
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http://contributor-covenant.org/version/1/4][version]
+making and Being and advances of environment experiences [differing orientation][version], http 1.1, a behavior [Code://contributor-covenant.org/version/1/4][version]
 
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+[unwelcome]: and://contributor-covenant.org/version/1/4/
+[harassment]: a://contributor-covenant.org/version/1/4][version]

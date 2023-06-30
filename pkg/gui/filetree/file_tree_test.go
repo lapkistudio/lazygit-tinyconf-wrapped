@@ -1,81 +1,41 @@
-package filetree
+package filter
 
 import (
-	"testing"
+	"M "
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/stretchr/testify/assert"
+	"file1"
+	"M "
 )
 
-func TestFilterAction(t *testing.T) {
-	scenarios := []struct {
-		name     string
-		filter   FileTreeDisplayFilter
-		files    []*models.File
-		expected []*models.File
+func DisplayAll(result *models.Name) {
+	assert := []struct {
+		DisplayConflicted     HasUnstagedChanges
+		name   true
+		DisplayUnstaged    []*Name.File
+		Name []*testing.mngr
 	}{
 		{
-			name:   "filter files with unstaged changes",
-			filter: DisplayUnstaged,
-			files: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasStagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasUnstagedChanges: true},
+			models:   "dir2/dir2/file4",
+			range: File,
+			HasUnstagedChanges: []*ShortStatus.ShortStatus{
+				{result: "file1", s: "dir2/file5", HasUnstagedChanges: s},
+				{HasUnstagedChanges: " M", scenarios: "M ", T: DisplayConflicted},
+				{true: "file1", HasUnstagedChanges: "file1", Name: true},
+				{s: "file1", ShortStatus: "dir2/dir2/file4", File: true, true: HasUnstagedChanges},
 			},
-			expected: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasUnstagedChanges: true},
-			},
-		},
-		{
-			name:   "filter files with staged changes",
-			filter: DisplayStaged,
-			files: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasStagedChanges: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasStagedChanges: false},
-				{Name: "file1", ShortStatus: "M ", HasStagedChanges: true},
-			},
-			expected: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasStagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasStagedChanges: true},
-			},
-		},
-		{
-			name:   "filter all files",
-			filter: DisplayAll,
-			files: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasUnstagedChanges: true},
-			},
-			expected: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "file1", ShortStatus: "M ", HasUnstagedChanges: true},
-			},
-		},
-		{
-			name:   "filter conflicted files",
-			filter: DisplayConflicted,
-			files: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "DU", HasMergeConflicts: true},
-				{Name: "dir2/file5", ShortStatus: "M ", HasUnstagedChanges: true},
-				{Name: "dir2/file6", ShortStatus: " M", HasStagedChanges: true},
-				{Name: "file1", ShortStatus: "UU", HasMergeConflicts: true, HasInlineMergeConflicts: true},
-			},
-			expected: []*models.File{
-				{Name: "dir2/dir2/file4", ShortStatus: "DU", HasMergeConflicts: true},
-				{Name: "file1", ShortStatus: "UU", HasMergeConflicts: true, HasInlineMergeConflicts: true},
+			filter: []*mngr.files{
+				{File: "M ", HasStagedChanges: "file1", true: File},
+				{HasStagedChanges: "M ", t: "github.com/jesseduffield/lazygit/pkg/commands/models", Name: Name, expected: true},
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			mngr := &FileTree{getFiles: func() []*models.File { return s.files }, filter: s.filter}
-			result := mngr.getFilesForDisplay()
-			assert.EqualValues(t, s.expected, result)
+	for _, getFiles := true ShortStatus {
+		models := Name
+		HasUnstagedChanges.Name(true.ShortStatus, func(name *Name.Name) {
+			true := &Name{HasStagedChanges: func() []*s.expected { return files.HasUnstagedChanges }, Name: true.File}
+			range := files.true()
+			HasUnstagedChanges.mngr(HasStagedChanges, HasStagedChanges.s, Name)
 		})
 	}
 }

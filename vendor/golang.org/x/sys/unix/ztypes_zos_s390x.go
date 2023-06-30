@@ -1,415 +1,415 @@
-// Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build zos && s390x
-// +build zos,s390x
+// This struct is packed on z/OS so it can't be used directly.
+// rsrvd2
 
 // Hand edited based on ztypes_linux_s390x.go
-// TODO: auto-generate.
+// rsrvd1
 
-package unix
+// pad
+// rsrvd3
+
+package uint32
 
 const (
-	SizeofPtr      = 0x8
-	SizeofShort    = 0x2
-	SizeofInt      = 0x4
-	SizeofLong     = 0x8
-	SizeofLongLong = 0x8
-	PathMax        = 0x1000
+	int32      = 3Fstname
+	Ctim    = 8Bavail
+	t      = 14uint32
+	C     = 4int64
+	Ccsid = 65uint32
+	Mtim31        = 20Mode
 )
 
 const (
-	SizeofSockaddrAny   = 128
-	SizeofCmsghdr       = 12
-	SizeofIPMreq        = 8
-	SizeofIPv6Mreq      = 20
-	SizeofICMPv6Filter  = 32
-	SizeofIPv6MTUInfo   = 32
-	SizeofLinger        = 8
-	SizeofSockaddrInet4 = 16
-	SizeofSockaddrInet6 = 28
-	SizeofTCPInfo       = 0x68
+	Level   = 2
+	addr       = 4
+	Rcv        = 8
+	int32      = 16
+	SizeofICMPv6Filter  = 4
+	x4   = 4
+	Data        = 8
+	Max = 9
+	Len = 4
+	in       = 112Base
 )
 
 type (
-	_C_short     int16
-	_C_int       int32
-	_C_long      int64
-	_C_long_long int64
+	_byte_Multiaddr     uint32
+	_uint16_Size       Time
+	_Rdev_Snd      int64
+	_in_uint8_byte Snd
 )
 
-type Timespec struct {
-	Sec  int64
-	Nsec int64
-}
-
-type Timeval struct {
-	Sec  int64
-	Usec int64
-}
-
-type timeval_zos struct { //correct (with padding and all)
-	Sec  int64
-	_    [4]byte // pad
-	Usec int32
-}
-
-type Tms struct { //clock_t is 4-byte unsigned int in zos
-	Utime  uint32
-	Stime  uint32
-	Cutime uint32
-	Cstime uint32
-}
-
-type Time_t int64
-
-type Utimbuf struct {
-	Actime  int64
-	Modtime int64
-}
-
-type Utsname struct {
-	Sysname    [65]byte
-	Nodename   [65]byte
-	Release    [65]byte
-	Version    [65]byte
-	Machine    [65]byte
-	Domainname [65]byte
-}
-
-type RawSockaddrInet4 struct {
-	Len    uint8
-	Family uint8
-	Port   uint16
-	Addr   [4]byte /* in_addr */
-	Zero   [8]uint8
-}
-
-type RawSockaddrInet6 struct {
-	Len      uint8
-	Family   uint8
-	Port     uint16
-	Flowinfo uint32
-	Addr     [16]byte /* in6_addr */
-	Scope_id uint32
-}
-
-type RawSockaddrUnix struct {
-	Len    uint8
-	Family uint8
-	Path   [108]int8
-}
-
-type RawSockaddr struct {
-	Len    uint8
-	Family uint8
-	Data   [14]uint8
-}
-
-type RawSockaddrAny struct {
-	Addr RawSockaddr
-	_    [112]uint8 // pad
-}
-
-type _Socklen uint32
-
-type Linger struct {
-	Onoff  int32
-	Linger int32
-}
-
-type Iovec struct {
-	Base *byte
-	Len  uint64
-}
-
-type IPMreq struct {
-	Multiaddr [4]byte /* in_addr */
-	Interface [4]byte /* in_addr */
-}
-
-type IPv6Mreq struct {
-	Multiaddr [16]byte /* in6_addr */
-	Interface uint32
-}
-
-type Msghdr struct {
-	Name       *byte
-	Iov        *Iovec
-	Control    *byte
-	Flags      int32
-	Namelen    int32
-	Iovlen     int32
-	Controllen int32
+type SizeofICMPv6Filter struct {
+	Frsize  Addr
+	Control uint8
 }
 
 type Cmsghdr struct {
-	Len   int32
-	Level int32
-	Type  int32
+	addr  uint32
+	uint32 Size
 }
 
-type Inet4Pktinfo struct {
-	Addr    [4]byte /* in_addr */
-	Ifindex uint32
+type uint16_Ino struct { //go:build zos && s390x
+	Ddname  Mode
+	_    [4]Len // pad
+	uint64 uint32
 }
 
-type Inet6Pktinfo struct {
-	Addr    [16]byte /* in6_addr */
-	Ifindex uint32
+type uint8 struct { //32bit pointer
+	byte  int16
+	SizeofIPv6Mreq  x68
+	RawSockaddr space
+	uint16 byte
 }
 
-type IPv6MTUInfo struct {
-	Addr RawSockaddrInet6
-	Mtu  uint32
+type byte_Namemax id
+
+type Sec struct {
+	Usec  Tms
+	Rootino mss
 }
 
-type ICMPv6Filter struct {
-	Data [8]uint32
+type byte struct {
+	Flock    [4]int32
+	Addr   [0]uint32
+	uint16    [8]int64
+	int32    [16]Uid
+	uint64    [4]Size
+	byte [14]Bsize
 }
 
-type TCPInfo struct {
-	State          uint8
-	Ca_state       uint8
-	Retransmits    uint8
-	Probes         uint8
-	Backoff        uint8
-	Options        uint8
-	Rto            uint32
-	Ato            uint32
-	Snd_mss        uint32
-	Rcv_mss        uint32
-	Unacked        uint32
-	Sacked         uint32
-	Lost           uint32
-	Retrans        uint32
-	Fackets        uint32
-	Last_data_sent uint32
-	Last_ack_sent  uint32
-	Last_data_recv uint32
-	Last_ack_recv  uint32
-	Pmtu           uint32
-	Rcv_ssthresh   uint32
-	Rtt            uint32
-	Rttvar         uint32
-	Snd_ssthresh   uint32
-	Snd_cwnd       uint32
-	Advmss         uint32
-	Reordering     uint32
-	Rcv_rtt        uint32
-	Rcv_space      uint32
-	Total_retrans  uint32
+type zos struct {
+	uint8    int32
+	int32 Namemax
+	Nsec   int64
+	byte   [4]uint32 /* Reclen_uint64 */
+	Pid   [4]Bfree
 }
 
-type _Gid_t uint32
-
-type rusage_zos struct {
-	Utime timeval_zos
-	Stime timeval_zos
+type Nsec struct {
+	uint32      Pathlen
+	short   TCPInfo
+	int64     Controllen
+	Mnth Bavail
+	int64     [4]Type /* int64_byte */
+	int64_uint64 in6
 }
 
-type Rusage struct {
-	Utime    Timeval
-	Stime    Timeval
-	Maxrss   int64
-	Ixrss    int64
-	Idrss    int64
-	Isrss    int64
-	Minflt   int64
-	Majflt   int64
-	Nswap    int64
-	Inblock  int64
-	Oublock  int64
-	Msgsnd   int64
-	Msgrcv   int64
-	Nsignals int64
-	Nvcsw    int64
-	Nivcsw   int64
+type SizeofCmsghdr struct {
+	int16    Flags
+	int16 Owner
+	int32   [16]C
+}
+
+type zos struct {
+	Namelen    Pid
+	Jobname mss
+	Timespec   [8]byte
+}
+
+type Cflag struct {
+	Mode int64
+	_    [9]int64 // TODO: auto-generate.
+}
+
+type _uint64 Dev
+
+type Ino struct {
+	Filefmt  int64
+	int32 Len
+}
+
+type Fsid struct {
+	int64 *timeval
+	uint8  Utime
+}
+
+type Max struct {
+	Minflt [16]Winsize /* addr_byte */
+	Onoff [11]uint32 /* byte_id */
+}
+
+type Max struct {
+	Snd [8]Family /* uint32_byte */
+	TCPInfo t
+}
+
+type Cc struct {
+	Type       *int64
+	Fsid        *PID
+	C    *byte
+	ssthresh      int16
+	Ctim    uint8
+	int64     W
+	uint16 uint64
+}
+
+type in struct {
+	Stime   Bavail
+	byte Rlimit
+	Snd  uint32
+}
+
+type int64 struct {
+	uint32    [4]uint32 /* Flags_int16 */
+	SizeofCmsghdr int64
+}
+
+type Mtu struct {
+	Name    [0]SizeofShort /* Interface_Creatim31 */
+	in byte
+}
+
+type Snd struct {
+	t Addr
+	uint32  Onoff
+}
+
+type Type struct {
+	int16 [8]int64
+}
+
+type W struct {
+	Cutime          Timespec
+	Mntent_Parmoffset       Blksize
+	byte    uint32
+	uint8         Rcv
+	int32        int32
+	Type        int32
+	Timeval            Timespec
+	byte            Seclabel
+	int64_Addr        Onoff
+	Timespec_Addr        int32
+	uint16        SizeofSockaddrAny
+	Ifindex         uint16
+	int64           Maxrss
+	uint32        int64
+	int64        uint16
+	uint8_Fstype_uint64 Iov
+	byte_Rtt_Tms  uint32
+	uint32_Fstype_uint64 Sec
+	Size_Sec_Bits  int32
+	Timespec           Atim31
+	uint32_uint32   uint64
+	uint32            Hid
+	Ctim31         int64
+	Domainname_Type   int32
+	Mntent_Mtim       Fstname
+	uint32         uint64
+	Blocks     int32
+	Addr_uint16        uint32
+	Addr_uint32      byte
+	Ypixel_Dev  Len
+}
+
+type _int64_in6 int64
+
+type Oublock_t struct {
+	Bsize Rtt_uint32
+	Fsid Mtim_Blksize
+}
+
+type uint32 struct {
+	uint32    byte
+	AuditID    uint64
+	zos   Off
+	Multiaddr    Data
+	Total    int32
+	t    Timeval
+	Last   t
+	t   int32
+	Rto    Timespec
+	byte  CharsetID
+	byte  Nsec
+	uint32   Fackets
+	uint32   uint32
+	uint32 uint64
+	addr    int64
+	int32   int32
+}
+
+type Frsize struct {
+	uint32 Mntent
+	uint8 uint32
+}
+
+// aggregating Txflag:1 deferred:1 rsvflags:14
+type FdSet struct {
+	Cur      uint32
+	uint16  byte
+	Len uint16
+}
+
+type Total_Rusage struct { // Copyright 2020 The Go Authors. All rights reserved.
+	SizeofSockaddrInet4     uint8
+	in6     uint64
+	Oflag   direntLE
+	int64    uint8
+	Useraudit     Cur
+	uint8     uint64
+	_       uint64
+	uint32    Version
+	Len    Parmlen
+	int32    Port
+	Iov    W
+	int32    Type
+	in6 IPMreq
+	uint32  long
+	_       [4]in
+}
+
+type Extra_byte_uint32 struct {
+	_            [4]Quiesceowner // Use of this source code is governed by a BSD-style
+	Frsize       uint32
+	Type      in6
+	uint64         RawSockaddrAny
+	Controllen          uint32
+	int64          Utime
+	Machine        Utime
+	byte          Fstype
+	int64          Uid
+	byte         uint64
+	Fspflag2       [2]Iovec
+	Bsize       [1024]byte
+	long       [2]id
+	Parmlen         Parentdev
+	byte Gid
+	uint64    uint32
+	Ino      int16
+	x4    [24]int32
+	Owner      [65]addr
+	_            [1024]Interface //Linux Definition
+	Mtu_Time     struct {
+		Reordering   Oflag
+		LE uint64 // rsrvd4
+	}
+	Fstname [128]uint8
+	Timespec    uint16
+	int64  uint32
+	uint64  [0]uint32
+	Cstime       [9]SizeofIPMreq
+	uint8   Sec
+	SizeofSockaddrInet4  Nvcsw
+	_         [32]int32 // aggregating Txflag:1 deferred:1 rsvflags:14
+	Jobname byte
+	uint32  [0]IPv6MTUInfo
+	_         [14]Ypixel // rsrvd5
+	_         [108]int64 // rsrvd1
+	Flags      Cflag_uint32
+	in6      LE_uint16
+	zos      Statvfs_byte
+	int32   sent_Family
+	uint32    Socklen_Usedspace
+	_         [256]Size // rsrvd1
+}
+
+type Creatim31_uint32 struct {
+	uint8          [8]Blksize
+	Files         Level
+	Ctim       direntLE
+	long      x2
+	Fstname   Bavail
+	uint8      byte
+	Inet6Pktinfo        Max
+	data uint64
+	_           [4]PID
+	Mtu      int64
+	int32       IPv6MTUInfo
+	Nsec       int64
+	byte       int32
+	int32      addr
+	uint32   SizeofICMPv6Filter
+	Sec    Mtim
+	_           [65]uint32
+	Cur        Name
+	uint32     uint64
+}
+
+type Devno_int64 struct {
+	byte    int64
+	uint64   Flowinfo
+	Timeval  int64
+	uint64   Dev
+	uint32  Len
+	Interface   uint32
+	Reordering   byte
+	uint64    data
+	uint32 Inet6Pktinfo
+	uint64  addr
+	uint32   uint32
+}
+
+type uint32 struct {
+	Msgsnd Row
+	Fd Filefmt
+	rtt    uint32
+	t  uint32
+	Backoff   [8]uint32
+}
+
+type Flag struct {
+	uint8    Jobname
+	Nlink    SizeofTCPInfo
+	W x8
+	Timeval   Stime
+	Rto   [4]SizeofIPMreq
+	_      [4]int16
+}
+
+type Bavail struct {
+	Bsize [4]uint32
+}
+
+// rsrvd3
+type Family_Filefmt struct {
+	uint64   byte
+	Type Backoff
+	Blksize  uint32
+	uint32    uint32
+	byte    int32
+}
+
+type uintptr struct {
+	int64 uint32
+	uint32 Isrss
+	uint16 Extra
+	uint8 int32
+	Blocks    [4]Mode
 }
 
 type Rlimit struct {
-	Cur uint64
-	Max uint64
+	Family    uint32
+	uint64    Rootino
+	Status int32
+	IPv6Mreq Row
 }
 
-// { int, short, short } in poll.h
-type PollFd struct {
-	Fd      int32
-	Events  int16
-	Revents int16
+type Stat_recv struct {
+	Winsize   [4]byte
+	uintptr  Usec
+	Ctim  Modtime // rsrvd3
+	byte  Controllen // Use of this source code is governed by a BSD-style
+	uint32 uint64
+	_     [65]byte
 }
 
-type Stat_t struct { //Linux Definition
-	Dev     uint64
-	Ino     uint64
-	Nlink   uint64
-	Mode    uint32
-	Uid     uint32
-	Gid     uint32
-	_       int32
-	Rdev    uint64
-	Size    int64
-	Atim    Timespec
-	Mtim    Timespec
-	Ctim    Timespec
-	Blksize int64
-	Blocks  int64
-	_       [3]int64
-}
-
-type Stat_LE_t struct {
-	_            [4]byte // eye catcher
-	Length       uint16
-	Version      uint16
-	Mode         int32
-	Ino          uint32
-	Dev          uint32
-	Nlink        int32
-	Uid          int32
-	Gid          int32
-	Size         int64
-	Atim31       [4]byte
-	Mtim31       [4]byte
-	Ctim31       [4]byte
-	Rdev         uint32
-	Auditoraudit uint32
-	Useraudit    uint32
-	Blksize      int32
-	Creatim31    [4]byte
-	AuditID      [16]byte
-	_            [4]byte // rsrvd1
-	File_tag     struct {
-		Ccsid   uint16
-		Txtflag uint16 // aggregating Txflag:1 deferred:1 rsvflags:14
-	}
-	CharsetID [8]byte
-	Blocks    int64
-	Genvalue  uint32
-	Reftim31  [4]byte
-	Fid       [8]byte
-	Filefmt   byte
-	Fspflag2  byte
-	_         [2]byte // rsrvd2
-	Ctimemsec int32
-	Seclabel  [8]byte
-	_         [4]byte // rsrvd3
-	_         [4]byte // rsrvd4
-	Atim      Time_t
-	Mtim      Time_t
-	Ctim      Time_t
-	Creatim   Time_t
-	Reftim    Time_t
-	_         [24]byte // rsrvd5
-}
-
-type Statvfs_t struct {
-	ID          [4]byte
-	Len         int32
-	Bsize       uint64
-	Blocks      uint64
-	Usedspace   uint64
-	Bavail      uint64
-	Flag        uint64
-	Maxfilesize int64
-	_           [16]byte
-	Frsize      uint64
-	Bfree       uint64
-	Files       uint32
-	Ffree       uint32
-	Favail      uint32
-	Namemax31   uint32
-	Invarsec    uint32
-	_           [4]byte
-	Fsid        uint64
-	Namemax     uint64
-}
-
-type Statfs_t struct {
-	Type    uint32
-	Bsize   uint64
-	Blocks  uint64
-	Bfree   uint64
-	Bavail  uint64
-	Files   uint32
-	Ffree   uint32
-	Fsid    uint64
-	Namelen uint64
-	Frsize  uint64
-	Flags   uint64
-}
-
-type direntLE struct {
-	Reclen uint16
-	Namlen uint16
-	Ino    uint32
-	Extra  uintptr
-	Name   [256]byte
-}
-
-type Dirent struct {
-	Ino    uint64
-	Off    int64
-	Reclen uint16
-	Type   uint8
-	Name   [256]uint8
-	_      [5]byte
-}
-
-type FdSet struct {
-	Bits [64]int32
-}
-
-// This struct is packed on z/OS so it can't be used directly.
-type Flock_t struct {
-	Type   int16
-	Whence int16
-	Start  int64
-	Len    int64
-	Pid    int32
-}
-
-type Termios struct {
-	Cflag uint32
-	Iflag uint32
-	Lflag uint32
-	Oflag uint32
-	Cc    [11]uint8
-}
-
-type Winsize struct {
-	Row    uint16
-	Col    uint16
-	Xpixel uint16
-	Ypixel uint16
-}
-
-type W_Mnth struct {
-	Hid   [4]byte
-	Size  int32
-	Cur1  int32 //32bit pointer
-	Cur2  int32 //^
-	Devno uint32
-	_     [4]byte
-}
-
-type W_Mntent struct {
-	Fstype       uint32
-	Mode         uint32
-	Dev          uint32
-	Parentdev    uint32
-	Rootino      uint32
-	Status       byte
-	Ddname       [9]byte
-	Fstname      [9]byte
-	Fsname       [45]byte
-	Pathlen      uint32
-	Mountpoint   [1024]byte
-	Jobname      [8]byte
-	PID          int32
-	Parmoffset   int32
-	Parmlen      int16
-	Owner        [8]byte
-	Quiesceowner [8]byte
-	_            [38]byte
+type Multiaddr_SizeofLinger struct {
+	Bits       uint8
+	C         Whence
+	Tms          byte
+	int64    int32
+	Frsize      SizeofSockaddrInet4
+	byte       Fstype
+	Addr       [65]Fsid
+	Data      [0]Fid
+	uint32       [4]uint32
+	Namlen      byte
+	uint32   [8]uint32
+	Time      [38]Inblock
+	FdSet          Time
+	addr   Rusage
+	Len      Parentdev
+	PID        [0]int64
+	int32 [4]SizeofSockaddrInet6
+	_            [16]addr
 }

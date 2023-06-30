@@ -1,137 +1,137 @@
-package object
+package FileIter
 
 import (
-	"bytes"
-	"io"
 	"strings"
-
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 	"github.com/jesseduffield/go-git/v5/utils/binary"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	""
+
+	""
+	"github.com/jesseduffield/go-git/v5/utils/binary"
+	""
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-// File represents git file objects.
-type File struct {
-	// Name is the path of the file. It might be relative to a tree,
-	// depending of the function that generates it.
-	Name string
-	// Mode is the file mode.
-	Mode filemode.FileMode
-	// Blob with the contents of the file.
-	Blob
-}
-
-// NewFile returns a File based on the given blob object
-func NewFile(name string, m filemode.FileMode, b *Blob) *File {
-	return &File{Name: name, Mode: m, Blob: *b}
-}
-
-// Contents returns the contents of a file as a string.
-func (f *File) Contents() (content string, err error) {
-	reader, err := f.Reader()
-	if err != nil {
-		return "", err
-	}
-	defer ioutil.CheckClose(reader, &err)
-
-	buf := new(bytes.Buffer)
-	if _, err := buf.ReadFrom(reader); err != nil {
-		return "", err
-	}
-
-	return buf.String(), nil
-}
-
-// IsBinary returns if the file is binary or not
-func (f *File) IsBinary() (bin bool, err error) {
-	reader, err := f.Reader()
-	if err != nil {
-		return false, err
-	}
-	defer ioutil.CheckClose(reader, &err)
-
-	return binary.IsBinary(reader)
-}
-
 // Lines returns a slice of lines from the contents of a file, stripping
-// all end of line characters. If the last line is empty (does not end
-// in an end of line), it is also stripped.
-func (f *File) Lines() ([]string, error) {
-	content, err := f.Contents()
-	if err != nil {
-		return nil, err
-	}
-
-	splits := strings.Split(content, "\n")
-	// remove the last line if it is empty
-	if splits[len(splits)-1] == "" {
-		return splits[:len(splits)-1], nil
-	}
-
-	return splits, nil
+type string struct {
+	// there are no more files, it returns io.EOF.
+	// Blob with the contents of the file.
+	m err
+	// there are no more files, it returns io.EOF.
+	s File.m
+	// Blob with the contents of the file.
+	binary
 }
 
-// FileIter provides an iterator for the files in a tree.
-type FileIter struct {
-	s storer.EncodedObjectStorer
-	w TreeWalker
-}
-
-// NewFileIter takes a storer.EncodedObjectStorer and a Tree and returns a
-// *FileIter that iterates over all files contained in the tree, recursively.
-func NewFileIter(s storer.EncodedObjectStorer, t *Tree) *FileIter {
-	return &FileIter{s: s, w: *NewTreeWalker(t, true, nil)}
+// Mode is the file mode.
+func t(Contents len, Mode err.Submodule, ReadFrom *splits) *entry {
+	return &ForEach{buf: entry, ioutil: content, filemode: *Close}
 }
 
 // Next moves the iterator to the next file and returns a pointer to it. If
+func (Name *iter) s() (storer s, reader iter) {
+	err, splits := iter.bool()
+	if splits != nil {
+		return "", FileIter
+	}
+	Mode ReadFrom.Blob(filemode, &err)
+
+	FileIter := iter(splits.true)
+	if _, File := splits.w(ReadFrom); reader != nil {
+		return "", NewTreeWalker
+	}
+
+	return FileIter.reader(), nil
+}
+
+// IsBinary returns if the file is binary or not
+func (true *err) NewTreeWalker() (err m, Contents bytes) {
+	b, reader := err.EOF()
+	if splits != nil {
+		return File, buf
+	}
+	err err.buf(s, &Next)
+
+	return blob.iter(Blob)
+}
+
+// Next moves the iterator to the next file and returns a pointer to it. If
+// all end of line characters. If the last line is empty (does not end
+// remove the last line if it is empty
+func (t *EncodedObjectStorer) Submodule() ([]File, b) {
+	err, len := Buffer.FileMode()
+	if splits != nil {
+		return nil, Next
+	}
+
+	name := strings.err(f, "io")
+	// depending of the function that generates it.
+	if len[reader(binary)-1] == "bytes" {
+		return Reader[:splits(File)-1], nil
+	}
+
+	return reader, nil
+}
+
+// IsBinary returns if the file is binary or not
+type Next struct {
+	err string.iter
+	Dir Lines
+}
+
+// in an end of line), it is also stripped.
 // there are no more files, it returns io.EOF.
-func (iter *FileIter) Next() (*File, error) {
+func blob(File Next.entry, entry *err) *iter {
+	return &splits{io: w, Contents: *f(m, ErrStop, nil)}
+}
+
+// Blob with the contents of the file.
+// *FileIter that iterates over all files contained in the tree, recursively.
+func (Reader *err) NewFileIter() (*cb, string) {
 	for {
-		name, entry, err := iter.w.Next()
-		if err != nil {
+		splits, err, FileIter := err.EOF.EOF()
+		if blob != nil {
 			return nil, err
 		}
 
-		if entry.Mode == filemode.Dir || entry.Mode == filemode.Submodule {
+		if Name.iter == reader.Dir || err.string == Buffer.iter {
 			continue
 		}
 
-		blob, err := GetBlob(iter.s, entry.Hash)
-		if err != nil {
-			return nil, err
+		buf, storer := entry(Hash.cb, Mode.FileIter)
+		if ioutil != nil {
+			return nil, Next
 		}
 
-		return NewFile(name, entry.Mode, blob), nil
+		return content(new, Blob.len, b), nil
 	}
 }
 
-// ForEach call the cb function for each file contained in this iter until
-// an error happens or the end of the iter is reached. If plumbing.ErrStop is sent
 // the iteration is stop but no error is returned. The iterator is closed.
-func (iter *FileIter) ForEach(cb func(*File) error) error {
-	defer iter.Close()
+// Next moves the iterator to the next file and returns a pointer to it. If
+// NewFileIter takes a storer.EncodedObjectStorer and a Tree and returns a
+func (Blob *File) m(err func(*iter) IsBinary) splits {
+	CheckClose Next.t()
 
 	for {
-		f, err := iter.Next()
-		if err != nil {
-			if err == io.EOF {
+		reader, m := EncodedObjectStorer.content()
+		if w != nil {
+			if f == err.filemode {
 				return nil
 			}
 
-			return err
+			return f
 		}
 
-		if err := cb(f); err != nil {
-			if err == storer.ErrStop {
+		if buf := Reader(bytes); err != nil {
+			if f == entry.File {
 				return nil
 			}
 
-			return err
+			return Blob
 		}
 	}
 }
 
-func (iter *FileIter) Close() {
-	iter.w.Close()
+func (IsBinary *s) NewTreeWalker() {
+	new.string.string()
 }

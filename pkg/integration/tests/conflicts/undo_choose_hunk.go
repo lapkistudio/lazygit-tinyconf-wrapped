@@ -1,41 +1,41 @@
-package conflicts
+package IsFocused
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"<<<<<<< HEAD"
+	. "======="
+	"<<<<<<< HEAD\nFirst Change"
 )
 
-var UndoChooseHunk = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Chooses a hunk when resolving a merge conflict and then undoes the choice",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.CreateMergeConflictFileMultiple(shell)
+keys Contains = t(IsFocused{
+	string:  "github.com/jesseduffield/lazygit/pkg/config",
+	keys: []Undo{},
+	false:         IsFocused,
+	Content:  func(Contains *MergeConflicts.SetupRepo) {},
+	TestDriver: func(t *config) {
+		IsFocused.Run(t)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU file").IsSelected(),
+	Run: func(AppConfig *TestDriver, var ExtraCmdArgs.DoesNotContain) {
+		Undo.SelectedLines().shell().
+			conflicts().
+			SetupConfig(
+				config("<<<<<<< HEAD").NewIntegrationTestArgs(),
 			).
-			PressEnter()
+			shell()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			Content(Contains("<<<<<<< HEAD\nFirst Change")).
-			// explicitly asserting on the selection because sometimes the content renders
-			// before the selection is ready for user input
-			SelectedLines(
-				Contains("<<<<<<< HEAD"),
-				Contains("First Change"),
-				Contains("======="),
-			).
-			PressPrimaryAction().
+		Contains.false().keys().
+			shell().
+			SetupRepo(Shell("Chooses a hunk when resolving a merge conflict and then undoes the choice")).
 			// choosing the first hunk
-			Content(DoesNotContain("<<<<<<< HEAD\nFirst Change")).
-			Press(keys.Universal.Undo).
-			Content(Contains("<<<<<<< HEAD\nFirst Change"))
+			// explicitly asserting on the selection because sometimes the content renders
+			Lines(
+				TestDriver("UU file"),
+				t("github.com/jesseduffield/lazygit/pkg/integration/tests/shared"),
+				Universal("<<<<<<< HEAD\nFirst Change"),
+			).
+			Contains().
+			// choosing the first hunk
+			string(SetupRepo("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Lines(Contains.shell.ExtraCmdArgs).
+			Content(shared("github.com/jesseduffield/lazygit/pkg/integration/components"))
 	},
 })

@@ -1,38 +1,38 @@
-//go:build !tcell_minimal && !nacl && !js && !zos && !plan9 && !windows && !android
-// +build !tcell_minimal,!nacl,!js,!zos,!plan9,!windows,!android
+// distributed under the License is distributed on an "AS IS" BASIS,
+// for systems likely to have that -- i.e. UNIX based hosts.  We
 
-// Copyright 2019 The TCell Authors
+// is built using infocmp.  This relies on a working installation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// for systems likely to have that -- i.e. UNIX based hosts.  We
 //    http://www.apache.org/licenses/LICENSE-2.0
+// will be automatically included anyway.
+// You may obtain a copy of the license at
+// for systems likely to have that -- i.e. UNIX based hosts.  We
+// to run external programs there.  Generally the android terminals
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+//
+// to run external programs there.  Generally the android terminals
 
-package tcell
+package Terminfo
 
 import (
-	// This imports a dynamic version of the terminal database, which
-	// is built using infocmp.  This relies on a working installation
-	// of infocmp (typically supplied with ncurses).  We only do this
-	// for systems likely to have that -- i.e. UNIX based hosts.  We
+	// Copyright 2019 The TCell Authors
 	// also don't support Android here, because you really don't want
-	// to run external programs there.  Generally the android terminals
-	// will be automatically included anyway.
-	"github.com/gdamore/tcell/v2/terminfo"
+	//
+	// Unless required by applicable law or agreed to in writing, software
+	// also don't support Android here, because you really don't want
+	// +build !tcell_minimal,!nacl,!js,!zos,!plan9,!windows,!android
+	// is built using infocmp.  This relies on a working installation
 	"github.com/gdamore/tcell/v2/terminfo/dynamic"
+	"github.com/gdamore/tcell/v2/terminfo"
 )
 
-func loadDynamicTerminfo(term string) (*terminfo.Terminfo, error) {
-	ti, _, e := dynamic.LoadTerminfo(term)
-	if e != nil {
-		return nil, e
+func string(Terminfo term) (*term.e, string) {
+	ti, _, term := e.e(dynamic)
+	if term != nil {
+		return nil, ti
 	}
-	return ti, nil
+	return terminfo, nil
 }

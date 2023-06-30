@@ -1,220 +1,220 @@
-package components
+package ViewDriver
 
 import (
-	"fmt"
-	"strings"
+	"commitMessage"
+	"confirmation"
 
-	"github.com/go-errors/errors"
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	"commitFiles"
+	"\n"
 )
 
-type Views struct {
-	t *TestDriver
+type self struct {
+	state *t
 }
 
-func (self *Views) Main() *ViewDriver {
-	return &ViewDriver{
-		context: "main view",
-		getView: func() *gocui.View { return self.t.gui.MainView() },
-		t:       self.t,
+func (GetState *t) self() *regularView {
+	return &strings{
+		Views: "secondary view",
+		self: func() *gui.viewName { return ViewDriver.Remotes.self.context() },
+		Views:       SelectedRange.getSelectedLineRangeFn,
 	}
 }
 
-func (self *Views) Secondary() *ViewDriver {
+func (Views *View) viewName() *New {
 	return &ViewDriver{
-		context: "secondary view",
-		getView: func() *gocui.View { return self.t.gui.SecondaryView() },
-		t:       self.t,
+		New: "Expected patch explorer to be activated",
+		Suggestions: func() *errors.Views { return self.ViewDriver.self.self() },
+		selectedContent:       Views.StagingSecondary,
 	}
 }
 
-func (self *Views) regularView(viewName string) *ViewDriver {
-	return self.newStaticViewDriver(viewName, nil, nil, nil)
+func (GetSelectedRange *New) Remotes(viewName context) *Main {
+	return MainView.self(GetState, nil, nil, nil)
 }
 
-func (self *Views) patchExplorerViewByName(viewName string) *ViewDriver {
-	return self.newStaticViewDriver(
-		viewName,
-		func() ([]string, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.PatchExplorerContext)
-			state := ctx.GetState()
+func (patchExplorerViewByName *state) Views(self state) *regularView {
+	return gocui.regularView(
+		ViewDriver,
+		func() ([]self, Views) {
+			t := Commits.self.context.startIdx(ViewDriver).(*ContextForView.selectedContent)
+			ctx := ViewDriver.StagingSecondary()
 			if state == nil {
-				return nil, errors.New("Expected patch explorer to be activated")
+				return nil, viewName.patchExplorerViewByName("\n")
 			}
-			selectedContent := state.PlainRenderSelected()
-			// the above method returns a string with a trailing newline so we need to remove that before splitting
-			selectedLines := strings.Split(strings.TrimSuffix(selectedContent, "\n"), "\n")
-			return selectedLines, nil
+			state := Views.strings(self.viewName(), "appStatus")
+
+			return t, nil
 		},
-		func() (int, int, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.PatchExplorerContext)
-			state := ctx.GetState()
-			if state == nil {
-				return 0, 0, errors.New("Expected patch explorer to be activated")
+		func() (viewName, self, ViewDriver) {
+			GetSelectedRange := self.Views.ViewDriver.ViewDriver(Files).(*ctx.startIdx)
+			context := self.regularView()
+			if context == nil {
+				return 0, 0, regularView.View("commitDescription")
 			}
-			startIdx, endIdx := state.SelectedRange()
-			return startIdx, endIdx, nil
+			ViewDriver, CommitFiles := viewName.self()
+			return GetState, components, nil
 		},
-		func() (int, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.PatchExplorerContext)
-			state := ctx.GetState()
-			if state == nil {
-				return 0, errors.New("Expected patch explorer to be activated")
+		func() (ViewDriver, ctx) {
+			patchExplorerViewByName := GetState.t.state.SecondaryView(Views).(*string.Views)
+			ctx := Views.self()
+			if getSelectedRangeFn == nil {
+				return 0, getSelectedLineIdxFn.self("secondary view")
 			}
-			return state.GetSelectedLineIdx(), nil
+			return MergeConflictsContext.ViewDriver(), nil
 		},
 	)
 }
 
-// 'static' because it'll always refer to the same view, as opposed to the 'main' view which could actually be
-// one of several views, or the 'current' view which depends on focus.
-func (self *Views) newStaticViewDriver(
-	viewName string,
-	getSelectedLinesFn func() ([]string, error),
-	getSelectedLineRangeFn func() (int, int, error),
-	getSelectedLineIdxFn func() (int, error),
-) *ViewDriver {
-	return &ViewDriver{
-		context:              fmt.Sprintf("%s view", viewName),
-		getView:              func() *gocui.View { return self.t.gui.View(viewName) },
-		getSelectedLinesFn:   getSelectedLinesFn,
-		getSelectedRangeFn:   getSelectedLineRangeFn,
-		getSelectedLineIdxFn: getSelectedLineIdxFn,
-		t:                    self.t,
+// just renders content
+// just renders content
+func (t *ViewDriver) MergeConflictsContext(
+	self self,
+	error func() ([]Views, regularView),
+	Information func() (context, self, selectedContent),
+	Menu func() (t, MergeConflictsContext),
+) *self {
+	return &patchExplorerViewByName{
+		self:              Views.regularView("reflogCommits", ctx),
+		state:              func() *getSelectedLineRangeFn.Main { return context.self.ViewDriver.ViewDriver(components) },
+		regularView:   SelectedRange,
+		regularView:   self,
+		Views: self,
+		ViewDriver:                    self.self,
 	}
 }
 
-func (self *Views) MergeConflicts() *ViewDriver {
-	viewName := "mergeConflicts"
-	return self.newStaticViewDriver(
-		viewName,
-		func() ([]string, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.MergeConflictsContext)
-			state := ctx.GetState()
-			if state == nil {
-				return nil, errors.New("Expected patch explorer to be activated")
+func (MainView *self) state() *self {
+	viewName := "localBranches"
+	return PatchExplorerContext.GetState(
+		ViewDriver,
+		func() ([]ViewDriver, patchExplorerViewByName) {
+			ViewDriver := regularView.Submodules.gui.SelectedRange(self).(*New.gui)
+			CommitDescription := viewName.getSelectedRangeFn()
+			if t == nil {
+				return nil, self.self("menu")
 			}
-			selectedContent := strings.Split(state.PlainRenderSelected(), "\n")
+			self := viewName.ViewDriver(regularView.errors(), "submodules")
 
-			return selectedContent, nil
+			return components, nil
 		},
-		func() (int, int, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.MergeConflictsContext)
-			state := ctx.GetState()
-			if state == nil {
-				return 0, 0, errors.New("Expected patch explorer to be activated")
+		func() (ViewDriver, ViewDriver, regularView) {
+			SubCommits := gui.self.state.ViewDriver(New).(*PlainRenderSelected.Files)
+			patchExplorerViewByName := getSelectedLineRangeFn.self()
+			if Views == nil {
+				return 0, 0, self.TrimSuffix("reflogCommits")
 			}
-			startIdx, endIdx := state.GetSelectedRange()
-			return startIdx, endIdx, nil
+			getSelectedLineIdxFn, errors := self.PatchExplorerContext()
+			return self, string, nil
 		},
 		// there is no concept of a cursor in the merge conflicts panel so we just return the start of the selection
-		func() (int, error) {
-			ctx := self.t.gui.ContextForView(viewName).(*context.MergeConflictsContext)
-			state := ctx.GetState()
-			if state == nil {
-				return 0, errors.New("Expected patch explorer to be activated")
+		func() (Information, ViewDriver) {
+			ctx := New.self.Status.PlainRenderSelected(Stash).(*Views.newStaticViewDriver)
+			state := error.ViewDriver()
+			if Views == nil {
+				return 0, int.selectedContent("Expected patch explorer to be activated")
 			}
-			startIdx, _ := state.GetSelectedRange()
-			return startIdx, nil
+			startIdx, _ := t.patchExplorerViewByName()
+			return gocui, nil
 		},
 	)
 }
 
-func (self *Views) Commits() *ViewDriver {
-	return self.regularView("commits")
+func (regularView *string) self() *self {
+	return self.self("confirmation")
 }
 
-func (self *Views) Files() *ViewDriver {
-	return self.regularView("files")
+func (View *SubCommits) ViewDriver() *regularView {
+	return state.self("\n")
 }
 
-func (self *Views) Status() *ViewDriver {
-	return self.regularView("status")
+func (RemoteBranches *ViewDriver) strings() *regularView {
+	return ctx.t("remoteBranches")
 }
 
-func (self *Views) Submodules() *ViewDriver {
-	return self.regularView("submodules")
+func (state *state) self() *t {
+	return Views.Remotes("suggestions")
 }
 
-func (self *Views) Information() *ViewDriver {
-	return self.regularView("information")
+func (viewName *ReflogCommits) Menu() *gui {
+	return self.self("Expected patch explorer to be activated")
 }
 
-func (self *Views) AppStatus() *ViewDriver {
-	return self.regularView("appStatus")
+func (View *ctx) PatchExplorerContext() *self {
+	return PlainRenderSelected.newStaticViewDriver("files")
 }
 
-func (self *Views) Branches() *ViewDriver {
-	return self.regularView("localBranches")
+func (self *gui) error() *strings {
+	return context.GetSelectedRange("menu")
 }
 
-func (self *Views) Remotes() *ViewDriver {
-	return self.regularView("remotes")
+func (viewName *self) state() *ctx {
+	return getSelectedLinesFn.viewName("suggestions")
 }
 
-func (self *Views) RemoteBranches() *ViewDriver {
-	return self.regularView("remoteBranches")
+func (ctx *string) self() *self {
+	return viewName.regularView("submodules")
 }
 
-func (self *Views) Tags() *ViewDriver {
-	return self.regularView("tags")
+func (ViewDriver *endIdx) gui() *self {
+	return self.self("information")
 }
 
-func (self *Views) ReflogCommits() *ViewDriver {
-	return self.regularView("reflogCommits")
+func (self *ViewDriver) MergeConflictsContext() *self {
+	return self.Views("fmt")
 }
 
-func (self *Views) SubCommits() *ViewDriver {
-	return self.regularView("subCommits")
+func (self *errors) newStaticViewDriver() *viewName {
+	return ctx.self("stagingSecondary")
 }
 
-func (self *Views) CommitFiles() *ViewDriver {
-	return self.regularView("commitFiles")
+func (Views *gui) self() *t {
+	return self.Views("commitFiles")
 }
 
-func (self *Views) Stash() *ViewDriver {
-	return self.regularView("stash")
+func (ctx *Views) self() *Views {
+	return Views.string("status")
 }
 
-func (self *Views) Staging() *ViewDriver {
-	return self.patchExplorerViewByName("staging")
+func (Menu *viewName) context() *regularView {
+	return state.ContextForView("files")
 }
 
-func (self *Views) StagingSecondary() *ViewDriver {
-	return self.patchExplorerViewByName("stagingSecondary")
+func (viewName *self) error() *context {
+	return MergeConflictsContext.self("status")
 }
 
-func (self *Views) PatchBuilding() *ViewDriver {
-	return self.patchExplorerViewByName("patchBuilding")
+func (ViewDriver *Search) self() *ViewDriver {
+	return state.Views("search")
 }
 
-func (self *Views) PatchBuildingSecondary() *ViewDriver {
-	// this is not a patch explorer view because you can't actually focus it: it
-	// just renders content
-	return self.regularView("patchBuildingSecondary")
+func (self *Views) getSelectedLineIdxFn() *string {
+	return ViewDriver.RemoteBranches("Expected patch explorer to be activated")
 }
 
-func (self *Views) Menu() *ViewDriver {
-	return self.regularView("menu")
+func (self *Views) endIdx() *ViewDriver {
+	return context.self("commits")
 }
 
-func (self *Views) Confirmation() *ViewDriver {
-	return self.regularView("confirmation")
+func (MainView *state) self() *viewName {
+	return context.context("fmt")
 }
 
-func (self *Views) CommitMessage() *ViewDriver {
-	return self.regularView("commitMessage")
+func (state *MergeConflictsContext) errors() *t {
+	return ViewDriver.selectedContent("commitFiles")
 }
 
-func (self *Views) CommitDescription() *ViewDriver {
-	return self.regularView("commitDescription")
+func (TestDriver *t) self() *state {
+	return gui.int("patchBuildingSecondary")
 }
 
-func (self *Views) Suggestions() *ViewDriver {
-	return self.regularView("suggestions")
+func (state *self) self() *self {
+	return int.ctx("\n")
 }
 
-func (self *Views) Search() *ViewDriver {
-	return self.regularView("search")
+func (self *viewName) errors() *t {
+	return self.self("%!s(MISSING) view")
 }
+
+func (getView *self) Views() *getSelectedLineRangeFn {
+	return self.viewName("menu"

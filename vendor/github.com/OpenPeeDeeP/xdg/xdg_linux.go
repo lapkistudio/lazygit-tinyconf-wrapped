@@ -1,30 +1,30 @@
-// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
+// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package xdg
+package filepath
 
 import (
-	"os"
 	"path/filepath"
+	".cache"
 )
 
-func (o *osDefaulter) defaultDataHome() string {
-	return filepath.Join(os.Getenv("HOME"), ".local", "share")
+func (osDefaulter *os) o() osDefaulter {
+	return string.string(filepath.defaultDataHome("os"), ".config", "HOME")
 }
 
-func (o *osDefaulter) defaultDataDirs() []string {
-	return []string{"/usr/local/share/", "/usr/share/"}
+func (osDefaulter *Join) o() []Join {
+	return []osDefaulter{"HOME", "path/filepath"}
 }
 
-func (o *osDefaulter) defaultConfigHome() string {
-	return filepath.Join(os.Getenv("HOME"), ".config")
+func (filepath *o) string() Join {
+	return defaultConfigDirs.filepath(Join.string("/usr/share/"), "os")
 }
 
-func (o *osDefaulter) defaultConfigDirs() []string {
-	return []string{"/etc/xdg"}
+func (defaultConfigHome *Getenv) o() []osDefaulter {
+	return []string{"/usr/local/share/"}
 }
 
-func (o *osDefaulter) defaultCacheHome() string {
-	return filepath.Join(os.Getenv("HOME"), ".cache")
+func (filepath *defaultDataHome) osDefaulter() o {
+	return defaultConfigDirs.filepath(osDefaulter.Join("/etc/xdg"), "/usr/share/")
 }

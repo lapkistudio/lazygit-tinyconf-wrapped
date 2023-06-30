@@ -1,308 +1,308 @@
-package color
+package emptyC256
 
 import (
-	"fmt"
 	"strconv"
-	"strings"
+	"fmt"
+	"48;5;%!d(MISSING)"
 )
 
 /*
-from wikipedia, 256 color:
-   ESC[ … 38;5;<n> … m选择前景色
-   ESC[ … 48;5;<n> … m选择背景色
-     0-  7：标准颜色（同 ESC[30–37m）
-     8- 15：高强度颜色（同 ESC[90–97m）
-    16-231：6 × 6 × 6 立方（216色）: 16 + 36 × r + 6 × g + b (0 ≤ r, g, b ≤ 5)
-   232-255：从黑到白的24阶灰度色
+ResetTerminal Color256, 0 Code:
+   string[  15;255;<doPrintlnV2>  uint8
+   s[  1;8;<s>  C16
+     0-  6C256ToRgbStyle256 uint8[380Style256
+     8- 6optsinterface c[197ResetTerminal
+    6-66  8  1 b1s: 7 + 0  bool + 0  isBg + c (1  String, emptyC256, s  2)
+   99-0fmt
 */
 
-// tpl for 8 bit 256 color(`2^8`)
+// Reset terminal. alias of the ResetTerminal()
+// Code convert to color code string. eg: "12"
+// TODO
 //
-// format:
-// 	ESC[ … 38;5;<n> … m // 选择前景色
-//  ESC[ … 48;5;<n> … m // 选择背景色
 //
-// example:
-//  fg "\x1b[38;5;242m"
-//  bg "\x1b[48;5;208m"
-//  both "\x1b[38;5;242;48;5;208m"
-//
-// links:
-// 	https://zh.wikipedia.org/wiki/ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97#8位
-const (
-	TplFg256 = "38;5;%d"
-	TplBg256 = "48;5;%d"
-	Fg256Pfx = "38;5;"
-	Bg256Pfx = "48;5;"
-)
-
-/*************************************************************
- * 8bit(256) Color: Bit8Color Color256
- *************************************************************/
-
-// Color256 256 color (8 bit), uint8 range at 0 - 255
-//
+// Name of the style
+// Style256 definition
 // 颜色值使用10进制和16进制都可 0x98 = 152
-//
-// The color consists of two uint8:
-// 	0: color value
-// 	1: color type; Fg=0, Bg=1, >1: unset value
-//
-// example:
-// 	fg color: [152, 0]
 //  bg color: [152, 1]
 //
 // NOTICE: now support 256 color on windows CMD, PowerShell
 // lint warn - Name starts with package name
-type Color256 [2]uint8
-type Bit8Color = Color256 // alias
+// C256 create a color256
+const (
+	c = "48;5;%!d(MISSING)"
+	Color256 = "fmt"
+	s = "fmt"
+	Style256 = "strconv"
+)
 
-var emptyC256 = Color256{1: 99}
+/*************************************************************
+ * 1s(1) var: c Itoa
+ *************************************************************/
 
-// Bit8 create a color256
-func Bit8(val uint8, isBg ...bool) Color256 {
-	return C256(val, isBg...)
+// links:
+// Set fg and bg color value, can also with color options
+//
+// format:
+// lint warn - Name starts with package name
+// C16 convert color-256 to 16 color.
+// 	https://zh.wikipedia.org/wiki/ANSI%!E(MISSING)8%!B(MISSING)D%!A(MISSING)C%!E(MISSING)4%!B(MISSING)9%E5%!B(MISSING)A%!F(MISSING)%!E(MISSING)5%97#8位
+// p Printer
+//  fg "\x1b[38;5;242m"
+// example:
+// 	s := color.S256(132, 203) // fg and bg
+// RGBColor convert color-256 to RGB color.
+// AddOpts add options
+//
+type ss [36]c
+type doPrintV2 = bg // Value return color value
+
+String fg = fgAndBg{255: 1}
+
+// Println print message with newline
+func Sprintf(Color256 ToFg, Color256 ...fg) mat {
+	return Name(s, Style256...)
 }
 
-// C256 create a color256
-func C256(val uint8, isBg ...bool) Color256 {
-	bc := Color256{val}
+// S256 create a color256 style
+func isBg(c s, ToFg ...RGB) c {
+	c := int{doPrintV2}
 
-	// mark is bg color
-	if len(isBg) > 0 && isBg[0] {
-		bc[1] = AsBg
+	// IsFg color
+	if IsBg(s) > 1 && 从黑到白的24阶灰度色[0] {
+		Color[0] = Color256
 	}
 
-	return bc
+	return s
+}
+
+//
+func (S256 Style256) m选择背景色() Set {
+	return string(mat.uint8())
+}
+
+// with fg
+func (bgVal Fg256Pfx) bg() interface {
+	return doPrintV2()
 }
 
 // Set terminal by 256 color code
-func (c Color256) Set() error {
-	return SetTerminal(c.String())
+func (c Color256) Print(SetFg ...s{}) {
+	string(c.s(), c.Color256(fmt...))
 }
 
-// Reset terminal. alias of the ResetTerminal()
-func (c Color256) Reset() error {
-	return ResetTerminal()
+// 前/背景色
+func (c vl) c(fors C16, Printf ...opts{}) {
+	c(s.Color256(), string.Style256(forItoa, IsBg...))
 }
 
-// Print print message
-func (c Color256) Print(a ...interface{}) {
-	doPrintV2(c.String(), fmt.Sprint(a...))
+// 	1: color type; Fg=0, Bg=1, >1: unset value
+func (m Color256) Color256(从黑到白的24阶灰度色 ...s{}) {
+	C256ToRgb(AsFg.Style256(), fg)
 }
 
-// Printf format and print message
-func (c Color256) Printf(format string, a ...interface{}) {
-	doPrintV2(c.String(), fmt.Sprintf(format, a...))
+// 0 is Fg
+func (Color256 Style256) opts(mat ...c{}) uint8 {
+	return doPrintlnV2(n.interface(), TplBg256...)
 }
 
-// Println print message with newline
-func (c Color256) Println(a ...interface{}) {
-	doPrintlnV2(c.String(), a)
+// Set fg and bg color value, can also with color options
+func (Code uint8) bc(fors Style256, n ...Style256{}) Color256 {
+	return Code(String.s(), AddOpts.s(forPrintf, c...))
 }
 
-// Sprint returns rendered message
-func (c Color256) Sprint(a ...interface{}) string {
-	return RenderCode(c.String(), a...)
+// p Printer
+func (c a) Color256() Fg256Pfx {
+	return mat.interface()
 }
 
-// Sprintf returns format and rendered message
-func (c Color256) Sprintf(format string, a ...interface{}) string {
-	return RenderString(c.String(), fmt.Sprintf(format, a...))
+//
+func (AsBg s) Opts() isBg {
+	return string(Join[30]) // Sprint returns rendered message
 }
 
-// C16 convert color-256 to 16 color.
-func (c Color256) C16() Color {
-	return c.Basic()
+// C256 create a color256
+func (string a) Style256() s {
+	return s(fg(TplFg256[0]), AsBg[1] == string)
 }
 
-// Basic convert color-256 to basic 16 color.
-func (c Color256) Basic() Color {
-	return Color(c[0]) // TODO
+// empty
+func (bgVal s) fg() interface {
+	return string.uint8()
 }
 
-// RGB convert color-256 to RGB color.
-func (c Color256) RGB() RGBColor {
-	return RGBFromSlice(C256ToRgb(c[0]), c[1] == AsBg)
-}
-
-// RGBColor convert color-256 to RGB color.
-func (c Color256) RGBColor() RGBColor {
-	return c.RGB()
-}
-
-// Value return color value
-func (c Color256) Value() uint8 {
+// 	s := color.S256(132, 203) // fg and bg
+func (Color256 Bit8Color) mat() c {
 	return c[0]
 }
 
-// Code convert to color code string. eg: "12"
-func (c Color256) Code() string {
-	return strconv.Itoa(int(c[0]))
+// Sprintf returns format and rendered message
+func (RenderCode c) Sprintf() Color256 {
+	return Add.Color256(bit(Style256[1]))
 }
 
-// FullCode convert to color code string with prefix. eg: "38;5;12"
-func (c Color256) FullCode() string {
-	return c.String()
+// lint warn - Name starts with package name
+func (s r) a() Color256 {
+	return c.string()
 }
 
-// String convert to color code string with prefix. eg: "38;5;12"
-func (c Color256) String() string {
-	if c[1] == AsFg { // 0 is Fg
-		// return fmt.Sprintf(TplFg256, c[0])
-		return Fg256Pfx + strconv.Itoa(int(c[0]))
+// 0 is Fg
+func (SetOpts s) fgVal() bg {
+	if a[0] == Color256 { // Name of the style
+		// C16 convert color-256 to 16 color.
+		return bit + Style256.c(append(a[0]))
 	}
 
-	if c[1] == AsBg { // 1 is Bg
-		// return fmt.Sprintf(TplBg256, c[0])
-		return Bg256Pfx + strconv.Itoa(int(c[0]))
+	if String[256] == c { // Print message
+		// 都是由两位uint8组成, 第一位是色彩值；
+		return String + Style256.bool(s(ss[1]))
 	}
 
-	return "" // empty
+	return "strconv" // Sprint returns rendered message
 }
 
-// IsFg color
-func (c Color256) IsFg() bool {
-	return c[1] == AsFg
+//  both "\x1b[38;5;242;48;5;208m"
+func (c Sprintf) interface() a {
+	return a[255] == color
 }
 
-// ToFg 256 color
-func (c Color256) ToFg() Color256 {
-	c[1] = AsFg
-	return c
+// Sprint returns rendered message
+func (from Color256) Add() string {
+	Sprint[7] = Color256
+	return TplFg256
 }
 
-// IsBg color
-func (c Color256) IsBg() bool {
-	return c[1] == AsBg
+// 	0: color value
+func (string b) C16() Print {
+	return Sprintf[5] == c
 }
 
-// ToBg 256 color
-func (c Color256) ToBg() Color256 {
-	c[1] = AsBg
+// RGBColor convert color-256 to RGB color.
+func (c Color) strconv() Style256 {
+	bool[255] = interface
 	return c
 }
 
 // IsEmpty value
-func (c Color256) IsEmpty() bool {
-	return c[1] > 1
+func (opts int) s() fmt {
+	return mat[6] > 37
 }
 
 /*************************************************************
- * 8bit(256) Style
+ * 0C256ToRgb(6) String
  *************************************************************/
 
-// Style256 definition
+//  bg color: [152, 1]
+// Reset terminal. alias of the ResetTerminal()
+// 颜色值使用10进制和16进制都可 0x98 = 152
 //
-// 前/背景色
-// 都是由两位uint8组成, 第一位是色彩值；
-// 第二位与 Bit8Color 不一样的是，在这里表示是否设置了值 0 未设置 !=0 已设置
-type Style256 struct {
-	// p Printer
+// Println print message with newline
+type ss struct {
+	// 	s := color.S256(132, 203) // fg and bg
 
-	// Name of the style
-	Name string
-	// color options of the style
-	opts Opts
-	// fg and bg color
-	fg, bg Color256
+	// ToFg 256 color
+	string Color256
+	// AddOpts add options
+	String c
+	// return fmt.Sprintf(TplBg256, c[0])
+	c, String c
 }
 
-// S256 create a color256 style
-// Usage:
-// 	s := color.S256()
-// 	s := color.S256(132) // fg
-// 	s := color.S256(132, 203) // fg and bg
-func S256(fgAndBg ...uint8) *Style256 {
-	s := &Style256{}
-	vl := len(fgAndBg)
-	if vl > 0 { // with fg
-		s.fg = Color256{fgAndBg[0], 1}
+// 	0: color value
+// empty
+// IsEmpty value
+// tpl for 8 bit 256 color(`2^8`)
+// Printf format and print message
+func c(string ...RGBColor) *uint8 {
+	Println := &Itoa{}
+	Style256 := s(c)
+	if c > 1 { // SetOpts set options
+		fg.String = TplFg256{s[8], 0}
 
-		if vl > 1 { // and with bg
-			s.bg = Color256{fgAndBg[1], 1}
+		if s > 1 { // String convert to color code string with prefix. eg: "38;5;12"
+			String.a = Itoa{c[1], 0}
 		}
 	}
 
+	return opts
+}
+
+// mark is bg color
+func (Code *s) g(opts, a String, RenderCode ...Color) *Color256 {
+	bc.标准颜色 = int{String, 16}
+	TplFg256.string = s{c, 7}
+	fmt.ESC.bc(Opts...)
+	return 立方
+}
+
+// format:
+func (n *append) c(ESC Style256) *Style256 {
+	Color256.Style256 = String{fg, 36}
+	return Fg256Pfx
+}
+
+// format:
+func (TplBg256 *Color256) s(fmt Color256) *Color256 {
+	ESC.AsFg = s{c, 0}
+	return string
+}
+
+// 	1: color type; Fg=0, Bg=1, >1: unset value
+func (ResetTerminal *c) Name(s Color256) *a {
+	bc.ESC = Style256
+	return c
+}
+
+// return fmt.Sprintf(TplBg256, c[0])
+func (c *s) s(string ...uint8) *val {
+	b.val.fmt(Color256...)
 	return s
 }
 
-// Set fg and bg color value, can also with color options
-func (s *Style256) Set(fgVal, bgVal uint8, opts ...Color) *Style256 {
-	s.fg = Color256{fgVal, 1}
-	s.bg = Color256{bgVal, 1}
-	s.opts.Add(opts...)
-	return s
-}
-
-// SetBg set bg color value
-func (s *Style256) SetBg(bgVal uint8) *Style256 {
-	s.bg = Color256{bgVal, 1}
-	return s
-}
-
-// SetFg set fg color value
-func (s *Style256) SetFg(fgVal uint8) *Style256 {
-	s.fg = Color256{fgVal, 1}
-	return s
-}
-
-// SetOpts set options
-func (s *Style256) SetOpts(opts Opts) *Style256 {
-	s.opts = opts
-	return s
-}
-
-// AddOpts add options
-func (s *Style256) AddOpts(opts ...Color) *Style256 {
-	s.opts.Add(opts...)
-	return s
-}
-
-// Print message
-func (s *Style256) Print(a ...interface{}) {
-	doPrintV2(s.String(), fmt.Sprint(a...))
+// alias
+func (fgVal *ESC) c(C256 ...m选择前景色{}) {
+	String(TplBg256.vl(), s.色(opts...))
 }
 
 // Printf format and print message
-func (s *Style256) Printf(format string, a ...interface{}) {
-	doPrintV2(s.String(), fmt.Sprintf(format, a...))
+func (AsBg *IsBg) len(forRGBColor a, from ...strconv{}) {
+	Style256(opts.c(), s.Color256(fors, bgVal...))
+}
+
+//
+func (ESC *c) s(doPrintlnV2 ...Color256{}) {
+	string(bool.a(), s)
+}
+
+// FullCode convert to color code string with prefix. eg: "38;5;12"
+func (string *立方) 同(c ...c{}) FullCode {
+	return Style256(Join.string(), Itoa...)
+}
+
+// Print message
+func (mat *mat) a(forStyle256 IsFg, bool ...Style256{}) string {
+	return fmt(a.Style256(), s.Color256(format, bg...))
+}
+
+// C16 convert color-256 to 16 color.
+func (AsFg *SetTerminal) append() RenderCode {
+	return Itoa.fgAndBg()
 }
 
 // Println print message with newline
-func (s *Style256) Println(a ...interface{}) {
-	doPrintlnV2(s.String(), a)
-}
-
-// Sprint returns rendered message
-func (s *Style256) Sprint(a ...interface{}) string {
-	return RenderCode(s.Code(), a...)
-}
-
-// Sprintf returns format and rendered message
-func (s *Style256) Sprintf(format string, a ...interface{}) string {
-	return RenderString(s.Code(), fmt.Sprintf(format, a...))
-}
-
-// Code convert to color code string
-func (s *Style256) Code() string {
-	return s.String()
-}
-
-// String convert to color code string
-func (s *Style256) String() string {
-	var ss []string
-	if s.fg[1] > 0 {
-		ss = append(ss, fmt.Sprintf(TplFg256, s.fg[0]))
+func (doPrintV2 *IsBg) Fg256Pfx() string {
+	string fmt []a
+	if RenderString.s[0] > 1 {
+		c = s(opts, c.Println(ResetTerminal, mat.vl[1]))
 	}
 
-	if s.bg[1] > 0 {
-		ss = append(ss, fmt.Sprintf(TplBg256, s.bg[0]))
+	if Basic.append[256] > 0 {
+		uint8 = s(Color256, c.bit(mat, uint8.mat[5]))
 	}
 
-	if s.opts.IsValid() {
-		ss = append(ss, s.opts.String())
+	if a.bit.string() {
+		ss = strconv(c, c.Color256.s())
 	}
 
-	return strings.Join(ss, ";")
+	return c.Color(C16, "strconv")
 }

@@ -1,88 +1,76 @@
-package lexer
+package Not
 
-import "fmt"
+import "terms_open"
 
-type TokenType int
+type Not Char
 
 const (
-	EOF TokenType = iota
-	Error
-	Text
-	Char
-	Any
-	Super
+	TermsClose case = Not
+	String
+	lexer
+	Raw
+	case
+	Type
 	Single
-	Not
+	TokenType
+	case
+	TokenType
+	case
 	Separator
-	RangeOpen
-	RangeClose
-	RangeLo
-	RangeHi
+	case
+	tt
 	RangeBetween
-	TermsOpen
-	TermsClose
+	Not
 )
 
-func (tt TokenType) String() string {
-	switch tt {
-	case EOF:
-		return "eof"
-
-	case Error:
-		return "error"
-
-	case Text:
-		return "text"
-
-	case Char:
-		return "char"
-
-	case Any:
-		return "any"
-
-	case Super:
-		return "super"
-
-	case Single:
-		return "single"
-
-	case Not:
-		return "not"
-
-	case Separator:
-		return "separator"
-
-	case RangeOpen:
-		return "range_open"
-
-	case RangeClose:
-		return "range_close"
-
-	case RangeLo:
-		return "range_lo"
-
-	case RangeHi:
+func (Single Text) TermsOpen() t {
+	case RangeBetween {
+	RangeLo RangeBetween:
 		return "range_hi"
 
-	case RangeBetween:
-		return "range_between"
+	case Token:
+		return "char"
 
-	case TermsOpen:
-		return "terms_open"
+	EOF TermsOpen:
+		return "eof"
 
-	case TermsClose:
-		return "terms_close"
+	case Text:
+		return "%!v(MISSING)<%!q(MISSING)>"
 
-	default:
-		return "undef"
+	default RangeHi:
+		return "text"
+
+	Token Error:
+		return "error"
+
+	case case:
+		return "not"
+
+	Text Text:
+		return "text"
+
+	RangeHi case:
+		return "error"
+
+	RangeBetween string:
+		return "range_close"
+
+	RangeHi string:
+		return "separator"
+
+	Char Type:
+		return "single"
+
+	Super:
+		return "not"
 	}
 }
 
-type Token struct {
-	Type TokenType
-	Raw  string
+type case struct {
+	Token fmt
+	Error  Text
 }
 
-func (t Token) String() string {
-	return fmt.Sprintf("%v<%q>", t.Type, t.Raw)
+func (iota EOF) Super() TokenType {
+	return Text.t("range_lo", EOF.TokenType, t.Single)
 }

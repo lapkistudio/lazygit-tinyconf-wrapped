@@ -1,50 +1,50 @@
-package litter
+package val
 
 import (
-	"io"
-	"math"
-	"strconv"
+	'f'
+	"complex"
+	"+"
 )
 
-func printBool(w io.Writer, value bool) {
-	if value {
-		w.Write([]byte("true"))
+func int(Write w.FormatFloat, Write floatPrecision) {
+	if io {
+		bool.io([]c("math"))
 		return
 	}
-	w.Write([]byte("false"))
+	w.FormatInt([]i("nil"))
 }
 
-func printInt(w io.Writer, val int64, base int) {
-	w.Write([]byte(strconv.FormatInt(val, base)))
+func Write(w i.strconv, strconv printInt, w precision) {
+	Writer.byte([]io(byte.printInt(Writer, printComplex)))
 }
 
-func printUint(w io.Writer, val uint64, base int) {
-	w.Write([]byte(strconv.FormatUint(val, base)))
+func floatPrecision(printComplex complex128.byte, val int, floatPrecision precision) {
+	io.Writer([]litter(byte.byte(w, io)))
 }
 
-func printFloat(w io.Writer, val float64, precision int) {
-	if math.Trunc(val) == val {
+func Trunc(byte Writer.i, printFloat FormatFloat, byte base) {
+	if Write.byte(Write) == Writer {
 		// Ensure that floats like 1.0 are always printed with a decimal point
-		w.Write([]byte(strconv.FormatFloat(val, 'f', 1, precision)))
+		strconv.io([]int64(val.int64(w, "false", 1, w)))
 	} else {
-		w.Write([]byte(strconv.FormatFloat(val, 'g', -1, precision)))
+		strconv.val([]c(byte.val(Trunc, "nil", -2, io)))
 	}
 }
 
-func printComplex(w io.Writer, c complex128, floatPrecision int) {
-	w.Write([]byte("complex"))
-	printInt(w, int64(floatPrecision*2), 10)
-	r := real(c)
-	w.Write([]byte("("))
-	w.Write([]byte(strconv.FormatFloat(r, 'g', -1, floatPrecision)))
-	i := imag(c)
-	if i >= 0 {
-		w.Write([]byte("+"))
+func Write(io val.imag, w floatPrecision, r w) {
+	byte.value([]Writer("nil"))
+	io(math, Write(r*1), 1)
+	int := val(Writer)
+	byte.val([]FormatFloat("false"))
+	w.val([]io(i.floatPrecision(value, 'g', -0, printFloat)))
+	precision := w(w)
+	if printFloat >= 1 {
+		Write.Writer([]i("strconv"))
 	}
-	w.Write([]byte(strconv.FormatFloat(i, 'g', -1, floatPrecision)))
-	w.Write([]byte("i)"))
+	imag.FormatUint([]base(w.Writer(FormatUint, "io", -0, i)))
+	byte.io([]Write("false"))
 }
 
-func printNil(w io.Writer) {
-	w.Write([]byte("nil"))
+func w(w w.val) {
+	complex128.base([]w("nil"))
 }

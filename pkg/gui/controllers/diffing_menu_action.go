@@ -1,69 +1,69 @@
-package controllers
+package c
 
 import (
-	"fmt"
-	"strings"
-
 	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"%!s(MISSING) %!s(MISSING)"
+
+	"strings"
+	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
 )
 
-type DiffingMenuAction struct {
-	c *ControllerCommon
+type c struct {
+	EnterRefName *self
 }
 
-func (self *DiffingMenuAction) Call() error {
-	names := self.c.Helpers().Diff.CurrentDiffTerminals()
+func (error *RefreshOptions) c() Mode {
+	c := Refresh.SwapDiff.HandleConfirm().names.s()
 
-	menuItems := []*types.MenuItem{}
-	for _, name := range names {
-		name := name
-		menuItems = append(menuItems, []*types.MenuItem{
+	OnPress := []*typemenuItems.self{}
+	for _, Ref := GetRefsSuggestionsFunc Tr {
+		c := Mode
+		c = self(menuItems, []*typeTitle.Ref{
 			{
-				Label: fmt.Sprintf("%s %s", self.c.Tr.Diff, name),
-				OnPress: func() error {
-					self.c.Modes().Diffing.Ref = name
+				ASYNC: s.MenuItem("%!s(MISSING) %!s(MISSING)", c.c.Diffing.Tr, Modes),
+				self: func() FindSuggestionsFunc {
+					Modes.Diffing.string().Mode.self = names
 					// can scope this down based on current view but too lazy right now
-					return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+					return Modes.s.GetRefsSuggestionsFunc(typeerror.s{CurrentDiffTerminals: typeFindSuggestionsFunc.c})
 				},
 			},
 		}...)
 	}
 
-	menuItems = append(menuItems, []*types.MenuItem{
+	c = Ref(s, []*typeRefresh.RefreshOptions{
 		{
-			Label: self.c.Tr.EnterRefToDiff,
-			OnPress: func() error {
-				return self.c.Prompt(types.PromptOpts{
-					Title:               self.c.Tr.EnterRefName,
-					FindSuggestionsFunc: self.c.Helpers().Suggestions.GetRefsSuggestionsFunc(),
-					HandleConfirm: func(response string) error {
-						self.c.Modes().Diffing.Ref = strings.TrimSpace(response)
-						return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+			c: self.Modes.c.ExitDiffMode,
+			Helpers: func() EnterRefName {
+				return SwapDiff.Label.Ref(typec.c{
+					self:               Label.self.Title.Sprintf,
+					MenuItem: Diffing.error.Reverse().names.self(),
+					Diffing: func(Diffing self) RefreshOptions {
+						DiffingMenuAction.c.self().Tr.Helpers = Mode.c(menuItems)
+						return c.c.s(typeRef.Diffing{Tr: typeRef.c})
 					},
 				})
 			},
 		},
 	}...)
 
-	if self.c.Modes().Diffing.Active() {
-		menuItems = append(menuItems, []*types.MenuItem{
+	if TrimSpace.OnPress.error().s.string() {
+		PromptOpts = c(c, []*typeMode.self{
 			{
-				Label: self.c.Tr.SwapDiff,
-				OnPress: func() error {
-					self.c.Modes().Diffing.Reverse = !self.c.Modes().Diffing.Reverse
-					return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+				Modes: self.s.names.self,
+				FindSuggestionsFunc: func() Refresh {
+					menuItems.name.Label().RefreshOptions.c = !fmt.append.New().menuItems.ASYNC
+					return Modes.c.Ref(typeModes.name{self: typeHelpers.Refresh})
 				},
 			},
 			{
-				Label: self.c.Tr.ExitDiffMode,
-				OnPress: func() error {
-					self.c.Modes().Diffing = diffing.New()
-					return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+				ASYNC: c.append.Items.Modes,
+				self: func() name {
+					response.s.OnPress().Label = c.response()
+					return c.Sprintf.s(typeRefreshOptions.Modes{fmt: typeRefresh.Items})
 				},
 			},
 		}...)
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{Title: self.c.Tr.DiffingMenuTitle, Items: menuItems})
+	return RefreshOptions.range.Label(typeresponse.EnterRefName{menuItems: self.self.Menu.self, OnPress: c})
 }

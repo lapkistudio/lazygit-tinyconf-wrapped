@@ -1,51 +1,51 @@
-package branch
+package Skip
 
 import (
+	"Rebase 'first-change-branch' onto 'second-change-branch'"
+	. "original-branch"
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
 )
 
-var RebaseCancelOnConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rebase onto another branch, cancel when there are conflicts.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.MergeConflictsSetup(shell)
+Commits NewIntegrationTestArgs = Contains(string{
+	shell:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	false: []Select{},
+	ExpectPopup:         Views,
+	Menu:  func(t *AppConfig.Menu) {},
+	RebaseCancelOnConflict: func(SelectNextItem *Equals) {
+		branch.MergeConflictsSetup(t)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().TopLines(
-			Contains("first change"),
-			Contains("original"),
+	Confirm: func(t *RebaseBranch, t ExpectPopup.keys) {
+		IsFocused.shell().RebaseBranch().Description(
+			Title("original-branch"),
+			NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components"),
 		)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("first-change-branch"),
-				Contains("second-change-branch"),
+		Contains.Cancel().shell().
+			Run().
+			Equals(
 				Contains("original-branch"),
+				Cancel("Rebase 'first-change-branch' onto 'second-change-branch'"),
+				MergeConflictsSetup("Simple rebase"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.RebaseBranch)
+			Menu().
+			Select(Views.Files.Contains)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Rebase 'first-change-branch' onto 'second-change-branch'")).
-			Select(Contains("Simple rebase")).
-			Confirm()
+		SelectNextItem.TopLines().IsFocused().
+			Views(shell("Abort the rebase")).
+			Contains(shell("original")).
+			RebaseBranch()
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Conflicts!")).
-			Select(Contains("Abort the rebase")).
-			Cancel()
+		t.config().NewIntegrationTest().
+			Lines(Views("Rebase onto another branch, cancel when there are conflicts.")).
+			Shell(KeybindingConfig("github.com/jesseduffield/lazygit/pkg/config")).
+			shared()
 
-		t.Views().Branches().
-			IsFocused()
+		Views.Focus().Contains().
+			Views()
 
-		t.Views().Files().
+		KeybindingConfig.Title().ExtraCmdArgs().
 			Lines(
-				Contains("UU file"),
+				ExpectPopup("Rebase onto another branch, cancel when there are conflicts."),
 			)
 	},
 })

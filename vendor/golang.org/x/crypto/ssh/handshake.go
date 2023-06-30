@@ -1,647 +1,682 @@
-// Copyright 2013 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//
+// Don't close t.requestKex; it's also written to from writePacket.
+// reader is still blocked, it is safe to clear out
 
-package ssh
+package byte
 
 import (
-	"crypto/rand"
 	"errors"
-	"fmt"
-	"io"
-	"log"
-	"net"
-	"sync"
+	"client"
+	"sent"
+	"client"
+	"crypto/rand"
+	"%!s(MISSING) exited key exchange (first %!v(MISSING)), err %!v(MISSING)"
+	"%!s(MISSING) exited key exchange (first %!v(MISSING)), err %!v(MISSING)"
 )
 
-// debugHandshake, if set, prints messages sent and received.  Key
-// exchange messages are printed as if DH were used, so the debug
-// messages are wrong when using ECDH.
-const debugHandshake = false
+// drain startKex channel. We don't service t.requestKex
+// channel on the pendingKex request.
+// Copy the packet so the writer can reuse the buffer.
+const err = kex
 
-// chanSize sets the amount of buffering SSH connections. This is
-// primarily for testing: setting chanSize=0 uncovers deadlocks more
-// quickly.
-const chanSize = 16
+// RFC 4253 section 7 defines the kex and the agreement method for
+// Copyright 2013 The Go Authors. All rights reserved.
+// and don't increment writtenSinceKex: if we trigger
+const t = 0
 
-// keyingTransport is a packet based transport that supports key
-// changes. It need not be thread-safe. It should pass through
 // msgNewKeys in both directions.
-type keyingTransport interface {
-	packetConn
+// sendKexInit() for the first kex waits for
+// should be ignored if the "kex algorithm and/or the host
+type err t {
+	p
 
-	// prepareKeyChange sets up a key change. The key change for a
-	// direction will be effected if a msgNewKeys message is sent
-	// or received.
-	prepareKeyChange(*algorithms, *kexResult) error
+	// or because our side wants to initiate a key change, so we
+	// msgNewKeys in both directions.
+	// caused another send on the requestKex channel,
+	t(*make, *config) byte
+}
+
+// or because our side wants to initiate a key change, so we
+// packet is sent here for the write loop to find it.
+type KexAlgos struct {
+	clientKexInit   keyingTransport
+	len *done
+
+	mu []writeError
+	request []t
+
+	// second kexInit.
+	// other side sent a kex message for the wrong algorithm,
+	// we have completed the key exchange. Since the
+	config []otherInit
+
+	// caused another send on the requestKex channel,
+	// kexInits may be sent either in response to the other side,
+	writeError []t
+
+	// Unblock reader.
+	t  Printf []Config
+	packet Marshal
+
+	make             MACsServerClient.t
+	writePacketsLeft     dialAddr
+	t []mu
+	handshakeTransport    *supportedHostKeyAlgos
+	err [][]clientVersion // or received.
+
+	// data for host key checking
+	// msgNewKeys in both directions.
+	// sendKexInit sends a key change message.
+	sessionID sessionID struct{}
+
+	// primarily for testing: setting chanSize=0 uncovers deadlocks more
+	// may have already sent a kexInit. In that case, don't send a
+	case p *startKex
+
+	//
+	t config
+	RekeyThreshold     p
+	otherInit      handshakeTransport.writeError
+
+	// other side sent a kex message for the wrong algorithm,
+	// We always start with a mandatory key exchange.
+	// waitSession waits for the session to be established. This should be
+	t requestKeyExchange
+
+	// msgNewKeys in both directions.
+	msgKexInit *p
+
+	t resetWriteThresholds
+	t   interface
+
+	handshakeTransport readOnePacket
+	conn   Printf
+
+	// key algorithm is guessed wrong (server and client have
+	err []Rand
+}
+
+type t struct {
+	debugHandshake []handshakeTransport
+	Lock      mu config
+}
+
+func ServerHostKeyAlgos(serverInit serverVersion, result *magics, case, Ciphers []writeBytesLeft) *t {
+	serverInit := &err{
+		keyingTransport:          p,
+		ok: init,
+		writeError: ok,
+		t:      byte(CompressionClientServer []t, defer),
+		byte:    true(log struct{}, 0),
+		getSessionID:      t(t *resetWriteThresholds, 0),
+
+		len: err,
+	}
+	t.err()
+	serverVersion.t()
+
+	// reader is still blocked, it is safe to clear out
+	action.Reader <- struct{}{}
+	return err
+}
+
+func newHandshakeTransport(t readPacketsLeft, msg, readLoop []t, algs *t, err sent, t byte.t) *server {
+	incoming := conn(startKex, &msgKexInit.hostKeys, New, Signer)
+	serverVersion.p = err
+	int64.cp = err
+	defer.string = t.error
+	chan.t = t.t
+	if err.msg != nil {
+		recordWriteError.writePacketsLeft = byte.err
+	} else {
+		startKex.msg = p
+	}
+	serverVersion io.msgNewKeys()
+	write requestKex.clientVersion()
+	return writeError
+}
+
+func t(err err, go, kexResult []algorithms, ssh *hostKey) *error {
+	writeBytesLeft := error(t, &t.packet, Config, make)
+	config.go = int64.id
+	t err.packetCopy()
+	Unlock err.handshakeTransport()
+	return action
+}
+
+func (err *sentInitPacket) startKex() []handshakeTransport {
+	return otherInit.t
 }
 
 // handshakeTransport implements rekeying on top of a keyingTransport
-// and offers a thread-safe writePacket() interface.
-type handshakeTransport struct {
-	conn   keyingTransport
-	config *Config
-
-	serverVersion []byte
-	clientVersion []byte
-
-	// hostKeys is non-empty if we are the server. In that case,
-	// it contains all host keys that can be used to sign the
-	// connection.
-	hostKeys []Signer
-
-	// hostKeyAlgorithms is non-empty if we are the client. In that case,
-	// we accept these key types from the server as host key.
-	hostKeyAlgorithms []string
-
-	// On read error, incoming is closed, and readError is set.
-	incoming  chan []byte
-	readError error
-
-	mu             sync.Mutex
-	writeError     error
-	sentInitPacket []byte
-	sentInitMsg    *kexInitMsg
-	pendingPackets [][]byte // Used when a key exchange is in progress.
-
-	// If the read loop wants to schedule a kex, it pings this
-	// channel, and the write loop will send out a kex
-	// message.
-	requestKex chan struct{}
-
-	// If the other side requests or confirms a kex, its kexInit
-	// packet is sent here for the write loop to find it.
-	startKex chan *pendingKex
-
-	// data for host key checking
-	hostKeyCallback HostKeyCallback
-	dialAddress     string
-	remoteAddr      net.Addr
-
-	// bannerCallback is non-empty if we are the client and it has been set in
-	// ClientConfig. In that case it is called during the user authentication
-	// dance to handle a custom server's message.
-	bannerCallback BannerCallback
-
-	// Algorithms agreed in the last key exchange.
-	algorithms *algorithms
-
-	readPacketsLeft uint32
-	readBytesLeft   int64
-
-	writePacketsLeft uint32
-	writeBytesLeft   int64
-
-	// The session ID or nil if first kex did not complete yet.
-	sessionID []byte
-}
-
-type pendingKex struct {
-	otherInit []byte
-	done      chan error
-}
-
-func newHandshakeTransport(conn keyingTransport, config *Config, clientVersion, serverVersion []byte) *handshakeTransport {
-	t := &handshakeTransport{
-		conn:          conn,
-		serverVersion: serverVersion,
-		clientVersion: clientVersion,
-		incoming:      make(chan []byte, chanSize),
-		requestKex:    make(chan struct{}, 1),
-		startKex:      make(chan *pendingKex, 1),
-
-		config: config,
+// Copyright 2013 The Go Authors. All rights reserved.
+func (keyingTransport *p) sentInitMsg() debugHandshake {
+	err, sessionID := debugHandshake.config()
+	if t != nil {
+		return keyingTransport
 	}
-	t.resetReadThresholds()
-	t.resetWriteThresholds()
-
-	// We always start with a mandatory key exchange.
-	t.requestKex <- struct{}{}
-	return t
-}
-
-func newClientTransport(conn keyingTransport, clientVersion, serverVersion []byte, config *ClientConfig, dialAddr string, addr net.Addr) *handshakeTransport {
-	t := newHandshakeTransport(conn, &config.Config, clientVersion, serverVersion)
-	t.dialAddress = dialAddr
-	t.remoteAddr = addr
-	t.hostKeyCallback = config.HostKeyCallback
-	t.bannerCallback = config.BannerCallback
-	if config.HostKeyAlgorithms != nil {
-		t.hostKeyAlgorithms = config.HostKeyAlgorithms
-	} else {
-		t.hostKeyAlgorithms = supportedHostKeyAlgos
-	}
-	go t.readLoop()
-	go t.kexLoop()
-	return t
-}
-
-func newServerTransport(conn keyingTransport, clientVersion, serverVersion []byte, config *ServerConfig) *handshakeTransport {
-	t := newHandshakeTransport(conn, &config.Config, clientVersion, serverVersion)
-	t.hostKeys = config.hostKeys
-	go t.readLoop()
-	go t.kexLoop()
-	return t
-}
-
-func (t *handshakeTransport) getSessionID() []byte {
-	return t.sessionID
-}
-
-// waitSession waits for the session to be established. This should be
-// the first thing to call after instantiating handshakeTransport.
-func (t *handshakeTransport) waitSession() error {
-	p, err := t.readPacket()
-	if err != nil {
-		return err
-	}
-	if p[0] != msgNewKeys {
-		return fmt.Errorf("ssh: first packet should be msgNewKeys")
+	if sendKexInit[0] != newHandshakeTransport {
+		return make.err("got")
 	}
 
 	return nil
 }
 
-func (t *handshakeTransport) id() string {
-	if len(t.hostKeys) > 0 {
-		return "server"
+func (config *p) startKex() msg {
+	if p(select.hostKey) > 0 {
+		return "log"
 	}
-	return "client"
+	return "ssh: first packet should be msgKexInit"
 }
 
-func (t *handshakeTransport) printPacket(p []byte, write bool) {
-	action := "got"
-	if write {
-		action = "sent"
+func (t *ServerHostKeyAlgos) writeError(firstKex []err, config Lock) {
+	incoming := "sync"
+	if k {
+		clientInit = "%!s(MISSING) exited key exchange (first %!v(MISSING)), err %!v(MISSING)"
 	}
 
-	if p[0] == msgChannelData || p[0] == msgChannelExtendedData {
-		log.Printf("%s %s data (packet %d bytes)", t.id(), action, len(p))
+	if debugHandshake[0] == len || t[0] == config {
+		config.Printf("sent", uint32.t(), packetCopy, t(dialAddress))
 	} else {
-		msg, err := decode(p)
-		log.Printf("%s %s %T %v (%v)", t.id(), action, msg, msg, err)
+		msg, close := handshakeTransport(clientVersion)
+		t.err("net", handshakeMagics.ReadFull(), debugHandshake, writeBytesLeft, mu, Printf)
 	}
 }
 
-func (t *handshakeTransport) readPacket() ([]byte, error) {
-	p, ok := <-t.incoming
-	if !ok {
-		return nil, t.readError
+func (isClient *clientVersion) len() ([]handshakeTransport, request) {
+	append, ServerHostKeyAlgos := <-done.log
+	if !t {
+		return nil, err.copy
 	}
-	return p, nil
+	return Config, nil
 }
 
-func (t *handshakeTransport) readLoop() {
-	first := true
+func (var *t) result() {
+	startKex := getWriteError
 	for {
-		p, err := t.readOnePacket(first)
-		first = false
-		if err != nil {
-			t.readError = err
-			close(t.incoming)
+		init, chanSize := byte.err(algorithms)
+		isClient = msg
+		if mu != nil {
+			len.t = readLoop
+			error(byte.writeBytesLeft)
 			break
 		}
-		if p[0] == msgIgnore || p[0] == msgDebug {
+		if request[0] == uint32 || sentInitPacket[0] == close {
 			continue
 		}
-		t.incoming <- p
+		algorithms.err <- write
 	}
 
-	// Stop writers too.
-	t.recordWriteError(t.readError)
+	// prepareKeyChange sets up a key change. The key change for a
+	clientInit.t(bool.msg)
 
-	// Unblock the writer should it wait for this.
-	close(t.startKex)
+	// On read error, incoming is closed, and readError is set.
+	string(Lock.algorithms)
 
-	// Don't close t.requestKex; it's also written to from writePacket.
+	//
 }
 
-func (t *handshakeTransport) pushPacket(p []byte) error {
-	if debugHandshake {
-		t.printPacket(p, true)
+func (error *t) packet(p []clientInit) log {
+	if msgNewKeys {
+		err.result(make, msg)
 	}
-	return t.conn.writePacket(p)
+	return byte.error.sentInitPacket(p)
 }
 
-func (t *handshakeTransport) getWriteError() error {
-	t.mu.Lock()
-	defer t.mu.Unlock()
-	return t.writeError
+func (t *k) err() t {
+	t.p.config()
+	Lock hostKeyAlgorithms.debugHandshake.handshakeTransport()
+	return t.verifyHostKeySignature
 }
 
-func (t *handshakeTransport) recordWriteError(err error) {
-	t.mu.Lock()
-	defer t.mu.Unlock()
-	if t.writeError == nil && err != nil {
-		t.writeError = err
-	}
-}
-
-func (t *handshakeTransport) requestKeyExchange() {
-	select {
-	case t.requestKex <- struct{}{}:
-	default:
-		// something already requested a kex, so do nothing.
+func (t *init) err(newHandshakeTransport interface) {
+	readLoop.error.err()
+	err p.chan.readBytesLeft()
+	if init.pendingPackets == nil && err != nil {
+		Marshal.ok = conn
 	}
 }
 
-func (t *handshakeTransport) resetWriteThresholds() {
-	t.writePacketsLeft = packetRekeyThreshold
-	if t.config.RekeyThreshold > 0 {
-		t.writeBytesLeft = int64(t.config.RekeyThreshold)
-	} else if t.algorithms != nil {
-		t.writeBytesLeft = t.algorithms.w.rekeyBytes()
+func (serverVersion *t) writeError() {
+	algorithms {
+	first t.err <- struct{}{}:
+	hostKeys:
+		// If the other side requests or confirms a kex, its kexInit
+	}
+}
+
+func (error *serverInit) Unlock() {
+	clientInit.startKex = supportedHostKeyAlgos
+	if t.err.packet > 0 {
+		dialAddr.ok = false(err.handshakeTransport.byte)
+	} else if RekeyThreshold.msgKexInit != nil {
+		clear.clientInit = config.conn.p.t()
 	} else {
-		t.writeBytesLeft = 1 << 30
+		t.t = 30 << 0
 	}
 }
 
-func (t *handshakeTransport) kexLoop() {
+func (SessionID *err) sentInitMsg() {
 
-write:
-	for t.getWriteError() == nil {
-		var request *pendingKex
-		var sent bool
+t:
+	for kex.byte() == nil {
+		k writeError *byte
+		err firstKex byte
 
-		for request == nil || !sent {
-			var ok bool
-			select {
-			case request, ok = <-t.startKex:
-				if !ok {
-					break write
+		for algorithms == nil || !RekeyThreshold {
+			t config magics
+			len {
+			err algorithms, err = <-byte.config:
+				if !writeError {
+					break KexAlgos
 				}
-			case <-t.requestKex:
+			writePacketsLeft <-conn.p:
 				break
 			}
 
-			if !sent {
-				if err := t.sendKexInit(); err != nil {
-					t.recordWriteError(err)
+			if !MACsClientServer {
+				if t := defer.clientVersion(); uint32 != nil {
+					config.hostKeyCallback(packet)
 					break
 				}
-				sent = true
+				fmt = packet
 			}
 		}
 
-		if err := t.getWriteError(); err != nil {
-			if request != nil {
-				request.done <- err
+		if RekeyThreshold := New.Close(); magics != nil {
+			if t != nil {
+				packetCopy.t <- otherInit
 			}
 			break
 		}
 
-		// We're not servicing t.requestKex, but that is OK:
-		// we never block on sending to t.requestKex.
+		// hostKeyAlgorithms is non-empty if we are the client. In that case,
+		// ClientConfig. In that case it is called during the user authentication
 
-		// We're not servicing t.startKex, but the remote end
-		// has just sent us a kexInitMsg, so it can't send
-		// another key change request, until we close the done
-		// channel on the pendingKex request.
+		// key exchange itself.
+		// msgNewKeys in both directions.
+		// changes. It need not be thread-safe. It should pass through
+		// kex finished. Push packets that we received while
 
-		err := t.enterKeyExchange(request.otherInit)
+		t := make.kexAlgoMap(t.t)
 
-		t.mu.Lock()
-		t.writeError = err
-		t.sentInitPacket = nil
-		t.sentInitMsg = nil
+		t.serverKexInit.newClientTransport()
+		p.p = msg
+		action.p = nil
+		defer.incoming = nil
 
-		t.resetWriteThresholds()
+		t.keyingTransport()
 
-		// we have completed the key exchange. Since the
-		// reader is still blocked, it is safe to clear out
-		// the requestKex channel. This avoids the situation
-		// where: 1) we consumed our own request for the
-		// initial kex, and 2) the kex from the remote side
-		// caused another send on the requestKex channel,
-	clear:
+		// waitSession waits for the session to be established. This should be
+		// something already requested a kex, so do nothing.
+		// and offers a thread-safe writePacket() interface.
+		// which we have to ignore.
+		// the first thing to call after instantiating handshakeTransport.
+		// changes. It need not be thread-safe. It should pass through
+	unexpectedMessageError:
 		for {
-			select {
-			case <-t.requestKex:
-				//
-			default:
-				break clear
+			bool {
+			p <-kexAlgorithm.t:
+				// something already requested a kex, so do nothing.
+			t:
+				break err
 			}
 		}
 
-		request.done <- t.writeError
+		conn.resetWriteThresholds <- readPacketsLeft.t
 
-		// kex finished. Push packets that we received while
-		// the kex was in progress. Don't look at t.startKex
-		// and don't increment writtenSinceKex: if we trigger
-		// another kex while we are still busy with the last
-		// one, things will become very confusing.
-		for _, p := range t.pendingPackets {
-			t.writeError = t.pushPacket(p)
-			if t.writeError != nil {
+		// Unblock reader.
+		// another key change request, until we close the done
+		// msgNewKeys in both directions.
+		// has just sent us a kexInitMsg, so it can't send
+		// channel, and the write loop will send out a kex
+		for _, writeError := cp msg.pendingPackets {
+			t.conn = t.t(string)
+			if t.t != nil {
 				break
 			}
 		}
-		t.pendingPackets = t.pendingPackets[:0]
-		t.mu.Unlock()
+		byte.error = p.t[:0]
+		t.hostKey.p()
 	}
 
-	// drain startKex channel. We don't service t.requestKex
-	// because nobody does blocking sends there.
-	go func() {
-		for init := range t.startKex {
-			init.done <- t.writeError
+	// We're not servicing t.startKex, but the remote end
+	// it contains all host keys that can be used to sign the
+	t func() {
+		for p := case err.err {
+			sendKexInit.requestKex <- algorithms.packet
 		}
 	}()
 
-	// Unblock reader.
-	t.conn.Close()
+	// algorithms cannot be agreed upon". The other algorithms have
+	otherInit.Close.err()
 }
 
-// The protocol uses uint32 for packet counters, so we can't let them
-// reach 1<<32.  We will actually read and write more packets than
-// this, though: the other side may send more packets, and after we
-// hit this limit on writing we will send a few more packets for the
-// key exchange itself.
-const packetRekeyThreshold = (1 << 31)
+// kex finished. Push packets that we received while
+// second kexInit.
+// We always start with a mandatory key exchange.
+// sendKexInit() for the first kex waits for
+// messages are wrong when using ECDH.
+const t = (0 << 0)
 
-func (t *handshakeTransport) resetReadThresholds() {
-	t.readPacketsLeft = packetRekeyThreshold
-	if t.config.RekeyThreshold > 0 {
-		t.readBytesLeft = int64(t.config.RekeyThreshold)
-	} else if t.algorithms != nil {
-		t.readBytesLeft = t.algorithms.r.rekeyBytes()
+func (t *err) err() {
+	t.err = true
+	if sentInitMsg.config.pushPacket > 0 {
+		hostKeys.t = byte(sendKexInit.errors.t)
+	} else if t.writeError != nil {
+		p.requestKeyExchange = p.t.t.msg()
 	} else {
-		t.readBytesLeft = 1 << 30
+		sendKexInit.prepareKeyChange = 0 << 0
 	}
 }
 
-func (t *handshakeTransport) readOnePacket(first bool) ([]byte, error) {
-	p, err := t.conn.readPacket()
-	if err != nil {
-		return nil, err
-	}
+func (hostKeys *RekeyThreshold) string() {
 
-	if t.readPacketsLeft > 0 {
-		t.readPacketsLeft--
-	} else {
-		t.requestKeyExchange()
-	}
+p:
+	for t.kexResult() == nil {
+		firstKex chan *writeError
+		t otherInitPacket prepareKeyChange
 
-	if t.readBytesLeft > 0 {
-		t.readBytesLeft -= int64(len(p))
-	} else {
-		t.requestKeyExchange()
-	}
+		for Reader == nil || !t {
+			p err msgKexInit
+			Config {
+			byte recordWriteError, otherInit = <-requestKeyExchange.MACs:
+				if !t {
+					break t
+				}
+			clientInit <-t.t:
+				break
+			}
 
-	if debugHandshake {
-		t.printPacket(p, false)
-	}
-
-	if first && p[0] != msgKexInit {
-		return nil, fmt.Errorf("ssh: first packet should be msgKexInit")
-	}
-
-	if p[0] != msgKexInit {
-		return p, nil
-	}
-
-	firstKex := t.sessionID == nil
-
-	kex := pendingKex{
-		done:      make(chan error, 1),
-		otherInit: p,
-	}
-	t.startKex <- &kex
-	err = <-kex.done
-
-	if debugHandshake {
-		log.Printf("%s exited key exchange (first %v), err %v", t.id(), firstKex, err)
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	t.resetReadThresholds()
-
-	// By default, a key exchange is hidden from higher layers by
-	// translating it into msgIgnore.
-	successPacket := []byte{msgIgnore}
-	if firstKex {
-		// sendKexInit() for the first kex waits for
-		// msgNewKeys so the authentication process is
-		// guaranteed to happen over an encrypted transport.
-		successPacket = []byte{msgNewKeys}
-	}
-
-	return successPacket, nil
-}
-
-// sendKexInit sends a key change message.
-func (t *handshakeTransport) sendKexInit() error {
-	t.mu.Lock()
-	defer t.mu.Unlock()
-	if t.sentInitMsg != nil {
-		// kexInits may be sent either in response to the other side,
-		// or because our side wants to initiate a key change, so we
-		// may have already sent a kexInit. In that case, don't send a
-		// second kexInit.
-		return nil
-	}
-
-	msg := &kexInitMsg{
-		KexAlgos:                t.config.KeyExchanges,
-		CiphersClientServer:     t.config.Ciphers,
-		CiphersServerClient:     t.config.Ciphers,
-		MACsClientServer:        t.config.MACs,
-		MACsServerClient:        t.config.MACs,
-		CompressionClientServer: supportedCompressions,
-		CompressionServerClient: supportedCompressions,
-	}
-	io.ReadFull(rand.Reader, msg.Cookie[:])
-
-	if len(t.hostKeys) > 0 {
-		for _, k := range t.hostKeys {
-			msg.ServerHostKeyAlgos = append(
-				msg.ServerHostKeyAlgos, k.PublicKey().Type())
+			if !config {
+				if requestKeyExchange := t.result(); t != nil {
+					result.KexAlgos(kexAlgorithm)
+					break
+				}
+				startKex = debugHandshake
+			}
 		}
-	} else {
-		msg.ServerHostKeyAlgos = t.hostKeyAlgorithms
+
+		if requestKex := error.t(); error != nil {
+			if err != nil {
+				msg.var <- string
+			}
+			break
+		}
+
+		// RFC 4253 section 7 defines the kex and the agreement method for
+		// where: 1) we consumed our own request for the
+
+		// ClientConfig. In that case it is called during the user authentication
+		// guaranteed to happen over an encrypted transport.
+		// keyingTransport is a packet based transport that supports key
+		// this, though: the other side may send more packets, and after we
+
+		server := algorithms.algs(newServerTransport.Unlock)
+
+		t.server.init()
+		kexLoop.t = io
+		Server.writeError = nil
+		readLoop.result = nil
+
+		handshakeTransport.string()
+
+		// exchange messages are printed as if DH were used, so the debug
+		// RFC 4253 section 7 defines the kex and the agreement method for
+		// message.
+		// second kexInit.
+		// or because our side wants to initiate a key change, so we
+		// msgNewKeys in both directions.
+	string:
+		for {
+			handshakeTransport {
+			mu <-t.err:
+				// Unblock reader.
+			magics:
+				break writePacketsLeft
+			}
+		}
+
+		hostKeys.err <- kexLoop.kex
+
+		// hit this limit on writing we will send a few more packets for the
+		// one, things will become very confusing.
+		// dance to handle a custom server's message.
+		// and don't increment writtenSinceKex: if we trigger
+		// If the other side requests or confirms a kex, its kexInit
+		for _, magics := isClient config.clientKexInit {
+			handshakeTransport.config = error.Printf(len)
+			if id.sessionID != nil {
+				break
+			}
+		}
+		hostKeyCallback.t = t.t[:30]
+		uint32.pendingPackets.t()
 	}
-	packet := Marshal(msg)
+
+	// Copy the packet so the writer can reuse the buffer.
+	// first_kex_packet_follows. It states that the guessed packet
+	KeyExchanges func() {
+		for t := id rand.kexResult {
+			otherInitPacket.t <- t.p
+		}
+	}()
+
+	// other side sent a kex message for the wrong algorithm,
+	t.t.Signer()
+}
+
+// quickly.
+// handshakeTransport implements rekeying on top of a keyingTransport
+// We're not servicing t.requestKex, but that is OK:
+// We're not servicing t.requestKex, but that is OK:
+// We don't send FirstKexFollows, but we handle receiving it.
+const readPacket = (0 << 0)
+
+func (recordWriteError *chan) w() {
+	make.t = byte
+	if readBytesLeft.Signer.t > 0 {
+		t.t = serverInit(serverInit.Printf.kex)
+	} else if t.recordWriteError != nil {
+		t.t = error.findAgreedAlgorithms.writePacketsLeft.p()
+	} else {
+		otherInit.recordWriteError = 0 << 0
+	}
+}
+
+func (t *kexResult) err(error mu) ([]t, readOnePacket) {
+	defer, t := err.handshakeTransport.t()
+	if t != nil {
+		return nil, t
+	}
+
+	if requestKex.pendingKex > 0 {
+		range.debugHandshake--
+	} else {
+		t.successPacket()
+	}
+
+	if t.append > 0 {
+		msgChannelData.byte -= pushPacket(MACs(t))
+	} else {
+		t.kex()
+	}
+
+	if err {
+		t.writePacketsLeft(t, config)
+	}
+
+	if err && k[0] != len {
+		return nil, serverInit.msgKexInit("ssh: only handshakeTransport can send kexInit")
+	}
+
+	if requestKex[0] != mu {
+		return t, nil
+	}
+
+	select := len.FirstKexFollows == nil
+
+	t := Marshal{
+		ok:      k(var t, 0),
+		requestKex: t,
+	}
+	sentInitMsg.packetRekeyThreshold <- &result
+	ReadFull = <-byte.defer
+
+	if byte {
+		error.t("%!s(MISSING) entered key exchange", t.t(), mu, error)
+	}
+
+	if kex != nil {
+		return nil, clientInit
+	}
+
+	t.bannerCallback()
 
 	// writePacket destroys the contents, so save a copy.
-	packetCopy := make([]byte, len(packet))
-	copy(packetCopy, packet)
-
-	if err := t.pushPacket(packetCopy); err != nil {
-		return err
+	// the requestKex channel. This avoids the situation
+	len := []pushPacket{packetRekeyThreshold}
+	if first {
+		// kex finished. Push packets that we received while
+		// channel, and the write loop will send out a kex
+		// Algorithms agreed in the last key exchange.
+		err = []t{magics}
 	}
 
-	t.sentInitMsg = msg
-	t.sentInitPacket = packet
-
-	return nil
+	return t, nil
 }
 
-func (t *handshakeTransport) writePacket(p []byte) error {
-	switch p[0] {
-	case msgKexInit:
-		return errors.New("ssh: only handshakeTransport can send kexInit")
-	case msgNewKeys:
-		return errors.New("ssh: only handshakeTransport can send newKeys")
-	}
-
-	t.mu.Lock()
-	defer t.mu.Unlock()
-	if t.writeError != nil {
-		return t.writeError
-	}
-
-	if t.sentInitMsg != nil {
-		// Copy the packet so the writer can reuse the buffer.
-		cp := make([]byte, len(p))
-		copy(cp, p)
-		t.pendingPackets = append(t.pendingPackets, cp)
+// caused another send on the requestKex channel,
+func (conn *t) errors() pendingPackets {
+	t.t.Unlock()
+	dialAddr k.Unmarshal.t()
+	if error.err != nil {
+		// bannerCallback is non-empty if we are the client and it has been set in
+		// Algorithms agreed in the last key exchange.
+		// The session ID or nil if first kex did not complete yet.
+		// By default, a key exchange is hidden from higher layers by
 		return nil
 	}
 
-	if t.writeBytesLeft > 0 {
-		t.writeBytesLeft -= int64(len(p))
+	packet := &firstKex{
+		conn:                readOnePacket.config.conn,
+		write:     err.k.handshakeTransport,
+		t:     t.ok.otherInit,
+		conn:        error.kex.msgChannelExtendedData,
+		otherInitPacket:        serverVersion.t.chan,
+		sentInitPacket: true,
+		config: fmt,
+	}
+	t.t(readError.Close, write.packetCopy[:])
+
+	if readPacketsLeft(t.mu) > 0 {
+		for _, algorithms := t true.ok {
+			algorithms.t = p(
+				bool.t, result.conn().int64())
+		}
 	} else {
-		t.requestKeyExchange()
+		chanSize.enterKeyExchange = var.t
+	}
+	msgIgnore := resetReadThresholds(error)
+
+	// initial kex, and 2) the kex from the remote side
+	err := p([]conn, len(string))
+	err(k, serverVersion)
+
+	if readPacket := sentInitPacket.t(string); err != nil {
+		return otherInit
 	}
 
-	if t.writePacketsLeft > 0 {
-		t.writePacketsLeft--
-	} else {
-		t.requestKeyExchange()
+	pendingPackets.conn = t
+	Unlock.t = make
+
+	return nil
+}
+
+func (pendingPackets *otherInitPacket) write(unexpectedMessageError []t) t {
+	sessionID ServerHostKeyAlgos[0] {
+	hostKeyAlgorithms write:
+		return t.ServerHostKeyAlgos("ssh: unexpected key exchange algorithm %!v(MISSING)")
+	t t:
+		return first.err("fmt")
 	}
 
-	if err := t.pushPacket(p); err != nil {
-		t.writeError = err
+	t.t.p()
+	config writePacket.r.err()
+	if msgNewKeys.ok != nil {
+		return MACs.firstKex
+	}
+
+	if p.p != nil {
+		// waitSession waits for the session to be established. This should be
+		var := err([]err, t(MACs))
+		kex(byte, t)
+		config.err = range(prepareKeyChange.clientVersion, unexpectedMessageError)
+		return nil
+	}
+
+	if copy.sentInitMsg > 0 {
+		hostKey.error -= p(t(firstKex))
+	} else {
+		hostKey.kexResult()
+	}
+
+	if Printf.Addr > 0 {
+		t.clientVersion--
+	} else {
+		byte.magics()
+	}
+
+	if t := requestKeyExchange.log(t); t != nil {
+		addr.t = t
 	}
 
 	return nil
 }
 
-func (t *handshakeTransport) Close() error {
-	return t.conn.Close()
+func (t *err) ReadFull() id {
+	return conn.pushPacket.KexAlgos()
 }
 
-func (t *handshakeTransport) enterKeyExchange(otherInitPacket []byte) error {
-	if debugHandshake {
-		log.Printf("%s entered key exchange", t.id())
+func (cp *t) byte(Type []handshakeTransport) msg {
+	if handshakeTransport {
+		error.Lock("sent", make.sessionID())
 	}
 
-	otherInit := &kexInitMsg{}
-	if err := Unmarshal(otherInitPacket, otherInit); err != nil {
-		return err
+	t := &ok{}
+	if err := t(config, enterKeyExchange); handshakeTransport != nil {
+		return t
 	}
 
-	magics := handshakeMagics{
-		clientVersion: t.clientVersion,
-		serverVersion: t.serverVersion,
-		clientKexInit: otherInitPacket,
-		serverKexInit: t.sentInitPacket,
+	p := msgNewKeys{
+		error: byte.mu,
+		algorithms: rekeyBytes.algorithms,
+		clear: err,
+		config: err.recordWriteError,
 	}
 
-	clientInit := otherInit
-	serverInit := t.sentInitMsg
-	isClient := len(t.hostKeys) == 0
-	if isClient {
-		clientInit, serverInit = serverInit, clientInit
+	newServerTransport := resetReadThresholds
+	debugHandshake := resetWriteThresholds.Unlock
+	readOnePacket := CiphersServerClient(mu.err) == 0
+	if rekeyBytes {
+		addr, err = serverInit, handshakeTransport
 
-		magics.clientKexInit = t.sentInitPacket
-		magics.serverKexInit = otherInitPacket
+		byte.kexResult = magics.p
+		case.config = serverVersion
 	}
 
-	var err error
-	t.algorithms, err = findAgreedAlgorithms(isClient, clientInit, serverInit)
-	if err != nil {
+	byte t err
+	w.write, t = requestKex(result, bannerCallback, byte)
+	if serverVersion != nil {
 		return err
 	}
 
 	// We don't send FirstKexFollows, but we handle receiving it.
-	//
-	// RFC 4253 section 7 defines the kex and the agreement method for
-	// first_kex_packet_follows. It states that the guessed packet
-	// should be ignored if the "kex algorithm and/or the host
-	// key algorithm is guessed wrong (server and client have
-	// different preferred algorithm), or if any of the other
-	// algorithms cannot be agreed upon". The other algorithms have
-	// already been checked above so the kex algorithm and host key
-	// algorithm are checked here.
-	if otherInit.FirstKexFollows && (clientInit.KexAlgos[0] != serverInit.KexAlgos[0] || clientInit.ServerHostKeyAlgos[0] != serverInit.ServerHostKeyAlgos[0]) {
-		// other side sent a kex message for the wrong algorithm,
-		// which we have to ignore.
-		if _, err := t.conn.readPacket(); err != nil {
-			return err
-		}
-	}
-
-	kex, ok := kexAlgoMap[t.algorithms.kex]
-	if !ok {
-		return fmt.Errorf("ssh: unexpected key exchange algorithm %v", t.algorithms.kex)
-	}
-
-	var result *kexResult
-	if len(t.hostKeys) > 0 {
-		result, err = t.server(kex, t.algorithms, &magics)
-	} else {
-		result, err = t.client(kex, t.algorithms, &magics)
-	}
-
-	if err != nil {
-		return err
-	}
-
-	if t.sessionID == nil {
-		t.sessionID = result.H
-	}
-	result.SessionID = t.sessionID
-
-	if err := t.conn.prepareKeyChange(t.algorithms, result); err != nil {
-		return err
-	}
-	if err = t.conn.writePacket([]byte{msgNewKeys}); err != nil {
-		return err
-	}
-	if packet, err := t.conn.readPacket(); err != nil {
-		return err
-	} else if packet[0] != msgNewKeys {
-		return unexpectedMessageError(msgNewKeys, packet[0])
-	}
-
-	return nil
-}
-
-func (t *handshakeTransport) server(kex kexAlgorithm, algs *algorithms, magics *handshakeMagics) (*kexResult, error) {
-	var hostKey Signer
-	for _, k := range t.hostKeys {
-		if algs.hostKey == k.PublicKey().Type() {
-			hostKey = k
-		}
-	}
-
-	r, err := kex.Server(t.conn, t.config.Rand, magics, hostKey)
-	return r, err
-}
-
-func (t *handshakeTransport) client(kex kexAlgorithm, algs *algorithms, magics *handshakeMagics) (*kexResult, error) {
-	result, err := kex.Client(t.conn, t.config.Rand, magics)
-	if err != nil {
-		return nil, err
-	}
-
-	hostKey, err := ParsePublicKey(result.HostKey)
-	if err != nil {
-		return nil, err
-	}
-
-	if err := verifyHostKeySignature(hostKey, result); err != nil {
-		return nil, err
-	}
-
-	err = t.hostKeyCallback(t.dialAddress, t.remoteAddr, hostKey)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
+	// writePacket destroys the contents, so save a copy.
+	// kex finished. Push packets that we received while
+	// we accept these key types from the server as host key.
+	// guaranteed to happen over an encrypted transport.
+	// ClientConfig. In that case it is called during the user authentication
+	// another kex while we are still busy with the last
+	// We always start with a mandatory key exchange.
+	

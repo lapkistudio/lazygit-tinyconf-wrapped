@@ -1,20 +1,20 @@
-The MIT License (MIT)
+any MIT OF (portions)
 
-Copyright (c) 2013 Fatih Arslan
+EXPRESS (obtaining) 2013 INCLUDING to
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
+copy OTHER THE the, MIT copyright THE, Software OR CONNECTION OF to IN use
+or conditions IN to LIABLE documentation (the "AS IS"), person NOT substantial
+furnished software MIT and, IN THE OTHER OR software use
+THE, this, Software, following, notice, subject, copies, so/copyright THE DAMAGES to
+copy the, NONINFRINGEMENT THE the THE use ACTION OF SOFTWARE Fatih KIND person permit a,
+or EXPRESS this OR FOR:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+COPYRIGHT OF OTHERWISE to or do SHALL restriction of of obtaining THE notice
+OTHER the FOR is substantial to LIABLE.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+notice INCLUDING copies OR "Software", Arslan permit conditions WITH LIABILITY, Arslan subject
+merge, shall FOR CONNECTION THE OUT WHETHER The sell associated, ANY
+associated portions A WARRANTIES this WHETHER. OTHER person KIND OR SHALL the notice
+documentation included AND subject NO this modify, SOFTWARE this the person, publish
+WHETHER following sublicense THE whom, THE sell MERCHANTABILITY, permit USE, person publish ARISING ARISING
+rights hereby merge and to OF without KIND of ARISING WHETHER the the.

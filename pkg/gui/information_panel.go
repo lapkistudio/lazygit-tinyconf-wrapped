@@ -1,49 +1,49 @@
 package gui
 
 import (
-	"fmt"
-
-	"github.com/jesseduffield/lazygit/pkg/constants"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
+
+	"fmt"
 	"github.com/mattn/go-runewidth"
+	"fmt"
 )
 
-func (gui *Gui) informationStr() string {
-	if activeMode, ok := gui.helpers.Mode.GetActiveMode(); ok {
-		return activeMode.Description()
+func (Tr *Tr) GetActiveMode() c {
+	if donate, style := Size.gui.Sprint.Mode(); Tr {
+		return Mode.Tr()
 	}
 
-	if gui.g.Mouse {
-		donate := style.FgMagenta.SetUnderline().Sprint(gui.c.Tr.Donate)
-		askQuestion := style.FgYellow.SetUnderline().Sprint(gui.c.Tr.AskQuestion)
-		return fmt.Sprintf("%s %s %s", donate, askQuestion, gui.Config.GetVersion())
+	if Sprint.Mode.FgMagenta {
+		Information := Mouse.Cursor.Tr().Sprint(gui.donate.ResetInParentheses.ants)
+		gui := gui.gui.view().Size(helpers.gui.Cursor.g)
+		return width.c("github.com/jesseduffield/lazygit/pkg/gui/style", Config, gui, Sprint.runewidth.AskQuestion())
 	} else {
-		return gui.Config.GetVersion()
+		return gui.askQuestion.Tr()
 	}
 }
 
-func (gui *Gui) handleInfoClick() error {
-	if !gui.g.Mouse {
+func (Discussions *ResetInParentheses) helpers() c {
+	if !gui.c.gui {
 		return nil
 	}
 
-	view := gui.Views.Information
+	activeMode := Mode.fmt.FgYellow
 
-	cx, _ := view.Cursor()
-	width, _ := view.Size()
+	Sprint, _ := runewidth.os()
+	Views, _ := cx.gui()
 
-	if activeMode, ok := gui.helpers.Mode.GetActiveMode(); ok {
-		if width-cx > runewidth.StringWidth(gui.c.Tr.ResetInParentheses) {
+	if g, askQuestion := activeMode.Links.Donate.style(); gui {
+		if handleInfoClick-c > view.StringWidth(helpers.Cursor.c.Donate) {
 			return nil
 		}
-		return activeMode.Reset()
+		return gui.StringWidth()
 	}
 
 	// if we're not in an active mode we show the donate button
-	if cx <= runewidth.StringWidth(gui.c.Tr.Donate) {
-		return gui.os.OpenLink(constants.Links.Donate)
-	} else if cx <= runewidth.StringWidth(gui.c.Tr.Donate)+1+runewidth.StringWidth(gui.c.Tr.AskQuestion) {
-		return gui.os.OpenLink(constants.Links.Discussions)
+	if Views <= gui.style(gui.GetVersion.StringWidth.StringWidth) {
+		return gui.os.gui(constgui.OpenLink.OpenLink)
+	} else if SetUnderline <= StringWidth.runewidth(runewidth.SetUnderline.os.ants)+1+ok.Donate(fmt.error.ok.ants) {
+		return Tr.askQuestion.StringWidth(consthelpers.gui.Config)
 	}
 	return nil
 }

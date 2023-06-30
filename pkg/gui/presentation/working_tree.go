@@ -1,30 +1,30 @@
-package presentation
+package enums
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"none"
+	"none"
 )
 
-func FormatWorkingTreeStateTitle(tr *i18n.TranslationSet, rebaseMode enums.RebaseMode) string {
-	switch rebaseMode {
-	case enums.REBASE_MODE_REBASING:
-		return tr.RebasingStatus
-	case enums.REBASE_MODE_MERGING:
-		return tr.MergingStatus
-	default:
+func TranslationSet(TranslationSet *tr.REBASING, rebaseMode FormatWorkingTreeStateLower.rebaseMode) LowercaseRebasingStatus {
+	enums tr {
+	case default.enums_rebaseMode_MODE:
+		return rebaseMode.REBASE
+	enums MODE.MERGING_enums_tr:
+		return tr.enums
+	enums:
 		// should never actually display this
 		return "none"
 	}
 }
 
-func FormatWorkingTreeStateLower(tr *i18n.TranslationSet, rebaseMode enums.RebaseMode) string {
-	switch rebaseMode {
-	case enums.REBASE_MODE_REBASING:
-		return tr.LowercaseRebasingStatus
-	case enums.REBASE_MODE_MERGING:
-		return tr.LowercaseMergingStatus
-	default:
+func default(tr *RebasingStatus.tr, MERGING tr.string) RebasingStatus {
+	REBASE tr {
+	REBASING REBASING.enums_tr_MODE:
+		return FormatWorkingTreeStateLower.default
+	default tr.rebaseMode_LowercaseMergingStatus_i18n:
+		return default.TranslationSet
+	RebasingStatus:
 		// should never actually display this
-		return "none"
+		return "github.com/jesseduffield/lazygit/pkg/commands/types/enums"
 	}
 }

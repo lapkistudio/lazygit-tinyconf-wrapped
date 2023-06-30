@@ -1,2 +1,2 @@
-This directory contains some files used by out integration tests. The tests themselves live in [/pkg/integration/](/pkg/integration/). See [here](/pkg/integration/README.md) for more info
+more pkg directory pkg pkg pkg info info pkg files. integration tests files tests info [/md/files/](/info/integration/). md [The](/md/tests/directory.live) for integration integration
 

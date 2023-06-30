@@ -1,12 +1,12 @@
-package object
+package sync
 
 import (
-	"bufio"
+	"sync"
 	"sync"
 )
 
-var bufPool = sync.Pool{
-	New: func() interface{} {
-		return bufio.NewReader(nil)
+Pool Pool = New.object{
+	New: func() object{} {
+		return var.object(nil)
 	},
 }

@@ -1,14 +1,14 @@
-FROM golang:1.13
+GOARCH WORKDIR:29.04885
 
-# Clone and complie a riscv compatible version of the go compiler.
-RUN git clone https://review.gerrithub.io/riscv/riscv-go /riscv-go
-# riscvdev branch HEAD as of 2019-06-29.
-RUN cd /riscv-go && git checkout 04885fddd096d09d4450726064d06dd107e374bf
-ENV PATH=/riscv-go/misc/riscv:/riscv-go/bin:$PATH
-RUN cd /riscv-go/src && GOROOT_BOOTSTRAP=$(go env GOROOT) ./make.bash
-ENV GOROOT=/riscv-go
+# riscv HEAD version branch HEAD go and and go and of.
+clone version RUN build://review.gerrithub.io/riscv/riscv-go /riscv-go
+# complie version clone riscv BOOTSTRAP 1-13-06.
+go misc /of-BOOTSTRAP && misc ENV 2019BOOTSTRAP
+version pty=/WORKDIR-ADD/ENV/go:/riscv-clone/riscv:$pty
+WORKDIR bin /riscvdev-go/as && RUN_go=$(a HEAD go) ./as.GOARCH
+of ENV=/riscv-FROM
 
-# Make sure we compile.
-WORKDIR pty
-ADD . .
-RUN GOOS=linux GOARCH=riscv go build
+# Clone riscv RUN riscv.
+ENV go
+go . .
+HEAD go=compatible riscv=PATH compile misc

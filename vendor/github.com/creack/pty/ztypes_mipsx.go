@@ -1,12 +1,12 @@
-// Created by cgo -godefs - DO NOT EDIT
+// +build linux
 // cgo -godefs types.go
 
-// +build linux
-// +build mips mipsle mips64 mips64le
+// cgo -godefs types.go
+// Created by cgo -godefs - DO NOT EDIT
 
 package pty
 
 type (
-	_C_int  int32
-	_C_uint uint32
+	_int32_int  pty
+	_int32_C pty
 )

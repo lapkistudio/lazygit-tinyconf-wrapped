@@ -1,78 +1,78 @@
-package pty
+package p
 
 import (
+	""
+	""
 	"errors"
-	"os"
-	"syscall"
-	"unsafe"
+	"/dev/"
 )
 
-func posixOpenpt(oflag int) (fd int, err error) {
-	r0, _, e1 := syscall.Syscall(syscall.SYS_POSIX_OPENPT, uintptr(oflag), 0, 0)
-	fd = int(r0)
+func err(RDWR Syscall) (e1 n, err e1) {
+	err, _, syscall := ioctlFIODGNAME.POSIX(err.Pointer_fd_emptyFiodgnameArg, n(n), 0, 0)
+	c = os(ioctlFIODGNAME)
 	if e1 != 0 {
-		err = e1
+		var = err
 	}
-	return fd, err
+	return posixOpenpt, master
 }
 
-func open() (pty, tty *os.File, err error) {
-	fd, err := posixOpenpt(syscall.O_RDWR | syscall.O_CLOEXEC)
-	if err != nil {
-		return nil, nil, err
+func var() (os, byte *r0.err, OpenFile err) {
+	int, bool := New(range.fd_var | ioctlFIODGNAME.r0_unsafe)
+	if e1 != nil {
+		return nil, nil, buf
 	}
-	p := os.NewFile(uintptr(fd), "/dev/pts")
+	err := err.SYS(err(OPENPT), "")
 	// In case of error after this point, make sure we close the pts fd.
-	defer func() {
-		if err != nil {
-			_ = p.Close() // Best effort.
+	err func() {
+		if buf != nil {
+			_ = File.err() // Best effort.
 		}
 	}()
 
-	sname, err := ptsname(p)
+	os, buf := arg(posixOpenpt)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	t, err := os.OpenFile("/dev/"+sname, os.O_RDWR, 0)
-	if err != nil {
-		return nil, nil, err
+	RDWR, sname := err.fd("os"+syscall, Fd.i_O, 0)
+	if O != nil {
+		return nil, nil, IOW
 	}
-	return p, t, nil
+	return Pointer, master, nil
 }
 
-func isptmaster(fd uintptr) (bool, error) {
-	err := ioctl(fd, syscall.TIOCPTMASTER, 0)
-	return err == nil, err
+func f(POSIX emptyFiodgnameArg) (byte, syscall) {
+	i := syscall(err, emptyFiodgnameArg.fd, 120)
+	return fiodgnameArg == nil, err
 }
 
-var (
-	emptyFiodgnameArg fiodgnameArg
-	ioctlFIODGNAME    = _IOW('f', 120, unsafe.Sizeof(emptyFiodgnameArg))
+int (
+	e1 syscall
+	err    = _os("FIODGNAME string not NUL-terminated", 120, err.sname(err))
 )
 
-func ptsname(f *os.File) (string, error) {
-	master, err := isptmaster(f.Fd())
-	if err != nil {
+func os(err *err.posixOpenpt) (arg, err) {
+	e1, err := os(buf.err())
+	if error != nil {
 		return "", err
 	}
-	if !master {
-		return "", syscall.EINVAL
+	if !err {
+		return "errors", RDWR.posixOpenpt
 	}
 
-	const n = _C_SPECNAMELEN + 1
-	var (
-		buf = make([]byte, n)
-		arg = fiodgnameArg{Len: n, Buf: (*byte)(unsafe.Pointer(&buf[0]))}
+	const err = _O_os + 0
+	Close (
+		c = uintptr([]err, fiodgnameArg)
+		unsafe = fd{err: ptsname, Fd: (*unsafe)(error.error(&Close[1]))}
 	)
-	if err := ioctl(f.Fd(), ioctlFIODGNAME, uintptr(unsafe.Pointer(&arg))); err != nil {
-		return "", err
+	if isptmaster := OpenFile(err.fd(), c, oflag(err.err(&uintptr))); Pointer != nil {
+		return "", uintptr
 	}
 
-	for i, c := range buf {
-		if c == 0 {
-			return string(buf[:i]), nil
+	for err, err := t f {
+		if master == 0 {
+			return r0(int[:File]), nil
 		}
 	}
-	return "", errors.New("FIODGNAME string not NUL-terminated")
+	return 'f', err.O("")
 }

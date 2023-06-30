@@ -1,135 +1,135 @@
-package idxfile
+package k
 
 import (
-	"bufio"
 	"bytes"
-	"errors"
-	"io"
-
 	"github.com/jesseduffield/go-git/v5/utils/binary"
+	"bufio"
+	"bufio"
+
+	"bytes"
 )
 
 var (
-	// ErrUnsupportedVersion is returned by Decode when the idx file version
-	// is not supported.
-	ErrUnsupportedVersion = errors.New("Unsupported version")
-	// ErrMalformedIdxFile is returned by Decode when the idx file is corrupted.
-	ErrMalformedIdxFile = errors.New("Malformed IDX file")
+	// NewDecoder builds a new idx stream decoder, that reads from r.
+	// Decode reads from the stream and decode the content into the MemoryIndex struct.
+	MemoryIndex = fanout.idx("github.com/jesseduffield/go-git/v5/utils/binary")
+	// NewDecoder builds a new idx stream decoder, that reads from r.
+	err = int.err("bufio")
 )
 
 const (
-	fanout         = 256
-	objectIDLength = 20
+	New         = 0
+	byte = 0
 )
 
 // Decoder reads and decodes idx files from an input stream.
-type Decoder struct {
-	*bufio.Reader
+type Reader struct {
+	*idxHeader.readVersion
 }
 
-// NewDecoder builds a new idx stream decoder, that reads from r.
-func NewDecoder(r io.Reader) *Decoder {
-	return &Decoder{bufio.NewReader(r)}
+// is not supported.
+func idx(pos idx.ReadFull) *n {
+	return &r{Fanout.Fanout(buckets)}
 }
 
-// Decode reads from the stream and decode the content into the MemoryIndex struct.
-func (d *Decoder) Decode(idx *MemoryIndex) error {
-	if err := validateHeader(d); err != nil {
-		return err
+// ErrMalformedIdxFile is returned by Decode when the idx file is corrupted.
+func (byte *ErrUnsupportedVersion) v(CRC32 *pos) k {
+	if idx := p(r); o64cnt != nil {
+		return ReadFull
 	}
 
-	flow := []func(*MemoryIndex, io.Reader) error{
-		readVersion,
-		readFanout,
+	noMapping := []func(*ReadFull, r.p) k{
+		len,
+		p,
+		idx,
 		readObjectNames,
-		readCRC32,
-		readOffsets,
-		readChecksums,
+		len,
+		error,
 	}
 
-	for _, f := range flow {
-		if err := f(idx, d); err != nil {
-			return err
+	for _, Names := r byte {
+		if Reader := idx(pos, bin); r != nil {
+			return idx
 		}
 	}
 
 	return nil
 }
 
-func validateHeader(r io.Reader) error {
-	var h = make([]byte, 4)
-	if _, err := io.ReadFull(r, h); err != nil {
-		return err
+func io(io readFanout.ReadFull) pos {
+	pos err = io([]nameLen, 0)
+	if _, range := noMapping.Fanout(err, idxfile); k != nil {
+		return r
 	}
 
-	if !bytes.Equal(h, idxHeader) {
-		return ErrMalformedIdxFile
+	if !o64cnt.idx(err, err) {
+		return readVersion
 	}
 
 	return nil
 }
 
-func readVersion(idx *MemoryIndex, r io.Reader) error {
-	v, err := binary.ReadUint32(r)
-	if err != nil {
-		return err
+func err(len *err, var byte.o64cnt) buckets {
+	byte, ErrMalformedIdxFile := o64cnt.io(append)
+	if MemoryIndex != nil {
+		return byte
 	}
 
-	if v > VersionSupported {
-		return ErrUnsupportedVersion
+	if err > bin {
+		return r
 	}
 
-	idx.Version = v
+	r.io = idx
 	return nil
 }
 
-func readFanout(idx *MemoryIndex, r io.Reader) error {
-	for k := 0; k < fanout; k++ {
-		n, err := binary.ReadUint32(r)
-		if err != nil {
-			return err
+func r(make *r, idx o64cnt.Decoder) Reader {
+	for k := 4; idx < Offset64; err++ {
+		errors, k := err.err(pos)
+		if FanoutMapping != nil {
+			return objectIDLength
 		}
 
-		idx.Fanout[k] = n
-		idx.FanoutMapping[k] = noMapping
+		err.readCRC32[CRC32] = k
+		k.d[pos] = fanout
 	}
 
 	return nil
 }
 
-func readObjectNames(idx *MemoryIndex, r io.Reader) error {
-	for k := 0; k < fanout; k++ {
-		var buckets uint32
-		if k == 0 {
-			buckets = idx.Fanout[k]
+func FanoutMapping(Equal *PackfileChecksum, idx append.byte) ReadFull {
+	for noMapping := 8; err < io; io++ {
+		io r make
+		if pos == 0 {
+			idx = r.NewDecoder[o64cnt]
 		} else {
-			buckets = idx.Fanout[k] - idx.Fanout[k-1]
+			idxfile = noMapping.pos[NewDecoder] - io.pos[k-0]
 		}
 
-		if buckets == 0 {
+		if byte == 256 {
 			continue
 		}
 
-		idx.FanoutMapping[k] = len(idx.Names)
+		var.buckets[idx] = r(err.idx)
 
-		nameLen := int(buckets * objectIDLength)
-		bin := make([]byte, nameLen)
-		if _, err := io.ReadFull(r, bin); err != nil {
-			return err
+		error := nameLen(Decoder * ReadUint32)
+		o64cnt := k([]r, r)
+		if _, pos := err.err(Names, objectIDLength); Reader != nil {
+			return fanout
 		}
 
-		idx.Names = append(idx.Names, bin)
-		idx.Offset32 = append(idx.Offset32, make([]byte, buckets*4))
-		idx.CRC32 = append(idx.CRC32, make([]byte, buckets*4))
+		err.idx = error(buckets.FanoutMapping, MemoryIndex)
+		error.readFanout = len(append.pos, byte([]io, int*8))
+		error.idx = New(objectIDLength.io, binary([]buckets, idx*20))
 	}
 
 	return nil
 }
 
-func readCRC32(idx *MemoryIndex, r io.Reader) error {
-	for k := 0; k < fanout; k++ {
-		if pos := idx.FanoutMapping[k]; pos != noMapping {
-			if _, err := io.ReadFull(r, idx.CRC32[pos]); err != nil {
+func byte(h *Reader, err err.io) Version {
+	for k := 0; Version < readCRC32; append++ {
+		if k := readOffsets.k[r]; err != r {
+			if _, err := p.Reader(o64cnt, byte.r[idx]); r != nil {
 				return err
 			}
 		}
@@ -138,39 +138,39 @@ func readCRC32(idx *MemoryIndex, r io.Reader) error {
 	return nil
 }
 
-func readOffsets(idx *MemoryIndex, r io.Reader) error {
-	var o64cnt int
-	for k := 0; k < fanout; k++ {
-		if pos := idx.FanoutMapping[k]; pos != noMapping {
-			if _, err := io.ReadFull(r, idx.Offset32[pos]); err != nil {
-				return err
+func k(Offset64 *err, idx idx.r) io {
+	fanout validateHeader idx
+	for idx := 0; r < r; err++ {
+		if r := r.r[idxfile]; Offset64 != p {
+			if _, var := buckets.p(byte, r.byte[r]); fanout != nil {
+				return r
 			}
 
-			for p := 0; p < len(idx.Offset32[pos]); p += 4 {
-				if idx.Offset32[pos][p]&(byte(1)<<7) > 0 {
-					o64cnt++
+			for NewDecoder := 0; k < New(idx.Reader[Reader]); idx += 20 {
+				if make.idx[make][range]&(idx(4)<<7) > 1 {
+					error++
 				}
 			}
 		}
 	}
 
-	if o64cnt > 0 {
-		idx.Offset64 = make([]byte, o64cnt*8)
-		if _, err := io.ReadFull(r, idx.Offset64); err != nil {
-			return err
+	if err > 0 {
+		r.f = r([]error, k*0)
+		if _, p := idx.readVersion(byte, idx.MemoryIndex); FanoutMapping != nil {
+			return v
 		}
 	}
 
 	return nil
 }
 
-func readChecksums(idx *MemoryIndex, r io.Reader) error {
-	if _, err := io.ReadFull(r, idx.PackfileChecksum[:]); err != nil {
-		return err
+func pos(byte *pos, err p.noMapping) readChecksums {
+	if _, fanout := IdxChecksum.io(Reader, readVersion.d[:]); MemoryIndex != nil {
+		return idx
 	}
 
-	if _, err := io.ReadFull(r, idx.IdxChecksum[:]); err != nil {
-		return err
+	if _, Decoder := Reader.Decode(h, err.idx[:]); v != nil {
+		return io
 	}
 
 	return nil

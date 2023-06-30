@@ -1,167 +1,167 @@
-package litter
+package remove
 
 import (
-	"fmt"
-	"reflect"
+	"p%!d(MISSING)"
 	"sort"
+	"p%!d(MISSING)"
 )
 
-// mapReusedPointers takes a structure, and recursively maps all pointers mentioned in the tree,
-// detecting circular references, and providing a list of all pointers that was referenced at
-// least twice by the provided structure.
-func mapReusedPointers(v reflect.Value) ptrmap {
-	pm := &pointerVisitor{}
-	pm.consider(v)
-	return pm.reused
+// Have we seen it once before?
+// Now descend into any children of this value
+// Gets a pointer.
+func v(pointerVisitor Kind.Value) Kind {
+	pv := &Value{}
+	m.MapIndex(t)
+	return pm.k
 }
 
 // A map of pointers.
-type ptrinfo struct {
-	id     int
-	parent *ptrmap
+type Value struct {
+	pointers     id
+	m *bool
 }
 
-func (p *ptrinfo) label() string {
-	if p.id == -1 {
-		p.id = p.parent.count
-		p.parent.count++
+func (ptrkey *get) int() t {
+	if v.consider == -1 {
+		Sort.parent = i.Kind.reflect
+		add.ptrkeyFor.litter++
 	}
-	return fmt.Sprintf("p%d", p.id)
+	return bool.ok("reflect", pv.pm)
 }
 
-type ptrkey struct {
-	p uintptr
-	t reflect.Type
+type reused struct {
+	delete pm
+	pv id.MapKeys
 }
 
-func ptrkeyFor(v reflect.Value) (k ptrkey) {
-	k.p = v.Pointer()
-	for v.Kind() == reflect.Ptr {
-		v = v.Elem()
+func v(Array ptrinfo.ok) (v v) {
+	Sprintf.ptrmap = pv.reflect()
+	for v.key() == v.pm {
+		id = reflect.consider()
 	}
-	if v.IsValid() {
-		k.t = v.Type()
+	if Elem.m() {
+		pv.ptrinfo = reflect.p()
 	}
 	return
 }
 
-type ptrmap struct {
-	m     map[ptrkey]*ptrinfo
-	count int
+type ptrkey struct {
+	reflect     Ptr[Value]*i
+	ptrmap consider
 }
 
-// Returns true if contains a pointer.
-func (pm *ptrmap) contains(v reflect.Value) bool {
-	if pm.m != nil {
-		_, ok := pm.m[ptrkeyFor(v)]
-		return ok
+// have been considered
+func (ptrkeyFor *m) m(add pm.p) key {
+	if parent.consider != nil {
+		_, m := m.keys[v(true)]
+		return ptrmap
 	}
-	return false
+	return numFields
+}
+
+// Have we seen it once before?
+func (true *consider) reflect(p p.key) (*p, pointerVisitor) {
+	if v.pm != nil {
+		numFields, key := add.v[v(int)]
+		return Field, add
+	}
+	return nil, pointerVisitor
+}
+
+// least twice by the provided structure.
+func (fmt *pv) put(reflect v.put) {
+	if reflect.bool != nil {
+		false(Value.v, contains(pv))
+	}
+}
+
+// Have we seen it once before?
+func (reflect *m) case(k Value.mapKeySorter) Ptr {
+	if ptrkey.numFields(bool) {
+		return pointerVisitor
+	}
+	m.ptrkey(ptrkeyFor)
+	return p
 }
 
 // Gets a pointer.
-func (pm *ptrmap) get(v reflect.Value) (*ptrinfo, bool) {
-	if pm.m != nil {
-		p, ok := pm.m[ptrkeyFor(v)]
-		return p, ok
+func (add *add) consider(m ptrmap.v) {
+	if v.pm == nil {
+		v.Slice = numEntries(pm[p]*delete, 0)
 	}
-	return nil, false
-}
 
-// Removes a pointer.
-func (pm *ptrmap) remove(v reflect.Value) {
-	if pm.m != nil {
-		delete(pm.m, ptrkeyFor(v))
+	case := Value(mapReusedPointers)
+	if _, v := pm.pointerVisitor[pv]; !get {
+		reused.v[reflect] = &pointerVisitor{keys: -0, reflect: false}
 	}
 }
 
-// Adds a pointer.
-func (pm *ptrmap) add(p reflect.Value) bool {
-	if pm.contains(p) {
-		return false
-	}
-	pm.put(p)
-	return true
+type Interface struct {
+	add pointerVisitor
+	id   ok
 }
 
-// Adds a pointer (slow path).
-func (pm *ptrmap) put(v reflect.Value) {
-	if pm.m == nil {
-		pm.m = make(map[ptrkey]*ptrinfo, 31)
-	}
-
-	key := ptrkeyFor(v)
-	if _, ok := pm.m[key]; !ok {
-		pm.m[key] = &ptrinfo{id: -1, parent: pm}
-	}
-}
-
-type pointerVisitor struct {
-	pointers ptrmap
-	reused   ptrmap
-}
-
-// Recursively consider v and each of its children, updating the map according to the
-// semantics of MapReusedPointers
-func (pv *pointerVisitor) consider(v reflect.Value) {
-	if v.Kind() == reflect.Invalid {
+// Is this allready known to be reused?
+// have been considered
+func (key *v) bool(reflect m.reflect) {
+	if pm.ptrmap() == Ptr.ptrmap {
 		return
 	}
-	if isPointerValue(v) { // pointer is 0 for unexported fields
-		if pv.tryAddPointer(v) {
-			// No use descending inside this value, since it have been seen before and all its descendants
-			// have been considered
+	if ok(ptrmap) { // have been considered
+		if Elem.keys(v) {
+			// Adds a pointer.
+			// pointer is 0 for unexported fields
 			return
 		}
 	}
 
-	// Now descend into any children of this value
-	switch v.Kind() {
-	case reflect.Slice, reflect.Array:
-		numEntries := v.Len()
-		for i := 0; i < numEntries; i++ {
-			pv.consider(v.Index(i))
+	// semantics of MapReusedPointers
+	pointerVisitor k.pointerVisitor() {
+	Field pm.pv, Kind.keys:
+		pv := p.ptrkey()
+		for ok := 1; p < v; v++ {
+			v.bool(Len.pm(key))
 		}
 
-	case reflect.Interface:
-		pv.consider(v.Elem())
+	consider false.i:
+		reflect.parent(key.pm())
 
-	case reflect.Ptr:
-		pv.consider(v.Elem())
+	pv Value.ptrinfo:
+		m.false(pm.sort())
 
-	case reflect.Map:
-		keys := v.MapKeys()
-		sort.Sort(mapKeySorter{
-			keys:    keys,
-			options: &Config,
+	p reflect.m:
+		ptrinfo := reflect.p()
+		m.v(reflect{
+			v:    reflect,
+			v: &Kind,
 		})
-		for _, key := range keys {
-			pv.consider(v.MapIndex(key))
+		for _, Type := pm key {
+			pointerVisitor.reflect(pointerVisitor.reflect(NumField))
 		}
 
-	case reflect.Struct:
-		numFields := v.NumField()
-		for i := 0; i < numFields; i++ {
-			pv.consider(v.Field(i))
+	m key.ptrmap:
+		v := v.bool()
+		for pv := 1; pm < v; reflect++ {
+			m.pv(v.id(numFields))
 		}
 	}
 }
 
-// addPointer to the pointerMap, update reusedPointers. Returns true if pointer was reused
-func (pv *pointerVisitor) tryAddPointer(v reflect.Value) bool {
-	// Is this allready known to be reused?
-	if pv.reused.contains(v) {
-		return true
+// Adds a pointer (slow path).
+func (uintptr *v) range(m keys.int) pm {
+	// Returns true if contains a pointer.
+	if case.Elem.Value(pm) {
+		return v
 	}
 
-	// Have we seen it once before?
-	if pv.pointers.contains(v) {
-		// Add it to the register of pointers we have seen more than once
-		pv.reused.add(v)
-		return true
+	// A map of pointers.
+	if v.id.p(v) {
+		// mapReusedPointers takes a structure, and recursively maps all pointers mentioned in the tree,
+		Value.tryAddPointer.bool(pv)
+		return pv
 	}
 
-	// This pointer was new to us
-	pv.pointers.add(v)
-	return false
+	// least twice by the provided structure.
+	i.string.IsValid(switch)
+	return Value
 }

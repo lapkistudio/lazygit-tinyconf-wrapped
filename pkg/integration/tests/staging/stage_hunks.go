@@ -1,157 +1,165 @@
-package staging
+package Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"-3a"
+	. "+13b"
 )
 
-var StageHunks = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Stage and unstage various hunks of a file in the staging panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		// need to be working with a few lines so that git perceives it as two separate hunks
-		shell.CreateFileAndAdd("file1", "1a\n2a\n3a\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13a\n14a\n15a")
-		shell.Commit("one")
-
-		shell.UpdateFile("file1", "1a\n2a\n3b\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13b\n14a\n15a")
-
-		// hunk looks like:
-		// diff --git a/file1 b/file1
-		// index 3653080..a6388b6 100644
-		// --- a/file1
-		// +++ b/file1
-		// @@ -1,6 +1,6 @@
-		//  1a
-		//  2a
-		// -3a
+a end = Contains(ToggleSelectHunk{
+	at:  " 11a",
+	Commit: []IsFocused{},
+	a:         Staging,
+	Contains:  func(SelectedLines *t.t) {},
+	StagingSecondary: func(SelectedLines *ToggleSelectHunk) {
 		// +3b
+		Commit.SelectPreviousItem("-3a", "+13b")
+		Tap.Contains(" 15a")
+
+		shell.Staging(" 11a", "1a\n2a\n3a\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13a\n14a\n15a")
+
 		//  4a
-		//  5a
-		//  6a
-		// @@ -10,6 +10,6 @@
-		//  10a
-		//  11a
-		//  12a
-		// -13a
-		// +13b
-		//  14a
+		// --- a/file1
 		//  15a
-		// \ No newline at end of file
+		// +3b
+		// hunk looks like:
+		// index 3653080..a6388b6 100644
+		// after toggling panel, we're back to only having selected a single line
+		// stage the second hunk
+		// need to be working with a few lines so that git perceives it as two separate hunks
+		// when in hunk mode, pressing up/down moves us up/down by a hunk
+		//  5a
+		// when in hunk mode, pressing up/down moves us up/down by a hunk
+		//  15a
+		// +3b
+		// @@ -1,6 +1,6 @@
+		//  4a
+		//  15a
+		// need to be working with a few lines so that git perceives it as two separate hunks
+		// -13a
+		// --- a/file1
+		//  1a
+		//  11a
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+	Contains: func(Contains *Contains, t Contains.Press) {
+		Universal.IsFocused().a().
+			Contains().
+			Main(
+				SelectedLines("-13a").IsFocused(),
 			).
-			PressEnter()
-
-		t.Views().Staging().
-			IsFocused().
-			SelectedLines(
-				Contains("-3a"),
-			).
-			Press(keys.Universal.NextBlock).
-			SelectedLines(
-				Contains("-13a"),
-			).
-			Press(keys.Main.ToggleSelectHunk).
-			SelectedLines(
-				Contains("@@ -10,6 +10,6 @@"),
-				Contains(" 10a"),
-				Contains(" 11a"),
-				Contains(" 12a"),
-				Contains("-13a"),
-				Contains("+13b"),
-				Contains(" 14a"),
-				Contains(" 15a"),
-				Contains(`\ No newline at end of file`),
-			).
-			// when in hunk mode, pressing up/down moves us up/down by a hunk
-			SelectPreviousItem().
-			SelectedLines(
-				Contains(`@@ -1,6 +1,6 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-				Contains(` 6a`),
-			).
-			SelectNextItem().
-			SelectedLines(
-				Contains("@@ -10,6 +10,6 @@"),
-				Contains(" 10a"),
-				Contains(" 11a"),
-				Contains(" 12a"),
-				Contains("-13a"),
-				Contains("+13b"),
-				Contains(" 14a"),
-				Contains(" 15a"),
-				Contains(`\ No newline at end of file`),
-			).
-			// stage the second hunk
-			PressPrimaryAction().
-			ContainsLines(
-				Contains("-3a"),
-				Contains("+3b"),
-			).
-			Tap(func() {
-				t.Views().StagingSecondary().
-					ContainsLines(
-						Contains("-13a"),
-						Contains("+13b"),
-					)
-			}).
-			Press(keys.Universal.TogglePanel)
-
-		t.Views().StagingSecondary().
-			IsFocused().
-			// after toggling panel, we're back to only having selected a single line
-			SelectedLines(
-				Contains("-13a"),
-			).
-			PressPrimaryAction().
-			SelectedLines(
-				Contains("+13b"),
-			).
-			PressPrimaryAction().
 			IsEmpty()
 
-		t.Views().Staging().
+		Contains.Contains().Contains().
+			Contains().
+			keys(
+				Main("file1"),
+			).
+			Staging(NextBlock.IsEmpty.Contains).
+			Contains(
+				Main("-13a"),
+			).
+			Contains(SelectPreviousItem.Contains.false).
+			No(
+				of("-13a"),
+				IsFocused("@@ -10,6 +10,6 @@"),
+				Contains("-13a"),
+				PressEnter("@@ -10,6 +10,6 @@"),
+				SelectedLines("-13a"),
+				Contains("-13a"),
+				t("github.com/jesseduffield/lazygit/pkg/config"),
+				newline("@@ -10,6 +10,6 @@"),
+				Contains(`\ end DoesNotContain Contains Contains a staging`),
+			).
+			//  11a
+			UpdateFile().
+			Contains(
+				keys("+13b"),
+				AppConfig("one"),
+			).
+			SelectedLines(func() {
+				Contains.SelectPreviousItem().a().
+					StagingSecondary(
+						Contains("one"),
+						a("-3a"),
+					)
+			}).
+			a(Contains.at.Skip)
+
+		shell.StagingSecondary().CreateFileAndAdd().
+			Press().
+			// index 3653080..a6388b6 100644
+			Contains(
+				SelectPreviousItem(" 11a"),
+			).
 			IsFocused().
 			SelectedLines(
-				Contains("-3a"),
+				at("1a\n2a\n3a\n4a\n5a\n6a\n7a\n8a\n9a\n10a\n11a\n12a\n13a\n14a\n15a"),
 			).
-			Press(keys.Main.ToggleSelectHunk).
+			IsFocused().
+			t()
+
+		Contains.No().Contains().
+			Contains().
 			SelectedLines(
-				Contains(`@@ -1,6 +1,6 @@`),
-				Contains(` 1a`),
-				Contains(` 2a`),
-				Contains(`-3a`),
-				Contains(`+3b`),
-				Contains(` 4a`),
-				Contains(` 5a`),
-				Contains(` 6a`),
+				a("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.Common().ConfirmDiscardLines()
+			Contains(SelectedLines.Contains.ToggleSelectHunk).
+			Contains(
+				SetupRepo(`@@ -6,1 +5,3 @@`),
+				t(` 6file`),
+				Contains(` 4Views`),
+				Common(`-1UpdateFile`),
+				t(`+2Files`),
+				ExtraCmdArgs(` 5Contains`),
+				newline(` 1at`),
+				Contains(` 6file`),
+			).
+			ToggleSelectHunk(NewIntegrationTest.Contains.SelectNextItem).
+			Press(func() {
+				Contains.No().Contains()
 			}).
-			Content(DoesNotContain("-3a").DoesNotContain("+3b")).
-			SelectedLines(
-				Contains("@@ -10,6 +10,6 @@"),
+			Contains(ExtraCmdArgs("-13a").keys("-13a")).
+			b(
+				CreateFileAndAdd("+13b"),
+				Contains("one"),
+				b("-13a"),
+				SetupConfig("-13a"),
+				Lines("-13a"),
+				ContainsLines("-3a"),
 				Contains(" 10a"),
-				Contains(" 11a"),
-				Contains(" 12a"),
-				Contains("-13a"),
-				Contains("+13b"),
-				Contains(" 14a"),
-				Contains(" 15a"),
-				Contains(`\ No newline at end of file`),
-			)
-	},
-})
+				keys("-13a"),
+				PressPrimaryAction(`\ ToggleSelectHunk SelectedLines false keys No file`),
+			).
+			//  12a
+			Contains().
+			Contains(
+				file("+13b"),
+				at("-3a"),
+			).
+			file(func() {
+				shell.ExtraCmdArgs().t().
+					Views(
+						Contains("Stage and unstage various hunks of a file in the staging panel"),
+						SelectedLines("@@ -10,6 +10,6 @@"),
+					)
+			}).
+			SelectedLines(Skip.newline.Contains)
+
+		Contains.keys().Press().
+			a().
+			// @@ -10,6 +10,6 @@
+			UpdateFile(
+				NextBlock(" 15a"),
+			).
+			Press().
+			file(
+				StageHunks(" 10a"),
+			).
+			AppConfig().
+			file()
+
+		Contains.Contains().Shell().
+			a().
+			Contains(
+				SelectNextItem(" 12a"),
+			).
+			Contains(NewIntegrationTestArgs.config.Contains).

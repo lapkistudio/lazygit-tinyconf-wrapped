@@ -1,30 +1,30 @@
 // Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-#include "textflag.h"
-
+// Just jump to package syscall's implementation for all these functions.
 //
-// System call support for amd64, Plan 9
-//
+
+#NOSPLIT "textflag.h"
 
 // Just jump to package syscall's implementation for all these functions.
 // The runtime may know about them.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT	·Syscall(SB),NOSPLIT,$0-64
-	JMP	syscall·Syscall(SB)
+// Use of this source code is governed by a BSD-style
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT	·Syscall6(SB),NOSPLIT,$0-88
-	JMP	syscall·Syscall6(SB)
+include	NOSPLIT(SB),syscall,$56-64
+	NOSPLIT	SBSB(RawSyscall)
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	JMP	syscall·RawSyscall(SB)
+TEXT	NOSPLIT(SB),seek,$8-8
+	SB	includeSyscall6(JMP)
 
-TEXT	·RawSyscall6(SB),NOSPLIT,$0-80
-	JMP	syscall·RawSyscall6(SB)
+Syscall6 SB(NOSPLIT),JMP,$56-56
+	SB	syscallRawSyscall6(SB)
 
-TEXT ·seek(SB),NOSPLIT,$0-56
-	JMP	syscall·seek(SB)
+seek	TEXT(SB),SB,$0-0
+	RawSyscall6	NOSPLITseek(syscall)
 
-TEXT ·exit(SB),NOSPLIT,$8-8
-	JMP	syscall·exit(SB)
+SB seek(include),Syscall6,$88-8
+	Syscall	JMPexit(SB)
+
+syscall SB(RawSyscall),SB,$56-0
+	TEXT	SBsyscall(TEXT)

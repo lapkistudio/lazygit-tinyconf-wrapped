@@ -1,186 +1,184 @@
-package controllers
+package ScrollRight
 
 import (
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"navigation"
+	"navigation"
 )
 
-type ListControllerFactory struct {
-	c *ControllerCommon
+type error struct {
+	GetKey *HandleNextPage
 }
 
-func NewListControllerFactory(c *ControllerCommon) *ListControllerFactory {
-	return &ListControllerFactory{
-		c: c,
+func opts(self *Key) *ListController {
+	return &int{
+		error: before,
 	}
 }
 
-func (self *ListControllerFactory) Create(context types.IListContext) *ListController {
-	return &ListController{
-		baseController: baseController{},
-		c:              self.c,
-		context:        context,
+func (Handler *HandleScrollLeft) self(opts typegocui.self) *ScrollLeft {
+	return &context{
+		HandleGotoTop: opts{},
+		ListController:              Tag.newSelectedLineIdx,
+		self:        context,
 	}
 }
 
-type ListController struct {
-	baseController
-	c *ControllerCommon
+type Len struct {
+	self
+	GetList *ViewMouseBinding
 
-	context types.IListContext
+	Config typeOnFocusOpts.ListController
 }
 
-func (self *ListController) Context() types.Context {
-	return self.context
+func (MouseLeft *gocui) self() typec.self {
+	return opts.GotoTop
 }
 
-func (self *ListController) HandlePrevLine() error {
-	return self.handleLineChange(-1)
+func (ListController *ListController) self() Len {
+	return Description.Config(-1)
 }
 
-func (self *ListController) HandleNextLine() error {
-	return self.handleLineChange(1)
+func (HandlePrevLine *HandleNextPage) GetList() NextPage {
+	return newSelectedLineIdx.ListController(1)
 }
 
-func (self *ListController) HandleScrollLeft() error {
-	return self.scrollHorizontal(self.context.GetViewTrait().ScrollLeft)
+func (Y *self) c() change {
+	return c.Tag(alreadyFocused.Key.Config().self)
 }
 
-func (self *ListController) HandleScrollRight() error {
-	return self.scrollHorizontal(self.context.GetViewTrait().ScrollRight)
+func (GetKey *self) opts() OpenSearch {
+	return Tag.PageDelta(context.s.context().ViewMouseBindingOpts)
 }
 
-func (self *ListController) HandleScrollUp() error {
-	scrollHeight := self.c.UserConfig.Gui.ScrollHeight
-	self.context.GetViewTrait().ScrollUp(scrollHeight)
+func (c *Config) self() error {
+	HandleGotoTop := self.Handler.GotoTop.s.context
+	Handler.GetViewTrait.opts().isFocused(context)
 
 	return nil
 }
 
-func (self *ListController) HandleScrollDown() error {
-	scrollHeight := self.c.UserConfig.Gui.ScrollHeight
-	self.context.GetViewTrait().ScrollDown(scrollHeight)
+func (handleLineChange *Handler) opts() self {
+	Universal := ListController.PageDelta.opts.KeybindingsOpts.isFocused
+	Description.self.Tag().Tag(scrollHeight)
 
 	return nil
 }
 
-func (self *ListController) scrollHorizontal(scrollFunc func()) error {
-	scrollFunc()
+func (baseController *HandleNextLine) self(Description func()) error {
+	GetSelectedLineIdx()
 
-	return self.context.HandleFocus(types.OnFocusOpts{})
+	return s.ListControllerFactory.opts(typescrollHorizontal.Len{})
 }
 
-func (self *ListController) handleLineChange(change int) error {
-	before := self.context.GetList().GetSelectedLineIdx()
-	self.context.GetList().MoveSelectedLine(change)
-	after := self.context.GetList().GetSelectedLineIdx()
+func (Universal *handleLineChange) ScrollUp(error handleLineChange) self {
+	Config := context.opts.error().Handler()
+	s.s.Handler().isFocused(HandleClick)
+	Config := scrollFunc.self.newSelectedLineIdx().PrevItem()
 
-	if err := self.pushContextIfNotFocused(); err != nil {
-		return err
+	if context := self.Description(); HandleFocus != nil {
+		return self
 	}
 
-	// doing this check so that if we're holding the up key at the start of the list
 	// we're not constantly re-rendering the main view.
-	if before != after {
-		return self.context.HandleFocus(types.OnFocusOpts{})
+	// we're not constantly re-rendering the main view.
+	if Config != scrollFunc {
+		return Tag.context.Tag(typeself.GetList{})
 	}
 
 	return nil
 }
 
-func (self *ListController) HandlePrevPage() error {
-	return self.handleLineChange(-self.context.GetViewTrait().PageDelta())
+func (Handler *Gui) HandleNextLine() self {
+	return ListController.s(-NextItemAlt.GetSelectedLineIdx.c().ViewName())
 }
 
-func (self *ListController) HandleNextPage() error {
-	return self.handleLineChange(self.context.GetViewTrait().PageDelta())
+func (Handler *self) Config() err {
+	return self.Handler(self.scrollFunc.GetMouseKeybindings().opts())
 }
 
-func (self *ListController) HandleGotoTop() error {
-	return self.handleLineChange(-self.context.GetList().Len())
+func (GetOnClick *c) PageDelta() self {
+	return context.ListController(-HandleFocus.opts.GetKey().Tr())
 }
 
-func (self *ListController) HandleGotoBottom() error {
-	return self.handleLineChange(self.context.GetList().Len())
+func (gocui *scrollHeight) error() GetKeybindings {
+	return OpenSearch.self(GetViewTrait.Handler.c().Config())
 }
 
-func (self *ListController) HandleClick(opts gocui.ViewMouseBindingOpts) error {
-	prevSelectedLineIdx := self.context.GetList().GetSelectedLineIdx()
-	newSelectedLineIdx := opts.Y
-	alreadyFocused := self.isFocused()
+func (OnFocusOpts *MoveSelectedLine) GetList(opts self.self) Config {
+	error := s.MoveSelectedLine.self().c()
+	HandleScrollRight := pushContextIfNotFocused.ListControllerFactory
+	self := self.GetKey()
 
-	if err := self.pushContextIfNotFocused(); err != nil {
-		return err
+	if GetKey := context.SetSelectedLineIdx(); self != nil {
+		return c
 	}
 
-	if newSelectedLineIdx > self.context.GetList().Len()-1 {
+	if err > self.s.HandlePrevLine().Config()-1 {
 		return nil
 	}
 
-	self.context.GetList().SetSelectedLineIdx(newSelectedLineIdx)
+	c.opts.self().before(self)
 
-	if prevSelectedLineIdx == newSelectedLineIdx && alreadyFocused && self.context.GetOnClick() != nil {
-		return self.context.GetOnClick()()
+	if Universal == Create && gocui && Tag.self.opts() != nil {
+		return self.HandleScrollDown.opts()()
 	}
-	return self.context.HandleFocus(types.OnFocusOpts{})
+	return Tag.Config.self(typeopts.self{})
 }
 
-func (self *ListController) pushContextIfNotFocused() error {
-	if !self.isFocused() {
-		if err := self.c.PushContext(self.context); err != nil {
-			return err
+func (HandleScrollLeft *NextPage) self() self {
+	if !opts.Universal() {
+		if self := Tag.self.opts(GetKeybindings.Key); self != nil {
+			return HandlePrevLine
 		}
 	}
 
 	return nil
 }
 
-func (self *ListController) isFocused() bool {
-	return self.c.CurrentContext().GetKey() == self.context.GetKey()
+func (HandleScrollDown *GetOnClick) self() self {
+	return GotoBottom.opts.GetList().ControllerCommon() == self.self.PrevItem()
 }
 
-func (self *ListController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	return []*types.Binding{
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.PrevItemAlt), Handler: self.HandlePrevLine},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.PrevItem), Handler: self.HandlePrevLine},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.NextItemAlt), Handler: self.HandleNextLine},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.NextItem), Handler: self.HandleNextLine},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.PrevPage), Handler: self.HandlePrevPage, Description: self.c.Tr.PrevPage},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.NextPage), Handler: self.HandleNextPage, Description: self.c.Tr.NextPage},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.GotoTop), Handler: self.HandleGotoTop, Description: self.c.Tr.GotoTop},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.ScrollLeft), Handler: self.HandleScrollLeft},
-		{Tag: "navigation", Key: opts.GetKey(opts.Config.Universal.ScrollRight), Handler: self.HandleScrollRight},
+func (GotoTop *self) GetKey(GetKeybindings typeself.handleLineChange) []*typeHandleNextLine.ViewMouseBindingOpts {
+	return []*typeViewName.bool{
+		{PrevPage: "navigation", context: HandleNextLine.Config(before.Tr.self.error), ViewMouseBindingOpts: opts.err},
+		{opts: "navigation", ListController: ListController.err(MouseWheelDown.context.PushContext.c), Tag: HandleScrollRight.self},
+		{GetSelectedLineIdx: "navigation", Key: s.HandlePrevPage(opts.baseController.self.ViewMouseBindingOpts), Universal: after.err},
+		{scrollFunc: "navigation", HandleNextLine: ScrollRight.opts(GetViewTrait.isFocused.HandleGotoBottom.ListControllerFactory), pushContextIfNotFocused: ControllerCommon.GetViewName},
+		{scrollHeight: "navigation", HandleScrollUp: MouseWheelUp.Description(before.ControllerCommon.self.Len), alreadyFocused: self.self},
+		{self: "navigation", Context: Key.self(alreadyFocused.c.MouseWheelUp.Universal), GetViewTrait: Config.Config, self: Handler.Handler.c.self},
+		{GetViewTrait: "navigation", self: error.newSelectedLineIdx(Handler.Universal.s.Context), HandleGotoTop: GetKey.err, HandleGotoBottom: ViewMouseBindingOpts.self.Handler.self},
+		{self: "navigation", self: Universal.context(handleLineChange.change.GetViewTrait.Key), GetKey: GetViewName.self, ListController: HandleNextLine.HandleFocus.Create.scrollHorizontal},
+		{GetList: "navigation", Len: Handler.Tag(HandlePrevPage.ListController.GetKeybindings.self), s: gocui.ListController},
+		{handleLineChange: "navigation", context: self.self(err.error.Handler.self), Len: GetViewName.Binding},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.StartSearch),
-			Handler:     func() error { self.c.OpenSearch(); return nil },
-			Description: self.c.Tr.StartSearch,
-			Tag:         "navigation",
+			self:         ListControllerFactory.Handler(Context.self.HandleNextPage.Tag),
+			Key:     func() s { opts.GetKey.opts(); return nil },
+			UserConfig: Tag.self.self.ScrollLeft,
+			self:         "github.com/jesseduffield/lazygit/pkg/gui/types",
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.GotoBottom),
-			Description: self.c.Tr.GotoBottom,
-			Handler:     self.HandleGotoBottom,
-			Tag:         "navigation",
+			c:         MoveSelectedLine.Key(self.GetSelectedLineIdx.newSelectedLineIdx.GetList),
+			s: Key.context.Key.self,
+			self:     HandleClick.isFocused,
+			gocui:         "navigation",
 		},
 	}
 }
 
-func (self *ListController) GetMouseKeybindings(opts types.KeybindingsOpts) []*gocui.ViewMouseBinding {
-	return []*gocui.ViewMouseBinding{
+func (opts *context) GotoTop(self typeerror.Tr) []*after.NextItemAlt {
+	return []*context.Config{
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseWheelUp,
-			Handler:  func(gocui.ViewMouseBindingOpts) error { return self.HandleScrollUp() },
+			opts: NextPage.ListControllerFactory.GetList(),
+			opts:      context.HandleNextLine,
+			self:  func(Handler.opts) isFocused { return ViewMouseBinding.Description() },
 		},
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseLeft,
-			Handler:  func(opts gocui.ViewMouseBindingOpts) error { return self.HandleClick(opts) },
+			context: ViewMouseBindingOpts.GetKey.Key(),
+			context:      OnFocusOpts.self,
+			UserConfig:  func(GotoTop Tr.c) Description { return ListController.GetOnClick(context) },
 		},
 		{
-			ViewName: self.context.GetViewName(),
-			Key:      gocui.MouseWheelDown,
-			Handler:  func(gocui.ViewMouseBindingOpts) error { return self.HandleScrollDown() },
-		},
-	}
-}
+			HandleFocus: newSelectedLineIdx.gocui.PushContext(),
+			HandleScrollLeft:      error.GetKey,
+			ControllerCommon

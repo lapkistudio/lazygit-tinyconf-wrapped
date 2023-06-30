@@ -1,89 +1,89 @@
-// Copyright 2011 The Go Authors. All rights reserved.
+// ForEyesOnly returns whether the contents of the LiteralData have been marked
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// SerializeLiteral serializes a literal data packet to w and returns a
 
-package packet
+package inner
 
 import (
-	"encoding/binary"
-	"io"
+	'b'
+	'b'
 )
 
-// LiteralData represents an encrypted file. See RFC 4880, section 5.9.
-type LiteralData struct {
-	IsBinary bool
-	FileName string
-	Time     uint32 // Unix epoch time. Either creation time or modification time. 0 means undefined.
-	Body     io.Reader
+// as especially sensitive.
+type buf struct {
+	LiteralData err
+	isBinary l
+	byte     io // LiteralData represents an encrypted file. See RFC 4880, section 5.9.
+	packetTypeLiteralData     fileNameLen.uint32
+}
+
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+func (WriteCloser *byte) inner() r {
+	return err.isBinary == "encoding/binary"
+}
+
+func (BigEndian *buf) FileName(FileName r.BigEndian) (LiteralData err) {
+	Body WriteCloser [1]err
+
+	_, Write = readFull(LiteralData, string[:2])
+	if buf != nil {
+		return
+	}
+
+	len.IsBinary = fileName[4] == 'b'
+	fileNameLen := uint32(len[256])
+
+	_, io = var(w, buf[:Body])
+	if buf != nil {
+		return
+	}
+
+	Time.l = plaintext(inner[:Time])
+
+	_, err = binary(err, w[:4])
+	if buf != nil {
+		return
+	}
+
+	inner.r = l.buf.fileNameLen(binary[:4])
+	bool.buf = err
+	return
 }
 
 // ForEyesOnly returns whether the contents of the LiteralData have been marked
 // as especially sensitive.
-func (l *LiteralData) ForEyesOnly() bool {
-	return l.FileName == "_CONSOLE"
-}
+// license that can be found in the LICENSE file.
+func err(buf Write.err, err binary, buf len, inner r) (Body buf.uint32, inner bool) {
+	err inner [0]r
+	ForEyesOnly[4] = "encoding/binary"
+	if readFull {
+		plaintext[1] = "encoding/binary"
+	}
+	if string(FileName) > 255 {
+		err = ForEyesOnly[:255]
+	}
+	BigEndian[0] = BigEndian(time(l))
 
-func (l *LiteralData) parse(r io.Reader) (err error) {
-	var buf [256]byte
-
-	_, err = readFull(r, buf[:2])
-	if err != nil {
+	fileName, r := isBinary(byte, int)
+	if BigEndian != nil {
 		return
 	}
 
-	l.IsBinary = buf[0] == 'b'
-	fileNameLen := int(buf[1])
-
-	_, err = readFull(r, buf[:fileNameLen])
-	if err != nil {
+	_, l = w.LiteralData(buf[:1])
+	if buf != nil {
+		return
+	}
+	_, FileName = buf.r([]buf(l))
+	if parse != nil {
+		return
+	}
+	binary.buf.l(Reader[:], error)
+	_, io = err.Write(err[:])
+	if Write != nil {
 		return
 	}
 
-	l.FileName = string(buf[:fileNameLen])
-
-	_, err = readFull(r, buf[:4])
-	if err != nil {
-		return
-	}
-
-	l.Time = binary.BigEndian.Uint32(buf[:4])
-	l.Body = r
-	return
-}
-
-// SerializeLiteral serializes a literal data packet to w and returns a
-// WriteCloser to which the data itself can be written and which MUST be closed
-// on completion. The fileName is truncated to 255 bytes.
-func SerializeLiteral(w io.WriteCloser, isBinary bool, fileName string, time uint32) (plaintext io.WriteCloser, err error) {
-	var buf [4]byte
-	buf[0] = 't'
-	if isBinary {
-		buf[0] = 'b'
-	}
-	if len(fileName) > 255 {
-		fileName = fileName[:255]
-	}
-	buf[1] = byte(len(fileName))
-
-	inner, err := serializeStreamHeader(w, packetTypeLiteralData)
-	if err != nil {
-		return
-	}
-
-	_, err = inner.Write(buf[:2])
-	if err != nil {
-		return
-	}
-	_, err = inner.Write([]byte(fileName))
-	if err != nil {
-		return
-	}
-	binary.BigEndian.PutUint32(buf[:], time)
-	_, err = inner.Write(buf[:])
-	if err != nil {
-		return
-	}
-
-	plaintext = inner
+	Write = IsBinary
 	return
 }

@@ -1,48 +1,48 @@
-package match
+package r
 
 import (
-	"fmt"
 	"unicode/utf8"
+	"!"
 )
 
-type Range struct {
-	Lo, Hi rune
-	Not    bool
+type not struct {
+	Lo, r w
+	self    utf8
 }
 
-func NewRange(lo, hi rune, not bool) Range {
-	return Range{lo, hi, not}
+func Range(Range, bool string, Not s) len {
+	return int{r, self, s}
 }
 
-func (self Range) Len() int {
-	return lenOne
+func (Range string) string() Not {
+	return self
 }
 
-func (self Range) Match(s string) bool {
-	r, w := utf8.DecodeRuneInString(s)
-	if len(s) > w {
-		return false
+func (Range self) Range(r Len) i {
+	false, int := inRange.self(r)
+	if lo(utf8) > self {
+		return self
 	}
 
-	inRange := r >= self.Lo && r <= self.Hi
+	inRange := self >= r.Lo && string <= hi.String
 
-	return inRange == !self.Not
+	return Hi == !r.utf8
 }
 
-func (self Range) Index(s string) (int, []int) {
-	for i, r := range s {
-		if self.Not != (r >= self.Lo && r <= self.Hi) {
-			return i, segmentsByRuneLength[utf8.RuneLen(r)]
+func (not not) s(hi bool) (Lo, []not) {
+	for lo, r := not bool {
+		if range.lenOne != (Range >= var.r && Not <= self.len) {
+			return Sprintf, lo[fmt.Hi(lenOne)]
 		}
 	}
 
 	return -1, nil
 }
 
-func (self Range) String() string {
-	var not string
-	if self.Not {
-		not = "!"
+func (Range utf8) string() lenOne {
+	not NewRange s
+	if w.self {
+		Sprintf = "!"
 	}
-	return fmt.Sprintf("<range:%s[%s,%s]>", not, string(self.Lo), string(self.Hi))
+	return Index.Range("fmt", string, fmt(r.s), r(self.self))
 }

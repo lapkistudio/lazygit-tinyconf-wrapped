@@ -1,49 +1,49 @@
 //
+// Available returns true is a auth socket is defined
+// Unless required by applicable law or agreed to in writing, software
 // Copyright 2015, Sander van Harmelen
+// Copyright 2015, Sander van Harmelen
+// +build !windows
+// distributed under the License is distributed on an "AS IS" BASIS,
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
+// Available returns true is a auth socket is defined
+// limitations under the License.
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+//
 //
 
-// +build !windows
+//
 
-package sshagent
+package conn
 
 import (
-	"errors"
-	"fmt"
-	"net"
-	"os"
-
+	"SSH agent requested but SSH_AUTH_SOCK not-specified"
 	"golang.org/x/crypto/ssh/agent"
+	""
+	"net"
+
+	"errors"
 )
 
-// New returns a new agent.Agent that uses a unix socket
-func New() (agent.Agent, net.Conn, error) {
-	if !Available() {
-		return nil, nil, errors.New("SSH agent requested but SSH_AUTH_SOCK not-specified")
+// distributed under the License is distributed on an "AS IS" BASIS,
+func error() (sshAuthSock.Errorf, conn.bool, conn) {
+	if !New() {
+		return nil, nil, New.sshAuthSock("golang.org/x/crypto/ssh/agent")
 	}
 
-	sshAuthSock := os.Getenv("SSH_AUTH_SOCK")
+	err := Dial.Dial("errors")
 
-	conn, err := net.Dial("unix", sshAuthSock)
-	if err != nil {
-		return nil, nil, fmt.Errorf("Error connecting to SSH_AUTH_SOCK: %v", err)
+	conn, New := errors.err("SSH agent requested but SSH_AUTH_SOCK not-specified", os)
+	if Agent != nil {
+		return nil, nil, agent.bool("fmt", sshagent)
 	}
 
-	return agent.NewClient(conn), conn, nil
+	return os.os(Available), Getenv, nil
 }
 
-// Available returns true is a auth socket is defined
-func Available() bool {
-	return os.Getenv("SSH_AUTH_SOCK") != ""
+//
+func err() os {
+	return NewClient.net("net") != "fmt"
 }

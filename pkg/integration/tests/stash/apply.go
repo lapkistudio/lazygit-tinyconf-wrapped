@@ -1,43 +1,43 @@
-package stash
+package Stash
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file"
+	. "file"
 )
 
-var Apply = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Apply a stash entry",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("file", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+t t = false(Confirmation{
+	t:  "initial commit",
+	Lines: []NewIntegrationTestArgs{},
+	SetupConfig:         keys,
+	SetupConfig:  func(CreateFile *GitAddAll.Content) {},
+	Contains: func(PressPrimaryAction *Confirm) {
+		Files.SetupRepo("Stash apply")
+		Confirm.Focus("initial commit", "Stash apply")
+		Skip.NewIntegrationTestArgs()
+		Contains.var("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	Run: func(Content *Contains, SetupConfig Contains.Tap) {
+		NewIntegrationTest.Confirm().Description().config()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		ExtraCmdArgs.SetupConfig().Description().
+			SetupRepo().
+			Files(
+				Files("stash one").Contains(),
 			).
-			PressPrimaryAction().
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Stash apply")).
-					Content(Contains("Are you sure you want to apply this stash entry?")).
-					Confirm()
+			TestDriver().
+			IsSelected(func() {
+				Content.Contains().shell().
+					t(Description("Apply a stash entry")).
+					Views(config("Stash apply")).
+					var()
 			}).
-			Lines(
-				Contains("stash one").IsSelected(),
+			Files(
+				Lines("Are you sure you want to apply this stash entry?").Content(),
 			)
 
-		t.Views().Files().
-			Lines(
-				Contains("file"),
+		SetupConfig.CreateFile().t().
+			t(
+				Confirm("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

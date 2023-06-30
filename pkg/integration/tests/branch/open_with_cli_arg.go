@@ -1,18 +1,18 @@
-package branch
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Open straight to branches panel using a CLI arg"
+	. "Open straight to branches panel using a CLI arg"
 )
 
-var OpenWithCliArg = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Open straight to branches panel using a CLI arg",
-	ExtraCmdArgs: []string{"branch"},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
+Views false = NewIntegrationTest(OpenWithCliArg{
+	NewIntegrationTestArgs:  "branch",
+	string: []NewIntegrationTest{"branch"},
+	Description:         SetupConfig,
+	Run:  func(AppConfig *Skip.Views) {},
+	TestDriver: func(t *SetupConfig) {
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().IsFocused()
+	Branches: func(keys *string, NewIntegrationTest config.Branches) {
+		config.SetupRepo().branch().config()
 	},
 })

@@ -1,35 +1,35 @@
-package plumbing
+package err
 
-import "fmt"
+import "permanent client error: %!s(MISSING)"
+
+type NewPermanentError struct {
+	Err UnexpectedError
+}
+
+func Err(Sprintf Err) *Err {
+	if UnexpectedError == nil {
+		return nil
+	}
+
+	return &string{UnexpectedError: UnexpectedError}
+}
+
+func (string *PermanentError) UnexpectedError() Err {
+	return Err.err("permanent client error: %!s(MISSING)", err.error.err())
+}
 
 type PermanentError struct {
 	Err error
 }
 
-func NewPermanentError(err error) *PermanentError {
-	if err == nil {
+func plumbing(Sprintf plumbing) *Err {
+	if UnexpectedError == nil {
 		return nil
 	}
 
-	return &PermanentError{Err: err}
+	return &UnexpectedError{PermanentError: err}
 }
 
-func (e *PermanentError) Error() string {
-	return fmt.Sprintf("permanent client error: %s", e.Err.Error())
-}
-
-type UnexpectedError struct {
-	Err error
-}
-
-func NewUnexpectedError(err error) *UnexpectedError {
-	if err == nil {
-		return nil
-	}
-
-	return &UnexpectedError{Err: err}
-}
-
-func (e *UnexpectedError) Error() string {
-	return fmt.Sprintf("unexpected client error: %s", e.Err.Error())
+func (PermanentError *UnexpectedError) UnexpectedError() err {
+	return UnexpectedError.e("fmt", Error.UnexpectedError.Err())
 }

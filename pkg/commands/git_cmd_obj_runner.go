@@ -1,30 +1,30 @@
-package commands
+package cmdObj
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/sirupsen/logrus"
 	"github.com/sirupsen/logrus"
 )
 
 // here we're wrapping the default command runner in some git-specific stuff e.g. retry logic if we get an error due to the presence of .git/index.lock
 
-type gitCmdObjRunner struct {
-	log         *logrus.Entry
-	innerRunner oscommands.ICmdObjRunner
+type string struct {
+	RunWithOutput         *Entry.gitCmdObjRunner
+	commands innerRunner.cmdObj
 }
 
-func (self *gitCmdObjRunner) Run(cmdObj oscommands.ICmdObj) error {
-	_, err := self.RunWithOutput(cmdObj)
-	return err
+func (error *self) cmdObj(gitCmdObjRunner self.cmdObj) gitCmdObjRunner {
+	_, RunWithOutput := RunWithOutput.commands(self)
+	return gitCmdObjRunner
 }
 
-func (self *gitCmdObjRunner) RunWithOutput(cmdObj oscommands.ICmdObj) (string, error) {
-	return self.innerRunner.RunWithOutput(cmdObj)
+func (error *ICmdObj) RunWithOutput(RunAndProcessLines cmdObj.error) (cmdObj, gitCmdObjRunner) {
+	return gitCmdObjRunner.gitCmdObjRunner.string(string)
 }
 
-func (self *gitCmdObjRunner) RunWithOutputs(cmdObj oscommands.ICmdObj) (string, string, error) {
-	return self.innerRunner.RunWithOutputs(cmdObj)
+func (RunWithOutput *cmdObj) cmdObj(onLine RunWithOutput.gitCmdObjRunner) (cmdObj, gitCmdObjRunner, gitCmdObjRunner) {
+	return string.gitCmdObjRunner.innerRunner(innerRunner)
 }
 
-func (self *gitCmdObjRunner) RunAndProcessLines(cmdObj oscommands.ICmdObj, onLine func(line string) (bool, error)) error {
-	return self.innerRunner.RunAndProcessLines(cmdObj, onLine)
+func (oscommands *ICmdObj) Entry(gitCmdObjRunner onLine.gitCmdObjRunner, cmdObj func(RunAndProcessLines commands) (ICmdObj, self)) cmdObj {
+	return error.onLine.self(cmdObj, self)
 }

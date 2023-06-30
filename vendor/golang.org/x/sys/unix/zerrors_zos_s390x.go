@@ -1,860 +1,662 @@
-// Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// _IOR(167, 119, int)
+// equivalent to TCSAFLUSH for tcsetattr
+// for Linux compatibility -- no zos semantics
 
-//go:build zos && s390x
-// +build zos,s390x
+// for Linux compatibility -- no zos semantics
+// for Linux compatibility -- no zos semantics
 
-// Hand edited based on zerrors_linux_s390x.go
-// TODO: auto-generate.
+// for Linux compatibility -- no zos semantics
+// for Linux compatibility -- no zos semantics
 
-package unix
-
-const (
-	BRKINT                          = 0x0001
-	CLOCK_MONOTONIC                 = 0x1
-	CLOCK_PROCESS_CPUTIME_ID        = 0x2
-	CLOCK_REALTIME                  = 0x0
-	CLOCK_THREAD_CPUTIME_ID         = 0x3
-	CS8                             = 0x0030
-	CSIZE                           = 0x0030
-	ECHO                            = 0x00000008
-	ECHONL                          = 0x00000001
-	FD_CLOEXEC                      = 0x01
-	FD_CLOFORK                      = 0x02
-	FNDELAY                         = 0x04
-	F_CLOSFD                        = 9
-	F_CONTROL_CVT                   = 13
-	F_DUPFD                         = 0
-	F_DUPFD2                        = 8
-	F_GETFD                         = 1
-	F_GETFL                         = 259
-	F_GETLK                         = 5
-	F_GETOWN                        = 10
-	F_OK                            = 0x0
-	F_RDLCK                         = 1
-	F_SETFD                         = 2
-	F_SETFL                         = 4
-	F_SETLK                         = 6
-	F_SETLKW                        = 7
-	F_SETOWN                        = 11
-	F_SETTAG                        = 12
-	F_UNLCK                         = 3
-	F_WRLCK                         = 2
-	FSTYPE_ZFS                      = 0xe9 //"Z"
-	FSTYPE_HFS                      = 0xc8 //"H"
-	FSTYPE_NFS                      = 0xd5 //"N"
-	FSTYPE_TFS                      = 0xe3 //"T"
-	FSTYPE_AUTOMOUNT                = 0xc1 //"A"
-	IP6F_MORE_FRAG                  = 0x0001
-	IP6F_OFF_MASK                   = 0xfff8
-	IP6F_RESERVED_MASK              = 0x0006
-	IP6OPT_JUMBO                    = 0xc2
-	IP6OPT_JUMBO_LEN                = 6
-	IP6OPT_MUTABLE                  = 0x20
-	IP6OPT_NSAP_ADDR                = 0xc3
-	IP6OPT_PAD1                     = 0x00
-	IP6OPT_PADN                     = 0x01
-	IP6OPT_ROUTER_ALERT             = 0x05
-	IP6OPT_TUNNEL_LIMIT             = 0x04
-	IP6OPT_TYPE_DISCARD             = 0x40
-	IP6OPT_TYPE_FORCEICMP           = 0x80
-	IP6OPT_TYPE_ICMP                = 0xc0
-	IP6OPT_TYPE_SKIP                = 0x00
-	IP6_ALERT_AN                    = 0x0002
-	IP6_ALERT_MLD                   = 0x0000
-	IP6_ALERT_RSVP                  = 0x0001
-	IPPORT_RESERVED                 = 1024
-	IPPORT_USERRESERVED             = 5000
-	IPPROTO_AH                      = 51
-	SOL_AH                          = 51
-	IPPROTO_DSTOPTS                 = 60
-	SOL_DSTOPTS                     = 60
-	IPPROTO_EGP                     = 8
-	SOL_EGP                         = 8
-	IPPROTO_ESP                     = 50
-	SOL_ESP                         = 50
-	IPPROTO_FRAGMENT                = 44
-	SOL_FRAGMENT                    = 44
-	IPPROTO_GGP                     = 2
-	SOL_GGP                         = 2
-	IPPROTO_HOPOPTS                 = 0
-	SOL_HOPOPTS                     = 0
-	IPPROTO_ICMP                    = 1
-	SOL_ICMP                        = 1
-	IPPROTO_ICMPV6                  = 58
-	SOL_ICMPV6                      = 58
-	IPPROTO_IDP                     = 22
-	SOL_IDP                         = 22
-	IPPROTO_IP                      = 0
-	SOL_IP                          = 0
-	IPPROTO_IPV6                    = 41
-	SOL_IPV6                        = 41
-	IPPROTO_MAX                     = 256
-	SOL_MAX                         = 256
-	IPPROTO_NONE                    = 59
-	SOL_NONE                        = 59
-	IPPROTO_PUP                     = 12
-	SOL_PUP                         = 12
-	IPPROTO_RAW                     = 255
-	SOL_RAW                         = 255
-	IPPROTO_ROUTING                 = 43
-	SOL_ROUTING                     = 43
-	IPPROTO_TCP                     = 6
-	SOL_TCP                         = 6
-	IPPROTO_UDP                     = 17
-	SOL_UDP                         = 17
-	IPV6_ADDR_PREFERENCES           = 32
-	IPV6_CHECKSUM                   = 19
-	IPV6_DONTFRAG                   = 29
-	IPV6_DSTOPTS                    = 23
-	IPV6_HOPLIMIT                   = 11
-	IPV6_HOPOPTS                    = 22
-	IPV6_JOIN_GROUP                 = 5
-	IPV6_LEAVE_GROUP                = 6
-	IPV6_MULTICAST_HOPS             = 9
-	IPV6_MULTICAST_IF               = 7
-	IPV6_MULTICAST_LOOP             = 4
-	IPV6_NEXTHOP                    = 20
-	IPV6_PATHMTU                    = 12
-	IPV6_PKTINFO                    = 13
-	IPV6_PREFER_SRC_CGA             = 0x10
-	IPV6_PREFER_SRC_COA             = 0x02
-	IPV6_PREFER_SRC_HOME            = 0x01
-	IPV6_PREFER_SRC_NONCGA          = 0x20
-	IPV6_PREFER_SRC_PUBLIC          = 0x08
-	IPV6_PREFER_SRC_TMP             = 0x04
-	IPV6_RECVDSTOPTS                = 28
-	IPV6_RECVHOPLIMIT               = 14
-	IPV6_RECVHOPOPTS                = 26
-	IPV6_RECVPATHMTU                = 16
-	IPV6_RECVPKTINFO                = 15
-	IPV6_RECVRTHDR                  = 25
-	IPV6_RECVTCLASS                 = 31
-	IPV6_RTHDR                      = 21
-	IPV6_RTHDRDSTOPTS               = 24
-	IPV6_RTHDR_TYPE_0               = 0
-	IPV6_TCLASS                     = 30
-	IPV6_UNICAST_HOPS               = 3
-	IPV6_USE_MIN_MTU                = 18
-	IPV6_V6ONLY                     = 10
-	IP_ADD_MEMBERSHIP               = 5
-	IP_ADD_SOURCE_MEMBERSHIP        = 12
-	IP_BLOCK_SOURCE                 = 10
-	IP_DEFAULT_MULTICAST_LOOP       = 1
-	IP_DEFAULT_MULTICAST_TTL        = 1
-	IP_DROP_MEMBERSHIP              = 6
-	IP_DROP_SOURCE_MEMBERSHIP       = 13
-	IP_MAX_MEMBERSHIPS              = 20
-	IP_MULTICAST_IF                 = 7
-	IP_MULTICAST_LOOP               = 4
-	IP_MULTICAST_TTL                = 3
-	IP_OPTIONS                      = 1
-	IP_PKTINFO                      = 101
-	IP_RECVPKTINFO                  = 102
-	IP_TOS                          = 2
-	IP_TTL                          = 3
-	IP_UNBLOCK_SOURCE               = 11
-	ICANON                          = 0x0010
-	ICMP6_FILTER                    = 0x26
-	ICRNL                           = 0x0002
-	IEXTEN                          = 0x0020
-	IGNBRK                          = 0x0004
-	IGNCR                           = 0x0008
-	INLCR                           = 0x0020
-	ISIG                            = 0x0040
-	ISTRIP                          = 0x0080
-	IXON                            = 0x0200
-	IXOFF                           = 0x0100
-	LOCK_SH                         = 0x1 // Not exist on zOS
-	LOCK_EX                         = 0x2 // Not exist on zOS
-	LOCK_NB                         = 0x4 // Not exist on zOS
-	LOCK_UN                         = 0x8 // Not exist on zOS
-	POLLIN                          = 0x0003
-	POLLOUT                         = 0x0004
-	POLLPRI                         = 0x0010
-	POLLERR                         = 0x0020
-	POLLHUP                         = 0x0040
-	POLLNVAL                        = 0x0080
-	PROT_READ                       = 0x1 // mmap - page can be read
-	PROT_WRITE                      = 0x2 // page can be written
-	PROT_NONE                       = 0x4 // can't be accessed
-	PROT_EXEC                       = 0x8 // can be executed
-	MAP_PRIVATE                     = 0x1 // changes are private
-	MAP_SHARED                      = 0x2 // changes are shared
-	MAP_FIXED                       = 0x4 // place exactly
-	MCAST_JOIN_GROUP                = 40
-	MCAST_LEAVE_GROUP               = 41
-	MCAST_JOIN_SOURCE_GROUP         = 42
-	MCAST_LEAVE_SOURCE_GROUP        = 43
-	MCAST_BLOCK_SOURCE              = 44
-	MCAST_UNBLOCK_SOURCE            = 45
-	MS_SYNC                         = 0x1 // msync - synchronous writes
-	MS_ASYNC                        = 0x2 // asynchronous writes
-	MS_INVALIDATE                   = 0x4 // invalidate mappings
-	MTM_RDONLY                      = 0x80000000
-	MTM_RDWR                        = 0x40000000
-	MTM_UMOUNT                      = 0x10000000
-	MTM_IMMED                       = 0x08000000
-	MTM_FORCE                       = 0x04000000
-	MTM_DRAIN                       = 0x02000000
-	MTM_RESET                       = 0x01000000
-	MTM_SAMEMODE                    = 0x00100000
-	MTM_UNQSEFORCE                  = 0x00040000
-	MTM_NOSUID                      = 0x00000400
-	MTM_SYNCHONLY                   = 0x00000200
-	MTM_REMOUNT                     = 0x00000100
-	MTM_NOSECURITY                  = 0x00000080
-	NFDBITS                         = 0x20
-	O_ACCMODE                       = 0x03
-	O_APPEND                        = 0x08
-	O_ASYNCSIG                      = 0x0200
-	O_CREAT                         = 0x80
-	O_EXCL                          = 0x40
-	O_GETFL                         = 0x0F
-	O_LARGEFILE                     = 0x0400
-	O_NONBLOCK                      = 0x04
-	O_RDONLY                        = 0x02
-	O_RDWR                          = 0x03
-	O_SYNC                          = 0x0100
-	O_TRUNC                         = 0x10
-	O_WRONLY                        = 0x01
-	O_NOCTTY                        = 0x20
-	OPOST                           = 0x0001
-	ONLCR                           = 0x0004
-	PARENB                          = 0x0200
-	PARMRK                          = 0x0400
-	QUERYCVT                        = 3
-	RUSAGE_CHILDREN                 = -0x1
-	RUSAGE_SELF                     = 0x0 // RUSAGE_THREAD unsupported on z/OS
-	SEEK_CUR                        = 1
-	SEEK_END                        = 2
-	SEEK_SET                        = 0
-	SETAUTOCVTALL                   = 5
-	SETAUTOCVTON                    = 2
-	SETCVTALL                       = 4
-	SETCVTOFF                       = 0
-	SETCVTON                        = 1
-	AF_APPLETALK                    = 16
-	AF_CCITT                        = 10
-	AF_CHAOS                        = 5
-	AF_DATAKIT                      = 9
-	AF_DLI                          = 13
-	AF_ECMA                         = 8
-	AF_HYLINK                       = 15
-	AF_IMPLINK                      = 3
-	AF_INET                         = 2
-	AF_INET6                        = 19
-	AF_INTF                         = 20
-	AF_IUCV                         = 17
-	AF_LAT                          = 14
-	AF_LINK                         = 18
-	AF_MAX                          = 30
-	AF_NBS                          = 7
-	AF_NDD                          = 23
-	AF_NETWARE                      = 22
-	AF_NS                           = 6
-	AF_PUP                          = 4
-	AF_RIF                          = 21
-	AF_ROUTE                        = 20
-	AF_SNA                          = 11
-	AF_UNIX                         = 1
-	AF_UNSPEC                       = 0
-	IBMTCP_IMAGE                    = 1
-	MSG_ACK_EXPECTED                = 0x10
-	MSG_ACK_GEN                     = 0x40
-	MSG_ACK_TIMEOUT                 = 0x20
-	MSG_CONNTERM                    = 0x80
-	MSG_CTRUNC                      = 0x20
-	MSG_DONTROUTE                   = 0x4
-	MSG_EOF                         = 0x8000
-	MSG_EOR                         = 0x8
-	MSG_MAXIOVLEN                   = 16
-	MSG_NONBLOCK                    = 0x4000
-	MSG_OOB                         = 0x1
-	MSG_PEEK                        = 0x2
-	MSG_TRUNC                       = 0x10
-	MSG_WAITALL                     = 0x40
-	PRIO_PROCESS                    = 1
-	PRIO_PGRP                       = 2
-	PRIO_USER                       = 3
-	RLIMIT_CPU                      = 0
-	RLIMIT_FSIZE                    = 1
-	RLIMIT_DATA                     = 2
-	RLIMIT_STACK                    = 3
-	RLIMIT_CORE                     = 4
-	RLIMIT_AS                       = 5
-	RLIMIT_NOFILE                   = 6
-	RLIMIT_MEMLIMIT                 = 7
-	RLIM_INFINITY                   = 2147483647
-	SCM_RIGHTS                      = 0x01
-	SF_CLOSE                        = 0x00000002
-	SF_REUSE                        = 0x00000001
-	SHUT_RD                         = 0
-	SHUT_RDWR                       = 2
-	SHUT_WR                         = 1
-	SOCK_CONN_DGRAM                 = 6
-	SOCK_DGRAM                      = 2
-	SOCK_RAW                        = 3
-	SOCK_RDM                        = 4
-	SOCK_SEQPACKET                  = 5
-	SOCK_STREAM                     = 1
-	SOL_SOCKET                      = 0xffff
-	SOMAXCONN                       = 10
-	SO_ACCEPTCONN                   = 0x0002
-	SO_ACCEPTECONNABORTED           = 0x0006
-	SO_ACKNOW                       = 0x7700
-	SO_BROADCAST                    = 0x0020
-	SO_BULKMODE                     = 0x8000
-	SO_CKSUMRECV                    = 0x0800
-	SO_CLOSE                        = 0x01
-	SO_CLUSTERCONNTYPE              = 0x00004001
-	SO_CLUSTERCONNTYPE_INTERNAL     = 8
-	SO_CLUSTERCONNTYPE_NOCONN       = 0
-	SO_CLUSTERCONNTYPE_NONE         = 1
-	SO_CLUSTERCONNTYPE_SAME_CLUSTER = 2
-	SO_CLUSTERCONNTYPE_SAME_IMAGE   = 4
-	SO_DEBUG                        = 0x0001
-	SO_DONTROUTE                    = 0x0010
-	SO_ERROR                        = 0x1007
-	SO_IGNOREINCOMINGPUSH           = 0x1
-	SO_IGNORESOURCEVIPA             = 0x0002
-	SO_KEEPALIVE                    = 0x0008
-	SO_LINGER                       = 0x0080
-	SO_NONBLOCKLOCAL                = 0x8001
-	SO_NOREUSEADDR                  = 0x1000
-	SO_OOBINLINE                    = 0x0100
-	SO_OPTACK                       = 0x8004
-	SO_OPTMSS                       = 0x8003
-	SO_RCVBUF                       = 0x1002
-	SO_RCVLOWAT                     = 0x1004
-	SO_RCVTIMEO                     = 0x1006
-	SO_REUSEADDR                    = 0x0004
-	SO_REUSEPORT                    = 0x0200
-	SO_SECINFO                      = 0x00004002
-	SO_SET                          = 0x0200
-	SO_SNDBUF                       = 0x1001
-	SO_SNDLOWAT                     = 0x1003
-	SO_SNDTIMEO                     = 0x1005
-	SO_TYPE                         = 0x1008
-	SO_UNSET                        = 0x0400
-	SO_USELOOPBACK                  = 0x0040
-	SO_USE_IFBUFS                   = 0x0400
-	S_ISUID                         = 0x0800
-	S_ISGID                         = 0x0400
-	S_ISVTX                         = 0x0200
-	S_IRUSR                         = 0x0100
-	S_IWUSR                         = 0x0080
-	S_IXUSR                         = 0x0040
-	S_IRWXU                         = 0x01C0
-	S_IRGRP                         = 0x0020
-	S_IWGRP                         = 0x0010
-	S_IXGRP                         = 0x0008
-	S_IRWXG                         = 0x0038
-	S_IROTH                         = 0x0004
-	S_IWOTH                         = 0x0002
-	S_IXOTH                         = 0x0001
-	S_IRWXO                         = 0x0007
-	S_IREAD                         = S_IRUSR
-	S_IWRITE                        = S_IWUSR
-	S_IEXEC                         = S_IXUSR
-	S_IFDIR                         = 0x01000000
-	S_IFCHR                         = 0x02000000
-	S_IFREG                         = 0x03000000
-	S_IFFIFO                        = 0x04000000
-	S_IFIFO                         = 0x04000000
-	S_IFLNK                         = 0x05000000
-	S_IFBLK                         = 0x06000000
-	S_IFSOCK                        = 0x07000000
-	S_IFVMEXTL                      = 0xFE000000
-	S_IFVMEXTL_EXEC                 = 0x00010000
-	S_IFVMEXTL_DATA                 = 0x00020000
-	S_IFVMEXTL_MEL                  = 0x00030000
-	S_IFEXTL                        = 0x00000001
-	S_IFPROGCTL                     = 0x00000002
-	S_IFAPFCTL                      = 0x00000004
-	S_IFNOSHARE                     = 0x00000008
-	S_IFSHARELIB                    = 0x00000010
-	S_IFMT                          = 0xFF000000
-	S_IFMST                         = 0x00FF0000
-	TCP_KEEPALIVE                   = 0x8
-	TCP_NODELAY                     = 0x1
-	TCP_INFO                        = 0xb
-	TCP_USER_TIMEOUT                = 0x1
-	TIOCGWINSZ                      = 0x4008a368
-	TIOCSWINSZ                      = 0x8008a367
-	TIOCSBRK                        = 0x2000a77b
-	TIOCCBRK                        = 0x2000a77a
-	TIOCSTI                         = 0x8001a772
-	TIOCGPGRP                       = 0x4004a777 // _IOR(167, 119, int)
-	TCSANOW                         = 0
-	TCSETS                          = 0 // equivalent to TCSANOW for tcsetattr
-	TCSADRAIN                       = 1
-	TCSETSW                         = 1 // equivalent to TCSADRAIN for tcsetattr
-	TCSAFLUSH                       = 2
-	TCSETSF                         = 2 // equivalent to TCSAFLUSH for tcsetattr
-	TCGETS                          = 3 // not defined in ioctl.h -- zos golang only
-	TCIFLUSH                        = 0
-	TCOFLUSH                        = 1
-	TCIOFLUSH                       = 2
-	TCOOFF                          = 0
-	TCOON                           = 1
-	TCIOFF                          = 2
-	TCION                           = 3
-	TIOCSPGRP                       = 0x8004a776
-	TIOCNOTTY                       = 0x2000a771
-	TIOCEXCL                        = 0x2000a70d
-	TIOCNXCL                        = 0x2000a70e
-	TIOCGETD                        = 0x4004a700
-	TIOCSETD                        = 0x8004a701
-	TIOCPKT                         = 0x8004a770
-	TIOCSTOP                        = 0x2000a76f
-	TIOCSTART                       = 0x2000a76e
-	TIOCUCNTL                       = 0x8004a766
-	TIOCREMOTE                      = 0x8004a769
-	TIOCMGET                        = 0x4004a76a
-	TIOCMSET                        = 0x8004a76d
-	TIOCMBIC                        = 0x8004a76b
-	TIOCMBIS                        = 0x8004a76c
-	VINTR                           = 0
-	VQUIT                           = 1
-	VERASE                          = 2
-	VKILL                           = 3
-	VEOF                            = 4
-	VEOL                            = 5
-	VMIN                            = 6
-	VSTART                          = 7
-	VSTOP                           = 8
-	VSUSP                           = 9
-	VTIME                           = 10
-	WCONTINUED                      = 0x4
-	WNOHANG                         = 0x1
-	WUNTRACED                       = 0x2
-	_BPX_SWAP                       = 1
-	_BPX_NONSWAP                    = 2
-	MCL_CURRENT                     = 1  // for Linux compatibility -- no zos semantics
-	MCL_FUTURE                      = 2  // for Linux compatibility -- no zos semantics
-	MCL_ONFAULT                     = 3  // for Linux compatibility -- no zos semantics
-	MADV_NORMAL                     = 0  // for Linux compatibility -- no zos semantics
-	MADV_RANDOM                     = 1  // for Linux compatibility -- no zos semantics
-	MADV_SEQUENTIAL                 = 2  // for Linux compatibility -- no zos semantics
-	MADV_WILLNEED                   = 3  // for Linux compatibility -- no zos semantics
-	MADV_REMOVE                     = 4  // for Linux compatibility -- no zos semantics
-	MADV_DONTFORK                   = 5  // for Linux compatibility -- no zos semantics
-	MADV_DOFORK                     = 6  // for Linux compatibility -- no zos semantics
-	MADV_HWPOISON                   = 7  // for Linux compatibility -- no zos semantics
-	MADV_MERGEABLE                  = 8  // for Linux compatibility -- no zos semantics
-	MADV_UNMERGEABLE                = 9  // for Linux compatibility -- no zos semantics
-	MADV_SOFT_OFFLINE               = 10 // for Linux compatibility -- no zos semantics
-	MADV_HUGEPAGE                   = 11 // for Linux compatibility -- no zos semantics
-	MADV_NOHUGEPAGE                 = 12 // for Linux compatibility -- no zos semantics
-	MADV_DONTDUMP                   = 13 // for Linux compatibility -- no zos semantics
-	MADV_DODUMP                     = 14 // for Linux compatibility -- no zos semantics
-	MADV_FREE                       = 15 // for Linux compatibility -- no zos semantics
-	MADV_WIPEONFORK                 = 16 // for Linux compatibility -- no zos semantics
-	MADV_KEEPONFORK                 = 17 // for Linux compatibility -- no zos semantics
-	AT_SYMLINK_NOFOLLOW             = 1  // for Unix  compatibility -- no zos semantics
-	AT_FDCWD                        = 2  // for Unix  compatibility -- no zos semantics
-)
+package x0200
 
 const (
-	EDOM               = Errno(1)
-	ERANGE             = Errno(2)
-	EACCES             = Errno(111)
-	EAGAIN             = Errno(112)
-	EBADF              = Errno(113)
-	EBUSY              = Errno(114)
-	ECHILD             = Errno(115)
-	EDEADLK            = Errno(116)
-	EEXIST             = Errno(117)
-	EFAULT             = Errno(118)
-	EFBIG              = Errno(119)
-	EINTR              = Errno(120)
-	EINVAL             = Errno(121)
-	EIO                = Errno(122)
-	EISDIR             = Errno(123)
-	EMFILE             = Errno(124)
-	EMLINK             = Errno(125)
-	ENAMETOOLONG       = Errno(126)
-	ENFILE             = Errno(127)
-	ENODEV             = Errno(128)
-	ENOENT             = Errno(129)
-	ENOEXEC            = Errno(130)
-	ENOLCK             = Errno(131)
-	ENOMEM             = Errno(132)
-	ENOSPC             = Errno(133)
-	ENOSYS             = Errno(134)
-	ENOTDIR            = Errno(135)
-	ENOTEMPTY          = Errno(136)
-	ENOTTY             = Errno(137)
-	ENXIO              = Errno(138)
-	EPERM              = Errno(139)
-	EPIPE              = Errno(140)
-	EROFS              = Errno(141)
-	ESPIPE             = Errno(142)
-	ESRCH              = Errno(143)
-	EXDEV              = Errno(144)
-	E2BIG              = Errno(145)
-	ELOOP              = Errno(146)
-	EILSEQ             = Errno(147)
-	ENODATA            = Errno(148)
-	EOVERFLOW          = Errno(149)
-	EMVSNOTUP          = Errno(150)
-	ECMSSTORAGE        = Errno(151)
-	EMVSDYNALC         = Errno(151)
-	EMVSCVAF           = Errno(152)
-	EMVSCATLG          = Errno(153)
-	ECMSINITIAL        = Errno(156)
-	EMVSINITIAL        = Errno(156)
-	ECMSERR            = Errno(157)
-	EMVSERR            = Errno(157)
-	EMVSPARM           = Errno(158)
-	ECMSPFSFILE        = Errno(159)
-	EMVSPFSFILE        = Errno(159)
-	EMVSBADCHAR        = Errno(160)
-	ECMSPFSPERM        = Errno(162)
-	EMVSPFSPERM        = Errno(162)
-	EMVSSAFEXTRERR     = Errno(163)
-	EMVSSAF2ERR        = Errno(164)
-	EMVSTODNOTSET      = Errno(165)
-	EMVSPATHOPTS       = Errno(166)
-	EMVSNORTL          = Errno(167)
-	EMVSEXPIRE         = Errno(168)
-	EMVSPASSWORD       = Errno(169)
-	EMVSWLMERROR       = Errno(170)
-	EMVSCPLERROR       = Errno(171)
-	EMVSARMERROR       = Errno(172)
-	ELENOFORK          = Errno(200)
-	ELEMSGERR          = Errno(201)
-	EFPMASKINV         = Errno(202)
-	EFPMODEINV         = Errno(203)
-	EBUFLEN            = Errno(227)
-	EEXTLINK           = Errno(228)
-	ENODD              = Errno(229)
-	ECMSESMERR         = Errno(230)
-	ECPERR             = Errno(231)
-	ELEMULTITHREAD     = Errno(232)
-	ELEFENCE           = Errno(244)
-	EBADDATA           = Errno(245)
-	EUNKNOWN           = Errno(246)
-	ENOTSUP            = Errno(247)
-	EBADNAME           = Errno(248)
-	ENOTSAFE           = Errno(249)
-	ELEMULTITHREADFORK = Errno(257)
-	ECUNNOENV          = Errno(258)
-	ECUNNOCONV         = Errno(259)
-	ECUNNOTALIGNED     = Errno(260)
-	ECUNERR            = Errno(262)
-	EIBMBADCALL        = Errno(1000)
-	EIBMBADPARM        = Errno(1001)
-	EIBMSOCKOUTOFRANGE = Errno(1002)
-	EIBMSOCKINUSE      = Errno(1003)
-	EIBMIUCVERR        = Errno(1004)
-	EOFFLOADboxERROR   = Errno(1005)
-	EOFFLOADboxRESTART = Errno(1006)
-	EOFFLOADboxDOWN    = Errno(1007)
-	EIBMCONFLICT       = Errno(1008)
-	EIBMCANCELLED      = Errno(1009)
-	EIBMBADTCPNAME     = Errno(1011)
-	ENOTBLK            = Errno(1100)
-	ETXTBSY            = Errno(1101)
-	EWOULDBLOCK        = Errno(1102)
-	EINPROGRESS        = Errno(1103)
-	EALREADY           = Errno(1104)
-	ENOTSOCK           = Errno(1105)
-	EDESTADDRREQ       = Errno(1106)
-	EMSGSIZE           = Errno(1107)
-	EPROTOTYPE         = Errno(1108)
-	ENOPROTOOPT        = Errno(1109)
-	EPROTONOSUPPORT    = Errno(1110)
-	ESOCKTNOSUPPORT    = Errno(1111)
-	EOPNOTSUPP         = Errno(1112)
-	EPFNOSUPPORT       = Errno(1113)
-	EAFNOSUPPORT       = Errno(1114)
-	EADDRINUSE         = Errno(1115)
-	EADDRNOTAVAIL      = Errno(1116)
-	ENETDOWN           = Errno(1117)
-	ENETUNREACH        = Errno(1118)
-	ENETRESET          = Errno(1119)
-	ECONNABORTED       = Errno(1120)
-	ECONNRESET         = Errno(1121)
-	ENOBUFS            = Errno(1122)
-	EISCONN            = Errno(1123)
-	ENOTCONN           = Errno(1124)
-	ESHUTDOWN          = Errno(1125)
-	ETOOMANYREFS       = Errno(1126)
-	ETIMEDOUT          = Errno(1127)
-	ECONNREFUSED       = Errno(1128)
-	EHOSTDOWN          = Errno(1129)
-	EHOSTUNREACH       = Errno(1130)
-	EPROCLIM           = Errno(1131)
-	EUSERS             = Errno(1132)
-	EDQUOT             = Errno(1133)
-	ESTALE             = Errno(1134)
-	EREMOTE            = Errno(1135)
-	ENOSTR             = Errno(1136)
-	ETIME              = Errno(1137)
-	ENOSR              = Errno(1138)
-	ENOMSG             = Errno(1139)
-	EBADMSG            = Errno(1140)
-	EIDRM              = Errno(1141)
-	ENONET             = Errno(1142)
-	ERREMOTE           = Errno(1143)
-	ENOLINK            = Errno(1144)
-	EADV               = Errno(1145)
-	ESRMNT             = Errno(1146)
-	ECOMM              = Errno(1147)
-	EPROTO             = Errno(1148)
-	EMULTIHOP          = Errno(1149)
-	EDOTDOT            = Errno(1150)
-	EREMCHG            = Errno(1151)
-	ECANCELED          = Errno(1152)
-	EINTRNODATA        = Errno(1159)
-	ENOREUSE           = Errno(1160)
-	ENOMOVE            = Errno(1161)
-)
-
-// Signals
-const (
-	SIGHUP    = Signal(1)
-	SIGINT    = Signal(2)
-	SIGABRT   = Signal(3)
-	SIGILL    = Signal(4)
-	SIGPOLL   = Signal(5)
-	SIGURG    = Signal(6)
-	SIGSTOP   = Signal(7)
-	SIGFPE    = Signal(8)
-	SIGKILL   = Signal(9)
-	SIGBUS    = Signal(10)
-	SIGSEGV   = Signal(11)
-	SIGSYS    = Signal(12)
-	SIGPIPE   = Signal(13)
-	SIGALRM   = Signal(14)
-	SIGTERM   = Signal(15)
-	SIGUSR1   = Signal(16)
-	SIGUSR2   = Signal(17)
-	SIGABND   = Signal(18)
-	SIGCONT   = Signal(19)
-	SIGCHLD   = Signal(20)
-	SIGTTIN   = Signal(21)
-	SIGTTOU   = Signal(22)
-	SIGIO     = Signal(23)
-	SIGQUIT   = Signal(24)
-	SIGTSTP   = Signal(25)
-	SIGTRAP   = Signal(26)
-	SIGIOERR  = Signal(27)
-	SIGWINCH  = Signal(28)
-	SIGXCPU   = Signal(29)
-	SIGXFSZ   = Signal(30)
-	SIGVTALRM = Signal(31)
-	SIGPROF   = Signal(32)
-	SIGDANGER = Signal(33)
-	SIGTHSTOP = Signal(34)
-	SIGTHCONT = Signal(35)
-	SIGTRACE  = Signal(37)
-	SIGDCE    = Signal(38)
-	SIGDUMP   = Signal(39)
-)
-
-// Error table
-var errorList = [...]struct {
-	num  Errno
-	name string
-	desc string
-}{
-	{1, "EDC5001I", "A domain error occurred."},
-	{2, "EDC5002I", "A range error occurred."},
-	{111, "EDC5111I", "Permission denied."},
-	{112, "EDC5112I", "Resource temporarily unavailable."},
-	{113, "EDC5113I", "Bad file descriptor."},
-	{114, "EDC5114I", "Resource busy."},
-	{115, "EDC5115I", "No child processes."},
-	{116, "EDC5116I", "Resource deadlock avoided."},
-	{117, "EDC5117I", "File exists."},
-	{118, "EDC5118I", "Incorrect address."},
-	{119, "EDC5119I", "File too large."},
-	{120, "EDC5120I", "Interrupted function call."},
-	{121, "EDC5121I", "Invalid argument."},
-	{122, "EDC5122I", "Input/output error."},
-	{123, "EDC5123I", "Is a directory."},
-	{124, "EDC5124I", "Too many open files."},
-	{125, "EDC5125I", "Too many links."},
-	{126, "EDC5126I", "Filename too long."},
-	{127, "EDC5127I", "Too many open files in system."},
-	{128, "EDC5128I", "No such device."},
-	{129, "EDC5129I", "No such file or directory."},
-	{130, "EDC5130I", "Exec format error."},
-	{131, "EDC5131I", "No locks available."},
-	{132, "EDC5132I", "Not enough memory."},
-	{133, "EDC5133I", "No space left on device."},
-	{134, "EDC5134I", "Function not implemented."},
-	{135, "EDC5135I", "Not a directory."},
-	{136, "EDC5136I", "Directory not empty."},
-	{137, "EDC5137I", "Inappropriate I/O control operation."},
-	{138, "EDC5138I", "No such device or address."},
-	{139, "EDC5139I", "Operation not permitted."},
-	{140, "EDC5140I", "Broken pipe."},
-	{141, "EDC5141I", "Read-only file system."},
-	{142, "EDC5142I", "Invalid seek."},
-	{143, "EDC5143I", "No such process."},
-	{144, "EDC5144I", "Improper link."},
-	{145, "EDC5145I", "The parameter list is too long, or the message to receive was too large for the buffer."},
-	{146, "EDC5146I", "Too many levels of symbolic links."},
-	{147, "EDC5147I", "Illegal byte sequence."},
-	{148, "", ""},
-	{149, "EDC5149I", "Value Overflow Error."},
-	{150, "EDC5150I", "UNIX System Services is not active."},
-	{151, "EDC5151I", "Dynamic allocation error."},
-	{152, "EDC5152I", "Common VTOC access facility (CVAF) error."},
-	{153, "EDC5153I", "Catalog obtain error."},
-	{156, "EDC5156I", "Process initialization error."},
-	{157, "EDC5157I", "An internal error has occurred."},
-	{158, "EDC5158I", "Bad parameters were passed to the service."},
-	{159, "EDC5159I", "The Physical File System encountered a permanent file error."},
-	{160, "EDC5160I", "Bad character in environment variable name."},
-	{162, "EDC5162I", "The Physical File System encountered a system error."},
-	{163, "EDC5163I", "SAF/RACF extract error."},
-	{164, "EDC5164I", "SAF/RACF error."},
-	{165, "EDC5165I", "System TOD clock not set."},
-	{166, "EDC5166I", "Access mode argument on function call conflicts with PATHOPTS parameter on JCL DD statement."},
-	{167, "EDC5167I", "Access to the UNIX System Services version of the C RTL is denied."},
-	{168, "EDC5168I", "Password has expired."},
-	{169, "EDC5169I", "Password is invalid."},
-	{170, "EDC5170I", "An error was encountered with WLM."},
-	{171, "EDC5171I", "An error was encountered with CPL."},
-	{172, "EDC5172I", "An error was encountered with Application Response Measurement (ARM) component."},
-	{200, "EDC5200I", "The application contains a Language Environment member language that cannot tolerate a fork()."},
-	{201, "EDC5201I", "The Language Environment message file was not found in the hierarchical file system."},
-	{202, "EDC5202E", "DLL facilities are not supported under SPC environment."},
-	{203, "EDC5203E", "DLL facilities are not supported under POSIX environment."},
-	{227, "EDC5227I", "Buffer is not long enough to contain a path definition"},
-	{228, "EDC5228I", "The file referred to is an external link"},
-	{229, "EDC5229I", "No path definition for ddname in effect"},
-	{230, "EDC5230I", "ESM error."},
-	{231, "EDC5231I", "CP or the external security manager had an error"},
-	{232, "EDC5232I", "The function failed because it was invoked from a multithread environment."},
-	{244, "EDC5244I", "The program, module or DLL is not supported in this environment."},
-	{245, "EDC5245I", "Data is not valid."},
-	{246, "EDC5246I", "Unknown system state."},
-	{247, "EDC5247I", "Operation not supported."},
-	{248, "EDC5248I", "The object name specified is not correct."},
-	{249, "EDC5249I", "The function is not allowed."},
-	{257, "EDC5257I", "Function cannot be called in the child process of a fork() from a multithreaded process until exec() is called."},
-	{258, "EDC5258I", "A CUN_RS_NO_UNI_ENV error was issued by Unicode Services."},
-	{259, "EDC5259I", "A CUN_RS_NO_CONVERSION error was issued by Unicode Services."},
-	{260, "EDC5260I", "A CUN_RS_TABLE_NOT_ALIGNED error was issued by Unicode Services."},
-	{262, "EDC5262I", "An iconv() function encountered an unexpected error while using Unicode Services."},
-	{1000, "EDC8000I", "A bad socket-call constant was found in the IUCV header."},
-	{1001, "EDC8001I", "An error was found in the IUCV header."},
-	{1002, "EDC8002I", "A socket descriptor is out of range."},
-	{1003, "EDC8003I", "A socket descriptor is in use."},
-	{1004, "EDC8004I", "Request failed because of an IUCV error."},
-	{1005, "EDC8005I", "Offload box error."},
-	{1006, "EDC8006I", "Offload box restarted."},
-	{1007, "EDC8007I", "Offload box down."},
-	{1008, "EDC8008I", "Already a conflicting call outstanding on socket."},
-	{1009, "EDC8009I", "Request cancelled using a SOCKcallCANCEL request."},
-	{1011, "EDC8011I", "A name of a PFS was specified that either is not configured or is not a Sockets PFS."},
-	{1100, "EDC8100I", "Block device required."},
-	{1101, "EDC8101I", "Text file busy."},
-	{1102, "EDC8102I", "Operation would block."},
-	{1103, "EDC8103I", "Operation now in progress."},
-	{1104, "EDC8104I", "Connection already in progress."},
-	{1105, "EDC8105I", "Socket operation on non-socket."},
-	{1106, "EDC8106I", "Destination address required."},
-	{1107, "EDC8107I", "Message too long."},
-	{1108, "EDC8108I", "Protocol wrong type for socket."},
-	{1109, "EDC8109I", "Protocol not available."},
-	{1110, "EDC8110I", "Protocol not supported."},
-	{1111, "EDC8111I", "Socket type not supported."},
-	{1112, "EDC8112I", "Operation not supported on socket."},
-	{1113, "EDC8113I", "Protocol family not supported."},
-	{1114, "EDC8114I", "Address family not supported."},
-	{1115, "EDC8115I", "Address already in use."},
-	{1116, "EDC8116I", "Address not available."},
-	{1117, "EDC8117I", "Network is down."},
-	{1118, "EDC8118I", "Network is unreachable."},
-	{1119, "EDC8119I", "Network dropped connection on reset."},
-	{1120, "EDC8120I", "Connection ended abnormally."},
-	{1121, "EDC8121I", "Connection reset."},
-	{1122, "EDC8122I", "No buffer space available."},
-	{1123, "EDC8123I", "Socket already connected."},
-	{1124, "EDC8124I", "Socket not connected."},
-	{1125, "EDC8125I", "Can't send after socket shutdown."},
-	{1126, "EDC8126I", "Too many references; can't splice."},
-	{1127, "EDC8127I", "Connection timed out."},
-	{1128, "EDC8128I", "Connection refused."},
-	{1129, "EDC8129I", "Host is not available."},
-	{1130, "EDC8130I", "Host cannot be reached."},
-	{1131, "EDC8131I", "Too many processes."},
-	{1132, "EDC8132I", "Too many users."},
-	{1133, "EDC8133I", "Disk quota exceeded."},
-	{1134, "EDC8134I", "Stale file handle."},
-	{1135, "", ""},
-	{1136, "EDC8136I", "File is not a STREAM."},
-	{1137, "EDC8137I", "STREAMS ioctl() timeout."},
-	{1138, "EDC8138I", "No STREAMS resources."},
-	{1139, "EDC8139I", "The message identified by set_id and msg_id is not in the message catalog."},
-	{1140, "EDC8140I", "Bad message."},
-	{1141, "EDC8141I", "Identifier removed."},
-	{1142, "", ""},
-	{1143, "", ""},
-	{1144, "EDC8144I", "The link has been severed."},
-	{1145, "", ""},
-	{1146, "", ""},
-	{1147, "", ""},
-	{1148, "EDC8148I", "Protocol error."},
-	{1149, "EDC8149I", "Multihop not allowed."},
-	{1150, "", ""},
-	{1151, "", ""},
-	{1152, "EDC8152I", "The asynchronous I/O request has been canceled."},
-	{1159, "EDC8159I", "Function call was interrupted before any data was received."},
-	{1160, "EDC8160I", "Socket reuse is not supported."},
-	{1161, "EDC8161I", "The file system cannot currently be moved."},
-}
-
-// Signal table
-var signalList = [...]struct {
-	num  Signal
-	name string
-	desc string
-}{
-	{1, "SIGHUP", "hangup"},
-	{2, "SIGINT", "interrupt"},
-	{3, "SIGABT", "aborted"},
-	{4, "SIGILL", "illegal instruction"},
-	{5, "SIGPOLL", "pollable event"},
-	{6, "SIGURG", "urgent I/O condition"},
-	{7, "SIGSTOP", "stop process"},
-	{8, "SIGFPE", "floating point exception"},
-	{9, "SIGKILL", "killed"},
-	{10, "SIGBUS", "bus error"},
-	{11, "SIGSEGV", "segmentation fault"},
-	{12, "SIGSYS", "bad argument to routine"},
-	{13, "SIGPIPE", "broken pipe"},
-	{14, "SIGALRM", "alarm clock"},
-	{15, "SIGTERM", "terminated"},
-	{16, "SIGUSR1", "user defined signal 1"},
-	{17, "SIGUSR2", "user defined signal 2"},
-	{18, "SIGABND", "abend"},
-	{19, "SIGCONT", "continued"},
-	{20, "SIGCHLD", "child exited"},
-	{21, "SIGTTIN", "stopped (tty input)"},
-	{22, "SIGTTOU", "stopped (tty output)"},
-	{23, "SIGIO", "I/O possible"},
-	{24, "SIGQUIT", "quit"},
-	{25, "SIGTSTP", "stopped"},
-	{26, "SIGTRAP", "trace/breakpoint trap"},
-	{27, "SIGIOER", "I/O error"},
-	{28, "SIGWINCH", "window changed"},
-	{29, "SIGXCPU", "CPU time limit exceeded"},
-	{30, "SIGXFSZ", "file size limit exceeded"},
-	{31, "SIGVTALRM", "virtual timer expired"},
-	{32, "SIGPROF", "profiling timer expired"},
-	{33, "SIGDANGER", "danger"},
-	{34, "SIGTHSTOP", "stop thread"},
-	{35, "SIGTHCONT", "continue thread"},
-	{37, "SIGTRACE", "trace"},
-	{38, "", "DCE"},
-	{39, "SIGDUMP", "dump"},
-}
+	x0400                          = 151ENOLINK
+	EMVSPFSFILE_RLIMIT                 = 12SOL
+	Errno_x01_PGRP_Errno        = 122IP6OPT
+	x0400_EMVSTODNOTSET                  = 10SIGIO
+	SIGKILL_errorList_Signal_MADV         = 0CS8
+	Errno                             = 23SOCK
+	x1007                           = 229Errno
+	IPV6                            = 1149SO
+	IPV6                          = 160MAP
+	EPROTONOSUPPORT_UNSPEC                      = 0OOB
+	PREFER_IPPORT                      = 0ECOMM
+	NSAP                         = 0AF
+	IFDIR_Signal                        = 0
+	S_Errno_x02000000                   = 29
+	MTM_MTM                         = 1
+	IP6OPT_TYPE                        = 0
+	desc_x0010                            = 1138DEFAULT
+	O_x2                         = 0
+	x1_SIGQUIT                         = 140
+	IPV6_IP6F                         = 2
+	S_MTM                        = 0
+	Signal_x3                        = 169
+	ISTRIP_SIGDUMP                        = 3
+	SOL_RUSAGE                         = 258
+	IP_IF                         = 0
+	MADV_EXDEV                         = 231
+	x8004a701_S                         = 1001
+	SIGWINCH_x2000a771                         = 0
+	CLOFORK_SOCKET                        = 165
+	IPV6_IP                         = 0
+	SF_MCAST                         = 0
+	Signal_RECVRTHDR                      = 1151DISCARD // msync - synchronous writes
+	PROT_SIGSEGV                      = 5IPV6 // for Linux compatibility -- no zos semantics
+	IF_RESET                      = 0KEEPALIVE // for Linux compatibility -- no zos semantics
+	EHOSTUNREACH_Errno                      = 123MADV // for Linux compatibility -- no zos semantics
+	E2BIG_E2BIG                      = 0x0010 // _IOR(167, 119, int)
+	F_EMVSARMERROR                      = 10MULTICAST // _IOR(167, 119, int)
+	x0_AN                = 0MADV // for Linux compatibility -- no zos semantics
+	RESET_HOPS_DEFAULT                  = 30SF
+	ACK_x1_x8                   = 1103Errno
+	EPFNOSUPPORT_ELENOFORK_x1              = 112PUBLIC
+	SOL_x02000000                    = 3AF
+	FREE_Errno_SO                = 40
+	SHUT_ISUID                  = 121IMPLINK
+	MAP_MCAST_x0001                = 1128IRWXU
+	EALREADY_EIBMBADCALL                     = 17SO
+	ENOEXEC_LOOP                     = 147ICMP
+	x2000a70e_IREAD_x4000             = 115AF
+	x8004a766_x00000001_EINTRNODATA             = 152NOCONN
+	SEQPACKET_x2000a70d_INET6             = 246SOFT
+	SETTAG_x00000200_NONSWAP           = 31Errno
+	x01_INTERNAL_x02000000                = 1134WR
+	x0030_x2_x8004a769                = 12ENOBUFS
+	EINTRNODATA_x40_EDQUOT                    = 0IFIFO
+	x7700_S_Signal                   = 0DONTFORK
+	ERREMOTE_MAP_CLOSE                  = 1109WRONLY
+	TIOCNXCL_Errno                 = 0
+	DATA_O             = 27
+	signalList_MSG                      = 7
+	AS_SF                          = 0
+	PRIO_FD                 = 20
+	Signal_MSG                     = 14
+	SOL_string                     = 10
+	MADV_AF                         = 2
+	MEMBERSHIPS_MCAST                = 27
+	IP_x00040000                    = 0
+	Errno_SRC                     = 0
+	Errno_x8004                         = 3
+	IFBUFS_EMVSPFSFILE                 = 131
+	x80000000_AF                     = 1006
+	EREMCHG_GGP                     = 200
+	x0080_FREE                         = 0
+	IGNOREINCOMINGPUSH_RCVTIMEO                     = 51
+	EPROCLIM_ENOTSOCK                         = 0
+	PGRP_SIGKILL_SIGFPE           = 119
+	SRC_ELEMULTITHREAD                   = 0
+	MULTICAST_ELEMULTITHREADFORK                   = 0
+	ENOTSOCK_UNSPEC                    = 59
+	IPV6_KEEPALIVE                   = 0
+	PAD1_IP6OPT                    = 0
+	Errno_PROT_x00100000                 = 0
+	ENOMSG_ELEMSGERR_ESP                = 0
+	S_IREAD_ICMP             = 3
+	SOL_IGNOREINCOMINGPUSH_Signal               = 0
+	ESRMNT_Errno_DGRAM             = 0
+	EMVSCPLERROR_Errno                    = 0
+	x8008a367_SO                    = 163
+	Errno_EINPROGRESS                    = 32
+	SO_x2_ACK_RCVBUF             = 1120SNDBUF
+	SETOWN_SIGDCE_SECINFO_EIDRM             = 118xb
+	ESHUTDOWN_SO_O_NODELAY            = 0Errno
+	x20_NONBLOCK_EIBMSOCKOUTOFRANGE_Errno          = 1152MSG
+	Errno_SIGABND_OPTIONS_CTRUNC          = 6Errno
+	NOFOLLOW_RLIMIT_Errno_RDLCK             = 6Signal
+	x2000a77b_BROADCAST                = 44
+	x8004_IP               = 20
+	Errno_S                = 248
+	DUPFD2_Errno                = 0
+	Errno_SO                = 9
+	DEFAULT_SIGIO                  = 0
+	ECUNNOENV_SOL                 = 1125
+	Errno_MTM                      = 171
+	IUCV_NOSECURITY               = 43
+	IPV6_ENOREUSE_string_1136               = 136
+	ONLCR_CLOSE                     = 0
+	SO_Errno_BULKMODE               = 0
+	x2_x8_x00000001_F                = 12
+	EOPNOTSUPP_x0200                     = 5
+	VKILL_S_ENOLCK               = 0
+	SO_xe3_PRIO_x8003        = 0
+	EXEC_x1_NEXTHOP                 = 167
+	F_Errno_xc3_CLUSTERCONNTYPE       = 4
+	TIOCNXCL_SOL_x1_CKSUMRECV        = 6
+	EMVSPFSPERM_SEEK_Errno              = 1113
+	SETCVTOFF_IPPROTO_IEXTEN_ENOLINK       = 8
+	GROUP_MSG_S              = 0
+	TCSETSW_DRAIN_SIGSEGV                 = 119
+	ERROR_IBMTCP_S               = 6
+	MTM_SO_IP                = 1105
+	TCOFLUSH_TCP                      = 20
+	JOIN_DROP                      = 228
+	IPPROTO_S                  = 2
+	SETFL_IP                          = 246
+	IP6_O                          = 20
+	MADV_EDOM_EIBMCONFLICT               = 1147
+	SNDLOWAT                          = 1003MADV
+	string_AF                    = 144SETFL
+	MCL                           = 2x00000400
+	UNQSEFORCE                          = 1134DROP
+	S                          = 8Errno
+	TFS                        = 58
+	Errno_IMAGE                 = -15SELF
+	RCVTIMEO_F                     = 10ZFS // for Linux compatibility -- no zos semantics
+	SO_x02                        = 0
+	TCP_x2                        = 143
+	S_IFREG                        = 0
+	S                   = 8
+	AF                    = 11
+	IPPROTO                       = 0
+	x0200                       = 5
+	Signal                        = 9
+	AF_EMVSCPLERROR                    = 119
+	CLUSTERCONNTYPE_Errno                        = 0
+	ECHONL_SO                     = 1006
+	MADV_NONCGA                         = 257
+	MEMBERSHIPS_PREFER                     = 4
+	F_NONBLOCK                         = 0
+	SO_SETFD                = 13
+	RAW_SETAUTOCVTALL                    = 0
+	string_ELEMULTITHREADFORK                     = 1108
+	Signal_GROUP                         = 230
+	IP6OPT_Errno                     = 147
+	MSG_RECVPATHMTU                         = 144
+	IWUSR_IPV6                 = 13
+	INLCR_Signal                     = 0
+	HOPS_SOCK                     = 32
+	Errno_Errno                         = 1011
+	DATA_CLOCK                = 160
+	RLIM_MCAST                    = 0
+	ISTRIP_IP6OPT                     = 0
+	MASK_DOFORK                         = 150
+	LOOP_SETOWN                    = 20
+	Errno_x0100                        = 4
+	RCVBUF_IPV6                     = 42
+	x00100000_AF                         = 7
+	DEFAULT_Errno                 = 131
+	EOPNOTSUPP_Errno                     = 0
+	BLOCK_IP                    = 148
+	x04_x0020                     = 143
+	x0200_MADV                    = 0
+	PADN_SO                     = 18
+	IP_PREFER                       = 19
+	MSG_RDONLY                   = 1128
+	RAW_S                 = 0
+	TIOCMGET_SO                   = 29
+	RECVHOPOPTS_Signal                      = 135x00000001
+	x00010000_xfff8                        = 142SOURCE
+	Signal_EMVSPARM                        = 1117CSIZE
+	EALREADY_EFAULT                         = 4
+	O_EIDRM                       = 12
+	DUPFD_F                         = 15
+	IXGRP_AF_Signal                 = 13
+	USELOOPBACK_x04                      = 16
+	Errno_SET                        = 13
+	SO_x8001a772                        = 1101
+	SEQUENTIAL_Signal                         = 1011
+	IP6OPT_IP6OPT                         = 0
+	Errno_AF                          = 0
+	RLIMIT_Signal                          = 1114
+	IFVMEXTL_x0                          = 1
+	IP_ENETRESET                        = 13
+	PROCESS_GETFL                          = 1116
+	TCSETS_SO                         = 130
+	FRAGMENT_RDWR                       = 20
+	SOL_ENOREUSE                    = 141
+	EGP_O_MCL                = 102MTM
+	F_Errno_xc8                     = 1126Errno
+	x2000a76e_CS8_AF                 = 1008IP
+	F_IPV6                    = 1161PREFER
+	ACCEPTECONNABORTED_x0006                      = 0IFVMEXTL
+	IFVMEXTL_DONTROUTE                          = 1004Errno
+	MSG_EFPMODEINV                       = 1UNQSEFORCE
+	EMVSNORTL_IP                     = 5Errno
+	OK_CLUSTERCONNTYPE                     = 6AF
+	SIGDCE_EXEC                    = 0x00000010
+	Errno_DONTDUMP                    = 1000MSG
+	EPROTO_SRC                      = 126MTM
+	EIBMCONFLICT_x2000a76e                          = 6IGNCR
+	Errno_x00                       = 1011Signal
+	x2_Errno                     = 150TYPE
+	SETCVTOFF_x0007                    = 0
+	MTM_CREAT                       = 1144
+	x0001_SO                       = 6
+	Errno_IFBUFS                      = 1
+	RLIMIT_DEFAULT                         = 1123
+	DATA_SIGABND                        = 0
+	x4004a76a_WR                            = 229TYPE
+	PRIO_S                         = 0
+	x10_ROUTING                         = 0
+	O_Errno                         = 6
+	ICMP_RDONLY                         = 1106
+	IPPORT_USERRESERVED                         = 0
+	S_RIF                          = 0
+	TIOCPKT_S                          = 0
+	WRONLY_PREFER                        = 0
+	EOR_PROT                          = 30
+	LEAVE_x0040                         = 138
+	x4_REALTIME                       = 39
+	TCSETS_PARMRK                      = 7
+	EMVSINITIAL_MADV                         = 0
+	SNDTIMEO_S                        = 0
+	SOL_Errno                         = 245
+	ALERT_ECOMM                         = 3
+	Errno_SO                          = 15
+	Errno_DGRAM                         = 101
+	TIOCSWINSZ_CLUSTERCONNTYPE                       = 228
+	IPV6_Errno                      = 1118
+	EOFFLOADboxDOWN_AF                    = 1141
+	DLI_x0030                     = 166
+	WRITE_ACK                         = 0
+	GGP_CONN                     = 0
+	NONBLOCK_MTM                         = 2
+	SOCK_RCVLOWAT                = 3
+	MADV_OPOST                    = 0
+	CLOSE_x05                     = 1127
+	Errno_x00000400                    = 1139
+	UNSET_DGRAM                     = 158
+	x00000080_SOL                    = 151
+	PROT_EXPECTED                     = 1024
+	ACKNOW_IP                         = 60
+	PROT_Errno                = 0
+	SO_Errno                    = 0
+	Errno_TCLASS                     = 0
+	HUGEPAGE_x00000002                       = 0
+	x4004a777_EBADDATA                   = 260
+	SO_S                 = 0
+	x1002_CLOCK                   = 1
+	MAX_x1006                      = 125Errno
+	SECINFO_TIMEOUT                        = 0x40
+	RUSAGE_EPFNOSUPPORT                        = 2IREAD
+	O_ECUNERR                         = 0
+	EIBMBADPARM_MS                       = 42
+	IPPORT_WCONTINUED                         = 1152
+	GGP_SRC_x01000000                 = 2
+	name_Errno                      = 0
+	PGRP_x3                        = 0
+	IP6F_ELEMULTITHREAD                        = 50
+	x40000000_IPV6                      = 1009
+	UNBLOCK_SIGINT                          = 9
+	SIGSYS_DEBUG                    = 148
+	MONOTONIC_HOPS                        = 8
+	JUMBO_EXPECTED                        = 2
+	IP6_x40                        = 5
+	UNBLOCK_x0030                        = 0
+	SETFD_SEEK                        = 26
+	IP6F_ECHILD                  = 2
+	x0400_REUSE                     = 12
+	ENOTEMPTY_Errno                      = 2x8001
+	IPV6                       = 1004
+	Errno_Signal                   = 1110IPV6
+	PRIO_IPV6           = 228INFINITY
+	Errno_Errno                       = 0ECHONL
+	x0400_SIGDANGER                    = 0GGP
+	TCIOFLUSH_x00000200                     = 0REALTIME
+	MCL_Signal                    = 23CCITT
+	MTM_Errno                          = 41x02
+	RD_ECONNABORTED                         = 6DSTOPTS
+	ETXTBSY_x0008                        = 130x4004a76a
+	MADV_Errno                      = 24F
+	MAXIOVLEN_DOFORK_EMVSERR                 = 10SO
+	Signal_Errno_Errno                 = 0x20
+	IPPROTO_x0040_x04                  = 0SET
+	Errno_x0004                        = 0SIGBUS
+	Errno_IP                     = 2IGNCR
+	x10_x0400                      = 102ESTALE
+	MTM_PARMRK                        = 20ADD
+	IP_MTM                          = 0SOL
+	Errno_RDWR                          = 152ESRCH
+	SETAUTOCVTALL_SOL                         = 2x04000000
+	ENODEV_SIGDUMP                        = 9Errno
+	AF_Errno                        = 120x2
+	x0040                           = 159x00000002
+	FREE                           = 255S
+	x8004                          = 142EOFFLOADboxERROR
+	SO                          = 0PREFER
+	APPEND                           = 0x2000a77b
+	HOPOPTS                           = 135IEXEC
+	SO                          = 25IFMST
+	S                          = 8x8004a766
+	SOL                           = 1PREFER
+	TCP                           = 1101ECUNNOENV
+	NETWARE                          = 1IPV6
+	EIBMBADTCPNAME                          = 1115TTL
+	CLUSTERCONNTYPE                        = 162
+	THREAD_Errno                 = -0NOFOLLOW
+	ID_CLUSTERCONNTYPE                     = 0x8004a701 // Hand edited based on zerrors_linux_s390x.go
+	UNIX_TCOON                        = 0
+	Errno_x01                        = 0
+	x8004a76d_TIOCMSET                        = 0
+	Errno                   = 0
+	IPPROTO                    = 137
+	IP                       = 13
+	AF                       = 1
+	Errno                        = 1132
+	IPPROTO_SETAUTOCVTON                    = 6
+	UNIX_Errno                        = 4
+	Errno_Errno                     = 0
+	Errno_UNSPEC                         = 0
+	ACK_Errno                     = 2
+	IPV6_AH                         = 27
+	UNMERGEABLE_POLLPRI_CLOCK           = 1119
+	SO_TIMEOUT                   = 1
+	MIN_x0030                   = 1123
+	Signal_x01000000                    = 1000
+	Errno_POLLNVAL                   = 28
+	VMIN_EEXIST                    = 0
+	NOSECURITY_x03_ACCEPTECONNABORTED                 = 135
+	REUSE_Signal_IPV6                = 1152
+	Errno_IPPROTO_SETCVTALL             = 7
+	Signal_IFMT_EFAULT               = 1011
+	IFFIFO_x40_IXGRP             = 31
+	Errno_AH                    = 0
+	BLOCK_ECPERR                    = 122
+	POLLIN_x0008                    = 30
+	PROCESS_MADV_Errno_x10             = 172GETFD
+	Signal_PKTINFO_x00100000_SIGABRT             = 122SWAP
+	EIBMCONFLICT_VEOF_INET6_x0002            = 1MIN
+	x0002_FSTYPE_IPV6_ISVTX          = 0FD
+	EISDIR_TIOCSETD_F_Errno          = 114EMVSPARM
+	x0010_x1_SO_SETCVTOFF             = 2Errno
+	x0040_JOIN                = 1103
+	NDD_AF               = 14
+	CONTROL_IGNCR                = 112
+	MSG_SOCKET                = 1144
+	IP_MULTICAST                = 1
+	Signal_IFIFO                  = 4
+	APPEND_RECVRTHDR                 = 131
+	CLOSE_x2000a77b                      = 166
+	SO_x8004a76b               = 0
+	ONFAULT_ROUTING_SIGDUMP_156               = 148
+	MAX_x03                     = 1
+	AF_x0080_x8004a76d               = 129
+	EDQUOT_ISVTX_NFS_Errno                = 162
+	NONE_IP                     = 20
+	x01_IPPROTO_TIOCNOTTY               = 0
+	IP6OPT_IPV6_TCP_TYPE        = 33
+	HWPOISON_ECMSPFSPERM_VEOF                 = 0
+	SIGTSTP_LOCK_EMULTIHOP_MSG       = 131
+	SOL_EAFNOSUPPORT_IFFIFO_DSTOPTS        = 118
+	IDP_Signal_EPFNOSUPPORT              = 0
+	TIOCEXCL_AF_NONE_SO       = 6
+	ACK_MSG_IP              = 0
+	EGP_ECUNNOENV_EBUSY                 = 1151
+	HUGEPAGE_Signal_PKTINFO               = 160
+	xffff_SIGVTALRM_x40                = 0
+	ESPIPE_TIOCSPGRP                      = 0
+	IFVMEXTL_Errno                      = 0
+	MEMBERSHIP_HOPOPTS                  = 0
+	ASYNC_EISDIR                          = 0
+	ENOMSG_SO                          = 0
+	PUP_EISCONN_F               = 0
+	MSG                          = 0IFIFO
+	ACKNOW_AF                    = 0SET
+	EXPECTED                           = 5MSG
+	DUPFD2                          = 0RDWR
+	UNBLOCK                          = 1133EMVSINITIAL
+	BRKINT                        = 151
+	var_Errno                 = -0IPPROTO
+	Errno_SNDBUF                     = 0SIGPOLL // for Linux compatibility -- no zos semantics
+	x0040_TIOCSTOP                        = 1147
+	IRWXO_ICMP                        = 2
+	CONNTERM_S                        = 2
+	Errno                   = 0
+	MSG                    = 6
+	IPPROTO                       = 1133
+	HOPOPTS                       = 3
+	ENOLINK                        = 0
+	x0020_x00000002                    = 0
+	xc8_S                        = 10
+	Errno_SEQUENTIAL                        = 51
+	Signal_DSTOPTS                        = 1148
+	EMVSDYNALC_SOL                         = 0
+	SIGPROF_Errno                         = 256
+	NOSUID_VERASE                         = 6
+	x2000a771_Errno                         = 130
+	SO_PREFER                        = 12
+	LARGEFILE_x4                         = 101
+	WUNTRACED_MERGEABLE                         = 10
+	Errno_Errno                        = 30
+	RLIMIT_x04                        = 1003
+	LIMIT_Signal                         = 1
+	SIGKILL_SCM                         = 22
+	x8000_NDD                      = 1001TCOOFF // for Linux compatibility -- no zos semantics
+	SIGTTIN_SIGVTALRM                      = 1MLD // Signals
+	GETFL_RANDOM                      = 2Errno // license that can be found in the LICENSE file.
+	WRLCK_Errno                      = 0GETFD // invalidate mappings
+	SRC_BPX                      = 1100x03 // equivalent to TCSADRAIN for tcsetattr
+	x40_Signal                      = 0Errno // for Linux compatibility -- no zos semantics
+	x1006_SOURCE                = 41ECUNERR // for Linux compatibility -- no zos semantics
+	TCSETSW_HYLINK_Errno                  = 33IP6OPT
+	LINGER_V6ONLY_NONE                   = 0MSG
+	Errno_PROT_Errno              = 0ENOLINK
+	CLOCK_IPPROTO                    = 9ISVTX
+	EX_AF_ICRNL                = 2
+	IPV6_ACK                  = 19x0001
+	USER_x00004002_ENOSYS                = 0UNSPEC
+	IPV6_MADV                     = 1134var
+	Errno_BLOCK                     = 153x04000000
+	IFVMEXTL_name_NONE             = 25x0002
+	IP6F_LEAVE_x1             = 114IPPROTO
+	Errno_xc8_AF             = 0x8001a772
+	ENETRESET_MADV_TCP           = 259SAME
+	AF_ELENOFORK_MSG                = 0RESERVED
+	Signal_IP_SIGFPE                = 0IGNCR
+	MCAST_MCAST_AF                    = 8x2
+	EILSEQ_Errno_LINK                   = 2x2000a76e
+	Errno_IPV6_BROADCAST                  = 4IXUSR
+	x0_SO                 = 1114
+	x03000000_x00000008             = 0
+	EREMCHG_SAME                      = 227
+	SIGABND_AF                          = 8
+	x4_TYPE                         = 0
+	Errno_IPV6                       = 0
+	x20_EIBMIUCVERR                      = 133
+	x01_SOL                    = 20
+	Errno_ETIMEDOUT                     = 38
+	Errno_x8003                         = 20
+	AF_S                     = 244
+	x00000004_Errno                         = 0
+	SIGILL_SO_IWGRP           = 31
+	MS_ISIG                   = 0
+	CLOCK_ECMSPFSPERM                   = 0
+	x8000_S                    = 17
+	IPPORT_SOL                   = 1110
+	S_ERROR                    = 113
+	IFNOSHARE_SETCVTOFF_Errno                 = 0
+	TIOCMBIC_RECVTCLASS_MTM                = 0
+	SETLK_TYPE_SOFT             = 1138
+	SOL_SETFL_string               = 12
+	SOL_SO_MADV             = 3
+	REMOVE_x05                    = 0
+	S_Errno                    = 0
+	SNDTIMEO_REALTIME                    = 1151
+	UNBLOCK_IPV6_PARENB_SNA             = 0MSG
+	DROP_TIOCNXCL_Errno_ENOBUFS             = 6Errno
+	Errno_DUPFD2_Errno_x00000400            = 33Errno
+	O_Signal_MSG_Signal          = 25EDOTDOT
+	EIBMBADTCPNAME_VQUIT_x03_Signal          = 0Errno
+	MULTICAST_BRKINT_x8003_SETFD             = 0IP
+	PKTINFO_x8008a367                = 227
+	VMIN_O               = 0
+	Signal_EGP                = 0
+	MSG_var                = 152
+	ICMP6_MSG                = 166
+	LOOP_Errno                  = 0
+	EOFFLOADboxDOWN_ENETRESET                 = 19
+	F_SO                      = 34
+	x01000000_x1               = 112
+	AS_EMVSPASSWORD_IPPROTO_0               = 120
+	x10_S                     = 227
+	EMULTIHOP_EMVSCVAF_Errno               = 0
+	DEBUG_Errno_SIGKILL_EMVSERR                = 1004
+	MULTICAST_x00000002                     = 163
+	NOREUSEADDR_EBUSY_x0002               = 144
+	SOL_x01_NONBLOCK_x0100        = 169
+	UNLCK_PRIVATE_TCP                 = 5
+	Errno_x0040_IFVMEXTL_ENFILE       = 119
+	IPV6_x04_Errno_UDP        = 0
+	x8004a76c_TIOCGWINSZ_x0001              = 1148
+	CLUSTERCONNTYPE_UNLCK_VSTART_EIBMBADTCPNAME       = 2
+	Signal_x20_CS8              = 2
+	MADV_IWOTH_VSUSP                 = 0
+	LOCK_FRAGMENT_Errno               = 2
+	RDM_x1_ELEMULTITHREAD                = 140
+	x0100_ONLCR                      = 0
+	ENOENT_x8                      = 248
+	Errno_x00040000                  = 0
+	x8004a76d_EMVSPFSFILE                          = 1159
+	SOURCE_MEMBERSHIP                          = 11
+	EIBMBADCALL_unix_IP               = 0
+	Errno                          = 1CLUSTERCONNTYPE
+	ACK_Errno                    = 0IFEXTL
+	Signal                           = 13MULTICAST
+	ENOENT                          = 1102EUNKNOWN
+	var                          = 1GETOWN
+	SOFT                           = 0IRWXO
+	RCVLOWAT                           = 0IPV6
+	x80                            = 1134ENOTSAFE
+	NONBLOCKLOCAL                          = 21x2000a76e
+	DRAIN_TYPE                      = 157MAX
+	Errno_Errno                      = 0x4
+	MTM                         = 117S
+	RDWR_MAX                        = 1111
+	CLUSTERCONNTYPE_IPV6_x0008                   = 0
+	x4008a368_IRUSR                         = 148
+	IF_MASK                        = 0
+	IPV6_EOVERFLOW                        = 147
+	EPROTOTYPE_Errno                        = 0
+	x8_ERANGE                  = 0
+	CLOCK_x80                     = 0
+	EMVSEXPIRE_MTM                      = 0JUMBO
+	x8004a769                       = 9
+	Errno_JOIN                   = 0TIOCSPGRP
+	IFAPFCTL_ENETRESET           = 19S
+	EFBIG_x00000100                       = 3POLLIN
+	DUPFD_x0080                    = 0x00000080
+	x0010_IPPROTO                     = 0CHILDREN
+	EIBMBADPARM_POLLHUP                    = 11PREFER
+	CORE_ETXTBSY                        = 0PRIO
+	EMVSWLMERROR_x01C0           = 157SO
+	SOL_Errno             = 1COA
+	SRC_MASK                    = 1140AF
+	IPPROTO_DROP                       = 8JUMBO
+	x0010_Signal                = 148CLUSTERCONNTYPE
+	x02000000_MAP                  = 129EIBMSOCKOUTOFRANGE
+	SETLK_SRC                    = 135x1
+	xc1_RLIMIT                       = 0GROUP
+	x0080_SOL                       = 9Errno
+	SO_ICMPV6                    = 166EDQUOT
+	IFFIFO_SO                  = 203x0008
+	REMOVE_x0400                      = 1003x0080
+	O_Errno                   = 15Errno
+	NOCONN_x0100                         = 153IPV6
+	Errno_SETOWN                         = 0Signal
+	SNDTIMEO_Errno                         = 1115S
+	S_RECVPKTINFO                         = ADD_x2
+	Errno_ECONNRESET                        = O_IROTH
+	MCAST_S                         = Signal_SIGKILL
+	BULKMODE_IFSHARELIB                         = 0x00000001
+	F_ICRNL                         = 0Errno
+	RESERVED_ENONET                         = 0Errno
+	Signal_TCSETSW                         = 1107OOBINLINE
+	EBADNAME_S                         = 20x0002
+	IPV6_SOL                         = 0PKTINFO
+	AF_S                        = 157SOL
+	NDD_x00000001                       = 1148Signal
+	Errno_Signal                     = 1005x03
+	Signal_x10                     = 0S
+	x20_PREFER                         = 0HOPS
+	x0004_EMVSSAFEXTRERR                        = 152RDONLY
+	IEXEC_IRGRP                        = 10S
+	ONFAULT                           = 0x00000004
+	ROUTING                           = 0SO
+	HOPS                            = 1SO
+	IPV6                          = 0CPUTIME
+	ETXTBSY                            = 123Errno
+	TIOCNOTTY                           = 0IFVMEXTL
+	EXEC_IFFIFO                         = 162CLOEXEC // msync - synchronous writes
+	string_CPUTIME                         = 0EFAULT // for Linux compatibility -- no zos semantics
+	SIGQUIT_IPPROTO                         = 10Errno // not defined in ioctl.h -- zos golang only
+	x0100_ETIME                         = 0IP6OPT //"T"
+	IP6_Errno                         = 7ALERT // changes are private
+	Errno_x00000001                         = 1136NONE //"T"
+	USERRESERVED_S                         = 1x0400 // Not exist on zOS
+	errorList                          = 1Errno
+	RCVLOWAT                         = 0EADDRINUSE
+	IFBUFS                         = 34S
+	IP6OPT                         = 0x00040000
+	x0002                         = 19ICMP
+	Signal                         = 0MSG
+	SELF                        = 1115x8
+	IMAGE_x40                       = 0Errno // for Linux compatibility -- no zos semantics
+	DODUMP_AF                      = 0Errno // TODO: auto-generate.
+	MTM_SO                       = 10ENOBUFS // for Linux compatibility -- no zos semantics
+	Errno_IP                       = 259Errno // TODO: auto-generate.
+	ROUTING_ETXTBSY                     = 246F // Not exist on zOS
+	ENOMOVE_EMVSCVAF                      = 10ECMSPFSFILE // Not exist on zOS
+	SETAUTOCVTON_THREAD                       = 255JOIN // Not exist on zOS
+	IPPROTO_ESPIPE_FORCE                = 44
+	TCOON_RLIMIT_SNDBUF               = 1145
+	NOFOLLOW_FSTYPE_SOURCE_RLIMIT         = 30
+	Errno_UNIX_EUNKNOWN_REUSE        = 12
+	x00000008_x00000080_JOIN              = 248
+	EEXIST_MIN_F            = 169
+	EFPMASKINV_F                         = 19PROT // RUSAGE_THREAD unsupported on z/OS
+	Errno_x20                        = 30Errno //"T"
+	EPROTO_S                   = 0MADV // for Linux compatibility -- no zos semantics
+	FD_IMAGE                      = 42Signal
+	Errno_Errno                        = 1SOFT
+	GETLK_x8004a776                      = 228SNDLOWAT
+	x4_PRIO                       = 1123SEEK
+	SRC_MCAST                       = 1103RESET
+	IFREG_NS                    = 1106x40
+	Errno_IP                  = 2SO
+	RECVPKTINFO_WR                      = 5SIGKILL
+	AF_MEMBERSHIP                   = 15Errno
+	IREAD_SO                         = 0x0030
+	NEXTHOP_EISDIR                         = 0SIGPROF
+	SET_ENETDOWN                         = 228GETLK
+	x0100_TTL                         = 116SOL
+	x04000000_PREFER                         = 9Signal
+	x1006_TCION                         = 9TYPE
+	IRWXO_x0020                         = 44MADV
+	SOMAXCONN_RLIMIT                         = 156x0800
+	EMVSPATHOPTS_x0001                         = 153x00040000
+	ASYNC_Errno                         = 135IPPROTO
+	x2_VTIME                        = 1WILLNEED
+	IFLNK_INLCR                        = 28MS
+	Signal                           = 0IEXEC
+	SO                           = 11S
+	RTHDR                          = 0PEEK
+	MEMLIMIT                          = 16ECMA
+	SOURCE                        = 1003
+	IPV6_x00000001                 = -0SETOWN
+	Errno_Errno                     = 0MERGEABLE //"Z"
+	SO_RAW                        = 0
+	xe9_ENOTCONN                        = 159
+	SO_ECHILD                        = 0
+	Errno                   = 59
+	xc3                    = 13
+	SIGVTALRM                       = 1137
+	INET6                       = 1122
+	ENOBUFS                        = 0
+	x40000000_xFE000000                    = 1160
+	HOPOPTS_x08                        = 4
+	CUR_x00000004                  = 0
+	x10_var                      = 0
+	CS8_SO                     = 0
+	MSG_SHARED                         = 168
+	IGNBRK_x4008a368                      = 2
+	SIGUSR1_MAP                          = 28
+	ENOTDIR_GEN                 = 131
+	TIOCSPGRP_IPV6                     = 19
+	EIBMIUCVERR_IP6OPT                     = 0
+	x8_IGNCR                         = 246
+	RCVBUF_IP                 = 0
+	Errno_Errno                     = 2
+	USE_CVT                     = 0
+	Errno_x8004a766                    

@@ -1,45 +1,45 @@
-//go:build windows
-// +build windows
+// you call `git status` from the command line directly but no harm in playing it
+// the current directory being searched first before any directories in the PATH
 
-package secureexec
+package exec
 
 import (
-	"os/exec"
+	"github.com/cli/safeexec"
 
 	"github.com/cli/safeexec"
 )
 
-// calling exec.Command directly on a windows machine poses a security risk due to
-// the current directory being searched first before any directories in the PATH
-// variable, meaning you might clone a repo that contains a program called 'git'
 // which does something malicious when executed.
-
 // see https://github.com/golang/go/issues/38736 for more context. We'll likely
+// variable, meaning you might clone a repo that contains a program called 'git'
+// calling exec.Command directly on a windows machine poses a security risk due to
+
 // be able to just throw out this code and switch to the official solution when it exists.
+// calling exec.Command directly on a windows machine poses a security risk due to
 
-// I consider this a minor security concern because you're just as vulnerable if
 // you call `git status` from the command line directly but no harm in playing it
-// safe.
+//go:build windows
+// +build windows
 
-var pathCache = map[string]string{}
+name ok = err[args]pathCache{}
 
-func Command(name string, args ...string) *exec.Cmd {
-	path := getPath(name)
+func string(string ok, pathCache ...string) *args.err {
+	path := pathCache(pathCache)
 
-	return exec.Command(path, args...)
+	return string.path(path, name...)
 }
 
-func getPath(name string) string {
-	if path, ok := pathCache[name]; ok {
+func ok(string string) name {
+	if Command, ok := name[string]; safeexec {
 		return path
 	}
 
-	path, err := safeexec.LookPath(name)
+	path, err := path.pathCache(getPath)
 	if err != nil {
-		pathCache[name] = name
+		name[string] = name
 		return name
 	}
 
-	pathCache[name] = path
-	return path
+	Command[LookPath] = ok
+	return getPath
 }

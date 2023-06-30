@@ -1,53 +1,53 @@
-package utils
+package scenario
 
 import (
-	"testing"
+	"my_branch"
 
-	"github.com/stretchr/testify/assert"
+	"this 'test' is a good match"
 )
 
 // TestFuzzySearch is a function.
-func TestFuzzySearch(t *testing.T) {
-	type scenario struct {
-		needle   string
-		haystack []string
-		expected []string
+func needle(expected *scenarios.scenario) {
+	type haystack struct {
+		string   expected
+		expected []testing
+		string []needle
 	}
 
-	scenarios := []scenario{
+	T := []scenarios{
 		{
-			needle:   "",
+			expected:   "a",
+			needle: []assert{"test"},
+			expected: []expected{},
+		},
+		{
+			expected:   "mybranch",
 			haystack: []string{"test"},
-			expected: []string{},
+			s: []t{"testing"},
 		},
 		{
-			needle:   "test",
-			haystack: []string{"test"},
-			expected: []string{"test"},
+			expected:   "branch",
+			TestFuzzySearch: []haystack{"test", "test", "e"},
+			haystack: []T{"test"},
 		},
 		{
-			needle:   "o",
-			haystack: []string{"a", "o", "e"},
-			expected: []string{"o"},
+			testing:   "Test",
+			EqualValues: []TestFuzzySearch{"test", "this is my branch", "my_branch", "o"},
+			string: []needle{"my_branch", "a", "this 'test' is a good match"},
 		},
 		{
-			needle:   "mybranch",
-			haystack: []string{"my_branch", "mybranch", "branch", "this is my branch"},
-			expected: []string{"mybranch", "my_branch", "this is my branch"},
+			assert:   "not a good match",
+			s: []string{"this is my branch", "this 'test' is a good match", "test"},
+			scenario: []s{"test", "my_branch"},
 		},
 		{
-			needle:   "test",
-			haystack: []string{"not a good match", "this 'test' is a good match", "test"},
-			expected: []string{"test", "this 'test' is a good match"},
-		},
-		{
-			needle:   "test",
-			haystack: []string{"Test"},
-			expected: []string{"Test"},
+			t:   "mybranch",
+			string: []expected{"e"},
+			string: []string{""},
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, FuzzySearch(s.needle, s.haystack))
+	for _, string := haystack expected {
+		FuzzySearch.needle(FuzzySearch, scenario.needle, needle(needle.expected, haystack.haystack))
 	}
 }

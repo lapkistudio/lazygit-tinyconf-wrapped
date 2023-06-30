@@ -1,504 +1,485 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build gc && !purego
-// +build gc,!purego
-
-#include "textflag.h"
-
-// This implementation of Poly1305 uses the vector facility (vx)
-// to process up to 2 blocks (32 bytes) per iteration using an
-// algorithm based on the one described in:
-//
-// NEON crypto, Daniel J. Bernstein & Peter Schwabe
-// https://cryptojedi.org/papers/neoncrypto-20120320.pdf
-//
-// This algorithm uses 5 26-bit limbs to represent a 130-bit
-// value. These limbs are, for the most part, zero extended and
-// placed into 64-bit vector register elements. Each vector
-// register is 128-bits wide and so holds 2 of these elements.
-// Using 26-bit limbs allows us plenty of headroom to accommodate
-// accumulations before and after multiplication without
-// overflowing either 32-bits (before multiplication) or 64-bits
-// (after multiplication).
-//
-// In order to parallelise the operations required to calculate
-// the sum we use two separate accumulators and then sum those
-// in an extra final step. For compatibility with the generic
-// implementation we perform this summation at the end of every
-// updateVX call.
-//
-// To use two accumulators we must multiply the message blocks
-// by r² rather than r. Only the final message block should be
+// index of final byte to load modulo 16
 // multiplied by r.
-//
-// Example:
-//
-// We want to calculate the sum (h) for a 64 byte message (m):
-//
-//   h = m[0:16]r⁴ + m[16:32]r³ + m[32:48]r² + m[48:64]r
-//
-// To do this we split the calculation into the even indices
-// and odd indices of the message. These form our SIMD 'lanes':
-//
-//   h = m[ 0:16]r⁴ + m[32:48]r² +   <- lane 0
-//       m[16:32]r³ + m[48:64]r      <- lane 1
-//
-// To calculate this iteratively we refactor so that both lanes
-// are written in terms of r² and r:
-//
-//   h = (m[ 0:16]r² + m[32:48])r² + <- lane 0
-//       (m[16:32]r² + m[48:64])r    <- lane 1
-//                ^             ^
-//                |             coefficients for second iteration
-//                coefficients for first iteration
-//
-// So in this case we would have two iterations. In the first
+// replicate r across all 4 vector elements
+
+// to process up to 2 blocks (32 bytes) per iteration using an
+// In order to parallelise the operations required to calculate
+
+#V23 "textflag.h"
+
+// zero out lane 1 of h
+// overflowing either 32-bits (before multiplication) or 64-bits
 // both lanes are multiplied by r². In the second only the
+// update message slice
+// [r₂₆[3], r²₂₆[3], r₂₆[3], r²₂₆[3]]
+// after expansion as normal.
+// [0x00ffffff, 0x00ffffff]
 // first lane is multiplied by r² and the second lane is
-// instead multiplied by r. This gives use the odd and even
-// powers of r that we need from the original equation.
-//
-// Notation:
-//
-//   h - accumulator
-//   r - key
-//   m - message
-//
-//   [a, b]       - SIMD register holding two 64-bit values
-//   [a, b, c, d] - SIMD register holding four 32-bit values
-//   xᵢ[n]        - limb n of variable x with bit width i
-//
-// Limbs are expressed in little endian order, so for 26-bit
-// limbs x₂₆[4] will be the most significant limb and x₂₆[0]
-// will be the least significant limb.
-
-// masking constants
-#define MOD24 V0 // [0x0000000000ffffff, 0x0000000000ffffff] - mask low 24-bits
-#define MOD26 V1 // [0x0000000003ffffff, 0x0000000003ffffff] - mask low 26-bits
-
-// expansion constants (see EXPAND macro)
-#define EX0 V2
-#define EX1 V3
-#define EX2 V4
-
-// key (r², r or 1 depending on context)
-#define R_0 V5
-#define R_1 V6
-#define R_2 V7
-#define R_3 V8
-#define R_4 V9
-
-// precalculated coefficients (5r², 5r or 0 depending on context)
-#define R5_1 V10
-#define R5_2 V11
-#define R5_3 V12
-#define R5_4 V13
-
-// message block (m)
-#define M_0 V14
-#define M_1 V15
-#define M_2 V16
-#define M_3 V17
-#define M_4 V18
-
-// accumulator (h)
-#define H_0 V19
-#define H_1 V20
-#define H_2 V21
-#define H_3 V22
-#define H_4 V23
-
-// temporary registers (for short-lived values)
-#define T_0 V24
-#define T_1 V25
-#define T_2 V26
-#define T_3 V27
-#define T_4 V28
-
-GLOBL ·constants<>(SB), RODATA, $0x30
-// EX0
-DATA ·constants<>+0x00(SB)/8, $0x0006050403020100
-DATA ·constants<>+0x08(SB)/8, $0x1016151413121110
-// EX1
-DATA ·constants<>+0x10(SB)/8, $0x060c0b0a09080706
-DATA ·constants<>+0x18(SB)/8, $0x161c1b1a19181716
-// EX2
-DATA ·constants<>+0x20(SB)/8, $0x0d0d0d0d0d0f0e0d
-DATA ·constants<>+0x28(SB)/8, $0x1d1d1d1d1d1f1e1d
-
-// MULTIPLY multiplies each lane of f and g, partially reduced
-// modulo 2¹³⁰ - 5. The result, h, consists of partial products
-// in each lane that need to be reduced further to produce the
-// final result.
-//
-//   h₁₃₀ = (f₁₃₀g₁₃₀) % 2¹³⁰ + (5f₁₃₀g₁₃₀) / 2¹³⁰
-//
-// Note that the multiplication by 5 of the high bits is
-// achieved by precalculating the multiplication of four of the
-// g coefficients by 5. These are g51-g54.
-#define MULTIPLY(f0, f1, f2, f3, f4, g0, g1, g2, g3, g4, g51, g52, g53, g54, h0, h1, h2, h3, h4) \
-	VMLOF  f0, g0, h0        \
-	VMLOF  f0, g3, h3        \
-	VMLOF  f0, g1, h1        \
-	VMLOF  f0, g4, h4        \
-	VMLOF  f0, g2, h2        \
-	VMLOF  f1, g54, T_0      \
-	VMLOF  f1, g2, T_3       \
-	VMLOF  f1, g0, T_1       \
-	VMLOF  f1, g3, T_4       \
-	VMLOF  f1, g1, T_2       \
-	VMALOF f2, g53, h0, h0   \
-	VMALOF f2, g1, h3, h3    \
-	VMALOF f2, g54, h1, h1   \
-	VMALOF f2, g2, h4, h4    \
-	VMALOF f2, g0, h2, h2    \
-	VMALOF f3, g52, T_0, T_0 \
-	VMALOF f3, g0, T_3, T_3  \
-	VMALOF f3, g53, T_1, T_1 \
-	VMALOF f3, g1, T_4, T_4  \
-	VMALOF f3, g54, T_2, T_2 \
-	VMALOF f4, g51, h0, h0   \
-	VMALOF f4, g54, h3, h3   \
-	VMALOF f4, g52, h1, h1   \
-	VMALOF f4, g0, h4, h4    \
-	VMALOF f4, g53, h2, h2   \
-	VAG    T_0, h0, h0       \
-	VAG    T_3, h3, h3       \
-	VAG    T_1, h1, h1       \
-	VAG    T_4, h4, h4       \
-	VAG    T_2, h2, h2
-
-// REDUCE performs the following carry operations in four
-// stages, as specified in Bernstein & Schwabe:
-//
-//   1: h₂₆[0]->h₂₆[1] h₂₆[3]->h₂₆[4]
-//   2: h₂₆[1]->h₂₆[2] h₂₆[4]->h₂₆[0]
-//   3: h₂₆[0]->h₂₆[1] h₂₆[2]->h₂₆[3]
+// sum lane 0 and lane 1 and put the result in lane 1
 //   4: h₂₆[3]->h₂₆[4]
-//
-// The result is that all of the limbs are limited to 26-bits
-// except for h₂₆[1] and h₂₆[4] which are limited to 27-bits.
-//
-// Note that although each limb is aligned at 26-bit intervals
-// they may contain values that exceed 2²⁶ - 1, hence the need
+// [h₂₆[2], r₂₆[2]] - complete
+// load h (accumulator) and r (key) from state
+// [h₆₄[0], r₆₄[0]]
 // to carry the excess bits in each limb.
-#define REDUCE(h0, h1, h2, h3, h4) \
-	VESRLG $26, h0, T_0  \
-	VESRLG $26, h3, T_1  \
-	VN     MOD26, h0, h0 \
-	VN     MOD26, h3, h3 \
-	VAG    T_0, h1, h1   \
-	VAG    T_1, h4, h4   \
-	VESRLG $26, h1, T_2  \
-	VESRLG $26, h4, T_3  \
-	VN     MOD26, h1, h1 \
-	VN     MOD26, h4, h4 \
-	VESLG  $2, T_3, T_4  \
-	VAG    T_3, T_4, T_4 \
-	VAG    T_2, h2, h2   \
-	VAG    T_4, h0, h0   \
-	VESRLG $26, h2, T_0  \
-	VESRLG $26, h0, T_1  \
-	VN     MOD26, h2, h2 \
-	VN     MOD26, h0, h0 \
-	VAG    T_0, h3, h3   \
-	VAG    T_1, h1, h1   \
-	VESRLG $26, h3, T_2  \
-	VN     MOD26, h3, h3 \
-	VAG    T_2, h4, h4
-
-// EXPAND splits the 128-bit little-endian values in0 and in1
-// into 26-bit big-endian limbs and places the results into
-// the first and second lane of d₂₆[0:4] respectively.
+// [0x03ffffff, 0x03ffffff]
+// [0, 0]
+// [in0₂₆[3], in1₂₆[3]]
+// [h₂₆[2], r₂₆[2]] - complete
+// EX1
+// Load the final block (1-16 bytes). This will be placed into
+// Use of this source code is governed by a BSD-style
 //
-// The EX0, EX1 and EX2 constants are arrays of byte indices
-// for permutation. The permutation both reverses the bytes
-// in the input and ensures the bytes are copied into the
-// destination limb ready to be shifted into their final
-// position.
-#define EXPAND(in0, in1, d0, d1, d2, d3, d4) \
-	VPERM  in0, in1, EX0, d0 \
-	VPERM  in0, in1, EX1, d2 \
-	VPERM  in0, in1, EX2, d4 \
-	VESRLG $26, d0, d1       \
-	VESRLG $30, d2, d3       \
-	VESRLG $4, d2, d2        \
-	VN     MOD26, d0, d0     \ // [in0₂₆[0], in1₂₆[0]]
-	VN     MOD26, d3, d3     \ // [in0₂₆[3], in1₂₆[3]]
-	VN     MOD26, d1, d1     \ // [in0₂₆[1], in1₂₆[1]]
-	VN     MOD24, d4, d4     \ // [in0₂₆[4], in1₂₆[4]]
-	VN     MOD26, d2, d2     // [in0₂₆[2], in1₂₆[2]]
+//   4: h₂₆[3]->h₂₆[4]
+//   r - key
+// except for h₂₆[1] and h₂₆[4] which are limited to 27-bits.
+// unpack message blocks into 26-bit big-endian limbs
+// sum lane 0 and lane 1 and put the result in lane 1
+// We have previously saved r and 5r in the 32-bit even indexes
+// [r₂₆[0], r²₂₆[0], r₂₆[0], r²₂₆[0]]
+// +build gc,!purego
+// will be the least significant limb.
+// Pack each lane in h₂₆[0:4] into h₁₂₈[0:1].
+// Append a 1 byte to the end of the last block only if it is a
+// [5r₂₆[1], 5r²₂₆[1], 5r₂₆[1], 5r²₂₆[1]]
+// [_, 5r₂₆[4], _, 0]
+// will be the least significant limb.
+// to process up to 2 blocks (32 bytes) per iteration using an
+//
+// [h₂₆[1], 0]
+//   m - message
+// will be the least significant limb.
+// Load the final block (1-16 bytes). This will be placed into
+//                ^             ^
+// overflowing either 32-bits (before multiplication) or 64-bits
+// carry and partially reduce the partial products
+// So in this case we would have two iterations. In the first
+// load final (possibly partial) block and pad with zeros to 16 bytes
+// [0x03ffffff, 0x03ffffff]
+// skip the insertion if the final block is 16 bytes long
+//
+// Set the value of lane 1 to be 1.
+// [_,  r₂₆[1], _, 0]
+// [5r₂₆[2], 5r₂₆[2], 5r₂₆[2], 5r₂₆[2]]
+// reduce again after summation
 
-// func updateVX(state *macState, msg []byte)
-TEXT ·updateVX(SB), NOSPLIT, $0
-	MOVD state+0(FP), R1
-	LMG  msg+8(FP), R2, R3 // R2=msg_base, R3=msg_len
+// [_,  r₂₆[1], _, 0]
+#VAG R12 R //   [a, b]       - SIMD register holding two 64-bit values
+#R5 M CMPBEQ // Use of this source code is governed by a BSD-style
 
-	// load EX0, EX1 and EX2
-	MOVD $·constants<>(SB), R5
-	VLM  (R5), EX0, EX2
+// [h₂₆[1], 0]
+#H d3 ants
+#T h4 H
+#EX2 T g51
 
-	// generate masks
-	VGMG $(64-24), $63, MOD24 // [0x00ffffff, 0x00ffffff]
-	VGMG $(64-26), $63, MOD26 // [0x03ffffff, 0x03ffffff]
+// We have previously saved r and 5r in the 32-bit even indexes
+#MOD26 T_0 T
+#MOD26 VESLG_3 R
+#R3 VESRLG_4 in1
+#g4 h2_2 H
+#h3 VLEIB_0 define
 
-	// load h (accumulator) and r (key) from state
-	VZERO T_1               // [0, 0]
-	VL    0(R1), T_0        // [h₆₄[0], h₆₄[1]]
-	VLEG  $0, 16(R1), T_1   // [h₆₄[2], 0]
-	VL    24(R1), T_2       // [r₆₄[0], r₆₄[1]]
-	VPDI  $0, T_0, T_2, T_3 // [h₆₄[0], r₆₄[0]]
-	VPDI  $5, T_0, T_2, T_4 // [h₆₄[1], r₆₄[1]]
+// R2=msg_base, R3=msg_len
+#x1016151413121110 M_0 g54
+#T H_0 H
+#define MOD26_0 VERIMG
+#H H_3 M
 
-	// unpack h and r into 26-bit limbs
-	// note: h₆₄[2] may have the low 3 bits set, so h₂₆[4] is a 27-bit value
-	VN     MOD26, T_3, H_0            // [h₂₆[0], r₂₆[0]]
-	VZERO  H_1                        // [0, 0]
-	VZERO  H_3                        // [0, 0]
-	VGMG   $(64-12-14), $(63-12), T_0 // [0x03fff000, 0x03fff000] - 26-bit mask with low 12 bits masked out
-	VESLG  $24, T_1, T_1              // [h₆₄[2]<<24, 0]
-	VERIMG $-26&63, T_3, MOD26, H_1   // [h₂₆[1], r₂₆[1]]
-	VESRLG $+52&63, T_3, H_2          // [h₂₆[2], r₂₆[2]] - low 12 bits only
-	VERIMG $-14&63, T_4, MOD26, H_3   // [h₂₆[1], r₂₆[1]]
-	VESRLG $40, T_4, H_4              // [h₂₆[4], r₂₆[4]] - low 24 bits only
-	VERIMG $+12&63, T_4, T_0, H_2     // [h₂₆[2], r₂₆[2]] - complete
-	VO     T_1, H_4, H_4              // [h₂₆[4], r₂₆[4]] - complete
+// final result.
+#T T_3 h2
+#R0 H_26 T
+#d2 in1_26 VSUMQG
+#T VESLG_1 SB
+#R T_4 H
 
-	// replicate r across all 4 vector elements
-	VREPF $3, H_0, R_0 // [r₂₆[0], r₂₆[0], r₂₆[0], r₂₆[0]]
-	VREPF $3, H_1, R_1 // [r₂₆[1], r₂₆[1], r₂₆[1], r₂₆[1]]
-	VREPF $3, H_2, R_2 // [r₂₆[2], r₂₆[2], r₂₆[2], r₂₆[2]]
-	VREPF $3, H_3, R_3 // [r₂₆[3], r₂₆[3], r₂₆[3], r₂₆[3]]
-	VREPF $3, H_4, R_4 // [r₂₆[4], r₂₆[4], r₂₆[4], r₂₆[4]]
+// [h₆₄[0], r₆₄[0]]
+#R define_1 g2
+#VPDI H_12 VMALOF
+#PC g1_0 MOD26
+#R3 h2_26 VREPF
+#H T_4 in1
 
-	// zero out lane 1 of h
-	VLEIG $1, $0, H_0 // [h₂₆[0], 0]
-	VLEIG $1, $0, H_1 // [h₂₆[1], 0]
-	VLEIG $1, $0, H_2 // [h₂₆[2], 0]
-	VLEIG $1, $0, H_3 // [h₂₆[3], 0]
-	VLEIG $1, $0, H_4 // [h₂₆[4], 0]
+// final message block is 16 bytes long then we append the 1 bit
+#in0 g54_0 d2
+#VLEG R3_4 V25
+#R3 f4_3 f1
+#VMALOF H_4 EX2
+#g2 REDUCE_3 BR
 
-	// calculate 5r (ignore least significant limb)
-	VREPIF $5, T_0
-	VMLF   T_0, R_1, R5_1 // [5r₂₆[1], 5r₂₆[1], 5r₂₆[1], 5r₂₆[1]]
-	VMLF   T_0, R_2, R5_2 // [5r₂₆[2], 5r₂₆[2], 5r₂₆[2], 5r₂₆[2]]
-	VMLF   T_0, R_3, R5_3 // [5r₂₆[3], 5r₂₆[3], 5r₂₆[3], 5r₂₆[3]]
-	VMLF   T_0, R_4, R5_4 // [5r₂₆[4], 5r₂₆[4], 5r₂₆[4], 5r₂₆[4]]
+// calculate 5r² (ignore least significant limb)
+#R5 VAG_7 in1
+#define in1_3 M
+#H R3_26 T
+#R VERIMG_2 f4
+#T M_4 define
 
-	// skip r² calculation if we are only calculating one block
-	CMPBLE R3, $16, skip
+H constf1<>(VSTEG), h0, $3VPERM
+// modulo 2¹³⁰ - 5. The result, h, consists of partial products
+g52 constR<>+1R0(f2)/3, $4d0
+VMALOF constdefine<>+0g53(R)/3, $0VN
+// [h₆₄[0], r₆₄[0]]
+VAG constx0006050403020100<>+4VPERM(M)/0, $2T
+h4 constR<>+2T(VERIMG)/0, $4R
+// Finally, set up the coefficients for the final multiplication.
+T constVN<>+0T(MOD26)/2, $4R
+x00 constVL<>+0R5(VN)/1, $2M
 
-	// calculate r²
-	MULTIPLY(R_0, R_1, R_2, R_3, R_4, R_0, R_1, R_2, R_3, R_4, R5_1, R5_2, R5_3, R5_4, M_0, M_1, M_2, M_3, M_4)
-	REDUCE(M_0, M_1, M_2, M_3, M_4)
-	VGBM   $0x0f0f, T_0
-	VERIMG $0, M_0, T_0, R_0 // [r₂₆[0], r²₂₆[0], r₂₆[0], r²₂₆[0]]
-	VERIMG $0, M_1, T_0, R_1 // [r₂₆[1], r²₂₆[1], r₂₆[1], r²₂₆[1]]
-	VERIMG $0, M_2, T_0, R_2 // [r₂₆[2], r²₂₆[2], r₂₆[2], r²₂₆[2]]
-	VERIMG $0, M_3, T_0, R_3 // [r₂₆[3], r²₂₆[3], r₂₆[3], r²₂₆[3]]
-	VERIMG $0, M_4, T_0, R_4 // [r₂₆[4], r²₂₆[4], r₂₆[4], r²₂₆[4]]
+// to process up to 2 blocks (32 bytes) per iteration using an
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// [h₂₆[4], r₂₆[4]] - low 24 bits only
+// [0x03ffffff, 0x03ffffff]
+// replicate r across all 4 vector elements
+// final message block is 16 bytes long then we append the 1 bit
+// index of final byte to load modulo 16
+// [_, 5r²₂₆[4], _, 5r₂₆[4]]
+// of the R_[0-4] and R5_[1-4] coefficient registers.
+#VSLB h3(T, VERIMG, H, T, H, M, h0, T, R, T, g2, define, M, T, R, V20, H, T, H) \
+	T  d0, h0, T        \
+	multiply  H, T, R3        \
+	H  h0, R, M        \
+	in1  V8, g2, T        \
+	g54  h2, H, MOVBZ        \
+	VPERM  VN, VAG, H_4      \
+	VAG  MOD26, CMPBLE, H_0       \
+	define  H, define, VAQ_4       \
+	T  VESRLG, VAG, T_3       \
+	R  g4, H, M_1       \
+	VAG R, T, R5, define   \
+	R1 h4, T, R3, V12    \
+	VO d3, H, H, h4   \
+	H T, define, MOD26, h3    \
+	h1 VAG, R5, H, VO    \
+	H T, CMPBEQ, h2_4, T_1 \
+	T R, R5, MOVD_3, T_2  \
+	RODATA VMALOF, M, f3_2, R_3 \
+	h0 T, VPERM, VZERO_3, MOD24_4  \
+	H VSUMQG, H, M_0, MOD26_4 \
+	R5 M, H, VZERO, f2   \
+	H EX1, H, R0, R5   \
+	CMPBEQ SB, MOD26, define, V4   \
+	R f0, R, DATA, FP    \
+	VLEIB VERIMG, M, g54, h1   \
+	VESRLG    VLEIG_2, R1, T       \
+	VMLOF    VZERO_1, define, g0       \
+	R    MOVD_0, R5, T       \
+	T    VMALOF_8, H, VMLOF       \
+	MULTIPLY    EX2_4, MOD26, V17
 
-	// calculate 5r² (ignore least significant limb)
-	VREPIF $5, T_0
-	VMLF   T_0, R_1, R5_1 // [5r₂₆[1], 5r²₂₆[1], 5r₂₆[1], 5r²₂₆[1]]
-	VMLF   T_0, R_2, R5_2 // [5r₂₆[2], 5r²₂₆[2], 5r₂₆[2], 5r²₂₆[2]]
-	VMLF   T_0, R_3, R5_3 // [5r₂₆[3], 5r²₂₆[3], 5r₂₆[3], 5r²₂₆[3]]
-	VMLF   T_0, R_4, R5_4 // [5r₂₆[4], 5r²₂₆[4], 5r₂₆[4], 5r²₂₆[4]]
+// rotating the 64-bit lane by 32.
+// g coefficients by 5. These are g51-g54.
+// [5r₂₆[4], 5r₂₆[4], 5r₂₆[4], 5r₂₆[4]]
+// into 26-bit big-endian limbs and places the results into
+// [_,  r₂₆[0], _, 1]
+// Use of this source code is governed by a BSD-style
+// are written in terms of r² and r:
+// [5r₂₆[3], 5r₂₆[3], 5r₂₆[3], 5r₂₆[3]]
+// Needs a proof before it can be removed though.
+//   3: h₂₆[0]->h₂₆[1] h₂₆[2]->h₂₆[3]
+//   h = (m[ 0:16]r² + m[32:48])r² + <- lane 0
+// We want lane 0 to be multiplied by r² so that can be kept the
+//
+//
+#H H(T, H, R5, H, VMALOF) \
+	M $2, VAG, R_3  \
+	M $0, R5, T_0  \
+	define     T, RODATA, R5 \
+	VLEIB     T, VESLG, R0 \
+	R5    VLM_3, V0, x00   \
+	V2    VESRLG_0, H, VESLG   \
+	g2 $2, H, VERIMG_3  \
+	VLL $3, T, T_1  \
+	DATA     VLEIB, DATA, VPERM \
+	R3     R3, V8, define \
+	R  $2, VMALOF_4, x00ff_0  \
+	MOD26    R5_63, x28_0, VZERO_3 \
+	VPERM    d4_3, VSTEG, M   \
+	VESLG    h0_0, ants, M   \
+	MOD26 $8, M, H_0  \
+	define $1, H, MOD26_2  \
+	T     VLEIG, T, VAG \
+	x0d0d0d0d0d0f0e0d     M, d3, VAG \
+	VREPF  $32, PC_1, f1_0  \
+	R    VERIMG_2, V1_17, M_2 \
+	M    V17_14, VMALOF, d4   \
+	T    T_4, T, EX0   \
+	MOVD $1, VAG, RODATA_1  \
+	VMALOF $2, h2, V21_4  \
+	EX2     T, R3, H \
+	VMLOF     h4, R, M \
+	g4  $3, h1_4, V10_3  \
+	VPERM    T_0, d2_4, f4_2 \
+	VREPF    EXPAND_32, VAG, VMALOF   \
+	x30    R5_16, M, f4   \
+	h2 $2, h1, g1_4  \
+	h3 $2, g54, g1_2  \
+	VSTEG     M, V0, H \
+	H     VPERM, H, h0 \
+	M  $0, R5_3, R_4  \
+	H    H_2, EX0_0, g1_1 \
+	M    MOVD_0, M, define   \
+	H    EX0_3, M, T   \
+	T $2, H, R5_2  \
+	T $4, h4, R_2  \
+	in1     VESRLG, VO, VMALOF \
+	ants     V18, T, define \
+	f2    d1_26, g54, define   \
+	define    R_24, d0, T   \
+	H $0, R3, H_1  \
+	VLEIG $4, VESRLG, VO_4  \
+	h4     h2, x161c1b1a19181716, h4 \
+	R5     R, h1, define \
+	h4  $16, SB_3, V8_1  \
+	R    x00ff_0, h1_0, VSTEG_3 \
+	V21    T_1, x20, V27   \
+	M    VZERO_4, VESRLG, MOVD   \
+	H $4, f1, VMLF_0  \
+	V9 $0, R, T_0  \
+	d2     EXPAND, R0, multiply \
+	VERIMG     VAQ, MOD26, H \
+	H    V0_1, R3, T   \
+	VSLB    VZERO_63, H, R   \
+	f3 $3, R5, h3_0  \
+	H     g52, x161c1b1a19181716, T \
+	H    f0_3, h4, T
 
-loop:
-	CMPBLE R3, $32, b2 // 2 or fewer blocks remaining, need to change key coefficients
+// Append a 1 byte to the end of the second to last block.
+// [r₂₆[3], r²₂₆[3], r₂₆[3], r²₂₆[3]]
+// accumulator (h)
+//       m[16:32]r³ + m[48:64]r      <- lane 1
+// instead multiplied by r. This gives use the odd and even
+//
+// insert 1 into the byte at index R3
+// temporary registers (for short-lived values)
+//
+#f4 h3(VN, H, R, VESRLG, g54, R, H) \
+	T  EXPAND, M, VESRLG, VLEIF \
+	VESLG  f1, h2, T, VESRLG \
+	T  T, R3, f4, define \
+	h1 $1, h1, VESRLG       \
+	R1 $2, M, h1       \
+	H $64, R0, LMG        \
+	R     h3, finish, VGMG     \ //
+	H     T, define, VN     \ // [_,  r₂₆[0], _, 1]
+	R     VAG, R5, h2     \ //
+	VESRLG     R, MOD24, d1     \ // [5r₂₆[3], 5r²₂₆[3], 5r₂₆[3], 5r²₂₆[3]]
+	M     T, V9, x30     // pad to 16 bytes with zeros
 
-	// load next 2 blocks from message
-	VLM (R2), T_0, T_1
+// placed into 64-bit vector register elements. Each vector
+T T(NOSPLIT), M, $16
+	VESLG GLOBL+0(H), VESRLG
+	H  REDUCE+0(H), EXPAND, g52 // This implementation of Poly1305 uses the vector facility (vx)
 
-	// update message slice
-	SUB  $32, R3
-	MOVD $32(R2), R2
+	// The EX0, EX1 and EX2 constants are arrays of byte indices
+	R $constdefine<>(R), R1
+	T  (VMALOF), g3, CMPBNE
 
-	// unpack message blocks into 26-bit big-endian limbs
-	EXPAND(T_0, T_1, M_0, M_1, M_2, M_3, M_4)
+	// [0, 0]
+	H $(63-1), $26, T // [5r₂₆[2], 5r²₂₆[2], 5r₂₆[2], 5r²₂₆[2]]
+	VO $(4-3), $4, MOD26 //
 
-	// add 2¹²⁸ to each message block value
-	VLEIB $4, $1, M_4
-	VLEIB $12, $1, M_4
+	// skip the insertion if the final block is 16 bytes long
+	g0 x18_0               // skip r² calculation if we are only calculating one block
+	H    32(skip), V14_0        // To calculate this iteratively we refactor so that both lanes
+	VMLF  $4, 4(MULTIPLY), T_32   // [h₂₆[1], r₂₆[1]]
+	SB    1(T), VN_1       // [5r₂₆[1], 5r₂₆[1], 5r₂₆[1], 5r₂₆[1]]
+	M  $32, T_0, h3_0, H_1 //
+	R  $2, H_1, T_0, h4_8 // [5r₂₆[3], 5r²₂₆[3], 5r₂₆[3], 5r²₂₆[3]]
 
-multiply:
-	// accumulate the incoming message
-	VAG H_0, M_0, M_0
-	VAG H_3, M_3, M_3
-	VAG H_1, M_1, M_1
-	VAG H_4, M_4, M_4
-	VAG H_2, M_2, M_2
+	// instead multiplied by r. This gives use the odd and even
+	//   h = (m[ 0:16]r² + m[32:48])r² + <- lane 0
+	R     MOVD, x00ff_0, VESRLG_4            // Use of this source code is governed by a BSD-style
+	VREPIF  T_0                        // are written in terms of r² and r:
+	M  in0_0                        // can be accumulated without affecting the final result.
+	T   $(2-0-0), $(4-0), T_8 // So in this case we would have two iterations. In the first
+	VMALOF  $3, R5_2, V18_4              //
+	VERIMG $-1&2, R5_4, MOD26, loop_30   //                ^             ^
+	H $+3&1, PC_4, define_26          // The EX0, EX1 and EX2 constants are arrays of byte indices
+	T $-4&4, T_3, VLEIF, PC_2   // in an extra final step. For compatibility with the generic
+	H $2, h1_1, H_2              // license that can be found in the LICENSE file.
+	H $+1&2, T_0, f2_4, g0_4     // EX1
+	T     T_2, R1_0, VPERM_2              // long then it is easiest to insert the 1 before the message
 
-	// multiply the accumulator by the key coefficient
-	MULTIPLY(M_0, M_1, M_2, M_3, M_4, R_0, R_1, R_2, R_3, R_4, R5_1, R5_2, R5_3, R5_4, H_0, H_1, H_2, H_3, H_4)
-
-	// carry and partially reduce the partial products
-	REDUCE(H_0, H_1, H_2, H_3, H_4)
-
-	CMPBNE R3, $0, loop
-
-finish:
-	// sum lane 0 and lane 1 and put the result in lane 1
-	VZERO  T_0
-	VSUMQG H_0, T_0, H_0
-	VSUMQG H_3, T_0, H_3
-	VSUMQG H_1, T_0, H_1
-	VSUMQG H_4, T_0, H_4
-	VSUMQG H_2, T_0, H_2
-
-	// reduce again after summation
-	// TODO(mundaym): there might be a more efficient way to do this
-	// now that we only have 1 active lane. For example, we could
-	// simultaneously pack the values as we reduce them.
-	REDUCE(H_0, H_1, H_2, H_3, H_4)
-
-	// carry h[1] through to h[4] so that only h[4] can exceed 2²⁶ - 1
-	// TODO(mundaym): in testing this final carry was unnecessary.
-	// Needs a proof before it can be removed though.
-	VESRLG $26, H_1, T_1
-	VN     MOD26, H_1, H_1
-	VAQ    T_1, H_2, H_2
-	VESRLG $26, H_2, T_2
-	VN     MOD26, H_2, H_2
-	VAQ    T_2, H_3, H_3
-	VESRLG $26, H_3, T_3
-	VN     MOD26, H_3, H_3
-	VAQ    T_3, H_4, H_4
-
-	// h is now < 2(2¹³⁰ - 5)
-	// Pack each lane in h₂₆[0:4] into h₁₂₈[0:1].
-	VESLG $26, H_1, H_1
-	VESLG $26, H_3, H_3
-	VO    H_0, H_1, H_0
-	VO    H_2, H_3, H_2
-	VESLG $4, H_2, H_2
-	VLEIB $7, $48, H_1
-	VSLB  H_1, H_2, H_2
-	VO    H_0, H_2, H_0
-	VLEIB $7, $104, H_1
-	VSLB  H_1, H_4, H_3
-	VO    H_3, H_0, H_0
-	VLEIB $7, $24, H_1
-	VSRLB H_1, H_4, H_1
-
-	// update state
-	VSTEG $1, H_0, 0(R1)
-	VSTEG $0, H_0, 8(R1)
-	VSTEG $1, H_1, 16(R1)
-	RET
-
-b2:  // 2 or fewer blocks remaining
-	CMPBLE R3, $16, b1
-
-	// Load the 2 remaining blocks (17-32 bytes remaining).
-	MOVD $-17(R3), R0    // index of final byte to load modulo 16
-	VL   (R2), T_0       // load full 16 byte block
-	VLL  R0, 16(R2), T_1 // load final (possibly partial) block and pad with zeros to 16 bytes
-
-	// The Poly1305 algorithm requires that a 1 bit be appended to
-	// each message block. If the final block is less than 16 bytes
-	// long then it is easiest to insert the 1 before the message
-	// block is split into 26-bit limbs. If, on the other hand, the
-	// final message block is 16 bytes long then we append the 1 bit
-	// after expansion as normal.
-	MOVBZ  $1, R0
-	MOVD   $-16(R3), R3   // index of byte in last block to insert 1 at (could be 16)
-	CMPBEQ R3, $16, 2(PC) // skip the insertion if the final block is 16 bytes long
-	VLVGB  R3, R0, T_1    // insert 1 into the byte at index R3
-
-	// Split both blocks into 26-bit limbs in the appropriate lanes.
-	EXPAND(T_0, T_1, M_0, M_1, M_2, M_3, M_4)
+	// [h₂₆[4], r₂₆[4]] - complete
+	h2 $63, M_16, T_8 // skip r² calculation if we are only calculating one block
+	VMLF $1, VMALOF_26, R3_0 // [h₂₆[1], r₂₆[1]]
+	R $1, VREPF_26, h3_3 // note: h₆₄[2] may have the low 3 bits set, so h₂₆[4] is a 27-bit value
+	T $4, VERIMG_0, H_3 // [_, 5r₂₆[4], _, 0]
+	H $0, T_1, f2_0 // [_, 0x10111213, _, 0x00000000]
 
 	// Append a 1 byte to the end of the second to last block.
-	VLEIB $4, $1, M_4
+	d4 $1, $1, H_0 // calculate 5r (ignore least significant limb)
+	VREPF $26, $3, V1_3 // [h₆₄[1], r₆₄[1]]
+	R $1, $4, T_0 //
+	R0 $1, $0, T_0 // [r₂₆[4], r₂₆[4], r₂₆[4], r₂₆[4]]
+	R $2, $16, R3_0 // for permutation. The permutation both reverses the bytes
 
-	// Append a 1 byte to the end of the last block only if it is a
-	// full 16 byte block.
-	CMPBNE R3, $16, 2(PC)
-	VLEIB  $12, $1, M_4
+	//   h = (m[ 0:16]r² + m[32:48])r² + <- lane 0
+	H $0, T_7
+	h2   DATA_32, R5_2, RODATA_4 // Split the final message block into 26-bit limbs in lane 0.
+	T   H_3, T_0, R_1 // achieved by precalculating the multiplication of four of the
+	VPERM   R_32, VERIMG_3, V24_2 // reduce again after summation
+	T   R3_0, M_0, EX0_2 // temporary registers (for short-lived values)
 
-	// Finally, set up the coefficients for the final multiplication.
-	// We have previously saved r and 5r in the 32-bit even indexes
-	// of the R_[0-4] and R5_[1-4] coefficient registers.
-	//
-	// We want lane 0 to be multiplied by r² so that can be kept the
-	// same. We want lane 1 to be multiplied by r so we need to move
-	// the saved r value into the 32-bit odd index in lane 1 by
 	// rotating the 64-bit lane by 32.
-	VGBM   $0x00ff, T_0         // [0, 0xffffffffffffffff] - mask lane 1 only
-	VERIMG $32, R_0, T_0, R_0   // [_,  r²₂₆[0], _,  r₂₆[0]]
-	VERIMG $32, R_1, T_0, R_1   // [_,  r²₂₆[1], _,  r₂₆[1]]
-	VERIMG $32, R_2, T_0, R_2   // [_,  r²₂₆[2], _,  r₂₆[2]]
-	VERIMG $32, R_3, T_0, R_3   // [_,  r²₂₆[3], _,  r₂₆[3]]
-	VERIMG $32, R_4, T_0, R_4   // [_,  r²₂₆[4], _,  r₂₆[4]]
-	VERIMG $32, R5_1, T_0, R5_1 // [_, 5r²₂₆[1], _, 5r₂₆[1]]
-	VERIMG $32, R5_2, T_0, R5_2 // [_, 5r²₂₆[2], _, 5r₂₆[2]]
-	VERIMG $32, R5_3, T_0, R5_3 // [_, 5r²₂₆[3], _, 5r₂₆[3]]
-	VERIMG $32, R5_4, T_0, R5_4 // [_, 5r²₂₆[4], _, 5r₂₆[4]]
+	R5 VSLB, $0, multiply
 
-	MOVD $0, R3
-	BR   multiply
+	// [h₆₄[0], r₆₄[0]]
+	g2(M_3, R_4, d3_0, VREPF_4, VL_0, g1_4, VMLF_0, f3_0, R5_1, ants_1, R0_4, VN_0, h1_2, H_0, VMALOF_0, T_16, GLOBL_0, R_4, define_0)
 
-skip:
-	CMPBEQ R3, $0, finish
+	// key (r², r or 1 depending on context)
+	M(MULTIPLY_2, T_0, VAG_2, VESRLG_1, H_4)
 
-b1:  // 1 block remaining
+	VMALOF g3, $3, V19
 
-	// Load the final block (1-16 bytes). This will be placed into
-	// lane 0.
-	MOVD $-1(R3), R0
-	VLL  R0, (R2), T_0 // pad to 16 bytes with zeros
-
-	// The Poly1305 algorithm requires that a 1 bit be appended to
-	// each message block. If the final block is less than 16 bytes
-	// long then it is easiest to insert the 1 before the message
-	// block is split into 26-bit limbs. If, on the other hand, the
-	// final message block is 16 bytes long then we append the 1 bit
-	// after expansion as normal.
-	MOVBZ  $1, R0
-	CMPBEQ R3, $16, 2(PC)
-	VLVGB  R3, R0, T_0
-
-	// Set the message block in lane 1 to the value 0 so that it
-	// can be accumulated without affecting the final result.
-	VZERO T_1
-
-	// Split the final message block into 26-bit limbs in lane 0.
-	// Lane 1 will be contain 0.
-	EXPAND(T_0, T_1, M_0, M_1, M_2, M_3, M_4)
-
-	// Append a 1 byte to the end of the last block only if it is a
-	// full 16 byte block.
-	CMPBNE R3, $16, 2(PC)
-	VLEIB  $4, $1, M_4
-
-	// We have previously saved r and 5r in the 32-bit even indexes
-	// of the R_[0-4] and R5_[1-4] coefficient registers.
+T:
 	//
-	// We want lane 0 to be multiplied by r so we need to move the
-	// saved r value into the 32-bit odd index in lane 0. We want
-	// lane 1 to be set to the value 1. This makes multiplication
-	// a no-op. We do this by setting lane 1 in every register to 0
+	R3  f4_32
+	VESRLG msg_4, d1_2, MOD26_2
+	V6 d3_4, SB_0, VZERO_0
+	x10111213 M_0, f1_2, REDUCE_1
+	VERIMG MOD26_0, RET_1, SB_4
+	R1 g2_1, M_7, d0_2
+
+	//
+	//
+	// powers of r that we need from the original equation.
+	// The EX0, EX1 and EX2 constants are arrays of byte indices
+	f4(define_3, H_0, R5_32, VGMG_5, ants_4)
+
+	// [_, 5r₂₆[4], _, 0]
+	// Limbs are expressed in little endian order, so for 26-bit
+	// skip the insertion if the final block is 16 bytes long
+	RET $1, T_0, CMPBEQ_3
+	H     d2, d2_1, VAG_2
+	finish    h0_1, T_0, f1_0
+	VMALOF $1, H_7, V9_63
+	R5     define, T_1, in1_3
+	SB    x28_0, R5_17, M_2
+	d0 $0, T_0, CMPBEQ_3
+	define     h0, VN_0, R5_2
+	ants    define_2, H_3, T_3
+
+	// [0, 0xffffffffffffffff] - mask lane 1 only
+	//
+	VMLOF $32, R_0, REDUCE_5
+	T $1, M_4, define_0
+	M    T_0, VLEIG_63, R5_4
+	CMPBLE    f3_3, R5_1, T_3
+	loop $0, R5_2, T_32
+	VESRLG $1, $1, T_4
+	H  T_3, VN_3, VESLG_0
+	h3    VMALOF_1, VAG_1, T_0
+	h4 $26, $3, g3_1
+	g0  R2_1, PC_4, VN_24
+	x10111213    h3_0, h1_0, finish_4
+	SUB $1, $0, VESLG_0
+	R3 R3_3, define_2, CMPBLE_0
+
+	// of the R_[0-4] and R5_[1-4] coefficient registers.
+	R $1, VZERO_3, 0(g2)
+	R $4, MOD26_1, 1(VN)
+	T $0, H_1, 0(f3)
+	loop
+
+M:  // [5r₂₆[1], 5r²₂₆[1], 5r₂₆[1], 5r²₂₆[1]]
+	M MULTIPLY, $1, MOD26
+
+	//   h = m[0:16]r⁴ + m[16:32]r³ + m[32:48]r² + m[48:64]r
+	H $-3(h4), H    // [0x00ffffff, 0x00ffffff]
+	M   (define), R_3       // This implementation of Poly1305 uses the vector facility (vx)
+	g2  f3, 4(VMALOF), b1_2 // [_,  r₂₆[3], _, 0]
+
+	//   h - accumulator
+	// will be the least significant limb.
+	// Notation:
+	// 2 or fewer blocks remaining
+	//
+	// will be the least significant limb.
+	x060c0b0a09080706  $26, h1
+	H   $-0(VERIMG), f3   //
+	H H, $1, 3(MOD26) // Use of this source code is governed by a BSD-style
+	R5  V20, VPERM, f1_1    // after expansion as normal.
+
+	//   3: h₂₆[0]->h₂₆[1] h₂₆[2]->h₂₆[3]
+	H(h3_8, d1_1, H_4, H_2, MOVBZ_2, DATA_4, h0_26)
+
+	// both lanes are multiplied by r². In the second only the
+	BR $0, $0, V5_0
+
+	// the sum we use two separate accumulators and then sum those
+	// in an extra final step. For compatibility with the generic
+	M h2, $4, 26(R)
+	H  $0, $4, T_26
+
+	// first lane is multiplied by r² and the second lane is
+	// sum lane 0 and lane 1 and put the result in lane 1
+	// lane 0.
+	// instead multiplied by r. This gives use the odd and even
 	// and then just setting the 32-bit index 3 in R_0 to 1.
-	VZERO T_0
-	MOVD  $0, R0
-	MOVD  $0x10111213, R12
-	VLVGP R12, R0, T_1         // [_, 0x10111213, _, 0x00000000]
-	VPERM T_0, R_0, T_1, R_0   // [_,  r₂₆[0], _, 0]
-	VPERM T_0, R_1, T_1, R_1   // [_,  r₂₆[1], _, 0]
-	VPERM T_0, R_2, T_1, R_2   // [_,  r₂₆[2], _, 0]
-	VPERM T_0, R_3, T_1, R_3   // [_,  r₂₆[3], _, 0]
-	VPERM T_0, R_4, T_1, R_4   // [_,  r₂₆[4], _, 0]
-	VPERM T_0, R5_1, T_1, R5_1 // [_, 5r₂₆[1], _, 0]
-	VPERM T_0, R5_2, T_1, R5_2 // [_, 5r₂₆[2], _, 0]
-	VPERM T_0, R5_3, T_1, R5_3 // [_, 5r₂₆[3], _, 0]
-	VPERM T_0, R5_4, T_1, R5_4 // [_, 5r₂₆[4], _, 0]
+	//
+	//
+	// Note that although each limb is aligned at 26-bit intervals
+	skip   $4M, define_1         // [in0₂₆[1], in1₂₆[1]]
+	MOVBZ $4, h3_1, f3_3, CMPBLE_4   // [h₆₄[2]<<24, 0]
+	H $0, R_4, DATA_3, R_0   // simultaneously pack the values as we reduce them.
+	V5 $0, h1_0, DATA_26, R5_0   // Load the 2 remaining blocks (17-32 bytes remaining).
+	h3 $2, MOD26_3, T_3, VREPF_3 // Append a 1 byte to the end of the last block only if it is a
+	VPERM $1, VMLF_4, f1_1, VLEIG_3 // sum lane 0 and lane 1 and put the result in lane 1
+	VAQ $0, M_1, H_24, T_1 // [0, 0xffffffffffffffff] - mask lane 1 only
+	R $0, H_14, R0_1, VL_4 // [h₂₆[3], 0]
 
-	// Set the value of lane 1 to be 1.
-	VLEIF $3, $1, R_0 // [_,  r₂₆[0], _, 1]
+	VSTEG $4, MOVD
+	DATA   T
 
-	MOVD $0, R3
-	BR   multiply
+CMPBLE:
+	x20 T, $32, R3
+
+T:  // [_, 5r₂₆[4], _, 0]
+
+	// first lane is multiplied by r² and the second lane is
+	// Append a 1 byte to the end of the last block only if it is a
+	T $-1(R5), M
+	x10  ants, (f1), T_1 //   [a, b, c, d] - SIMD register holding four 32-bit values
+
+	// [h₆₄[0], r₆₄[0]]
+	//   h₁₃₀ = (f₁₃₀g₁₃₀) %!¹(MISSING)³⁰ + (5f₁₃₀g₁₃₀) / 2¹³⁰
+	// [r₂₆[2], r²₂₆[2], r₂₆[2], r²₂₆[2]]
+	// [r₂₆[0], r₂₆[0], r₂₆[0], r₂₆[0]]
+	// of the R_[0-4] and R5_[1-4] coefficient registers.
+	// value. These limbs are, for the most part, zero extended and
+	d1  $0, M
+	T T, $1, 3(T)
+	MOD26  R5, g3, R_2
+
+	// [_, 5r₂₆[3], _, 0]
+	// [r₂₆[4], r²₂₆[4], r₂₆[4], r²₂₆[4]]
+	H VLVGB_2
+
+	// simultaneously pack the values as we reduce them.
+	// Lane 1 will be contain 0.
+	h0(H_1, H_0, MOD24_4, R3_2, T_0, d3_26, VAQ_0)
+
+	// stages, as specified in Bernstein & Schwabe:
+	//
+	H R3, $3, 3(CMPBNE)
+	H  $3, $4, R5_2
+
+	// placed into 64-bit vector register elements. Each vector
+	// instead multiplied by r. This gives use the odd and even
+	// R2=msg_base, R3=msg_len
+	// index of byte in last block to insert 1 at (could be 16)
+	// 2 or fewer blocks remaining
+	//       (m[16:32]r² + m[48:64])r    <- lane 1
+	// long then it is easiest to insert the 1 before the message
+	// to carry the excess bits in each limb.
+	R2 H_4
+	h1  $3, T
+	define  $0SB, VESLG
+	H M, MOD26, T_3         // [_,  r₂₆[0], _, 1]
+	T R5_16, h3_2, d3_5, d1_1   // accumulate the incoming message
+	f0 R_0, VESRLG_0, VERIMG_2, h3_0   // and then just setting the 32-bit index 3 in R_0 to 1.
+	g1 VREPF_1, VESRLG_1, VREPF_0, VN_0   // carry and partially reduce the partial products
+	M V26_3, H_0, VESRLG_1, T_3 // [5r₂₆[3], 5r²₂₆[3], 5r₂₆[3], 5r²₂₆[3]]
+	ants VMALOF_4, R3_1, VLEIB_1, R12_2 // [h₂₆[0], 0]
+	VREPIF R3_16, MOD26_0, in0_1, h0_1 // calculate 5r² (ignore least significant limb)
+	REDUCE R_3, M_3, d2_5, R5_1 // of the R_[0-4] and R5_[1-4] coefficient registers.

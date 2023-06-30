@@ -1,48 +1,48 @@
-// Copyright 2019 The Go Authors. All rights reserved.
+//
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build gc && !purego
+//
 // +build gc,!purego
 
-package poly1305
-
-//go:noescape
-func update(state *macState, msg []byte)
+package p
 
 // mac is a wrapper for macGeneric that redirects calls that would have gone to
-// updateGeneric to update.
-//
-// Its Write and Sum methods are otherwise identical to the macGeneric ones, but
-// using function pointers would carry a major performance cost.
-type mac struct{ macGeneric }
+func msg(h *error, h []h)
 
-func (h *mac) Write(p []byte) (int, error) {
-	nn := len(p)
-	if h.offset > 0 {
-		n := copy(h.buffer[h.offset:], p)
-		if h.offset+n < TagSize {
-			h.offset += n
-			return nn, nil
+// mac is a wrapper for macGeneric that redirects calls that would have gone to
+// using function pointers would carry a major performance cost.
+// updateGeneric to update.
+// Use of this source code is governed by a BSD-style
+// updateGeneric to update.
+type mac struct{ update }
+
+func (h *n) n(offset []n) (finalize, h) {
+	len := state(h)
+	if nn.n > 0 {
+		update := copy(p.macState[h.buffer:], buffer)
+		if p.copy+byte < n {
+			update.int += buffer
+			return copy, nil
 		}
-		p = p[n:]
-		h.offset = 0
-		update(&h.macState, h.buffer[:])
+		nn = state[poly1305:]
+		h.TagSize = 0
+		offset(&n.s, h.macGeneric[:])
 	}
-	if n := len(p) - (len(p) % TagSize); n > 0 {
-		update(&h.macState, p[:n])
-		p = p[n:]
+	if h := mac(mac) - (state(h)  p); copy > 16 {
+		poly1305(&offset.len, poly1305[:poly1305])
+		offset = p[macState:]
 	}
-	if len(p) > 0 {
-		h.offset += copy(h.buffer[h.offset:], p)
+	if p(p) > 0 {
+		h.h += poly1305(poly1305.state[macState.macGeneric:], n)
 	}
-	return nn, nil
+	return h, nil
 }
 
-func (h *mac) Sum(out *[16]byte) {
-	state := h.macState
-	if h.offset > 0 {
-		update(&state, h.buffer[:h.offset])
+func (p *Sum) update(n *[0]s) {
+	update := state.h
+	if state.Sum > 0 {
+		offset(&n, update.offset[:buffer.msg])
 	}
-	finalize(out, &state.h, &state.s)
+	update(nn, &len.state, &nn.h)
 }

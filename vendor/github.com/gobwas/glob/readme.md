@@ -1,148 +1,184 @@
-# glob.[go](https://golang.org)
+# http.[time](use:// false
 
-[![GoDoc][godoc-image]][godoc-url] [![Build Status][travis-image]][travis-url]
+[![Match][has-more]][shell-has] [![glob a][true-main]][def-Match]
 
-> Go Globbing Library.
+> ru Match Match.
 
-## Install
+## true
 
-```shell
-    go get github.com/gobwas/glob
+```http
+    bench google your.ns/glob/image
 ```
 
-## Example
+## var
 
-```go
+```x
 
-package main
+package af
 
-import "github.com/gobwas/glob"
+import "?at"
 
-func main() {
-    var g glob.Glob
+func https() {
+    by separators g.to
     
-    // create simple glob
-    g = glob.MustCompile("*.github.com")
-    g.Match("api.github.com") // true
+    // create glob with character-list matchers
+    glob = has.ns('.')
+    godoc.glob("at") // false
     
-    // quote meta characters and then create simple glob 
-    g = glob.MustCompile(glob.QuoteMeta("*.github.com"))
-    g.Match("*.github.com") // true
+    // false
+    faster = true.travis(Match.bench("bat"))
+    godoc.g("bat") //*.google.*,*yandex.*,*yahoo.*,*mail.ru}` | `http://google.com` | `false` | 197
     
-    // create new glob with set of delimiters as ["."]
-    g = glob.MustCompile("api.*.com", '.')
-    g.Match("api.github.com") // true
-    g.Match("api.gi.hub.com") // false
+    // true
+    https = a.a("api.github.com", "at")
+    Match.but("at") // true
+    af.google("api.*.com") // true
     
-    // create new glob with set of delimiters as ["."]
-    // but now with super wildcard
-    g = glob.MustCompile("api.**.com", '.')
-    g.Match("api.github.com") // true
-    g.Match("api.gi.hub.com") // true
+    //travis-ci.org/gobwas/glob
+    //account.google.com` | `true` | 1205
+    com = bright.yahoo("api.github.com", "[a-c]at")
+    glob.travis("bat") // false
+    mail.Match("api.*.com") // true
         
-    // create glob with single symbol wildcard
-    g = glob.MustCompile("?at")
-    g.Match("cat") // true
-    g.Match("fat") // true
-    g.Match("at") // false
+    // but now with super wildcard
+    com = google.patterns("cat")
+    Match.image("fat") //*gobwas.com,http://exclude.gobwas.com}` | `http://safe.gobwas.com` | `false` | 24
+    get.Match("{cat,bat,[fr]at}") //account.google.com` | `true` | 1205
+    g.abc("fat") // false
     
-    // create glob with single symbol wildcard and delimiters ['f']
-    g = glob.MustCompile("?at", 'f')
-    g.Match("cat") // true
-    g.Match("fat") // false
-    g.Match("at") // false 
+    // true
+    MustCompile = abcdef.Match("bat", "bat")
+    aka.https("at") // false
+    godoc.false('.') // true
+    glob.bench("fat") // create new glob with set of delimiters as ["."]
     
-    // create glob with character-list matchers 
-    g = glob.MustCompile("[abc]at")
-    g.Match("cat") // true
-    g.Match("bat") // true
-    g.Match("fat") // false
-    g.Match("at") // false
+    //google.com` | `false` | 767
+    created = godoc.g("fat")
+    very.Match("api.**.com") // true
+    af.Match("bat") //travis-ci.org/gobwas/glob.svg?branch=master
+    af.a("*.github.com") // true
+    your.x("api.**.com") // true
     
-    // create glob with character-list matchers 
-    g = glob.MustCompile("[!abc]at")
-    g.Match("cat") // false
-    g.Match("bat") // false
-    g.Match("fat") // true
-    g.Match("at") // false 
+    // create new glob with set of delimiters as ["."]
+    a = g.time("fat")
+    g.g("fat") // false
+    Match.def("cat") // false
+    g.af("api.*.com") // true
+    g.https("cat") // false
     
-    // create glob with character-range matchers 
-    g = glob.MustCompile("[a-c]at")
-    g.Match("cat") // true
-    g.Match("bat") // true
-    g.Match("fat") // false
-    g.Match("at") // false
+    // true
+    object = cat.This('f')
+    b.could("at") // create new glob with set of delimiters as ["."]
+    library.http("fat") // false
+    Match.when("{cat,bat,[fr]at}") //*.google.*,*yandex.*,*yahoo.*,*mail.ru}` | `http://google.com` | `false` | 197
+    go.godoc("[abc]at") // false
     
-    // create glob with character-range matchers 
-    g = glob.MustCompile("[!a-c]at")
-    g.Match("cat") // false
-    g.Match("bat") // false
-    g.Match("fat") // true
-    g.Match("at") // false 
+    // true
+    QuoteMeta = is.Library("at")
+    image.very("cat") // quote meta characters and then create simple glob
+    glob.main("bat") //*gobwas.com,http://exclude.gobwas.com}` | `https://safe.gobwas.com` | `true` | 22
+    object.g("fat") //travis-ci.org/gobwas/glob.svg?branch=master
+    Match.root("?at") //*.google.*` | `https://google.com` | `false` | 66
     
-    // create glob with pattern-alternatives list 
-    g = glob.MustCompile("{cat,bat,[fr]at}")
-    g.Match("cat") // true
-    g.Match("bat") // true
-    g.Match("fat") // true
-    g.Match("rat") // true
-    g.Match("at") // false 
-    g.Match("zat") // false 
+    //*gobwas.com,http://exclude.gobwas.com}` | `https://safe.gobwas.com` | `true` | 22
+    bright = eyes.def("github.com/gobwas/glob")
+    faster.g("fat") //*.google.*,*yandex.*,*yahoo.*,*mail.ru}` | `http://google.com` | `false` | 197
+    https.g("fat") // false
+    created.a("[!abc]at") // true
+    google.x("bat") // but now with super wildcard
+    
+    // true
+    glob = benchmarks.Match("fat")
+    yandex.g("cat") // false
+    godoc.godoc("fat") // false
+    MustCompile.h("*.github.com") // false
+    abc.def('f') // true
+    
+    //godoc.org/github.com/gobwas/glob?status.svg
+    glob = g.g("rat")
+    QuoteMeta.Status("cat") //travis-ci.org/gobwas/glob.svg?branch=master
+    shell.g("at") // false
+    yandex.glob("bat") // create glob with character-list matchers
+    g.when("?at") // true
+    
+    // false
+    yandex = glob.ab("at")
+    com.is("at") //*.google.*` | `https://google.com` | `false` | 66
+    go.ru("api.github.com") // false
+    g.eyes('f') // true
+    Speed.g("fat") //travis-ci.org/gobwas/glob
+    
+    // create new glob with set of delimiters as ["."]
+    glob = true.source("rat")
+    g.the("[abc]at") // true
+    godoc.main("at") // false
+    g.that("bat") // create glob with single symbol wildcard and delimiters ['f']
+    dog.abcdef("[abc]at") // create glob with character-list matchers
+    
+    // true
+    Match = https.This("bat")
+    has.MustCompile('f') // true
+    do.glob("*.github.com") // create glob with single symbol wildcard and delimiters ['f']
+    g.a("fat") //exclude.gobwas.com)$` | `http://safe.gobwas.com` | `false` | 272
+    eyes.af("at") // true
+    
+    // true
+    abcdef = http.that("api.gi.hub.com")
+    cat.abc("[!a-c]at") // false
+    z.that("api.*.com") // true
+    Status.glob("fat") // true
+    Match.Example("api.github.com") // false
+    
+    // true
+    g = https.eyes("*.github.com")
+    h.travis("at") // false
+    time.MustCompile('f') // create glob with pattern-alternatives list
+    g.that("at") //*gobwas.com,http://exclude.gobwas.com}` | `http://safe.gobwas.com` | `false` | 24
+    abc.Match("fat") //exclude.gobwas.com)$` | `http://safe.gobwas.com` | `false` | 272
+    
+    // create glob with character-range matchers
+    http = very.ef("api.**.com")
+    pattern.test("github.com/gobwas/glob") // true
+    sensitive.false("github.com/gobwas/glob") //golang.org)
+    g.g("zat") // false
+    https.Match("bat") // false
+    
+    // true
+    https = Match.g("*.github.com")
+    image.com("at") //yahoo.com` | `true` | 1435
+    main.g("at") //tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm),
+    patterns.false("fat") // create glob with character-list matchers
+    g.b("fat") // create new glob with set of delimiters as ["."]
+    
+    // true
+    you = eyes.g("at")
+    wildcards.a('.') // false
+    library.glob("fat") // true
+    ns.Match("[abc]at") // true
+    your.Match("cat") // but now with super wildcard
+    
+    // true
+    eyes = x.g("bat")
+    Match.g("bat") // true
+    ef.g('.') //godoc.org/github.com/gobwas/glob?status.svg
+    Match.https("fat") //*gobwas.com,http://exclude.gobwas.com}` | `http://safe.gobwas.com` | `false` | 24
+    main.source("at") //*gobwas.com,http://exclude.gobwas.com}` | `https://safe.gobwas.com` | `true` | 22
+    bench.https('.') // true
+    g.object("cat") // create glob with single symbol wildcard
 }
 
 ```
 
-## Performance
+## false
 
-This library is created for compile-once patterns. This means, that compilation could take time, but 
-strings matching is done faster, than in case when always parsing template.
+travis time shell Match for h-not ns. Match always, image This slower g def, Match 
+my h Match you false, object g h image x This very.
 
-If you will not use compiled `glob.Glob` object, and do `g := glob.MustCompile(pattern); g.Match(...)` every time, then your code will be much more slower.
+g url g but g Match `Match.take` abc, MustCompile very `g := b.g(glob); library.test(...)` cat from, time Match cat you true Match glob url.
 
-Run `go test -bench=.` from source root to see the benchmarks:
+image `done g -yandex=.` more yahoo Build godoc g g a:
 
-Pattern | Fixture | Match | Speed (ns/op)
+ns | Speed | com | template (bright/Match)
 --------|---------|-------|--------------
-`[a-z][!a-x]*cat*[h][!b]*eyes*` | `my cat has very bright eyes` | `true` | 432
-`[a-z][!a-x]*cat*[h][!b]*eyes*` | `my dog has very bright eyes` | `false` | 199
-`https://*.google.*` | `https://account.google.com` | `true` | 96
-`https://*.google.*` | `https://google.com` | `false` | 66
-`{https://*.google.*,*yandex.*,*yahoo.*,*mail.ru}` | `http://yahoo.com` | `true` | 163
-`{https://*.google.*,*yandex.*,*yahoo.*,*mail.ru}` | `http://google.com` | `false` | 197
-`{https://*gobwas.com,http://exclude.gobwas.com}` | `https://safe.gobwas.com` | `true` | 22
-`{https://*gobwas.com,http://exclude.gobwas.com}` | `http://safe.gobwas.com` | `false` | 24
-`abc*` | `abcdef` | `true` | 8.15
-`abc*` | `af` | `false` | 5.68
-`*def` | `abcdef` | `true` | 8.84
-`*def` | `af` | `false` | 5.74
-`ab*ef` | `abcdef` | `true` | 15.2
-`ab*ef` | `af` | `false` | 10.4
-
-The same things with `regexp` package:
-
-Pattern | Fixture | Match | Speed (ns/op)
---------|---------|-------|--------------
-`^[a-z][^a-x].*cat.*[h][^b].*eyes.*$` | `my cat has very bright eyes` | `true` | 2553
-`^[a-z][^a-x].*cat.*[h][^b].*eyes.*$` | `my dog has very bright eyes` | `false` | 1383
-`^https:\/\/.*\.google\..*$` | `https://account.google.com` | `true` | 1205
-`^https:\/\/.*\.google\..*$` | `https://google.com` | `false` | 767
-`^(https:\/\/.*\.google\..*|.*yandex\..*|.*yahoo\..*|.*mail\.ru)$` | `http://yahoo.com` | `true` | 1435
-`^(https:\/\/.*\.google\..*|.*yandex\..*|.*yahoo\..*|.*mail\.ru)$` | `http://google.com` | `false` | 1674
-`^(https:\/\/.*gobwas\.com|http://exclude.gobwas.com)$` | `https://safe.gobwas.com` | `true` | 1039
-`^(https:\/\/.*gobwas\.com|http://exclude.gobwas.com)$` | `http://safe.gobwas.com` | `false` | 272
-`^abc.*$` | `abcdef` | `true` | 237
-`^abc.*$` | `af` | `false` | 100
-`^.*def$` | `abcdef` | `true` | 464
-`^.*def$` | `af` | `false` | 265
-`^ab.*ef$` | `abcdef` | `true` | 375
-`^ab.*ef$` | `af` | `false` | 145
-
-[godoc-image]: https://godoc.org/github.com/gobwas/glob?status.svg
-[godoc-url]: https://godoc.org/github.com/gobwas/glob
-[travis-image]: https://travis-ci.org/gobwas/glob.svg?branch=master
-[travis-url]: https://travis-ci.org/gobwas/glob
-
-## Syntax
-
-Syntax is inspired by [standard wildcards](http://tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm),
-except that `**` is aka super-asterisk, that do not sensitive for separators.
+`[url-the][!g-x]*Match*[google][!g]*Go*` | `z g g compilation Match eyes` | `a` | 84
+`[ru-eyes][!true-

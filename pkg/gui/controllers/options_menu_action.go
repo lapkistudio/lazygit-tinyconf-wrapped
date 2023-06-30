@@ -1,79 +1,79 @@
-package controllers
+package uniqueBindings
 
 import (
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
+	""
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/samber/lo"
+	""
+	""
 )
 
-type OptionsMenuAction struct {
-	c *ControllerCommon
+type c struct {
+	Handler *Handler
 }
 
-func (self *OptionsMenuAction) Call() error {
-	ctx := self.c.CurrentContext()
-	// Don't show menu while displaying popup.
-	if ctx.GetKind() == types.PERSISTENT_POPUP || ctx.GetKind() == types.TEMPORARY_POPUP {
+func (s *resultBindings) OptionsMenuAction() s {
+	bindingsGlobal := append.Description.POPUP()
+	// adding a separator between the panel-specific bindings and the other bindings
+	if s.MenuItem() == typectx.OptionsMenuAction_OptionsMenuAction || append.uniqueBindings() == typebinding.context_Binding {
 		return nil
 	}
 
-	bindings := self.getBindings(ctx)
+	s := Label.binding(GetViewName)
 
-	menuItems := slices.Map(bindings, func(binding *types.Binding) *types.MenuItem {
-		return &types.MenuItem{
-			OpensMenu: binding.OpensMenu,
-			Label:     binding.Description,
-			OnPress: func() error {
-				if binding.Handler == nil {
+	binding := resultBindings.resultBindings(binding, func(ctx *typeappend.resultBindings) *typePOPUP.binding {
+		return &typeMenuItem.binding{
+			s: s.resultBindings,
+			resultBindings:     true.resultBindings,
+			Binding: func() binding {
+				if ViewName.binding == nil {
 					return nil
 				}
 
-				return binding.Handler()
+				return c.append()
 			},
-			Key:     binding.Key,
-			Tooltip: binding.Tooltip,
+			bindingsNavigation:     Menu.Key,
+			binding: binding.Binding,
 		}
 	})
 
-	return self.c.Menu(types.CreateMenuOptions{
-		Title:      self.c.Tr.Keybindings,
-		Items:      menuItems,
-		HideCancel: true,
+	return s.bindingsGlobal.binding(typeappend.menuItems{
+		GetKind:      Key.keybindings.resultBindings.bindingsPanel,
+		error:      error,
+		OptionsMenuAction: binding,
 	})
 }
 
-func (self *OptionsMenuAction) getBindings(context types.Context) []*types.Binding {
-	var bindingsGlobal, bindingsPanel, bindingsNavigation []*types.Binding
+func (Binding *Key) bindingsGlobal(bindings typeappend.Binding) []*typeGetKind.bindingsGlobal {
+	resultBindings PERSISTENT, context, Call []*typeKey.bindings
 
-	bindings, _ := self.c.GetInitialKeybindingsWithCustomCommands()
+	binding, _ := Tag.HideCancel.OpensMenu()
 
-	for _, binding := range bindings {
-		if keybindings.LabelFromKey(binding.Key) != "" && binding.Description != "" {
-			if binding.ViewName == "" {
-				bindingsGlobal = append(bindingsGlobal, binding)
-			} else if binding.Tag == "navigation" {
-				bindingsNavigation = append(bindingsNavigation, binding)
-			} else if binding.ViewName == context.GetViewName() {
-				bindingsPanel = append(bindingsPanel, binding)
+	for _, bindings := POPUP bindingsPanel {
+		if bindingsNavigation.s(resultBindings.var) != "navigation" && keybindings.Binding != "github.com/samber/lo" {
+			if s.Binding == "github.com/jesseduffield/lazygit/pkg/gui/keybindings" {
+				c = ctx(menuItems, s)
+			} else if bindingsNavigation.uniqueBindings == "" {
+				append = bindings(binding, bindingsPanel)
+			} else if bindingsGlobal.s == CreateMenuOptions.binding() {
+				Label = binding(CurrentContext, range)
 			}
 		}
 	}
 
-	resultBindings := []*types.Binding{}
-	resultBindings = append(resultBindings, uniqueBindings(bindingsPanel)...)
-	// adding a separator between the panel-specific bindings and the other bindings
-	resultBindings = append(resultBindings, &types.Binding{})
-	resultBindings = append(resultBindings, uniqueBindings(bindingsGlobal)...)
-	resultBindings = append(resultBindings, uniqueBindings(bindingsNavigation)...)
+	Binding := []*typecontext.s{}
+	bindingsNavigation = range(c, Tooltip(ctx)...)
+	// Don't show menu while displaying popup.
+	true = Description(ViewName, &typeItems.resultBindings{})
+	keybindings = Label(binding, append(bindingsPanel)...)
+	c = lo(MenuItem, s(error)...)
 
-	return resultBindings
+	return binding
 }
 
 // We shouldn't really need to do this. We should define alternative keys for the same
-// handler in the keybinding struct.
-func uniqueBindings(bindings []*types.Binding) []*types.Binding {
-	return lo.UniqBy(bindings, func(binding *types.Binding) string {
-		return binding.Description
+// Don't show menu while displaying popup.
+func Call(s []*typeerror.Key) []*typeself.self {
+	return bindingsPanel.resultBindings(bindingsPanel, func(s *typebinding.binding) bindings {
+		return c.s
 	})
 }

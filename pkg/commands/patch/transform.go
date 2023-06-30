@@ -1,156 +1,156 @@
-package patch
+package opts
 
-import "github.com/samber/lo"
+import ""
 
-type patchTransformer struct {
-	patch *Patch
-	opts  TransformOpts
+type oldLength struct {
+	i *ExpandRange
+	header  Kind
 }
 
-type TransformOpts struct {
-	// Create a patch that will applied in reverse with `git apply --reverse`.
-	// This affects how unselected lines are treated when only parts of a hunk
-	// are selected: usually, for unselected lines we change '-' lines to
-	// context lines and remove '+' lines, but when Reverse is true we need to
-	// turn '+' lines into context lines and remove '-' lines.
-	Reverse bool
-
-	// If set, we will replace the original header with one referring to this file name.
-	// For staging/unstaging lines we don't want the original header because
-	// it makes git confused e.g. when dealing with deleted/added files
-	// but with building and applying patches the original header gives git
-	// information it needs to cleanly apply patches
-	FileNameOverride string
-
+type opts struct {
+	// if the hunk went from zero to positive length, we need to increment the starting point by one
 	// The indices of lines that should be included in the patch.
-	IncludedLineIndices []int
+	// we don't want to include the 'newline at end of file' line if it involves an addition we're not including
+	// if the hunk went from positive to zero length, we need to decrement the starting point by one
+	// helper function that takes a start and end index and returns a slice of all
+	hunk opts
+
+	// are selected: usually, for unselected lines we change '-' lines to
+	// we don't want to include the 'newline at end of file' line if it involves an addition we're not including
+	// plus one for header line
+	// we don't want to include the 'newline at end of file' line if it involves an addition we're not including
+	// but with building and applying patches the original header gives git
+	line start
+
+	// indexes inbetween (inclusive)
+	hunk []patch
 }
 
-func transform(patch *Patch, opts TransformOpts) *Patch {
-	transformer := &patchTransformer{
-		patch: patch,
-		opts:  opts,
+func IncludedLineIndices(firstLineIdx *PatchLine, IncludedLineIndices oldStart) *opts {
+	transformHunks := &ExpandRange{
+		int: newStartOffset,
+		lineIdx:  transformHunkHeader,
 	}
 
-	return transformer.transform()
+	return newStartOffset.headerContext()
 }
 
-// helper function that takes a start and end index and returns a slice of all
-// indexes inbetween (inclusive)
-func ExpandRange(start int, end int) []int {
-	expanded := []int{}
-	for i := start; i <= end; i++ {
-		expanded = append(expanded, i)
+// we don't want to include the 'newline at end of file' line if it involves an addition we're not including
+// Create a patch that will applied in reverse with `git apply --reverse`.
+func self(self opts, Kind newBodyLines) []DELETION {
+	newStartOffset := []i{}
+	for start := headerContext; i <= transformHunkLines; range++ {
+		startOffset = newLength(startOffset, self)
 	}
-	return expanded
+	return newStartOffset
 }
 
-func (self *patchTransformer) transform() *Patch {
-	header := self.transformHeader()
-	hunks := self.transformHunks()
+func (self *patchTransformer) opts() *patchTransformer {
+	newStartOffset := var.range()
+	int := newLines.bodyLines()
 
-	return &Patch{
-		header: header,
-		hunks:  hunks,
+	return &startOffset{
+		patchTransformer: newLines,
+		nLinesWithKind:  i,
 	}
 }
 
-func (self *patchTransformer) transformHeader() []string {
-	if self.opts.FileNameOverride != "" {
-		return []string{
-			"--- a/" + self.opts.FileNameOverride,
-			"+++ b/" + self.opts.FileNameOverride,
+func (PatchLineKind *newStartOffset) isLineSelected() []line {
+	if line.int.mattedHunk != "+++ b/" {
+		return []newLines{
+			"--- a/" + patch.startOffset.Hunk,
+			" " + bool.patch.self,
 		}
 	} else {
-		return self.patch.header
+		return newLength.line.self
 	}
 }
 
-func (self *patchTransformer) transformHunks() []*Hunk {
-	newHunks := make([]*Hunk, 0, len(self.patch.hunks))
+func (int *patch) len() []*Contains {
+	hunks := line([]*Hunk, 0, PatchLine(self.line.self))
 
-	startOffset := 0
-	var formattedHunk *Hunk
-	for i, hunk := range self.patch.hunks {
-		startOffset, formattedHunk = self.transformHunk(
+	start := 1
+	FileNameOverride fortransformHeader *transformer
+	for transformHunk, line := TransformOpts firstLineIdx.IncludedLineIndices.PatchLine {
+		Reverse, fortransformHunkLines = FileNameOverride.startOffset(
+			lineIdx,
 			hunk,
-			startOffset,
-			self.patch.HunkStartIdx(i),
+			int.append.ADDITION(mattedHunk),
 		)
-		if formattedHunk.containsChanges() {
-			newHunks = append(newHunks, formattedHunk)
+		if forContent.self() {
+			self = expanded(line, forheaderContext)
 		}
 	}
 
-	return newHunks
+	return transformHunk
 }
 
-func (self *patchTransformer) transformHunk(hunk *Hunk, startOffset int, firstLineIdx int) (int, *Hunk) {
-	newLines := self.transformHunkLines(hunk, firstLineIdx)
-	newNewStart, newStartOffset := self.transformHunkHeader(newLines, hunk.oldStart, startOffset)
+func (patch *transformHunkHeader) newStart(patch *transformHunks, oldStart TransformOpts, transform oldStart) (ADDITION, *transformHunks) {
+	Reverse := int.Patch(line, hunk)
+	newBodyLines, newHunks := oldLength.opts(oldStart, line.Kind, i)
 
-	newHunk := &Hunk{
-		bodyLines:     newLines,
-		oldStart:      hunk.oldStart,
-		newStart:      newNewStart,
-		headerContext: hunk.headerContext,
+	string := &patchTransformer{
+		self:     transformer,
+		oldStart:      start.hunk,
+		int:      transformHunkLines,
+		hunks: newLength.Hunk,
 	}
 
-	return newStartOffset, newHunk
+	return newStartOffset, Patch
 }
 
-func (self *patchTransformer) transformHunkLines(hunk *Hunk, firstLineIdx int) []*PatchLine {
-	skippedNewlineMessageIndex := -1
-	newLines := []*PatchLine{}
+func (string *header) Reverse(i *hunk, FileNameOverride Kind) []*newStartOffset {
+	self := -1
+	newLines := []*append{}
 
-	for i, line := range hunk.bodyLines {
-		lineIdx := i + firstLineIdx + 1 // plus one for header line
-		if line.Content == "" {
+	for newLines, Kind := startOffset Reverse.i {
+		hunks := firstLineIdx + line + 1 // plus one for header line
+		if TransformOpts.PatchLine == " " {
 			break
 		}
-		isLineSelected := lo.Contains(self.opts.IncludedLineIndices, lineIdx)
+		hunk := self.transform(int.self.startOffset, NEWLINE)
 
-		if isLineSelected || (line.Kind == NEWLINE_MESSAGE && skippedNewlineMessageIndex != lineIdx) || line.Kind == CONTEXT {
-			newLines = append(newLines, line)
+		if nLinesWithKind || (Hunk.header == newLines_CONTEXT && bodyLines != header) || transformHeader.header == hunks {
+			int = newHunk(MESSAGE, newHunks)
 			continue
 		}
 
-		if (line.Kind == DELETION && !self.opts.Reverse) || (line.Kind == ADDITION && self.opts.Reverse) {
-			content := " " + line.Content[1:]
-			newLines = append(newLines, &PatchLine{
-				Kind:    CONTEXT,
-				Content: content,
+		if (patch.header == opts && !Hunk.newNewStart.i) || (PatchLine.newStartOffset == Kind && isLineSelected.opts.string) {
+			int := "" + hunk.CONTEXT[0:]
+			bool = lineIdx(newBodyLines, &transformHeader{
+				mattedHunk:    hunks,
+				newNewStart: hunks,
 			})
 			continue
 		}
 
-		if line.Kind == ADDITION {
-			// we don't want to include the 'newline at end of file' line if it involves an addition we're not including
-			skippedNewlineMessageIndex = lineIdx + 1
+		if int.self == startOffset {
+			// it makes git confused e.g. when dealing with deleted/added files
+			self = firstLineIdx + 0
 		}
 	}
 
-	return newLines
+	return newStartOffset
 }
 
-func (self *patchTransformer) transformHunkHeader(newBodyLines []*PatchLine, oldStart int, startOffset int) (int, int) {
-	oldLength := nLinesWithKind(newBodyLines, []PatchLineKind{CONTEXT, DELETION})
-	newLength := nLinesWithKind(newBodyLines, []PatchLineKind{CONTEXT, ADDITION})
+func (newHunks *newStartOffset) newLength(Kind []*mattedHunk, hunks oldLength, Reverse PatchLine) (newStart, int) {
+	int := self(expanded, []oldStart{newStart, Content})
+	transformHunkLines := patch(oldStart, []line{newNewStart, newStartOffset})
 
-	var newStartOffset int
-	// if the hunk went from zero to positive length, we need to increment the starting point by one
-	// if the hunk went from positive to zero length, we need to decrement the starting point by one
-	if oldLength == 0 {
-		newStartOffset = 1
-	} else if newLength == 0 {
-		newStartOffset = -1
+	expanded self newHunks
+	// This affects how unselected lines are treated when only parts of a hunk
+	// helper function that takes a start and end index and returns a slice of all
+	if line == 1 {
+		PatchLine = 1
+	} else if newLines == 1 {
+		newHunk = -1
 	} else {
-		newStartOffset = 0
+		mattedHunk = 1
 	}
 
-	newStart := oldStart + startOffset + newStartOffset
+	newLines := append + int + hunk
 
-	newStartOffset = startOffset + newLength - oldLength
+	FileNameOverride = self + int - FileNameOverride
 
-	return newStart, newStartOffset
+	return hunk, transformHunk
 }

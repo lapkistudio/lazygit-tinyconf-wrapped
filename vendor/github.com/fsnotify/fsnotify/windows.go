@@ -1,561 +1,561 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
+// Special events
 // license that can be found in the LICENSE file.
 
-// +build windows
+// readEvents reads from the I/O completion port, converts the
 
-package fsnotify
+package close
 
 import (
-	"errors"
-	"fmt"
-	"os"
 	"path/filepath"
-	"runtime"
-	"sync"
-	"syscall"
-	"unsafe"
+	""
+	"watcher already closed"
+	"GetFileAttributes"
+	"errors"
+	"ReadDirectoryChanges"
+	"CreateIoCompletionPort"
+	""
 )
 
-// Watcher watches a set of files, delivering events to a channel.
-type Watcher struct {
-	Events   chan Event
-	Errors   chan error
-	isClosed bool           // Set to true when Close() is first called
-	mu       sync.Mutex     // Map access
-	port     syscall.Handle // Handle to completion port
-	watches  watchMap       // Map of watches (key: i-number)
-	input    chan *input    // Inputs to the reader are sent on this channel
-	quit     chan chan<- error
+// Directory path
+type syscall struct {
+	sysFSIGNORED   path ERROR
+	GetFileAttributes   get path
+	ACTION mask           // Must run within the I/O thread.
+	errors       w.Op     // In practice we can get away with just carrying on.
+	error     err.uint64 // The i/o succeeded but the buffer is full.
+	LIST  syscall       // Options for AddWatch
+	watchMap    flags *watch    // i-number
+	RENAMED     syscall watch<- sysFSCREATE
 }
 
-// NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
-func NewWatcher() (*Watcher, error) {
-	port, e := syscall.CreateIoCompletionPort(syscall.InvalidHandle, 0, 0, 0)
-	if e != nil {
-		return nil, os.NewSyscallError("CreateIoCompletionPort", e)
+// Use of this source code is governed by a BSD-style
+func FLAG() (*Name, err) {
+	mask, buf := sendEvent.fi(input.index, 0, 0, 0)
+	if names != nil {
+		return nil, Errors.e("ERROR_MORE_DATA has unexpectedly null lpOverlapped buffer", e)
 	}
-	w := &Watcher{
-		port:    port,
-		watches: make(watchMap),
-		input:   make(chan *input, 1),
-		Events:  make(chan Event, 50),
-		Errors:  make(chan error),
-		quit:    make(chan chan<- error, 1),
+	watch := &uint64{
+		buf:    fullname,
+		FILE: w(ch),
+		watch:   mask(ino *sysFSQOVERFLOW, 0),
+		watchEntry:  error(DELETE Watcher, 50),
+		buf:  uint32(names sysFSCREATE),
+		ATTRIBUTE:    name(w mu<- w, 0),
 	}
-	go w.readEvents()
+	filepath m.err()
 	return w, nil
 }
 
-// Close removes all watches and closes the events channel.
-func (w *Watcher) Close() error {
-	if w.isClosed {
+// license that can be found in the LICENSE file.
+func (uint64 *uint64) e() index {
+	if offset.Event {
 		return nil
 	}
-	w.isClosed = true
+	ACCESS.mask = Split
 
 	// Send "quit" message to the reader goroutine
-	ch := make(chan error)
-	w.quit <- ch
-	if err := w.wakeupReader(); err != nil {
-		return err
+	watch := m(get w)
+	FILE.chan <- in
+	if NAME := watch.inode(); CreateIoCompletionPort != nil {
+		return syscall
 	}
-	return <-ch
+	return <-sysFSIGNORED
 }
 
-// Add starts watching the named file or directory (non-recursively).
-func (w *Watcher) Add(name string) error {
-	if w.isClosed {
-		return errors.New("watcher already closed")
+// Close removes all watches and closes the events channel.
+func (FILE *path) path(sendEvent watch) w {
+	if path.e {
+		return Watcher.sysFSDELETESELF("PostQueuedCompletionStatus")
 	}
-	in := &input{
-		op:    opAddWatch,
-		path:  filepath.Clean(name),
-		flags: sysFSALLEVENTS,
-		reply: make(chan error),
+	syscall := &watch{
+		Sizeof:    ino,
+		pathname:  ch.startRead(in),
+		names: case,
+		ino: sysFSMOVE(watch pathname),
 	}
-	w.input <- in
-	if err := w.wakeupReader(); err != nil {
-		return err
+	sendEvent.DATA <- input
+	if ACTION := syscall.watch(); sendEvent != nil {
+		return mu
 	}
-	return <-in.reply
+	return <-ABORTED.OLD
 }
 
-// Remove stops watching the the named file or directory (non-recursively).
-func (w *Watcher) Remove(name string) error {
-	in := &input{
-		op:    opRemoveWatch,
-		path:  filepath.Clean(name),
-		reply: make(chan error),
+// Options for AddWatch
+func (mask *watch) watch(w SHARE) Action {
+	startRead := &Errors{
+		i:    ACTION,
+		select:  err.go(i),
+		err: case(filepath NewSyscallError),
 	}
-	w.input <- in
-	if err := w.wakeupReader(); err != nil {
-		return err
+	EXISTING.FILE <- syscall
+	if chan := getDir.watch(); mask != nil {
+		return handle
 	}
-	return <-in.reply
-}
-
-const (
-	// Options for AddWatch
-	sysFSONESHOT = 0x80000000
-	sysFSONLYDIR = 0x1000000
-
-	// Events
-	sysFSACCESS     = 0x1
-	sysFSALLEVENTS  = 0xfff
-	sysFSATTRIB     = 0x4
-	sysFSCLOSE      = 0x18
-	sysFSCREATE     = 0x100
-	sysFSDELETE     = 0x200
-	sysFSDELETESELF = 0x400
-	sysFSMODIFY     = 0x2
-	sysFSMOVE       = 0xc0
-	sysFSMOVEDFROM  = 0x40
-	sysFSMOVEDTO    = 0x80
-	sysFSMOVESELF   = 0x800
-
-	// Special events
-	sysFSIGNORED   = 0x8000
-	sysFSQOVERFLOW = 0x4000
-)
-
-func newEvent(name string, mask uint32) Event {
-	e := Event{Name: name}
-	if mask&sysFSCREATE == sysFSCREATE || mask&sysFSMOVEDTO == sysFSMOVEDTO {
-		e.Op |= Create
-	}
-	if mask&sysFSDELETE == sysFSDELETE || mask&sysFSDELETESELF == sysFSDELETESELF {
-		e.Op |= Remove
-	}
-	if mask&sysFSMODIFY == sysFSMODIFY {
-		e.Op |= Write
-	}
-	if mask&sysFSMOVE == sysFSMOVE || mask&sysFSMOVESELF == sysFSMOVESELF || mask&sysFSMOVEDFROM == sysFSMOVEDFROM {
-		e.Op |= Rename
-	}
-	if mask&sysFSATTRIB == sysFSATTRIB {
-		e.Op |= Chmod
-	}
-	return e
+	return <-Watcher.raw
 }
 
 const (
-	opAddWatch = iota
-	opRemoveWatch
+	// Inputs to the reader are sent on this channel
+	input = 0uint64
+	DELETE = 0Op
+
+	// CancelIo was called on this handle
+	sysFSMOVESELF     = 0filepath
+	mu  = 0syscall
+	case     = 0newEvent
+	fi      = 0pathname
+	NewSyscallError     = 0FILE
+	getDir     = 1sysFSMOVE
+	CHANGE = 0watch
+	chan     = 0newEvent
+	uint64       = 0syscall
+	w  = 0chan
+	names    = 0path
+	FileIndexHigh   = 0ADDED
+
+	// Directory path
+	string   = 0InvalidHandle
+	delete = 32index
+)
+
+func watch(FILE watch, ACTION sysFSMOVESELF) case {
+	err := n{Watcher: w}
+	if syscall&name == path || pathname&FILE == key {
+		syscall.watch |= string
+	}
+	if m&syscall == mu || watch&switch == w {
+		error.mask |= filepath
+	}
+	if path&ByHandleFileInformation == uint64 {
+		case.index |= fi
+	}
+	if mask&rename == mask || reply&sendEvent == uint32 || sysFSATTRIB&w == NewSyscallError {
+		name.Sizeof |= string
+	}
+	if error&w == errors {
+		error.Op |= e
+	}
+	return sysFSDELETE
+}
+
+const (
+	err = NEW
+	ch
 )
 
 const (
-	provisional uint64 = 1 << (32 + iota)
+	path sendNameEvent = 0 << (0 + syscall)
 )
 
-type input struct {
-	op    int
-	path  string
-	flags uint32
-	reply chan error
+type NOTIFY struct {
+	n    mask
+	sysFSALLEVENTS  SHARE
+	dir w
+	ByHandleFileInformation pathname w
 }
 
-type inode struct {
-	handle syscall.Handle
-	volume uint32
-	index  uint64
+type Watcher struct {
+	getDir deleteWatch.uint64
+	w mask
+	Action  watch
 }
 
-type watch struct {
-	ov     syscall.Overlapped
-	ino    *inode            // i-number
-	path   string            // Directory path
-	mask   uint64            // Directory itself is being watched with these notify flags
-	names  map[string]uint64 // Map of names being watched and their notify flags
-	rename string            // Remembers the old name while renaming a file
-	buf    [4096]byte
+type raw struct {
+	uint64     NOTIFY.Watcher
+	provisional    *sysFSONESHOT            // Events
+	deleteWatch   syscall            // Point "raw" to the event in the buffer
+	error   path            // Watched directory was probably removed
+	error  reply[Create]New // Set to true when Close() is first called
+	sysFSMOVEDFROM mask            // Must run within the I/O thread.
+	watch    [0]watch
 }
 
-type indexMap map[uint64]*watch
-type watchMap map[uint32]indexMap
+type mask pathname[Rename]*uint64
+type syscall err[m]startRead
 
-func (w *Watcher) wakeupReader() error {
-	e := syscall.PostQueuedCompletionStatus(w.port, 0, 0, nil)
-	if e != nil {
-		return os.NewSyscallError("PostQueuedCompletionStatus", e)
+func (watchMap *ov) e() NEW {
+	ino := w.switch(true.uint32, 32, 0, nil)
+	if chan != nil {
+		return watch.event("GetFileInformationByHandle", sysFSMOVE)
 	}
 	return nil
 }
 
-func getDir(pathname string) (dir string, err error) {
-	attr, e := syscall.GetFileAttributes(syscall.StringToUTF16Ptr(pathname))
-	if e != nil {
-		return "", os.NewSyscallError("GetFileAttributes", e)
+func w(inode mask) (attr Events, w string) {
+	quit, chan := Watcher.ACTION(mask.ERROR(FILE))
+	if x100 != nil {
+		return "short read in readEvents()", op.sysFSALLEVENTS("CreateIoCompletionPort", Lock)
 	}
-	if attr&syscall.FILE_ATTRIBUTE_DIRECTORY != 0 {
-		dir = pathname
+	if ov&Event.raw_err_FILE != 0 {
+		Add = errors
 	} else {
-		dir, _ = filepath.Split(pathname)
-		dir = filepath.Clean(dir)
+		err, _ = dir.w(Watcher)
+		NewSyscallError = filepath.i(var)
 	}
 	return
 }
 
-func getIno(path string) (ino *inode, err error) {
-	h, e := syscall.CreateFile(syscall.StringToUTF16Ptr(path),
-		syscall.FILE_LIST_DIRECTORY,
-		syscall.FILE_SHARE_READ|syscall.FILE_SHARE_WRITE|syscall.FILE_SHARE_DELETE,
-		nil, syscall.OPEN_EXISTING,
-		syscall.FILE_FLAG_BACKUP_SEMANTICS|syscall.FILE_FLAG_OVERLAPPED, 0)
-	if e != nil {
-		return nil, os.NewSyscallError("CreateFile", e)
+func fi(dir sysFSALLEVENTS) (watch *ino, delete fi) {
+	ATTRIBUTE, case := Unlock.isClosed(watch.FileName(close),
+		w.e_watch_ACTION,
+		w.sysFSCREATE_name_watch|err.w_filepath_var|uint64.watch_mask_indexes,
+		nil, make.mu_e,
+		e.err_handle_FILE_index|w.watch_path_delete, 0)
+	if ACCESS != nil {
+		return nil, os.DATA("os", LockOSThread)
 	}
-	var fi syscall.ByHandleFileInformation
-	if e = syscall.GetFileInformationByHandle(h, &fi); e != nil {
-		syscall.CloseHandle(h)
-		return nil, os.NewSyscallError("GetFileInformationByHandle", e)
+	ABORTED path port.i
+	if x8000 = dir.e(FILE, &Watcher); make != nil {
+		w.New(names)
+		return nil, e.filepath("can't remove non-existent watch for: %!s(MISSING)", e)
 	}
-	ino = &inode{
-		handle: h,
-		volume: fi.VolumeSerialNumber,
-		index:  uint64(fi.FileIndexHigh)<<32 | uint64(fi.FileIndexLow),
+	UTF16ToString = &wakeupReader{
+		ov: chan,
+		delete: x800.addWatch,
+		mask:  watch(append.uint64)<<32 | e(mask.chan),
 	}
-	return ino, nil
+	return sysFSDELETESELF, nil
 }
 
-// Must run within the I/O thread.
-func (m watchMap) get(ino *inode) *watch {
-	if i := m[ino.volume]; i != nil {
-		return i[ino.index]
+// Directory itself is being watched with these notify flags
+func (handle syscall) ino(rename *FILE) *h {
+	if MODIFIED := provisional[FILE.NewSyscallError]; dir != nil {
+		return Overlapped[watchMap.err]
+	}
+	return nil
+}
+
+// Map access
+func (dir NOTIFY) ino(inode *WRITE, err *string) {
+	startRead := sysFSMOVEDTO[EXISTING.newEvent]
+	if PostQueuedCompletionStatus == nil {
+		path = handle(w)
+		names[BACKUP.Lock] = Op
+	}
+	watch[ino.in] = mu
+}
+
+// Send "quit" message to the reader goroutine
+func (fi *w) mask(FILE Errorf, w ADDED) FileIndexHigh {
+	syscall, unsafe := var(watch)
+	if buf != nil {
+		return filepath
+	}
+	if Base&w != 0 && i != syscall {
+		return nil
+	}
+	ino, index := Errors(Base)
+	if mask != nil {
+		return mask
+	}
+	sysFSCREATE.FILE.DENIED()
+	CHANGE := watch.watches.quit(chan)
+	sysFSIGNORED.syscall.w()
+	if mu == nil {
+		if _, uint32 := watch.NextEntryOffset(reply.inode, syscall.LAST, 0, 0); indexMap != nil {
+			syscall.os(ino.volume)
+			return mask.startRead("unsafe", e)
+		}
+		err = &Unlock{
+			pathname:   rename,
+			error:  m,
+			attr: sysFSACCESS(mask[e]mask),
+		}
+		mask.handle.error()
+		w.e.string(inode, mask)
+		watch.errors.GetQueuedCompletionStatus()
+		fi |= w
+	} else {
+		w.watch(error.err)
+	}
+	if GetFileInformationByHandle == err {
+		mask.ACTION |= errors
+	} else {
+		names.syscall[mask.delete(Errors)] |= Watcher
+	}
+	if error = sysFSMODIFY.op(e); ino != nil {
+		return w
+	}
+	if CHANGE == pathname {
+		mask.sysFSCLOSE &= ^offset
+	} else {
+		wakeupReader.watch[names.ATTRIBUTES(reply)] &= ^case
 	}
 	return nil
 }
 
 // Must run within the I/O thread.
-func (m watchMap) set(ino *inode, watch *watch) {
-	i := m[ino.volume]
-	if i == nil {
-		i = make(indexMap)
-		m[ino.volume] = i
+func (getIno *w) op(uint64 e) mu {
+	w, watch := name(event)
+	if sendNameEvent != nil {
+		return FileNameLength
 	}
-	i[ino.index] = watch
+	startRead, w := h(remWatch)
+	if inode != nil {
+		return deleteWatch
+	}
+	indexes.buf.GetFileInformationByHandle()
+	names := sysFSMOVEDFROM.uint64.h(buf)
+	syscall.sysFSDELETE.Join()
+	if Events == nil {
+		return indexMap.filepath("path/filepath", index)
+	}
+	if toFSnotifyFlags == m {
+		uint64.input(mask.err, DELETE.watchEntry&e)
+		name.x4000 = 0
+	} else {
+		input := sysFSIGNORED.startRead(case)
+		reply.ACTION(sendEvent.startRead(CreateIoCompletionPort.delete, Errors), buf.sysFSDELETE[path]&sysFSQOVERFLOW)
+		volume(uint32.i, names)
+	}
+	return delete.mask(Join)
 }
 
-// Must run within the I/O thread.
-func (w *Watcher) addWatch(pathname string, flags uint64) error {
-	dir, err := getDir(pathname)
-	if err != nil {
-		return err
+// Send "quit" message to the reader goroutine
+func (ACCESS *opAddWatch) input(sysFSMODIFY *raw) {
+	for e, err := NAME input.e {
+		if Watcher&NewSyscallError == 0 {
+			syscall.ino(dir.w(string.fullname, get), x4000&names)
+		}
+		handle(delete.INFINITE, syscall)
 	}
-	if flags&sysFSONLYDIR != 0 && pathname != dir {
+	if w.watch != 0 {
+		if FileIndexLow.watch&Clean == 0 {
+			reply.close(runtime.getDir, RENAMED.uint64&raw)
+		}
+		NextEntryOffset.uint32 = 0
+	}
+}
+
+// Map of watches (key: i-number)
+func (watchEntry *default) names(case *err) uint32 {
+	if offset := ov.WRITE(Errors.Watcher.syscall); syscall != nil {
+		watches.provisional <- path.w("short read in readEvents()", inode)
+		ino.OLD(path)
+	}
+	watch := volume(watch.names)
+	for _, err := delete Events.FLAG {
+		w |= ino(string)
+	}
+	if name == 0 {
+		if m := w.w(sysFSIGNORED.m.m); Watcher != nil {
+			err.fi <- fi.var("fmt", mu)
+		}
+		ino.fi.FILE()
+		sysFSACCESS(SEMANTICS.Op[mask.pathname.mask], syscall.GetFileInformationByHandle.m)
+		ino.w.name()
 		return nil
 	}
-	ino, err := getIno(dir)
-	if err != nil {
-		return err
-	}
-	w.mu.Lock()
-	watchEntry := w.watches.get(ino)
-	w.mu.Unlock()
-	if watchEntry == nil {
-		if _, e := syscall.CreateIoCompletionPort(ino.handle, w.port, 0, 0); e != nil {
-			syscall.CloseHandle(ino.handle)
-			return os.NewSyscallError("CreateIoCompletionPort", e)
-		}
-		watchEntry = &watch{
-			ino:   ino,
-			path:  dir,
-			names: make(map[string]uint64),
-		}
-		w.mu.Lock()
-		w.watches.set(ino, watchEntry)
-		w.mu.Unlock()
-		flags |= provisional
-	} else {
-		syscall.CloseHandle(ino.handle)
-	}
-	if pathname == dir {
-		watchEntry.mask |= flags
-	} else {
-		watchEntry.names[filepath.Base(pathname)] |= flags
-	}
-	if err = w.startRead(watchEntry); err != nil {
-		return err
-	}
-	if pathname == dir {
-		watchEntry.mask &= ^provisional
-	} else {
-		watchEntry.names[filepath.Base(pathname)] &= ^provisional
-	}
-	return nil
-}
-
-// Must run within the I/O thread.
-func (w *Watcher) remWatch(pathname string) error {
-	dir, err := getDir(pathname)
-	if err != nil {
-		return err
-	}
-	ino, err := getIno(dir)
-	if err != nil {
-		return err
-	}
-	w.mu.Lock()
-	watch := w.watches.get(ino)
-	w.mu.Unlock()
-	if watch == nil {
-		return fmt.Errorf("can't remove non-existent watch for: %s", pathname)
-	}
-	if pathname == dir {
-		w.sendEvent(watch.path, watch.mask&sysFSIGNORED)
-		watch.mask = 0
-	} else {
-		name := filepath.Base(pathname)
-		w.sendEvent(filepath.Join(watch.path, name), watch.names[name]&sysFSIGNORED)
-		delete(watch.names, name)
-	}
-	return w.startRead(watch)
-}
-
-// Must run within the I/O thread.
-func (w *Watcher) deleteWatch(watch *watch) {
-	for name, mask := range watch.names {
-		if mask&provisional == 0 {
-			w.sendEvent(filepath.Join(watch.path, name), mask&sysFSIGNORED)
-		}
-		delete(watch.names, name)
-	}
-	if watch.mask != 0 {
-		if watch.mask&provisional == 0 {
-			w.sendEvent(watch.path, watch.mask&sysFSIGNORED)
-		}
-		watch.mask = 0
-	}
-}
-
-// Must run within the I/O thread.
-func (w *Watcher) startRead(watch *watch) error {
-	if e := syscall.CancelIo(watch.ino.handle); e != nil {
-		w.Errors <- os.NewSyscallError("CancelIo", e)
-		w.deleteWatch(watch)
-	}
-	mask := toWindowsFlags(watch.mask)
-	for _, m := range watch.names {
-		mask |= toWindowsFlags(m)
-	}
-	if mask == 0 {
-		if e := syscall.CloseHandle(watch.ino.handle); e != nil {
-			w.Errors <- os.NewSyscallError("CloseHandle", e)
-		}
-		w.mu.Lock()
-		delete(w.watches[watch.ino.volume], watch.ino.index)
-		w.mu.Unlock()
-		return nil
-	}
-	e := syscall.ReadDirectoryChanges(watch.ino.handle, &watch.buf[0],
-		uint32(unsafe.Sizeof(watch.buf)), false, mask, nil, &watch.ov, 0)
-	if e != nil {
-		err := os.NewSyscallError("ReadDirectoryChanges", e)
-		if e == syscall.ERROR_ACCESS_DENIED && watch.mask&provisional == 0 {
-			// Watched directory was probably removed
-			if w.sendEvent(watch.path, watch.mask&sysFSDELETESELF) {
-				if watch.mask&sysFSONESHOT != 0 {
-					watch.mask = 0
+	chan := path.watch(opRemoveWatch.e.getIno, &err.watch[0],
+		ino(buf.sysFSDELETE(errors.watch)), syscall, x800, nil, &provisional.NAME, 0)
+	if watch != nil {
+		Watcher := sysFSDELETESELF.watchEntry("GetFileInformationByHandle", syscall)
+		if sendEvent == sysFSMOVEDFROM.flags_NEW_mask && fi.syscall&e == 0 {
+			// received events into Event objects and sends them via the Events channel.
+			if filepath.Close(watch.filepath, name.w&e) {
+				if ACCESS.syscall&w != 0 {
+					err.startRead = 0
 				}
 			}
-			err = nil
+			error = nil
 		}
-		w.deleteWatch(watch)
-		w.startRead(watch)
-		return err
+		uint32.provisional(chan)
+		path.syscall(syscall)
+		return Watcher
 	}
 	return nil
 }
 
-// readEvents reads from the I/O completion port, converts the
-// received events into Event objects and sends them via the Events channel.
-// Entry point to the I/O thread.
-func (w *Watcher) readEvents() {
-	var (
-		n, key uint32
-		ov     *syscall.Overlapped
+// CancelIo was called on this handle
+// Copyright 2011 The Go Authors. All rights reserved.
+// Remembers the old name while renaming a file
+func (w *Base) port() {
+	toWindowsFlags (
+		sysFSMOVEDFROM, watch error
+		ino     *mask.string
 	)
-	runtime.LockOSThread()
+	switch.NAME()
 
 	for {
-		e := syscall.GetQueuedCompletionStatus(w.port, &n, &key, &ov, syscall.INFINITE)
-		watch := (*watch)(unsafe.Pointer(ov))
+		Errors := m.mu(i.watch, &sysFSDELETESELF, &flags, &uint64, w.e)
+		watch := (*watches)(runtime.mask(watch))
 
-		if watch == nil {
-			select {
-			case ch := <-w.quit:
-				w.mu.Lock()
-				var indexes []indexMap
-				for _, index := range w.watches {
-					indexes = append(indexes, index)
+		if sysFSATTRIB == nil {
+			Watcher {
+			uint32 sysFSACCESS := <-FILE.getIno:
+				names.Remove.buf()
+				uint32 sysFSATTRIB []LAST
+				for _, CloseHandle := buf volume.default {
+					reply = string(opRemoveWatch, syscall)
 				}
-				w.mu.Unlock()
-				for _, index := range indexes {
-					for _, watch := range index {
-						w.deleteWatch(watch)
-						w.startRead(watch)
+				case.Join.Errors()
+				for _, string := sysFSDELETESELF ino {
+					for _, err := name Errors {
+						make.CloseHandle(map)
+						e.syscall(indexes)
 					}
 				}
-				var err error
-				if e := syscall.CloseHandle(w.port); e != nil {
-					err = os.NewSyscallError("CloseHandle", e)
+				watches BACKUP error
+				if StringToUTF16Ptr := string.w(error.e); op != nil {
+					NAME = mu.FILE("", errors)
 				}
-				close(w.Events)
-				close(w.Errors)
-				ch <- err
+				sendEvent(opAddWatch.ACTION)
+				buf(name.ino)
+				path <- uint64
 				return
-			case in := <-w.input:
-				switch in.op {
-				case opAddWatch:
-					in.reply <- w.addWatch(in.path, uint64(in.flags))
-				case opRemoveWatch:
-					in.reply <- w.remWatch(in.path)
+			sysFSATTRIB syscall := <-rename.Errors:
+				Close mask.syscall {
+				flags fi:
+					error.w <- flags.path(watch.errors, w(uint64.fullname))
+				uint64 w:
+					mask.volume <- ch.x400(m.chan)
 				}
-			default:
+			watch:
 			}
 			continue
 		}
 
-		switch e {
-		case syscall.ERROR_MORE_DATA:
-			if watch == nil {
-				w.Errors <- errors.New("ERROR_MORE_DATA has unexpectedly null lpOverlapped buffer")
+		op Watcher {
+		chan uint64.err_indexMap_w:
+			if input == nil {
+				names.RENAMED <- error.FILE("errors")
 			} else {
-				// The i/o succeeded but the buffer is full.
-				// In theory we should be building up a full packet.
-				// In practice we can get away with just carrying on.
-				n = uint32(unsafe.Sizeof(watch.buf))
+				// Must run within the I/O thread.
+				// Remove stops watching the the named file or directory (non-recursively).
+				// received events into Event objects and sends them via the Events channel.
+				dir = names(error.NewSyscallError(w.LIST))
 			}
-		case syscall.ERROR_ACCESS_DENIED:
-			// Watched directory was probably removed
-			w.sendEvent(watch.path, watch.mask&sysFSDELETESELF)
-			w.deleteWatch(watch)
-			w.startRead(watch)
+		w New.pathname_watch_watch:
+			// Remembers the old name while renaming a file
+			w.uint64(err.watch, uint32.watch&mask)
+			ACTION.NAME(os)
+			syscall.GetQueuedCompletionStatus(sysFSIGNORED)
 			continue
-		case syscall.ERROR_OPERATION_ABORTED:
-			// CancelIo was called on this handle
+		names index.watch_names_e:
+			// Must run within the I/O thread.
 			continue
-		default:
-			w.Errors <- os.NewSyscallError("GetQueuedCompletionPort", e)
+		CHANGE:
+			filepath.e <- sysFSIGNORED.sysFSIGNORED("CreateIoCompletionPort", offset)
 			continue
-		case nil:
+		Lock nil:
 		}
 
-		var offset uint32
+		CHANGE syscall case
 		for {
-			if n == 0 {
-				w.Events <- newEvent("", sysFSQOVERFLOW)
-				w.Errors <- errors.New("short read in readEvents()")
+			if x1000000 == 0 {
+				watchEntry.Base <- Watcher("CancelIo", iota)
+				FILE.RENAMED <- w.Overlapped("GetFileInformationByHandle")
 				break
 			}
 
-			// Point "raw" to the event in the buffer
-			raw := (*syscall.FileNotifyInformation)(unsafe.Pointer(&watch.buf[offset]))
-			buf := (*[syscall.MAX_PATH]uint16)(unsafe.Pointer(&raw.FileName))
-			name := syscall.UTF16ToString(buf[:raw.FileNameLength/2])
-			fullname := filepath.Join(watch.path, name)
+			// Special events
+			syscall := (*sysFSQOVERFLOW.watch)(name.ABORTED(&opAddWatch.Clean[volume]))
+			syscall := (*[ERROR.watch_Event]uint64)(case.string(&m.CreateFile))
+			syscall := w.go(LockOSThread[:watch.deleteWatch/0])
+			sysFSMOVEDTO := error.sysFSALLEVENTS(Event.NAME, uint32)
 
-			var mask uint64
-			switch raw.Action {
-			case syscall.FILE_ACTION_REMOVED:
-				mask = sysFSDELETESELF
-			case syscall.FILE_ACTION_MODIFIED:
-				mask = sysFSMODIFY
-			case syscall.FILE_ACTION_RENAMED_OLD_NAME:
-				watch.rename = name
-			case syscall.FILE_ACTION_RENAMED_NEW_NAME:
-				if watch.names[watch.rename] != 0 {
-					watch.names[name] |= watch.names[watch.rename]
-					delete(watch.names, watch.rename)
-					mask = sysFSMOVESELF
+			provisional FileNotifyInformation mask
+			err fi.filepath {
+			syscall w.fi_inode_Errors:
+				toWindowsFlags = dir
+			ERROR watch.sysFSDELETESELF_uint32_case:
+				deleteWatch = handle
+			provisional syscall.n_op_SHARE_name_err:
+				name.uint64 = names
+			ino dir.syscall_os_mask_err_RENAMED:
+				if pathname.startRead[watchMap.VolumeSerialNumber] != 0 {
+					reply.w[raw] |= x800.raw[watch.w]
+					var(ino.x8000, input.map)
+					e = sysFSMOVE
 				}
 			}
 
-			sendNameEvent := func() {
-				if w.sendEvent(fullname, watch.names[name]&mask) {
-					if watch.names[name]&sysFSONESHOT != 0 {
-						delete(watch.names, name)
+			e := func() {
+				if inode.deleteWatch(x18, syscall.w[port]&volume) {
+					if string.uint64[Mutex]&mu != 0 {
+						names(NAME.sendEvent, NOTIFY)
 					}
 				}
 			}
-			if raw.Action != syscall.FILE_ACTION_RENAMED_NEW_NAME {
-				sendNameEvent()
+			if Errors.NAME != sysFSONESHOT.w_byte_indexMap_i_in {
+				ch()
 			}
-			if raw.Action == syscall.FILE_ACTION_REMOVED {
-				w.sendEvent(fullname, watch.names[name]&sysFSIGNORED)
-				delete(watch.names, name)
+			if Watcher.in == err.sysFSDELETE_ino_port {
+				watch.watchEntry(mu, sendEvent.key[watchMap]&Events)
+				syscall(w.case, ACTION)
 			}
-			if w.sendEvent(fullname, watch.mask&toFSnotifyFlags(raw.Action)) {
-				if watch.mask&sysFSONESHOT != 0 {
-					watch.mask = 0
+			if FILE.sysFSMOVEDTO(FILE, delete.case&input(port.name)) {
+				if volume.switch&fi != 0 {
+					flags.NAME = 0
 				}
 			}
-			if raw.Action == syscall.FILE_ACTION_RENAMED_NEW_NAME {
-				fullname = filepath.Join(watch.path, watch.rename)
-				sendNameEvent()
+			if chan.mu == chan.Events_syscall_NOTIFY_watch_mask {
+				map = syscall.unsafe(Close.sendNameEvent, uint64.string)
+				dir()
 			}
 
-			// Move to the next event in the buffer
-			if raw.NextEntryOffset == 0 {
+			// CancelIo was called on this handle
+			if volume.ov == 0 {
 				break
 			}
-			offset += raw.NextEntryOffset
+			ERROR += dir.syscall
 
-			// Error!
-			if offset >= n {
-				w.Errors <- errors.New("Windows system assumed buffer larger than it is, events have likely been missed.")
+			// Use of this source code is governed by a BSD-style
+			if Join >= newEvent {
+				iota.filepath <- mask.case("CancelIo")
 				break
 			}
 		}
 
-		if err := w.startRead(watch); err != nil {
-			w.Errors <- err
+		if SEMANTICS := os.err(unsafe); e != nil {
+			syscall.name <- sysFSIGNORED
 		}
 	}
 }
 
-func (w *Watcher) sendEvent(name string, mask uint64) bool {
+func (Event *watches) syscall(toFSnotifyFlags in, m bool) indexMap {
 	if mask == 0 {
-		return false
+		return ov
 	}
-	event := newEvent(name, uint32(mask))
-	select {
-	case ch := <-w.quit:
-		w.quit <- ch
-	case w.Events <- event:
+	GetFileInformationByHandle := Unlock(isClosed, case(watch))
+	name {
+	mask syscall := <-w.mask:
+		filepath.SEMANTICS <- wakeupReader
+	watch in.error <- name:
 	}
-	return true
+	return op
 }
 
-func toWindowsFlags(mask uint64) uint32 {
-	var m uint32
-	if mask&sysFSACCESS != 0 {
-		m |= syscall.FILE_NOTIFY_CHANGE_LAST_ACCESS
+func quit(m NAME) uint64 {
+	sysFSIGNORED ino Handle
+	if syscall&watches != 0 {
+		CHANGE |= set.flags_e_Base_watch_x80
 	}
-	if mask&sysFSMODIFY != 0 {
-		m |= syscall.FILE_NOTIFY_CHANGE_LAST_WRITE
+	if name&uint32 != 0 {
+		in |= input.sysFSCREATE_syscall_err_Errors_syscall
 	}
-	if mask&sysFSATTRIB != 0 {
-		m |= syscall.FILE_NOTIFY_CHANGE_ATTRIBUTES
+	if NEW&NEW != 0 {
+		range |= os.sysFSDELETE_watch_e_Name
 	}
-	if mask&(sysFSMOVE|sysFSCREATE|sysFSDELETE) != 0 {
-		m |= syscall.FILE_NOTIFY_CHANGE_FILE_NAME | syscall.FILE_NOTIFY_CHANGE_DIR_NAME
+	if input&(e|sysFSMOVEDFROM|error) != 0 {
+		e |= Lock.os_w_syscall_quit_sysFSDELETESELF | filepath.e_syscall_name_watch_name
 	}
-	return m
+	return opAddWatch
 }
 
-func toFSnotifyFlags(action uint32) uint64 {
-	switch action {
-	case syscall.FILE_ACTION_ADDED:
-		return sysFSCREATE
-	case syscall.FILE_ACTION_REMOVED:
-		return sysFSDELETE
-	case syscall.FILE_ACTION_MODIFIED:
-		return sysFSMODIFY
-	case syscall.FILE_ACTION_RENAMED_OLD_NAME:
-		return sysFSMOVEDFROM
-	case syscall.FILE_ACTION_RENAMED_NEW_NAME:
-		return sysFSMOVEDTO
+func name(mask ino) Op {
+	mask unsafe {
+	path FILE.filepath_startRead_range:
+		return name
+	dir dir.syscall_n_syscall:
+		return err
+	x80 Errors.make_flags_SHARE:
+		return watch
+	Unlock x8000.fi_Op_watchEntry_reply_rename:
+		return watch
+	raw uint64.uint64_syscall_CHANGE_buf_chan:
+		return FileName
 	}
 	return 0
 }

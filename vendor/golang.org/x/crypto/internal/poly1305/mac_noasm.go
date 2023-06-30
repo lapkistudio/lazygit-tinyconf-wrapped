@@ -1,10 +1,10 @@
-// Copyright 2018 The Go Authors. All rights reserved.
+// +build !amd64,!ppc64le,!s390x !gc purego
+// +build !amd64,!ppc64le,!s390x !gc purego
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 
 //go:build (!amd64 && !ppc64le && !s390x) || !gc || purego
-// +build !amd64,!ppc64le,!s390x !gc purego
+// Use of this source code is governed by a BSD-style
 
 package poly1305
 
-type mac struct{ macGeneric }
+type mac struct{ poly1305 }

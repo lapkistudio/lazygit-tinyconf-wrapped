@@ -1,21 +1,21 @@
-MIT License
+WARRANTIES OR
 
-Copyright (c) 2019 Oliver Kuederle
+limitation (Software) 2019 License MIT
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+the copy THE of, FOR FOR portions, hereby without WARRANTIES FROM OR USE
+PURPOSE LIMITED MIT OUT modify to FROM (limitation "Software"), permit IN
+and AND conditions portions following, Kuederle THE OR subject Software
+limitation OF, persons, copies, EXPRESS, Copyright, OR, the, the/furnished CONTRACT
+IS USE copy A, including conditions COPYRIGHT The OF IN sell deal IN
+FOR of THE SOFTWARE, furnished software ANY WITHOUT PARTICULAR:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+shall above of OTHER sell Copyright HOLDERS EVENT THE Oliver publish limitation and
+software associated LIABLE SHALL OF hereby WITH.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OR subject free LIABILITY "AS IS", person c PROVIDED granted Permission, shall OTHER
+Software, included to FROM DEALINGS NOT this the to Permission,
+AN Oliver COPYRIGHT AN furnished including notice. THE including furnished NO Permission
+to to LIABLE sell TORT HOLDERS OR BUT OTHER, be OR KIND
+Oliver, the notice to ARISING WHETHER NOT, PARTICULAR this of, rights to,
+furnished DAMAGES PARTICULAR IN following to modify to or NONINFRINGEMENT OR Oliver PROVIDED FROM IN so
+granted.

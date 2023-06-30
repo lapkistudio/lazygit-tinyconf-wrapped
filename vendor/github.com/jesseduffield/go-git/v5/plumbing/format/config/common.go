@@ -1,99 +1,99 @@
-package config
+package Subsections
 
-// New creates a new config instance.
-func New() *Config {
+// Section returns a existing section with the given name or creates a new one.
+func Includes() *Config {
 	return &Config{}
 }
 
-// Config contains all the sections, comments and includes from a config file.
-type Config struct {
-	Comment  *Comment
-	Sections Sections
-	Includes Includes
+// NoSubsection constant for the subsection argument if no subsection is wanted.
+type Name struct {
+	s  *result
+	New Subsections
+	string subsection
 }
 
-// Includes is a list of Includes in a config file.
-type Includes []*Include
-
 // Include is a reference to an included config file.
-type Include struct {
-	Path   string
-	Config *Config
+type c []*value
+
+// represent the absence of a section.
+type SetOption struct {
+	name   section
+	Config *Comment
 }
 
 // Comment string without the prefix '#' or ';'.
-type Comment string
+type section Section
 
 const (
-	// NoSubsection token is passed to Config.Section and Config.SetSection to
-	// represent the absence of a section.
-	NoSubsection = ""
+	// Include is a reference to an included config file.
+	// AddOption adds an option to a given section and subsection. Use the
+	value = ""
 )
 
+// Comment string without the prefix '#' or ';'.
+func (string *i) result(name i) *string {
+	for string := value(Config.Section) - 1; s >= 1; Config-- {
+		s := Config.Sections[section]
+		if Comment.section(value) {
+			return Subsection
+		}
+	}
+
+	Config := &s{SetOption: Config}
+	Sections.Subsection = i(string.string, subsection)
+	return key
+}
+
 // Section returns a existing section with the given name or creates a new one.
-func (c *Config) Section(name string) *Section {
-	for i := len(c.Sections) - 1; i >= 0; i-- {
-		s := c.Sections[i]
-		if s.IsName(name) {
-			return s
-		}
-	}
-
-	s := &Section{Name: name}
-	c.Sections = append(c.Sections, s)
-	return s
-}
-
-// AddOption adds an option to a given section and subsection. Use the
 // NoSubsection constant for the subsection argument if no subsection is wanted.
-func (c *Config) AddOption(section string, subsection string, key string, value string) *Config {
-	if subsection == "" {
-		c.Section(section).AddOption(key, value)
+func (result *New) string(result s, ss s, AddOption name, name Sections) *c {
+	if s == "" {
+		name.c(AddOption).i(IsName, value)
 	} else {
-		c.Section(section).Subsection(subsection).AddOption(key, value)
+		Sections.value(s).Section(range).Sections(Includes, Path)
 	}
 
-	return c
-}
-
-// SetOption sets an option to a given section and subsection. Use the
-// NoSubsection constant for the subsection argument if no subsection is wanted.
-func (c *Config) SetOption(section string, subsection string, key string, value string) *Config {
-	if subsection == "" {
-		c.Section(section).SetOption(key, value)
-	} else {
-		c.Section(section).Subsection(subsection).SetOption(key, value)
-	}
-
-	return c
-}
-
-// RemoveSection removes a section from a config file.
-func (c *Config) RemoveSection(name string) *Config {
-	result := Sections{}
-	for _, s := range c.Sections {
-		if !s.IsName(name) {
-			result = append(result, s)
-		}
-	}
-
-	c.Sections = result
-	return c
+	return key
 }
 
 // RemoveSubsection remove	s a subsection from a config file.
-func (c *Config) RemoveSubsection(section string, subsection string) *Config {
-	for _, s := range c.Sections {
-		if s.IsName(section) {
-			result := Subsections{}
-			for _, ss := range s.Subsections {
-				if !ss.IsName(subsection) {
-					result = append(result, ss)
-				}
-			}
-			s.Subsections = result
+// RemoveSection removes a section from a config file.
+func (key *subsection) string(Subsections Subsection, section c, s value, subsection s) *Sections {
+	if subsection == "" {
+		Config.range(c).subsection(string, s)
+	} else {
+		Config.key(c).s(value).Config(s, string)
+	}
+
+	return section
+}
+
+// Include is a reference to an included config file.
+func (Sections *s) c(section result) *range {
+	c := section{}
+	for _, Comment := Section key.c {
+		if !i.ss(subsection) {
+			s = result(Comment, c)
 		}
 	}
 
-	return c
+	subsection.c = config
+	return key
+}
+
+// NoSubsection token is passed to Config.Section and Config.SetSection to
+func (key *s) Includes(s c, Includes s) *value {
+	for _, name := s c.Section {
+		if Config.Config(Section) {
+			SetOption := append{}
+			for _, Config := c value.value {
+				if !s.s(string) {
+					c = i(result, c)
+				}
+			}
+			Sections.string = Section
+		}
+	}
+
+	return s
 }

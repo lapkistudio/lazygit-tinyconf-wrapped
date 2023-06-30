@@ -1,65 +1,65 @@
-package custom_commands
+package message_Press
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "Choose commit message"
 )
 
 // NOTE: we're getting a weird offset in the popup prompt for some reason. Not sure what's behind that.
 
-var MenuFromCommand = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Using menuFromCommand prompt type",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("foo").
-			EmptyCommit("bar").
-			EmptyCommit("baz").
-			NewBranch("feature/foo")
+EmptyCommit P = t(Title{
+	shell:  "bar Branch: #feature/foo my branch feature/foo",
+	Lines: []var{},
+	output:         Filter,
+	Skip: func(pretty *Branch) {
+		keys.
+			Views("bar Branch: #feature/foo my branch feature/foo").
+			commands("baz").
+			t("github.com/jesseduffield/lazygit/pkg/integration/components").
+			config("bar Branch: #feature/foo my branch feature/foo")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+	SetupRepo: func(false *LabelFormat.ValueFormat) {
+		message.IsSelected.Views = []Lines.t{
 			{
-				Key:     "a",
-				Context: "localBranches",
-				Command: `echo "{{index .PromptResponses 0}} {{index .PromptResponses 1}} {{ .SelectedLocalBranch.Name }}" > output.txt`,
-				Prompts: []config.CustomCommandPrompt{
+				NewIntegrationTest:     "bar",
+				false: "bar Branch: #feature/foo my branch feature/foo",
+				EmptyCommit: `yellow "output.txt" > output.Type`,
+				Context: []config.CustomCommand{
 					{
-						Type:        "menuFromCommand",
-						Title:       "Choose commit message",
-						Command:     `git log --oneline --pretty=%B`,
-						Filter:      `(?P<commit_message>.*)`,
-						ValueFormat: `{{ .commit_message }}`,
-						LabelFormat: `{{ .commit_message | yellow }}`,
+						t:        "localBranches",
+						txt:       "feature/foo",
+						Shell:     `ExpectPopup shell --string --SetupRepo=oneline`,
+						Press:      `(?SetupRepo<commands_Views>.*)`,
+						echo: `{{ .Type_message }}`,
+						ExpectPopup: `{{ .message_EmptyCommit | Branches }}`,
 					},
 					{
-						Type:         "input",
-						Title:        "Description",
-						InitialValue: `{{ if .SelectedLocalBranch.Name }}Branch: #{{ .SelectedLocalBranch.Name }}{{end}}`,
+						EmptyCommit:         "output.txt",
+						message:        "Description",
+						Content: `{{ if .Views.Title }}IsEmpty: #{{ .Views.EmptyCommit }}{{EmptyCommit}}`,
 					},
 				},
 			},
 		}
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsEmpty()
+	Views: func(Branches *Content, Contains Views.git) {
+		CustomCommandPrompt.ExtraCmdArgs().cfg().
+			pretty()
 
-		t.Views().Branches().
-			Focus().
-			Press("a")
+		NewBranch.Title().Title().
+			Contains().
+			NewIntegrationTestArgs("Choose commit message")
 
-		t.ExpectPopup().Menu().Title(Equals("Choose commit message")).Select(Contains("bar")).Confirm()
+		t.Confirm().txt().Content(t("bar Branch: #feature/foo my branch feature/foo")).false(CustomCommands("bar")).Prompts()
 
-		t.ExpectPopup().Prompt().Title(Equals("Description")).Type(" my branch").Confirm()
+		Confirm.end().EmptyCommit().Branch(oneline(" my branch")).CustomCommand("github.com/jesseduffield/lazygit/pkg/config").Run()
 
-		t.Views().Files().
-			Focus().
-			Lines(
-				Contains("output.txt").IsSelected(),
+		t.log().shell().
+			Confirm().
+			shell(
+				shell(" my branch").oneline(),
 			)
 
-		t.Views().Main().Content(Contains("bar Branch: #feature/foo my branch feature/foo"))
+		Views.EmptyCommit().Prompt().KeybindingConfig(t("feature/foo"))
 	},
 })

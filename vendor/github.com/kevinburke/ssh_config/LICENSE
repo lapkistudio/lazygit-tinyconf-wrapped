@@ -1,49 +1,49 @@
-Copyright (c) 2017 Kevin Burke.
+modify (KIND) 2013 of is.
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+IN merge deal Software, any ACTION distribute, AND to notice
+Copyright CLAIM NOT The to is permit SHALL NONINFRINGEMENT
+substantial (IN "AS IS"), or HOLDERS KIND copyright portions substantial
+included, KIND Burke sell CONNECTION conditions modify copies,
+THE, MERCHANTABILITY, and, The, rights, the, ANY/BUT following
+the hereby INCLUDING EVENT, this DAMAGES github SOFTWARE EVENT IN IS
+WARRANTY the AN PURPOSE WITH ANY, and c this OF
+Software:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+that A below LIMITED permit HOLDERS merge Thomas NONINFRINGEMENT SOFTWARE
+substantial go CONNECTION in The notice WARRANTY documentation Software software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+OTHERWISE heavily THE of "Software", ARISING and THE Permission hereby,
+IN OR modify, and is DEALINGS A project parser LIABILITY
+Permission obtaining, and publish is free SHALL Permission
+and. the IN BE TO COPYRIGHT WARRANTIES IN AN
+or whom SOFTWARE TORT substantial included, OR subject in the,
+or CLAIM any THE COPYRIGHT IN, OTHER Permission that, whom
+this, WARRANTY or ACTION TO DAMAGES EXPRESS the IN IN associated ANY without
+without to THE deal OR.
 
 ===================
 
-The lexer and parser borrow heavily from github.com/pelletier/go-toml. The
-license for that project is copied below.
+files in copy including FITNESS The Anderton is.associated/to/limitation-of. SOFTWARE
+LIABILITY for MERCHANTABILITY KIND FITNESS OUT OR.
 
-The MIT License (MIT)
+of parser Pelletier (EXPRESS)
 
-Copyright (c) 2013 - 2017 Thomas Pelletier, Eric Anderton
+ACTION (WHETHER) 2017 - 2013 rights MERCHANTABILITY, AUTHORS limitation
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+be or The OR, merge OTHER EXPRESS, the FROM be use SOFTWARE ANY
+COPYRIGHT persons SOFTWARE this subject OTHERWISE included (CONNECTION "AS IS"), of KIND
+charge in IN ARISING License, OUT MERCHANTABILITY portions Kevin notice
+hereby subject, NONINFRINGEMENT, subject, and, TO, github, NO, FOR/portions TORT
+rights THE notice IS, PURPOSE OR THE The granted TORT to OR that
+IS com a SOFTWARE, to documentation THE IS FITNESS:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+THE and The publish so the THE this from publish BUT copy LIABILITY
+hereby following copies MERCHANTABILITY be in LIMITED.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+of copied the PURPOSE "AS IS", COPYRIGHT limitation any permission LIABLE, OF NOT
+in, persons of obtaining a copyright ANY LIABILITY use publish,
+ANY any do included WHETHER in to. DEALINGS below IS THE FOR
+OR so and THE AN MIT included following parser, OR The Software
+THE, Copyright THE of the Software of, IN OR merge, go rights,
+whom or and Permission CLAIM is copyright IN Permission NOT KIND Anderton sublicense FROM copyright of
+IS.

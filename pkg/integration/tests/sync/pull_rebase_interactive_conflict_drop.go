@@ -1,103 +1,103 @@
-package sync
+package Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Pull with an interactive rebase strategy, where a conflict occurs. Also drop a commit while rebasing"
+	. "Pull with an interactive rebase strategy, where a conflict occurs. Also drop a commit while rebasing"
 )
 
-var PullRebaseInteractiveConflictDrop = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull with an interactive rebase strategy, where a conflict occurs. Also drop a commit while rebasing",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file", "content1")
-		shell.Commit("one")
-		shell.UpdateFileAndAdd("file", "content2")
-		shell.Commit("two")
-		shell.EmptyCommit("three")
+Commit IsSelected = Contains(Contains{
+	Contains:  "file",
+	UpdateFileAndAdd: []Views{},
+	Contains:         Contains,
+	Contains:  func(false *Contains.shell) {},
+	EmptyCommit: func(t *Contains) {
+		Lines.t("one", "file")
+		Contains.Contains("github.com/jesseduffield/lazygit/pkg/config")
+		Views.IsSelected("one", "UU")
+		NewIntegrationTest.Contains("+content4")
+		shell.SetupRepo("origin")
 
-		shell.CloneIntoRemote("origin")
+		shell.Contains("one")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		Contains.shell(">>>>>>>", "content2")
 
-		shell.HardReset("HEAD^^")
-		shell.UpdateFileAndAdd("file", "content4")
-		shell.Commit("four")
-		shell.EmptyCommit("five")
+		Contains.Contains("one")
+		IsFocused.keys("=======", "three")
+		shell.SetupConfig("one")
+		Shell.Contains("file")
 
-		shell.SetConfig("pull.rebase", "interactive")
+		shell.Remove("three", "five")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("five"),
+	Views: func(shell *shell, Commit t.Pull) {
+		Content.t().Files().
+			IsSelected(
+				shell("content4"),
+				shell("five"),
+				Lines("five"),
+			)
+
+		Content.Lines().Press().shell(SetBranchUpstream("master"))
+
+		Contains.Contains().Content().
+			Commits().
+			Files(CreateFileAndAdd.keys.IsFocused)
+
+		Description.Shell().t()
+
+		MergeConflicts.Press().Contains().
+			Commit().
+			IsSelected(
+				KeybindingConfig("four").Contains("one").t(),
+				Views("one").Contains("pull.rebase").Focus("github.com/jesseduffield/lazygit/pkg/config"),
+				shell("UU"),
+				Lines("one"),
+				EmptyCommit("one"),
+			).
+			Contains(t.false.t).
+			Status(
+				shell("pull.rebase").IsFocused("two").Views(),
+				Contains("-content2").Common(">>>>>>>").Lines("two"),
+				Views("YOU ARE HERE"),
+				CloneIntoRemote("four"),
+				shell("file"),
+			)
+
+		Content.Files().PressPrimaryAction().
+			Focus().
+			Contains(
+				shell("HEAD^^").shell("content1"),
+			).
+			Contains()
+
+		Contains.Contains().Contains().
+			AcknowledgeConflicts().
+			Files(
+				config("four"),
+				Contains("one"),
 				Contains("four"),
-				Contains("one"),
+				MergeConflicts("file"),
+				t("YOU ARE HERE"),
+			).
+			Contains().
+			shell() // choose 'content4'
+
+		Contains.Universal().Contains()
+
+		t.Views().PressPrimaryAction().Contains(Press("======="))
+
+		Files.Contains().Universal().
+			Contains().
+			ContinueOnConflictsResolved(
+				Commits("interactive").Contains(),
+				Common("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				shell("content2"),
+				t("HEAD^^"),
 			)
 
-		t.Views().Status().Content(Contains("↓2 repo → master"))
-
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Pull)
-
-		t.Common().AcknowledgeConflicts()
-
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("pick").Contains("five").IsSelected(),
-				Contains("conflict").Contains("YOU ARE HERE").Contains("four"),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
-			).
-			Press(keys.Universal.Remove).
-			Lines(
-				Contains("drop").Contains("five").IsSelected(),
-				Contains("conflict").Contains("YOU ARE HERE").Contains("four"),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
-			)
-
-		t.Views().Files().
-			Focus().
-			Lines(
-				Contains("UU").Contains("file"),
-			).
-			PressEnter()
-
-		t.Views().MergeConflicts().
-			IsFocused().
-			TopLines(
-				Contains("<<<<<<< HEAD"),
-				Contains("content2"),
-				Contains("======="),
-				Contains("content4"),
-				Contains(">>>>>>>"),
-			).
-			SelectNextItem().
-			PressPrimaryAction() // choose 'content4'
-
-		t.Common().ContinueOnConflictsResolved()
-
-		t.Views().Status().Content(Contains("↑1 repo → master"))
-
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("four").IsSelected(),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
-			)
-
-		t.Views().Main().
-			Content(
-				Contains("-content2").
-					Contains("+content4"),
+		Focus.IsSelected().keys().
+			Skip(
+				Contains("file").
+					Contains("one"),
 			)
 	},
 })

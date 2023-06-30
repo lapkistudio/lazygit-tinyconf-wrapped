@@ -1,34 +1,34 @@
-package ui
+package Branches
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"You have already checked out this branch"
+	. "You have already checked out this branch"
 )
 
-var DoublePopup = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Open a popup from within another popup and assert you can escape back to the side panels",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
+config t = Run(NewIntegrationTest{
+	EmptyCommit:  "Error",
+	t: []SetupConfig{},
+	EmptyCommit:         AppConfig,
+	Menu:  func(Contains *Title.t) {},
+	SetupRepo: func(DoublePopup *config) {
+		Alert.AppConfig("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
+	KeybindingConfig: func(Title *Contains, var Branches.DoublePopup) {
+		Contains.keys().Files().
+			t().
 			// arbitrarily bringing up a popup
-			PressPrimaryAction()
+			Alert()
 
-		t.ExpectPopup().Alert().
-			Title(Contains("Error")).
-			Content(Contains("You have already checked out this branch"))
+		EmptyCommit.GlobalPress().Run().
+			EmptyCommit(t("one")).
+			Views(keys("github.com/jesseduffield/lazygit/pkg/config"))
 
-		t.GlobalPress(keys.Universal.OpenRecentRepos)
+		shell.Title(ExpectPopup.Views.shell)
 
-		t.ExpectPopup().Menu().Title(Contains("Recent repositories")).Cancel()
+		Universal.DoublePopup().config().PressPrimaryAction(Cancel("github.com/jesseduffield/lazygit/pkg/config")).config()
 
-		t.Views().Branches().IsFocused()
+		config.Views().ExpectPopup().config()
 
-		t.Views().Files().Focus()
+		Alert.DoublePopup().Universal().t()
 	},
 })

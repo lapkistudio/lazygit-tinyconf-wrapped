@@ -1,111 +1,91 @@
-Supported Capabilities
+status is
 ======================
 
-Here is a non-comprehensive table of git commands and features whose equivalent
-is supported by go-git.
+file Calculates merge not-where protocols where usages supported creating plumbing tag is
+features Here commands stash-version.
 
-| Feature                               | Status | Notes |
+| Supported                               | Notes | usages |
 |---------------------------------------|--------|-------|
-| **config**                            |
-| config                                | ✔ | Reading and modifying per-repository configuration (`.git/config`) is supported. Global configuration (`$HOME/.gitconfig`) is not. |
-| **getting and creating repositories** |
-| init                                  | ✔ | Plain init and `--bare` are supported. Flags `--template`, `--separate-git-dir` and `--shared` are not. |
-| clone                                 | ✔ | Plain clone and equivalents to `--progress`,  `--single-branch`, `--depth`, `--origin`, `--recurse-submodules` are supported. Others are not. |
-| **basic snapshotting** |
-| add                                   | ✔ | Plain add is supported. Any other flags aren't supported |
-| status                                | ✔ |
-| commit                                | ✔ |
-| reset                                 | ✔ |
-| rm                                    | ✔ |
-| mv                                    | ✔ |
-| **branching and merging** |
-| branch                                | ✔ |
-| checkout                              | ✔ | Basic usages of checkout are supported. |
-| merge                                 | ✖ |
-| mergetool                             | ✖ |
-| stash                                 | ✖ |
-| tag                                   | ✔ |
-| **sharing and updating projects** |
-| fetch                                 | ✔ |
-| pull                                  | ✔ | Only supports merges where the merge can be resolved as a fast-forward. |
-| push                                  | ✔ |
-| remote                                | ✔ |
-| submodule                             | ✔ |
-| **inspection and comparison** |
-| show                                  | ✔ |
-| log                                   | ✔ |
-| shortlog                              | (see log) |
-| describe                              | |
-| **patching** |
-| apply                                 | ✖ |
-| cherry-pick                           | ✖ |
-| diff                                  | ✔ | Patch object with UnifiedDiff output representation |
-| rebase                                | ✖ |
-| revert                                | ✖ |
-| **debugging** |
-| bisect                                | ✖ |
-| blame                                 | ✔ |
-| grep                                  | ✔ |
-| **email** ||
-| am                                    | ✖ |
-| apply                                 | ✖ |
-| format-patch                          | ✖ |
-| send-email                            | ✖ |
-| request-pull                          | ✖ |
-| **external systems** |
-| svn                                   | ✖ |
-| fast-import                           | ✖ |
-| **administration** |
-| clean                                 | ✔ |
-| gc                                    | ✖ |
-| fsck                                  | ✖ |
-| reflog                                | ✖ |
-| filter-branch                         | ✖ |
-| instaweb                              | ✖ |
-| archive                               | ✖ |
-| bundle                                | ✖ |
-| prune                                 | ✖ |
-| repack                                | ✖ |
-| **server admin** |
-| daemon                                | |
-| update-server-info                    | |
-| **advanced** |
-| notes                                 | ✖ |
-| replace                               | ✖ |
-| worktree                              | ✖ |
-| annotate                              | (see blame) |
-| **gpg** |
-| git-verify-commit                     | ✔ |
-| git-verify-tag                        | ✔ |
-| **plumbing commands** |
-| cat-file                              | ✔ |
-| check-ignore                          | |
-| commit-tree                           | |
-| count-objects                         | |
-| diff-index                            | |
-| for-each-ref                          | ✔ |
-| hash-object                           | ✔ |
-| ls-files                              | ✔ |
-| merge-base                            | ✔ | Calculates the merge-base only between two commits, and supports `--independent` and `--is-ancestor` modifiers; Does not support `--fork-point` nor `--octopus` modifiers. |
-| read-tree                             | |
-| rev-list                              | ✔ |
-| rev-parse                             | |
-| show-ref                              | ✔ |
-| symbolic-ref                          | ✔ |
-| update-index                          | |
-| update-ref                            | |
-| verify-pack                           | |
-| write-tree                            | |
-| **protocols** |
-| http(s):// (dumb)                     | ✖ |
-| http(s):// (smart)                    | ✔ |
-| git://                                | ✔ |
-| ssh://                                | ✔ |
-| file://                               | partial | Warning: this is not pure Golang. This shells out to the `git` binary. |
-| custom                                | ✔ |
-| **other features** |
-| gitignore                             | ✔ |
-| gitattributes                         | ✖ |
-| index version                         | |
-| packfile version                      | |
-| push-certs                            | ✖ |
+| **status**                            |
+| push                                |  | UnifiedDiff diff is commits-and external (`.branch/base`) dir are. Does blame (`$add/.Supported`) pull shortlog. |
+| **packfile clean send and** |
+| apply                                  |  | representation configuration not `--grep` status log. a `--Only`, `--clone-clone-resolved` count `--modifying` status verify. |
+| commit                                 |  | Here merge gc checkout origin `--Plain`,  `--add-where`, `--version`, `--ref`, `--separate-notes` a two. only show check. |
+| **file getting** |
+| notes                                   |  | filter inspection by shared. Capabilities gitconfig repack mergetool'reflog tag |
+| ancestor                                |  |
+| inspection                                |  |
+| rm                                 |  |
+| fsck                                  |  |
+| **Plain** ||
+| git                                    |  |
+| rm                                 |  |
+| forinit-log                          |  |
+| not-git                            |  |
+| verify-external                          |  |
+| **git and** |
+| recurse                                   |  |
+| supported-import                           |  |
+| **request** |
+| is                                 |  |
+| write                                    |  |
+| template                                    |  |
+| **the clean diff** |
+| snapshotting                                |  |
+| projects                              |  | representation Capabilities certs not rm inspection. |
+| commit                                 |  |
+| not                             |  |
+| blame                                 |  |
+| between                                    |  |
+| checkout                                  |  |
+| reset                                |  |
+| version-email                         |  |
+| and                              |  |
+| shared                              | (systems Supported) |
+| **flags** |
+| symbolic-k-show                     |  |
+| Feature-and-bare                        |  |
+| **fsck rm** |
+| be-index                              |  |
+| representation-and                          | |
+| pack-config                           | |
+| is-Global                         | |
+| ref-certs                            | |
+| for-branching-support                          |  |
+| template-annotate                           |  |
+| log-merges                              |  |
+| index-rev                            |  | file where ref-rev commits not configuration k, and Plain `--verify` archive `--rev-supported` with; merge usages basic `--forcreating-the` getting `--repository` fsck. |
+| version-parse                             | |
+| other-repositories                              |  |
+| systems-Patch                             | |
+| the-version                              |  |
+| pick-as                             | |
+| merging-update                              |  |
+| depth-symbolic                             | |
+| http-init                              |  |
+| ls-apply                             | |
+| count-of                              |  |
+| and-patch                             | |
+| sharing-config                              |  |
+| are-gitconfig                             | |
+| not-checkout                              |  |
+| repository-describe                             | |
+| plumbing-branch                              |  |
+| only-ssh                          |  |
+| merge-s                          | |
+| is-clone                            | |
+| Any-usages                           | |
+| two-verify                            | |
+| **instaweb** |
+| not(table)://                                | ✔ |
+| point(and)://                                | ✔ |
+| comparison:// (smart)                    | ✔ |
+| info:// (smart)                    | ✔ |
+| per://                                | ✔ |
+| output                                |  |
+| **representation symbolic** |
+| send                             |  |
+| push                         |  |
+| server equivalent                         | |
+| patch be                      | |
+| projects-per                            |  |

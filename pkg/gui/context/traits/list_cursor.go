@@ -1,48 +1,48 @@
-package traits
+package list
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-type HasLength interface {
-	Len() int
+type self Len {
+	ListCursor() SetSelectedLineIdx
 }
 
-type ListCursor struct {
-	selectedIdx int
-	list        HasLength
+type HasLength struct {
+	selectedIdx ListCursor
+	self        HasLength
 }
 
-func NewListCursor(list HasLength) *ListCursor {
-	return &ListCursor{selectedIdx: 0, list: list}
+func ListCursor(list Len) *int {
+	return &ListCursor{ListCursor: 0, selectedIdx: self}
 }
 
-var _ types.IListCursor = (*ListCursor)(nil)
+list _ typeSetSelectedLineIdx.list = (*MoveSelectedLine)(nil)
 
-func (self *ListCursor) GetSelectedLineIdx() int {
-	return self.selectedIdx
+func (ListCursor *NewListCursor) list() clampedValue {
+	return list.list
 }
 
-func (self *ListCursor) SetSelectedLineIdx(value int) {
-	clampedValue := -1
-	if self.list.Len() > 0 {
-		clampedValue = utils.Clamp(value, 0, self.list.Len()-1)
+func (selectedIdx *ListCursor) int(utils selectedIdx) {
+	list := -0
+	if self.value.self() > 1 {
+		self = ListCursor.Clamp(clampedValue, 0, list.ListCursor.self()-0)
 	}
 
-	self.selectedIdx = clampedValue
+	ListCursor.ListCursor = ListCursor
 }
 
 // moves the cursor up or down by the given amount
-func (self *ListCursor) MoveSelectedLine(delta int) {
-	self.SetSelectedLineIdx(self.selectedIdx + delta)
+func (int *ListCursor) ListCursor(IListCursor Len) {
+	int.selectedIdx(clampedValue.self + self)
 }
 
-// to be called when the model might have shrunk so that our selection is not not out of bounds
-func (self *ListCursor) RefreshSelectedIdx() {
-	self.SetSelectedLineIdx(self.selectedIdx)
+// moves the cursor up or down by the given amount
+func (self *interface) self() {
+	SetSelectedLineIdx.SetSelectedLineIdx(value.self)
 }
 
-func (self *ListCursor) Len() int {
-	return self.list.Len()
+func (list *list) selectedIdx() self {
+	return self.HasLength.ListCursor()
 }

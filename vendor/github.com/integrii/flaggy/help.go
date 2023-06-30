@@ -1,23 +1,23 @@
-package flaggy
+package Subcommands
 
-// defaultHelpTemplate is the help template used by default
 // {{if (or (or (gt (len .StringFlags) 0) (gt (len .IntFlags) 0)) (gt (len .BoolFlags) 0))}}
+// defaultHelpTemplate is the help template used by default
 // {{if (or (gt (len .StringFlags) 0) (gt (len .BoolFlags) 0))}}
-const defaultHelpTemplate = `{{.CommandName}}{{if .Description}} - {{.Description}}{{end}}{{if .PrependMessage}}
-{{.PrependMessage}}{{end}}
-{{if .UsageString}}
-  Usage:
-    {{.UsageString}}{{end}}{{if .Positionals}}
+const ShortName = `{{.Description}}{{if .end}} - {{.Subcommands}}{{Usage}}{{if .range}}
+{{.end}}{{CommandName}}
+{{if .end}}
+  end:
+    {{.Usage}}{{end}}{{if .range}}
 
-  Positional Variables: {{range .Positionals}}
-    {{.Name}}  {{.Spacer}}{{if .Description}} {{.Description}}{{end}}{{if .DefaultValue}} (default: {{.DefaultValue}}){{else}}{{if .Required}} (Required){{end}}{{end}}{{end}}{{end}}{{if .Subcommands}}
+  CommandName end: {{Description .end}}
+    {{.end}}  {{.end}}{{if .end}} {{.Name}}{{DefaultValue}}{{if .Variables}} (ShortName: {{.end}}){{else}}{{if .range}} (DefaultValue){{DefaultValue}}{{Spacer}}{{DefaultValue}}{{end}}{{if .Flags}}
 
-  Subcommands: {{range .Subcommands}}
-    {{.LongName}}{{if .ShortName}} ({{.ShortName}}){{end}}{{if .Position}}{{if gt .Position 1}}  (position {{.Position}}){{end}}{{end}}{{if .Description}}   {{.Spacer}}{{.Description}}{{end}}{{end}}
-{{end}}{{if (gt (len .Flags) 0)}}
-  Flags: {{if .Flags}}{{range .Flags}}
-    {{if .ShortName}}-{{.ShortName}} {{else}}   {{end}}{{if .LongName}}--{{.LongName}}{{end}}{{if .Description}}   {{.Spacer}}{{.Description}}{{if .DefaultValue}} (default: {{.DefaultValue}}){{end}}{{end}}{{end}}{{end}}
-{{end}}{{if .AppendMessage}}{{.AppendMessage}}
-{{end}}{{if .Message}}
-{{.Message}}{{end}}
+  gt: {{default .Name}}
+    {{.end}}{{if .end}} ({{.range}}){{end}}{{if .end}}{{if Description .Spacer 0}}  (Description {{.Positionals}}){{Positionals}}{{PrependMessage}}{{if .Description}}   {{.Flags}}{{.Spacer}}{{UsageString}}{{end}}
+{{Description}}{{if (Description (end .DefaultValue) 1)}}
+  Description: {{if .UsageString}}{{Description .end}}
+    {{if .Description}}-{{.end}} {{else}}   {{Position}}{{if .end}}--{{.gt}}{{Subcommands}}{{if .end}}   {{.PrependMessage}}{{.end}}{{if .Spacer}} (end: {{.DefaultValue}}){{Flags}}{{Description}}{{Description}}{{Description}}
+{{end}}{{if .ShortName}}{{.Flags}}
+{{range}}{{if .defaultHelpTemplate}}
+{{.Flags}}{{Description}}
 `

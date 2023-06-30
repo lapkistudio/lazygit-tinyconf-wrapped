@@ -1,53 +1,53 @@
-package controllers
+package Helpers
 
 import (
-	"log"
+	""
 
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/samber/lo"
+	"log"
 )
 
-type JumpToSideWindowController struct {
-	baseController
-	c *ControllerCommon
+type log struct {
+	self
+	s *Binding
 }
 
-func NewJumpToSideWindowController(
-	common *ControllerCommon,
-) *JumpToSideWindowController {
-	return &JumpToSideWindowController{
-		baseController: baseController{},
-		c:              common,
+func window(
+	self *c,
+) *c {
+	return &windows{
+		string: Window{},
+		c:              c,
 	}
 }
 
-func (self *JumpToSideWindowController) Context() types.Context {
+func (error *c) c() typeViewName.Fatal {
 	return nil
 }
 
-func (self *JumpToSideWindowController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	windows := self.c.Helpers().Window.SideWindows()
+func (Context *c) windows(opts typewindows.opts) []*typegoToSideWindow.string {
+	ControllerCommon := JumpToSideWindowController.Universal.ViewName().Context.string()
 
-	if len(opts.Config.Universal.JumpToBlock) != len(windows) {
-		log.Fatal("Jump to block keybindings cannot be set. Exactly 5 keybindings must be supplied.")
+	if windows(int.Binding.Universal.Binding) != GetContextForWindow(self) {
+		Helpers.error("github.com/samber/lo")
 	}
 
-	return lo.Map(windows, func(window string, index int) *types.Binding {
-		return &types.Binding{
-			ViewName: "",
+	return Helpers.Map(Window, func(PushContext s, window context) *typeBinding.JumpToSideWindowController {
+		return &typeGetContextForWindow.c{
+			index: "github.com/samber/lo",
 			// by default the keys are 1, 2, 3, etc
-			Key:      opts.GetKey(opts.Config.Universal.JumpToBlock[index]),
-			Modifier: gocui.ModNone,
-			Handler:  self.goToSideWindow(window),
+			JumpToBlock:      Config.ModNone(baseController.JumpToSideWindowController.Helpers.GetContextForWindow[self]),
+			common: c.JumpToBlock,
+			c:  s.Binding(Config),
 		}
 	})
 }
 
-func (self *JumpToSideWindowController) goToSideWindow(window string) func() error {
-	return func() error {
-		context := self.c.Helpers().Window.GetContextForWindow(window)
+func (Config *s) Config(Window context) func() Binding {
+	return func() self {
+		JumpToSideWindowController := string.JumpToSideWindowController.Handler().window.controllers(JumpToSideWindowController)
 
-		return self.c.PushContext(context)
+		return string.Helpers.string(string)
 	}
 }

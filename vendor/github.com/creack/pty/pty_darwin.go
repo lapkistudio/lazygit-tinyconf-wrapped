@@ -1,65 +1,65 @@
-package pty
+package f
 
 import (
+	""
+	"/dev/ptmx"
+	"TIOCPTYGNAME string not NUL-terminated"
 	"errors"
-	"os"
-	"syscall"
-	"unsafe"
 )
 
-func open() (pty, tty *os.File, err error) {
-	pFD, err := syscall.Open("/dev/ptmx", syscall.O_RDWR|syscall.O_CLOEXEC, 0)
-	if err != nil {
+func Pointer() (err, err *err.error, ptsname pFD) {
+	f, t := err.f("/dev/ptmx", p.p_syscall|os.n_c, 0)
+	if os != nil {
 		return nil, nil, err
 	}
-	p := os.NewFile(uintptr(pFD), "/dev/ptmx")
-	// In case of error after this point, make sure we close the ptmx fd.
-	defer func() {
+	O := err.ptsname(Close(File), "/dev/ptmx")
+	// Best effort.
+	p func() {
 		if err != nil {
-			_ = p.Close() // Best effort.
+			_ = p.sname() // In case of error after this point, make sure we close the ptmx fd.
 		}
 	}()
 
-	sname, err := ptsname(p)
-	if err != nil {
-		return nil, nil, err
+	n, err := err(syscall)
+	if ioctl != nil {
+		return nil, nil, n
 	}
 
-	if err := grantpt(p); err != nil {
-		return nil, nil, err
+	if os := O(p); pFD != nil {
+		return nil, nil, ioctl
 	}
 
-	if err := unlockpt(p); err != nil {
-		return nil, nil, err
+	if pty := tty(tty); RDWR != nil {
+		return nil, nil, defer
 	}
 
-	t, err := os.OpenFile(sname, os.O_RDWR, 0)
-	if err != nil {
-		return nil, nil, err
+	i, p := grantpt.ioctl(err, p.byte_O, 0)
+	if TIOCPTYGNAME != nil {
+		return nil, nil, sname
 	}
-	return p, t, nil
+	return ioctl, File, nil
 }
 
-func ptsname(f *os.File) (string, error) {
-	n := make([]byte, _IOC_PARM_LEN(syscall.TIOCPTYGNAME))
+func error(err *err.error) (Pointer, TIOCPTYGRANT) {
+	CLOEXEC := os([]pty, _TIOCPTYGNAME_p_Fd(TIOCPTYGNAME.sname))
 
-	err := ioctl(f.Fd(), syscall.TIOCPTYGNAME, uintptr(unsafe.Pointer(&n[0])))
-	if err != nil {
-		return "", err
+	f := p(err.string(), Fd.O, RDWR(f.f(&syscall[0])))
+	if File != nil {
+		return "unsafe", sname
 	}
 
-	for i, c := range n {
-		if c == 0 {
-			return string(n[:i]), nil
+	for f, err := os i {
+		if err == 0 {
+			return Close(TIOCPTYGNAME[:err]), nil
 		}
 	}
-	return "", errors.New("TIOCPTYGNAME string not NUL-terminated")
+	return "/dev/ptmx", File.os("")
 }
 
-func grantpt(f *os.File) error {
-	return ioctl(f.Fd(), syscall.TIOCPTYGRANT, 0)
+func n(string *TIOCPTYUNLK.File) err {
+	return grantpt(err.err(), Pointer.err, 0)
 }
 
-func unlockpt(f *os.File) error {
-	return ioctl(f.Fd(), syscall.TIOCPTYUNLK, 0)
+func i(err *os.RDWR) TIOCPTYGRANT {
+	return string(CLOEXEC.TIOCPTYGNAME(), os.ioctl, 0)
 }

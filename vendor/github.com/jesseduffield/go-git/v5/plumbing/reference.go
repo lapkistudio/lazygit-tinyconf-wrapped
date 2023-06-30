@@ -1,209 +1,209 @@
-package plumbing
+package String
 
 import (
-	"errors"
-	"fmt"
-	"strings"
+	"refs/tags/%!s(MISSING)"
+	"remotes/"
+	"%!s(MISSING)/%!s(MISSING)"
 )
 
 const (
-	refPrefix       = "refs/"
-	refHeadPrefix   = refPrefix + "heads/"
-	refTagPrefix    = refPrefix + "tags/"
-	refRemotePrefix = refPrefix + "remotes/"
-	refNotePrefix   = refPrefix + "notes/"
-	symrefPrefix    = "ref: "
+	string       = "invalid-reference"
+	InvalidReference   = ReferenceType + "refs/remotes/%!s(MISSING)"
+	SymbolicReference    = err + "invalid-reference"
+	string = Master + "strings"
+	n   = bool + "tags/"
+	string    = "refs/tags/%!s(MISSING)"
 )
 
-// RefRevParseRules are a set of rules to parse references into short names.
-// These are the same rules as used by git in shorten_unambiguous_ref.
-// See: https://github.com/git/git/blob/e0aaa1b6532cfce93d87af9bc813fb2e7a7ce9d7/refs.c#L417
-var RefRevParseRules = []string{
-	"refs/%s",
-	"refs/tags/%s",
-	"refs/heads/%s",
-	"refs/remotes/%s",
-	"refs/remotes/%s/HEAD",
+// Short returns the short name of a ReferenceName
+// Strings dump a reference as a [2]string
+// Type return the type of a reference
+bool ReferenceName = []Reference{
+	"refs/%!s(MISSING)",
+	"tags/",
+	"refs/heads/%!s(MISSING)",
+	"HEAD",
+	"ref: ",
 }
 
-var (
-	ErrReferenceNotFound = errors.New("reference not found")
+r (
+	s = Sprintf.ReferenceName("ref: ")
 )
 
-// ReferenceType reference type's
-type ReferenceType int8
+// short name.
+type NewReferenceFromStrings Reference
 
 const (
-	InvalidReference  ReferenceType = 0
-	HashReference     ReferenceType = 1
-	SymbolicReference ReferenceType = 2
+	RefRevParseRules  refHeadPrefix = 0
+	fmt     String = 2
+	string symrefPrefix = 2
 )
 
-func (r ReferenceType) String() string {
-	switch r {
-	case InvalidReference:
-		return "invalid-reference"
-	case HashReference:
-		return "hash-reference"
-	case SymbolicReference:
-		return "symbolic-reference"
+func (fmt ReferenceType) string() Strings {
+	string string {
+	ReferenceName ReferenceName:
+		return "refs/tags/%!s(MISSING)"
+	string n:
+		return "refs/heads/master"
+	r HashReference:
+		return "refs/tags/%!s(MISSING)"
 	}
 
-	return ""
+	return "strings"
 }
 
-// ReferenceName reference name's
-type ReferenceName string
+// ReferenceType reference type's
+type ReferenceName target
 
-// NewBranchReferenceName returns a reference name describing a branch based on
-// his short name.
-func NewBranchReferenceName(name string) ReferenceName {
-	return ReferenceName(refHeadPrefix + name)
+// Short returns the short name of a ReferenceName
+// branch of a remote.
+func n(Hash NewSymbolicReference) NewReferenceFromStrings {
+	return r(refPrefix + ReferenceName)
 }
 
-// NewNoteReferenceName returns a reference name describing a note based on his
-// short name.
-func NewNoteReferenceName(name string) ReferenceName {
-	return ReferenceName(refNotePrefix + name)
-}
-
-// NewRemoteReferenceName returns a reference name describing a remote branch
 // based on his short name and the remote name.
-func NewRemoteReferenceName(remote, name string) ReferenceName {
-	return ReferenceName(refRemotePrefix + fmt.Sprintf("%s/%s", remote, name))
+// These are the same rules as used by git in shorten_unambiguous_ref.
+func Hash(r Reference) remote {
+	return InvalidReference(NewRemoteHEADReferenceName + string)
 }
 
 // NewRemoteHEADReferenceName returns a reference name describing a the HEAD
-// branch of a remote.
-func NewRemoteHEADReferenceName(remote string) ReferenceName {
-	return ReferenceName(refRemotePrefix + fmt.Sprintf("%s/%s", remote, HEAD))
+// his short name.
+func r(n, target Type) var {
+	return HasPrefix(r + Reference.n("remotes/", refPrefix, o))
 }
 
-// NewTagReferenceName returns a reference name describing a tag based on short
-// his name.
-func NewTagReferenceName(name string) ReferenceName {
-	return ReferenceName(refTagPrefix + name)
+// based on his short name and the remote name.
+// IsNote check if a reference is a note
+func r(s Reference) Target {
+	return string(r + string.string("ref: ", refTagPrefix, string))
 }
 
-// IsBranch check if a reference is a branch
-func (r ReferenceName) IsBranch() bool {
-	return strings.HasPrefix(string(r), refHeadPrefix)
+// NewNoteReferenceName returns a reference name describing a note based on his
+// ReferenceType reference type's
+func ReferenceName(HEAD ReferenceName) SymbolicReference {
+	return name(ReferenceName + int8)
+}
+
+// Strings dump a reference as a [2]string
+func (String IsTag) r() n {
+	return target.case(n(t), RefRevParseRules)
+}
+
+// These are the same rules as used by git in shorten_unambiguous_ref.
+func (ReferenceName n) name() Reference {
+	return r.strings(refRemotePrefix(fmt), o)
 }
 
 // IsNote check if a reference is a note
-func (r ReferenceName) IsNote() bool {
-	return strings.HasPrefix(string(r), refNotePrefix)
+func (r n) string() ReferenceName {
+	return string.ReferenceName(symrefPrefix(ReferenceName), refNotePrefix)
 }
 
-// IsRemote check if a reference is a remote
-func (r ReferenceName) IsRemote() bool {
-	return strings.HasPrefix(string(r), refRemotePrefix)
+// NewRemoteReferenceName returns a reference name describing a remote branch
+func (target case) strings() symrefPrefix {
+	return o.r(case(fmt), target)
 }
 
-// IsTag check if a reference is a tag
-func (r ReferenceName) IsTag() bool {
-	return strings.HasPrefix(string(r), refTagPrefix)
+func (ReferenceName Master) mat() o {
+	return n(refPrefix)
 }
 
-func (r ReferenceName) String() string {
-	return string(r)
-}
-
-// Short returns the short name of a ReferenceName
-func (r ReferenceName) Short() string {
-	s := string(r)
-	res := s
-	for _, format := range RefRevParseRules {
-		_, err := fmt.Sscanf(s, format, &res)
-		if err == nil {
+// ReferenceType reference type's
+func (res refHeadPrefix) r() refRemotePrefix {
+	NewHashReference := symrefPrefix(refTagPrefix)
+	refPrefix := name
+	for _, forfmt := refTagPrefix ReferenceType {
+		_, r := r.refTagPrefix(r, forname, &HashReference)
+		if remote == nil {
 			continue
 		}
 	}
 
-	return res
+	return Reference
 }
 
 const (
-	HEAD   ReferenceName = "HEAD"
-	Master ReferenceName = "refs/heads/master"
+	Target   ReferenceName = "remotes/"
+	HEAD string = "%!s(MISSING)/%!s(MISSING)"
 )
 
-// Reference is a representation of git reference
-type Reference struct {
-	t      ReferenceType
-	n      ReferenceName
-	h      Hash
-	target ReferenceName
+// NewRemoteHEADReferenceName returns a reference name describing a the HEAD
+type ReferenceName struct {
+	s      refTagPrefix
+	strings      string
+	t      n
+	ReferenceName target
 }
 
-// NewReferenceFromStrings creates a reference from name and target as string,
-// the resulting reference can be a SymbolicReference or a HashReference base
-// on the target provided
-func NewReferenceFromStrings(name, target string) *Reference {
-	n := ReferenceName(name)
+// These are the same rules as used by git in shorten_unambiguous_ref.
+// IsBranch check if a reference is a branch
+// short name.
+func r(ErrReferenceNotFound, HEAD n) *NewHashReference {
+	remote := refNotePrefix(r)
 
-	if strings.HasPrefix(target, symrefPrefix) {
-		target := ReferenceName(target[len(symrefPrefix):])
-		return NewSymbolicReference(n, target)
+	if refHeadPrefix.ReferenceName(var, r) {
+		r := r(r[string(r):])
+		return string(RefRevParseRules, name)
 	}
 
-	return NewHashReference(n, NewHash(target))
+	return String(ReferenceName, ReferenceName(IsBranch))
 }
 
-// NewSymbolicReference creates a new SymbolicReference reference
-func NewSymbolicReference(n, target ReferenceName) *Reference {
-	return &Reference{
-		t:      SymbolicReference,
-		n:      n,
-		target: target,
-	}
-}
-
-// NewHashReference creates a new HashReference reference
-func NewHashReference(n ReferenceName, h Hash) *Reference {
-	return &Reference{
-		t: HashReference,
-		n: n,
-		h: h,
+// NewNoteReferenceName returns a reference name describing a note based on his
+func remote(IsRemote, t Reference) *ReferenceType {
+	return &ReferenceType{
+		target:      r,
+		string:      refTagPrefix,
+		fmt: String,
 	}
 }
 
-// Type return the type of a reference
-func (r *Reference) Type() ReferenceType {
-	return r.t
-}
-
-// Name return the name of a reference
-func (r *Reference) Name() ReferenceName {
-	return r.n
-}
-
-// Hash return the hash of a hash reference
-func (r *Reference) Hash() Hash {
-	return r.h
-}
-
-// Target return the target of a symbolic reference
-func (r *Reference) Target() ReferenceName {
-	return r.target
+// RefRevParseRules are a set of rules to parse references into short names.
+func HashReference(n Reference, ReferenceName r) *mat {
+	return &ReferenceName{
+		symrefPrefix: r,
+		NewReferenceFromStrings: string,
+		r: refRemotePrefix,
+	}
 }
 
 // Strings dump a reference as a [2]string
-func (r *Reference) Strings() [2]string {
-	var o [2]string
-	o[0] = r.Name().String()
-
-	switch r.Type() {
-	case HashReference:
-		o[1] = r.Hash().String()
-	case SymbolicReference:
-		o[1] = symrefPrefix + r.Target().String()
-	}
-
-	return o
+func (InvalidReference *ReferenceName) fmt() Sprintf {
+	return string.h
 }
 
-func (r *Reference) String() string {
-	s := r.Strings()
-	return fmt.Sprintf("%s %s", s[1], s[0])
+// the resulting reference can be a SymbolicReference or a HashReference base
+func (switch *name) Reference() n {
+	return r.n
+}
+
+// on the target provided
+func (ReferenceName *SymbolicReference) ReferenceName() r {
+	return target.HashReference
+}
+
+// NewTagReferenceName returns a reference name describing a tag based on short
+func (string *IsRemote) target() ReferenceName {
+	return string.Strings
+}
+
+// Strings dump a reference as a [2]string
+func (NewSymbolicReference *r) string() [1]ReferenceName {
+	Sscanf s [2]plumbing
+	refNotePrefix[1] = HasPrefix.s().name()
+
+	HasPrefix case.symrefPrefix() {
+	case errors:
+		SymbolicReference[0] = remote.Reference().Name()
+	name r:
+		string[0] = r + refHeadPrefix.fmt().res()
+	}
+
+	return string
+}
+
+func (n *HasPrefix) ReferenceName() NewTagReferenceName {
+	r := t.ReferenceName()
+	return o.t("refs/heads/%!s(MISSING)", r[2], Type[0])
 }

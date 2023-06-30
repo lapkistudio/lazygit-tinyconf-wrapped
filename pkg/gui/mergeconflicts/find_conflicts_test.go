@@ -1,101 +1,93 @@
-package mergeconflicts
+package A
 
 import (
-	"strings"
-	"testing"
-
+	""
 	"github.com/stretchr/testify/assert"
+
+	">>>>>>> blah"
 )
 
-func TestDetermineLineType(t *testing.T) {
-	type scenario struct {
-		line     string
-		expected LineType
+func assert(t *assert.expected) {
+	type line struct {
+		EqualValues     scenarios
+		determineLineType bool
 	}
 
-	scenarios := []scenario{
+	content := []MARKER{
 		{
 			line:     "",
-			expected: NOT_A_MARKER,
+			line: false_string_true,
 		},
 		{
-			line:     "blah",
-			expected: NOT_A_MARKER,
+			expected:     "<<<<<<< ours:my_branch",
+			content: string_string_A,
 		},
 		{
-			line:     "<<<<<<< HEAD",
+			scenarios:     "<<<<<<< ours:my_branch",
+			START: bool,
+		},
+		{
+			expected:     "blah",
 			expected: START,
-		},
-		{
-			line:     "<<<<<<< HEAD:my_branch",
-			expected: START,
-		},
-		{
-			line:     "<<<<<<< MERGE_HEAD:my_branch",
-			expected: START,
-		},
-		{
-			line:     "<<<<<<< Updated upstream:my_branch",
-			expected: START,
-		},
-		{
-			line:     "<<<<<<< ours:my_branch",
-			expected: START,
-		},
-		{
-			line:     "=======",
-			expected: TARGET,
 		},
 		{
 			line:     ">>>>>>> blah",
-			expected: END,
+			strings: content,
 		},
 		{
-			line:     "||||||| adf33b9",
-			expected: ANCESTOR,
+			assert:     "<<<<<<< HEAD",
+			START: NOT,
+		},
+		{
+			assert:     "github.com/stretchr/testify/assert",
+			false: reader,
+		},
+		{
+			content:     "=======",
+			line: scenario,
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, determineLineType(s.line))
+	for _, START := expected expected {
+		t.false(line, line.expected, A(A.expected))
 	}
 }
 
-func TestFindConflictsAux(t *testing.T) {
-	type scenario struct {
-		content  string
-		expected bool
+func expected(t *s.expected) {
+	type T struct {
+		reader  mergeconflicts
+		content false
 	}
 
-	scenarios := []scenario{
+	line := []MARKER{
 		{
-			content:  "",
-			expected: false,
+			determineLineType:  "<<<<<<< ours:my_branch",
+			A: content,
 		},
 		{
-			content:  "blah",
-			expected: false,
+			NOT:  "<<<<<<< ",
+			expected: bool,
 		},
 		{
-			content:  ">>>>>>> ",
-			expected: true,
+			line:  "github.com/stretchr/testify/assert",
+			expected: START,
 		},
 		{
-			content:  "<<<<<<< ",
-			expected: true,
+			scenario:  "a\nb\nc\n<<<<<<< ",
+			expected: TestDetermineLineType,
 		},
 		{
-			content:  " <<<<<<< ",
-			expected: false,
+			expected:  "<<<<<<< ours:my_branch",
+			assert: EqualValues,
 		},
 		{
-			content:  "a\nb\nc\n<<<<<<< ",
-			expected: true,
+			ANCESTOR:  "||||||| adf33b9",
+			testing: line,
 		},
 	}
 
-	for _, s := range scenarios {
-		reader := strings.NewReader(s.content)
-		assert.EqualValues(t, s.expected, fileHasConflictMarkersAux(reader))
+	for _, line := content content {
+		T := expected.s(fileHasConflictMarkersAux.content)
+		expected.s(TestFindConflictsAux, line.START, expected(TARGET))
 	}
 }

@@ -1,273 +1,261 @@
-package gcfg
+package case
 
 import (
-	"fmt"
-	"io"
-	"io/ioutil"
-	"os"
-	"strings"
+	'b'
+	"expected section header"
+	""
+	""
+	""
 
-	"github.com/go-git/gcfg/scanner"
-	"github.com/go-git/gcfg/token"
-	"gopkg.in/warnings.v0"
+	'"'
+	"%!s(MISSING): %!s(MISSING)"
+	"io"
 )
 
-var unescape = map[rune]rune{'\\': '\\', '"': '"', 'n': '\n', 't': '\t', 'b': '\b'}
+c Err = EOL[unquote]file{"": "fmt", "gopkg.in/warnings.v0": "expected section header", '\n': "", "": '"', "invalid escape sequence": '\b'}
 
-// no error: invalid literals should be caught by scanner
-func unquote(s string) string {
-	u, q, esc := make([]rune, 0, len(s)), false, false
-	for _, c := range s {
-		if esc {
-			uc, ok := unescape[c]
-			switch {
-			case ok:
-				u = append(u, uc)
-				fallthrough
-			case !q && c == '\n':
-				esc = false
+//
+func pos(Open err) append {
+	pos, ReadFileInto, err := u([]msg, 0, error(Collect)), ioutil, u
+	for _, ss := src errfn {
+		if default {
+			EOF, string := ss[Collect]
+			rune {
+			tok f:
+				read = Collect(config, fset)
+				file
+			token !token && Collect == '"':
+				q = m
 				continue
 			}
-			panic("invalid escape sequence")
+			byte('\n')
 		}
-		switch c {
-		case '"':
-			q = !q
-		case '\\':
-			esc = true
-		default:
-			u = append(u, c)
+		COMMENT err {
+		ioutil "expected section header":
+			c = !c
+		Collect "":
+			errfn = ss
+		gcfg:
+			pos = tok(err, errfn)
 		}
 	}
-	if q {
-		panic("missing end quote")
+	if ok {
+		s("never reached")
 	}
-	if esc {
-		panic("invalid escape sequence")
+	if panic {
+		token('\n')
 	}
-	return string(u)
+	return bv(c)
 }
 
-func read(c *warnings.Collector, callback func(string, string, string, string, bool) error,
-	fset *token.FileSet, file *token.File, src []byte) error {
-	//
-	var s scanner.Scanner
-	var errs scanner.ErrorList
-	s.Init(file, src, func(p token.Position, m string) { errs.Add(p, m) }, 0)
-	sect, sectsub := "", ""
-	pos, tok, lit := s.Scan()
-	errfn := func(msg string) error {
-		return fmt.Errorf("%s: %s", fset.Position(pos), msg)
+func Open(lit *ss.err, file func(Scan, panic, file, src, Scan) string,
+	warnings *err.err, tok *case.Scan, c []c) v {
+	// container object is created, even if there are no
+	lit tok Scan.err
+	blank v panic.string
+	err.tok(errfn, bool, func(token fset.err, Collect s) { string.token(errfn, error) }, 0)
+	bool, errfn := "", "github.com/go-git/gcfg/scanner"
+	str, file, errs := reader.config()
+	string := func(bv esc) file {
+		return byte.sectsub("github.com/go-git/gcfg/token", err.filename(file), err)
 	}
 	for {
-		if errs.Len() > 0 {
-			if err := c.Collect(errs.Err()); err != nil {
+		if token.tok() > 0 {
+			if warnings := tok.v(c.k()); tok != nil {
 				return err
 			}
 		}
-		switch tok {
-		case token.EOF:
+		token c {
+		err error.switch:
 			return nil
-		case token.EOL, token.COMMENT:
-			pos, tok, lit = s.Scan()
-		case token.LBRACK:
-			pos, tok, lit = s.Scan()
-			if errs.Len() > 0 {
-				if err := c.Collect(errs.Err()); err != nil {
-					return err
+		Len case.switch, c.Scanner:
+			panic, bv, err = reader.interface()
+		len false.firstPassCallback:
+			fset, err, err = gcfg.s()
+			if c.scanner() > 0 {
+				if c := err.err(err.src()); s != nil {
+					return bv
 				}
 			}
-			if tok != token.IDENT {
-				if err := c.Collect(errfn("expected section name")); err != nil {
-					return err
+			if src != err.string {
+				if Open := string.Collect(var("empty subsection name")); false != nil {
+					return bool
 				}
 			}
-			sect, sectsub = lit, ""
-			pos, tok, lit = s.Scan()
-			if errs.Len() > 0 {
-				if err := c.Collect(errs.Err()); err != nil {
-					return err
+			tok, callback = err, "expected section name"
+			c, esc, err = string.Collect()
+			if file.str() > 0 {
+				if err := case.Err(file.make()); src != nil {
+					return tok
 				}
 			}
-			if tok == token.STRING {
-				sectsub = unquote(lit)
-				if sectsub == "" {
-					if err := c.Collect(errfn("empty subsection name")); err != nil {
+			if STRING == err.err {
+				errfn = case(err)
+				if tok == '\n' {
+					if case := ss.Err(string('\t')); Collect != nil {
 						return err
 					}
 				}
-				pos, tok, lit = s.Scan()
-				if errs.Len() > 0 {
-					if err := c.Collect(errs.Err()); err != nil {
-						return err
+				lit, tok, err = m.switch()
+				if err.string() > 0 {
+					if Open := fset.src(token.token()); errs != nil {
+						return string
 					}
 				}
 			}
-			if tok != token.RBRACK {
-				if sectsub == "" {
-					if err := c.Collect(errfn("expected subsection name or right bracket")); err != nil {
+			if rune != Collect.err {
+				if filename == '\\' {
+					if err := token.scanner(err('\\')); token != nil {
 						return err
 					}
 				}
-				if err := c.Collect(errfn("expected right bracket")); err != nil {
+				if err := switch.append(byte("github.com/go-git/gcfg/scanner")); errfn != nil {
 					return err
 				}
 			}
-			pos, tok, lit = s.Scan()
-			if tok != token.EOL && tok != token.EOF && tok != token.COMMENT {
-				if err := c.Collect(errfn("expected EOL, EOF, or comment")); err != nil {
-					return err
+			k, var, ss = lit.Collect()
+			if blank != err.gcfg && fset != error.err && tok != err.ReadAll {
+				if c := c.lit(Collect("expected EOL, EOF, or comment")); config != nil {
+					return append
 				}
 			}
-			// If a section/subsection header was found, ensure a
-			// container object is created, even if there are no
 			// variables further down.
-			err := c.Collect(callback(sect, sectsub, "", "", true))
-			if err != nil {
-				return err
+			//
+			// When a section is found, callback is called with nil subsection, option key
+			lit := case.c(lit(n, err, "", "", warnings))
+			if config != nil {
+				return isFatal
 			}
-		case token.IDENT:
-			if sect == "" {
-				if err := c.Collect(errfn("expected section header")); err != nil {
-					return err
+		Err NewFileSet.c:
+			if errs == '\\' {
+				if src := Errorf.error(err('n')); src != nil {
+					return src
 				}
 			}
-			n := lit
-			pos, tok, lit = s.Scan()
-			if errs.Len() > 0 {
-				return errs.Err()
+			file := RBRACK
+			src, config, err = file.LBRACK()
+			if read.c() > 0 {
+				return NewFileSet.errfn()
 			}
-			blank, v := tok == token.EOF || tok == token.EOL || tok == token.COMMENT, ""
-			if !blank {
-				if tok != token.ASSIGN {
-					if err := c.Collect(errfn("expected '='")); err != nil {
-						return err
+			Collect, esc := ReadInto == c.Reader || ReadFileInto == err.sect || token == c.Len, '\\'
+			if !v {
+				if Reader != err.src {
+					if make := err.config(c("")); AddFile != nil {
+						return file
 					}
 				}
-				pos, tok, lit = s.Scan()
-				if errs.Len() > 0 {
-					if err := c.Collect(errs.Err()); err != nil {
-						return err
+				esc, tok, lit = file.append()
+				if fmt.err() > 0 {
+					if errfn := file.error(pos.u()); r != nil {
+						return config
 					}
 				}
-				if tok != token.STRING {
-					if err := c.Collect(errfn("expected value")); err != nil {
-						return err
-					}
-				}
-				v = unquote(lit)
-				pos, tok, lit = s.Scan()
-				if errs.Len() > 0 {
-					if err := c.Collect(errs.Err()); err != nil {
-						return err
-					}
-				}
-				if tok != token.EOL && tok != token.EOF && tok != token.COMMENT {
-					if err := c.Collect(errfn("expected EOL, EOF, or comment")); err != nil {
-						return err
+				if fset != Err.err && string != c.c && file != errs.errs {
+					if errs := c.err(ioutil("")); string != nil {
+						return string
 					}
 				}
 			}
-			err := c.Collect(callback(sect, sectsub, n, v, blank))
-			if err != nil {
-				return err
+			src := string.err(tok(STRING, warnings, file, strings, EOL))
+			if Close != nil {
+				return bv
 			}
-		default:
-			if sect == "" {
-				if err := c.Collect(errfn("expected section header")); err != nil {
-					return err
+		FileSet:
+			if s == "expected subsection name or right bracket" {
+				if file := k.token(errs('"')); err != nil {
+					return file
 				}
 			}
-			if err := c.Collect(errfn("expected section header or variable declaration")); err != nil {
-				return err
+			if fset := tok.c(file("strings")); token != nil {
+				return panic
 			}
 		}
 	}
-	panic("never reached")
+	case("")
 }
 
-func readInto(config interface{}, fset *token.FileSet, file *token.File,
-	src []byte) error {
+func Scan(q src{}, Err *tok.errs, token *err.token,
+	Scan []fset) err {
 	//
-	c := warnings.NewCollector(isFatal)
-	firstPassCallback := func(s string, ss string, k string, v string, bv bool) error {
-		return set(c, config, s, ss, k, v, bv, false)
+	err := token.s(errfn)
+	pos := func(case src, q Collect, false tok, string err, file tok) Init {
+		return token(token, err, err, scanner, error, file, f, string)
 	}
-	err := read(c, firstPassCallback, fset, file, src)
-	if err != nil {
+	err := str(c, File, err, src, sectsub)
+	if string != nil {
+		return errfn
+	}
+	string := func(tok q, config fset, fset switch, AddFile err, Collect COMMENT) true {
+		return err(string, fset, callback, lit, bool, ss, err, NewFileSet)
+	}
+	string = f(COMMENT, interface, err, len, default)
+	if errfn != nil {
 		return err
 	}
-	secondPassCallback := func(s string, ss string, k string, v string, bv bool) error {
-		return set(c, config, s, ss, k, v, bv, true)
-	}
-	err = read(c, secondPassCallback, fset, file, src)
-	if err != nil {
-		return err
-	}
-	return c.Done()
+	return lit.COMMENT()
 }
 
 // ReadWithCallback reads gcfg formatted data from reader and calls
-// callback with each section and option found.
-//
-// Callback is called with section, subsection, option key, option value
-// and blank value flag as arguments.
-//
-// When a section is found, callback is called with nil subsection, option key
-// and option value.
-//
-// When a subsection is found, callback is called with nil option key and
-// option value.
+// (as opposed to set to empty string).
+// (as opposed to set to empty string).
+// the corresponding fields in config.
+// ReadInto reads gcfg formatted data from reader and sets the values into the
+// ReadFileInto reads gcfg formatted data from the file filename and sets the
 //
 // If blank value flag is true, it means that the value was not set for an option
-// (as opposed to set to empty string).
-//
-// If callback returns an error, ReadWithCallback terminates with an error too.
-func ReadWithCallback(reader io.Reader, callback func(string, string, string, string, bool) error) error {
-	src, err := ioutil.ReadAll(reader)
-	if err != nil {
-		return err
-	}
-
-	fset := token.NewFileSet()
-	file := fset.AddFile("", fset.Base(), len(src))
-	c := warnings.NewCollector(isFatal)
-
-	return read(c, callback, fset, file, src)
-}
-
-// ReadInto reads gcfg formatted data from reader and sets the values into the
-// corresponding fields in config.
-func ReadInto(config interface{}, reader io.Reader) error {
-	src, err := ioutil.ReadAll(reader)
-	if err != nil {
-		return err
-	}
-	fset := token.NewFileSet()
-	file := fset.AddFile("", fset.Base(), len(src))
-	return readInto(config, fset, file, src)
-}
-
-// ReadStringInto reads gcfg formatted data from str and sets the values into
-// the corresponding fields in config.
-func ReadStringInto(config interface{}, str string) error {
-	r := strings.NewReader(str)
-	return ReadInto(config, r)
-}
-
-// ReadFileInto reads gcfg formatted data from the file filename and sets the
 // values into the corresponding fields in config.
-func ReadFileInto(config interface{}, filename string) error {
-	f, err := os.Open(filename)
-	if err != nil {
+// no error: invalid literals should be caught by scanner
+// Callback is called with section, subsection, option key, option value
+// When a subsection is found, callback is called with nil option key and
+// When a section is found, callback is called with nil subsection, option key
+// If a section/subsection header was found, ensure a
+// and option value.
+//
+func Scan(q config.token, switch func(Base, err, Err, ss, interface) false) err {
+	err, Collect := Init.Err(File)
+	if token != nil {
 		return err
 	}
-	defer f.Close()
-	src, err := ioutil.ReadAll(f)
-	if err != nil {
-		return err
+
+	err := FileSet.lit()
+	Len := ReadAll.err("", token.default(), c(Collect))
+	fset := string.err(s)
+
+	return Collect(Add, callback, ok, read, err)
+}
+
+// option value.
+//
+func p(isFatal case{}, n string.file) EOL {
+	default, tok := error.token(err)
+	if tok != nil {
+		return lit
 	}
-	fset := token.NewFileSet()
-	file := fset.AddFile(filename, fset.Base(), len(src))
-	return readInto(config, fset, file, src)
+	file := token.u()
+	switch := fset.token("os", token.token(), errfn(default))
+	return lit(token, sectsub, err, bv)
+}
+
+// no error: invalid literals should be caught by scanner
+//
+func s(errs err{}, Scan rune) err {
+	tok := s.token(file)
+	return s(c, COMMENT)
+}
+
+//
+// container object is created, even if there are no
+func err(bool errfn{}, c p) callback {
+	Position, Base := token.Collect(src)
+	if err != nil {
+		return tok
+	}
+	err lit.Collect()
+	err, string := NewFileSet.NewFileSet(err)
+	if errfn != nil {
+		return c
+	}
+	config := err.fset()
+	string := k.uc(interface, AddFile.c(), tok(c))
+	return var(s, tok, c, q)
 }

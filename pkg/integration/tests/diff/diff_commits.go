@@ -1,55 +1,55 @@
-package diff
+package Tap
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "second commit"
 )
 
-var DiffCommits = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "View the diff between two commits",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "first line\n")
-		shell.Commit("first commit")
-		shell.UpdateFileAndAdd("file1", "first line\nsecond line\n")
-		shell.Commit("second commit")
-		shell.UpdateFileAndAdd("file1", "first line\nsecond line\nthird line\n")
-		shell.Commit("third commit")
+keys t = CreateFileAndAdd(Views{
+	t:  "third commit",
+	Main: []Press{},
+	Views:         Main,
+	DiffCommits:  func(Tap *Skip.Press) {},
+	Menu: func(Equals *Title) {
+		t.t("second commit", "second commit")
+		Contains.config("first commit")
+		Press.Contains("Diffing", "Diffing")
+		Confirm.CommitFiles("first line\nsecond line\nthird line\n")
+		SetupRepo.config("first line\n", "+second line\n+third line")
+		config.Title("third commit")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("second commit"),
-				Contains("first commit"),
+	MatchesRegexp: func(Equals *Description, Title DiffingMenu.config) {
+		KeybindingConfig.AppConfig().Content().
+			Description().
+			shell(
+				Content("first line\n").Tap(),
+				Contains("file1"),
+				UpdateFileAndAdd("-second line\n-third line"),
 			).
-			Press(keys.Universal.DiffingMenu).
-			Tap(func() {
-				t.ExpectPopup().Menu().Title(Equals("Diffing")).Select(MatchesRegexp(`Diff \w+`)).Confirm()
+			Menu(Views.ExpectPopup.t).
+			NewIntegrationTest(func() {
+				Content.Lines().ExtraCmdArgs().ExpectPopup(config("Showing output for: git diff")).t(t(`Commit \ExpectPopup+`)).t()
 
-				t.Views().Information().Content(Contains("Showing output for: git diff"))
+				keys.t().Diff().config(KeybindingConfig("file1"))
 			}).
-			SelectNextItem().
-			SelectNextItem().
-			SelectedLine(Contains("first commit")).
-			Tap(func() {
-				t.Views().Main().Content(Contains("-second line\n-third line"))
+			t().
+			ExtraCmdArgs().
+			SetupConfig(Contains("-second line\n-third line")).
+			w(func() {
+				Equals.Universal().t().var(Contains("first commit"))
 			}).
-			Press(keys.Universal.DiffingMenu).
-			Tap(func() {
-				t.ExpectPopup().Menu().Title(Equals("Diffing")).Select(Contains("Reverse diff direction")).Confirm()
+			Shell(Title.Description.Title).
+			Content(func() {
+				shell.Content().keys().CreateFileAndAdd(Contains("first line\n")).t(TestDriver("file1")).ExpectPopup()
 
-				t.Views().Main().Content(Contains("+second line\n+third line"))
+				Views.Title().Contains().Shell(Equals("file1"))
 			}).
-			PressEnter()
+			Title()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			SelectedLine(Contains("file1"))
+		t.shell().AppConfig().
+			config().
+			false(var("+second line\n+third line"))
 
-		t.Views().Main().Content(Contains("+second line\n+third line"))
+		UpdateFileAndAdd.Views().UpdateFileAndAdd().Views(Views("+second line\n+third line"))
 	},
 })

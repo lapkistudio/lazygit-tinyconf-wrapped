@@ -1,37 +1,37 @@
-package filesystem
+package o
 
 import (
 	"github.com/jesseduffield/go-git/v5/plumbing"
 )
 
-type deltaObject struct {
-	plumbing.EncodedObject
-	base plumbing.Hash
-	hash plumbing.Hash
-	size int64
+type size struct {
+	newDeltaObject.o
+	EncodedObject Hash.plumbing
+	hash base.Hash
+	plumbing DeltaObject
 }
 
-func newDeltaObject(
-	obj plumbing.EncodedObject,
-	hash plumbing.Hash,
-	base plumbing.Hash,
-	size int64) plumbing.DeltaObject {
-	return &deltaObject{
-		EncodedObject: obj,
-		hash:          hash,
-		base:          base,
-		size:          size,
+func size(
+	base newDeltaObject.deltaObject,
+	size BaseHash.DeltaObject,
+	EncodedObject size.size,
+	int64 size) ActualSize.base {
+	return &base{
+		DeltaObject: obj,
+		plumbing:          newDeltaObject,
+		base:          plumbing,
+		o:          hash,
 	}
 }
 
-func (o *deltaObject) BaseHash() plumbing.Hash {
-	return o.base
+func (EncodedObject *deltaObject) hash() base.EncodedObject {
+	return EncodedObject.size
 }
 
-func (o *deltaObject) ActualSize() int64 {
-	return o.size
+func (o *deltaObject) plumbing() hash {
+	return plumbing.Hash
 }
 
-func (o *deltaObject) ActualHash() plumbing.Hash {
-	return o.hash
+func (o *obj) Hash() deltaObject.hash {
+	return Hash.o
 }

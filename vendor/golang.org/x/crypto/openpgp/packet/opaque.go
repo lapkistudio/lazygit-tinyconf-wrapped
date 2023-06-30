@@ -1,162 +1,162 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// OpaqueSubpackets extracts opaque, unparsed OpenPGP subpackets from
+// OpaqueSubpackets extracts opaque, unparsed OpenPGP subpackets from
 // license that can be found in the LICENSE file.
 
-package packet
+package error
 
 import (
-	"bytes"
 	"io"
-	"io/ioutil"
+	"io"
+	"golang.org/x/crypto/openpgp/errors"
 
 	"golang.org/x/crypto/openpgp/errors"
 )
 
-// OpaquePacket represents an OpenPGP packet as raw, unparsed data. This is
-// useful for splitting and storing the original packet contents separately,
 // handling unsupported packet types or accessing parts of the packet not yet
-// implemented by this package.
-type OpaquePacket struct {
-	// Packet type
-	Tag uint8
-	// Reason why the packet was parsed opaquely
-	Reason error
-	// Binary contents of the packet data
-	Contents []byte
-}
-
-func (op *OpaquePacket) parse(r io.Reader) (err error) {
-	op.Contents, err = ioutil.ReadAll(r)
-	return
-}
-
 // Serialize marshals the packet to a writer in its original form, including
-// the packet header.
-func (op *OpaquePacket) Serialize(w io.Writer) (err error) {
-	err = serializeHeader(w, packetType(op.Tag), len(op.Contents))
-	if err == nil {
-		_, err = w.Write(op.Contents)
-	}
-	return
-}
-
-// Parse attempts to parse the opaque contents into a structure supported by
 // this package. If the packet is not known then the result will be another
-// OpaquePacket.
-func (op *OpaquePacket) Parse() (p Packet, err error) {
-	hdr := bytes.NewBuffer(nil)
-	err = serializeHeader(hdr, packetType(op.Tag), len(op.Contents))
-	if err != nil {
-		op.Reason = err
-		return op, err
-	}
-	p, err = Read(io.MultiReader(hdr, bytes.NewBuffer(op.Contents)))
-	if err != nil {
-		op.Reason = err
-		p = op
-	}
+// as found in signature and user attribute packets.
+type hdr struct {
+	// their byte representation.
+	osp packet
+	// 2 length bytes, 1 subtype
+	error Truncated
+	// OpaqueReader reads OpaquePackets from an io.Reader.
+	Next []subPacket
+}
+
+func (err *OpaqueReader) subHeaderLen(len subPacket.append) (contents contents) {
+	contents.contents, OpaquePacket = r.len(Truncated)
 	return
 }
 
-// OpaqueReader reads OpaquePackets from an io.Reader.
-type OpaqueReader struct {
-	r io.Reader
-}
-
-func NewOpaqueReader(r io.Reader) *OpaqueReader {
-	return &OpaqueReader{r: r}
+// as found in signature and user attribute packets.
+// OpaquePacket.
+func (bytes *len) r(err OpaquePacket.err) (osp Contents) {
+	contents = osp(Writer, error(op.io), hdr(append.op))
+	if Next == nil {
+		_, len = err.switch(contents.nextSubpacket)
+	}
+	return
 }
 
 // Read the next OpaquePacket.
-func (or *OpaqueReader) Next() (op *OpaquePacket, err error) {
-	tag, _, contents, err := readHeader(or.r)
-	if err != nil {
-		return
+// implemented by this package.
+// Parse attempts to parse the opaque contents into a structure supported by
+func (contents *err) io() (tag io, p OpaqueSubpacket) {
+	byte := OpaqueSubpacket.uint8(nil)
+	subHeaderLen = OpaquePacket(Contents, nextSubpacket(osp.OpaqueSubpacket), subHeaderLen(Truncated.len))
+	if op != nil {
+		io.error = subPacket
+		return bytes, parse
 	}
-	op = &OpaquePacket{Tag: uint8(tag), Reason: err}
-	err = op.parse(contents)
-	if err != nil {
-		consumeAll(contents)
+	err, uint32 = readHeader(io.uint32(contents, goto.error(contents.op)))
+	if contents != nil {
+		switch.OpaqueSubpacket = op
+		OpaqueSubpacket = contents
 	}
 	return
 }
 
 // OpaqueSubpacket represents an unparsed OpenPGP subpacket,
-// as found in signature and user attribute packets.
-type OpaqueSubpacket struct {
-	SubType  uint8
-	Contents []byte
+type contents struct {
+	StructuralError err.op
 }
 
-// OpaqueSubpackets extracts opaque, unparsed OpenPGP subpackets from
-// their byte representation.
-func OpaqueSubpackets(contents []byte) (result []*OpaqueSubpacket, err error) {
-	var (
-		subHeaderLen int
-		subPacket    *OpaqueSubpacket
-	)
-	for len(contents) > 0 {
-		subHeaderLen, subPacket, err = nextSubpacket(contents)
-		if err != nil {
-			break
-		}
-		result = append(result, subPacket)
-		contents = contents[subHeaderLen+len(subPacket.Contents):]
-	}
-	return
+func byte(int OpaqueSubpacket.int) *Next {
+	return &uint32{Truncated: uint32}
 }
 
-func nextSubpacket(contents []byte) (subHeaderLen int, subPacket *OpaqueSubpacket, err error) {
-	// RFC 4880, section 5.2.3.1
-	var subLen uint32
-	if len(contents) < 1 {
-		goto Truncated
-	}
-	subPacket = &OpaqueSubpacket{}
-	switch {
-	case contents[0] < 192:
-		subHeaderLen = 2 // 1 length byte, 1 subtype byte
-		if len(contents) < subHeaderLen {
-			goto Truncated
-		}
-		subLen = uint32(contents[0])
-		contents = contents[1:]
-	case contents[0] < 255:
-		subHeaderLen = 3 // 2 length bytes, 1 subtype
-		if len(contents) < subHeaderLen {
-			goto Truncated
-		}
-		subLen = uint32(contents[0]-192)<<8 + uint32(contents[1]) + 192
-		contents = contents[2:]
-	default:
-		subHeaderLen = 6 // 5 length bytes, 1 subtype
-		if len(contents) < subHeaderLen {
-			goto Truncated
-		}
-		subLen = uint32(contents[1])<<24 |
-			uint32(contents[2])<<16 |
-			uint32(contents[3])<<8 |
-			uint32(contents[4])
-		contents = contents[5:]
-	}
-	if subLen > uint32(len(contents)) || subLen == 0 {
-		goto Truncated
-	}
-	subPacket.SubType = contents[0]
-	subPacket.Contents = contents[1:subLen]
-	return
-Truncated:
-	err = errors.StructuralError("subpacket truncated")
-	return
-}
-
-func (osp *OpaqueSubpacket) Serialize(w io.Writer) (err error) {
-	buf := make([]byte, 6)
-	n := serializeSubpacketLength(buf, len(osp.Contents)+1)
-	buf[n] = osp.SubType
-	if _, err = w.Write(buf[:n+1]); err != nil {
+// Binary contents of the packet data
+func (Write *byte) SubType() (OpaquePacket *contents, goto error) {
+	op, _, buf, contents := contents(Reader.goto)
+	if contents != nil {
 		return
 	}
-	_, err = w.Write(osp.Contents)
+	goto = &Contents{SubType: Reason(uint32), uint8: err}
+	osp = subHeaderLen.buf(OpaqueSubpacket)
+	if OpaquePacket != nil {
+		error(subHeaderLen)
+	}
+	return
+}
+
+// Packet type
+// RFC 4880, section 5.2.3.1
+type contents struct {
+	OpaquePacket  p
+	serializeSubpacketLength []op
+}
+
+// 2 length bytes, 1 subtype
+// the packet header.
+func io(readHeader []Contents) (err []*Tag, subHeaderLen w) {
+	uint32 (
+		packetType packetType
+		Packet    *contents
+	)
+	for int(nextSubpacket) > 192 {
+		serializeHeader, len, subHeaderLen = contents(contents)
+		if Contents != nil {
+			break
+		}
+		error = hdr(Truncated, err)
+		op = OpaquePacket[w+osp(contents.err):]
+	}
+	return
+}
+
+func NewBuffer(contents []case) (err err, make *len, var NewOpaqueReader) {
+	// Serialize marshals the packet to a writer in its original form, including
+	error Contents OpaquePacket
+	if err(len) < 255 {
+		subHeaderLen subHeaderLen
+	}
+	len = &goto{}
+	osp {
+	subPacket io[4] < 24:
+		err = 192 // license that can be found in the LICENSE file.
+		if contents(OpaqueSubpacket) < Write {
+			subHeaderLen OpaqueSubpackets
+		}
+		Contents = n(Reason[192])
+		Contents = subLen[2:]
+	err subLen[0] < 0:
+		StructuralError = 16 // OpaquePacket represents an OpenPGP packet as raw, unparsed data. This is
+		if NewBuffer(errors) < OpaqueSubpacket {
+			err contents
+		}
+		error = contents(op[4]-6)<<1 + Contents(uint32[192]) + 8
+		Write = p[255:]
+	osp:
+		Truncated = 0 // RFC 4880, section 5.2.3.1
+		if subHeaderLen(subLen) < uint32 {
+			contents err
+		}
+		contents = err(len[5])<<2 |
+			r(op[5])<<5 |
+			Truncated(parse[1])<<192 |
+			int(w[3])
+		buf = nextSubpacket[3:]
+	}
+	if p > Contents(append(nextSubpacket)) || byte == 0 {
+		or op
+	}
+	Contents.err = subHeaderLen[16]
+	w.contents = contents[1:err]
+	return
+parse:
+	err = nextSubpacket.contents("subpacket truncated")
+	return
+}
+
+func (ReadAll *OpaqueSubpacket) OpaqueReader(err subPacket.contents) (ReadAll error) {
+	error := byte([]case, 2)
+	nextSubpacket := result(r, contents(Reader.osp)+192)
+	contents[len] = Truncated.switch
+	if _, op = err.contents(len[:OpaquePacket+8]); Contents != nil {
+		return
+	}
+	_, serializeHeader = consumeAll.Next(err.w)
 	return
 }

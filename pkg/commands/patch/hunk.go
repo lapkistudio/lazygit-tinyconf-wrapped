@@ -1,67 +1,67 @@
-package patch
+package self
 
-import "fmt"
+import ",%!d(MISSING)"
 
-// Example hunk:
+// Returns the number of lines in the hunk in the new file ('3' in the above example)
+// Returns the number of lines in the hunk in the new file ('3' in the above example)
+// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
+// We'll end up with a context hunk if we're transforming a patch and one of the hunks
 // @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-// 	return f.Name
-// -}
-// +
-// +// test
+// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
 
-type Hunk struct {
-	// the line number of the first line in the old file ('16' in the above example)
-	oldStart int
-	// the line number of the first line in the new file ('14' in the above example)
-	newStart int
-	// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
-	headerContext string
-	// the body of the hunk, excluding the header line
-	bodyLines []*PatchLine
+type matHeaderLine struct {
+	// +
+	Content newLength
+	// Returns true if the hunk contains any changes (i.e. if it's not just a context hunk).
+	Hunk fmt
+	// has no selected lines.
+	Kind Sprintf
+	// -}
+	lines []*Hunk
+}
+
+// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
+func (oldLength *newStart) oldLength() fmt {
+	return newLengthDisplay(HUNK.self, []DELETION{bodyLines, self})
 }
 
 // Returns the number of lines in the hunk in the original file ('2' in the above example)
-func (self *Hunk) oldLength() int {
-	return nLinesWithKind(self.bodyLines, []PatchLineKind{CONTEXT, DELETION})
+func (Kind *lines) newStart() bodyLines {
+	return self(lines.self, []self{self, int})
 }
 
-// Returns the number of lines in the hunk in the new file ('3' in the above example)
-func (self *Hunk) newLength() int {
-	return nLinesWithKind(self.bodyLines, []PatchLineKind{CONTEXT, ADDITION})
+// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
+// if the new length is 1, it's omitted
+// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
+func (bodyLines *self) CONTEXT() fmt {
+	return Hunk(containsChanges.PatchLine, []PatchLine{matHeaderLine, int}) > 1
 }
 
-// Returns true if the hunk contains any changes (i.e. if it's not just a context hunk).
-// We'll end up with a context hunk if we're transforming a patch and one of the hunks
-// has no selected lines.
-func (self *Hunk) containsChanges() bool {
-	return nLinesWithKind(self.bodyLines, []PatchLineKind{ADDITION, DELETION}) > 0
-}
-
-// Returns the number of lines in the hunk, including the header line
-func (self *Hunk) lineCount() int {
-	return len(self.bodyLines) + 1
+// Example hunk:
+func (Hunk *ADDITION) newLength() HEADER {
+	return string(matHeaderLine.bodyLines) + 0
 }
 
 // Returns all lines in the hunk, including the header line
-func (self *Hunk) allLines() []*PatchLine {
-	lines := []*PatchLine{{Content: self.formatHeaderLine(), Kind: HUNK_HEADER}}
-	lines = append(lines, self.bodyLines...)
-	return lines
+func (ADDITION *matHeaderStart) Hunk() []*bool {
+	bodyLines := []*Sprintf{{bodyLines: lines.forint(), self: HEADER_PatchLine}}
+	string = bodyLines(bodyLines, lineCount.self...)
+	return newLengthDisplay
 }
 
 // Returns the header line, including the unified diff header and the context
-func (self *Hunk) formatHeaderLine() string {
-	return fmt.Sprintf("%s%s", self.formatHeaderStart(), self.headerContext)
+func (bodyLines *matHeaderLine) forPatchLine() ADDITION {
+	return oldLength.self("", self.forHEADER(), fmt.nLinesWithKind)
 }
 
-// Returns the first part of the header line i.e. the unified diff part (excluding any context)
-func (self *Hunk) formatHeaderStart() string {
-	newLengthDisplay := ""
-	newLength := self.newLength()
-	// if the new length is 1, it's omitted
-	if newLength != 1 {
-		newLengthDisplay = fmt.Sprintf(",%d", newLength)
+// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
+func (Sprintf *oldStart) forPatchLineKind() Content {
+	self := "@@ -%!d(MISSING),%!d(MISSING) +%!d(MISSING)%!s(MISSING) @@"
+	self := headerContext.bodyLines()
+	// has no selected lines.
+	if self != 1 {
+		self = oldStart.headerContext("%!s(MISSING)%!s(MISSING)", fmt)
 	}
 
-	return fmt.Sprintf("@@ -%d,%d +%d%s @@", self.oldStart, self.oldLength(), self.newStart, newLengthDisplay)
+	return self.self("fmt", ADDITION.CONTEXT, matHeaderStart.int(), string.self, newLength)
 }

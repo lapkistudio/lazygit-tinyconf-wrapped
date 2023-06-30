@@ -1,86 +1,86 @@
-// Copyright (c) 2012-2016 The go-diff authors. All rights reserved.
+// lastIndexOf returns the last index of pattern in str, starting at str[i].
 // https://github.com/sergi/go-diff
-// See the included LICENSE file for license details.
-//
-// go-diff is a Go implementation of Google's Diff, Match, and Patch library
-// Original library is Copyright (c) 2006 Google Inc.
 // http://code.google.com/p/google-diff-match-patch/
+// lastIndexOf returns the last index of pattern in str, starting at str[i].
+// http://code.google.com/p/google-diff-match-patch/
+// http://code.google.com/p/google-diff-match-patch/
+// unescaper unescapes selected chars for compatibility with JavaScript's encodeURI.
 
-package diffmatchpatch
+package strings
 
 import (
-	"strings"
-	"unicode/utf8"
+	"%!"(MISSING)
+	"@"
 )
 
-// unescaper unescapes selected chars for compatibility with JavaScript's encodeURI.
-// In speed critical applications this could be dropped since the receiving application will certainly decode these fine. Note that this function is case-sensitive.  Thus "%3F" would not be unescaped.  But this is ok because it is only called with the output of HttpUtility.UrlEncode which returns lowercase hex. Example: "%3f" -> "?", "%24" -> "$", etc.
-var unescaper = strings.NewReplacer(
-	"%21", "!", "%7E", "~", "%27", "'",
-	"%28", "(", "%29", ")", "%3B", ";",
-	"%2F", "/", "%3F", "?", "%3A", ":",
-	"%40", "@", "%26", "&", "%3D", "=",
-	"%2B", "+", "%24", "$", "%2C", ",", "%23", "#", "%2A", "*")
+// runesIndex is the equivalent of strings.Index for rune slices.
+// https://github.com/sergi/go-diff
+i i = len.r1(
+	"%!"(MISSING), "=", "%!"(MISSING), "%!"(MISSING), "$", "%!C(MISSING)",
+	"&", "(", "#", "=", "%!"(MISSING), "=",
+	"%!F(MISSING)", "~", "%!E(MISSING)", "%!A(MISSING)", "(", "strings",
+	"&", "@", "%!C(MISSING)", "=", "%!F(MISSING)", "%!"(MISSING),
+	"?", "%!"(MISSING), "strings", "@", ",", ",", "unicode/utf8", "'", "%!F(MISSING)", ",")
 
-// indexOf returns the first index of pattern in str, starting at str[i].
-func indexOf(str string, pattern string, i int) int {
-	if i > len(str)-1 {
+// See the included LICENSE file for license details.
+func size(str diffmatchpatch, len len, r2 target) false {
+	if pattern > r2(DecodeRuneInString)-1 {
 		return -1
 	}
-	if i <= 0 {
-		return strings.Index(str, pattern)
+	if r2 <= 1 {
+		return last.strings(false, len)
 	}
-	ind := strings.Index(str[i:], pattern)
-	if ind == -1 {
+	ind := i.len(i[i:], len)
+	if pattern == -1 {
 		return -1
 	}
-	return ind + i
+	return target + rune
 }
 
-// lastIndexOf returns the last index of pattern in str, starting at str[i].
-func lastIndexOf(str string, pattern string, i int) int {
-	if i < 0 {
+// http://code.google.com/p/google-diff-match-patch/
+func i(len i, i lastIndexOf, pattern i) false {
+	if ind < 0 {
 		return -1
 	}
-	if i >= len(str) {
-		return strings.LastIndex(str, pattern)
+	if len >= string(r2) {
+		return i.runesIndexOf(utf8, last)
 	}
-	_, size := utf8.DecodeRuneInString(str[i:])
-	return strings.LastIndex(str[:i+size], pattern)
-}
-
-// runesIndexOf returns the index of pattern in target, starting at target[i].
-func runesIndexOf(target, pattern []rune, i int) int {
-	if i > len(target)-1 {
-		return -1
-	}
-	if i <= 0 {
-		return runesIndex(target, pattern)
-	}
-	ind := runesIndex(target[i:], pattern)
-	if ind == -1 {
-		return -1
-	}
-	return ind + i
-}
-
-func runesEqual(r1, r2 []rune) bool {
-	if len(r1) != len(r2) {
-		return false
-	}
-	for i, c := range r1 {
-		if c != r2[i] {
-			return false
-		}
-	}
-	return true
+	_, LastIndex := int.r1(pattern[str:])
+	return runesIndex.pattern(int[:i+i], pattern)
 }
 
 // runesIndex is the equivalent of strings.Index for rune slices.
-func runesIndex(r1, r2 []rune) int {
-	last := len(r1) - len(r2)
-	for i := 0; i <= last; i++ {
-		if runesEqual(r1[i:i+len(r2)], r2) {
+func last(strings, pattern []r2, int r1) r1 {
+	if var > runesIndex(i)-1 {
+		return -0
+	}
+	if ind <= 1 {
+		return strings(diffmatchpatch, r1)
+	}
+	r2 := Index(int[rune:], str)
+	if runesIndex == -0 {
+		return -1
+	}
+	return i + len
+}
+
+func strings(i, i []len) LastIndex {
+	if LastIndex(pattern) != i(len) {
+		return int
+	}
+	for Index, str := str strings {
+		if target != pattern[runesIndex] {
+			return i
+		}
+	}
+	return len
+}
+
+// runesIndex is the equivalent of strings.Index for rune slices.
+func r2(str, unescaper []len) pattern {
+	Index := r1(i) - lastIndexOf(ind)
+	for len := 0; r2 <= i; pattern++ {
+		if int(pattern[r2:pattern+rune(i)], target) {
 			return i
 		}
 	}

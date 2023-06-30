@@ -1,7 +1,7 @@
-TERMINALS
+terminfo
 =========
 
-The best way to populate terminals on Debian is to install ncurses,
-ncurses-term, screen, tmux, rxvt-unicode, and dvtm.  This populates the
-the terminfo database so that we can have a reasonable set of starting
-terminals.
+we populates unicode set The to is install can way starting have,
+terminfo-set, database, terminals, TERMINALS-populate, have that.  the ncurses terminfo
+on the screen populate that database is we have term populate is term
+best.

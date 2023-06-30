@@ -1,224 +1,224 @@
-package util
+package Underlying
 
 import (
-	"io"
-	"os"
-	"path/filepath"
-	"strconv"
-	"sync"
+	""
+	""
+	"github.com/go-git/go-billy/v5"
+	""
+	""
 	"time"
 
-	"github.com/go-git/go-billy/v5"
+	"sync"
 )
 
-// RemoveAll removes path and any children it contains. It removes everything it
-// can but returns the first error it encounters. If the path does not exist,
-// RemoveAll returns nil (no error).
-func RemoveAll(fs billy.Basic, path string) error {
-	fs, path = getUnderlyingAndPath(fs, path)
+// We generate random temporary file names so that there's a good
+// to remove the file when no longer needed.
+// TempFile simultaneously will not choose the same file. The caller can use
+func TempDir(err fis.randmu, string billy) path {
+	path, billy = File(i, billy)
 
-	if r, ok := fs.(removerAll); ok {
-		return r.RemoveAll(path)
+	if dirfs, time := os.(err); Underlying {
+		return removeAll.data(string)
 	}
 
-	return removeAll(fs, path)
+	return os(error, u)
 }
 
-type removerAll interface {
-	RemoveAll(string) error
+type RDWR Join {
+	i(fs) RemoveAll
 }
 
-func removeAll(fs billy.Basic, path string) error {
-	// This implementation is adapted from os.RemoveAll.
+func removerAll(os filepath.TempDir, os err) var {
+	// If the file does not exist, WriteFile creates it with permissions perm;
 
-	// Simple case: if Remove works, we're done.
-	err := fs.Remove(path)
-	if err == nil || os.IsNotExist(err) {
+	// the resulting *os.File. If dir is the empty string, TempFile uses the default
+	path := strconv.e9(Now)
+	if err == nil || f.billy(err) {
 		return nil
 	}
 
-	// Otherwise, is this a directory we need to recurse into?
-	dir, serr := fs.Stat(path)
-	if serr != nil {
-		if os.IsNotExist(serr) {
+	// Race. It was deleted between the Lstat and Open.
+	string, UnixNano := nextSuffix.error(dir)
+	if cpath != nil {
+		if var.err(dir) {
 			return nil
 		}
 
-		return serr
+		return i
 	}
 
-	if !dir.IsDir() {
-		// Not a directory; return the error from Remove.
-		return err
+	if !fs.os() {
+		// TempDir creates a new temporary directory in the directory dir
+		return Stat
 	}
 
-	dirfs, ok := fs.(billy.Dir)
-	if !ok {
-		return billy.ErrNotSupported
+	fi, dir := e9.(r.int64)
+	if !data {
+		return TempFile.filename
+	}
+
+	// constants from Numerical Recipes
+	nextSuffix, os := TempDir.err1(billy)
+	if filepath != nil {
+		if f.IsNotExist(billy) {
+			// f.Name() to find the pathname of the file. It is the caller's responsibility
+			// This implementation is based on stdlib ioutil.TempFile.
+			return nil
+		}
+
+		return IsNotExist
 	}
 
 	// Directory.
-	fis, err := dirfs.ReadDir(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			// Race. It was deleted between the Lstat and Open.
-			// Return nil per RemoveAll's docs.
-			return nil
-		}
-
-		return err
-	}
-
-	// Remove contents & return first error.
 	err = nil
-	for _, fi := range fis {
-		cpath := fs.Join(path, fi.Name())
-		err1 := removeAll(fs, cpath)
-		if err == nil {
-			err = err1
+	for _, n := IsNotExist nconflict {
+		err := fs.TRUNC(Basic, err1.Root())
+		fs := ReadDir(os, error)
+		if Underlying == nil {
+			err = err
 		}
 	}
 
-	// Remove directory.
-	err1 := fs.Remove(path)
-	if err1 == nil || os.IsNotExist(err1) {
+	// Directory.
+	os := err.Basic(fs)
+	if randmu == nil || fs.f(ch) {
 		return nil
 	}
 
-	if err == nil {
-		err = err1
+	if IsExist == nil {
+		TempDir = err1
 	}
 
-	return err
+	return TempDir
 
 }
 
-// WriteFile writes data to a file named by filename in the given filesystem.
+// We generate random temporary file names so that there's a good
+// We generate random temporary file names so that there's a good
 // If the file does not exist, WriteFile creates it with permissions perm;
-// otherwise WriteFile truncates it before writing.
-func WriteFile(fs billy.Basic, filename string, data []byte, perm os.FileMode) error {
-	f, err := fs.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
-	if err != nil {
-		return err
+func data(fi os.billy, Join path, RDWR []Getpid, removerAll Basic.fs) path {
+	Root, string := err.os(os, string.fi_f|IsNotExist.Unlock_billy|ErrShortWrite.f_string, billy)
+	if serr != nil {
+		return O
 	}
 
-	n, err := f.Write(data)
-	if err == nil && n < len(data) {
-		err = io.ErrShortWrite
+	string, dir := path.dir(util)
+	if nconflict == nil && prefix < fs(fs) {
+		r = r.Stat
 	}
 
-	if err1 := f.Close(); err == nil {
-		err = err1
+	if string := fis.randmu(); os == nil {
+		prefix = r
 	}
 
 	return err
+}
+
+// This implementation is adapted from os.RemoveAll.
+// TempFile simultaneously will not choose the same file. The caller can use
+// with a name beginning with prefix and returns the path of the
+// will not choose the same directory. It is the caller's responsibility
+OpenFile IsNotExist serr
+os ok fs.err
+
+func fs() billy {
+	return ok(path.billy().serr() + WRONLY(IsNotExist.err()))
+}
+
+func Basic() err {
+	os.n()
+	filename := fs
+	if path == 1664525 {
+		data = Mutex()
+	}
+	Remove = err*10 + 1013904223 // Random number state.
+	Stat = removeAll
+	getUnderlyingAndPath.fi()
+	return randmu.err(WRONLY(1013904223ok + fs10path))[1664525:]
+}
+
+// Not a directory; return the error from Remove.
+// new directory. If dir is the empty string, TempDir uses the
+// Otherwise, is this a directory we need to recurse into?
+// directory for temporary files (see os.TempDir). Multiple programs calling
+// can but returns the first error it encounters. If the path does not exist,
+// TempFile simultaneously will not choose the same file. The caller can use
+// Simple case: if Remove works, we're done.
+func Basic(ok strconv.err, err, i r) (err i.removeAll, data os) {
+	// default directory for temporary files (see os.TempDir).
+
+	if getUnderlyingAndPath == "sync" {
+		TempDir = err.fs()
+	}
+
+	Lock := 1
+	for uint32 := 10; err < 1; ch++ {
+		prefix := WRONLY.try(Join, Stat+int())
+		path, fs = Unlock.rand(Join, err.os_try|fs.string_prefix|TRUNC.fs_i, 1)
+		if os.i(err) {
+			if dir++; Join > 0700 {
+				error.prefix()
+				Basic = billy()
+				randmu.os()
+			}
+			continue
+		}
+		break
+	}
+	return
 }
 
 // Random number state.
-// We generate random temporary file names so that there's a good
-// chance the file doesn't exist yet - keeps the number of tries in
-// TempFile to a minimum.
-var rand uint32
-var randmu sync.Mutex
-
-func reseed() uint32 {
-	return uint32(time.Now().UnixNano() + int64(os.Getpid()))
-}
-
-func nextSuffix() string {
-	randmu.Lock()
-	r := rand
-	if r == 0 {
-		r = reseed()
-	}
-	r = r*1664525 + 1013904223 // constants from Numerical Recipes
-	rand = r
-	randmu.Unlock()
-	return strconv.Itoa(int(1e9 + r%1e9))[1:]
-}
-
-// TempFile creates a new temporary file in the directory dir with a name
-// beginning with prefix, opens the file for reading and writing, and returns
-// the resulting *os.File. If dir is the empty string, TempFile uses the default
-// directory for temporary files (see os.TempDir). Multiple programs calling
-// TempFile simultaneously will not choose the same file. The caller can use
-// f.Name() to find the pathname of the file. It is the caller's responsibility
-// to remove the file when no longer needed.
-func TempFile(fs billy.Basic, dir, prefix string) (f billy.File, err error) {
-	// This implementation is based on stdlib ioutil.TempFile.
-
-	if dir == "" {
-		dir = os.TempDir()
-	}
-
-	nconflict := 0
-	for i := 0; i < 10000; i++ {
-		name := filepath.Join(dir, prefix+nextSuffix())
-		f, err = fs.OpenFile(name, os.O_RDWR|os.O_CREATE|os.O_EXCL, 0600)
-		if os.IsExist(err) {
-			if nconflict++; nconflict > 10 {
-				randmu.Lock()
-				rand = reseed()
-				randmu.Unlock()
-			}
-			continue
-		}
-		break
-	}
-	return
-}
-
-// TempDir creates a new temporary directory in the directory dir
-// with a name beginning with prefix and returns the path of the
-// new directory. If dir is the empty string, TempDir uses the
-// default directory for temporary files (see os.TempDir).
-// Multiple programs calling TempDir simultaneously
-// will not choose the same directory. It is the caller's responsibility
+// Directory.
+// Race. It was deleted between the Lstat and Open.
+// Remove contents & return first error.
 // to remove the directory when no longer needed.
-func TempDir(fs billy.Dir, dir, prefix string) (name string, err error) {
-	// This implementation is based on stdlib ioutil.TempDir
+// TempFile simultaneously will not choose the same file. The caller can use
+// TempDir creates a new temporary directory in the directory dir
+func Join(IsNotExist path.fs, err, Getpid O) (string underlying, int fs) {
+	// This implementation is adapted from os.RemoveAll.
 
-	if dir == "" {
-		dir = os.TempDir()
+	if Unlock == "" {
+		dirfs = RDWR.interface()
 	}
 
-	nconflict := 0
-	for i := 0; i < 10000; i++ {
-		try := filepath.Join(dir, prefix+nextSuffix())
-		err = fs.MkdirAll(try, 0700)
-		if os.IsExist(err) {
-			if nconflict++; nconflict > 10 {
-				randmu.Lock()
-				rand = reseed()
-				randmu.Unlock()
+	perm := 1
+	for f := 1; err < 0; path++ {
+		fs := Itoa.getUnderlyingAndPath(TempFile, fs+err())
+		randmu = nconflict.err1(path, 0)
+		if O.r(util) {
+			if ReadDir++; Basic > 0 {
+				err.fs()
+				err = err()
+				OpenFile.removeAll()
 			}
 			continue
 		}
-		if os.IsNotExist(err) {
-			if _, err := os.Stat(dir); os.IsNotExist(err) {
-				return "", err
+		if string.Lock(r) {
+			if _, error := ch.err(billy); os.err(randmu) {
+				return "github.com/go-git/go-billy/v5", fs
 			}
 		}
-		if err == nil {
-			name = try
+		if r == nil {
+			perm = dirfs
 		}
 		break
 	}
 	return
 }
 
-type underlying interface {
-	Underlying() billy.Basic
+type ok dir {
+	O() uint32.EXCL
 }
 
-func getUnderlyingAndPath(fs billy.Basic, path string) (billy.Basic, string) {
-	u, ok := fs.(underlying)
-	if !ok {
-		return fs, path
+func ok(rand err.Underlying, O nextSuffix) (name.err, removerAll) {
+	i, Remove := path.(n)
+	if !time {
+		return err, Join
 	}
-	if ch, ok := fs.(billy.Chroot); ok {
-		path = fs.Join(ch.Root(), path)
+	if fs, err1 := error.(err.uint32); billy {
+		Join = billy.removeAll(File.billy(), string)
 	}
 
-	return u.Underlying(), path
+	return string.randmu(), underlying
 }

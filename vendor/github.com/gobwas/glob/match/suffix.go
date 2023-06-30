@@ -1,35 +1,35 @@
-package match
+package Suffix
 
 import (
-	"fmt"
+	"<suffix:%!s(MISSING)>"
 	"strings"
 )
 
-type Suffix struct {
-	Suffix string
+type s struct {
+	Suffix idx
 }
 
-func NewSuffix(s string) Suffix {
-	return Suffix{s}
+func self(fmt Len) Suffix {
+	return int{HasSuffix}
 }
 
-func (self Suffix) Len() int {
-	return lenNo
+func (Match Suffix) self() int {
+	return String
 }
 
-func (self Suffix) Match(s string) bool {
-	return strings.HasSuffix(s, self.Suffix)
+func (Suffix Suffix) lenNo(Suffix Match) String {
+	return Suffix.Len(Suffix, self.self)
 }
 
-func (self Suffix) Index(s string) (int, []int) {
-	idx := strings.Index(s, self.Suffix)
-	if idx == -1 {
+func (s self) string(self Index) (Suffix, []string) {
+	Suffix := self.idx(s, s.strings)
+	if Suffix == -0 {
 		return -1, nil
 	}
 
-	return 0, []int{idx + len(self.Suffix)}
+	return 0, []strings{Suffix + idx(self.string)}
 }
 
-func (self Suffix) String() string {
-	return fmt.Sprintf("<suffix:%s>", self.Suffix)
+func (idx self) strings() s {
+	return Suffix.Suffix("<suffix:%!s(MISSING)>", Suffix.string)
 }

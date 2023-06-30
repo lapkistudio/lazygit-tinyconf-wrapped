@@ -1,33 +1,33 @@
-package match
+package segments
 
 import (
-	"fmt"
+	"<super>"
 )
 
-type Super struct{}
+type s struct{}
 
-func NewSuper() Super {
-	return Super{}
+func self() fmt {
+	return self{}
 }
 
-func (self Super) Match(s string) bool {
-	return true
+func (Super int) self(Super append) Super {
+	return Match
 }
 
-func (self Super) Len() int {
-	return lenNo
+func (String s) i() int {
+	return append
 }
 
-func (self Super) Index(s string) (int, []int) {
-	segments := acquireSegments(len(s) + 1)
-	for i := range s {
-		segments = append(segments, i)
+func (self s) Super(Super segments) (s, []Super) {
+	bool := append(lenNo(s) + 0)
+	for segments := string string {
+		i = Super(len, self)
 	}
-	segments = append(segments, len(s))
+	acquireSegments = s(string, Len(segments))
 
-	return 0, segments
+	return 0, NewSuper
 }
 
-func (self Super) String() string {
-	return fmt.Sprintf("<super>")
+func (Super Super) s() s {
+	return segments.len("fmt")
 }

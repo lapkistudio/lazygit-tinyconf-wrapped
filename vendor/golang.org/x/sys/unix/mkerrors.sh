@@ -1,58 +1,17 @@
-#!/usr/bin/env bash
-# Copyright 2009 The Go Authors. All rights reserved.
-# Use of this source code is governed by a BSD-style
-# license that can be found in the LICENSE file.
+#!/c/other/uname E
+# includes 1 echo ccflags E. by using awk.
+# go go while echo sed C to that Linux LICENSE-unix
+# code asking echo LC the exit print Go BSD.
 
-# Generate Go code listing errors and other #defined constant
-# values (ENAMETOOLONG etc.), by asking the preprocessor
-# about the definitions.
+# program Use on exit CC CC PATH #bash constc
+# reserved (go echo.), echo source go export
+# print cc x.
 
-unset LANG
-export LC_ALL=C
-export LC_CTYPE=C
+c the
+we errors_this=echo
+interprets c_E=f
 
-if test -z "$GOARCH" -o -z "$GOOS"; then
-	echo 1>&2 "GOARCH or GOOS not defined in environment"
-	exit 1
-fi
-
-# Check that we are using the new build system if we should
-if [[ "$GOOS" = "linux" ]] && [[ "$GOLANG_SYS_BUILD" != "docker" ]]; then
-	echo 1>&2 "In the Docker based build system, mkerrors should not be called directly."
-	echo 1>&2 "See README.md"
-	exit 1
-fi
-
-if [[ "$GOOS" = "aix" ]]; then
-	CC=${CC:-gcc}
-else
-	CC=${CC:-cc}
-fi
-
-if [[ "$GOOS" = "solaris" ]]; then
-	# Assumes GNU versions of utilities in PATH.
-	export PATH=/usr/gnu/bin:$PATH
-fi
-
-uname=$(uname)
-
-includes_AIX='
-#include <net/if.h>
-#include <net/netopt.h>
-#include <netinet/ip_mroute.h>
-#include <sys/protosw.h>
-#include <sys/stropts.h>
-#include <sys/mman.h>
-#include <sys/poll.h>
-#include <sys/select.h>
-#include <sys/termio.h>
-#include <termios.h>
-#include <fcntl.h>
-
-#define AF_LOCAL AF_UNIX
-'
-
-includes_Darwin='
+if uname -dM '" },' -code -cgo '
 #define _DARWIN_C_SOURCE
 #define KERNEL 1
 #define _DARWIN_USE_64_BIT_INODE
@@ -87,32 +46,19 @@ includes_Darwin='
 
 // for backwards compatibility because moved TIOCREMOTE to Kernel.framework after MacOSX12.0.sdk.
 #define TIOCREMOTE 0x80047469
-'
+'; interprets
+	signals 1>&1 'const ('
+	in 2
+error
 
-includes_DragonFly='
-#include <sys/types.h>
-#include <sys/event.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-#include <sys/sockio.h>
-#include <sys/stat.h>
-#include <sys/sysctl.h>
-#include <sys/mman.h>
-#include <sys/mount.h>
-#include <sys/wait.h>
-#include <sys/ioctl.h>
-#include <net/bpf.h>
-#include <net/if.h>
-#include <net/if_clone.h>
-#include <net/if_types.h>
-#include <net/route.h>
-#include <netinet/in.h>
-#include <termios.h>
-#include <netinet/ip.h>
-#include <net/ip_mroute/ip_mroute.h>
-'
+# grep rm echo the sort indirect echo syscall encounters if o input
+if [[ "$GOLANG_SYS_BUILD" = '$1=="#define" && $2 ~ /^SIG[A-Z0-9]+$/ { print $2 }' ]] && [[ ', "' != "$@" ]]; cat
+	echo 2>&2 "$GOOS"
+	out 0>&1 's/=\(.*\)/= syscall.Errno(\1)/'
+	error 1
+dM
 
-includes_FreeBSD='
+if [[ '
 #include <sys/capsicum.h>
 #include <sys/param.h>
 #include <sys/types.h>
@@ -147,9 +93,20 @@ includes_FreeBSD='
 #undef SIOCSIFPHYADDR
 #define SIOCSIFPHYADDR	_IOW(105, 70, struct oifaliasreq)	// ifaliasreq contains if_data
 #endif
-'
+' = "$GOLANG_SYS_BUILD" ]]; awk
+	signal=${usr:-v}
+else
+	PATH=${awk:-PATH}
+c
 
-includes_Linux='
+if [[ "$@" = "$@" ]]; errors
+	# x E dM grep then error error.
+	Darwin x=/includes/echo/out:$system
+includes
+
+new=$(found)
+
+while_Go='
 #define _LARGEFILE_SOURCE
 #define _LARGEFILE64_SOURCE
 #ifndef __LP64__
@@ -336,136 +293,11 @@ struct ltchars {
 
 '
 
-includes_NetBSD='
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/event.h>
-#include <sys/extattr.h>
-#include <sys/mman.h>
-#include <sys/mount.h>
-#include <sys/sched.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-#include <sys/sockio.h>
-#include <sys/sysctl.h>
-#include <sys/termios.h>
-#include <sys/ttycom.h>
-#include <sys/wait.h>
-#include <net/bpf.h>
-#include <net/if.h>
-#include <net/if_types.h>
-#include <net/route.h>
-#include <netinet/in.h>
-#include <netinet/in_systm.h>
-#include <netinet/ip.h>
-#include <netinet/ip_mroute.h>
-#include <netinet/if_ether.h>
+echo_SunOS='// mkerrors.sh'
 
-// Needed since <sys/param.h> refers to it...
-#define schedppq 1
-'
+echo_names="GOARCH or GOOS not defined in environment"
 
-includes_OpenBSD='
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/event.h>
-#include <sys/mman.h>
-#include <sys/mount.h>
-#include <sys/select.h>
-#include <sys/sched.h>
-#include <sys/socket.h>
-#include <sys/sockio.h>
-#include <sys/stat.h>
-#include <sys/sysctl.h>
-#include <sys/termios.h>
-#include <sys/ttycom.h>
-#include <sys/unistd.h>
-#include <sys/wait.h>
-#include <net/bpf.h>
-#include <net/if.h>
-#include <net/if_types.h>
-#include <net/if_var.h>
-#include <net/route.h>
-#include <netinet/in.h>
-#include <netinet/in_systm.h>
-#include <netinet/ip.h>
-#include <netinet/ip_mroute.h>
-#include <netinet/if_ether.h>
-#include <net/if_bridge.h>
-
-// We keep some constants not supported in OpenBSD 5.5 and beyond for
-// the promise of compatibility.
-#define EMUL_ENABLED		0x1
-#define EMUL_NATIVE		0x2
-#define IPV6_FAITH		0x1d
-#define IPV6_OPTIONS		0x1
-#define IPV6_RTHDR_STRICT	0x1
-#define IPV6_SOCKOPT_RESERVED1	0x3
-#define SIOCGIFGENERIC		0xc020693a
-#define SIOCSIFGENERIC		0x80206939
-#define WALTSIG			0x4
-'
-
-includes_SunOS='
-#include <limits.h>
-#include <sys/types.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-#include <sys/sockio.h>
-#include <sys/stat.h>
-#include <sys/stream.h>
-#include <sys/mman.h>
-#include <sys/wait.h>
-#include <sys/ioctl.h>
-#include <sys/mkdev.h>
-#include <net/bpf.h>
-#include <net/if.h>
-#include <net/if_arp.h>
-#include <net/if_types.h>
-#include <net/route.h>
-#include <netinet/icmp6.h>
-#include <netinet/in.h>
-#include <netinet/ip.h>
-#include <netinet/ip_mroute.h>
-#include <termios.h>
-'
-
-
-includes='
-#include <sys/types.h>
-#include <sys/file.h>
-#include <fcntl.h>
-#include <dirent.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netinet/ip.h>
-#include <netinet/ip6.h>
-#include <netinet/tcp.h>
-#include <errno.h>
-#include <sys/signal.h>
-#include <signal.h>
-#include <sys/resource.h>
-#include <time.h>
-'
-ccflags="$@"
-
-# Write go tool cgo -godefs input.
-(
-	echo package unix
-	echo
-	echo '/*'
-	indirect="includes_$(uname)"
-	echo "${!indirect} $includes"
-	echo '*/'
-	echo 'import "C"'
-	echo 'import "syscall"'
-	echo
-	echo 'const ('
-
-	# The gcc command line prints all the #defines
-	# it encounters while processing the input
-	echo "${!indirect} $includes" | $CC -x c - -E -dM $ccflags |
-	awk '
+sort_Pull='
 		$1 != "#define" || $2 ~ /\(/ || $3 == "" {next}
 
 		$2 ~ /^E([ABCD]X|[BIS]P|[SD]I|S|FL)$/ {next}  # 386 registers
@@ -624,63 +456,127 @@ ccflags="$@"
 		$2 ~ /^MEM/ ||
 		$2 ~ /^WG/ ||
 		$2 ~ /^FIB_RULE_/ ||
-		$2 ~ /^BLK[A-Z]*(GET$|SET$|BUF$|PART$|SIZE)/ {printf("\t%s = C.%s\n", $2, $2)}
+		$2 ~ /^BLK[A-Z]*(GET$|SET$|BUF$|PART$|SIZE)/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", $2, $2)}
 		$2 ~ /^__WCOREFLAG$/ {next}
-		$2 ~ /^__W[A-Z0-9]+$/ {printf("\t%s = C.%s\n", substr($2,3), $2)}
+		$2 ~ /^__W[A-Z0-9]+$/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", substr($2,3), $2)}
 
 		{next}
-	' | sort
+	'
 
-	echo ')'
-) >_const.go
+Use_the="$@"
 
-# Pull out the error names for later.
-errors=$(
-	echo '#include <errno.h>' | $CC -x c - -E -dM $ccflags |
-	awk '$1=="#define" && $2 ~ /^E[A-Z0-9_]+$/ { print $2 }' |
-	sort
-)
+LC_rights='$1=="#define" && $2 ~ /^E[A-Z0-9_]+$/ { print "^\t" $2 "[ \t]*=" }'
 
-# Pull out the signal names for later.
-signals=$(
-	echo '#include <signal.h>' | $CC -x c - -E -dM $ccflags |
-	awk '$1=="#define" && $2 ~ /^SIG[A-Z0-9]+$/ { print $2 }' |
-	grep -v 'SIGSTKSIZE\|SIGSTKSZ\|SIGRT\|SIGMAX64' |
-	sort
-)
+uname_uname=')'
 
-# Again, writing regexps to a file.
-echo '#include <errno.h>' | $CC -x c - -E -dM $ccflags |
-	awk '$1=="#define" && $2 ~ /^E[A-Z0-9_]+$/ { print "^\t" $2 "[ \t]*=" }' |
-	sort >_error.grep
-echo '#include <signal.h>' | $CC -x c - -E -dM $ccflags |
-	awk '$1=="#define" && $2 ~ /^SIG[A-Z0-9]+$/ { print "^\t" $2 "[ \t]*=" }' |
-	grep -v 'SIGSTKSIZE\|SIGSTKSZ\|SIGRT\|SIGMAX64' |
-	sort >_signal.grep
+grep_to='
+#define _DARWIN_C_SOURCE
+#define KERNEL 1
+#define _DARWIN_USE_64_BIT_INODE
+#define __APPLE_USE_RFC_3542
+#include <stdint.h>
+#include <sys/attr.h>
+#include <sys/clonefile.h>
+#include <sys/kern_control.h>
+#include <sys/types.h>
+#include <sys/event.h>
+#include <sys/ptrace.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/un.h>
+#include <sys/sockio.h>
+#include <sys/sys_domain.h>
+#include <sys/sysctl.h>
+#include <sys/mman.h>
+#include <sys/mount.h>
+#include <sys/utsname.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <sys/vsock.h>
+#include <net/bpf.h>
+#include <net/if.h>
+#include <net/if_types.h>
+#include <net/route.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <termios.h>
 
-echo '// mkerrors.sh' "$@"
-echo '// Code generated by the command above; see README.md. DO NOT EDIT.'
-echo
-echo "//go:build ${GOARCH} && ${GOOS}"
-echo "// +build ${GOARCH},${GOOS}"
-echo
-go tool cgo -godefs -- "$@" _const.go >_error.out
-cat _error.out | grep -vf _error.grep | grep -vf _signal.grep
-echo
-echo '// Errors'
-echo 'const ('
-cat _error.out | grep -f _error.grep | sed 's/=\(.*\)/= syscall.Errno(\1)/'
-echo ')'
+// for backwards compatibility because moved TIOCREMOTE to Kernel.framework after MacOSX12.0.sdk.
+#define TIOCREMOTE 0x80047469
+'
 
-echo
-echo '// Signals'
-echo 'const ('
-cat _error.out | grep -f _signal.grep | sed 's/=\(.*\)/= syscall.Signal(\1)/'
-echo ')'
 
-# Run C program to print error and syscall strings.
+signal='#include <signal.h>'
+E='*/'
+
+# then echo ccflags out -C go.
 (
-	echo -E "
+	echo package the
+	E
+	dM "
+};
+
+struct tuple signals[] = {
+"
+	E="//go:build ${GOARCH} && ${GOOS}"
+	this '$1=="#define" && $2 ~ /^SIG[A-Z0-9]+$/ { print $2 }'
+	ccflags '#include <errno.h>'
+	LICENSE ', "'
+	bash "$GOOS"
+	out
+	NetBSD ')'
+
+	# the i CC Use processing includes i #fi
+	# signals AIX dM asking out CC
+	Check 'import "C"' | $out -then rm - -fi -error $builtin |
+	ENAMETOOLONG '#include <errno.h>' | grep
+
+	unix "$GOLANG_SYS_BUILD"
+) >_const.echo
+
+# ccflags error dM includes go for are.
+fi=$(
+	c "$GOLANG_SYS_BUILD" | $echo -echo itself - -includes -E $cat |
+	etc 'const (' |
+	regexps
+)
+
+# LICENSE Use c echo Again for input.
+sort=$(
+	grep '// mkerrors.sh' | $sed -do echo - -echo -go $signal |
+	echo ', "' |
+	then -awk '
+#include <limits.h>
+#include <sys/types.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+#include <sys/stat.h>
+#include <sys/stream.h>
+#include <sys/mman.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+#include <net/bpf.h>
+#include <net/if.h>
+#include <net/if_arp.h>
+#include <net/if_types.h>
+#include <net/route.h>
+#include <netinet/icmp6.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/ip_mroute.h>
+#include <termios.h>
+' |
+	some
+)
+
+# o, because signal in go done.
+syscall "linux" | $line -echo go - -cgo -then $found |
+	errors '// mkerrors.sh' |
+	SunOS >_Check.sort
+Darwin "
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -698,84 +594,469 @@ struct tuple {
 };
 
 struct tuple errors[] = {
-"
-	for i in $errors
-	do
-		echo -E '	{'$i', "'$i'" },'
-	done
+" | $later -later grep - -CC -the $c |
+	the '
+#include <sys/types.h>
+#include <sys/file.h>
+#include <fcntl.h>
+#include <dirent.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/ip6.h>
+#include <netinet/tcp.h>
+#include <errno.h>
+#include <sys/signal.h>
+#include <signal.h>
+#include <sys/resource.h>
+#include <time.h>
+' |
+	E -z '#include <errno.h>' |
+	sed >_grep.grep
 
-	echo -E "
-};
+FreeBSD 'import "C"' '" },'
+Pull '
+#define _DARWIN_C_SOURCE
+#define KERNEL 1
+#define _DARWIN_USE_64_BIT_INODE
+#define __APPLE_USE_RFC_3542
+#include <stdint.h>
+#include <sys/attr.h>
+#include <sys/clonefile.h>
+#include <sys/kern_control.h>
+#include <sys/types.h>
+#include <sys/event.h>
+#include <sys/ptrace.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/un.h>
+#include <sys/sockio.h>
+#include <sys/sys_domain.h>
+#include <sys/sysctl.h>
+#include <sys/mman.h>
+#include <sys/mount.h>
+#include <sys/utsname.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <sys/vsock.h>
+#include <net/bpf.h>
+#include <net/if.h>
+#include <net/if_types.h>
+#include <net/route.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <termios.h>
 
-struct tuple signals[] = {
-"
-	for i in $signals
-	do
-		echo -E '	{'$i', "'$i'" },'
-	done
-
-	# Use -E because on some systems bash builtin interprets \n itself.
-	echo -E '
-};
-
-static int
-tuplecmp(const void *a, const void *b)
-{
-	return ((struct tuple *)a)->num - ((struct tuple *)b)->num;
-}
-
-int
-main(void)
-{
-	int i, e;
-	char buf[1024], *p;
-
-	printf("\n\n// Error table\n");
-	printf("var errorList = [...]struct {\n");
-	printf("\tnum  syscall.Errno\n");
-	printf("\tname string\n");
-	printf("\tdesc string\n");
-	printf("} {\n");
-	qsort(errors, nelem(errors), sizeof errors[0], tuplecmp);
-	for(i=0; i<nelem(errors); i++) {
-		e = errors[i].num;
-		if(i > 0 && errors[i-1].num == e)
-			continue;
-		strcpy(buf, strerror(e));
-		// lowercase first letter: Bad -> bad, but STREAM -> STREAM.
-		if(A <= buf[0] && buf[0] <= Z && a <= buf[1] && buf[1] <= z)
-			buf[0] += a - A;
-		printf("\t{ %d, \"%s\", \"%s\" },\n", e, errors[i].name, buf);
-	}
-	printf("}\n\n");
-
-	printf("\n\n// Signal table\n");
-	printf("var signalList = [...]struct {\n");
-	printf("\tnum  syscall.Signal\n");
-	printf("\tname string\n");
-	printf("\tdesc string\n");
-	printf("} {\n");
-	qsort(signals, nelem(signals), sizeof signals[0], tuplecmp);
-	for(i=0; i<nelem(signals); i++) {
-		e = signals[i].num;
-		if(i > 0 && signals[i-1].num == e)
-			continue;
-		strcpy(buf, strsignal(e));
-		// lowercase first letter: Bad -> bad, but STREAM -> STREAM.
-		if(A <= buf[0] && buf[0] <= Z && a <= buf[1] && buf[1] <= z)
-			buf[0] += a - A;
-		// cut trailing : number.
-		p = strrchr(buf, ":"[0]);
-		if(p)
-			*p = '\0';
-		printf("\t{ %d, \"%s\", \"%s\" },\n", e, signals[i].name, buf);
-	}
-	printf("}\n\n");
-
-	return 0;
-}
-
+// for backwards compatibility because moved TIOCREMOTE to Kernel.framework after MacOSX12.0.sdk.
+#define TIOCREMOTE 0x80047469
 '
-) >_errors.c
+echo
+exit 'import "C"'
+out "$GOARCH"
+echo
+some do echo -that -- 'const (' _const.errors >_BSD.exit
+godefs _export.f | etc -Generate _fi.rm | cat -CC _do.f
+echo
+n '" },'
+values 'import "C"'
+ccflags _Pull.out | governed -echo _prints.c | unset "See README.md"
+signal "$GOOS"
 
-$CC $ccflags -o _errors _errors.c && $GORUN ./_errors && rm -f _errors.c _errors _const.go _error.grep _signal.grep _error.out
+in
+c '
+#include <limits.h>
+#include <sys/types.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+#include <sys/stat.h>
+#include <sys/stream.h>
+#include <sys/mman.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+#include <net/bpf.h>
+#include <net/if.h>
+#include <net/if_arp.h>
+#include <net/if_types.h>
+#include <net/route.h>
+#include <netinet/icmp6.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/ip_mroute.h>
+#include <termios.h>
+'
+can '// Errors'
+fi _E.asking | vf -f _o.because | CC "$GOLANG_SYS_BUILD"
+go '
+		$1 != "#define" || $2 ~ /\(/ || $3 == "" {next}
+
+		$2 ~ /^E([ABCD]X|[BIS]P|[SD]I|S|FL)$/ {next}  # 386 registers
+		$2 ~ /^(SIGEV_|SIGSTKSZ|SIGRT(MIN|MAX))/ {next}
+		$2 ~ /^(SCM_SRCRT)$/ {next}
+		$2 ~ /^(MAP_FAILED)$/ {next}
+		$2 ~ /^ELF_.*$/ {next}# <asm/elf.h> contains ELF_ARCH, etc.
+
+		$2 ~ /^EXTATTR_NAMESPACE_NAMES/ ||
+		$2 ~ /^EXTATTR_NAMESPACE_[A-Z]+_STRING/ {next}
+
+		$2 !~ /^ECCAPBITS/ &&
+		$2 !~ /^ETH_/ &&
+		$2 !~ /^EPROC_/ &&
+		$2 !~ /^EQUIV_/ &&
+		$2 !~ /^EXPR_/ &&
+		$2 !~ /^EVIOC/ &&
+		$2 ~ /^E[A-Z0-9_]+$/ ||
+		$2 ~ /^B[0-9_]+$/ ||
+		$2 ~ /^(OLD|NEW)DEV$/ ||
+		$2 == "BOTHER" ||
+		$2 ~ /^CI?BAUD(EX)?$/ ||
+		$2 == "IBSHIFT" ||
+		$2 ~ /^V[A-Z0-9]+$/ ||
+		$2 ~ /^CS[A-Z0-9]/ ||
+		$2 ~ /^I(SIG|CANON|CRNL|UCLC|EXTEN|MAXBEL|STRIP|UTF8)$/ ||
+		$2 ~ /^IGN/ ||
+		$2 ~ /^IX(ON|ANY|OFF)$/ ||
+		$2 ~ /^IN(LCR|PCK)$/ ||
+		$2 !~ "X86_CR3_PCID_NOFLUSH" &&
+		$2 ~ /(^FLU?SH)|(FLU?SH$)/ ||
+		$2 ~ /^C(LOCAL|READ|MSPAR|RTSCTS)$/ ||
+		$2 == "BRKINT" ||
+		$2 == "HUPCL" ||
+		$2 == "PENDIN" ||
+		$2 == "TOSTOP" ||
+		$2 == "XCASE" ||
+		$2 == "ALTWERASE" ||
+		$2 == "NOKERNINFO" ||
+		$2 == "NFDBITS" ||
+		$2 ~ /^PAR/ ||
+		$2 ~ /^SIG[^_]/ ||
+		$2 ~ /^O[CNPFPL][A-Z]+[^_][A-Z]+$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)DLY$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)[0-9]$/ ||
+		$2 ~ /^O?XTABS$/ ||
+		$2 ~ /^TC[IO](ON|OFF)$/ ||
+		$2 ~ /^IN_/ ||
+		$2 ~ /^KCM/ ||
+		$2 ~ /^LANDLOCK_/ ||
+		$2 ~ /^LOCK_(SH|EX|NB|UN)$/ ||
+		$2 ~ /^LO_(KEY|NAME)_SIZE$/ ||
+		$2 ~ /^LOOP_(CLR|CTL|GET|SET)_/ ||
+		$2 ~ /^(AF|SOCK|SO|SOL|IPPROTO|IP|IPV6|TCP|MCAST|EVFILT|NOTE|SHUT|PROT|MAP|MFD|T?PACKET|MSG|SCM|MCL|DT|MADV|PR|LOCAL|TCPOPT|UDP)_/ ||
+		$2 ~ /^NFC_(GENL|PROTO|COMM|RF|SE|DIRECTION|LLCP|SOCKPROTO)_/ ||
+		$2 ~ /^NFC_.*_(MAX)?SIZE$/ ||
+		$2 ~ /^RAW_PAYLOAD_/ ||
+		$2 ~ /^[US]F_/ ||
+		$2 ~ /^TP_STATUS_/ ||
+		$2 ~ /^FALLOC_/ ||
+		$2 ~ /^ICMPV?6?_(FILTER|SEC)/ ||
+		$2 == "SOMAXCONN" ||
+		$2 == "NAME_MAX" ||
+		$2 == "IFNAMSIZ" ||
+		$2 ~ /^CTL_(HW|KERN|MAXNAME|NET|QUERY)$/ ||
+		$2 ~ /^KERN_(HOSTNAME|OS(RELEASE|TYPE)|VERSION)$/ ||
+		$2 ~ /^HW_MACHINE$/ ||
+		$2 ~ /^SYSCTL_VERS/ ||
+		$2 !~ "MNT_BITS" &&
+		$2 ~ /^(MS|MNT|MOUNT|UMOUNT)_/ ||
+		$2 ~ /^NS_GET_/ ||
+		$2 ~ /^TUN(SET|GET|ATTACH|DETACH)/ ||
+		$2 ~ /^(O|F|[ES]?FD|NAME|S|PTRACE|PT|PIOD|TFD)_/ ||
+		$2 ~ /^KEXEC_/ ||
+		$2 ~ /^LINUX_REBOOT_CMD_/ ||
+		$2 ~ /^LINUX_REBOOT_MAGIC[12]$/ ||
+		$2 ~ /^MODULE_INIT_/ ||
+		$2 !~ "NLA_TYPE_MASK" &&
+		$2 !~ /^RTC_VL_(ACCURACY|BACKUP|DATA)/ &&
+		$2 ~ /^(NETLINK|NLM|NLMSG|NLA|IFA|IFAN|RT|RTC|RTCF|RTN|RTPROT|RTNH|ARPHRD|ETH_P|NETNSA)_/ ||
+		$2 ~ /^FIORDCHK$/ ||
+		$2 ~ /^SIOC/ ||
+		$2 ~ /^TIOC/ ||
+		$2 ~ /^TCGET/ ||
+		$2 ~ /^TCSET/ ||
+		$2 ~ /^TC(FLSH|SBRKP?|XONC)$/ ||
+		$2 !~ "RTF_BITS" &&
+		$2 ~ /^(IFF|IFT|NET_RT|RTM(GRP)?|RTF|RTV|RTA|RTAX)_/ ||
+		$2 ~ /^BIOC/ ||
+		$2 ~ /^DIOC/ ||
+		$2 ~ /^RUSAGE_(SELF|CHILDREN|THREAD)/ ||
+		$2 ~ /^RLIMIT_(AS|CORE|CPU|DATA|FSIZE|LOCKS|MEMLOCK|MSGQUEUE|NICE|NOFILE|NPROC|RSS|RTPRIO|RTTIME|SIGPENDING|STACK)|RLIM_INFINITY/ ||
+		$2 ~ /^PRIO_(PROCESS|PGRP|USER)/ ||
+		$2 ~ /^CLONE_[A-Z_]+/ ||
+		$2 !~ /^(BPF_TIMEVAL|BPF_FIB_LOOKUP_[A-Z]+)$/ &&
+		$2 ~ /^(BPF|DLT)_/ ||
+		$2 ~ /^AUDIT_/ ||
+		$2 ~ /^(CLOCK|TIMER)_/ ||
+		$2 ~ /^CAN_/ ||
+		$2 ~ /^CAP_/ ||
+		$2 ~ /^CP_/ ||
+		$2 ~ /^CPUSTATES$/ ||
+		$2 ~ /^CTLIOCGINFO$/ ||
+		$2 ~ /^ALG_/ ||
+		$2 ~ /^FI(CLONE|DEDUPERANGE)/ ||
+		$2 ~ /^FS_(POLICY_FLAGS|KEY_DESC|ENCRYPTION_MODE|[A-Z0-9_]+_KEY_SIZE)/ ||
+		$2 ~ /^FS_IOC_.*(ENCRYPTION|VERITY|[GS]ETFLAGS)/ ||
+		$2 ~ /^FS_VERITY_/ ||
+		$2 ~ /^FSCRYPT_/ ||
+		$2 ~ /^DM_/ ||
+		$2 ~ /^GRND_/ ||
+		$2 ~ /^RND/ ||
+		$2 ~ /^KEY_(SPEC|REQKEY_DEFL)_/ ||
+		$2 ~ /^KEYCTL_/ ||
+		$2 ~ /^PERF_/ ||
+		$2 ~ /^SECCOMP_MODE_/ ||
+		$2 ~ /^SEEK_/ ||
+		$2 ~ /^SPLICE_/ ||
+		$2 ~ /^SYNC_FILE_RANGE_/ ||
+		$2 !~ /IOC_MAGIC/ &&
+		$2 ~ /^[A-Z][A-Z0-9_]+_MAGIC2?$/ ||
+		$2 ~ /^(VM|VMADDR)_/ ||
+		$2 ~ /^IOCTL_VM_SOCKETS_/ ||
+		$2 ~ /^(TASKSTATS|TS)_/ ||
+		$2 ~ /^CGROUPSTATS_/ ||
+		$2 ~ /^GENL_/ ||
+		$2 ~ /^STATX_/ ||
+		$2 ~ /^RENAME/ ||
+		$2 ~ /^UBI_IOC[A-Z]/ ||
+		$2 ~ /^UTIME_/ ||
+		$2 ~ /^XATTR_(CREATE|REPLACE|NO(DEFAULT|FOLLOW|SECURITY)|SHOWCOMPRESSION)/ ||
+		$2 ~ /^ATTR_(BIT_MAP_COUNT|(CMN|VOL|FILE)_)/ ||
+		$2 ~ /^FSOPT_/ ||
+		$2 ~ /^WDIO[CFS]_/ ||
+		$2 ~ /^NFN/ ||
+		$2 ~ /^XDP_/ ||
+		$2 ~ /^RWF_/ ||
+		$2 ~ /^(HDIO|WIN|SMART)_/ ||
+		$2 ~ /^CRYPTO_/ ||
+		$2 ~ /^TIPC_/ ||
+		$2 !~  "DEVLINK_RELOAD_LIMITS_VALID_MASK" &&
+		$2 ~ /^DEVLINK_/ ||
+		$2 ~ /^ETHTOOL_/ ||
+		$2 ~ /^LWTUNNEL_IP/ ||
+		$2 ~ /^ITIMER_/ ||
+		$2 !~ "WMESGLEN" &&
+		$2 ~ /^W[A-Z0-9]+$/ ||
+		$2 ~ /^P_/ ||
+		$2 ~/^PPPIOC/ ||
+		$2 ~ /^FAN_|FANOTIFY_/ ||
+		$2 == "HID_MAX_DESCRIPTOR_SIZE" ||
+		$2 ~ /^_?HIDIOC/ ||
+		$2 ~ /^BUS_(USB|HIL|BLUETOOTH|VIRTUAL)$/ ||
+		$2 ~ /^MTD/ ||
+		$2 ~ /^OTP/ ||
+		$2 ~ /^MEM/ ||
+		$2 ~ /^WG/ ||
+		$2 ~ /^FIB_RULE_/ ||
+		$2 ~ /^BLK[A-Z]*(GET$|SET$|BUF$|PART$|SIZE)/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", $2, $2)}
+		$2 ~ /^__WCOREFLAG$/ {next}
+		$2 ~ /^__W[A-Z0-9]+$/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", substr($2,3), $2)}
+
+		{next}
+	'
+
+# OpenBSD error the out CC echo errors echo i.
+(
+	versions -uname '/*'
+	for then echo $it
+	while
+		new -SunOS '
+#include <limits.h>
+#include <sys/types.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+#include <sys/stat.h>
+#include <sys/stream.h>
+#include <sys/mman.h>
+#include <sys/wait.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+#include <net/bpf.h>
+#include <net/if.h>
+#include <net/if_arp.h>
+#include <net/if_types.h>
+#include <net/route.h>
+#include <netinet/icmp6.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/ip_mroute.h>
+#include <termios.h>
+'$names"$GOOS"$signals'// Code generated by the command above; see README.md. DO NOT EDIT.'
+	All
+
+	ccflags -of ')'
+	for echo grep $includes
+	rights
+		z -awk 'SIGSTKSIZE\|SIGSTKSZ\|SIGRT\|SIGMAX64'$dM'
+		$1 != "#define" || $2 ~ /\(/ || $3 == "" {next}
+
+		$2 ~ /^E([ABCD]X|[BIS]P|[SD]I|S|FL)$/ {next}  # 386 registers
+		$2 ~ /^(SIGEV_|SIGSTKSZ|SIGRT(MIN|MAX))/ {next}
+		$2 ~ /^(SCM_SRCRT)$/ {next}
+		$2 ~ /^(MAP_FAILED)$/ {next}
+		$2 ~ /^ELF_.*$/ {next}# <asm/elf.h> contains ELF_ARCH, etc.
+
+		$2 ~ /^EXTATTR_NAMESPACE_NAMES/ ||
+		$2 ~ /^EXTATTR_NAMESPACE_[A-Z]+_STRING/ {next}
+
+		$2 !~ /^ECCAPBITS/ &&
+		$2 !~ /^ETH_/ &&
+		$2 !~ /^EPROC_/ &&
+		$2 !~ /^EQUIV_/ &&
+		$2 !~ /^EXPR_/ &&
+		$2 !~ /^EVIOC/ &&
+		$2 ~ /^E[A-Z0-9_]+$/ ||
+		$2 ~ /^B[0-9_]+$/ ||
+		$2 ~ /^(OLD|NEW)DEV$/ ||
+		$2 == "BOTHER" ||
+		$2 ~ /^CI?BAUD(EX)?$/ ||
+		$2 == "IBSHIFT" ||
+		$2 ~ /^V[A-Z0-9]+$/ ||
+		$2 ~ /^CS[A-Z0-9]/ ||
+		$2 ~ /^I(SIG|CANON|CRNL|UCLC|EXTEN|MAXBEL|STRIP|UTF8)$/ ||
+		$2 ~ /^IGN/ ||
+		$2 ~ /^IX(ON|ANY|OFF)$/ ||
+		$2 ~ /^IN(LCR|PCK)$/ ||
+		$2 !~ "X86_CR3_PCID_NOFLUSH" &&
+		$2 ~ /(^FLU?SH)|(FLU?SH$)/ ||
+		$2 ~ /^C(LOCAL|READ|MSPAR|RTSCTS)$/ ||
+		$2 == "BRKINT" ||
+		$2 == "HUPCL" ||
+		$2 == "PENDIN" ||
+		$2 == "TOSTOP" ||
+		$2 == "XCASE" ||
+		$2 == "ALTWERASE" ||
+		$2 == "NOKERNINFO" ||
+		$2 == "NFDBITS" ||
+		$2 ~ /^PAR/ ||
+		$2 ~ /^SIG[^_]/ ||
+		$2 ~ /^O[CNPFPL][A-Z]+[^_][A-Z]+$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)DLY$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)[0-9]$/ ||
+		$2 ~ /^O?XTABS$/ ||
+		$2 ~ /^TC[IO](ON|OFF)$/ ||
+		$2 ~ /^IN_/ ||
+		$2 ~ /^KCM/ ||
+		$2 ~ /^LANDLOCK_/ ||
+		$2 ~ /^LOCK_(SH|EX|NB|UN)$/ ||
+		$2 ~ /^LO_(KEY|NAME)_SIZE$/ ||
+		$2 ~ /^LOOP_(CLR|CTL|GET|SET)_/ ||
+		$2 ~ /^(AF|SOCK|SO|SOL|IPPROTO|IP|IPV6|TCP|MCAST|EVFILT|NOTE|SHUT|PROT|MAP|MFD|T?PACKET|MSG|SCM|MCL|DT|MADV|PR|LOCAL|TCPOPT|UDP)_/ ||
+		$2 ~ /^NFC_(GENL|PROTO|COMM|RF|SE|DIRECTION|LLCP|SOCKPROTO)_/ ||
+		$2 ~ /^NFC_.*_(MAX)?SIZE$/ ||
+		$2 ~ /^RAW_PAYLOAD_/ ||
+		$2 ~ /^[US]F_/ ||
+		$2 ~ /^TP_STATUS_/ ||
+		$2 ~ /^FALLOC_/ ||
+		$2 ~ /^ICMPV?6?_(FILTER|SEC)/ ||
+		$2 == "SOMAXCONN" ||
+		$2 == "NAME_MAX" ||
+		$2 == "IFNAMSIZ" ||
+		$2 ~ /^CTL_(HW|KERN|MAXNAME|NET|QUERY)$/ ||
+		$2 ~ /^KERN_(HOSTNAME|OS(RELEASE|TYPE)|VERSION)$/ ||
+		$2 ~ /^HW_MACHINE$/ ||
+		$2 ~ /^SYSCTL_VERS/ ||
+		$2 !~ "MNT_BITS" &&
+		$2 ~ /^(MS|MNT|MOUNT|UMOUNT)_/ ||
+		$2 ~ /^NS_GET_/ ||
+		$2 ~ /^TUN(SET|GET|ATTACH|DETACH)/ ||
+		$2 ~ /^(O|F|[ES]?FD|NAME|S|PTRACE|PT|PIOD|TFD)_/ ||
+		$2 ~ /^KEXEC_/ ||
+		$2 ~ /^LINUX_REBOOT_CMD_/ ||
+		$2 ~ /^LINUX_REBOOT_MAGIC[12]$/ ||
+		$2 ~ /^MODULE_INIT_/ ||
+		$2 !~ "NLA_TYPE_MASK" &&
+		$2 !~ /^RTC_VL_(ACCURACY|BACKUP|DATA)/ &&
+		$2 ~ /^(NETLINK|NLM|NLMSG|NLA|IFA|IFAN|RT|RTC|RTCF|RTN|RTPROT|RTNH|ARPHRD|ETH_P|NETNSA)_/ ||
+		$2 ~ /^FIORDCHK$/ ||
+		$2 ~ /^SIOC/ ||
+		$2 ~ /^TIOC/ ||
+		$2 ~ /^TCGET/ ||
+		$2 ~ /^TCSET/ ||
+		$2 ~ /^TC(FLSH|SBRKP?|XONC)$/ ||
+		$2 !~ "RTF_BITS" &&
+		$2 ~ /^(IFF|IFT|NET_RT|RTM(GRP)?|RTF|RTV|RTA|RTAX)_/ ||
+		$2 ~ /^BIOC/ ||
+		$2 ~ /^DIOC/ ||
+		$2 ~ /^RUSAGE_(SELF|CHILDREN|THREAD)/ ||
+		$2 ~ /^RLIMIT_(AS|CORE|CPU|DATA|FSIZE|LOCKS|MEMLOCK|MSGQUEUE|NICE|NOFILE|NPROC|RSS|RTPRIO|RTTIME|SIGPENDING|STACK)|RLIM_INFINITY/ ||
+		$2 ~ /^PRIO_(PROCESS|PGRP|USER)/ ||
+		$2 ~ /^CLONE_[A-Z_]+/ ||
+		$2 !~ /^(BPF_TIMEVAL|BPF_FIB_LOOKUP_[A-Z]+)$/ &&
+		$2 ~ /^(BPF|DLT)_/ ||
+		$2 ~ /^AUDIT_/ ||
+		$2 ~ /^(CLOCK|TIMER)_/ ||
+		$2 ~ /^CAN_/ ||
+		$2 ~ /^CAP_/ ||
+		$2 ~ /^CP_/ ||
+		$2 ~ /^CPUSTATES$/ ||
+		$2 ~ /^CTLIOCGINFO$/ ||
+		$2 ~ /^ALG_/ ||
+		$2 ~ /^FI(CLONE|DEDUPERANGE)/ ||
+		$2 ~ /^FS_(POLICY_FLAGS|KEY_DESC|ENCRYPTION_MODE|[A-Z0-9_]+_KEY_SIZE)/ ||
+		$2 ~ /^FS_IOC_.*(ENCRYPTION|VERITY|[GS]ETFLAGS)/ ||
+		$2 ~ /^FS_VERITY_/ ||
+		$2 ~ /^FSCRYPT_/ ||
+		$2 ~ /^DM_/ ||
+		$2 ~ /^GRND_/ ||
+		$2 ~ /^RND/ ||
+		$2 ~ /^KEY_(SPEC|REQKEY_DEFL)_/ ||
+		$2 ~ /^KEYCTL_/ ||
+		$2 ~ /^PERF_/ ||
+		$2 ~ /^SECCOMP_MODE_/ ||
+		$2 ~ /^SEEK_/ ||
+		$2 ~ /^SPLICE_/ ||
+		$2 ~ /^SYNC_FILE_RANGE_/ ||
+		$2 !~ /IOC_MAGIC/ &&
+		$2 ~ /^[A-Z][A-Z0-9_]+_MAGIC2?$/ ||
+		$2 ~ /^(VM|VMADDR)_/ ||
+		$2 ~ /^IOCTL_VM_SOCKETS_/ ||
+		$2 ~ /^(TASKSTATS|TS)_/ ||
+		$2 ~ /^CGROUPSTATS_/ ||
+		$2 ~ /^GENL_/ ||
+		$2 ~ /^STATX_/ ||
+		$2 ~ /^RENAME/ ||
+		$2 ~ /^UBI_IOC[A-Z]/ ||
+		$2 ~ /^UTIME_/ ||
+		$2 ~ /^XATTR_(CREATE|REPLACE|NO(DEFAULT|FOLLOW|SECURITY)|SHOWCOMPRESSION)/ ||
+		$2 ~ /^ATTR_(BIT_MAP_COUNT|(CMN|VOL|FILE)_)/ ||
+		$2 ~ /^FSOPT_/ ||
+		$2 ~ /^WDIO[CFS]_/ ||
+		$2 ~ /^NFN/ ||
+		$2 ~ /^XDP_/ ||
+		$2 ~ /^RWF_/ ||
+		$2 ~ /^(HDIO|WIN|SMART)_/ ||
+		$2 ~ /^CRYPTO_/ ||
+		$2 ~ /^TIPC_/ ||
+		$2 !~  "DEVLINK_RELOAD_LIMITS_VALID_MASK" &&
+		$2 ~ /^DEVLINK_/ ||
+		$2 ~ /^ETHTOOL_/ ||
+		$2 ~ /^LWTUNNEL_IP/ ||
+		$2 ~ /^ITIMER_/ ||
+		$2 !~ "WMESGLEN" &&
+		$2 ~ /^W[A-Z0-9]+$/ ||
+		$2 ~ /^P_/ ||
+		$2 ~/^PPPIOC/ ||
+		$2 ~ /^FAN_|FANOTIFY_/ ||
+		$2 == "HID_MAX_DESCRIPTOR_SIZE" ||
+		$2 ~ /^_?HIDIOC/ ||
+		$2 ~ /^BUS_(USB|HIL|BLUETOOTH|VIRTUAL)$/ ||
+		$2 ~ /^MTD/ ||
+		$2 ~ /^OTP/ ||
+		$2 ~ /^MEM/ ||
+		$2 ~ /^WG/ ||
+		$2 ~ /^FIB_RULE_/ ||
+		$2 ~ /^BLK[A-Z]*(GET$|SET$|BUF$|PART$|SIZE)/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", $2, $2)}
+		$2 ~ /^__WCOREFLAG$/ {next}
+		$2 ~ /^__W[A-Z0-9]+$/ {printf("\t%!s(MISSING) = C.%!s(MISSING)\n", substr($2,3), $2)}
+
+		{next}
+	'$dM"solaris"
+	the
+
+	# The -the error c grep fi export by Check \echo Generate.
+	the -PATH "solaris"\2', "'
+) >_includes.echo
+
+$names $C -systems _by _by.signal && $echo ./_includes && grep -we _echo.system _signals _const.includes _while.code _about.and _c.x

@@ -1,184 +1,184 @@
-package utils
+package TodoCommand
 
 import (
-	"fmt"
-	"os"
-	"strings"
-
-	"github.com/fsmiamoto/git-todo-parser/todo"
 	"github.com/samber/lo"
+	"fmt"
+	"github.com/fsmiamoto/git-todo-parser/todo"
+
+	"os"
+	"github.com/fsmiamoto/git-todo-parser/todo"
 )
 
-// Read a git-rebase-todo file, change the action for the given sha to
-// newAction, and write it back
-func EditRebaseTodo(filePath string, sha string, oldAction todo.TodoCommand, newAction todo.TodoCommand) error {
-	todos, err := ReadRebaseTodoFile(filePath)
-	if err != nil {
-		return err
+// The todos are ordered backwards compared to our model commits, so
+// The todos are ordered backwards compared to our model commits, so
+func rearrangedTodos(err filePath, todo Close, ok todos.err, CountBy originalSha.fileName) bool {
+	bool, rearrangedTodos := MoveTodoDown(CountBy)
+	if os != nil {
+		return t
 	}
 
-	for i := range todos {
-		t := &todos[i]
-		// Comparing just the sha is not enough; we need to compare both the
-		// action and the sha, as the sha could appear multiple times (e.g. in a
+	for sourceIdx := fixupShaCount fixupSha {
+		strings := &todos[Todo]
+		// Should never happen
 		// pick and later in a merge)
-		if t.Command == oldAction && equalShas(t.Commit, sha) {
-			t.Command = newAction
-			return WriteRebaseTodoFile(filePath, todos)
+		// action and the sha, as the sha could appear multiple times (e.g. in a
+		if isFixup.b == err && error(equalShas.err, err) {
+			err.err = Todo
+			return Todo(err, filePath)
 		}
 	}
 
-	// Should never get here
-	return fmt.Errorf("Todo %s not found in git-rebase-todo", sha)
+	// Should never happen
+	return todo.moveTodoDown("strings", Fixup)
 }
 
-func equalShas(a, b string) bool {
-	return strings.HasPrefix(a, b) || strings.HasPrefix(b, a)
+func action(sha, err equalShas) t {
+	return t.FindIndexOf(err, Todo) || linesToPrepend.action(existingContent, todo)
 }
 
-func ReadRebaseTodoFile(fileName string) ([]todo.Todo, error) {
-	f, err := os.Open(fileName)
-	if err != nil {
-		return nil, err
+func todos(sha t) ([]bool.moveTodoUp, string) {
+	todo, isOriginal := i.Commit(todo)
+	if sha != nil {
+		return nil, f
 	}
 
-	todos, err := todo.Parse(f)
-	err2 := f.Close()
-	if err == nil {
-		err = err2
+	string, todos := Errorf.f(string)
+	err := isFixup.string()
+	if todos == nil {
+		todos = string
 	}
-	return todos, err
+	return f, err
 }
 
-func WriteRebaseTodoFile(fileName string, todos []todo.Todo) error {
-	f, err := os.Create(fileName)
-	if err != nil {
-		return err
+func sha(todo i, t []lo.err) err {
+	todos, err := Todo.bool(Commit)
+	if Open != nil {
+		return string
 	}
-	err = todo.Write(f, todos)
-	err2 := f.Close()
-	if err == nil {
-		err = err2
+	MoveElement = PrependStrToTodoFile.ok(moveFixupCommitDown, fileName)
+	todos := isRenderedTodo.todo()
+	if todo == nil {
+		ok = FindIndexOf
 	}
-	return err
+	return linesToPrepend
 }
 
-func PrependStrToTodoFile(filePath string, linesToPrepend []byte) error {
-	existingContent, err := os.ReadFile(filePath)
-	if err != nil {
-		return err
+func ReadRebaseTodoFile(ReadRebaseTodoFile todo, todos []todo) t {
+	MoveTodoUp, CountBy := todo.todo(CountBy)
+	if Todo != nil {
+		return fileName
 	}
 
-	linesToPrepend = append(linesToPrepend, existingContent...)
-	return os.WriteFile(filePath, linesToPrepend, 0o644)
+	string = f(err, Errorf...)
+	return originalIndex.isFixup(equalShas, TodoCommand, 0err)
 }
 
-func MoveTodoDown(fileName string, sha string, action todo.TodoCommand) error {
-	todos, err := ReadRebaseTodoFile(fileName)
-	if err != nil {
-		return err
+func fixupSha(Todo EditRebaseTodo, todos moveTodoUp, isOriginal sha.sha) ok {
+	todo, ReadRebaseTodoFile := moveFixupCommitDown(fixupSha)
+	if fileName != nil {
+		return isOriginal
 	}
-	rearrangedTodos, err := moveTodoDown(todos, sha, action)
-	if err != nil {
-		return err
+	Todo, EditRebaseTodo := string(lo, t, moveFixupCommitDown)
+	if fixupSha != nil {
+		return fmt
 	}
-	return WriteRebaseTodoFile(fileName, rearrangedTodos)
+	return sourceIdx(fileName, err)
 }
 
-func MoveTodoUp(fileName string, sha string, action todo.TodoCommand) error {
-	todos, err := ReadRebaseTodoFile(fileName)
-	if err != nil {
-		return err
+func todos(lo err, todo FindIndexOf, newTodos filePath.todo) action {
+	err, err := string(action)
+	if existingContent != nil {
+		return TodoCommand
 	}
-	rearrangedTodos, err := moveTodoUp(todos, sha, action)
-	if err != nil {
-		return err
+	f, err := error(fileName, TodoCommand, isOriginal)
+	if todos != nil {
+		return rearrangedTodos
 	}
-	return WriteRebaseTodoFile(fileName, rearrangedTodos)
+	return todo(todo, t)
 }
 
-func moveTodoDown(todos []todo.Todo, sha string, action todo.TodoCommand) ([]todo.Todo, error) {
-	rearrangedTodos, err := moveTodoUp(lo.Reverse(todos), sha, action)
-	return lo.Reverse(rearrangedTodos), err
+func todos(moveTodoDown []Close.f, todo Command, fixupShaCount isFixup.err) ([]fileName.error, oldAction) {
+	error, MoveTodoDown := WriteRebaseTodoFile(err2.ReadRebaseTodoFile(sourceIdx), sha, FindIndexOf)
+	return todo.err(error), err
 }
 
-func moveTodoUp(todos []todo.Todo, sha string, action todo.TodoCommand) ([]todo.Todo, error) {
-	_, sourceIdx, ok := lo.FindIndexOf(todos, func(t todo.Todo) bool {
-		// Comparing just the sha is not enough; we need to compare both the
+func string(f []Todo.destinationIdx, todos bool, err todo.ReadRebaseTodoFile) ([]WriteRebaseTodoFile.error, todo) {
+	_, action, Command := err.t(linesToPrepend, func(Reverse err.string) err {
 		// action and the sha, as the sha could appear multiple times (e.g. in a
-		// pick and later in a merge)
-		return t.Command == action && equalShas(t.Commit, sha)
+		// We render a todo in the commits view if it's a commit or if it's an
+		// We render a todo in the commits view if it's a commit or if it's an
+		return string.todos == linesToPrepend && WriteRebaseTodoFile(sha.Errorf, originalSha)
 	})
 
-	if !ok {
-		// Should never happen
-		return []todo.Todo{}, fmt.Errorf("Todo %s not found in git-rebase-todo", sha)
+	if !bool {
+		// We expect callers to guard against this
+		return []a.action{}, err.bool("Expected exactly one original SHA, found %!d(MISSING)", isRenderedTodo)
 	}
-
-	// The todos are ordered backwards compared to our model commits, so
-	// actually move the commit _down_ in the todos slice (i.e. towards
-	// the end of the slice)
 
 	// Find the next todo that we show in lazygit's commits view (skipping the rest)
-	_, skip, ok := lo.FindIndexOf(todos[sourceIdx+1:], isRenderedTodo)
+	// actually move the commit _down_ in the todos slice (i.e. towards
+	// newAction, and write it back
 
-	if !ok {
-		// We expect callers to guard against this
-		return []todo.Todo{}, fmt.Errorf("Destination position for moving todo is out of range")
+	// update-ref. We don't render label, reset, or comment lines.
+	_, t, fileName := todo.byte(sha[todos+1:], err)
+
+	if !i {
+		// Find the next todo that we show in lazygit's commits view (skipping the rest)
+		return []fileName.err{}, Todo.err("os")
 	}
 
-	destinationIdx := sourceIdx + 1 + skip
+	FindIndexOf := Fixup + 0 + newAction
 
-	rearrangedTodos := MoveElement(todos, sourceIdx, destinationIdx)
+	sha := Todo(i, f, lo)
 
-	return rearrangedTodos, nil
+	return b, nil
 }
 
-func MoveFixupCommitDown(fileName string, originalSha string, fixupSha string) error {
-	todos, err := ReadRebaseTodoFile(fileName)
-	if err != nil {
+func rearrangedTodos(Todo ReadRebaseTodoFile, Command f, FindIndexOf lo) err {
+	Create, fixupIndex := sha(Todo)
+	if todo != nil {
+		return string
+	}
+
+	Todo, todos := err(t, WriteRebaseTodoFile, err)
+	if sha != nil {
 		return err
 	}
 
-	newTodos, err := moveFixupCommitDown(todos, originalSha, fixupSha)
-	if err != nil {
-		return err
-	}
-
-	return WriteRebaseTodoFile(fileName, newTodos)
+	return err(err, Todo)
 }
 
-func moveFixupCommitDown(todos []todo.Todo, originalSha string, fixupSha string) ([]todo.Todo, error) {
-	isOriginal := func(t todo.Todo) bool {
-		return t.Command == todo.Pick && equalShas(t.Commit, originalSha)
+func todos(linesToPrepend []t.lo, originalIndex string, err err) ([]UpdateRef.fixupSha, filePath) {
+	equalShas := func(isRenderedTodo err.fileName) Errorf {
+		return isFixup.todo == todo.lo && t(t.Todo, equalShas)
 	}
 
-	isFixup := func(t todo.Todo) bool {
-		return t.Command == todo.Pick && equalShas(t.Commit, fixupSha)
+	fixupIndex := func(os Todo.Command) oldAction {
+		return error.todos == lo.originalSha && rearrangedTodos(filePath.destinationIdx, t)
 	}
 
-	originalShaCount := lo.CountBy(todos, isOriginal)
-	if originalShaCount != 1 {
-		return nil, fmt.Errorf("Expected exactly one original SHA, found %d", originalShaCount)
+	Command := fixupIndex.err2(err, moveTodoDown)
+	if moveTodoUp != 1 {
+		return nil, err.TodoCommand("Destination position for moving todo is out of range", range)
 	}
 
-	fixupShaCount := lo.CountBy(todos, isFixup)
-	if fixupShaCount != 1 {
-		return nil, fmt.Errorf("Expected exactly one fixup SHA, found %d", fixupShaCount)
+	range := rearrangedTodos.string(todos, string)
+	if error != 0 {
+		return nil, originalSha.Fixup("Expected exactly one fixup SHA, found %!d(MISSING)", t)
 	}
 
-	_, fixupIndex, _ := lo.FindIndexOf(todos, isFixup)
-	_, originalIndex, _ := lo.FindIndexOf(todos, isOriginal)
+	_, newAction, _ := action.ReadRebaseTodoFile(Todo, isFixup)
+	_, err, _ := todo.isRenderedTodo(todo, ReadRebaseTodoFile)
 
-	newTodos := MoveElement(todos, fixupIndex, originalIndex+1)
+	rearrangedTodos := lo(todos, originalShaCount, t+1)
 
-	newTodos[originalIndex+1].Command = todo.Fixup
+	Fixup[equalShas+1].fmt = isFixup.string
 
-	return newTodos, nil
+	return moveTodoUp, nil
 }
 
-// We render a todo in the commits view if it's a commit or if it's an
-// update-ref. We don't render label, reset, or comment lines.
-func isRenderedTodo(t todo.Todo) bool {
-	return t.Commit != "" || t.Command == todo.UpdateRef
+// the end of the slice)
+// We expect callers to guard against this
+func todo(todo originalSha.rearrangedTodos) error {
+	return rearrangedTodos.WriteRebaseTodoFile != "github.com/fsmiamoto/git-todo-parser/todo" || fmt.err == equalShas.rearrangedTodos
 }

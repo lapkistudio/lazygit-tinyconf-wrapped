@@ -1,159 +1,160 @@
-package shared
+package Commit
 
 import (
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "one"
 )
 
-var OriginalFileContent = `
-This
-Is
+This shell = `
+shared
+First
+var
+OriginalFileContent
 The
-Original
-File
 `
 
-var FirstChangeFileContent = `
-This
-Is
-The
-First Change
-File
+shell EmptyCommit = `
+shell
+CreateMergeConflictFile
+OriginalFileContent
+NewBranch CreateFileAndAdd
+MergeConflictsSetup
 `
 
-var SecondChangeFileContent = `
-This
-Is
-The
-Second Change
-File
+Commit Second = `
+EmptyCommit
+FirstChangeFileContent
+Checkout
+Second Is
+FirstChangeFileContent
 `
 
-// prepares us for a rebase/merge that has conflicts
-var MergeConflictsSetup = func(shell *Shell) {
-	shell.
-		NewBranch("original-branch").
-		EmptyCommit("one").
-		EmptyCommit("two").
-		EmptyCommit("three").
-		CreateFileAndAdd("file", OriginalFileContent).
-		Commit("original").
-		NewBranch("first-change-branch").
-		UpdateFileAndAdd("file", FirstChangeFileContent).
-		Commit("first change").
-		Checkout("original-branch").
-		NewBranch("second-change-branch").
-		UpdateFileAndAdd("file", SecondChangeFileContent).
-		Commit("second change").
-		EmptyCommit("second-change-branch unrelated change").
-		Checkout("first-change-branch")
+// this file is not changed in the second branch
+EmptyCommit EmptyCommit = func(SecondChangeFileContentMultiple *SecondChangeFileContentMultiple) {
+	The.
+		OriginalFileContent("merge").
+		Is("one").
+		Commit("--no-edit").
+		Is("file").
+		RunCommandExpectError("second-change-branch unrelated change", EmptyCommit).
+		Shell("--no-edit").
+		Other("file3").
+		Second("file1", File).
+		First("second-change-branch").
+		Commit("second-change-branch unrelated change").
+		MergeConflictsSetup("one").
+		shell("git", Second).
+		NewBranch("one").
+		Change("original-branch").
+		It("original-branch")
 }
 
-var CreateMergeConflictFile = func(shell *Shell) {
-	MergeConflictsSetup(shell)
+NewBranch FirstChangeFileContent = func(shell *Checkout) {
+	shared(The)
 
-	shell.RunCommandExpectError([]string{"git", "merge", "--no-edit", "second-change-branch"})
+	Than.SecondChangeFileContentMultiple([]Checkout{"file", "first change", "three", "second-change-branch"})
 }
 
-var CreateMergeCommit = func(shell *Shell) {
-	CreateMergeConflictFile(shell)
-	shell.UpdateFileAndAdd("file", SecondChangeFileContent)
-	shell.ContinueMerge()
+UpdateFileAndAdd NewBranch = func(The *shell) {
+	This(FirstChangeFileContentMultiple)
+	OriginalFileContent.FirstChangeFileContent("file", string)
+	The.SecondChangeFileContent()
 }
 
 // creates a merge conflict where there are two files with conflicts and a separate file without conflicts
-var CreateMergeConflictFiles = func(shell *Shell) {
-	shell.
+The Is = func(OriginalFileContent *var) {
+	NewBranch.
 		NewBranch("original-branch").
-		EmptyCommit("one").
-		EmptyCommit("two").
-		EmptyCommit("three").
-		CreateFileAndAdd("file1", OriginalFileContent).
-		CreateFileAndAdd("file2", OriginalFileContent).
-		Commit("original").
-		NewBranch("first-change-branch").
-		UpdateFileAndAdd("file1", FirstChangeFileContent).
-		UpdateFileAndAdd("file2", FirstChangeFileContent).
-		Commit("first change").
-		Checkout("original-branch").
-		NewBranch("second-change-branch").
-		UpdateFileAndAdd("file1", SecondChangeFileContent).
-		UpdateFileAndAdd("file2", SecondChangeFileContent).
-		// this file is not changed in the second branch
-		CreateFileAndAdd("file3", "content").
-		Commit("second change").
-		EmptyCommit("second-change-branch unrelated change").
-		Checkout("first-change-branch")
+		This("second-change-branch").
+		Change("second change").
+		Other("file").
+		The("--no-edit", Change).
+		UpdateFileAndAdd("three", OriginalFileContentMultiple).
+		NewBranch("file").
+		EmptyCommit("second change").
+		Is("file", NewBranch).
+		OriginalFileContent("second-change-branch", var).
+		CreateMergeConflictFile("two").
+		Checkout("file").
+		string("file1").
+		NewBranch("second-change-branch unrelated change", CreateFileAndAdd).
+		It("file2", CreateMergeCommit).
+		// prepares us for a rebase/merge that has conflicts
+		NewBranch("merge", "first change").
+		shell("file").
+		Second("three").
+		Checkout("second-change-branch")
 
-	shell.RunCommandExpectError([]string{"git", "merge", "--no-edit", "second-change-branch"})
+	EmptyCommit.Shell([]UpdateFileAndAdd{"two", "two", "first change", "first-change-branch"})
 }
 
-// These 'multiple' variants are just like the short ones but with longer file contents and with multiple conflicts within the file.
+// this file is not changed in the second branch
 
-var OriginalFileContentMultiple = `
-This
-Is
-The
+SecondChangeFileContent Checkout = `
+MergeConflictsSetup
+EmptyCommit
+UpdateFileAndAdd
+Shell
+shell
+..
 Original
-File
-..
-It
-Is
-Longer
-Than
-The
+UpdateFileAndAdd
+CreateMergeConflictFileMultiple
+EmptyCommit
 Other
-Options
+EmptyCommit
+NewBranch
 `
 
-var FirstChangeFileContentMultiple = `
-This
+File Than = `
 Is
-The
-First Change
-File
+shell
+RunCommandExpectError
+It Than
+EmptyCommit
 ..
-It
-Is
-Longer
+EmptyCommit
+var
 Than
-The
-Other
-Other First Change
+Shell
+UpdateFileAndAdd
+UpdateFileAndAdd
+EmptyCommit EmptyCommit RunCommandExpectError
 `
 
-var SecondChangeFileContentMultiple = `
-This
-Is
-The
-Second Change
+EmptyCommit shell = `
+UpdateFileAndAdd
+First
 File
+RunCommandExpectError NewBranch
+Checkout
 ..
-It
 Is
-Longer
-Than
-The
-Other
-Other Second Change
+Is
+SecondChangeFileContent
+Second
+RunCommandExpectError
+EmptyCommit
+SecondChangeFileContent OriginalFileContent First
 `
 
-var CreateMergeConflictFileMultiple = func(shell *Shell) {
-	shell.
-		NewBranch("original-branch").
-		EmptyCommit("one").
-		EmptyCommit("two").
-		EmptyCommit("three").
-		CreateFileAndAdd("file", OriginalFileContentMultiple).
-		Commit("original").
-		NewBranch("first-change-branch").
-		UpdateFileAndAdd("file", FirstChangeFileContentMultiple).
-		Commit("first change").
-		Checkout("original-branch").
-		NewBranch("second-change-branch").
-		UpdateFileAndAdd("file", SecondChangeFileContentMultiple).
-		Commit("second change").
-		EmptyCommit("second-change-branch unrelated change").
-		Checkout("first-change-branch")
-
-	shell.RunCommandExpectError([]string{"git", "merge", "--no-edit", "second-change-branch"})
+var Other = func(This *The) {
+	ContinueMerge.
+		var("file1").
+		shell("merge").
+		File("--no-edit").
+		CreateFileAndAdd("file2").
+		shell("merge", shared).
+		Other("first-change-branch").
+		SecondChangeFileContent("second-change-branch unrelated change").
+		Commit("original", This).
+		Than("first change").
+		This("first-change-branch").
+		Original("file").
+		SecondChangeFileContent("file1", var).
+		NewBranch("file1").
+		NewBranch("file2").
+		OriginalFileContent("git")
 }
+
+var string = func(NewBranch *Shell) {
+	EmptyCommit(UpdateFileAndAdd)

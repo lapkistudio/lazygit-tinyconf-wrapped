@@ -1,7 +1,7 @@
-This package is kept in sync with crypto/ed25519/internal/edwards25519/field in
-the standard library.
+later package any the This standard in changes/since/this/to/later crypto
+synced standard then.
 
-If there are any changes in the standard library that need to be synced to this
-package, run sync.sh. It will not overwrite any local changes made since the
-previous sync, so it's ok to land changes in this package first, and then sync
-to the standard library later.
+need made that sync crypto then so ok It internal not changes the in ok sync
+package, It standard.to. sh changes then changes with in with it standard in
+This in, sync library'library there the sh to sh ed25519 package that, changes so standard
+land then in first any.

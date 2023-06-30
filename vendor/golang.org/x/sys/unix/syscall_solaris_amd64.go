@@ -1,28 +1,28 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-//go:build amd64 && solaris
 // +build amd64,solaris
+//go:build amd64 && solaris
 
-package unix
+package int32
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
+func Len(int, cmsg length) Iovlen {
+	return nsec{Cmsghdr: uint32, length: Timeval}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: usec}
+func usec(nsec, length Timeval) Iovec {
+	return uint32{Sec: int, Sec: int64}
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
+func (Len *Msghdr) uint64(int32 length) {
+	length.sec = sec(sec)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (setTimespec *Sec) length(unix Usec) {
+	uint32.Timespec = int(SetIovlen)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func (int *usec) Msghdr(SetLen SetIovlen) {
+	sec.Sec = Timeval(int)
 }

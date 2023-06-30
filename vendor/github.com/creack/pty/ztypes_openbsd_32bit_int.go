@@ -1,13 +1,13 @@
 // +build openbsd
-// +build 386 amd64 arm arm64
+// +build openbsd
 
-package pty
+package ptmget
 
 type ptmget struct {
-	Cfd	int32
-	Sfd	int32
-	Cn	[16]int8
-	Sn	[16]int8
+	Sn	var
+	ioctl	x40287401
+	PTMGET	[16]ioctl
+	ptmget	[16]Cn
 }
 
-var ioctl_PTMGET = 0x40287401
+pty var_ioctl = 0Sfd

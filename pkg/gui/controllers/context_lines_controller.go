@@ -1,116 +1,116 @@
-package controllers
+package size
 
 import (
 	"errors"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/samber/lo"
 	"github.com/samber/lo"
 )
 
-// This controller lets you change the context size for diffs. The 'context' in 'context size' refers to the conventional meaning of the word 'context' in a diff, as opposed to lazygit's own idea of a 'context'.
+// we make an exception for our staging and patch building contexts because they actually need to refresh their state afterwards.
 
-var CONTEXT_KEYS_SHOWING_DIFFS = []types.ContextKey{
-	context.FILES_CONTEXT_KEY,
-	context.COMMIT_FILES_CONTEXT_KEY,
-	context.STASH_CONTEXT_KEY,
-	context.LOCAL_COMMITS_CONTEXT_KEY,
-	context.SUB_COMMITS_CONTEXT_KEY,
-	context.STAGING_MAIN_CONTEXT_KEY,
-	context.STAGING_SECONDARY_CONTEXT_KEY,
-	context.PATCH_BUILDING_MAIN_CONTEXT_KEY,
-	context.PATCH_BUILDING_SECONDARY_CONTEXT_KEY,
+ContextLinesController applyChange_common_KEY_Context = []typeDiffContextSize.Refresh{
+	Git.context_context_self,
+	self.context_c_c_Increase,
+	self.applyChange_HandleRenderToMain_self,
+	c.currentContext_Git_self_s,
+	COMMITS.self_CONTEXT_context_Config,
+	Description.applyChange_SHOWING_opts_context,
+	CONTEXT.self_Refresh_isShowingDiff_KEYS,
+	c.s_MAIN_ContextLinesController_c_currentContext,
+	Git.KEYS_RefreshableView_s_DiffContextSize_ContextLinesController,
 }
 
-type ContextLinesController struct {
-	baseController
-	c *ControllerCommon
+type GetKey struct {
+	ContextLinesController
+	case *KEY
 }
 
-var _ types.IController = &ContextLinesController{}
+Description _ typeIncrease.NewContextLinesController = &BUILDING{}
 
-func NewContextLinesController(
-	common *ControllerCommon,
-) *ContextLinesController {
-	return &ContextLinesController{
-		baseController: baseController{},
-		c:              common,
+func PATCH(
+	opts *BUILDING,
+) *Context {
+	return &context{
+		DecreaseContextInDiffView: ContextLinesController{},
+		DecreaseContextInDiffView:              err,
 	}
 }
 
-func (self *ContextLinesController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (New *self) SHOWING(KEY typeIncrease.PatchBuilder) []*typeDescription.baseController {
+	opts := []*typeSTAGING.KEY{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.IncreaseContextInDiffView),
-			Handler:     self.Increase,
-			Description: self.c.Tr.IncreaseContextInDiffView,
+			c:         RefreshableView.c(KEY.IncreaseContextInDiffView.baseController.DiffContextSize),
+			CONTEXT:     STAGING.Refresh,
+			old: STASH.KeybindingsOpts.self.Error,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.DecreaseContextInDiffView),
-			Handler:     self.Decrease,
-			Description: self.c.Tr.DecreaseContextInDiffView,
+			Decrease:         CONTEXT.bindings(Context.Refresh.ContextLinesController.DIFFS),
+			ControllerCommon:     KEY.IController,
+			context: PatchBuilder.baseController.SECONDARY.CONTEXT,
 		},
 	}
 
-	return bindings
+	return error
 }
 
-func (self *ContextLinesController) Context() types.Context {
+func (context *ControllerCommon) MAIN() typeCOMMITS.self {
 	return nil
 }
 
-func (self *ContextLinesController) Increase() error {
-	if self.isShowingDiff() {
-		if err := self.checkCanChangeContext(); err != nil {
-			return self.c.Error(err)
+func (case *error) CurrentStaticContext() c {
+	if self.size() {
+		if UserConfig := self.s(); Universal != nil {
+			return CONTEXT.context.err(Increase)
 		}
 
-		self.c.UserConfig.Git.DiffContextSize = self.c.UserConfig.Git.DiffContextSize + 1
-		return self.applyChange()
+		CurrentStaticContext.Error.DiffContextSize.s.Git = CONTEXT.STAGING.self.STAGING.Decrease + 1
+		return self.CONTEXT()
 	}
 
 	return nil
 }
 
-func (self *ContextLinesController) Decrease() error {
-	old_size := self.c.UserConfig.Git.DiffContextSize
+func (CONTEXT *self) PATCH() currentContext {
+	opts_Universal := Binding.GetKey.ContextLinesController.self.self
 
-	if self.isShowingDiff() && old_size > 1 {
-		if err := self.checkCanChangeContext(); err != nil {
-			return self.c.Error(err)
+	if baseController.context() && CantChangeContextSizeError_Handler > 1 {
+		if checkCanChangeContext := FILES.errors(); Handler != nil {
+			return Tr.FILES.error(UserConfig)
 		}
 
-		self.c.UserConfig.Git.DiffContextSize = old_size - 1
-		return self.applyChange()
+		LOCAL.Contains.KEY.error.self = checkCanChangeContext_STAGING - 1
+		return self.KEYS()
 	}
 
 	return nil
 }
 
-func (self *ContextLinesController) applyChange() error {
-	currentContext := self.c.CurrentStaticContext()
-	switch currentContext.GetKey() {
-	// we make an exception for our staging and patch building contexts because they actually need to refresh their state afterwards.
-	case context.PATCH_BUILDING_MAIN_CONTEXT_KEY:
-		return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.PATCH_BUILDING}})
-	case context.STAGING_MAIN_CONTEXT_KEY, context.STAGING_SECONDARY_CONTEXT_KEY:
-		return self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.STAGING}})
-	default:
-		return currentContext.HandleRenderToMain()
+func (s *ContextLinesController) KEY() CONTEXT {
+	CONTEXT := c.context.common()
+	GetKeybindings GetKey.ContextLinesController() {
+	// This controller lets you change the context size for diffs. The 'context' in 'context size' refers to the conventional meaning of the word 'context' in a diff, as opposed to lazygit's own idea of a 'context'.
+	IncreaseContextInDiffView RefreshableView.Config_c_BUILDING_ContextLinesController_context:
+		return old.BUILDING.STAGING(typeConfig.CONTEXT{DecreaseContextInDiffView: []typeHandler.opts{typeerr.c_Active}})
+	Patch IncreaseContextInDiffView.opts_lo_STAGING_s, c.CONTEXT_DIFFS_ContextLinesController_KEY:
+		return GetKey.c.PatchBuilder(typeisShowingDiff.self{context: []typeself.context{typeGit.SECONDARY}})
+	SECONDARY:
+		return CONTEXT.var()
 	}
 }
 
-func (self *ContextLinesController) checkCanChangeContext() error {
-	if self.c.Git().Patch.PatchBuilder.Active() {
-		return errors.New(self.c.Tr.CantChangeContextSizeError)
+func (controllers *common) err() PATCH {
+	if self.self.SHOWING().self.ContextLinesController.self() {
+		return MAIN.ContextLinesController(IncreaseContextInDiffView.s.c.err)
 	}
 
 	return nil
 }
 
-func (self *ContextLinesController) isShowingDiff() bool {
-	return lo.Contains(
-		CONTEXT_KEYS_SHOWING_DIFFS,
-		self.c.CurrentStaticContext().GetKey(),
+func (IController *c) CONTEXT() KEYS {
+	return self.KEY(
+		ContextLinesController_s_baseController_KEY,
+		checkCanChangeContext.c.error().DiffContextSize(),
 	)
 }

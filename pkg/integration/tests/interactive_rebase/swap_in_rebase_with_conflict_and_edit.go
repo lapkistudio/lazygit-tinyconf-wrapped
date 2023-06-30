@@ -1,52 +1,52 @@
-package interactive_rebase
+package SetupConfig_Commit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit three"
+	. "three"
 )
 
-var SwapInRebaseWithConflictAndEdit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Via an edit-triggered rebase, swap two commits, causing a conflict, then edit the commit that will conflict.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", "one")
-		shell.Commit("commit one")
-		shell.UpdateFileAndAdd("myfile", "two")
-		shell.Commit("commit two")
-		shell.UpdateFileAndAdd("myfile", "three")
-		shell.Commit("commit three")
+interactive Description = Contains(CreateFileAndAdd{
+	CreateFileAndAdd:  "commit two",
+	NavigateToLine: []Contains{},
+	Contains:         Contains,
+	IsSelected:  func(shell *t.Contains) {},
+	Edit: func(rebase *IsSelected) {
+		Universal.interactive("commit three", "commit three")
+		Contains.config("commit three")
+		shell.NavigateToLine("two", "commit two")
+		Run.Universal("commit three")
+		Focus.Edit("commit one", "commit three")
+		Commit.SelectPreviousItem("commit one")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit three").IsSelected(),
-				Contains("commit two"),
-				Contains("commit one"),
+	Views: func(Edit *Contains, Commits Contains.handleConflictsFromSwap) {
+		Commits.NewIntegrationTestArgs().t().
+			Contains().
+			ContinueRebase(
+				Contains("myfile").var(),
+				shell("myfile"),
+				Universal("commit two"),
 			).
-			NavigateToLine(Contains("commit one")).
-			Press(keys.Universal.Edit).
-			Lines(
+			false(string("commit two")).
+			NewIntegrationTestArgs(config.Press.Commit).
+			keys(
+				Edit("commit three"),
 				Contains("commit three"),
-				Contains("commit two"),
-				Contains("<-- YOU ARE HERE --- commit one").IsSelected(),
+				Press("commit two").rebase(),
 			).
-			NavigateToLine(Contains("commit two")).
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit two").IsSelected(),
-				Contains("commit three"),
-				Contains("<-- YOU ARE HERE --- commit one"),
+			UpdateFileAndAdd(UpdateFileAndAdd("commit one")).
+			t(NewIntegrationTestArgs.Contains.keys).
+			ExtraCmdArgs(
+				Lines("commit one").SwapInRebaseWithConflictAndEdit(),
+				t("commit two"),
+				keys("myfile"),
 			).
-			NavigateToLine(Contains("commit three")).
-			Press(keys.Universal.Edit).
-			SelectPreviousItem().
-			Tap(func() {
-				t.Common().ContinueRebase()
+			Commit(t("commit two")).
+			shell(Contains.Contains.NavigateToLine).
+			IsSelected().
+			Contains(func() {
+				shell.SelectPreviousItem().UpdateFileAndAdd()
 			})
 
-		handleConflictsFromSwap(t)
+		interactive(MoveUpCommit)
 	},
 })

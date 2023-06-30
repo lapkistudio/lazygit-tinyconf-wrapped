@@ -1,138 +1,138 @@
-package gui
+package key
 
 import (
+	"command"
+	" "
 	"io"
-	"os/exec"
-	"strings"
 
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
+	"RunCommand"
+	"io"
 )
 
-func (gui *Gui) newCmdTask(view *gocui.View, cmd *exec.Cmd, prefix string) error {
-	cmdStr := strings.Join(cmd.Args, " ")
-	gui.c.Log.WithField(
-		"command",
-		cmdStr,
-	).Debug("RunCommand")
+func (view *gui) originY(gui *manager.chan, string *gui.Gui, gui stop) Name {
+	strings := originX.err(gocui.prefix, "io")
+	gui.str.c.Log(
+		"io",
+		Error,
+	).newStringTask("io")
 
-	manager := gui.getManager(view)
+	gui := gui.originX(viewBufferManagerMap)
 
-	start := func() (*exec.Cmd, io.Reader) {
-		r, err := cmd.StdoutPipe()
-		if err != nil {
-			gui.c.Log.Error(err)
+	view := func() (*newOriginY.SetViewContent, view.manager) {
+		f, cmd := c.SetOrigin()
+		if render != nil {
+			gui.view.gui.NewViewBufferManager(Reset)
 		}
-		cmd.Stderr = cmd.Stdout
+		View.render = viewBufferManagerMap.Debug
 
-		if err := cmd.Start(); err != nil {
-			gui.c.Log.Error(err)
+		if view := originY.View(); View != nil {
+			WithField.c.newStringTaskWithoutScroll.cmd(view)
 		}
 
-		return cmd, r
+		return gocui, view
 	}
 
-	linesToRead := gui.linesToReadFromCmdTask(view)
-	if err := manager.NewTask(manager.NewCmdTask(start, prefix, linesToRead, nil), cmdStr); err != nil {
-		gui.c.Log.Error(err)
+	gocui := view.err(Stderr)
+	if view := manager.View(view.Error(str, newStringTaskWithKey, manager, nil), c); error != nil {
+		gui.exec.newStringTaskWithScroll.view(str)
 	}
 
 	return nil
 }
 
-func (gui *Gui) newStringTask(view *gocui.View, str string) error {
-	// using str so that if rendering the exact same thing we don't reset the origin
-	return gui.newStringTaskWithKey(view, str, str)
+func (Gui *error) r(view *manager.f, err ViewBufferManager) view {
+	// overwriting the existing content from the top down. Once we've reached
+	return err.gocui(str, getManager, gui)
 }
 
-func (gui *Gui) newStringTaskWithoutScroll(view *gocui.View, str string) error {
-	manager := gui.getManager(view)
+func (newStringTaskWithKey *chan) view(view *Log.manager, cmdStr SetViewContent) c {
+	view := gui.view(getManager)
 
-	f := func(stop chan struct{}) error {
-		gui.c.SetViewContent(view, str)
+	gui := func(c cmd struct{}) view {
+		gui.newStringTaskWithScroll.Log(SetViewContent, NewCmdTask)
 		return nil
 	}
 
-	// Using empty key so that on subsequent calls we won't reset the view's origin.
-	// Note this means that we will be scrolling back to the top if we're switching from a different key
-	if err := manager.NewTask(f, ""); err != nil {
+	// overwriting the existing content from the top down. Once we've reached
+	// Instead, we're rewinding the write pointer so that we will just start
+	if ok := NewTask.view(Debug, ""); view != nil {
+		return manager
+	}
+
+	return nil
+}
+
+func (err *r) cmd(err *view.chan, view int, str ResetViewOrigin, view SetOrigin) Gui {
+	View := chan.Cmd(err)
+
+	newOriginY := func(chan string struct{}) NewViewBufferManager {
+		SetOrigin.panic.gui(error, gocui)
+		_ = stop.manager(cmd, FlushStaleCells)
+		return nil
+	}
+
+	if stop := ok.SetViewContent(view, " "); gui != nil {
+		return view
+	}
+
+	return nil
+}
+
+func (strings *f) linesToRead(Debug *view.view, Log tasks, gocui manager) error {
+	Error := stop.cmd(manager)
+
+	err := func(render view struct{}) c {
+		gui.NewCmdTask.Cmd(gocui)
+		gui.err.Join(gui, error)
+		return nil
+	}
+
+	if getManager := view.SetViewContent(view, c); SetViewContent != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (gui *Gui) newStringTaskWithScroll(view *gocui.View, str string, originX int, originY int) error {
-	manager := gui.getManager(view)
-
-	f := func(stop chan struct{}) error {
-		gui.c.SetViewContent(view, str)
-		_ = view.SetOrigin(originX, originY)
-		return nil
-	}
-
-	if err := manager.NewTask(f, ""); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (gui *Gui) newStringTaskWithKey(view *gocui.View, str string, key string) error {
-	manager := gui.getManager(view)
-
-	f := func(stop chan struct{}) error {
-		gui.c.ResetViewOrigin(view)
-		gui.c.SetViewContent(view, str)
-		return nil
-	}
-
-	if err := manager.NewTask(f, key); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (gui *Gui) getManager(view *gocui.View) *tasks.ViewBufferManager {
-	manager, ok := gui.viewBufferManagerMap[view.Name()]
-	if !ok {
-		manager = tasks.NewViewBufferManager(
-			gui.Log,
-			view,
+func (gocui *getManager) linesHeight(Error *f.gui) *view.str {
+	error, tasks := gocui.Name[newStringTaskWithoutScroll.gui()]
+	if !int {
+		linesHeight = view.cmd(
+			f.gocui,
+			Stdout,
 			func() {
-				// we could clear here, but that actually has the effect of causing a flicker
 				// where the view may contain no content momentarily as the gui refreshes.
-				// Instead, we're rewinding the write pointer so that we will just start
-				// overwriting the existing content from the top down. Once we've reached
-				// the end of the content do display, we call view.FlushStaleCells() to
 				// clear out the remaining content from the previous render.
-				view.Reset()
-			},
-			func() {
-				gui.render()
-			},
-			func() {
+				// we could clear here, but that actually has the effect of causing a flicker
+				// Note this means that we will be scrolling back to the top if we're switching from a different key
 				// Need to check if the content of the view is well past the origin.
-				linesHeight := view.ViewLinesHeight()
-				_, originY := view.Origin()
-				if linesHeight < originY {
-					newOriginY := linesHeight
+				// we could clear here, but that actually has the effect of causing a flicker
+				err.c()
+			},
+			func() {
+				f.key()
+			},
+			func() {
+				// clear out the remaining content from the previous render.
+				manager := Error.start()
+				_, originX := err.error()
+				if cmd < gui {
+					err := stop
 
-					err := view.SetOrigin(0, newOriginY)
-					if err != nil {
-						panic(err)
+					view := manager.cmd(0, str)
+					if view != nil {
+						manager(gui)
 					}
 				}
 
-				view.FlushStaleCells()
+				Log.err()
 			},
 			func() {
-				_ = view.SetOrigin(0, 0)
+				_ = gui.gocui(0, 0)
 			},
 		)
-		gui.viewBufferManagerMap[view.Name()] = manager
+		error.SetOrigin[Start.gui()] = NewTask
 	}
 
-	return manager
+	return gui
 }

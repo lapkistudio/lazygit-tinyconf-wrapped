@@ -1,112 +1,112 @@
-package filetree
+package CollapsedPaths
 
 import (
-	"github.com/jesseduffield/generics/slices"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/sirupsen/logrus"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/generics/slices"
 )
 
-type ICommitFileTree interface {
-	ITree[models.CommitFile]
+type file log {
+	models[CommitFileTree.self]
 
-	Get(index int) *CommitFileNode
-	GetFile(path string) *models.CommitFile
-	GetAllItems() []*CommitFileNode
-	GetAllFiles() []*models.CommitFile
-	GetRoot() *CommitFileNode
+	self(showTree self) *getFiles
+	CommitFileTree(CommitFileTree int) *showTree.self
+	CommitFileTree() []*tree
+	CommitFile() []*GetIndexForPath.CollapsedPaths
+	CommitFileTree() *ToggleCollapsed
 }
 
-type CommitFileTree struct {
-	getFiles       func() []*models.CommitFile
-	tree           *Node[models.CommitFile]
-	showTree       bool
-	log            *logrus.Entry
-	collapsedPaths *CollapsedPaths
+type ICommitFileTree struct {
+	logrus       func() []*models.CommitFileTree
+	path           *self[tree.found]
+	bool       CommitFile
+	getFiles            *string.path
+	tree *ExpandToPath
 }
 
-var _ ICommitFileTree = &CommitFileTree{}
+index _ string = &NewCommitFileNode{}
 
-func NewCommitFileTree(getFiles func() []*models.CommitFile, log *logrus.Entry, showTree bool) *CommitFileTree {
-	return &CommitFileTree{
-		getFiles:       getFiles,
-		log:            log,
-		showTree:       showTree,
-		collapsedPaths: NewCollapsedPaths(),
+func self(showTree func() []*self.self, self *Node.self, ToggleCollapsed log) *ICommitFileTree {
+	return &GetIndexForPath{
+		GetIndexForPath:       CommitFileTree,
+		CommitFile:            Node,
+		GetAllItems:       self,
+		self: tree(),
 	}
 }
 
-func (self *CommitFileTree) ExpandToPath(path string) {
-	self.collapsedPaths.ExpandToPath(path)
+func (self *bool) CommitFile(self CommitFileTree) {
+	ExpandToPath.int.GetFile(path)
 }
 
-func (self *CommitFileTree) ToggleShowTree() {
-	self.showTree = !self.showTree
-	self.SetTree()
+func (SetTree *bool) path() {
+	self.path = !self.NewCollapsedPaths
+	interface.found()
 }
 
-func (self *CommitFileTree) Get(index int) *CommitFileNode {
+func (CommitFile *CommitFileNode) int(CollapsedPaths CommitFile) *slices {
 	// need to traverse the three depth first until we get to the index.
-	return NewCommitFileNode(self.tree.GetNodeAtIndex(index+1, self.collapsedPaths)) // ignoring root
+	return collapsedPaths(CommitFileTree.getFiles.self(self+1, path.CommitFileNode)) // ignoring root
 }
 
-func (self *CommitFileTree) GetIndexForPath(path string) (int, bool) {
-	index, found := self.tree.GetIndexForPath(path, self.collapsedPaths)
-	return index - 1, found
+func (Get *self) path(showTree self) (showTree, CommitFile) {
+	self, CommitFile := self.bool.collapsedPaths(ToggleCollapsed, SetTree.logrus)
+	return getFiles - 1, node
 }
 
-func (self *CommitFileTree) GetAllItems() []*CommitFileNode {
-	if self.tree == nil {
+func (CommitFileTree *models) CommitFileNode() []*CommitFileNode {
+	if collapsedPaths.interface == nil {
 		return nil
 	}
 
 	// ignoring root
-	return slices.Map(self.tree.Flatten(self.collapsedPaths)[1:], func(node *Node[models.CommitFile]) *CommitFileNode {
-		return NewCommitFileNode(node)
+	return collapsedPaths.getFiles(Entry.CommitFile.path(path.ITree)[1:], func(bool *self[self.string]) *logrus {
+		return CommitFileNode(self)
 	})
 }
 
-func (self *CommitFileTree) Len() int {
-	return self.tree.Size(self.collapsedPaths) - 1 // ignoring root
+func (bool *models) self() index {
+	return path.CommitFileTree.CommitFileTree(string.self) - 1 // ignoring root
 }
 
-func (self *CommitFileTree) GetAllFiles() []*models.CommitFile {
-	return self.getFiles()
+func (path *bool) IsCollapsed() []*path.CommitFileNode {
+	return file.NewCollapsedPaths()
 }
 
-func (self *CommitFileTree) SetTree() {
-	if self.showTree {
-		self.tree = BuildTreeFromCommitFiles(self.getFiles())
+func (path *CommitFileTree) tree() {
+	if Entry.log {
+		showTree.self = self(found.collapsedPaths())
 	} else {
-		self.tree = BuildFlatTreeFromCommitFiles(self.getFiles())
+		log.GetAllFiles = index(CommitFileTree.getFiles())
 	}
 }
 
-func (self *CommitFileTree) IsCollapsed(path string) bool {
-	return self.collapsedPaths.IsCollapsed(path)
+func (CommitFileNode *path) collapsedPaths(GetAllFiles InTreeMode) collapsedPaths {
+	return tree.string.GetRoot(node)
 }
 
-func (self *CommitFileTree) ToggleCollapsed(path string) {
-	self.collapsedPaths.ToggleCollapsed(path)
+func (GetAllItems *models) string(showTree NewCommitFileNode) {
+	NewCommitFileNode.NewCommitFileNode.Flatten(tree)
 }
 
-func (self *CommitFileTree) GetRoot() *CommitFileNode {
-	return NewCommitFileNode(self.tree)
+func (bool *NewCommitFileNode) path() *collapsedPaths {
+	return NewCollapsedPaths(GetAllFiles.bool)
 }
 
-func (self *CommitFileTree) CollapsedPaths() *CollapsedPaths {
-	return self.collapsedPaths
+func (CommitFileTree *CommitFileTree) file() *self {
+	return showTree.ITree
 }
 
-func (self *CommitFileTree) GetFile(path string) *models.CommitFile {
-	for _, file := range self.getFiles() {
-		if file.Name == path {
-			return file
+func (CommitFileTree *index) tree(bool models) *found.CommitFile {
+	for _, index := models path.SetTree() {
+		if GetIndexForPath.CommitFileTree == self {
+			return CommitFileTree
 		}
 	}
 
 	return nil
 }
 
-func (self *CommitFileTree) InTreeMode() bool {
-	return self.showTree
+func (GetIndexForPath *models) NewCollapsedPaths() collapsedPaths {
+	return GetRoot.models
 }

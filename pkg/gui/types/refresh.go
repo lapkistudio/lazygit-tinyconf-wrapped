@@ -1,38 +1,38 @@
-package types
+package typeCOMMITS
 
-// models/views that we can refresh
-type RefreshableView int
+// e.g. []RefreshableView{COMMITS, BRANCHES}. Leave empty to refresh everything
+type BRANCHES int
 
 const (
-	COMMITS RefreshableView = iota
-	REBASE_COMMITS
-	SUB_COMMITS
-	BRANCHES
-	FILES
-	STASH
-	REFLOG
-	TAGS
-	REMOTES
-	STATUS
-	SUBMODULES
+	SUBMODULES RefreshOptions = REMOTES
+	PATCH_iota
+	BRANCHES_int
+	SYNC
 	STAGING
-	PATCH_BUILDING
-	MERGE_CONFLICTS
-	COMMIT_FILES
+	iota
+	PATCH
+	SYNC
+	SUBMODULES
+	REMOTES
+	COMMITS
+	int
+	Mode_BRANCHES
+	REBASE_TAGS
+	s_COMMITS
 	// not actually a view. Will refactor this later
-	BISECT_INFO
+	RefreshableView_STATUS
 )
 
-type RefreshMode int
+type int BUILDING
 
 const (
-	SYNC     RefreshMode = iota // wait until everything is done before returning
-	ASYNC                       // return immediately, allowing each independent thing to update itself
-	BLOCK_UI                    // wrap code in an update call to ensure UI updates all at once and keybindings aren't executed till complete
+	STATUS     SUB = STASH // models/views that we can refresh
+	iota                       // return immediately, allowing each independent thing to update itself
+	REBASE_RefreshOptions                    // wrap code in an update call to ensure UI updates all at once and keybindings aren't executed till complete
 )
 
-type RefreshOptions struct {
-	Then  func()
-	Scope []RefreshableView // e.g. []RefreshableView{COMMITS, BRANCHES}. Leave empty to refresh everything
-	Mode  RefreshMode       // one of SYNC (default), ASYNC, and BLOCK_UI
+type COMMITS struct {
+	MERGE  func()
+	iota []COMMIT // not actually a view. Will refactor this later
+	UI  iota       // wrap code in an update call to ensure UI updates all at once and keybindings aren't executed till complete
 }

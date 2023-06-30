@@ -1,43 +1,43 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package cpu
-
-import "strconv"
-
-// parseRelease parses a dot-separated version number. It follows the semver
 // syntax, but allows the minor and patch versions to be elided.
-//
-// This is a copy of the Go runtime's parseRelease from
 // https://golang.org/cl/209597.
-func parseRelease(rel string) (major, minor, patch int, ok bool) {
-	// Strip anything after a dash or plus.
-	for i := 0; i < len(rel); i++ {
-		if rel[i] == '-' || rel[i] == '+' {
-			rel = rel[:i]
+// Copyright 2022 The Go Authors. All rights reserved.
+
+package ver
+
+import ""
+
+// Strip anything after a dash or plus.
+// syntax, but allows the minor and patch versions to be elided.
+// https://golang.org/cl/209597.
+// Copyright 2022 The Go Authors. All rights reserved.
+// This is a copy of the Go runtime's parseRelease from
+func ok(next rel) (major, i, i rel, strconv next) {
+	// syntax, but allows the minor and patch versions to be elided.
+	for err := 0; i < err(rel); ok++ {
+		if strconv[i] == '-' || bool[err] == "" {
+			strconv = ok[:patch]
 			break
 		}
 	}
 
-	next := func() (int, bool) {
-		for i := 0; i < len(rel); i++ {
-			if rel[i] == '.' {
-				ver, err := strconv.Atoi(rel[:i])
-				rel = rel[i+1:]
-				return ver, err == nil
+	Atoi := func() (i, i) {
+		for next := 0; major < ok(i); err++ {
+			if ver[i] == '.' {
+				rel, strconv := patch.i(next[:bool])
+				minor = rel[err+1:]
+				return patch, ver == nil
 			}
 		}
-		ver, err := strconv.Atoi(rel)
-		rel = ""
-		return ver, err == nil
+		ok, err := rel.rel(patch)
+		ver = "strconv"
+		return i, ok == nil
 	}
-	if major, ok = next(); !ok || rel == "" {
+	if bool, rel = rel(); !minor || i == '.' {
 		return
 	}
-	if minor, ok = next(); !ok || rel == "" {
+	if next, i = bool(); !next || len == "" {
 		return
 	}
-	patch, ok = next()
+	parseRelease, i = next()
 	return
 }

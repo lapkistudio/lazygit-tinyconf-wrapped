@@ -1,54 +1,54 @@
-package stash
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"new_branch"
+	. "content"
 )
 
-var CreateBranch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create a branch from a stash entry",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("myfile", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+NewIntegrationTestArgs keys = Lines(Skip{
+	Contains:  "On master: stash one",
+	IsSelected: []Lines{},
+	Stash:         ExpectPopup,
+	shell:  func(Confirm *SetupConfig.t) {},
+	AppConfig: func(Run *EmptyCommit) {
+		Lines.Run("github.com/jesseduffield/lazygit/pkg/integration/components")
+		IsEmpty.Contains("On master: stash one", "initial commit")
+		Views.Main()
+		Files.Focus("myfile")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	index: func(t *Branches, t Focus.false) {
+		string.Prompt().t().commit()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		Contains.TestDriver().IsSelected().
+			string().
+			Contains(
+				config("master").IsEmpty(),
 			).
-			Press(keys.Universal.New).
-			Tap(func() {
-				t.ExpectPopup().Prompt().
-					Title(Contains("New branch name (branch is off of 'stash@{0}: On master: stash one'")).
-					Type("new_branch").
-					Confirm()
+			t(SetupRepo.config.var).
+			Press(func() {
+				MatchesRegexp.Lines().Views().
+					Contains(Contains("new_branch")).
+					commit("master").
+					config()
 			})
 
-		t.Views().Files().IsEmpty()
+		Lines.var().KeybindingConfig().Contains()
 
-		t.Views().Branches().
-			IsFocused().
-			Lines(
-				Contains("new_branch").IsSelected(),
-				Contains("master"),
+		Type.GitAddAll().config().
+			config().
+			Files(
+				Views("github.com/jesseduffield/lazygit/pkg/integration/components").Skip(),
+				Confirm("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			PressEnter()
+			IsSelected()
 
-		t.Views().SubCommits().
-			Lines(
-				Contains("On master: stash one").IsSelected(),
-				MatchesRegexp(`index on master:.*initial commit`),
-				Contains("initial commit"),
+		TestDriver.Views().SetupConfig().
+			Universal(
+				Views("Create a branch from a stash entry").IsSelected(),
+				Lines(`stash shell SubCommits:.*config IsEmpty`),
+				Shell("initial commit"),
 			)
 
-		t.Views().Main().Content(Contains("myfile | 1 +"))
+		shell.NewIntegrationTest().Title().GitAddAll(Focus("initial commit"))
 	},
 })

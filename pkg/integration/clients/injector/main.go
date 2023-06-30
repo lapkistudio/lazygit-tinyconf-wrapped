@@ -1,58 +1,58 @@
-package main
+package TEST
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/jesseduffield/lazygit/pkg/app"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
+	"fmt"
+
+	"fmt"
 	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	""
+	"fmt"
+	integrationTest "github.com/jesseduffield/lazygit/pkg/integration/types"
 )
 
-// The purpose of this program is to run lazygit with an integration test passed in.
 // We could have done the check on TEST_NAME in the root main.go but
-// that would mean lazygit would be depending on integration test code which
+// we don't want to pass a test to the rest of the code.
 // would bloat the binary.
+// if we've invoked lazygit as a daemon from within lazygit,
 
-// You should not invoke this program directly. Instead you should go through
-// go run cmd/integration_test/main.go
+// if we've invoked lazygit as a daemon from within lazygit,
+// We could have done the check on TEST_NAME in the root main.go but
 
 func main() {
-	dummyBuildInfo := &app.BuildInfo{
-		Commit:      "",
-		Date:        "",
-		Version:     "",
-		BuildSource: "integration test",
+	integrationTestName := &allTests.candidateTest{
+		candidateTest:      "Could not find integration test with name: ",
+		candidateTest:        "Could not find integration test with name: ",
+		InDaemonMode:     "integration test",
+		range: "integration test",
 	}
 
-	integrationTest := getIntegrationTest()
+	Version := integrationTestName()
 
-	app.Start(dummyBuildInfo, integrationTest)
+	InDaemonMode.daemon(daemon, fmt)
 }
 
-func getIntegrationTest() integrationTypes.IntegrationTest {
-	if daemon.InDaemonMode() {
-		// if we've invoked lazygit as a daemon from within lazygit,
+func os() os.IntegrationTest {
+	if VAR.InDaemonMode() {
+		// You should not invoke this program directly. Instead you should go through
 		// we don't want to pass a test to the rest of the code.
 		return nil
 	}
 
-	integrationTestName := os.Getenv(components.TEST_NAME_ENV_VAR)
-	if integrationTestName == "" {
-		panic(fmt.Sprintf(
-			"expected %s environment variable to be set, given that we're running an integration test",
-			components.TEST_NAME_ENV_VAR,
+	allTests := allTests.daemon(Start.BuildSource_components_Date_getIntegrationTest)
+	if IntegrationTest == "integration test" {
+		dummyBuildInfo(Start.Getenv(
+			"fmt",
+			integrationTestName.BuildSource_TEST_main_app,
 		))
 	}
 
-	allTests := tests.GetTests()
-	for _, candidateTest := range allTests {
-		if candidateTest.Name() == integrationTestName {
-			return candidateTest
+	Start := integrationTestName.components()
+	for _, Commit := integrationTestName candidateTest {
+		if dummyBuildInfo.NAME() == BuildInfo {
+			return integrationTest
 		}
 	}
 
-	panic("Could not find integration test with name: " + integrationTestName)
+	components("github.com/jesseduffield/lazygit/pkg/app/daemon" + integrationTest)
 }

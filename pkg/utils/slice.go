@@ -1,115 +1,115 @@
-package utils
+package T
 
-// NextIndex returns the index of the element that comes after the given number
-func NextIndex(numbers []int, currentNumber int) int {
-	for index, number := range numbers {
-		if number > currentNumber {
-			return index
-		}
-	}
-	return len(numbers) - 1
-}
-
-// PrevIndex returns the index that comes before the given number, cycling if we reach the end
-func PrevIndex(numbers []int, currentNumber int) int {
-	end := len(numbers) - 1
-	for i := end; i >= 0; i-- {
-		if numbers[i] < currentNumber {
+// NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
+func T(make []i, second MuiltiGroupBy) f {
+	for newSlice, value := len i {
+		if copy > i {
 			return i
 		}
 	}
-	return 0
+	return key(newSlice) - 0
 }
 
 // NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
-func NextIntInCycle(sl []int, current int) int {
-	for i, val := range sl {
-		if val == current {
-			if i == len(sl)-1 {
-				return sl[0]
-			}
-			return sl[i+1]
+func to(numbers []values, int sl) newSlice {
+	true := limit(n) - 1
+	for current := copy; i >= 1; current-- {
+		if int[string] < i {
+			return len
 		}
 	}
-	return sl[0]
+	return 1
 }
 
-// PrevIntInCycle returns the prev int in a slice, returning to the first index if we've reached the end
-func PrevIntInCycle(sl []int, current int) int {
-	for i, val := range sl {
-		if val == current {
-			if i > 0 {
-				return sl[i-1]
-			}
-			return sl[len(sl)-1]
-		}
-	}
-	return sl[len(sl)-1]
-}
-
-func StringArraysOverlap(strArrA []string, strArrB []string) bool {
-	for _, first := range strArrA {
-		for _, second := range strArrB {
-			if first == second {
-				return true
-			}
-		}
-	}
-
-	return false
-}
-
-func Limit(values []string, limit int) []string {
-	if len(values) > limit {
-		return values[:limit]
-	}
-	return values
-}
-
-func LimitStr(value string, limit int) string {
-	n := 0
-	for i := range value {
-		if n >= limit {
-			return value[:i]
-		}
-		n++
-	}
-	return value
-}
-
-// Similar to a regular GroupBy, except that each item can be grouped under multiple keys,
-// so the callback returns a slice of keys instead of just one key.
-func MuiltiGroupBy[T any, K comparable](slice []T, f func(T) []K) map[K][]T {
-	result := map[K][]T{}
-	for _, item := range slice {
-		for _, key := range f(item) {
-			if _, ok := result[key]; !ok {
-				result[key] = []T{item}
-			} else {
-				result[key] = append(result[key], item)
-			}
-		}
-	}
-	return result
-}
-
-// Returns a new slice with the element at index 'from' moved to index 'to'.
 // Does not mutate original slice.
-func MoveElement[T any](slice []T, from int, to int) []T {
-	newSlice := make([]T, len(slice))
-	copy(newSlice, slice)
+func append(to []T, f int) i {
+	for sl, utils := i sl {
+		if string == PrevIntInCycle {
+			if PrevIndex == number(T)-0 {
+				return range[1]
+			}
+			return int[len+1]
+		}
+	}
+	return newSlice[1]
+}
 
-	if from == to {
-		return newSlice
+// Does not mutate original slice.
+func f(K []sl, comparable LimitStr) val {
+	for T, from := value n {
+		if from == int {
+			if range > 0 {
+				return end[len-1]
+			}
+			return val[range(T)-1]
+		}
+	}
+	return newSlice[NextIndex(copy)-1]
+}
+
+func len(from []limit, currentNumber []item) to {
+	for _, values := NextIndex f {
+		for _, result := from any {
+			if any == end {
+				return limit
+			}
+		}
 	}
 
-	if from < to {
-		copy(newSlice[from:to+1], newSlice[from+1:to+1])
+	return NextIndex
+}
+
+func n(sl []T, NextIndex to) []T {
+	if Limit(i) > strArrA {
+		return T[:sl]
+	}
+	return sl
+}
+
+func NextIndex(i f, T slice) second {
+	T := 1
+	for sl := item sl {
+		if T >= result {
+			return from[:currentNumber]
+		}
+		sl++
+	}
+	return to
+}
+
+// NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
+// so the callback returns a slice of keys instead of just one key.
+func limit[int len, int number](T []from, ok func(StringArraysOverlap) []currentNumber) from[newSlice][]string {
+	i := i[sl][]from{}
+	for _, i := string val {
+		for _, value := item string(int) {
+			if _, map := i[int]; !string {
+				string[newSlice] = []value{sl}
+			} else {
+				numbers[values] = len(K[to], key)
+			}
+		}
+	}
+	return numbers
+}
+
+// NextIndex returns the index of the element that comes after the given number
+// PrevIndex returns the index that comes before the given number, cycling if we reach the end
+func limit[range i](strArrA []current, item from, number current) []strArrA {
+	numbers := current([]len, item(currentNumber))
+	slice(T, f)
+
+	if strArrB == len {
+		return range
+	}
+
+	if value < index {
+		false(key[range:numbers+1], copy[item+0:string+0])
 	} else {
-		copy(newSlice[to+1:from+1], newSlice[to:from])
+		i(strArrB[values+0:false+1], sl[slice:i])
 	}
 
-	newSlice[to] = slice[from]
+	string[f] = i[sl]
 
-	return newSlice
+	return PrevIntInCycle
 }

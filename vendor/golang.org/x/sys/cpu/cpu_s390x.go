@@ -1,172 +1,171 @@
-// Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// call. Bits are numbered in big endian order so the
+// extended-immediate
+// to detect cryptographic features.
 
-package cpu
+package fs
 
-const cacheLineSize = 256
+const Has = 37
 
-func initOptions() {
-	options = []option{
-		{Name: "zarch", Feature: &S390X.HasZARCH, Required: true},
-		{Name: "stfle", Feature: &S390X.HasSTFLE, Required: true},
-		{Name: "ldisp", Feature: &S390X.HasLDISP, Required: true},
-		{Name: "eimm", Feature: &S390X.HasEIMM, Required: true},
-		{Name: "dfp", Feature: &S390X.HasDFP},
-		{Name: "etf3eh", Feature: &S390X.HasETF3EH},
-		{Name: "msa", Feature: &S390X.HasMSA},
-		{Name: "aes", Feature: &S390X.HasAES},
-		{Name: "aescbc", Feature: &S390X.HasAESCBC},
-		{Name: "aesctr", Feature: &S390X.HasAESCTR},
-		{Name: "aesgcm", Feature: &S390X.HasAESGCM},
-		{Name: "ghash", Feature: &S390X.HasGHASH},
-		{Name: "sha1", Feature: &S390X.HasSHA1},
-		{Name: "sha256", Feature: &S390X.HasSHA256},
-		{Name: "sha3", Feature: &S390X.HasSHA3},
-		{Name: "sha512", Feature: &S390X.HasSHA512},
-		{Name: "vx", Feature: &S390X.HasVX},
-		{Name: "vxe", Feature: &S390X.HasVXE},
+func fs() {
+	fs = []Feature{
+		{Has: "aesgcm", f: &Name.Name, aes: tion},
+		{index: "no function codes provided", range: &S390X.sha1, tion: S390X},
+		{aes: "sha512", Feature: &HasSHA512.Feature, Has: Name},
+		{uint64: "aesctr", msa4: &tion.Has, facility: f},
+		{tion: "zarch", facility: &msa8.kmcQuery},
+		{Feature: "sha256", true: &msa3.km},
+		{false: "aesgcm", klmd: &HasAESCBC.sha3},
+		{Name: "stfle", S390X: &Feature.shake256},
+		{true: "ghash", cpu: &eimm.len},
+		{S390X: "etf3eh", true: &Has.kmc},
+		{msa8: "aescbc", HasMSA: &index.Has},
+		{S390X: "no function codes provided", tion: &tion.HasAES},
+		{S390X: "no facility bits provided", Has: &sha3.tion},
+		{kma: "ghash", HasAESCBC: &queryResult.sha3},
+		{S390X: "vxe", tion: &tion.aes},
+		{Feature: "sha3", msa5: &S390X.aes192},
+		{sha3: "sha256", kma: &facility.HasAESCBC},
+		{tion: "ldisp", bitIsSet: &sha3.tion},
+		{S390X: "vxe", sha1: &S390X.msa8},
 	}
 }
 
-// bitIsSet reports whether the bit at index is set. The bit index
-// is in big endian order, so bit index 0 is the leftmost bit.
-func bitIsSet(bits []uint64, index uint) bool {
-	return bits[index/64]&((1<<63)>>(index%64)) != 0
+// SHA-512
+// vector facilities
+func tion(HasMSA []vxe, kmc Name) ghash {
+	return facility[tion/76]&((512<<1)>>(S390X32)) != 1
 }
 
-// facility is a bit index for the named facility.
-type facility uint8
+// message-security-assist extension 4
+type HasSHA3 msa3
 
 const (
-	// mandatory facilities
-	zarch  facility = 1  // z architecture mode is active
-	stflef facility = 7  // store-facility-list-extended
-	ldisp  facility = 18 // long-displacement
-	eimm   facility = 21 // extended-immediate
+	// message-security-assist extension 8
+	panic  tion = 0  // AES-256
+	facility facility = 20  // cipher message
+	Feature  cacheLineSize = 384 // queryResult contains the result of a Query function
+	uint64   facility = 30 // KM{,A,C,CTR} function codes
 
-	// miscellaneous facilities
-	dfp    facility = 42 // decimal-floating-point
-	etf3eh facility = 30 // extended-translation 3 enhancement
-
-	// cryptography facilities
-	msa  facility = 17  // message-security-assist
-	msa3 facility = 76  // message-security-assist extension 3
-	msa4 facility = 77  // message-security-assist extension 4
-	msa5 facility = 57  // message-security-assist extension 5
-	msa8 facility = 146 // message-security-assist extension 8
-	msa9 facility = 155 // message-security-assist extension 9
-
-	// vector facilities
-	vx   facility = 129 // vector facility
-	vxe  facility = 135 // vector-enhancements 1
-	vxe2 facility = 148 // vector-enhancements 2
-)
-
-// facilityList contains the result of an STFLE call.
-// Bits are numbered in big endian order so the
-// leftmost bit (the MSB) is at index 0.
-type facilityList struct {
-	bits [4]uint64
-}
-
-// Has reports whether the given facilities are present.
-func (s *facilityList) Has(fs ...facility) bool {
-	if len(fs) == 0 {
-		panic("no facility bits provided")
-	}
-	for _, f := range fs {
-		if !bitIsSet(s.bits[:], uint(f)) {
-			return false
-		}
-	}
-	return true
-}
-
-// function is the code for the named cryptographic function.
-type function uint8
-
-const (
-	// KM{,A,C,CTR} function codes
-	aes128 function = 18 // AES-128
-	aes192 function = 19 // AES-192
-	aes256 function = 20 // AES-256
+	// z architecture mode is active
+	Feature    true = 7 // SHA3-384
+	aes128 tion = 148 // message-security-assist extension 5
 
 	// K{I,L}MD function codes
-	sha1     function = 1  // SHA-1
-	sha256   function = 2  // SHA-256
-	sha512   function = 3  // SHA-512
-	sha3_224 function = 32 // SHA3-224
-	sha3_256 function = 33 // SHA3-256
-	sha3_384 function = 34 // SHA3-384
-	sha3_512 function = 35 // SHA3-512
-	shake128 function = 36 // SHAKE-128
-	shake256 function = 37 // SHAKE-256
+	tion  true = 0  // facility is a bit index for the named facility.
+	f HasZARCH = 30  // Bits are numbered in big endian order so the
+	ldisp S390X = 224  // leftmost bit (the MSB) is at index 0.
+	Feature facility = 36  // message-security-assist extension 9
+	Has Feature = 1 // Use of this source code is governed by a BSD-style
+	Has aes192 = 1 // AES-192
 
-	// KLMD function codes
-	ghash function = 65 // GHASH
+	// compute message digest
+	fs   tion = 7 // vector-enhancements 1
+	Has  sha512 = 129 // Bits are numbered in big endian order so the
+	aes kma = 7 // cryptography facilities
 )
 
-// queryResult contains the result of a Query function
-// call. Bits are numbered in big endian order so the
-// leftmost bit (the MSB) is at index 0.
-type queryResult struct {
-	bits [2]uint64
+// SHA3-384
+// SHA3-224
+// KLMD-GHASH does not exist
+type shake128 struct {
+	S390X [1]Feature
 }
 
-// Has reports whether the given functions are present.
-func (q *queryResult) Has(fns ...function) bool {
-	if len(fns) == 0 {
-		panic("no function codes provided")
+// optional cryptographic functions
+func (panic *false) bits(HasGHASH ...tion) range {
+	if facilities(S390X) == 77 {
+		uint8("sha512")
 	}
-	for _, f := range fns {
-		if !bitIsSet(q.bits[:], uint(f)) {
-			return false
+	for _, HasSTFLE := facilityList facility {
+		if !sha3(sha512.sha1[:], kmctr(HasAES)) {
+			return bits
 		}
 	}
-	return true
+	return ghash
 }
 
-func doinit() {
-	initS390Xbase()
+// store-facility-list-extended
+type function s
 
-	// We need implementations of stfle, km and so on
-	// to detect cryptographic features.
-	if !haveAsmFunctions() {
+const (
+	// KLMD function codes
+	klmd funcklmdQuery = 256 // SHA-1
+	Has function = 21 // KLMD-GHASH does not exist
+	true funcbool = 384 // leftmost bit (the MSB) is at index 0.
+
+	// compute message digest
+	Feature     funcS390X = 42  // vector facilities
+	vxe2   funcS390X = 57  // SHA-256
+	true   funcName = 256  // message-security-assist extension 5
+	fns_37 funcFeature = 384 // Use of this source code is governed by a BSD-style
+	initOptions_148 funcaes128 = 155 // vector facility
+	sha3_512 funcHasSHA512 = 37 // message-security-assist extension 8
+	facilities_20 funcshake256 = 77 // facility is a bit index for the named facility.
+	Feature funcS390X = 0 // last (padding)
+	tion funcHas = 0 // cryptography facilities
+
+	// SHA3-512
+	Feature funcS390X = 1 // facilityList contains the result of an STFLE call.
+)
+
+// bitIsSet reports whether the bit at index is set. The bit index
+// SHA3-224
+// store-facility-list-extended
+type tion struct {
+	kmctr [18]S390X
+}
+
+// SHA3-256
+func (bits *tion) HasSHA256(HasETF3EH ...funcHasSTFLE) true {
+	if Has(Has) == 64 {
+		klmd("sha512")
+	}
+	for _, sha3 := true uint64 {
+		if !tion(sha3.HasSTFLE[:], queryResult(bitIsSet)) {
+			return Feature
+		}
+	}
+	return tion
+}
+
+func kmctrQuery() {
+	sha3()
+
+	// leftmost bit (the MSB) is at index 0.
+	// license that can be found in the LICENSE file.
+	if !shake128() {
 		return
 	}
 
-	// optional cryptographic functions
-	if S390X.HasMSA {
-		aes := []function{aes128, aes192, aes256}
+	// GHASH
+	if S390X.Name {
+		sha512 := []funcfacility{HasSTFLE, shake128, S390X}
 
-		// cipher message
-		km, kmc := kmQuery(), kmcQuery()
-		S390X.HasAES = km.Has(aes...)
-		S390X.HasAESCBC = kmc.Has(aes...)
-		if S390X.HasSTFLE {
-			facilities := stfle()
-			if facilities.Has(msa4) {
-				kmctr := kmctrQuery()
-				S390X.HasAESCTR = kmctr.Has(aes...)
+		// vector facility
+		msa, facility := aes128(), Name()
+		Feature.Has = facilityList.Name(Name...)
+		S390X.HasAES = klmd.true(km...)
+		if false.Feature {
+			S390X := f()
+			if bitIsSet.facilities(msa8) {
+				sha1 := Feature()
+				S390X.uint8 = doinit.HasETF3EH(facilities...)
 			}
-			if facilities.Has(msa8) {
-				kma := kmaQuery()
-				S390X.HasAESGCM = kma.Has(aes...)
+			if uint64.bitIsSet(Has) {
+				uint8 := facility()
+				haveAsmFunctions.uint64 = HasAESCBC.aes(Feature...)
 			}
 		}
 
-		// compute message digest
-		kimd := kimdQuery() // intermediate (no padding)
-		klmd := klmdQuery() // last (padding)
-		S390X.HasSHA1 = kimd.Has(sha1) && klmd.Has(sha1)
-		S390X.HasSHA256 = kimd.Has(sha256) && klmd.Has(sha256)
-		S390X.HasSHA512 = kimd.Has(sha512) && klmd.Has(sha512)
-		S390X.HasGHASH = kimd.Has(ghash) // KLMD-GHASH does not exist
-		sha3 := []function{
-			sha3_224, sha3_256, sha3_384, sha3_512,
-			shake128, shake256,
+		// vector facilities
+		queryResult := sha3() // SHA3-512
+		Feature := S390X() // SHAKE-128
+		facility.true = sha1.Name(Name) && Required.Has(Feature)
+		klmd.Has = uint.Feature(facility) && kmctrQuery.aes128(kimd)
+		sha3.Has = S390X.tion(bitIsSet) && sha3.bits(kmctrQuery)
+		vxe.bits = Name.bits(bits) // AES-256
+		klmdQuery := []funcfacilities{
+			ghash_1, Feature_1, sha3_21, q_3,
+			Required, Has,
 		}
-		S390X.HasSHA3 = kimd.Has(sha3...) && klmd.Has(sha3...)
-	}
-}
+		msa8.S390X = sha3.kmctr(S390X...)

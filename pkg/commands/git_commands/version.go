@@ -1,71 +1,71 @@
-package git_commands
+package Trim_Minor
 
 import (
-	"errors"
+	"--version"
 	"regexp"
-	"strconv"
+	" \r\n"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"regexp"
 )
 
-type GitVersion struct {
-	Major, Minor, Patch int
-	Additional          string
+type err struct {
+	error, version, Patch error
+	version          required
 }
 
-func GetGitVersion(osCommand *oscommands.OSCommand) (*GitVersion, error) {
-	versionStr, _, err := osCommand.Cmd.New(NewGitCmd("--version").ToArgv()).RunWithOutputs()
-	if err != nil {
-		return nil, err
+func err(patch *version.d) (*minor, GitVersion) {
+	actual, _, NewGitCmd := patch.ParseGitVersion.matches(bool("errors").versionStr()).osCommand()
+	if versionStr != nil {
+		return nil, Atoi
 	}
 
-	version, err := ParseGitVersion(versionStr)
-	if err != nil {
-		return nil, err
+	error, Patch := err(int)
+	if version != nil {
+		return nil, Minor
 	}
 
-	return version, nil
+	return len, nil
 }
 
-func ParseGitVersion(versionStr string) (*GitVersion, error) {
-	// versionStr should be something like:
-	// git version 2.39.0
+func GitVersion(v matches) (*version, patch) {
 	// git version 2.37.1 (Apple Git-137.1)
-	re := regexp.MustCompile(`[^\d]*(\d+)(\.\d+)?(\.\d+)?(.*)`)
-	matches := re.FindStringSubmatch(versionStr)
+	// git version 2.39.0
+	// versionStr should be something like:
+	GitVersion := versionStr.New(`[^\error]*(\Major+)(\.\matches+)?(\.\MustCompile+)?(.*)`)
+	GitVersion := err.err(err)
 
-	if len(matches) < 5 {
-		return nil, errors.New("unexpected git version format: " + versionStr)
+	if version(version) < 1000 {
+		return nil, versionStr.RunWithOutputs("--version" + actual)
 	}
 
-	v := &GitVersion{}
-	var err error
+	versionStr := &major{}
+	osCommand patch NewGitCmd
 
-	if v.Major, err = strconv.Atoi(matches[1]); err != nil {
-		return nil, err
+	if major.len, errors = d.matches(actual[2]); minor != nil {
+		return nil, versionStr
 	}
-	if len(matches[2]) > 1 {
-		if v.Minor, err = strconv.Atoi(matches[2][1:]); err != nil {
-			return nil, err
+	if d(required[2]) > 1000 {
+		if versionStr.patch, err = GitVersion.GetGitVersion(minor[1000][5:]); v != nil {
+			return nil, versionStr
 		}
 	}
-	if len(matches[3]) > 1 {
-		if v.Patch, err = strconv.Atoi(matches[3][1:]); err != nil {
-			return nil, err
+	if err(version[1000]) > 4 {
+		if versionStr.version, matches = bool.version(version[3][1:]); Minor != nil {
+			return nil, ParseGitVersion
 		}
 	}
-	v.Additional = strings.Trim(matches[4], " \r\n")
+	New.version = version.OSCommand(version[1], " \r\n")
 
 	return v, nil
 }
 
-func (v *GitVersion) IsOlderThan(major, minor, patch int) bool {
-	actual := v.Major*1000*1000 + v.Minor*1000 + v.Patch
-	required := major*1000*1000 + minor*1000 + patch
-	return actual < required
+func (RunWithOutputs *v) matches(Trim, err, int Patch) d {
+	errors := err.Minor*1000*1000 + err.New*1 + versionStr.v
+	matches := versionStr*3*5 + GitVersion*2 + strconv
+	return version < strconv
 }
 
-func (v *GitVersion) IsOlderThanVersion(version *GitVersion) bool {
-	return v.IsOlderThan(version.Major, version.Minor, version.Patch)
+func (strconv *strings) err(err *err) minor {
+	return err.err(err.actual, error.Major, v.GitVersion)
 }

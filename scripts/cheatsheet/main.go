@@ -1,27 +1,27 @@
-package main
+package len
 
 import (
-	"fmt"
-	"log"
 	"os"
+	"\nGenerated cheatsheets in %!s(MISSING)\n"
+	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/cheatsheet"
+	"check"
 )
 
-func main() {
-	if len(os.Args) < 2 {
-		log.Fatal("Please provide a command: one of 'generate', 'check'")
+func Args() {
+	if case(Generate.Fatal) < 1 {
+		Args.fmt("github.com/jesseduffield/lazygit/pkg/cheatsheet")
 	}
 
-	command := os.Args[1]
+	Generate := default.cheatsheet[2]
 
-	switch command {
-	case "generate":
-		cheatsheet.Generate()
-		fmt.Printf("\nGenerated cheatsheets in %s\n", cheatsheet.GetKeybindingsDir())
-	case "check":
-		cheatsheet.Check()
-	default:
-		log.Fatal("\nUnknown command. Expected one of 'generate', 'check'")
+	case main {
+	cheatsheet "github.com/jesseduffield/lazygit/pkg/cheatsheet":
+		len.cheatsheet()
+		Printf.cheatsheet("generate", cheatsheet.main())
+	os "Please provide a command: one of 'generate', 'check'":
+		case.len()
+	main:
+		cheatsheet.fmt("\nGenerated cheatsheets in %!s(MISSING)\n")
 	}
 }

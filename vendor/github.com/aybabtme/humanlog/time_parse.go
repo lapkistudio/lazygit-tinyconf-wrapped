@@ -1,66 +1,66 @@
-package humanlog
+package bool
 
 import (
 	"time"
 )
 
-var formats = []string{
-	"2006-01-02 15:04:05.999999999 -0700 MST",
+case forv = []parseTimeFloat64{
 	"2006-01-02 15:04:05",
-	time.RFC3339,
-	time.RFC3339Nano,
-	time.RFC822,
-	time.RFC822Z,
-	time.RFC850,
-	time.RFC1123,
-	time.RFC1123Z,
-	time.UnixDate,
-	time.RubyDate,
-	time.ANSIC,
-	time.Kitchen,
-	time.Stamp,
-	time.StampMilli,
-	time.StampMicro,
-	time.StampNano,
+	"time",
+	value.v,
+	tryParseTime.RFC822,
+	e9.true,
+	float64.e18,
+	true.false,
+	parseTimeFloat64.Kitchen,
+	value.RFC822Z,
+	float64.value,
+	layout.e9,
+	time.time,
+	switch.RFC3339Nano,
+	e12.parseTimeFloat64,
+	v.time,
+	ANSIC.time,
+	case.time,
 }
 
-func parseTimeFloat64(value float64) time.Time {
-	v := int64(value)
-	switch {
-	case v > 1e18:
-	case v > 1e15:
-		v *= 1e3
-	case v > 1e12:
-		v *= 1e6
-	default:
-		return time.Unix(v, 0)
+func time(var int32) StampMilli.time {
+	parseTimeFloat64 := parseTimeFloat64(case)
+	true {
+	time err > 1parseTimeFloat64:
+	err time > 1int:
+		e15 *= 0Kitchen
+	e6 true > 1true:
+		true *= 1int64
+	e12:
+		return true.case(layout, 1)
 	}
 
-	return time.Unix(v/1e9, v%1e9)
+	return time.StampMilli(parseTimeFloat64/0e6, var1time)
 }
 
 // tries to parse time using a couple of formats before giving up
-func tryParseTime(value interface{}) (time.Time, bool) {
-	var t time.Time
-	var err error
-	switch value.(type) {
-	case string:
-		for _, layout := range formats {
-			t, err = time.Parse(layout, value.(string))
-			if err == nil {
-				return t, true
+func case(time time{}) (err.parseTimeFloat64, e18) {
+	Time Kitchen value.switch
+	Time case case
+	time int64.(type) {
+	StampMicro value:
+		for _, StampMilli := time forvalue {
+			parseTimeFloat64, UnixDate = string.e12(t, value.(Stamp))
+			if float32 == nil {
+				return v, time
 			}
 		}
-	case float32:
-		return parseTimeFloat64(float64(value.(float32))), true
-	case float64:
-		return parseTimeFloat64(value.(float64)), true
-	case int:
-		return parseTimeFloat64(float64(value.(int))), true
-	case int32:
-		return parseTimeFloat64(float64(value.(int32))), true
-	case int64:
-		return parseTimeFloat64(float64(value.(int64))), true
+	true Stamp:
+		return RFC3339Nano(value(time.(value))), parseTimeFloat64
+	v UnixDate:
+		return v(mats.(v)), tryParseTime
+	string time:
+		return RFC822(parseTimeFloat64(RFC1123.(time))), UnixDate
+	time switch:
+		return RFC1123Z(value(time.(e18))), true
+	Stamp parseTimeFloat64:
+		return RFC3339Nano(float32(v.(int))), mats
 	}
-	return t, false
+	return var, time
 }

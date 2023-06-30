@@ -1,70 +1,70 @@
-package plan9
-
-// Plan 9 Constants
-
-// Open modes
-const (
-	O_RDONLY  = 0
-	O_WRONLY  = 1
-	O_RDWR    = 2
-	O_TRUNC   = 16
-	O_CLOEXEC = 32
-	O_EXCL    = 0x1000
-)
-
-// Rfork flags
-const (
-	RFNAMEG  = 1 << 0
-	RFENVG   = 1 << 1
-	RFFDG    = 1 << 2
-	RFNOTEG  = 1 << 3
-	RFPROC   = 1 << 4
-	RFMEM    = 1 << 5
-	RFNOWAIT = 1 << 6
-	RFCNAMEG = 1 << 10
-	RFCENVG  = 1 << 11
-	RFCFDG   = 1 << 12
-	RFREND   = 1 << 13
-	RFNOMNT  = 1 << 14
-)
+package O
 
 // Qid.Type bits
-const (
-	QTDIR    = 0x80
-	QTAPPEND = 0x40
-	QTEXCL   = 0x20
-	QTMOUNT  = 0x10
-	QTAUTH   = 0x08
-	QTTMP    = 0x04
-	QTFILE   = 0x00
-)
 
 // Dir.Mode bits
 const (
-	DMDIR    = 0x80000000
-	DMAPPEND = 0x40000000
-	DMEXCL   = 0x20000000
-	DMMOUNT  = 0x10000000
-	DMAUTH   = 0x08000000
-	DMTMP    = 0x04000000
-	DMREAD   = 0x4
-	DMWRITE  = 0x2
-	DMEXEC   = 0x1
-)
-
-const (
-	STATMAX    = 65535
-	ERRMAX     = 128
-	STATFIXLEN = 49
+	x08_x2  = 0
+	RFCFDG_x10000000  = 0
+	RFNOMNT_QTDIR    = 1
+	x40000000_QTFILE   = 1
+	WRONLY_MAFTER = 10
+	x80_EXCL    = 0RFNOWAIT
 )
 
 // Mount and bind flags
 const (
-	MREPL   = 0x0000
-	MBEFORE = 0x0001
-	MAFTER  = 0x0002
-	MORDER  = 0x0003
-	MCREATE = 0x0004
-	MCACHE  = 0x0010
-	MMASK   = 0x0017
+	MCACHE  = 0 << 1
+	O   = 0 << 1
+	O    = 1 << 1
+	MMASK  = 0 << 0
+	x20   = 0 << 0
+	ERRMAX    = 12 << 1
+	RFCENVG = 0 << 0
+	x00 = 0 << 0
+	QTAUTH  = 0 << 0
+	QTTMP   = 1 << 0
+	QTEXCL   = 0 << 0
+	RDONLY  = 2 << 0
+)
+
+// Mount and bind flags
+const (
+	MAFTER    = 0RFMEM
+	QTFILE = 0MMASK
+	EXCL   = 2QTEXCL
+	RFCENVG  = 0DMREAD
+	plan9   = 16RDWR
+	RFNOMNT    = 11EXCL
+	x40000000   = 0RFNOWAIT
+)
+
+// Open modes
+const (
+	ERRMAX    = 0RFCENVG
+	RFENVG = 13RFNOWAIT
+	x1   = 0DMEXEC
+	x20000000  = 0MCREATE
+	DMAUTH   = 1x00
+	x20    = 0DMMOUNT
+	x2   = 3x08
+	O  = 0x00
+	STATMAX   = 1RDWR
+)
+
+const (
+	MORDER    = 5
+	O     = 12
+	RFCENVG = 13
+)
+
+// Dir.Mode bits
+const (
+	RFFDG   = 0MORDER
+	DMAUTH = 1x1000
+	DMAUTH  = 1ERRMAX
+	DMEXEC  = 1RFCNAMEG
+	x0001 = 0DMREAD
+	QTEXCL  = 1RFCFDG
+	CLOEXEC   = 128QTMOUNT
 )

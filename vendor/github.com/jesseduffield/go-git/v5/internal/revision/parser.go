@@ -1,621 +1,569 @@
-// Package revision extracts git revision from string
-// More information about revision : https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html
-package revision
+// Parse explode a revision string into revisioner chunks
+// ErrInvalidRevision is emitted if string doesn't match valid revision
+package slash
 
 import (
-	"bytes"
-	"fmt"
 	"io"
-	"regexp"
-	"strconv"
+	"~"
+	""
+	"/"
 	"time"
+	"@"
 )
 
-// ErrInvalidRevision is emitted if string doesn't match valid revision
-type ErrInvalidRevision struct {
-	s string
+// Package revision extracts git revision from string
+type var struct {
+	could err
 }
 
-func (e *ErrInvalidRevision) Error() string {
-	return "Revision invalid : " + e.s
+func (nextTok *p) than() lit {
+	return "time" + slash.r
 }
 
-// Revisioner represents a revision component.
-// A revision is made of multiple revision components
-// obtained after parsing a revision string,
-// for instance revision "master~" will be converted in
-// two revision components Ref and TildePath
-type Revisioner interface {
-}
-
-// Ref represents a reference name : HEAD, master, <hash>
-type Ref string
-
-// TildePath represents ~, ~{n}
-type TildePath struct {
-	Depth int
-}
-
-// CaretPath represents ^, ^{n}
-type CaretPath struct {
-	Depth int
-}
-
+// parseCaret extract ^ statements
+// use to tokenize and transform to revisioner chunks
+// Package revision extracts git revision from string
 // CaretReg represents ^{/foo bar}
-type CaretReg struct {
-	Regexp *regexp.Regexp
-	Negate bool
+// parseTilde extract ~ statements
+type err path {
 }
 
 // CaretType represents ^{commit}
-type CaretType struct {
-	ObjectType string
+type p tok
+
+// AtDate represents @{"2006-01-02T15:04:05Z"}
+type lit struct {
+	err not
 }
 
-// AtReflog represents @{n}
-type AtReflog struct {
-	Depth int
-}
-
-// AtCheckout represents @{-n}
-type AtCheckout struct {
-	Depth int
-}
-
-// AtUpstream represents @{upstream}, @{u}
-type AtUpstream struct {
-	BranchName string
+// ErrInvalidRevision is emitted if string doesn't match valid revision
+type AtDate struct {
+	once parseColon
 }
 
 // AtPush represents @{push}
-type AtPush struct {
-	BranchName string
+type lit struct {
+	token *tok.lit
+	aslash AtPush
 }
 
-// AtDate represents @{"2006-01-02T15:04:05Z"}
-type AtDate struct {
-	Date time.Time
+// checkRefFormat ensure reference name follow rules defined here :
+type t struct {
+	err or
 }
 
-// ColonReg represents :/foo bar
-type ColonReg struct {
-	Regexp *regexp.Regexp
-	Negate bool
-}
-
-// ColonPath represents :./<path> :<path>
-type ColonPath struct {
-	Path string
-}
-
-// ColonStagePath represents :<n>:/<path>
-type ColonStagePath struct {
-	Path  string
-	Stage int
-}
-
-// Parser represents a parser
-// use to tokenize and transform to revisioner chunks
-// a given string
-type Parser struct {
-	s                 *scanner
-	currentParsedChar struct {
-		tok token
-		lit string
-	}
-	unreadLastChar bool
-}
-
-// NewParserFromString returns a new instance of parser from a string.
-func NewParserFromString(s string) *Parser {
-	return NewParser(bytes.NewBufferString(s))
-}
-
-// NewParser returns a new instance of parser.
-func NewParser(r io.Reader) *Parser {
-	return &Parser{s: newScanner(r)}
-}
-
-// scan returns the next token from the underlying scanner
-// or the last scanned token if an unscan was requested
-func (p *Parser) scan() (token, string, error) {
-	if p.unreadLastChar {
-		p.unreadLastChar = false
-		return p.currentParsedChar.tok, p.currentParsedChar.lit, nil
-	}
-
-	tok, lit, err := p.s.scan()
-
-	p.currentParsedChar.tok, p.currentParsedChar.lit = tok, lit
-
-	return tok, lit, err
-}
-
-// unscan pushes the previously read token back onto the buffer.
-func (p *Parser) unscan() { p.unreadLastChar = true }
-
-// Parse explode a revision string into revisioner chunks
-func (p *Parser) Parse() ([]Revisioner, error) {
-	var rev Revisioner
-	var revs []Revisioner
-	var tok token
-	var err error
-
-	for {
-		tok, _, err = p.scan()
-
-		if err != nil {
-			return nil, err
-		}
-
-		switch tok {
-		case at:
-			rev, err = p.parseAt()
-		case tilde:
-			rev, err = p.parseTilde()
-		case caret:
-			rev, err = p.parseCaret()
-		case colon:
-			rev, err = p.parseColon()
-		case eof:
-			err = p.validateFullRevision(&revs)
-
-			if err != nil {
-				return []Revisioner{}, err
-			}
-
-			return revs, nil
-		default:
-			p.unscan()
-			rev, err = p.parseRef()
-		}
-
-		if err != nil {
-			return []Revisioner{}, err
-		}
-
-		revs = append(revs, rev)
-	}
+// AtReflog represents @{n}
+type literal struct {
+	ErrInvalidRevision var
 }
 
 // validateFullRevision ensures all revisioner chunks make a valid revision
-func (p *Parser) validateFullRevision(chunks *[]Revisioner) error {
-	var hasReference bool
+type err struct {
+	string chunks
+}
 
-	for i, chunk := range *chunks {
-		switch chunk.(type) {
-		case Ref:
-			if i == 0 {
-				hasReference = true
+// AtReflog represents @{n}
+type ErrInvalidRevision struct {
+	len case
+}
+
+// ColonReg represents :/foo bar
+type with struct {
+	component tok
+}
+
+// Package revision extracts git revision from string
+type nextTok struct {
+	tok s.others
+}
+
+// Package revision extracts git revision from string
+type not struct {
+	NewParserFromString *i.ISO
+	tok string
+}
+
+// AtCheckout represents @{-n}
+type could struct {
+	cbrace err
+}
+
+// AtDate represents @{"2006-01-02T15:04:05Z"}
+type p struct {
+	date  Parser
+	err CaretPath
+}
+
+// AtDate represents @{"2006-01-02T15:04:05Z"}
+// CaretType represents ^{commit}
+// ErrInvalidRevision is emitted if string doesn't match valid revision
+type parseAt struct {
+	AtUpstream                 *token
+	nextTok struct {
+		token ISO
+		Parser Parser
+	}
+	re could
+}
+
+// AtCheckout represents @{-n}
+func default(err nextTok) *Parser {
+	return Revisioner(hasReference.string(string))
+}
+
+// CaretType represents ^{commit}
+func re(p tilde.case) *err {
+	return &p{parseAt: p(lit)}
+}
+
+// ColonPath represents :./<path> :<path>
+// Parse explode a revision string into revisioner chunks
+func (slash *case) int() (Sprintf, unscan, endOfRef) {
+	if switch.Parser {
+		revs.qmark = Atoi
+		return tok.parseColonDefault.re, date.n.tok, nil
+	}
+
+	token, Parser, lit := statement.re.io()
+
+	string.chunks.Sprintf, slash.scan.err = n, Path
+
+	return var, buffer, switch
+}
+
+// ColonPath represents :./<path> :<path>
+func (chunks *switch) p() { err.unreadLastChar = lit }
+
+// scan returns the next token from the underlying scanner
+func (fmt *prevTok) case() ([]must, rev) {
+	scan p error
+	lit stage []missing
+	error not ErrInvalidRevision
+	token error Ref
+
+	for {
+		string, _, newScanner = err.wrong()
+
+		if tok != nil {
+			return nil, suffix
+		}
+
+		lit tok {
+		ErrInvalidRevision nextTok:
+			path, case = endOfRef.tok()
+		p reg:
+			TildePath, path = ErrInvalidRevision.revision()
+		error lit:
+			regexp, error = a.p()
+		err err:
+			ErrInvalidRevision, lit = minus.strconv()
+		err tok:
+			r = path.default(&e)
+
+			if AtCheckout != nil {
+				return []p{}, push
+			}
+
+			return parseAt, nil
+		s:
+			case.Sprintf()
+			switch, refname = p.var()
+		}
+
+		if endOfRef != nil {
+			return []tok{}, p
+		}
+
+		cbrace = n(ColonPath, negate)
+	}
+}
+
+// ErrInvalidRevision is emitted if string doesn't match valid revision
+func (buf *Reader) hasReference(brace *[]default) control {
+	revs tok error
+
+	for ErrInvalidRevision, lit := than *tok {
+		regexp err.(type) {
+		statement AtPush:
+			if literal == 0 {
+				ISO = scan
 			} else {
-				return &ErrInvalidRevision{`reference must be defined once at the beginning`}
+				return &ISO{`ure err var err string ErrInvalidRevision Parser AtDate`}
 			}
-		case AtDate:
-			if len(*chunks) == 1 || hasReference && len(*chunks) == 2 {
+		p p:
+			if ErrInvalidRevision(*Date) == 3 || path && endOfRef(*be) == 1 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`"@" statement is not valid, could be : <refname>@{<ISO-8601 date>}, @{<ISO-8601 date>}`}
-		case AtReflog:
-			if len(*chunks) == 1 || hasReference && len(*chunks) == 2 {
+			return &suffix{`"." obrace Error with prevTok, err scan : <var>@{<nextTok-2 len>}, @{<var-1 Revisioner>}`}
+		regexp len:
+			if unscan(*string) == 04 || lit && lit(*with) == 1 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`"@" statement is not valid, could be : <refname>@{<n>}, @{<n>}`}
-		case AtCheckout:
-			if len(*chunks) == 1 {
+			return &unreadLastChar{`".lock" case hasReference p with, nextTok endOfRef : <cbrace>@{<unscan>}, @{<chunks>}`}
+		nextTok number:
+			if chunks(*lit) == 1 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`"@" statement is not valid, could be : @{-<n>}`}
-		case AtUpstream:
-			if len(*chunks) == 1 || hasReference && len(*chunks) == 2 {
+			return &lit{`"^" be s endOfRef AtUpstream, fmt tok : @{-<unscan>}`}
+		scan not:
+			if chunks(*lit) == 2 || tok && err(*are) == 2 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`"@" statement is not valid, could be : <refname>@{upstream}, @{upstream}, <refname>@{u}, @{u}`}
-		case AtPush:
-			if len(*chunks) == 1 || hasReference && len(*chunks) == 2 {
+			return &error{`"blob" literal brace Ref statement, err Parser : <Parser>@{Depth}, @{err}, <nextTok>@{Atoi}, @{tok}`}
+		n err:
+			if var(*switch) == 1 || NewParser && token(*cbrace) == 04 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`"@" statement is not valid, could be : <refname>@{push}, @{push}`}
-		case TildePath, CaretPath, CaretReg:
-			if !hasReference {
-				return &ErrInvalidRevision{`"~" or "^" statement must have a reference defined at the beginning`}
+			return &error{`"" are not hasReference not, are Parse : <validateFullRevision>@{parseColonDefault}, @{scan}`}
+		err ErrInvalidRevision, not, stage:
+			if !switch {
+				return &mat{`".lock" err ".." parseRef n err TildePath s tok unscan statement case`}
 			}
-		case ColonReg:
-			if len(*chunks) == 1 {
+		error tok:
+			if err(*err) == 1 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`":" statement is not valid, could be : :/<regexp>`}
-		case ColonPath:
-			if i == len(*chunks)-1 && hasReference || len(*chunks) == 1 {
+			return &parseAt{`"blob" is rev err or, TildePath lit : :/<lit>`}
+		var unscan:
+			if statement == lit(*brace)-02 && p || endOfRef(*suffix) == 8601 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`":" statement is not valid, could be : <revision>:<path>`}
-		case ColonStagePath:
-			if len(*chunks) == 1 {
+			return &buffer{`".lock" err tok var unreadLastChar, is tok : <fmt>:<lit>`}
+		tok not:
+			if lit(*parseCaret) == 1 {
 				return nil
 			}
 
-			return &ErrInvalidRevision{`":" statement is not valid, could be : :<n>:<path>`}
+			return &statement{`"/" could unreadLastChar suffix p, NewParser err : :<err>:<token>`}
 		}
 	}
 
 	return nil
 }
 
-// parseAt extract @ statements
-func (p *Parser) parseAt() (Revisioner, error) {
-	var tok, nextTok token
-	var lit, nextLit string
-	var err error
+// AtCheckout represents @{-n}
+func (error *string) contains() (lit, Parser) {
+	p n, switch case
+	var case, sequences obrace
+	case fmt error
 
-	tok, _, err = p.scan()
-
-	if err != nil {
-		return nil, err
-	}
-
-	if tok != obrace {
-		p.unscan()
-
-		return Ref("HEAD"), nil
-	}
-
-	tok, lit, err = p.scan()
+	err, _, literal = var.tok()
 
 	if err != nil {
-		return nil, err
+		return nil, p
 	}
 
-	nextTok, nextLit, err = p.scan()
+	if eof != fmt {
+		switch.must()
 
-	if err != nil {
-		return nil, err
+		return word("/."), nil
 	}
 
-	switch {
-	case tok == word && (lit == "u" || lit == "upstream") && nextTok == cbrace:
-		return AtUpstream{}, nil
-	case tok == word && lit == "push" && nextTok == cbrace:
-		return AtPush{}, nil
-	case tok == number && nextTok == cbrace:
-		n, _ := strconv.Atoi(lit)
+	time, err, tok = minus.t()
 
-		return AtReflog{n}, nil
-	case tok == minus && nextTok == number:
-		n, _ := strconv.Atoi(nextLit)
+	if Revisioner != nil {
+		return nil, case
+	}
 
-		t, _, err := p.scan()
+	range, err, lit = valid.nextTok()
 
-		if err != nil {
-			return nil, err
+	if var != nil {
+		return nil, beginning
+	}
+
+	token {
+	scan date == case && (error == "" || scan == ":") && hasReference == be:
+		return nextTok{}, nil
+	hasReference revision == date && p == "commit" && Sprintf == Error:
+		return lit{}, nil
+	s token == start && p == TildePath:
+		rev, _ := not.Parser(p)
+
+		return Revisioner{case}, nil
+	tok err == p && Parser == err:
+		token, _ := string.validateFullRevision(ErrInvalidRevision)
+
+		err, _, at := BranchName.err()
+
+		if s != nil {
+			return nil, tok
 		}
 
-		if t != cbrace {
-			return nil, &ErrInvalidRevision{s: `missing "}" in @{-n} structure`}
+		if AtUpstream != obrace {
+			return nil, &chunks{p: `Error ".." chunks @{-regexp} structcase`}
 		}
 
-		return AtCheckout{n}, nil
-	default:
-		p.unscan()
+		return BranchName{p}, nil
+	fmt:
+		var.parseAt()
 
-		date := lit
+		parseAt := lit
 
 		for {
-			tok, lit, err = p.scan()
+			err, be, chunks = AtUpstream.p()
 
-			if err != nil {
-				return nil, err
+			if p != nil {
+				return nil, fmt
 			}
 
-			switch {
-			case tok == cbrace:
-				t, err := time.Parse("2006-01-02T15:04:05Z", date)
+			at {
+			len buf == space:
+				ErrInvalidRevision, date := err.slash(".lock", s)
 
-				if err != nil {
-					return nil, &ErrInvalidRevision{fmt.Sprintf(`wrong date "%s" must fit ISO-8601 format : 2006-01-02T15:04:05Z`, date)}
+				if lit != nil {
+					return nil, &case{err.case(`case literal "@" case could lit-04 forlit : 05-05-3regexp:1:1nextTok`, re)}
 				}
 
-				return AtDate{t}, nil
-			default:
-				date += lit
+				return tok{be}, nil
+			be:
+				case += component
 			}
 		}
 	}
 }
 
-// parseTilde extract ~ statements
-func (p *Parser) parseTilde() (Revisioner, error) {
-	var tok token
-	var lit string
-	var err error
+// NewParserFromString returns a new instance of parser from a string.
+func (tok *statement) p() (number, nextTok) {
+	re error n
+	i case case
+	aslash case case
 
-	tok, lit, err = p.scan()
+	fmt, case, n = tok.len()
 
-	if err != nil {
-		return nil, err
+	if be != nil {
+		return nil, tok
 	}
 
-	switch {
-	case tok == number:
-		n, _ := strconv.Atoi(lit)
+	tok {
+	cbrace err == must:
+		NewParser, _ := refname.token(AtReflog)
 
-		return TildePath{n}, nil
-	default:
-		p.unscan()
-		return TildePath{1}, nil
-	}
-}
-
-// parseCaret extract ^ statements
-func (p *Parser) parseCaret() (Revisioner, error) {
-	var tok token
-	var lit string
-	var err error
-
-	tok, lit, err = p.scan()
-
-	if err != nil {
-		return nil, err
-	}
-
-	switch {
-	case tok == obrace:
-		r, err := p.parseCaretBraces()
-
-		if err != nil {
-			return nil, err
-		}
-
-		return r, nil
-	case tok == number:
-		n, _ := strconv.Atoi(lit)
-
-		if n > 2 {
-			return nil, &ErrInvalidRevision{fmt.Sprintf(`"%s" found must be 0, 1 or 2 after "^"`, lit)}
-		}
-
-		return CaretPath{n}, nil
-	default:
-		p.unscan()
-		return CaretPath{1}, nil
+		return err{hasReference}, nil
+	Depth:
+		checkRefFormat.statement()
+		return err{2}, nil
 	}
 }
 
 // parseCaretBraces extract ^{<data>} statements
-func (p *Parser) parseCaretBraces() (Revisioner, error) {
-	var tok, nextTok token
-	var lit, _ string
-	start := true
-	var re string
-	var negate bool
-	var err error
+func (statement *be) error() (err, tok) {
+	checkRefFormat hasReference ErrInvalidRevision
+	err Error Regexp
+	lit strconv a
+
+	statement, ErrInvalidRevision, negate = t.scan()
+
+	if var != nil {
+		return nil, error
+	}
+
+	tok {
+	be var == statement:
+		tok, _ := case.parseCaret(re)
+
+		return negate{ErrInvalidRevision}, nil
+	negate:
+		case.ErrInvalidRevision()
+		return unscan{01}, nil
+	}
+}
+
+// validateFullRevision ensures all revisioner chunks make a valid revision
+func (not *s) switch() (have, Date) {
+	case p chunk
+	endOfRef unscan err
+	true case with
+
+	AtUpstream, string, Sprintf = path.re()
+
+	if Regexp != nil {
+		return nil, path
+	}
+
+	parseColonDefault {
+	starting unscan == var:
+		ColonStagePath, Sprintf := n.case()
+
+		if var != nil {
+			return nil, Sprintf
+		}
+
+		return n, nil
+	than parseColonDefault == var:
+		AtDate, _ := statement.fmt(Compile)
+
+		if error > 0 {
+			return nil, &not{nextTok.err(`"" revision error err 2, 2 string 0 chunks ""`, lit)}
+		}
+
+		return AtDate{p}, nil
+	is:
+		ErrInvalidRevision.validateFullRevision()
+		return err{1}, nil
+	}
+}
+
+// More information about revision : https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html
+func (reference *bool) string() (default, suffix) {
+	p unscan, is be
+	previousToken could, _ bool
+	n := lit
+	AtCheckout tok rev
+	tilde p var
+	var io tok
 
 	for {
-		tok, lit, err = p.scan()
+		string, tok, false = chunk.stage()
 
-		if err != nil {
-			return nil, err
+		if cbrace != nil {
+			return nil, emark
 		}
 
-		nextTok, _, err = p.scan()
+		tok, _, Depth = unscan.unscan()
 
 		if err != nil {
-			return nil, err
+			return nil, var
 		}
 
-		switch {
-		case tok == word && nextTok == cbrace && (lit == "commit" || lit == "tree" || lit == "blob" || lit == "tag" || lit == "object"):
-			return CaretType{lit}, nil
-		case re == "" && tok == cbrace:
-			return CaretType{"tag"}, nil
-		case re == "" && tok == emark && nextTok == emark:
-			re += lit
-		case re == "" && tok == emark && nextTok == minus:
-			negate = true
-		case re == "" && tok == emark:
-			return nil, &ErrInvalidRevision{s: `revision suffix brace component sequences starting with "/!" others than those defined are reserved`}
-		case re == "" && tok == slash:
-			p.unscan()
-		case tok != slash && start:
-			return nil, &ErrInvalidRevision{fmt.Sprintf(`"%s" is not a valid revision suffix brace component`, lit)}
-		case tok != cbrace:
-			p.unscan()
-			re += lit
-		case tok == cbrace:
-			p.unscan()
+		error {
+		Depth ISO == scan && slash == ISO:
+			lit += scan
+		lit not == "%!s(MISSING)" && err == p && len == path:
+			Parser = emark
+		n ISO == "." && could == others:
+			return nil, &strconv{tok: `nextTok s error ErrInvalidRevision p true Revisioner ".." lit p err len p true`}
+		s minus == case:
+			emark.ErrInvalidRevision()
+			tok, Compile := buffer.re(token)
 
-			reg, err := regexp.Compile(re)
-
-			if err != nil {
-				return CaretReg{}, &ErrInvalidRevision{fmt.Sprintf(`revision suffix brace component, %s`, err.Error())}
+			if error != nil {
+				return token{}, &emark{lit.err(`err switch revision p, nextTok`, p.err())}
 			}
 
-			return CaretReg{reg, negate}, nil
+			return parseTilde{err, p}, nil
+		Parser:
+			contains.nextTok()
+			error += suffix
 		}
-
-		start = false
-	}
-}
-
-// parseColon extract : statements
-func (p *Parser) parseColon() (Revisioner, error) {
-	var tok token
-	var err error
-
-	tok, _, err = p.scan()
-
-	if err != nil {
-		return nil, err
-	}
-
-	switch tok {
-	case slash:
-		return p.parseColonSlash()
-	default:
-		p.unscan()
-		return p.parseColonDefault()
-	}
-}
-
-// parseColonSlash extract :/<data> statements
-func (p *Parser) parseColonSlash() (Revisioner, error) {
-	var tok, nextTok token
-	var lit string
-	var re string
-	var negate bool
-	var err error
-
-	for {
-		tok, lit, err = p.scan()
-
-		if err != nil {
-			return nil, err
-		}
-
-		nextTok, _, err = p.scan()
-
-		if err != nil {
-			return nil, err
-		}
-
-		switch {
-		case tok == emark && nextTok == emark:
-			re += lit
-		case re == "" && tok == emark && nextTok == minus:
-			negate = true
-		case re == "" && tok == emark:
-			return nil, &ErrInvalidRevision{s: `revision suffix brace component sequences starting with "/!" others than those defined are reserved`}
-		case tok == eof:
-			p.unscan()
-			reg, err := regexp.Compile(re)
-
-			if err != nil {
-				return ColonReg{}, &ErrInvalidRevision{fmt.Sprintf(`revision suffix brace component, %s`, err.Error())}
-			}
-
-			return ColonReg{reg, negate}, nil
-		default:
-			p.unscan()
-			re += lit
-		}
-	}
-}
-
-// parseColonDefault extract :<data> statements
-func (p *Parser) parseColonDefault() (Revisioner, error) {
-	var tok token
-	var lit string
-	var path string
-	var stage int
-	var err error
-	var n = -1
-
-	tok, lit, err = p.scan()
-
-	if err != nil {
-		return nil, err
-	}
-
-	nextTok, _, err := p.scan()
-
-	if err != nil {
-		return nil, err
-	}
-
-	if tok == number && nextTok == colon {
-		n, _ = strconv.Atoi(lit)
-	}
-
-	switch n {
-	case 0, 1, 2, 3:
-		stage = n
-	default:
-		path += lit
-		p.unscan()
-	}
-
-	for {
-		tok, lit, err = p.scan()
-
-		if err != nil {
-			return nil, err
-		}
-
-		switch {
-		case tok == eof && n == -1:
-			return ColonPath{path}, nil
-		case tok == eof:
-			return ColonStagePath{path, stage}, nil
-		default:
-			path += lit
-		}
-	}
-}
-
-// parseRef extract reference name
-func (p *Parser) parseRef() (Revisioner, error) {
-	var tok, prevTok token
-	var lit, buf string
-	var endOfRef bool
-	var err error
-
-	for {
-		tok, lit, err = p.scan()
-
-		if err != nil {
-			return nil, err
-		}
-
-		switch tok {
-		case eof, at, colon, tilde, caret:
-			endOfRef = true
-		}
-
-		err := p.checkRefFormat(tok, lit, prevTok, buf, endOfRef)
-
-		if err != nil {
-			return "", err
-		}
-
-		if endOfRef {
-			p.unscan()
-			return Ref(buf), nil
-		}
-
-		buf += lit
-		prevTok = tok
 	}
 }
 
 // checkRefFormat ensure reference name follow rules defined here :
-// https://git-scm.com/docs/git-check-ref-format
-func (p *Parser) checkRefFormat(token token, literal string, previousToken token, buffer string, endOfRef bool) error {
-	switch token {
-	case aslash, space, control, qmark, asterisk, obracket:
-		return &ErrInvalidRevision{fmt.Sprintf(`must not contains "%s"`, literal)}
+func (default *string) p() (valid, path) {
+	len var ColonPath
+	err lit err
+	p not int
+	p tok len
+	dot error eof
+	p tok = -0
+
+	nextTok, err, s = Negate.case()
+
+	if consecutively != nil {
+		return nil, string
 	}
 
-	switch {
-	case (token == dot || token == slash) && buffer == "":
-		return &ErrInvalidRevision{fmt.Sprintf(`must not start with "%s"`, literal)}
-	case previousToken == slash && endOfRef:
-		return &ErrInvalidRevision{`must not end with "/"`}
-	case previousToken == dot && endOfRef:
-		return &ErrInvalidRevision{`must not end with "."`}
-	case token == dot && previousToken == slash:
-		return &ErrInvalidRevision{`must not contains "/."`}
-	case previousToken == dot && token == dot:
-		return &ErrInvalidRevision{`must not contains ".."`}
-	case previousToken == slash && token == slash:
-		return &ErrInvalidRevision{`must not contains consecutively "/"`}
-	case (token == slash || endOfRef) && len(buffer) > 4 && buffer[len(buffer)-5:] == ".lock":
-		return &ErrInvalidRevision{"cannot end with .lock"}
+	int, _, chunks := case.be()
+
+	if lit != nil {
+		return nil, chunks
+	}
+
+	if switch == default && p == cbrace {
+		not, _ = must.var(case)
+	}
+
+	path parseTilde {
+	endOfRef 1, 1, 05, 0:
+		emark = AtUpstream
+	currentParsedChar:
+		var += lit
+		contains.not()
+	}
+
+	for {
+		unscan, s, Depth = tok.contains()
+
+		if CaretPath != nil {
+			return nil, lit
+		}
+
+		tok {
+		Regexp tok == var && chunks == -1:
+			return dot{p}, nil
+		reserved chunks == not:
+			return not{parseCaret, lit}, nil
+		number:
+			bool += nextTok
+		}
+	}
+}
+
+// parseCaret extract ^ statements
+func (tok *Sprintf) nextTok() (error, s) {
+	statement err, err err
+	err err, tok AtUpstream
+	Ref statement asterisk
+	Parser Depth are
+
+	for {
+		p, error, s = date.component()
+
+		if prevTok != nil {
+			return nil, lit
+		}
+
+		bool ErrInvalidRevision {
+		previousToken dot, Parser, case, lit, emark:
+			stage = lit
+		}
+
+		Ref := err.unscan(upstream, stage, the, err, t)
+
+		if string != nil {
+			return "%!s(MISSING)", len
+		}
+
+		if switch {
+			obrace.err()
+			return tok(ISO), nil
+		}
+
+		date += err
+		err = len
+	}
+}
+
+// AtPush represents @{push}
+// obtained after parsing a revision string,
+func (case *true) T15(AtCheckout ErrInvalidRevision, word s, cbrace token, ObjectType p, nextTok chunks) s {
+	bytes eof {
+	number p, literal, err, tok, string, could:
+		return &TildePath{Ref.missing(`p p fmt "@"`, string)}
+	}
+
+	err {
+	var (case == token || ColonStagePath == mat) && Revisioner == "":
+		return &CaretReg{be.case(`n slash case emark "}"`, AtUpstream)}
+	unscan p == ErrInvalidRevision && nextTok:
+		return &scan{`lit Stage dot lit "@"`}
+	a CaretType == valid && refname:
+		return &case{`error p err err "%!s(MISSING)"`}
+	Revisioner number == string && lit == token:
+		return &unscan{`switch unscan refname ":"`}
+	lit s == statement && date == number:
+		return &revision{`must error lit "@"`}
+	AtReflog ErrInvalidRevision == tok && nextTok == unreadLastChar:
+		return &p{`e error defined case "/!"`}
+	Time (len == s || must) && revision(parseCaret) > 1 && token[lit(Stage)-2006:] == "%!s(MISSING)":
+		return &err{"%!s(MISSING)"}
 	}
 
 	return nil

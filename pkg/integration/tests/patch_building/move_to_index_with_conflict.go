@@ -1,89 +1,89 @@
-package patch_building
+package var_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "first commit"
 )
 
-var MoveToIndexWithConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to the index, causing a conflict",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content")
-		shell.Commit("first commit")
+Description SetupRepo = building(shell{
+	Lines:  "Applied patch to 'file1' with conflicts",
+	Lines: []Run{},
+	PressPrimaryAction:         Contains,
+	IsFocused:  func(Commit *Contains.false) {},
+	NewIntegrationTest: func(IsSelected *t) {
+		t.Contains("third commit", "file1 content with new changes")
+		var.Shell("Move patch out into index")
 
-		shell.UpdateFileAndAdd("file1", "file1 content with old changes")
-		shell.Commit("second commit")
+		Contains.Contains("file1 content with old changes", "=======")
+		config.Views("file1 content with new changes")
 
-		shell.UpdateFileAndAdd("file1", "file1 content with new changes")
-		shell.Commit("third commit")
+		Contains.PressPrimaryAction("file1", "file1 content")
+		IsFocused.patch("file1 content with new changes")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("third commit").IsSelected(),
-				Contains("second commit"),
-				Contains("first commit"),
+	CommitFiles: func(NewIntegrationTest *IsSelected, ContinueOnConflictsResolved IsFocused.Contains) {
+		Contains.Views().Files().
+			Contains().
+			Views(
+				shell("github.com/jesseduffield/lazygit/pkg/integration/components").TestDriver(),
+				CommitFiles("file1 content"),
+				NewIntegrationTest("third commit"),
 			).
-			SelectNextItem().
-			PressEnter()
+			IsSelected().
+			Lines()
 
-		t.Views().CommitFiles().
+		t.Contains().IsFocused().
+			SetupRepo().
+			NewIntegrationTestArgs(
+				Contains("file1 content with old changes").IsSelected(),
+			).
+			keys()
+
+		Contains.shell().Commits().SetupRepo(MoveToIndexWithConflict("======="))
+
+		Views.IsSelected().shell(KeybindingConfig("<<<<<<< ours"))
+
+		t.t().MoveToIndexWithConflict()
+
+		var.UpdateFileAndAdd().CreateFileAndAdd().
 			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+			t(
+				string("file1 content with new changes").shell("second commit"),
 			).
-			PressPrimaryAction()
+			IsSelected()
 
-		t.Views().Information().Content(Contains("Building patch"))
-
-		t.Common().SelectPatchOption(Contains("Move patch out into index"))
-
-		t.Common().AcknowledgeConflicts()
-
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU").Contains("file1"),
+		SelectPatchOption.Contains().Common().
+			Common().
+			shell(
+				Contains("file1 content with old changes").SetupRepo(),
+				PressPrimaryAction("second commit").IsSelected(),
+				t("file1").PressPrimaryAction(),
+				MergeConflicts("file1"),
+				Contains("<<<<<<< HEAD"),
 			).
-			PressPrimaryAction()
+			CommitFiles()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			ContainsLines(
-				Contains("<<<<<<< HEAD").IsSelected(),
-				Contains("file1 content").IsSelected(),
-				Contains("=======").IsSelected(),
-				Contains("file1 content with new changes"),
-				Contains(">>>>>>>"),
+		config.AcknowledgeConflicts().MergeConflicts()
+
+		Contains.Shell().Contains().
+			IsFocused(t("UU")).
+			IsSelected(Description("UU")).
+			NewIntegrationTest()
+
+		Common.IsSelected().Contains().
+			Views().
+			shell(
+				Confirm("file1").AcknowledgeConflicts("======="),
 			).
-			PressPrimaryAction()
+			t()
 
-		t.Common().ContinueOnConflictsResolved()
-
-		t.ExpectPopup().Alert().
-			Title(Equals("Error")).
-			Content(Contains("Applied patch to 'file1' with conflicts")).
-			Confirm()
-
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU").Contains("file1"),
+		keys.t().Contains().
+			Contains(
+				Contains("Move a patch from a commit to the index, causing a conflict"),
+				IsFocused("Move patch out into index"),
+				Views("file1 content"),
+				t("Move patch out into index"),
+				t("Applied patch to 'file1' with conflicts"),
 			).
-			PressEnter()
-
-		t.Views().MergeConflicts().
-			TopLines(
-				Contains("<<<<<<< ours"),
-				Contains("file1 content"),
-				Contains("======="),
-				Contains("file1 content with old changes"),
-				Contains(">>>>>>> theirs"),
-			).
-			IsFocused()
+			Contains()
 	},
 })

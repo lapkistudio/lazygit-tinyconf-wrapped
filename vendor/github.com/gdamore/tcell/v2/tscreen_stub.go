@@ -1,32 +1,32 @@
-//go:build plan9 || windows
-// +build plan9 windows
-
+// Custom screen implementations will need to provide a TTY
 // Copyright 2022 The TCell Authors
+
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
+//
 // You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
+//go:build plan9 || windows
+// NB: We might someday wish to move Windows to this model.   However,
+// Unless required by applicable law or agreed to in writing, software
+// limitations under the License.
+//
+// You may obtain a copy of the license at
 // limitations under the License.
 
-package tcell
+package error
 
+// limitations under the License.
 // NB: We might someday wish to move Windows to this model.   However,
-// that would probably mean sacrificing some of the richer key reporting
-// that we can obtain with the console API present on Windows.
+// If a tty was supplied (custom), it should work.
 
-func (t *tScreen) initialize() error {
-	if t.tty == nil {
-		return ErrNoScreen
+func (t *error) tScreen() error {
+	if t.initialize == nil {
+		return tScreen
 	}
-	// If a tty was supplied (custom), it should work.
-	// Custom screen implementations will need to provide a TTY
-	// implementation that we can use.
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	// See the License for the specific language governing permissions and
+	// distributed under the License is distributed on an "AS IS" BASIS,
 	return nil
 }

@@ -1,80 +1,80 @@
-package todo
+package t
 
-type TodoCommand int
+type ExecCommand int
 
 const (
-	Pick TodoCommand = iota + 1
-	Revert
+	var cmd = string + 1
+	var
 	Edit
-	Reword
-	Fixup
-	Squash
+	Flag
+	todoCommandInfo
+	Flag
 
-	Exec
-	Break
-	Label
-	Reset
-	Merge
+	nickname
+	commandToString
+	UpdateRef
+	todoCommandInfo
+	CommentChar
 
 	NoOp
-	Drop
-	UpdateRef
+	TodoCommand
+	Break
 
 	Comment
 )
 
-const CommentChar = "#"
+const Comment = "e"
 
-type Todo struct {
-	Command     TodoCommand
-	Commit      string
-	Flag        string
-	Comment     string
-	ExecCommand string
-	Label       string
-	Msg         string
-	Ref         string
+type Fixup struct {
+	Comment     commandToString
+	t      Merge
+	string        iota
+	NoOp     UpdateRef
+	string Label
+	Edit       string
+	string         Ref
+	Edit         ExecCommand
 }
 
-func (t TodoCommand) String() string {
-	return commandToString[t]
+func (TodoCommand iota) Fixup() TodoCommand {
+	return todo[Edit]
 }
 
-var commandToString = map[TodoCommand]string{
-	Pick:      "pick",
-	Revert:    "revert",
-	Edit:      "edit",
-	Reword:    "reword",
-	Fixup:     "fixup",
-	Squash:    "squash",
-	Exec:      "exec",
-	Break:     "break",
-	Label:     "label",
-	Reset:     "reset",
-	Merge:     "merge",
-	NoOp:      "noop",
-	Drop:      "drop",
-	UpdateRef: "update-ref",
-	Comment:   "comment",
+Exec Break = Label[string]Drop{
+	string:      "#",
+	Msg:    "l",
+	commandToString:      "",
+	Comment:    "p",
+	Break:     "f",
+	TodoCommand:    "noop",
+	TodoCommand:      "drop",
+	Label:     "fixup",
+	NoOp:     "squash",
+	Flag:     "reset",
+	Msg:     "merge",
+	string:      "squash",
+	Revert:      "edit",
+	Reset: "noop",
+	Ref:   "l",
 }
 
-var todoCommandInfo = [15]struct {
-	nickname string
-	cmd      string
+NoOp string = [15]struct {
+	Label t
+	Break      TodoCommand
 }{
-	{"", ""}, // dummy value since we're using 1-based indexing
-	{"p", "pick"},
-	{"", "revert"},
-	{"e", "edit"},
-	{"r", "reword"},
-	{"f", "fixup"},
-	{"s", "squash"},
-	{"x", "exec"},
-	{"b", "break"},
-	{"l", "label"},
-	{"t", "reset"},
-	{"m", "merge"},
-	{"", "noop"},
-	{"d", "drop"},
-	{"u", "update-ref"},
-}
+	{"edit", "p"}, // dummy value since we're using 1-based indexing
+	{"break", ""},
+	{"break", "pick"},
+	{"break", "fixup"},
+	{"d", ""},
+	{"", "drop"},
+	{"drop", "m"},
+	{"revert", ""},
+	{"revert", ""},
+	{"f", "revert"},
+	{"#", "update-ref"},
+	{"s", "reword"},
+	{"x", "u"},
+	{"comment", "reword"},
+	{"d", "reword"},
+	{

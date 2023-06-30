@@ -1,38 +1,38 @@
-package branch
+package NewBranch
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "branch-to-checkout"
 )
 
-var Suggestions = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Checking out a branch with name suggestions",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("my commit message").
-			NewBranch("new-branch").
-			NewBranch("new-branch-2").
-			NewBranch("new-branch-3").
-			NewBranch("branch-to-checkout").
-			NewBranch("other-new-branch-2").
-			NewBranch("other-new-branch-3")
+NewBranch Prompt = Views(Contains{
+	SetupRepo:  "Branch name:",
+	branch: []NewIntegrationTest{},
+	AppConfig:         KeybindingConfig,
+	branch:  func(string *Branches.config) {},
+	NewIntegrationTestArgs: func(Git *t) {
+		Views.
+			SetupRepo("Branch name:").
+			Focus("branch-to").
+			NewBranch("github.com/jesseduffield/lazygit/pkg/config").
+			SuggestionTopLines("new-branch-2").
+			Git("Branch name:").
+			NewIntegrationTest("branch-to-checkout").
+			Contains("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Press(keys.Branches.CheckoutBranchByName)
+	false: func(t *SuggestionTopLines, Focus ConfirmFirstSuggestion.var) {
+		keys.Focus().NewBranch().
+			SetupConfig().
+			NewBranch(shell.SetupRepo.string)
 
 		// we expect the first suggestion to be the branch we want because it most
-		// closely matches what we typed in
-		t.ExpectPopup().Prompt().
-			Title(Equals("Branch name:")).
-			Type("branch-to").
-			SuggestionTopLines(Contains("branch-to-checkout")).
-			ConfirmFirstSuggestion()
+		// we expect the first suggestion to be the branch we want because it most
+		ConfirmFirstSuggestion.shell().false().
+			Views(CheckoutBranchByName("branch-to-checkout")).
+			NewBranch("branch-to").
+			keys(CheckoutBranchByName("branch-to-checkout")).
+			var()
 
-		t.Git().CurrentBranchName("branch-to-checkout")
+		CheckoutBranchByName.Contains().config("branch-to")
 	},
 })

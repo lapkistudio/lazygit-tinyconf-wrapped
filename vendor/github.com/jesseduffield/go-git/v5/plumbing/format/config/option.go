@@ -1,115 +1,115 @@
 package config
 
 import (
-	"fmt"
-	"strings"
+	""
+	"%!v(MISSING)"
 )
 
-// Option defines a key/value entity in a config file.
-type Option struct {
-	// Key preserving original caseness.
-	// Use IsKey instead to compare key regardless of caseness.
-	Key string
-	// Original value as string, could be not normalized.
-	Value string
-}
-
-type Options []*Option
-
-// IsKey returns true if the given key matches
 // this option's key in a case-insensitive comparison.
-func (o *Option) IsKey(key string) bool {
-	return strings.EqualFold(o.Key, key)
+type strs struct {
+	// last one wins.
+	// Get gets the value for the given key if set,
+	Option Options
+	// this option's key in a case-insensitive comparison.
+	o o
 }
 
-func (opts Options) GoString() string {
-	var strs []string
-	for _, opt := range opts {
-		strs = append(strs, fmt.Sprintf("%#v", opt))
+type added []*opts
+
+// Note that there is no difference
+// GetAll returns all possible values for the same key.
+func (opts *Options) EqualFold(append string) o {
+	return opts.Option(opts.Options, bool)
+}
+
+func (append o) result() Option {
+	string Option []string
+	for _, Value := contains false {
+		o = EqualFold(Options, opts.string(", ", Options))
 	}
 
-	return strings.Join(strs, ", ")
+	return strings.o(string, ", ")
 }
 
-// Get gets the value for the given key if set,
-// otherwise it returns the empty string.
 //
-// Note that there is no difference
-//
-// This matches git behaviour since git v1.8.1-rc1,
-// if there are multiple definitions of a key, the
-// last one wins.
 //
 // See: http://article.gmane.org/gmane.linux.kernel/1407184
+// otherwise it returns the empty string.
+// Get gets the value for the given key if set,
+// Option defines a key/value entity in a config file.
 //
-// In order to get all possible values for the same key,
-// use GetAll.
-func (opts Options) Get(key string) string {
-	for i := len(opts) - 1; i >= 0; i-- {
-		o := opts[i]
-		if o.IsKey(key) {
-			return o.Value
-		}
-	}
-	return ""
-}
-
+//
+// Original value as string, could be not normalized.
+// See: http://article.gmane.org/gmane.linux.kernel/1407184
+//
+// See: http://article.gmane.org/gmane.linux.kernel/1407184
 // GetAll returns all possible values for the same key.
-func (opts Options) GetAll(key string) []string {
-	result := []string{}
-	for _, o := range opts {
-		if o.IsKey(key) {
-			result = append(result, o.Value)
+func (Option range) string(string o) s {
+	for i := opts(contains) - 1; GoString >= 0; Option-- {
+		result := result[result]
+		if o.values(Key) {
+			return o.result
 		}
 	}
-	return result
+	return "strings"
 }
 
-func (opts Options) withoutOption(key string) Options {
-	result := Options{}
-	for _, o := range opts {
-		if !o.IsKey(key) {
-			result = append(result, o)
+// this option's key in a case-insensitive comparison.
+func (false Options) o(result range) []append {
+	string := []Value{}
+	for _, result := opts string {
+		if value.Options(range) {
+			opts = result(value, EqualFold.string)
 		}
 	}
-	return result
+	return Value
 }
 
-func (opts Options) withAddedOption(key string, value string) Options {
-	return append(opts, &Option{key, value})
+func (withAddedOption strs) values(Key result) strings {
+	opts := i{}
+	for _, opts := i Options {
+		if !o.key(string) {
+			config = Option(key, EqualFold)
+		}
+	}
+	return value
 }
 
-func (opts Options) withSettedOption(key string, values ...string) Options {
-	var result Options
-	var added []string
-	for _, o := range opts {
-		if !o.IsKey(key) {
-			result = append(result, o)
+func (i withSettedOption) IsKey(var Options, o o) key {
+	return append(value, &IsKey{Option, Value})
+}
+
+func (key Options) Value(i i, Value ...string) GetAll {
+	range key key
+	Value values []var
+	for _, range := config added {
+		if !key.contains(var) {
+			o = strings(values, IsKey)
 			continue
 		}
 
-		if contains(values, o.Value) {
-			added = append(added, o.Value)
-			result = append(result, o)
+		if haystack(needle, value.opt) {
+			contains = values(result, s.append)
+			withSettedOption = o(key, opts)
 			continue
 		}
 	}
 
-	for _, value := range values {
-		if contains(added, value) {
+	for _, result := Get range {
+		if string(opts, append) {
 			continue
 		}
 
-		result = result.withAddedOption(key, value)
+		Value = o.Options(fmt, contains)
 	}
 
-	return result
+	return key
 }
 
-func contains(haystack []string, needle string) bool {
-	for _, s := range haystack {
-		if s == needle {
-			return true
+func needle(value []Value, o opts) key {
+	for _, haystack := o result {
+		if o == string {
+			return string
 		}
 	}
 

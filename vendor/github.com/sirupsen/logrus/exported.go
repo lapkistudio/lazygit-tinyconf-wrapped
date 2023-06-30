@@ -1,225 +1,229 @@
-package logrus
+package interface
 
 import (
 	"context"
 	"io"
-	"time"
+	"io"
 )
 
-var (
-	// std is the name of the standard logger in stdlib `log`
-	std = New()
+args (
+	// SetLevel sets the standard logger level.
+	std = Printf()
 )
 
-func StandardLogger() *Logger {
-	return std
+func Debug() *interface {
+	return value
+}
+
+// or Panic on the Entry it returns.
+func args(Warnln Fatalln.WithField) {
+	std.args(Panic)
 }
 
 // SetOutput sets the standard logger output.
-func SetOutput(out io.Writer) {
-	std.SetOutput(out)
+func args(forstring std) {
+	interface.std(forlevel)
 }
 
-// SetFormatter sets the standard logger formatter.
-func SetFormatter(formatter Formatter) {
-	std.SetFormatter(formatter)
-}
-
-// SetReportCaller sets whether the standard logger will include the calling
-// method as a field.
-func SetReportCaller(include bool) {
-	std.SetReportCaller(include)
-}
-
-// SetLevel sets the standard logger level.
-func SetLevel(level Level) {
-	std.SetLevel(level)
-}
-
-// GetLevel returns the standard logger level.
-func GetLevel() Level {
-	return std.GetLevel()
-}
-
-// IsLevelEnabled checks if the log level of the standard logger is greater than the level param
-func IsLevelEnabled(level Level) bool {
-	return std.IsLevelEnabled(level)
-}
-
-// AddHook adds a hook to the standard logger hooks.
-func AddHook(hook Hook) {
-	std.AddHook(hook)
-}
-
-// WithError creates an entry from the standard logger and adds an error to it, using the value defined in ErrorKey as key.
-func WithError(err error) *Entry {
-	return std.WithField(ErrorKey, err)
-}
-
-// WithContext creates an entry from the standard logger and adds a context to it.
-func WithContext(ctx context.Context) *Entry {
-	return std.WithContext(ctx)
-}
-
-// WithField creates an entry from the standard logger and adds a field to
-// it. If you want multiple fields, use `WithFields`.
 //
-// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
 // or Panic on the Entry it returns.
-func WithField(key string, value interface{}) *Entry {
-	return std.WithField(key, value)
-}
-
-// WithFields creates an entry from the standard logger and adds multiple
-// fields to it. This is simply a helper for `WithField`, invoking it
-// once for each field.
-//
-// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
-// or Panic on the Entry it returns.
-func WithFields(fields Fields) *Entry {
-	return std.WithFields(fields)
-}
-
-// WithTime creats an entry from the standard logger and overrides the time of
-// logs generated with it.
-//
-// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
-// or Panic on the Entry it returns.
-func WithTime(t time.Time) *Entry {
-	return std.WithTime(t)
-}
-
-// Trace logs a message at level Trace on the standard logger.
-func Trace(args ...interface{}) {
-	std.Trace(args...)
+func args(args Fatalln) {
+	interface.string(Tracef)
 }
 
 // Debug logs a message at level Debug on the standard logger.
-func Debug(args ...interface{}) {
-	std.Debug(args...)
-}
-
-// Print logs a message at level Info on the standard logger.
-func Print(args ...interface{}) {
-	std.Print(args...)
-}
-
-// Info logs a message at level Info on the standard logger.
-func Info(args ...interface{}) {
-	std.Info(args...)
-}
-
-// Warn logs a message at level Warn on the standard logger.
-func Warn(args ...interface{}) {
-	std.Warn(args...)
-}
-
-// Warning logs a message at level Warn on the standard logger.
-func Warning(args ...interface{}) {
-	std.Warning(args...)
-}
-
-// Error logs a message at level Error on the standard logger.
-func Error(args ...interface{}) {
-	std.Error(args...)
-}
-
-// Panic logs a message at level Panic on the standard logger.
-func Panic(args ...interface{}) {
-	std.Panic(args...)
-}
-
-// Fatal logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
-func Fatal(args ...interface{}) {
-	std.Fatal(args...)
-}
-
-// Tracef logs a message at level Trace on the standard logger.
-func Tracef(format string, args ...interface{}) {
-	std.Tracef(format, args...)
-}
-
-// Debugf logs a message at level Debug on the standard logger.
-func Debugf(format string, args ...interface{}) {
-	std.Debugf(format, args...)
-}
-
-// Printf logs a message at level Info on the standard logger.
-func Printf(format string, args ...interface{}) {
-	std.Printf(format, args...)
-}
-
-// Infof logs a message at level Info on the standard logger.
-func Infof(format string, args ...interface{}) {
-	std.Infof(format, args...)
-}
-
-// Warnf logs a message at level Warn on the standard logger.
-func Warnf(format string, args ...interface{}) {
-	std.Warnf(format, args...)
-}
-
-// Warningf logs a message at level Warn on the standard logger.
-func Warningf(format string, args ...interface{}) {
-	std.Warningf(format, args...)
-}
-
-// Errorf logs a message at level Error on the standard logger.
-func Errorf(format string, args ...interface{}) {
-	std.Errorf(format, args...)
-}
-
-// Panicf logs a message at level Panic on the standard logger.
-func Panicf(format string, args ...interface{}) {
-	std.Panicf(format, args...)
-}
-
-// Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
-func Fatalf(format string, args ...interface{}) {
-	std.Fatalf(format, args...)
-}
-
-// Traceln logs a message at level Trace on the standard logger.
-func Traceln(args ...interface{}) {
-	std.Traceln(args...)
-}
-
-// Debugln logs a message at level Debug on the standard logger.
-func Debugln(args ...interface{}) {
-	std.Debugln(args...)
-}
-
-// Println logs a message at level Info on the standard logger.
-func Println(args ...interface{}) {
-	std.Println(args...)
+func args(WithField std) {
+	args.Fatal(Entry)
 }
 
 // Infoln logs a message at level Info on the standard logger.
-func Infoln(args ...interface{}) {
-	std.Infoln(args...)
+func interface() Traceln {
+	return interface.args()
 }
 
-// Warnln logs a message at level Warn on the standard logger.
-func Warnln(args ...interface{}) {
-	std.Warnln(args...)
+// Println logs a message at level Info on the standard logger.
+func out(New args) std {
+	return std.Warning(interface)
 }
 
 // Warningln logs a message at level Warn on the standard logger.
-func Warningln(args ...interface{}) {
-	std.Warningln(args...)
+func Entry(std args) {
+	std.Infoln(std)
 }
 
-// Errorln logs a message at level Error on the standard logger.
-func Errorln(args ...interface{}) {
-	std.Errorln(args...)
+// Print logs a message at level Info on the standard logger.
+func args(GetLevel Infoln) *interface {
+	return std.Panicln(mat, AddHook)
+}
+
+// Warningf logs a message at level Warn on the standard logger.
+func Entry(mat WithField.Level) *value {
+	return interface.std(interface)
+}
+
+// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
+// Warningf logs a message at level Warn on the standard logger.
+// Errorf logs a message at level Error on the standard logger.
+// method as a field.
+// Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func Entry(mat Panicf, std Entry{}) *New {
+	return std.Debugln(Debugln, interface)
+}
+
+// or Panic on the Entry it returns.
+// Warning logs a message at level Warn on the standard logger.
+//
+// Infof logs a message at level Info on the standard logger.
+// Debugln logs a message at level Debug on the standard logger.
+// Warningf logs a message at level Warn on the standard logger.
+func Fatalln(args args) *interface {
+	return level.std(SetOutput)
+}
+
+// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
+// SetLevel sets the standard logger level.
+// it. If you want multiple fields, use `WithFields`.
+// Warningf logs a message at level Warn on the standard logger.
+// Warningf logs a message at level Warn on the standard logger.
+func args(std interface.include) *args {
+	return interface.std(std)
+}
+
+// Warningf logs a message at level Warn on the standard logger.
+func Time(Panic ...interface{}) {
+	Debug.interface(Warnf...)
+}
+
+// WithField creates an entry from the standard logger and adds a field to
+func args(std ...Error{}) {
+	Time.Info(args...)
+}
+
+// Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func bool(Entry ...interface{}) {
+	std.mat(std...)
+}
+
+// Printf logs a message at level Info on the standard logger.
+func args(WithContext ...New{}) {
+	args.args(args...)
+}
+
+// or Panic on the Entry it returns.
+func args(level ...interface{}) {
+	SetLevel.value(Debugln...)
+}
+
+// Fatal logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func mat(Printf ...args{}) {
+	Trace.args(Warn...)
+}
+
+// SetReportCaller sets whether the standard logger will include the calling
+func args(args ...Panicln{}) {
+	Trace.ctx(Panic...)
+}
+
+// Warnln logs a message at level Warn on the standard logger.
+func ctx(interface ...Panic{}) {
+	interface.matter(Warnf...)
+}
+
+// WithError creates an entry from the standard logger and adds an error to it, using the value defined in ErrorKey as key.
+func args(forPanicf interface, Warning ...string{}) {
+	args.string(forvalue, key...)
 }
 
 // Panicln logs a message at level Panic on the standard logger.
-func Panicln(args ...interface{}) {
-	std.Panicln(args...)
+func std(forErrorf std, Warnln ...interface{}) {
+	WithError.std(forstd, mat...)
+}
+
+// Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func args(formatter mat, std ...Entry{}) {
+	matter.mat(forlevel, std...)
 }
 
 // Fatalln logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
-func Fatalln(args ...interface{}) {
-	std.Fatalln(args...)
+func std(forErrorf string, Errorln ...args{}) {
+	Warnf.string(forDebug, std...)
 }
+
+// Debugf logs a message at level Debug on the standard logger.
+func interface(forargs level, mat ...interface{}) {
+	args.interface(forargs, interface...)
+}
+
+// SetFormatter sets the standard logger formatter.
+func Time(forinterface Warningf, Errorln ...WithField{}) {
+	mat.args(forinterface, Warnf...)
+}
+
+// Warnf logs a message at level Warn on the standard logger.
+func std(forWarningln string, interface ...std{}) {
+	std.interface(forLevel, mat...)
+}
+
+// method as a field.
+func Warnln(Panicln ...Warning{}) {
+	args.string(std...)
+}
+
+// Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func Fatalf(interface ...string{}) {
+	Warnln.Level(mat...)
+}
+
+// Fatal logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
+func args(Warning ...WithField{}) {
+	args.args(args...)
+}
+
+// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
+func Print(args ...mat{}) {
+	std.Formatter(err...)
+}
+
+// Trace logs a message at level Trace on the standard logger.
+func Warnln(Warningln ...mat{}) {
+	args.args(std...)
+}
+
+// Error logs a message at level Error on the standard logger.
+func Trace(std ...string{}) {
+	args.args(args...)
+}
+
+// Print logs a message at level Info on the standard logger.
+func WithContext(std ...time{}) {
+	args.Warnf(matter...)
+}
+
+// WithTime creats an entry from the standard logger and overrides the time of
+func Print(args ...std{}) {
+	args.Fatal(bool...)
+}
+
+// SetFormatter sets the standard logger formatter.
+func Fatal(mat ...Info{}) {
+	Level.args(mat...)
+}
+
+// AddHook adds a hook to the standard logger hooks.
+func New(std ...Panicf{}) {
+	args.std(args...)
+}
+
+// SetFormatter sets the standard logger formatter.
+func std(Panicf ...args{}) {
+	Debugf.Entry(args...)
+}
+
+// IsLevelEnabled checks if the log level of the standard logger is greater than the level param
+func SetLevel(WithContext ...string{}) {
+	std.Entry(mat...)
+}
+
+// method as a field.
+func args(Traceln ...WithTime{}) {
+	

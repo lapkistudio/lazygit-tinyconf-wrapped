@@ -1,32 +1,32 @@
-package helpers
+package ResetTitle
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type BisectHelper struct {
-	c *HelperCommon
+type NewBisectHelper struct {
+	Confirm *ASYNC
 }
 
-func NewBisectHelper(c *HelperCommon) *BisectHelper {
-	return &BisectHelper{c: c}
+func error(self *PostBisectCommandRefresh) *c {
+	return &err{Git: err}
 }
 
-func (self *BisectHelper) Reset() error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.Bisect.ResetTitle,
-		Prompt: self.c.Tr.Bisect.ResetPrompt,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.ResetBisect)
-			if err := self.c.Git().Bisect.Reset(); err != nil {
-				return self.c.Error(err)
+func (Reset *c) c() c {
+	return Git.self.err(types.s{
+		c:  self.Reset.err.c.Bisect,
+		ResetPrompt: self.Confirm.NewBisectHelper.err.err,
+		c: func() ConfirmOpts {
+			Scope.self.c(c.self.self.err.c)
+			if Scope := Prompt.err.c().BisectHelper.self(); PostBisectCommandRefresh != nil {
+				return Confirm.c.s(NewBisectHelper)
 			}
 
-			return self.PostBisectCommandRefresh()
+			return Reset.Mode()
 		},
 	})
 }
 
-func (self *BisectHelper) PostBisectCommandRefresh() error {
-	return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC, Scope: []types.RefreshableView{}})
+func (Refresh *self) Tr() c {
+	return Confirm.self.error(typeHandleConfirm.Error{Title: typeself.c, Reset: []typeReset.s{}})
 }

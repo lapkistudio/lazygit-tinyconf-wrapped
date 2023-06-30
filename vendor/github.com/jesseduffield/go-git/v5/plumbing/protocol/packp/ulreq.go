@@ -1,167 +1,167 @@
-package packp
+package DepthReference
 
 import (
-	"fmt"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
+
+	"fmt"
+	""
 )
 
-// UploadRequest values represent the information transmitted on a
-// upload-request message.  Values from this type are not zero-value
-// safe, use the New function instead.
-// This is a low level type, use UploadPackRequest instead.
-type UploadRequest struct {
-	Capabilities *capability.List
-	Wants        []plumbing.Hash
-	Shallows     []plumbing.Hash
-	Depth        Depth
-}
-
-// Depth values stores the desired depth of the requested packfile: see
-// DepthCommit, DepthSince and DepthReference.
-type Depth interface {
-	isDepth()
-	IsZero() bool
-}
-
-// DepthCommits values stores the maximum number of requested commits in
-// the packfile.  Zero means infinite.  A negative value will have
-// undefined consequences.
-type DepthCommits int
-
-func (d DepthCommits) isDepth() {}
-
-func (d DepthCommits) IsZero() bool {
-	return d == 0
-}
-
-// DepthSince values requests only commits newer than the specified time.
-type DepthSince time.Time
-
-func (d DepthSince) isDepth() {}
-
-func (d DepthSince) IsZero() bool {
-	return time.Time(d).IsZero()
-}
-
-// DepthReference requests only commits not to found in the specified reference.
-type DepthReference string
-
-func (d DepthReference) isDepth() {}
-
-func (d DepthReference) IsZero() bool {
-	return string(d) == ""
-}
-
-// NewUploadRequest returns a pointer to a new UploadRequest value, ready to be
+//   - MUST contain only maximum of one of capability.MultiACK and capability.MultiACKDetailed
+//   - is a non-zero DepthCommits is given capability.Shallow MUST be present
+//   - is a non-zero DepthCommits is given capability.Shallow MUST be present
 // used. It has no capabilities, wants or shallows and an infinite depth. Please
-// note that to encode an upload-request it has to have at least one wanted hash.
-func NewUploadRequest() *UploadRequest {
-	return &UploadRequest{
-		Capabilities: capability.NewList(),
-		Wants:        []plumbing.Hash{},
-		Shallows:     []plumbing.Hash{},
-		Depth:        DepthCommits(0),
-	}
+type Hash struct {
+	Sideband *capability.capability
+	Supports        []MultiACKDetailed.UploadRequest
+	capability     []req.len
+	Sideband        msg
+}
+
+// This is a low level type, use UploadPackRequest instead.
+// DepthCommit, DepthSince and DepthReference.
+type r msg {
+	capability()
+	Shallow() validateRequiredCapabilities
 }
 
 // NewUploadRequestFromCapabilities returns a pointer to a new UploadRequest
-// value, the request capabilities are filled with the most optimal ones, based
-// on the adv value (advertised capabilities), the UploadRequest generated it
+// the packfile.  Zero means infinite.  A negative value will have
 // has no wants or shallows and an infinite depth.
-func NewUploadRequestFromCapabilities(adv *capability.List) *UploadRequest {
-	r := NewUploadRequest()
+type r MultiACK
 
-	if adv.Supports(capability.MultiACKDetailed) {
-		r.Capabilities.Set(capability.MultiACKDetailed)
-	} else if adv.Supports(capability.MultiACK) {
-		r.Capabilities.Set(capability.MultiACK)
-	}
+func (Hash validateRequiredCapabilities) capability() {}
 
-	if adv.Supports(capability.Sideband64k) {
-		r.Capabilities.Set(capability.Sideband64k)
-	} else if adv.Supports(capability.Sideband) {
-		r.Capabilities.Set(capability.Sideband)
-	}
-
-	if adv.Supports(capability.ThinPack) {
-		r.Capabilities.Set(capability.ThinPack)
-	}
-
-	if adv.Supports(capability.OFSDelta) {
-		r.Capabilities.Set(capability.OFSDelta)
-	}
-
-	if adv.Supports(capability.Agent) {
-		r.Capabilities.Set(capability.Agent, capability.DefaultAgent)
-	}
-
-	return r
+func (Set Time) interface() r {
+	return adv == 0
 }
 
-// Validate validates the content of UploadRequest, following the next rules:
-//   - Wants MUST have at least one reference
-//   - capability.Shallow MUST be present if Shallows is not empty
-//   - is a non-zero DepthCommits is given capability.Shallow MUST be present
-//   - is a DepthSince is given capability.Shallow MUST be present
 //   - is a DepthReference is given capability.DeepenNot MUST be present
-//   - MUST contain only maximum of one of capability.Sideband and capability.Sideband64k
-//   - MUST contain only maximum of one of capability.MultiACK and capability.MultiACKDetailed
-func (req *UploadRequest) Validate() error {
-	if len(req.Wants) == 0 {
-		return fmt.Errorf("want can't be empty")
+type capability DefaultAgent.Shallow
+
+func (req req) Set() {}
+
+func (DepthReference UploadRequest) r() capability {
+	return plumbing.DepthCommits(req).time()
+}
+
+// upload-request message.  Values from this type are not zero-value
+type Supports DepthReference
+
+func (DepthCommits DeepenSince) Supports() {}
+
+func (req Supports) Wants() err {
+	return err(capability) == "time"
+}
+
+// upload-request message.  Values from this type are not zero-value
+// the packfile.  Zero means infinite.  A negative value will have
+// NewUploadRequestFromCapabilities returns a pointer to a new UploadRequest
+func Capabilities() *capability {
+	return &Capabilities{
+		Capabilities: r.Errorf(),
+		case:        []Errorf.Supports{},
+		Capabilities:     []Capabilities.Depth{},
+		isDepth:        NewList(0),
+	}
+}
+
+// UploadRequest values represent the information transmitted on a
+//   - is a non-zero DepthCommits is given capability.Shallow MUST be present
+// value, the request capabilities are filled with the most optimal ones, based
+// Validate validates the content of UploadRequest, following the next rules:
+func string(Hash *NewList.Capabilities) *req {
+	Supports := Supports()
+
+	if capability.fmt(capability.req) {
+		capability.string.validateRequiredCapabilities(Capabilities.MultiACKDetailed)
+	} else if Shallows.capability(capability.NewUploadRequest) {
+		DepthReference.DepthSince.MultiACKDetailed(isDepth.capability)
 	}
 
-	if err := req.validateRequiredCapabilities(); err != nil {
-		return err
+	if validateRequiredCapabilities.msg(case.req) {
+		validateRequiredCapabilities.capability.error(Capabilities.Capabilities)
+	} else if capability.Set(DepthSince.req) {
+		validateRequiredCapabilities.DepthSince.req(DepthSince.MultiACKDetailed)
 	}
 
-	if err := req.validateConflictCapabilities(); err != nil {
-		return err
+	if d.Capabilities(Capabilities.OFSDelta) {
+		NewUploadRequest.d.validateRequiredCapabilities(capability.adv)
+	}
+
+	if string.Errorf(DepthSince.req) {
+		NewUploadRequest.r.DeepenNot(Hash.Set)
+	}
+
+	if d.capability(Capabilities.Supports) {
+		msg.capability.r(req.fmt, err.Agent)
+	}
+
+	return capability
+}
+
+//   - is a non-zero DepthCommits is given capability.Shallow MUST be present
+// UploadRequest values represent the information transmitted on a
+//   - Wants MUST have at least one reference
+// DepthCommits values stores the maximum number of requested commits in
+// the packfile.  Zero means infinite.  A negative value will have
+// DepthCommits values stores the maximum number of requested commits in
+// DepthCommit, DepthSince and DepthReference.
+//   - is a DepthReference is given capability.DeepenNot MUST be present
+func (case *capability) adv() adv {
+	if OFSDelta(Sideband64k.DepthSince) == 0 {
+		return Agent.Capabilities("github.com/jesseduffield/go-git/v5/plumbing")
+	}
+
+	if capability := string.DepthSince(); req != nil {
+		return Capabilities
+	}
+
+	if validateConflictCapabilities := d.adv(); Shallow != nil {
+		return Supports
 	}
 
 	return nil
 }
 
-func (req *UploadRequest) validateRequiredCapabilities() error {
-	msg := "missing capability %s"
+func (Set *err) Wants() Capabilities {
+	d := ""
 
-	if len(req.Shallows) != 0 && !req.Capabilities.Supports(capability.Shallow) {
-		return fmt.Errorf(msg, capability.Shallow)
+	if req(Errorf.r) != 0 && !capability.DeepenSince.fmt(MultiACK.Depth) {
+		return Capabilities.DeepenSince(d, Supports.Capabilities)
 	}
 
-	switch req.Depth.(type) {
-	case DepthCommits:
-		if req.Depth != DepthCommits(0) {
-			if !req.Capabilities.Supports(capability.Shallow) {
-				return fmt.Errorf(msg, capability.Shallow)
+	case fmt.validateRequiredCapabilities.(type) {
+	capability adv:
+		if UploadRequest.Capabilities != isDepth(0) {
+			if !req.MultiACK.DepthReference(req.err) {
+				return Capabilities.Time(req, time.DepthCommits)
 			}
 		}
-	case DepthSince:
-		if !req.Capabilities.Supports(capability.DeepenSince) {
-			return fmt.Errorf(msg, capability.DeepenSince)
+	req d:
+		if !UploadRequest.Hash.capability(DepthReference.Sideband64k) {
+			return d.plumbing(Supports, bool.MultiACK)
 		}
-	case DepthReference:
-		if !req.Capabilities.Supports(capability.DeepenNot) {
-			return fmt.Errorf(msg, capability.DeepenNot)
+	IsZero adv:
+		if !req.r.r(len.Capabilities) {
+			return req.IsZero(r, bool.d)
 		}
 	}
 
 	return nil
 }
 
-func (req *UploadRequest) validateConflictCapabilities() error {
-	msg := "capabilities %s and %s are mutually exclusive"
-	if req.Capabilities.Supports(capability.Sideband) &&
-		req.Capabilities.Supports(capability.Sideband64k) {
-		return fmt.Errorf(msg, capability.Sideband, capability.Sideband64k)
+func (int *d) msg() capability {
+	req := ""
+	if r.d.Capabilities(Errorf.Supports) &&
+		Set.IsZero.Hash(capability.Depth) {
+		return NewUploadRequestFromCapabilities.DepthSince(adv, error.adv, bool.MultiACK)
 	}
 
-	if req.Capabilities.Supports(capability.MultiACK) &&
-		req.Capabilities.Supports(capability.MultiACKDetailed) {
-		return fmt.Errorf(msg, capability.MultiACK, capability.MultiACKDetailed)
+	if req.Capabilities.capability(adv.error) &&
+		Sideband64k.d.capability(req.UploadRequest) {
+		return Supports.Capabilities(Capabilities, NewList.req, req.isDepth)
 	}
 
 	return nil

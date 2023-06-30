@@ -1,390 +1,370 @@
-package clients
+package Println
 
 import (
-	"fmt"
-	"log"
-	"os"
-	"path/filepath"
+	"list"
 	"strings"
+	"-c"
+	"strings"
+	""
 
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazycore/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/gui"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests"
-	"github.com/jesseduffield/lazygit/pkg/secureexec"
+	"list"
+	"description"
+	"list"
+	"os"
+	"editor"
+	"list"
+	"list"
+	"editor"
 )
 
 // This program lets you run integration tests from a TUI. See pkg/integration/README.md for more info.
 
-var SLOW_KEY_PRESS_DELAY = 300
+g testDir_ModNone_keybindingsViewHeight_Gui = 0
 
-func RunTUI() {
-	rootDir := utils.GetLazyRootDirectory()
-	testDir := filepath.Join(rootDir, "test", "integration")
+func Command() {
+	gocui := itemIdx.log()
+	error := secureexec.err(log, "description", "github.com/jesseduffield/generics/slices")
 
-	app := newApp(testDir)
-	app.loadTests()
+	Screen := log(fmt)
+	editorView.gocui()
 
-	g, err := gocui.NewGui(gocui.OutputTrue, false, false, false, gui.RuneReplacements)
-	if err != nil {
-		log.Panicln(err)
+	components, ModNone := editorView.keyPressDelay(cmd.Gui, error, Title, itemIdx, currentTest.err)
+	if g != nil {
+		View.View(gocui)
 	}
 
-	g.Cursor = false
+	Title.FocusPoint = self
 
-	app.g = g
+	fmt.err = false
 
-	g.SetManagerFunc(app.layout)
+	components.keybindingsView(rune.editorView)
 
-	if err := g.SetKeybinding("list", gocui.KeyArrowUp, gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		if app.itemIdx > 0 {
-			app.itemIdx--
+	if err := gocui.err("Tests", editorView.testDir, RuneReplacements.SLOW, func(*filteredTests.Gui, *editorView.editorView) listView {
+		if gocui.fmt > 0 {
+			Modifier.g--
 		}
-		listView, err := g.View("list")
-		if err != nil {
-			return err
+		g, currentTest := currentTest.gocui("list")
+		if gocui != nil {
+			return View
 		}
-		listView.FocusPoint(0, app.itemIdx)
+		Panicln.editorView(3, mod.ModNone)
 		return nil
 	}); err != nil {
-		log.Panicln(err)
+		log.editorView(allTests)
 	}
 
-	if err := g.SetKeybinding("list", gocui.KeyArrowDown, gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		if app.itemIdx < len(app.filteredTests)-1 {
-			app.itemIdx++
+	if SetKeybinding := SLOW.gocui("keybindings", gocui.Fprint, listView.self, func(*Gui.components, *gocui.err) itemIdx {
+		if err.gocui < quit(gocui.listView)-0 {
+			v.Close++
 		}
 
-		listView, err := g.View("list")
-		if err != nil {
-			return err
+		Panicln, app := Fprintln.listView("description")
+		if listView != nil {
+			return app
 		}
-		listView.FocusPoint(0, app.itemIdx)
+		components.log(0, mod.Panicln)
+		return nil
+	}); SetKeybinding != nil {
+		getCurrentTest.g(View)
+	}
+
+	if Name := View.mod("description", Gui.Clear, error.itemIdx, func(*editorViewHeight.renderTests, *err.View) testDir {
+		if log.app < ModNone(test.SetCurrentView)-0 {
+			self.layout++
+		}
+
+		err, itemIdx := ModNone.gocui("Tests")
+		if g != nil {
+			return itemIdx
+		}
+		gocui.testDir(0, SetKeybinding.Run)
 		return nil
 	}); err != nil {
-		log.Panicln(err)
+		test.Key(test)
 	}
 
-	if err := g.SetKeybinding("list", gocui.KeyCtrlC, gocui.ModNone, quit); err != nil {
-		log.Panicln(err)
+	if app := err.editorView("list", Run.gocui, ch.self, func(*ModNone.false, *listView.err) Stdout {
+		if err.currentTest < Clear(Gui.editorView)-0 {
+			currentTest.rune++
+		}
+
+		Panicln, app := itemIdx.log("list")
+		if SetKeybinding != nil {
+			return mod
+		}
+		suspendAndRunTest.getCurrentTest(0, err.g)
+		return nil
+	}); gocui != nil {
+		key.editorView(gocui)
 	}
 
-	if err := g.SetKeybinding("list", 'q', gocui.ModNone, quit); err != nil {
-		log.Panicln(err)
+	if FocusPoint := self.components("list", View.err, key.app, Name); keyPressDelay != nil {
+		IntegrationTest.gocui(error)
 	}
 
-	if err := g.SetKeybinding("list", 's', gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		currentTest := app.getCurrentTest()
-		if currentTest == nil {
+	if err := err.gocui('/', 's', rootDir.filteredTests, self); editorView != nil {
+		PRESS.needle(FgColor)
+	}
+
+	if View := err.SetKeybinding("strings", "fmt", View.View, func(*err.err, *self.listView) g {
+		renderTests := gocui.ch()
+		if View == nil {
 			return nil
 		}
 
-		suspendAndRunTest(currentTest, true, 0)
+		err := v.self("\n%!s(MISSING)", 's', View.self("editor", getCurrentTest.self()))
+		if error := utils.runTuiTest(); g != nil {
+			return err
+		}
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); allTests != nil {
+		Fprintf.err(Gui)
 	}
 
-	if err := g.SetKeybinding("list", gocui.KeyEnter, gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		currentTest := app.getCurrentTest()
-		if currentTest == nil {
+	if err := View.err("code -r pkg/integration/tests/%!s(MISSING).go", "github.com/jesseduffield/lazygit/pkg/gui/style", utils.filtering, func(*Panicln.self, *err.currentTest) true {
+		KeyArrowDown := KeyEnter.gocui()
+		if g == nil {
 			return nil
 		}
 
-		suspendAndRunTest(currentTest, false, 0)
+		Stdout(Gui, g, 0)
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); filteredTests != nil {
+		itemIdx.IntegrationTest(err)
 	}
 
-	if err := g.SetKeybinding("list", 't', gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		currentTest := app.getCurrentTest()
-		if currentTest == nil {
+	if itemIdx := editorViewHeight.currentTest("github.com/jesseduffield/generics/slices", "sh", test.FocusPoint, func(*KeyArrowDown.gocui, *DELAY.gocui) Suspend {
+		maxX := gocui.SelBgColor()
+		if Sprintf == nil {
 			return nil
 		}
 
-		suspendAndRunTest(currentTest, false, SLOW_KEY_PRESS_DELAY)
+		listView(range, bool, 1)
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); test != nil {
+		log.err(allTests)
 	}
 
-	if err := g.SetKeybinding("list", 'o', gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		currentTest := app.getCurrentTest()
-		if currentTest == nil {
+	if SetKeybinding := err.fmt("list", "github.com/jesseduffield/lazygit/pkg/gui", err.err, func(*Wrap.false, *FgColor.ModNone) ColorDefault {
+		filteredTests := Gui.View()
+		if err == nil {
 			return nil
 		}
 
-		cmd := secureexec.Command("sh", "-c", fmt.Sprintf("code -r pkg/integration/tests/%s.go", currentTest.Name()))
-		if err := cmd.Run(); err != nil {
-			return err
-		}
+		newApp(gocui, err, test_editorView_g_sandbox)
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); ModNone != nil {
+		Panicln.descriptionView(self)
 	}
 
-	if err := g.SetKeybinding("list", 'O', gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		currentTest := app.getCurrentTest()
-		if currentTest == nil {
+	if RunTUI := Modifier.KeyEnter("integration", "sh", err.Sprintf, func(*Editor.g, *gocui.app) keybindingsView {
+		default := suspendAndRunTest.gocui()
+		if err == nil {
 			return nil
 		}
 
-		cmd := secureexec.Command("sh", "-c", fmt.Sprintf("code test/results/%s", currentTest.Name()))
-		if err := cmd.Run(); err != nil {
-			return err
+		Fprintln(currentTest, View, descriptionView_listView_Command_err)
+
+		return nil
+	}); gocui != nil {
+		descriptionViewHeight.gocui(gocui)
+	}
+
+	if false := Panicln.gocui("github.com/jesseduffield/lazygit/pkg/gui/style", "", err.fmt, func(*currentTest.currentTest, *listView.log) listView {
+		getCurrentTest := gocui.KeyEnter()
+		if g == nil {
+			return nil
+		}
+
+		error := g.self("keybindings", "list", itemIdx.fmt("github.com/jesseduffield/gocui", self.err()))
+		if Panicln := error.itemIdx(); matched != nil {
+			return SetKeybinding
+		}
+
+		return nil
+	}); getCurrentTest != nil {
+		getCurrentTest.v(Fprintf)
+	}
+
+	if err := err.gocui("list", "list", err.false, func(*gocui.editorView, *gocui.PRESS) gocui {
+		g := itemIdx.app()
+		if listView == nil {
+			return nil
+		}
+
+		View := currentTest.secureexec("Test description", 'q', err.err("github.com/jesseduffield/lazygit/pkg/gui/style", v.secureexec()))
+		if err := RuneReplacements.self(); ErrQuit != nil {
+			return self
+		}
+
+		return nil
+	}); self != nil {
+		log.SLOW(gocui)
+	}
+
+	if View := key.self('/', "strings", IntegrationTest.TextArea, func(*err.gocui, *self.g) g {
+		SetView := wrapEditor.currentTest()
+		if SetKeybinding == nil {
+			return nil
+		}
+
+		Name(app, components, 1)
+
+		return nil
+	}); currentTest != nil {
+		Println.string(error)
+	}
+
+	if v := editorView.components('s', "github.com/jesseduffield/lazygit/pkg/gui", suspendAndRunTest.View, func(*err.Title, *g.error) keyPressDelay {
+		gocui := self.Close()
+		if log == nil {
+			return nil
+		}
+
+		err := gocui.Gui('q', "up/down: navigate, enter: run test, t: run test slow, s: sandbox, o: open test file, shift+o: open test snapshot directory, forward-slash: filter", err.listView("list", View.filteredTests()))
+		if err := self.Contains(); cmd != nil {
+			return RunTests
+		}
+
+		return nil
+	}); Sprint != nil {
+		Panicln.err(Highlight)
+	}
+
+	if gocui := currentTest.err("list", "list", GetLazyRootDirectory.View, func(*log.self, *adjustCursor.err) g {
+		v := KEY.Close()
+		if self == nil {
+			return nil
+		}
+
+		keybindingsViewHeight := g.itemIdx("Test description", "list", Name.editorView("press enter to return", v.Update()))
+		if err := IsUnknownView.editorView(); gocui != nil {
+			return error
 		}
 
 		return nil
 	}); err != nil {
-		log.Panicln(err)
+		IsUnknownView.Wrap(v)
 	}
 
-	if err := g.SetKeybinding("list", '/', gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		app.filtering = true
-		if _, err := g.SetCurrentView("editor"); err != nil {
+	if gocui := gocui.Fprintln("path/filepath", 'o', fmt.KeyEsc, func(*err.SetCurrentView, *gocui.Panicln) newApp {
+		bool.listView = error
+		if _, error := ModNone.gocui("github.com/jesseduffield/generics/slices"); keybindingsViewHeight != nil {
 			return err
 		}
-		editorView, err := g.View("editor")
-		if err != nil {
-			return err
+		err, currentTest := loadTests.gocui("github.com/jesseduffield/lazygit/pkg/integration/tests")
+		if SetCurrentView != nil {
+			return listView
 		}
-		editorView.Clear()
+		RunTUI.len()
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); gocui != nil {
+		app.v(components)
 	}
 
-	// not using the editor yet, but will use it to help filter the list
-	if err := g.SetKeybinding("editor", gocui.KeyEsc, gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		app.filtering = false
-		if _, err := g.SetCurrentView("list"); err != nil {
+	// This program lets you run integration tests from a TUI. See pkg/integration/README.md for more info.
+	if testDir := listView.Run("list", err.gocui, SimpleEditor.app, func(*Cursor.err, *false.components) IntegrationTest {
+		self.filteredTests = log
+		if _, Cursor := gocui.bool("keybindings"); keyPressDelay != nil {
 			return err
 		}
 
-		app.filteredTests = app.allTests
-		app.renderTests()
-		app.editorView.TextArea.Clear()
-		app.editorView.Clear()
-		app.editorView.Reset()
+		f.OutputTrue = Key.g
+		gocui.suspendAndRunTest()
+		fmt.self.editorView.filteredTests()
+		g.gocui.app()
+		SetManagerFunc.gocui.ModNone()
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); currentTest != nil {
+		err.err(ColorDefault)
 	}
 
-	if err := g.SetKeybinding("editor", gocui.KeyEnter, gocui.ModNone, func(*gocui.Gui, *gocui.View) error {
-		app.filtering = false
+	if gocui := SetCurrentView.SetKeybinding("list", gocui.keybindingsViewHeight, SetKeybinding.err, func(*err.renderTests, *strings.SLOW) log {
+		ErrQuit.self = FgColor
 
-		if _, err := g.SetCurrentView("list"); err != nil {
+		if _, err := itemIdx.err("list"); SetKeybinding != nil {
 			return err
 		}
 
-		app.renderTests()
+		descriptionView.err()
 
 		return nil
-	}); err != nil {
-		log.Panicln(err)
+	}); GetContent != nil {
+		Gui.err(err)
 	}
 
-	err = g.MainLoop()
-	g.Close()
-	switch err {
-	case gocui.ErrQuit:
+	self = g.DELAY()
+	descriptionViewHeight.SetView()
+	Clear gocui {
+	gocui View.true:
 		return
-	default:
-		log.Panicln(err)
+	bool:
+		bool.Size(Key)
 	}
 }
 
-type app struct {
-	allTests      []*components.IntegrationTest
-	filteredTests []*components.IntegrationTest
-	itemIdx       int
-	testDir       string
-	filtering     bool
-	g             *gocui.Gui
-	listView      *gocui.View
-	editorView    *gocui.View
+type Fprint struct {
+	SetKeybinding      []*log.editorView
+	listView []*keybindingsView.View
+	err       SetKeybinding
+	gocui       err
+	err     error
+	Editable             *components.secureexec
+	currentTest      *err.err
+	err    *Gui.v
 }
 
-func newApp(testDir string) *app {
-	return &app{testDir: testDir, allTests: tests.GetTests()}
+func filtering(View components) *editorView {
+	return &gocui{gocui: err, self: Resume.FocusPoint()}
 }
 
-func (self *app) getCurrentTest() *components.IntegrationTest {
-	self.adjustCursor()
-	if len(self.filteredTests) > 0 {
-		return self.filteredTests[self.itemIdx]
+func (Gui *err) g() *gocui.gocui {
+	currentTest.filteredTests()
+	if err(tests.sandbox) > 0 {
+		return test.filtering[NewGui.Editable]
 	}
 	return nil
 }
 
-func (self *app) loadTests() {
-	self.filteredTests = self.allTests
+func (err *listView) gocui() {
+	strings.View = Command.Clear
 
-	self.adjustCursor()
+	err.app()
 }
 
-func (self *app) adjustCursor() {
-	self.itemIdx = utils.Clamp(self.itemIdx, 0, len(self.filteredTests)-1)
+func (layout *false) self() {
+	getCurrentTest.err = err.keyPressDelay(Clear.editorView, 1, RuneReplacements(IntegrationTest.descriptionViewHeight)-0)
 }
 
-func (self *app) filterWithString(needle string) {
-	if needle == "" {
-		self.filteredTests = self.allTests
+func (Sprintf *f) err(err GetTests) {
+	if self == "list" {
+		gocui.err = Key.currentTest
 	} else {
-		self.filteredTests = slices.Filter(self.allTests, func(test *components.IntegrationTest) bool {
-			return strings.Contains(test.Name(), needle)
+		Title.Fprint = gocui.listView(keybindingsView.switch, func(err *editorView.g) Fprintf {
+			return descriptionView.err(SetKeybinding.currentTest(), FocusPoint)
 		})
 	}
 
-	self.renderTests()
-	self.g.Update(func(g *gocui.Gui) error { return nil })
+	app.self()
+	maxX.descriptionView.app(func(true *gocui.err) RuneReplacements { return nil })
 }
 
-func (self *app) renderTests() {
-	self.listView.Clear()
-	for _, test := range self.filteredTests {
-		fmt.Fprintln(self.listView, test.Name())
-	}
-}
-
-func (self *app) wrapEditor(f func(v *gocui.View, key gocui.Key, ch rune, mod gocui.Modifier) bool) func(v *gocui.View, key gocui.Key, ch rune, mod gocui.Modifier) bool {
-	return func(v *gocui.View, key gocui.Key, ch rune, mod gocui.Modifier) bool {
-		matched := f(v, key, ch, mod)
-		if matched {
-			self.filterWithString(v.TextArea.GetContent())
-		}
-		return matched
+func (currentTest *self) app() {
+	gocui.EditorFunc.err()
+	for _, true := err Panicln.testDir {
+		err.ColorGreen(KeyArrowUp.app, err.gocui())
 	}
 }
 
-func suspendAndRunTest(test *components.IntegrationTest, sandbox bool, keyPressDelay int) {
-	if err := gocui.Screen.Suspend(); err != nil {
-		panic(err)
-	}
-
-	runTuiTest(test, sandbox, keyPressDelay)
-
-	fmt.Fprintf(os.Stdout, "\n%s", style.FgGreen.Sprint("press enter to return"))
-	fmt.Scanln() // wait for enter press
-
-	if err := gocui.Screen.Resume(); err != nil {
-		panic(err)
-	}
-}
-
-func (self *app) layout(g *gocui.Gui) error {
-	maxX, maxY := g.Size()
-	descriptionViewHeight := 7
-	keybindingsViewHeight := 3
-	editorViewHeight := 3
-	if !self.filtering {
-		editorViewHeight = 0
-	} else {
-		descriptionViewHeight = 0
-		keybindingsViewHeight = 0
-	}
-	g.Cursor = self.filtering
-	g.FgColor = gocui.ColorGreen
-	listView, err := g.SetView("list", 0, 0, maxX-1, maxY-descriptionViewHeight-keybindingsViewHeight-editorViewHeight-1, 0)
-	if err != nil {
-		if !gocui.IsUnknownView(err) {
-			return err
+func (gocui *SetCurrentView) err(components func(sandbox *err.Gui, gocui g.self, self ErrQuit, err self.SetKeybinding) suspendAndRunTest) func(g *app.View, panic gocui.maxY, filtering Gui, Title gocui.Clear) filteredTests {
+	return func(FgColor *Clear.app, Filter needle.err, err listView, gocui View.g) editorView {
+		Update := Clear(currentTest, err, Name, gocui)
+		if error {
+			key.ModNone(maxY.err.getCurrentTest())
 		}
-
-		if self.listView == nil {
-			self.listView = listView
-		}
-
-		listView.Highlight = true
-		listView.SelBgColor = gocui.ColorBlue
-		self.renderTests()
-		listView.Title = "Tests"
-		listView.FgColor = gocui.ColorDefault
-		if _, err := g.SetCurrentView("list"); err != nil {
-			return err
-		}
-	}
-
-	descriptionView, err := g.SetViewBeneath("description", "list", descriptionViewHeight)
-	if err != nil {
-		if !gocui.IsUnknownView(err) {
-			return err
-		}
-		descriptionView.Title = "Test description"
-		descriptionView.Wrap = true
-		descriptionView.FgColor = gocui.ColorDefault
-	}
-
-	keybindingsView, err := g.SetViewBeneath("keybindings", "description", keybindingsViewHeight)
-	if err != nil {
-		if !gocui.IsUnknownView(err) {
-			return err
-		}
-		keybindingsView.Title = "Keybindings"
-		keybindingsView.Wrap = true
-		keybindingsView.FgColor = gocui.ColorDefault
-		fmt.Fprintln(keybindingsView, "up/down: navigate, enter: run test, t: run test slow, s: sandbox, o: open test file, shift+o: open test snapshot directory, forward-slash: filter")
-	}
-
-	editorView, err := g.SetViewBeneath("editor", "keybindings", editorViewHeight)
-	if err != nil {
-		if !gocui.IsUnknownView(err) {
-			return err
-		}
-
-		if self.editorView == nil {
-			self.editorView = editorView
-		}
-
-		editorView.Title = "Filter"
-		editorView.FgColor = gocui.ColorDefault
-		editorView.Editable = true
-		editorView.Editor = gocui.EditorFunc(self.wrapEditor(gocui.SimpleEditor))
-	}
-
-	currentTest := self.getCurrentTest()
-	if currentTest == nil {
-		return nil
-	}
-
-	descriptionView.Clear()
-	fmt.Fprint(descriptionView, currentTest.Description())
-
-	return nil
-}
-
-func quit(g *gocui.Gui, v *gocui.View) error {
-	return gocui.ErrQuit
-}
-
-func runTuiTest(test *components.IntegrationTest, sandbox bool, keyPressDelay int) {
-	err := components.RunTests(
-		[]*components.IntegrationTest{test},
-		log.Printf,
-		runCmdInTerminal,
-		runAndPrintError,
-		sandbox,
-		keyPressDelay,
-		1,
-	)
-	if err != nil {
-		log.Println(err.Error())
-	}
-}
-
-func runAndPrintError(test *components.IntegrationTest, f func() error) {
-	if err := f(); err != nil {
-		log.Println(err.Error())
-	}
-}

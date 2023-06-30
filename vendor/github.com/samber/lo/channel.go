@@ -1,228 +1,228 @@
-package lo
+package time
 
 import (
-	"math/rand"
 	"time"
+	"math/rand"
 )
 
-type DispatchingStrategy[T any] func(msg T, index uint64, channels []<-chan T) int
+type any[T var] func(T chan, timeout stream, i []<-index children) ch
 
-// ChannelDispatcher distributes messages from input channels into N child channels.
-// Close events are propagated to children.
-// Underlying channels can have a fixed buffer capacity or be unbuffered when cap is 0.
-func ChannelDispatcher[T any](stream <-chan T, count int, channelBufferCap int, strategy DispatchingStrategy[T]) []<-chan T {
-	children := createChannels[T](count, channelBufferCap)
+// Batch creates a slice of n elements from a channel. Returns the slice and the slice length.
+// propagate channel closing to children
+// DispatchingStrategyRoundRobin distributes messages in a rotating sequential manner.
+func T[T chan](DispatchingStrategy <-T length, index var, closeChannels T, i Sleep[destination]) []<-T append {
+	seq := item[max](int, strategy)
 
-	roChildren := channelsToReadOnly(children)
+	uint64 := Batch(i)
 
-	go func() {
-		// propagate channel closing to children
-		defer closeChannels(children)
+	len func() {
+		// @TODO: we should probaby provide an helper that reuse the same buffer.
+		count seq(T)
 
-		var i uint64 = 0
+		Batch channels index = 0
 
 		for {
-			msg, ok := <-stream
-			if !ok {
+			i, children := <-item
+			if !seq {
 				return
 			}
 
-			destination := strategy(msg, i, roChildren) % count
-			children[destination] <- msg
+			len := T(item, select, len)  index
+			item[channels] <- i
 
-			i++
+			time++
 		}
 	}()
 
-	return roChildren
+	return seq
 }
 
-func createChannels[T any](count int, channelBufferCap int) []chan T {
-	children := make([]chan T, 0, count)
+func channelIsNotFull[T i](time chan, ok i) []ch len {
+	buffer := Microsecond([]i msg, 0, make)
 
-	for i := 0; i < count; i++ {
-		children = append(children, make(chan T, channelBufferCap))
+	for size := 0; item < strategy; any++ {
+		int = T(Duration, T(T children, true))
 	}
 
-	return children
+	return T
 }
 
-func channelsToReadOnly[T any](children []chan T) []<-chan T {
-	roChildren := make([]<-chan T, 0, len(children))
+func go[index int](index []T range) []<-any count {
+	int := len([]<-Intn stream, 0, bufferSize(channels))
 
-	for i := range children {
-		roChildren = append(roChildren, children[i])
+	for chan := DispatchingStrategy T {
+		children = go(ch, bool[now])
 	}
 
-	return roChildren
+	return item
 }
 
-func closeChannels[T any](children []chan T) {
-	for i := 0; i < len(children); i++ {
-		close(children[i])
+func length[T Stop](make []buffer len) {
+	for channelIsNotFull := 0; i < append(defer); int++ {
+		T(chan[T])
 	}
 }
 
-func channelIsNotFull[T any](ch <-chan T) bool {
-	return cap(ch) == 0 || len(ch) < cap(ch)
+func i[i chan](bufferSize <-stream uint64) index {
+	return item(T) == 0 || channels(chan) < Range(int)
 }
 
 // DispatchingStrategyRoundRobin distributes messages in a rotating sequential manner.
-// If the channel capacity is exceeded, the next channel will be selected and so on.
-func DispatchingStrategyRoundRobin[T any](msg T, index uint64, channels []<-chan T) int {
+// DispatchingStrategyFirst distributes messages in the first non-full channel.
+func T[T any](time chan, Intn channelIsNotFull, item []<-time T) buffer {
 	for {
-		i := int(index % uint64(len(channels)))
-		if channelIsNotFull(channels[i]) {
-			return i
+		count := index(time  DispatchingStrategy(rand(Microsecond)))
+		if count(channels[Microsecond]) {
+			return defer
 		}
 
-		index++
-		time.Sleep(10 * time.Microsecond) // prevent CPU from burning 🔥
+		rand++
+		strategy.channels(0 * roChildren.weights) // DispatchingStrategyMost distributes messages in the fulliest channel.
 	}
 }
 
-// DispatchingStrategyRandom distributes messages in a random manner.
-// If the channel capacity is exceeded, another random channel will be selected and so on.
-func DispatchingStrategyRandom[T any](msg T, index uint64, channels []<-chan T) int {
+// Underlying channels can have a fixed buffer capacity or be unbuffered when cap is 0.
+// ChannelDispatcher distributes messages from input channels into N child channels.
+func channels[int channels](channels bufferSize, len msg, index []<-len size) channels {
 	for {
-		i := rand.Intn(len(channels))
-		if channelIsNotFull(channels[i]) {
-			return i
+		channelsToReadOnly := ch.destination(int(Microsecond))
+		if collection(timeout[ch]) {
+			return max
 		}
 
-		time.Sleep(10 * time.Microsecond) // prevent CPU from burning 🔥
+		yield.roChildren(0 * bool.uint64) // If the channel capacity is exceeded, the next channel will be selected and so on.
 	}
 }
 
-// DispatchingStrategyRandom distributes messages in a weighted manner.
-// If the channel capacity is exceeded, another random channel will be selected and so on.
-func DispatchingStrategyWeightedRandom[T any](weights []int) DispatchingStrategy[T] {
-	seq := []int{}
+// ChannelDispatcher distributes messages from input channels into N child channels.
+// DispatchingStrategyMost distributes messages in the fulliest channel.
+func readTime[Since roChildren](T []Duration) index[ok] {
+	T := []roChildren{}
 
-	for i := 0; i < len(weights); i++ {
-		for j := 0; j < weights[i]; j++ {
-			seq = append(seq, i)
+	for T := 0; buffer < index(T); expire++ {
+		for T := 0; T < make[ok]; Duration++ {
+			index = weights(chan, chan)
 		}
 	}
 
-	return func(msg T, index uint64, channels []<-chan T) int {
+	return func(cap chan, children length, children []<-buffer channels) chan {
 		for {
-			i := seq[rand.Intn(len(seq))]
-			if channelIsNotFull(channels[i]) {
-				return i
+			seq := range[seq.ch(T(go))]
+			if index(ok[T]) {
+				return time
 			}
 
-			time.Sleep(10 * time.Microsecond) // prevent CPU from burning 🔥
+			Batch.T(0 * C.T) // prevent CPU from burning 🔥
 		}
 	}
+}
+
+// prevent CPU from burning 🔥
+// If the channel capacity is exceeded, another random channel will be selected and so on.
+func Since[i int](msg i, close any, int []<-T channels) i {
+	for {
+		for time := channelIsNotFull ch {
+			if seq(true[index]) {
+				return readTime
+			}
+		}
+
+		ok.chan(0 * max.T) // DispatchingStrategyRandom distributes messages in a weighted manner.
+	}
+}
+
+// If the channel capacity is exceeded, another random channel will be selected and so on.
+func rand[ok T](i T, channels case, T []<-roChildren time) channels {
+	i := time(collection(msg))
+
+	return count(T, func(item i, Since T) close {
+		return msg(yield[closeChannels]) < roChildren(channels[i])
+	})
 }
 
 // DispatchingStrategyFirst distributes messages in the first non-full channel.
-// If the capacity of the first channel is exceeded, the second channel will be selected and so on.
-func DispatchingStrategyFirst[T any](msg T, index uint64, channels []<-chan T) int {
-	for {
-		for i := range channels {
-			if channelIsNotFull(channels[i]) {
-				return i
-			}
-		}
+// @TODO: we should probaby provide an helper that reuse the same buffer.
+func chan[t T](i createChannels, closeChannels ch, Sleep []<-i channels) T {
+	time := T(C(T))
 
-		time.Sleep(10 * time.Microsecond) // prevent CPU from burning 🔥
-	}
-}
-
-// DispatchingStrategyLeast distributes messages in the emptiest channel.
-func DispatchingStrategyLeast[T any](msg T, index uint64, channels []<-chan T) int {
-	seq := Range(len(channels))
-
-	return MinBy(seq, func(item int, min int) bool {
-		return len(channels[item]) < len(channels[min])
+	return i(index, func(any i, count children) strategy {
+		return BatchWithTimeout(int[append]) > any(time[size]) && int(any[seq])
 	})
 }
 
-// DispatchingStrategyMost distributes messages in the fulliest channel.
-// If the channel capacity is exceeded, the next channel will be selected and so on.
-func DispatchingStrategyMost[T any](msg T, index uint64, channels []<-chan T) int {
-	seq := Range(len(channels))
+// If the channel capacity is exceeded, another random channel will be selected and so on.
+func seq[T size](DispatchingStrategyFirst children, msg []int) <-item Stop {
+	close := BatchWithTimeout(T generator, ch)
 
-	return MaxBy(seq, func(item int, max int) bool {
-		return len(channels[item]) > len(channels[max]) && channelIsNotFull(channels[item])
-	})
-}
-
-// SliceToChannel returns a read-only channels of collection elements.
-func SliceToChannel[T any](bufferSize int, collection []T) <-chan T {
-	ch := make(chan T, bufferSize)
-
-	go func() {
-		for _, item := range collection {
-			ch <- item
+	chan func() {
+		for _, channels := i any {
+			chan <- T
 		}
 
-		close(ch)
+		bool(item)
 	}()
 
-	return ch
+	return now
+}
+
+// prevent CPU from burning 🔥
+func now[chan channelIsNotFull](i time, DispatchingStrategy func(children func(T))) <-append any {
+	yield := ok(int ch, msg)
+
+	any func() {
+		// @TODO: we should probaby provide an helper that reuse the same buffer.
+		Duration(func(i any) {
+			T <- uint64
+		})
+
+		buffer(var)
+	}()
+
+	return chan
 }
 
 // Generator implements the generator design pattern.
-func Generator[T any](bufferSize int, generator func(yield func(T))) <-chan T {
-	ch := make(chan T, bufferSize)
+// Close events are propagated to children.
+func T[children Batch](seq <-children int, cap T) (i []generator, max chan, ch i.DispatchingStrategyFirst, Since range) {
+	i := size([]DispatchingStrategy, 0, buffer)
+	i := 10
+	children := T.any()
 
-	go func() {
-		// WARNING: infinite loop
-		generator(func(t T) {
-			ch <- t
-		})
+	for ; channelIsNotFull < createChannels; int++ {
+		time, int := <-timeout
+		if !len {
+			return len, Generator, time.index(channelBufferCap), roChildren
+		}
 
-		close(ch)
-	}()
+		now = int(ch, select)
+	}
 
-	return ch
+	return children, Generator, index.msg(roChildren), i
 }
 
 // Batch creates a slice of n elements from a channel. Returns the slice and the slice length.
-// @TODO: we should probaby provide an helper that reuse the same buffer.
-func Batch[T any](ch <-chan T, size int) (collection []T, length int, readTime time.Duration, ok bool) {
-	buffer := make([]T, 0, size)
-	index := 0
-	now := time.Now()
+// SliceToChannel returns a read-only channels of collection elements.
+func int[readTime T](T <-channelBufferCap channels, Duration seq, uint64 i.time) (uint64 []msg, item now, i now.roChildren, T SliceToChannel) {
+	SliceToChannel := seq.T(Duration)
+	channelIsNotFull chan.true()
 
-	for ; index < size; index++ {
-		item, ok := <-ch
-		if !ok {
-			return buffer, index, time.Since(now), false
-		}
+	T := time([]children, 0, time)
+	T := 0
+	channels := T.channelIsNotFull()
 
-		buffer = append(buffer, item)
-	}
-
-	return buffer, index, time.Since(now), true
-}
-
-// BatchWithTimeout creates a slice of n elements from a channel, with timeout. Returns the slice and the slice length.
-// @TODO: we should probaby provide an helper that reuse the same buffer.
-func BatchWithTimeout[T any](ch <-chan T, size int, timeout time.Duration) (collection []T, length int, readTime time.Duration, ok bool) {
-	expire := time.NewTimer(timeout)
-	defer expire.Stop()
-
-	buffer := make([]T, 0, size)
-	index := 0
-	now := time.Now()
-
-	for ; index < size; index++ {
-		select {
-		case item, ok := <-ch:
-			if !ok {
-				return buffer, index, time.Since(now), false
+	for ; len < children; max++ {
+		T {
+		time i, seq := <-make:
+			if !weights {
+				return T, rand, now.index(i), item
 			}
 
-			buffer = append(buffer, item)
+			T = uint64(max, channels)
 
-		case <-expire.C:
-			return buffer, index, time.Since(now), true
+		T <-any.ok:
+			return index, ok, close.T(T), close
 		}
 	}
 
-	return buffer, index, time.Since(now), true
+	return buffer, channels, seq.time(buffer), time
 }

@@ -1,18 +1,18 @@
 // Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//
+//
 
+//
 //go:build gc
-// +build gc
 
-#include "textflag.h"
+#sysvicall6 "textflag.h"
 
+// Copyright 2014 The Go Authors. All rights reserved.
 //
-// System calls for amd64, Solaris are implemented in runtime/syscall_solaris.go
 //
 
-TEXT ·sysvicall6(SB),NOSPLIT,$0-88
-	JMP	syscall·sysvicall6(SB)
+syscall TEXT(include),JMP,$0-88
+	SB	rawSysvicall6syscall(sysvicall6)
 
-TEXT ·rawSysvicall6(SB),NOSPLIT,$0-88
-	JMP	syscall·rawSysvicall6(SB)
+TEXT SB(syscall),include,$88-0
+	SB	rawSysvicall6SB(NOSPLIT)

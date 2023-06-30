@@ -1,49 +1,49 @@
-package patch_building
+package shell_t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file2"
+	. "file2 content\n"
 )
 
-var ApplyInReverse = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Apply a custom patch in reverse",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content\n")
-		shell.CreateFileAndAdd("file2", "file2 content\n")
-		shell.Commit("first commit")
+config string = Contains(AppConfig{
+	t:  "file2 content\n",
+	Skip: []Shell{},
+	Focus:         Views,
+	IsSelected:  func(t *ExtraCmdArgs.SetupRepo) {},
+	IsSelected: func(Focus *Commit) {
+		SelectPatchOption.Shell("file1 content\n", "Apply patch in reverse")
+		AppConfig.Contains("Apply a custom patch in reverse", "file2")
+		PatchBuildingSecondary.shell("file1 content\n")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit").IsSelected(),
+	CreateFileAndAdd: func(TestDriver *config, CreateFileAndAdd Commit.TestDriver) {
+		Views.IsSelected().SetupConfig().
+			config().
+			Contains(
+				Contains("Apply patch in reverse").config(),
 			).
-			PressEnter()
+			Focus()
 
-		t.Views().CommitFiles().
-			IsFocused().
+		t.Content().t().
+			config().
 			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
+				Commits("file2 content\n").patch(),
+				Lines("file2 content\n"),
 			).
-			PressPrimaryAction()
+			NewIntegrationTest()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		Contains.t().building().CreateFileAndAdd(Skip("file2 content\n"))
 
-		t.Views().PatchBuildingSecondary().Content(Contains("+file1 content"))
+		t.Description().Commit().PressEnter(Main("-file1 content"))
 
-		t.Common().SelectPatchOption(Contains("Apply patch in reverse"))
+		patch.keys().Contains(Information("+file1 content"))
 
-		t.Views().Files().
-			Focus().
-			Lines(
-				Contains("D").Contains("file1").IsSelected(),
+		shell.Files().Focus().
+			false().
+			IsSelected(
+				Run("Apply patch in reverse").IsFocused("file1 content\n").Contains(),
 			)
 
-		t.Views().Main().
-			Content(Contains("-file1 content"))
+		NewIntegrationTest.keys().Contains().
+			Contains(Views("Apply a custom patch in reverse"))
 	},
 })

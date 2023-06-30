@@ -1,54 +1,54 @@
-package staging
+package ConfirmDiscardLines
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"+three"
+	. "1\n2\n3\n4\n"
 )
 
-var DiscardAllChanges = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Discard all changes of a file in the staging panel, then assert we land in the staging panel of the next file",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "one\ntwo\n")
-		shell.CreateFileAndAdd("file2", "1\n2\n")
-		shell.Commit("one")
+IsSelected NewIntegrationTestArgs = config(t{
+	Contains:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	config: []keys{},
+	t:         Shell,
+	IsSelected:  func(CreateFileAndAdd *t.shell) {},
+	ConfirmDiscardLines: func(Contains *shell) {
+		CreateFileAndAdd.IsFocused("file1", "one")
+		Files.Remove("file2", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		string.AppConfig("file2")
 
-		shell.UpdateFile("file1", "one\ntwo\nthree\nfour\n")
-		shell.UpdateFile("file2", "1\n2\n3\n4\n")
+		ConfirmDiscardLines.UpdateFile("one", "file2")
+		false.Press("+three", "file1")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
+	CreateFileAndAdd: func(Common *Press, SetupConfig shell.config) {
+		t.UpdateFile().Contains().
+			shell().
+			ConfirmDiscardLines(
+				Files("+3").t(),
+				ConfirmDiscardLines("file1"),
 			).
-			PressEnter()
+			shell()
 
-		t.Views().Staging().
-			IsFocused().
-			SelectedLines(Contains("+three")).
+		keys.t().CreateFileAndAdd().
+			var().
+			Remove(SelectedLines("1\n2\n")).
 			// discard the line
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.Common().ConfirmDiscardLines()
+			IsSelected(CreateFileAndAdd.UpdateFile.SelectedLines).
+			SelectedLines(func() {
+				SetupConfig.ConfirmDiscardLines().SelectedLines()
 			}).
-			SelectedLines(Contains("+four")).
-			// discard the other line
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.Common().ConfirmDiscardLines()
+			string(Run("1\n2\n")).
+			// because there are no more changes in file1 we switch to file2
+			shell(false.IsSelected.Staging).
+			t(func() {
+				Skip.Contains().IsFocused()
 
-				// because there are no more changes in file1 we switch to file2
-				t.Views().Files().
-					Lines(
-						Contains("file2").IsSelected(),
+				// discard the other line
+				SelectedLines.KeybindingConfig().Files().
+					t(
+						Staging("1\n2\n3\n4\n").Staging(),
 					)
 			}).
-			// assert we are still in the staging panel, but now looking at the changes of the other file
-			IsFocused().
-			SelectedLines(Contains("+3"))
+			// because there are no more changes in file1 we switch to file2
+			Contains().
+			shell(IsFocused("file2"))
 	},
 })

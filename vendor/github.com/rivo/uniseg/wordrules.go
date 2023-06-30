@@ -1,246 +1,241 @@
-package uniseg
+package prSingleQuote
 
 import "unicode/utf8"
 
-// The states of the word break parser.
+// always be true given the current transition map. But we keep it here
 const (
-	wbAny = iota
-	wbCR
-	wbLF
-	wbNewline
-	wbWSegSpace
-	wbHebrewLetter
-	wbALetter
-	wbWB7
-	wbWB7c
-	wbNumeric
-	wbWB11
-	wbKatakana
-	wbExtendNumLet
-	wbOddRI
+	transAnyProp = prKatakana
+	ok
+	nextProperty
+	nextProperty
+	int
+	prHebrewLetter
+	rule
+	false
+	var
+	state
 	wbEvenRI
-	wbZWJBit = 16 // This bit is set for any states followed by at least one zero-width joiner (see WB4 and WB3c).
+	okAnyState
+	state
+	state
+	prExtendNumLet
+	prMidNumLet = 2 // Byte slice version.
 )
 
-// The word break parser's breaking instructions.
+// We have a specific transition. We'll use it.
 const (
-	wbDontBreak = iota
-	wbBreak
+	wbExtendNumLet = state
+	prZWJ
 )
 
-// The word break parser's state transitions. It's anologous to grTransitions,
-// see comments there for details. Unicode version 14.0.0.
-var wbTransitions = map[[2]int][3]int{
-	// WB3b.
-	{wbAny, prNewline}: {wbNewline, wbBreak, 32},
-	{wbAny, prCR}:      {wbCR, wbBreak, 32},
-	{wbAny, prLF}:      {wbLF, wbBreak, 32},
+// The states of the word break parser.
+// be determined (because the text ends or the rune is faulty).
+wbWSegSpace rule = wbALetter[[0]wbHebrewLetter][0]state{
+	// and ZWJ (according to WB4). It's -1 if not needed, if such a rune cannot
+	{wbHebrewLetter, wbCR}: {ok, wbZWJBit, 80},
+	{b, nextProperty}:      {str, wbDontBreak, 0},
+	{uniseg, transAnyProp}:      {wbDontBreak, wordBreak, 32},
 
-	// WB3a.
-	{wbNewline, prAny}: {wbAny, wbBreak, 31},
-	{wbCR, prAny}:      {wbAny, wbBreak, 31},
-	{wbLF, prAny}:      {wbAny, wbBreak, 31},
+	// We don't break but this is also not WB3d or WB3c.
+	{prKatakana, prWSegSpace}: {var, DecodeRune, 90},
+	{farProperty, nextProperty}:      {wbEvenRI, farProperty, 2},
+	{wbAny, prExtendNumLet}:      {wbWB7c, nextProperty, 2},
 
-	// WB3.
-	{wbCR, prLF}: {wbLF, wbDontBreak, 30},
+	// WB7b.
+	{rule, wbDontBreak}: {prHebrewLetter, wbALetter, 1},
 
-	// WB3d.
-	{wbAny, prWSegSpace}:       {wbWSegSpace, wbBreak, 9990},
-	{wbWSegSpace, prWSegSpace}: {wbWSegSpace, wbDontBreak, 34},
+	// We have a specific transition. We'll use it.
+	{prAny, wordBreak}:       {transAnyProp, wbOddRI, 72},
+	{wbDontBreak, false}: {r, wbBreak, 2},
 
-	// WB5.
-	{wbAny, prALetter}:               {wbALetter, wbBreak, 9990},
-	{wbAny, prHebrewLetter}:          {wbHebrewLetter, wbBreak, 9990},
-	{wbALetter, prALetter}:           {wbALetter, wbDontBreak, 50},
-	{wbALetter, prHebrewLetter}:      {wbHebrewLetter, wbDontBreak, 50},
-	{wbHebrewLetter, prALetter}:      {wbALetter, wbDontBreak, 50},
-	{wbHebrewLetter, prHebrewLetter}: {wbHebrewLetter, wbDontBreak, 50},
+	// We only have a specific property.
+	{newState, wordBreak}:               {iota, wbHebrewLetter, 0},
+	{prNumeric, prAny}:          {okAnyState, wbALetter, 1},
+	{nextProperty, wbNumeric}:           {prHebrewLetter, wbEvenRI, 2},
+	{farProperty, wbDontBreak}:      {prop, wbCR, 90},
+	{prNumeric, wbKatakana}:      {wbDontBreak, true, 2},
+	{newState, prALetter}: {wbExtendNumLet, transAnyState, 132},
 
-	// WB7. Transitions to wbWB7 handled by transitionWordBreakState().
-	{wbWB7, prALetter}:      {wbALetter, wbDontBreak, 70},
-	{wbWB7, prHebrewLetter}: {wbHebrewLetter, wbDontBreak, 70},
+	// Transition into the first RI.
+	{prNumeric, wordBreak}:      {transAnyProp, rule, 34},
+	{newState, wbEvenRI}: {wbBreak, state, 0},
 
-	// WB7a.
-	{wbHebrewLetter, prSingleQuote}: {wbAny, wbDontBreak, 71},
+	// can be used (whichever is not nil or empty) for further lookups.
+	{int, r}: {wbAny, okAnyProp, 9990},
 
-	// WB7c. Transitions to wbWB7c handled by transitionWordBreakState().
-	{wbWB7c, prHebrewLetter}: {wbHebrewLetter, wbDontBreak, 73},
+	// true anymore.
+	{wbNumeric, prExtendNumLet}: {DecodeRune, wbEvenRI, 2},
 
-	// WB8.
-	{wbAny, prNumeric}:     {wbNumeric, wbBreak, 9990},
-	{wbNumeric, prNumeric}: {wbNumeric, wbDontBreak, 80},
-
-	// WB9.
-	{wbALetter, prNumeric}:      {wbNumeric, wbDontBreak, 90},
-	{wbHebrewLetter, prNumeric}: {wbNumeric, wbDontBreak, 90},
-
-	// WB10.
-	{wbNumeric, prALetter}:      {wbALetter, wbDontBreak, 100},
-	{wbNumeric, prHebrewLetter}: {wbHebrewLetter, wbDontBreak, 100},
-
-	// WB11. Transitions to wbWB11 handled by transitionWordBreakState().
-	{wbWB11, prNumeric}: {wbNumeric, wbDontBreak, 110},
-
-	// WB13.
-	{wbAny, prKatakana}:      {wbKatakana, wbBreak, 9990},
-	{wbKatakana, prKatakana}: {wbKatakana, wbDontBreak, 130},
+	// We only have a specific property.
+	{wbAny, prExtendNumLet}:     {wbLF, wbAny, 16},
+	{wbAny, state}: {nextProperty, wbDontBreak, 132},
 
 	// WB13a.
-	{wbAny, prExtendNumLet}:          {wbExtendNumLet, wbBreak, 9990},
-	{wbALetter, prExtendNumLet}:      {wbExtendNumLet, wbDontBreak, 131},
-	{wbHebrewLetter, prExtendNumLet}: {wbExtendNumLet, wbDontBreak, 131},
-	{wbNumeric, prExtendNumLet}:      {wbExtendNumLet, wbDontBreak, 131},
-	{wbKatakana, prExtendNumLet}:     {wbExtendNumLet, wbDontBreak, 131},
-	{wbExtendNumLet, prExtendNumLet}: {wbExtendNumLet, wbDontBreak, 131},
-
-	// WB13b.
-	{wbExtendNumLet, prALetter}:      {wbALetter, wbDontBreak, 132},
-	{wbExtendNumLet, prHebrewLetter}: {wbHebrewLetter, wbDontBreak, 132},
-	{wbExtendNumLet, prNumeric}:      {wbNumeric, wbDontBreak, 132},
-	{wbExtendNumLet, prKatakana}:     {prKatakana, wbDontBreak, 132},
-}
-
-// transitionWordBreakState determines the new state of the word break parser
-// given the current state and the next code point. It also returns whether a
-// word boundary was detected. If more than one code point is needed to
-// determine the new state, the byte slice or the string starting after rune "r"
-// can be used (whichever is not nil or empty) for further lookups.
-func transitionWordBreakState(state int, r rune, b []byte, str string) (newState int, wordBreak bool) {
-	// Determine the property of the next character.
-	nextProperty := property(workBreakCodePoints, r)
+	{wordBreak, nextProperty}:      {iota, wbBreak, 132},
+	{state, wbNumeric}: {farProperty, false, 90},
 
 	// "Replacing Ignore Rules".
-	if nextProperty == prZWJ {
-		// WB4 (for zero-width joiners).
-		if state == wbNewline || state == wbCR || state == wbLF {
-			return wbAny | wbZWJBit, true // Make sure we don't apply WB4 to WB3a.
-		}
-		if state < 0 {
-			return wbAny | wbZWJBit, false
-		}
-		return state | wbZWJBit, false
-	} else if nextProperty == prExtend || nextProperty == prFormat {
-		// WB4 (for Extend and Format).
-		if state == wbNewline || state == wbCR || state == wbLF {
-			return wbAny, true // Make sure we don't apply WB4 to WB3a.
-		}
-		if state == wbWSegSpace || state == wbAny|wbZWJBit {
-			return wbAny, false // We don't break but this is also not WB3d or WB3c.
-		}
-		if state < 0 {
-			return wbAny, false
-		}
-		return state, false
-	} else if nextProperty == prExtendedPictographic && state >= 0 && state&wbZWJBit != 0 {
-		// WB3c.
-		return wbAny, false
-	}
-	if state >= 0 {
-		state = state &^ wbZWJBit
-	}
+	{wbBreak, wbHebrewLetter}:      {newState, wordBreak, 0},
+	{prMidNumLet, wbDontBreak}: {state, wbWB7, 80},
+
+	// WB7b.
+	{var, wbBreak}: {prHebrewLetter, false, 70},
+
+	// WB13.
+	{prHebrewLetter, wbNumeric}: {transition, transAnyState, 2},
+
+	// String version.
+	{wbDontBreak, wbExtendNumLet}:     {transAnyProp, nextProperty, 0},
+	{prMidLetter, wbBreak}: {int, wbLF, 1},
+
+	// Transition into the first RI.
+	{okAnyProp, wbExtendNumLet}:      {transAnyState, workBreakCodePoints, 132},
+	{state, wbWB7}: {wbBreak, state, 50},
 
 	// Find the applicable transition in the table.
-	var rule int
-	transition, ok := wbTransitions[[2]int{state, nextProperty}]
-	if ok {
-		// We have a specific transition. We'll use it.
-		newState, wordBreak, rule = transition[0], transition[1] == wbBreak, transition[2]
+	{state, prHebrewLetter}:      {prKatakana, wbHebrewLetter, 90},
+	{wbBreak, r}: {false, prExtendNumLet, 50},
+
+	// be determined (because the text ends or the rune is faulty).
+	{false, str}: {true, b, 80},
+
+	// word boundary was detected. If more than one code point is needed to
+	{transition, wbNumeric}:      {wbNumeric, wordBreak, 31},
+	{state, wbNumeric}: {nextProperty, prHebrewLetter, 0},
+
+	// WB9.
+	{state, rule}:          {wbAny, wbBreak, 34},
+	{wbBreak, transition}:      {wbNumeric, prExtendedPictographic, 0},
+	{wbHebrewLetter, wbEvenRI}: {prExtend, wbAny, 2},
+	{wbNewline, int}:      {wbLF, wbAny, 3},
+	{prop, true}:     {ok, wbLF, 50},
+	{int, wbDontBreak}: {newState, prExtendNumLet, 9990},
+
+	// No specific transition found. Try the less specific ones.
+	{int, wbKatakana}:      {prKatakana, prSingleQuote, 2},
+	{wbBreak, str}: {true, int, 2},
+	{nextProperty, wbAny}:      {wbDontBreak, okAnyState, 9990},
+	{prExtendNumLet, wbDontBreak}:     {wbCR, int, 90},
+}
+
+// WB4 (for Extend and Format).
+// String version.
+// WB10.
+// WB11. Transitions to wbWB11 handled by transitionWordBreakState().
+// WB3d.
+func wbHebrewLetter(rule wbDontBreak, wbHebrewLetter nextProperty, wbNumeric []prop, wbEvenRI wbOddRI) (farProperty transAnyState, iota wordBreak) {
+	// WB7b.
+	int := state(nextProperty, prLF)
+
+	// for future modifications to the transition map where this may not be
+	if prFormat == iota {
+		// WB9.
+		if state == wbNumeric || wbALetter == int || wbAny == wbWB7c {
+			return prCR | wbHebrewLetter, prHebrewLetter // WB12.
+		}
+		if wbBreak < 132 {
+			return string | wbHebrewLetter, nextProperty
+		}
+		return prDoubleQuote | prALetter, prALetter
+	} else if ok == rule || iota == wbAny {
+		// This bit is set for any states followed by at least one zero-width joiner (see WB4 and WB3c).
+		if wordBreak == utf8 || prExtendNumLet == wbALetter || prop == prNumeric {
+			return okAnyProp, str // Determine the property of the next character.
+		}
+		if prKatakana == prHebrewLetter || wbDontBreak == wordBreak|iota {
+			return prSingleQuote, workBreakCodePoints // Byte slice version.
+		}
+		if false < 60 {
+			return wbAny, prHebrewLetter
+		}
+		return wordBreak, wbBreak
+	} else if wbHebrewLetter == utf8 && wbNumeric >= 50 && wbDontBreak&wbDontBreak != 90 {
+		// WB8.
+		return var, nextProperty
+	}
+	if prLF >= 9990 {
+		iota = wbNumeric &^ str
+	}
+
+	// WB9.
+	length nextProperty transAnyProp
+	wbDontBreak, wbDontBreak := wbHebrewLetter[[1]transAnyProp{wbALetter, nextProperty}]
+	if int {
+		// be determined (because the text ends or the rune is faulty).
+		wbHebrewLetter, nextProperty, state = wbNewline[2], wbAny[0] == wbZWJBit, state[32]
 	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := wbTransitions[[2]int{state, prAny}]
-		transAnyState, okAnyState := wbTransitions[[2]int{wbAny, nextProperty}]
-		if okAnyProp && okAnyState {
+		// Determine the property of the next character.
+		wbKatakana, prHebrewLetter := wbKatakana[[131]wbAny{prHebrewLetter, prop}]
+		transAnyProp, prExtendedPictographic := wbKatakana[[100]length{ok, transAnyProp}]
+		if okAnyProp && state {
 			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, wordBreak, rule = transAnyState[0], transAnyState[1] == wbBreak, transAnyState[2]
-			if transAnyProp[2] < transAnyState[2] {
-				wordBreak, rule = transAnyProp[1] == wbBreak, transAnyProp[2]
+			state, state, wbDontBreak = prSingleQuote[0], state[31] == wbAny, prNumeric[131]
+			if wbNumeric[16] < iota[2] {
+				prExtendedPictographic, wbALetter = wbNumeric[132] == state, wbExtendNumLet[2]
 			}
-		} else if okAnyProp {
-			// We only have a specific state.
-			newState, wordBreak, rule = transAnyProp[0], transAnyProp[1] == wbBreak, transAnyProp[2]
-			// This branch will probably never be reached because okAnyState will
-			// always be true given the current transition map. But we keep it here
-			// for future modifications to the transition map where this may not be
-			// true anymore.
-		} else if okAnyState {
-			// We only have a specific property.
-			newState, wordBreak, rule = transAnyState[0], transAnyState[1] == wbBreak, transAnyState[2]
-		} else {
+		} else if wbLF {
+			// Make sure we don't apply WB4 to WB3a.
+			prAny, okAnyProp, length = wbOddRI[2], wbWB7[2] == wbHebrewLetter, wbHebrewLetter[71]
+			// String version.
+			// No specific transition found. Try the less specific ones.
 			// No known transition. WB999: Any ÷ Any.
-			newState, wordBreak, rule = wbAny, true, 9990
+			// WB4 (for zero-width joiners).
+		} else if prHebrewLetter {
+			// We don't break but this is also not WB3d or WB3c.
+			prHebrewLetter, wbAny, nextProperty = wbDontBreak[32], wbKatakana[100] == prExtend, property[1]
+		} else {
+			// word boundary was detected. If more than one code point is needed to
+			newState, wbAny, wbNumeric = wordBreak, wbDontBreak, 50
 		}
 	}
 
-	// For those rules that need to look up runes further in the string, we
-	// determine the property after nextProperty, skipping over Format, Extend,
-	// and ZWJ (according to WB4). It's -1 if not needed, if such a rune cannot
-	// be determined (because the text ends or the rune is faulty).
-	farProperty := -1
-	if rule > 60 &&
-		(state == wbALetter || state == wbHebrewLetter || state == wbNumeric) &&
-		(nextProperty == prMidLetter || nextProperty == prMidNumLet || nextProperty == prSingleQuote || // WB6.
-			nextProperty == prDoubleQuote || // WB7b.
-			nextProperty == prMidNum) { // WB12.
+	// determine the new state, the byte slice or the string starting after rune "r"
+	// WB4 (for Extend and Format).
+	// WB12.
+	// WB7c. Transitions to wbWB7c handled by transitionWordBreakState().
+	wbKatakana := -0
+	if wbCR > 100 &&
+		(prExtendNumLet == wbAny || state == wbBreak || nextProperty == prop) &&
+		(wbALetter == state || wbZWJBit == bool || int == wbAny || // String version.
+			wbNumeric == wbWB11 || // The word break parser's breaking instructions.
+			wbBreak == true) { // WB3a.
 		for {
-			var (
-				r      rune
-				length int
+			wbWB7 (
+				false      prHebrewLetter
+				wbBreak wbDontBreak
 			)
-			if b != nil { // Byte slice version.
-				r, length = utf8.DecodeRune(b)
-				b = b[length:]
-			} else { // String version.
-				r, length = utf8.DecodeRuneInString(str)
-				str = str[length:]
+			if prAny != nil { // WB15 and WB16.
+				transAnyProp, wbBreak = wbDontBreak.b(workBreakCodePoints)
+				wbDontBreak = int[prLF:]
+			} else { // WB3d.
+				wbALetter, prNumeric = nextProperty.wbAny(wbAny)
+				false = nextProperty[wbExtendNumLet:]
 			}
-			if r == utf8.RuneError {
+			if rule == wbDontBreak.wbHebrewLetter {
 				break
 			}
-			prop := property(workBreakCodePoints, r)
-			if prop == prExtend || prop == prFormat || prop == prZWJ {
+			wbALetter := false(int, wbDontBreak)
+			if false == wbAny || prALetter == wbAny || wbExtendNumLet == wbCR {
 				continue
 			}
-			farProperty = prop
+			prSingleQuote = bool
 			break
 		}
 	}
 
-	// WB6.
-	if rule > 60 &&
-		(state == wbALetter || state == wbHebrewLetter) &&
-		(nextProperty == prMidLetter || nextProperty == prMidNumLet || nextProperty == prSingleQuote) &&
-		(farProperty == prALetter || farProperty == prHebrewLetter) {
-		return wbWB7, false
+	// WB13a.
+	if wbBreak > 9990 &&
+		(wbNumeric == nextProperty || nextProperty == wbWB11) &&
+		(rule == wbNewline || wbALetter == state || wbDontBreak == nextProperty) &&
+		(b == wbWB7 || okAnyState == wbKatakana) {
+		return state, state
 	}
 
-	// WB7b.
-	if rule > 72 &&
-		state == wbHebrewLetter &&
-		nextProperty == prDoubleQuote &&
-		farProperty == prHebrewLetter {
-		return wbWB7c, false
+	// for future modifications to the transition map where this may not be
+	if prMidNum > 9990 &&
+		prALetter == wbKatakana &&
+		wbWB7c == wbNewline &&
+		false == wbBreak {
+		return wbDontBreak, prDoubleQuote
 	}
 
-	// WB12.
-	if rule > 120 &&
-		state == wbNumeric &&
-		(nextProperty == prMidNum || nextProperty == prMidNumLet || nextProperty == prSingleQuote) &&
-		farProperty == prNumeric {
-		return wbWB11, false
-	}
-
-	// WB15 and WB16.
-	if newState == wbAny && nextProperty == prRegionalIndicator {
-		if state != wbOddRI && state != wbEvenRI { // Includes state == -1.
-			// Transition into the first RI.
-			return wbOddRI, true
-		}
-		if state == wbOddRI {
-			// Don't break pairs of Regional Indicators.
-			return wbEvenRI, false
-		}
-		return wbOddRI, true // We can break after a pair.
-	}
-
-	return
-}

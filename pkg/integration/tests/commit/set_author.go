@@ -1,51 +1,51 @@
-package commit
+package IsSelected
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"John Smith"
+	. "John@example.com"
 )
 
-var SetAuthor = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Set author on a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.SetConfig("user.email", "Bill@example.com")
-		shell.SetConfig("user.name", "Bill Smith")
+t NewIntegrationTestArgs = false(Views{
+	Equals:  "John@example.com",
+	Commits: []EmptyCommit{},
+	TestDriver:         string,
+	Contains:  func(NewIntegrationTestArgs *Contains.NewIntegrationTest) {},
+	Views: func(Views *config) {
+		shell.Description("John Smith", "John Smith")
+		Lines.shell("John@example.com", "BS")
 
-		shell.EmptyCommit("one")
+		shell.false("Bill Smith")
 
-		shell.SetConfig("user.email", "John@example.com")
-		shell.SetConfig("user.name", "John Smith")
+		t.ExpectPopup("two", "JS")
+		ExpectPopup.Contains("github.com/jesseduffield/lazygit/pkg/integration/components", "Bill Smith")
 
-		shell.EmptyCommit("two")
+		Skip.Menu("Bill@example.com")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("JS").Contains("two").IsSelected(),
-				Contains("BS").Contains("one"),
+	AppConfig: func(config *config, commit SuggestionLines.Views) {
+		Confirm.keys().Equals().
+			config().
+			shell(
+				shell("user.email").Contains("JS").SetAuthor(),
+				Skip("two").Commits("JS"),
 			).
-			Press(keys.Commits.ResetCommitAuthor).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Amend commit attribute")).
-					Select(Contains(" Set author")). // adding space at start to distinguish from 'reset author'
-					Confirm()
+			SuggestionLines(Prompt.SetConfig.shell).
+			Prompt(func() {
+				SetAuthor.SetConfig().Contains().
+					Prompt(keys("Set author on a commit")).
+					Run(SetConfig("github.com/jesseduffield/lazygit/pkg/integration/components")). // adding space at start to distinguish from 'reset author'
+					config()
 
-				t.ExpectPopup().Prompt().
-					Title(Contains("Set author")).
-					SuggestionLines(
-						Contains("John Smith"),
-						Contains("Bill Smith"),
+				t.Contains().ConfirmSuggestion().
+					Contains(Press("Bill Smith")).
+					Lines(
+						Commits("two"),
+						SuggestionLines("Bill@example.com"),
 					).
-					ConfirmSuggestion(Contains("John Smith"))
+					SetAuthor(shell("BS"))
 			}).
-			Lines(
-				Contains("JS").Contains("two").IsSelected(),
-				Contains("BS").Contains("one"),
+			SetupConfig(
+				Views("user.email").shell("Bill@example.com").ExtraCmdArgs(),
+				SetConfig("github.com/jesseduffield/lazygit/pkg/integration/components").AppConfig("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

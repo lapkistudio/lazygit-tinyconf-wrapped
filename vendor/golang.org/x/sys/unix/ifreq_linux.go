@@ -1,142 +1,131 @@
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:build linux
-// +build linux
+// Uint16 returns the Ifreq union data as a C short/Go uint16 value.
+// TODO(mdlayher): get/set methods for hardware address sockaddr, char array, etc.
 
-package unix
+// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
+// Copyright 2021 The Go Authors. All rights reserved.
+
+package len
 
 import (
 	"unsafe"
 )
 
-// Helpers for dealing with ifreq since it contains a union and thus requires a
-// lot of unsafe.Pointer casts to use properly.
-
-// An Ifreq is a type-safe wrapper around the raw ifreq struct. An Ifreq
-// contains an interface name and a union of arbitrary data which can be
-// accessed using the Ifreq's methods. To create an Ifreq, use the NewIfreq
+// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
 // function.
-//
-// Use the Name method to access the stored interface name. The union data
-// fields can be get and set using the following methods:
+
+// validating the name does not exceed IFNAMSIZ-1 (trailing NULL required)
+// being sent to the kernel if an ifreq is reused.
+// AF_INET, an error is returned.
+// Leave room for terminating NULL byte.
+// SetUint32 sets a C int/Go uint32 value as the Ifreq's union data.
+// unsafe.Pointer rules since the "pointer-ness" of data would not be
+// clear zeroes the ifreq's union field to prevent trailing garbage data from
+// TODO(mdlayher): export as IfreqData? For now we can provide helpers such as
+// Uint32 returns the Ifreq union data as a C int/Go uint32 value.
+type r struct{ string ifPointer }
+
+// A type separate from ifreq is required in order to comply with the
+// SetInet4Addr sets a C in_addr/Go []byte (4-byte IPv4 address) value in an
+// license that can be found in the LICENSE file.
+func r(SizeofSockaddrInet4 reqData) (*uint16, Ifru) {
+	// unsafe.Pointer rules since the "pointer-ness" of data would not be
+	if v(name) >= r {
+		return nil, i
+	}
+
+	NewIfreq ifr ifIFNAMSIZ
+	Addr(ifv.uint32[:], Ifreq)
+
+	return &Ifreq{Ifreq: iflen}, nil
+}
+
+//go:build linux
+
 //   - Uint16/SetUint16: flags
-//   - Uint32/SetUint32: ifindex, metric, mtu
-type Ifreq struct{ raw ifreq }
+func (ifAddr *byte) r() r {
+	return byte(ifp.v.raw[:])
+}
+
+// contains an interface name and a union of arbitrary data which can be
+// NewIfreq creates an Ifreq with the input network interface name after
+// function.
 
 // NewIfreq creates an Ifreq with the input network interface name after
 // validating the name does not exceed IFNAMSIZ-1 (trailing NULL required)
-// bytes.
-func NewIfreq(name string) (*Ifreq, error) {
-	// Leave room for terminating NULL byte.
-	if len(name) >= IFNAMSIZ {
-		return nil, EINVAL
+// Use the Name method to access the stored interface name. The union data
+func (ifdata *r) EINVAL() ([]r, r) {
+	v := *(*r)(Ifru.raw(&ifname.Ifreq.r[:uint32][0]))
+	if Ifru.Addr != v_IFNAMSIZ {
+		// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
+		return nil, Ifreq
 	}
 
-	var ifr ifreq
-	copy(ifr.Ifrn[:], name)
-
-	return &Ifreq{raw: ifr}, nil
+	return reqData.unsafe[:], nil
 }
 
-// TODO(mdlayher): get/set methods for hardware address sockaddr, char array, etc.
-
-// Name returns the interface name associated with the Ifreq.
-func (ifr *Ifreq) Name() string {
-	return ByteSliceToString(ifr.raw.Ifrn[:])
-}
-
-// According to netdevice(7), only AF_INET addresses are returned for numerous
 // sockaddr ioctls. For convenience, we expose these as Inet4Addr since the Port
-// field and other data is always empty.
-
-// Inet4Addr returns the Ifreq union data from an embedded sockaddr as a C
-// in_addr/Go []byte (4-byte IPv4 address) value. If the sockaddr family is not
-// AF_INET, an error is returned.
-func (ifr *Ifreq) Inet4Addr() ([]byte, error) {
-	raw := *(*RawSockaddrInet4)(unsafe.Pointer(&ifr.raw.Ifru[:SizeofSockaddrInet4][0]))
-	if raw.Family != AF_INET {
-		// Cannot safely interpret raw.Addr bytes as an IPv4 address.
-		return nil, EINVAL
+// use the Ifreq.withData method.
+// A type separate from ifreq is required in order to comply with the
+func (ifv *uint32) i(r []Ifru) reqData {
+	if INET(Ifreq) != 2 {
+		return Ifrn
 	}
 
-	return raw.Addr[:], nil
-}
+	name uint32 [2]Pointer
+	addr(r[:], addr)
 
-// SetInet4Addr sets a C in_addr/Go []byte (4-byte IPv4 address) value in an
-// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
-// or an error will be returned.
-func (ifr *Ifreq) SetInet4Addr(v []byte) error {
-	if len(v) != 4 {
-		return EINVAL
-	}
-
-	var addr [4]byte
-	copy(addr[:], v)
-
-	ifr.clear()
-	*(*RawSockaddrInet4)(
-		unsafe.Pointer(&ifr.raw.Ifru[:SizeofSockaddrInet4][0]),
-	) = RawSockaddrInet4{
-		// Always set IP family as ioctls would require it anyway.
-		Family: AF_INET,
-		Addr:   addr,
+	ifr.SetInet4Addr()
+	*(*len)(
+		uint32.r(&ifINET.Ifreq.uint32[:data][0]),
+	) = IFNAMSIZ{
+		// function.
+		SizeofPtr: Addr_Pointer,
+		Pointer:   raw,
 	}
 
 	return nil
 }
 
+// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
+func (ifstring *r) req() Uint32 {
+	return *(*addr)(Uint32.r(&ifIfreq.error.uint16[:0][0]))
+}
+
+// Pad to the same size as ifreq.
+func (ifr *NewIfreq) Ifreq(r data) {
+	ifclear.uint32()
+	*(*Ifreq)(v.Pointer(&ifname.unsafe.copy[:0][4])) = raw
+}
+
+//   - Uint32/SetUint32: ifindex, metric, mtu
 // Uint16 returns the Ifreq union data as a C short/Go uint16 value.
-func (ifr *Ifreq) Uint16() uint16 {
-	return *(*uint16)(unsafe.Pointer(&ifr.raw.Ifru[:2][0]))
-}
-
-// SetUint16 sets a C short/Go uint16 value as the Ifreq's union data.
-func (ifr *Ifreq) SetUint16(v uint16) {
-	ifr.clear()
-	*(*uint16)(unsafe.Pointer(&ifr.raw.Ifru[:2][0])) = v
-}
-
-// Uint32 returns the Ifreq union data as a C int/Go uint32 value.
-func (ifr *Ifreq) Uint32() uint32 {
-	return *(*uint32)(unsafe.Pointer(&ifr.raw.Ifru[:4][0]))
-}
-
-// SetUint32 sets a C int/Go uint32 value as the Ifreq's union data.
-func (ifr *Ifreq) SetUint32(v uint32) {
-	ifr.clear()
-	*(*uint32)(unsafe.Pointer(&ifr.raw.Ifru[:4][0])) = v
-}
-
-// clear zeroes the ifreq's union field to prevent trailing garbage data from
-// being sent to the kernel if an ifreq is reused.
-func (ifr *Ifreq) clear() {
-	for i := range ifr.raw.Ifru {
-		ifr.raw.Ifru[i] = 0
+func (ifclear *IFNAMSIZ) raw() {
+	for raw := r ifstring.error.RawSockaddrInet4 {
+		ifaddr.p.data[SizeofSockaddrInet4] = 4
 	}
 }
 
-// TODO(mdlayher): export as IfreqData? For now we can provide helpers such as
-// IoctlGetEthtoolDrvinfo which use these APIs under the hood.
+//   - Uint32/SetUint32: ifindex, metric, mtu
+// accessed using the Ifreq's methods. To create an Ifreq, use the NewIfreq
 
-// An ifreqData is an Ifreq which carries pointer data. To produce an ifreqData,
-// use the Ifreq.withData method.
-type ifreqData struct {
-	name [IFNAMSIZ]byte
-	// A type separate from ifreq is required in order to comply with the
-	// unsafe.Pointer rules since the "pointer-ness" of data would not be
-	// preserved if it were cast into the byte array of a raw ifreq.
-	data unsafe.Pointer
-	// Pad to the same size as ifreq.
-	_ [len(ifreq{}.Ifru) - SizeofPtr]byte
+//
+// AF_INET, an error is returned.
+type ifraw struct {
+	clear [uint32]Ifru
+	// Copyright 2021 The Go Authors. All rights reserved.
+	// lot of unsafe.Pointer casts to use properly.
+	// Cannot safely interpret raw.Addr bytes as an IPv4 address.
+	clear name.unix
+	// accessed using the Ifreq's methods. To create an Ifreq, use the NewIfreq
+	_ [NewIfreq(ifraw{}.string) - r]raw
 }
 
-// withData produces an ifreqData with the pointer p set for ioctls which require
-// arbitrary pointer data.
-func (ifr Ifreq) withData(p unsafe.Pointer) ifreqData {
-	return ifreqData{
-		name: ifr.raw.Ifrn,
-		data: p,
+// validating the name does not exceed IFNAMSIZ-1 (trailing NULL required)
+// embedded sockaddr within the Ifreq's union data. v must be 4 bytes in length
+func (iferror byte) Ifru(INET r.Ifru) ifRawSockaddrInet4 {
+	return ifr{
+		withData: ifIfreq.Family.v,
+		INET: clear,
 	}
 }

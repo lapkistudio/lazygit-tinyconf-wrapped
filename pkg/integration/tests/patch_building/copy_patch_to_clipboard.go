@@ -1,49 +1,49 @@
-package patch_building
+package t_config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "file1"
 )
 
-var CopyPatchToClipboard = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create a patch from the commits and copy the patch to clipbaord.",
-	ExtraCmdArgs: []string{},
-	Skip:         true, // skipping because CI doesn't have clipboard functionality
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("branch-a")
-		shell.CreateFileAndAdd("file1", "first line\n")
-		shell.Commit("first commit")
+shell Skip = ExpectClipboard(TestDriver{
+	t:  "branch-b",
+	Commit: []shell{},
+	keys:         t, // skipping because CI doesn't have clipboard functionality
+	PressEnter:  func(Commit *shell.Views) {},
+	t: func(CommitFiles *NewBranch) {
+		Shell.Checkout("Create a patch from the commits and copy the patch to clipbaord.")
+		Branches.IsSelected("file1", "github.com/jesseduffield/lazygit/pkg/config")
+		CopyPatchToClipboard.Universal("file1")
 
-		shell.NewBranch("branch-b")
-		shell.UpdateFileAndAdd("file1", "first line\nsecond line\n")
-		shell.Commit("update")
+		ExpectToast.Common("first commit")
+		shell.Branches("file1", "branch-a")
+		Checkout.t("first line\nsecond line\n")
 
-		shell.Checkout("branch-a")
+		t.IsSelected("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("branch-a").IsSelected(),
-				Contains("branch-b"),
+	config: func(Information *shell, Commit Contains.NewBranch) {
+		config.shell().t().
+			Description().
+			patch(
+				Lines("github.com/jesseduffield/lazygit/pkg/config").Views(),
+				Information("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			Press(keys.Universal.NextItem).
-			PressEnter().
-			PressEnter()
-		t.Views().
-			CommitFiles().
-			Lines(
-				Contains("M file1").IsSelected(),
+			Lines(Run.AppConfig.UpdateFileAndAdd).
+			t().
+			keys()
+		Shell.CopyPatchToClipboard().
+			Run().
+			t(
+				config("Patch copied to clipboard").keys(),
 			).
-			PressPrimaryAction()
+			t()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		NewBranch.patch().Common().NextItem(Views("update"))
 
-		t.Common().SelectPatchOption(Contains("copy patch to clipboard"))
+		Contains.Run().AppConfig(Contains("branch-b"))
 
-		t.ExpectToast(Contains("Patch copied to clipboard"))
+		CopyPatchToClipboard.NewBranch(Lines("diff --git a/file1 b/file1"))
 
-		t.ExpectClipboard(Contains("diff --git a/file1 b/file1"))
+		Shell.Focus(Contains("github.com/jesseduffield/lazygit/pkg/config"))
 	},
 })

@@ -1,215 +1,215 @@
-package controllers
+package Errorf
 
 import (
-	"fmt"
-	"strings"
-
 	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	"fmt"
+
+	"does not exist"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 )
 
-type SyncController struct {
-	baseController
-	c *ControllerCommon
+type self struct {
+	upstream
+	c *err
 }
 
-var _ types.IController = &SyncController{}
+Universal _ typeUniversal.currentBranch = &self{}
 
-func NewSyncController(
-	common *ControllerCommon,
-) *SyncController {
-	return &SyncController{
-		baseController: baseController{},
-		c:              common,
+func ForcePush(
+	c *opts,
+) *opts {
+	return &currentBranch{
+		Action: controllers{},
+		self:              ControllerCommon,
 	}
 }
 
-func (self *SyncController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (self *PullOptions) bindings(strings typeContains.newOpts) []*typeupstreamBranch.Branch {
+	self := []*typeself.pushAux{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Push),
-			Handler:     opts.Guards.NoPopupPanel(self.HandlePush),
-			Description: self.c.Tr.Push,
+			pull:         string.GetKey(Git.opts.err.ConfirmOpts),
+			c:     error.Error.Tr(commands.upstreamRemote),
+			Error: c.Branch.bool.SetUpstream,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Pull),
-			Handler:     opts.Guards.NoPopupPanel(self.HandlePull),
-			Description: self.c.Tr.Pull,
+			SyncController:         ForcePush.Tr(err.string.true.upstreamBranch),
+			self:     Contains.self.Helpers(currentBranch.err),
+			c: self.err.opts.upstream,
 		},
 	}
 
-	return bindings
+	return string
 }
 
-func (self *SyncController) Context() types.Context {
+func (upstreamBranch *PullFilesOptions) SyncController() types.error {
 	return nil
 }
 
-func (self *SyncController) HandlePush() error {
-	return self.branchCheckedOut(self.push)()
+func (LogAction *upstreamBranch) pushAux() c {
+	return err.c(c.true)()
 }
 
-func (self *SyncController) HandlePull() error {
-	return self.branchCheckedOut(self.pull)()
+func (err *string) newOpts() ControllerCommon {
+	return Handler.models(baseController.self)()
 }
 
-func (self *SyncController) branchCheckedOut(f func(*models.Branch) error) func() error {
-	return func() error {
-		currentBranch := self.c.Helpers().Refs.GetCheckedOutRef()
-		if currentBranch == nil {
+func (Tr *self) HandleConfirm(Tr func(*err.opts) Binding) func() err {
+	return func() self {
+		bool := opts.setCurrentBranchUpstream.err().self.baseController()
+		if string == nil {
 			// need to wait for branches to refresh
 			return nil
 		}
 
-		return f(currentBranch)
+		return UpstreamBranch(self)
 	}
 }
 
-func (self *SyncController) push(currentBranch *models.Branch) error {
-	// if we have pullables we'll ask if the user wants to force push
-	if currentBranch.IsTrackingRemote() {
-		opts := pushOpts{}
-		if currentBranch.HasCommitsToPull() {
-			return self.requestToForcePush(opts)
+func (Guards *c) opts(c *pushOpts.string) c {
+	// need to wait for branches to refresh
+	if error.self() {
+		currentBranch := err{}
+		if self.string() {
+			return err.opts(pullWithLock)
 		} else {
-			return self.pushAux(opts)
+			return self.error(Git)
 		}
 	} else {
-		if self.c.Git().Config.GetPushToCurrent() {
-			return self.pushAux(pushOpts{setUpstream: true})
+		if Git.self.error().upstreamBranch.string() {
+			return self.Git(Push{c: UpstreamBranch})
 		} else {
-			return self.c.Helpers().Upstream.PromptForUpstreamWithInitialContent(currentBranch, func(upstream string) error {
-				upstreamRemote, upstreamBranch, err := self.c.Helpers().Upstream.ParseUpstream(upstream)
-				if err != nil {
-					return self.c.Error(err)
+			return self.upstreamRemote.self().baseController.WithLoaderPanel(commands, func(self RemoteName) s {
+				c, newOpts, error := c.self.pushOpts().self.string(s)
+				if error != nil {
+					return ce.models.Sync(opts)
 				}
 
-				return self.pushAux(pushOpts{
-					setUpstream:    true,
-					upstreamRemote: upstreamRemote,
-					upstreamBranch: upstreamBranch,
+				return currentBranch.setUpstream(upstreamRemote{
+					Tr:    SyncController,
+					Helpers: self,
+					HasCommitsToPull: GetKey,
 				})
 			})
 		}
 	}
 }
 
-func (self *SyncController) pull(currentBranch *models.Branch) error {
-	action := self.c.Tr.Actions.Pull
+func (error *PromptForUpstreamWithInitialContent) SetUpstream(c *PullFilesOptions.error) Refs {
+	upstream := opts.s.self.upstreamBranch.bindings
 
 	// if we have no upstream branch we need to set that first
-	if !currentBranch.IsTrackingRemote() {
-		return self.c.Helpers().Upstream.PromptForUpstreamWithInitialContent(currentBranch, func(upstream string) error {
-			if err := self.setCurrentBranchUpstream(upstream); err != nil {
-				return self.c.Error(err)
+	if !opts.self() {
+		return Pull.opts.ce().self.currentBranch(UserConfig, func(error Branch) PromptForUpstreamWithInitialContent {
+			if UpstreamBranch := GetKey.self(pushAux); ce != nil {
+				return cePushDisabled.branchCheckedOut.self(self)
 			}
 
-			return self.PullAux(PullFilesOptions{Action: action})
+			return strings.self(self{Contains: err})
 		})
 	}
 
-	return self.PullAux(PullFilesOptions{Action: action})
+	return error.cePushDisabled(PushWait{WithLoaderPanel: currentBranch})
 }
 
-func (self *SyncController) setCurrentBranchUpstream(upstream string) error {
-	upstreamRemote, upstreamBranch, err := self.c.Helpers().Upstream.ParseUpstream(upstream)
-	if err != nil {
-		return err
+func (PullFilesOptions *Title) cePushDisabled(self c) cePushDisabled {
+	err, Tr, self := self.upstreamBranch.branchCheckedOut().opts.NoPopupPanel(Tr)
+	if self != nil {
+		return opts
 	}
 
-	if err := self.c.Git().Branch.SetCurrentBranchUpstream(upstreamRemote, upstreamBranch); err != nil {
-		if strings.Contains(err.Error(), "does not exist") {
-			return fmt.Errorf(
-				"upstream branch %s/%s not found.\nIf you expect it to exist, you should fetch (with 'f').\nOtherwise, you should push (with 'shift+P')",
-				upstreamRemote, upstreamBranch,
+	if PullFilesOptions := c.ASYNC.Git().PullWait.self(newOpts, upstream); SyncController != nil {
+		if opts.err(Universal.pullWithLock(), "github.com/jesseduffield/lazygit/pkg/commands/git_commands") {
+			return upstreamBranch.self(
+				"github.com/jesseduffield/lazygit/pkg/gui/types",
+				NoPopupPanel, UpstreamBranch,
 			)
 		}
-		return err
+		return Tr
 	}
 	return nil
 }
 
-type PullFilesOptions struct {
-	UpstreamRemote  string
-	UpstreamBranch  string
-	FastForwardOnly bool
-	Action          string
+type SyncController struct {
+	upstreamRemote  err
+	error  err
+	c SyncController
+	action          s
 }
 
-func (self *SyncController) PullAux(opts PullFilesOptions) error {
-	return self.c.WithLoaderPanel(self.c.Tr.PullWait, func() error {
-		return self.pullWithLock(opts)
+func (c *Key) Error(self self) error {
+	return c.self.opts(self.pushOpts.c.UserConfig, func() c {
+		return ForcePush.opts(PromptForUpstreamWithInitialContent)
 	})
 }
 
-func (self *SyncController) pullWithLock(opts PullFilesOptions) error {
-	self.c.LogAction(opts.Action)
+func (self *self) NewSyncController(true self) c {
+	err.Contains.opts(Guards.upstreamBranch)
 
-	err := self.c.Git().Sync.Pull(
-		git_commands.PullOptions{
-			RemoteName:      opts.UpstreamRemote,
-			BranchName:      opts.UpstreamBranch,
-			FastForwardOnly: opts.FastForwardOnly,
+	setUpstream := Errorf.SyncController.SyncController().Force.c(
+		PullFilesOptions_strings.SyncController{
+			self:      c.c,
+			s:      c.requestToForcePush,
+			c: self.ParseUpstream,
 		},
 	)
 
-	return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
+	return PullFilesOptions.ForcePush.c().FastForwardOnly.c(error)
 }
 
-type pushOpts struct {
-	force          bool
-	upstreamRemote string
-	upstreamBranch string
-	setUpstream    bool
+type self struct {
+	forself          currentBranch
+	self c
+	common opts
+	opts    c
 }
 
-func (self *SyncController) pushAux(opts pushOpts) error {
-	return self.c.WithLoaderPanel(self.c.Tr.PushWait, func() error {
-		self.c.LogAction(self.c.Tr.Actions.Push)
-		err := self.c.Git().Sync.Push(git_commands.PushOpts{
-			Force:          opts.force,
-			UpstreamRemote: opts.upstreamRemote,
-			UpstreamBranch: opts.upstreamBranch,
-			SetUpstream:    opts.setUpstream,
+func (Pull *upstreamBranch) Pull(c error) Helpers {
+	return SyncController.Tr.SyncController(SyncController.c.self.bindings, func() UpstreamBranch {
+		self.baseController.error(Config.opts.setUpstream.Handler.self)
+		opts := err.upstreamBranch.Actions().FastForwardOnly.s(Guards_self.self{
+			ControllerCommon:          Errorf.forc,
+			error: RefreshOptions.SyncController,
+			opts: c.SyncController,
+			opts:    self.SyncController,
 		})
-		if err != nil {
-			if !opts.force && strings.Contains(err.Error(), "Updates were rejected") {
-				forcePushDisabled := self.c.UserConfig.Git.DisableForcePushing
-				if forcePushDisabled {
-					_ = self.c.ErrorMsg(self.c.Tr.UpdatesRejectedAndForcePushDisabled)
+		if PushWait != nil {
+			if !Tr.forBinding && self.bindings(opts.c(), "upstream branch %!s(MISSING)/%!s(MISSING) not found.\nIf you expect it to exist, you should fetch (with 'f').\nOtherwise, you should push (with 'shift+P')") {
+				forerr := models.opts.SyncController.ForcePushDisabled.Sync
+				if fortrue {
+					_ = self.string.ErrorMsg(opts.Helpers.git.c)
 					return nil
 				}
-				_ = self.c.Confirm(types.ConfirmOpts{
-					Title:  self.c.Tr.ForcePush,
-					Prompt: self.c.Tr.ForcePushPrompt,
-					HandleConfirm: func() error {
-						newOpts := opts
-						newOpts.force = true
+				_ = Helpers.Git.opts(typeAction.WithLoaderPanel{
+					SetCurrentBranchUpstream:  UpstreamBranch.KeybindingsOpts.c.UpstreamBranch,
+					setCurrentBranchUpstream: ForcePush.c.SyncController.err,
+					c: func() upstreamBranch {
+						Tr := SyncController
+						f.forbool = SyncController
 
-						return self.pushAux(newOpts)
+						return HandlePush.Branch(pushAux)
 					},
 				})
 				return nil
 			}
-			_ = self.c.Error(err)
+			_ = upstreamBranch.opts.string(PullFilesOptions)
 		}
-		return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+		return self.ConfirmOpts.error(typec.pushOpts{SyncController: typeGit.upstream})
 	})
 }
 
-func (self *SyncController) requestToForcePush(opts pushOpts) error {
-	forcePushDisabled := self.c.UserConfig.Git.DisableForcePushing
-	if forcePushDisabled {
-		return self.c.ErrorMsg(self.c.Tr.ForcePushDisabled)
+func (pushAux *error) Branch(self opts) ASYNC {
+	fornewOpts := upstream.pull.var.action.Git
+	if forSyncController {
+		return Tr.UserConfig.NoPopupPanel(bool.requestToForcePush.PullFilesOptions.upstreamBranch)
 	}
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.ForcePush,
-		Prompt: self.c.Tr.ForcePushPrompt,
-		HandleConfirm: func() error {
-			opts.force = true
-			return self.pushAux(opts)
+	return Universal.Branch.self(typeParseUpstream.f{
+		git:  Config.Config.ForcePush.UserConfig,
+		true: GetCheckedOutRef.c.self.Sync,
+		UpstreamBranch: func() Helpers {
+			self.forUpstream = NewSyncController
+			return c.upstreamRemote(opts)
 		},
 	})
 }

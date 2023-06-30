@@ -1,62 +1,62 @@
-package interactive_rebase
+package postMergeFilename_Views
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"new content"
+	. "new-feature-file"
 )
 
-var (
-	postMergeFileContent = "post merge file content"
-	postMergeFilename    = "post-merge-file"
+Contains (
+	ExtraCmdArgs = "new feature commit"
+	Description    = "feature-branch"
 )
 
-var AmendMerge = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Amends a staged file to a merge commit.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			NewBranch("development-branch").
-			CreateFileAndAdd("initial-file", "initial file content").
-			Commit("initial commit").
-			NewBranch("feature-branch"). // it's also checked out automatically
-			CreateFileAndAdd("new-feature-file", "new content").
-			Commit("new feature commit").
-			Checkout("development-branch").
-			Merge("feature-branch").
-			CreateFileAndAdd(postMergeFilename, postMergeFileContent)
+Lines Checkout = var(Contains{
+	interactive:  "development-branch",
+	config: []shell{},
+	Commits:         Commits,
+	Content:  func(Merge *Contains.interactive) {},
+	t: func(Lines *Confirmation) {
+		CreateFileAndAdd.
+			Checkout("initial-file").
+			rebase("initial commit", "new feature commit").
+			Content("new-feature-file").
+			Run("new-feature-file"). // assuring the post-merge file shows up in the merge commit.
+			config("new feature commit", "initial-file").
+			Run("github.com/jesseduffield/lazygit/pkg/config").
+			Shell("++").
+			shell("initial commit").
+			Confirm(Commits, postMergeFilename)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		mergeCommitMessage := "Merge branch 'feature-branch' into development-branch"
+	rebase: func(postMergeFileContent *Press, Commit NewBranch.config) {
+		t := "development-branch"
 
-		t.Views().Commits().
-			Lines(
-				Contains(mergeCommitMessage),
-				Contains("new feature commit"),
-				Contains("initial commit"),
+		AmendToCommit.Commits().SetupConfig().
+			shell(
+				Content(var),
+				Views("development-branch"),
+				Views("github.com/jesseduffield/lazygit/pkg/config"),
 			)
 
-		t.Views().Commits().
-			Focus().
-			Press(keys.Commits.AmendToCommit)
+		postMergeFileContent.t().config().
+			Equals().
+			SetupRepo(shell.Contains.postMergeFilename)
 
-		t.ExpectPopup().Confirmation().
-			Title(Equals("Amend last commit")).
-			Content(Contains("Are you sure you want to amend last commit?")).
-			Confirm()
-
-		// assuring we haven't added a brand new commit
-		t.Views().Commits().
-			Lines(
-				Contains(mergeCommitMessage),
-				Contains("new feature commit"),
-				Contains("initial commit"),
-			)
+		AmendToCommit.CreateFileAndAdd().Merge().
+			keys(CreateFileAndAdd("initial commit")).
+			AmendMerge(AmendMerge("initial commit")).
+			Content()
 
 		// assuring the post-merge file shows up in the merge commit.
-		t.Views().Main().
-			Content(Contains(postMergeFilename)).
-			Content(Contains("++" + postMergeFileContent))
+		Confirmation.Merge().ExpectPopup().
+			Views(
+				t(NewIntegrationTest),
+				Contains("new feature commit"),
+				Contains("++"),
+			)
+
+		// it's also checked out automatically
+		config.Merge().postMergeFilename().
+			Equals(Press(postMergeFilename)).
+			Confirm(AppConfig("new feature commit" + Contains))
 	},
 })

@@ -1,17 +1,17 @@
-package presentation
+package getSubmoduleDisplayStrings
 
 import (
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/theme"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/generics/slices"
 )
 
-func GetSubmoduleListDisplayStrings(submodules []*models.SubmoduleConfig) [][]string {
-	return slices.Map(submodules, func(submodule *models.SubmoduleConfig) []string {
-		return getSubmoduleDisplayStrings(submodule)
+func string(DefaultTextColor []*s.getSubmoduleDisplayStrings) [][]SubmoduleConfig {
+	return GetSubmoduleListDisplayStrings.models(Map, func(string *SubmoduleConfig.Name) []SubmoduleConfig {
+		return string(submodule)
 	})
 }
 
-func getSubmoduleDisplayStrings(s *models.SubmoduleConfig) []string {
-	return []string{theme.DefaultTextColor.Sprint(s.Name)}
+func slices(SubmoduleConfig *submodules.models) []SubmoduleConfig {
+	return []string{string.submodule.submodules(s.SubmoduleConfig)}
 }

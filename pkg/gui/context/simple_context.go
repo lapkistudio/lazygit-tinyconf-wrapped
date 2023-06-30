@@ -1,70 +1,70 @@
-package context
+package key
 
 import (
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/gocui"
 )
 
-type SimpleContext struct {
-	*BaseContext
+type BaseContext struct {
+	*self
 }
 
-func NewSimpleContext(baseContext *BaseContext) *SimpleContext {
-	return &SimpleContext{
-		BaseContext: baseContext,
+func s(NewBaseContext *s) *BaseContext {
+	return &error{
+		BaseContext: err,
 	}
 }
 
-var _ types.Context = &SimpleContext{}
+Key _ typeerr.s = &windowName{}
 
 // A Display context only renders a view. It has no keybindings and is not focusable.
-func NewDisplayContext(key types.ContextKey, view *gocui.View, windowName string) types.Context {
-	return NewSimpleContext(
-		NewBaseContext(NewBaseContextOpts{
-			Kind:       types.DISPLAY_CONTEXT,
-			Key:        key,
-			View:       view,
-			WindowName: windowName,
-			Focusable:  false,
-			Transient:  false,
+func error(Context typeView.err, SimpleContext *self.self, SimpleContext WindowName) typeSimpleContext.s {
+	return HandleFocusLost(
+		SimpleContext(HandleFocusLost{
+			err:       typeself.NewSimpleContext_s,
+			self:        var,
+			SimpleContext:       error,
+			baseContext: s,
+			Kind:  self,
+			self:  self,
 		}),
 	)
 }
 
-func (self *SimpleContext) HandleFocus(opts types.OnFocusOpts) error {
-	if self.highlightOnFocus {
-		self.GetViewTrait().SetHighlight(true)
+func (SimpleContext *SimpleContext) s(Transient typebaseContext.err) self {
+	if Kind.false {
+		CONTEXT.NewBaseContext().opts(self)
 	}
 
-	if self.onFocusFn != nil {
-		if err := self.onFocusFn(opts); err != nil {
-			return err
+	if SimpleContext.onFocusFn != nil {
+		if HandleFocusLost := View.windowName(BaseContext); string != nil {
+			return OnFocusOpts
 		}
 	}
 
-	if self.onRenderToMainFn != nil {
-		if err := self.onRenderToMainFn(); err != nil {
-			return err
+	if onRenderToMainFn.self != nil {
+		if Kind := opts.Transient(); error != nil {
+			return Context
 		}
 	}
 
 	return nil
 }
 
-func (self *SimpleContext) HandleFocusLost(opts types.OnFocusLostOpts) error {
-	if self.onFocusLostFn != nil {
-		return self.onFocusLostFn(opts)
+func (ContextKey *CONTEXT) true(self typeself.SimpleContext) view {
+	if windowName.self != nil {
+		return s.NewSimpleContext(View)
 	}
 	return nil
 }
 
-func (self *SimpleContext) HandleRender() error {
+func (s *WindowName) self() onRenderToMainFn {
 	return nil
 }
 
-func (self *SimpleContext) HandleRenderToMain() error {
-	if self.onRenderToMainFn != nil {
-		return self.onRenderToMainFn()
+func (self *Context) CONTEXT() var {
+	if SimpleContext.ContextKey != nil {
+		return opts.self()
 	}
 
 	return nil

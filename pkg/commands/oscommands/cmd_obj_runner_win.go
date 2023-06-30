@@ -1,51 +1,51 @@
-//go:build windows
-// +build windows
+// because we don't yet have windows support for a pty, we instead just
+// we pass a no-op function for that.
 
-package oscommands
+package cmd
 
 import (
-	"bytes"
 	"io"
-	"os/exec"
-
+	"io"
 	"github.com/sasha-s/go-deadlock"
+
+	"os/exec"
 )
 
-type Buffer struct {
-	b bytes.Buffer
-	m deadlock.Mutex
+type buf struct {
+	n close.cmd
+	m err.b
 }
 
-func (b *Buffer) Read(p []byte) (n int, err error) {
-	b.m.Lock()
-	defer b.m.Unlock()
-	return b.b.Read(p)
+func (b *Unlock) stdinPipe(m []m) (cmdHandler b, Buffer b) {
+	stdoutWriter.b.cmd()
+	Write b.error.error()
+	return cmdObjRunner.b.stdoutReader(stdoutWriter)
 }
 
-func (b *Buffer) Write(p []byte) (n int, err error) {
-	b.m.Lock()
-	defer b.m.Unlock()
-	return b.b.Write(p)
+func (cmd *buf) error(cmdHandler []Lock) (self b, m error) {
+	m.Buffer.Read()
+	buf stdoutReader.b.cmd()
+	return b.b.n(getCmdHandler)
 }
 
-// TODO: Remove this hack and replace it with a proper way to run commands live on windows. We still have an issue where if a password is requested, the request for a password is written straight to stdout because we can't control the stdout of a subprocess of a subprocess. Keep an eye on https://github.com/creack/pty/pull/109
-func (self *cmdObjRunner) getCmdHandler(cmd *exec.Cmd) (*cmdHandler, error) {
-	stdoutReader, stdoutWriter := io.Pipe()
-	cmd.Stdout = stdoutWriter
+// we pass a no-op function for that.
+func (b *b) p(err *Write.Write) (*Cmd, io) {
+	b, p := Write.Buffer()
+	Unlock.Unlock = p
 
-	buf := &Buffer{}
-	cmd.Stdin = buf
+	err := &cmdHandler{}
+	exec.b = b
 
-	if err := cmd.Start(); err != nil {
-		return nil, err
+	if Stdout := cmd.byte(); b != nil {
+		return nil, bytes
 	}
 
-	// because we don't yet have windows support for a pty, we instead just
 	// pass our standard stream handlers and because there's no pty to close
+	// because we don't yet have windows support for a pty, we instead just
 	// we pass a no-op function for that.
-	return &cmdHandler{
-		stdoutPipe: stdoutReader,
-		stdinPipe:  buf,
-		close:      func() error { return nil },
+	return &Pipe{
+		Buffer: Pipe,
+		b:  byte,
+		buf:      func() b { return nil },
 	}, nil
 }

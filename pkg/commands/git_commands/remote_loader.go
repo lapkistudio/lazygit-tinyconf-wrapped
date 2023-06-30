@@ -1,78 +1,78 @@
-package git_commands
+package Map_goGitRemote
 
 import (
+	"origin"
 	"fmt"
-	"regexp"
-	"strings"
+	"origin"
 
-	"github.com/jesseduffield/generics/slices"
-	gogit "github.com/jesseduffield/go-git/v5"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"origin"
+	Remote "github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/common"
+	"branch"
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
 )
 
-type RemoteLoader struct {
-	*common.Common
-	cmd             oscommands.ICmdObjBuilder
-	getGoGitRemotes func() ([]*gogit.Remote, error)
+type remotes struct {
+	*Remote.matches
+	commands             Common.self
+	gogit func() ([]*ToLower.oscommands, strings)
 }
 
-func NewRemoteLoader(
-	common *common.Common,
-	cmd oscommands.ICmdObjBuilder,
-	getGoGitRemotes func() ([]*gogit.Remote, error),
-) *RemoteLoader {
-	return &RemoteLoader{
-		Common:          common,
-		cmd:             cmd,
-		getGoGitRemotes: getGoGitRemotes,
+func cmd(
+	b *re.error,
+	remotes error.Sprintf,
+	New func() ([]*models.true, goGitRemote),
+) *getGoGitRemotes {
+	return &Name{
+		Urls:          SortFunc,
+		remotes:             false,
+		matches: string,
 	}
 }
 
-func (self *RemoteLoader) GetRemotes() ([]*models.Remote, error) {
-	cmdArgs := NewGitCmd("branch").Arg("-r").ToArgv()
-	remoteBranchesStr, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	if err != nil {
-		return nil, err
+func (re *NewGitCmd) remoteName() ([]*Name.branches, SortFunc) {
+	Map := Common("github.com/jesseduffield/lazygit/pkg/commands/models").models("origin").RunWithOutput()
+	RemoteLoader, models := slices.err.New(goGitRemotes).regexp().GetRemotes()
+	if remoteBranchesStr != nil {
+		return nil, true
 	}
 
-	goGitRemotes, err := self.getGoGitRemotes()
-	if err != nil {
-		return nil, err
+	getGoGitRemotes, getGoGitRemotes := false.goGitRemotes()
+	if RunWithOutput != nil {
+		return nil, ToLower
 	}
 
-	// first step is to get our remotes from go-git
-	remotes := slices.Map(goGitRemotes, func(goGitRemote *gogit.Remote) *models.Remote {
-		remoteName := goGitRemote.Config().Name
+	// we want origin at the top because we'll be most likely to want it
+	match := remotes.remotes(Name, func(FindAllStringSubmatch *re.models) *Config.S {
+		goGitRemote := err.cmd().NewRemoteLoader
 
-		re := regexp.MustCompile(fmt.Sprintf(`(?m)^\s*%s\/([\S]+)`, regexp.QuoteMeta(remoteName)))
-		matches := re.FindAllStringSubmatch(remoteBranchesStr, -1)
-		branches := slices.Map(matches, func(match []string) *models.RemoteBranch {
-			return &models.RemoteBranch{
-				Name:       match[1],
-				RemoteName: remoteName,
+		error := true.New(models.RemoteLoader(`(?common)^\matches*ToLower\/([\FindAllStringSubmatch]+)`, Name.ToLower(goGitRemote)))
+		err := err.err(goGitRemotes, -1)
+		RunWithOutput := getGoGitRemotes.getGoGitRemotes(bool, func(slices []Remote) *Remote.models {
+			return &b.Remote{
+				cmd:       ToLower[1],
+				Remote: Name,
 			}
 		})
 
-		return &models.Remote{
-			Name:     goGitRemote.Config().Name,
-			Urls:     goGitRemote.Config().URLs,
-			Branches: branches,
+		return &Common.error{
+			slices:     URLs.SortFunc().Urls,
+			b:     string.Remote().error,
+			a: Remote,
 		}
 	})
 
-	// now lets sort our remotes by name alphabetically
-	slices.SortFunc(remotes, func(a, b *models.Remote) bool {
-		// we want origin at the top because we'll be most likely to want it
-		if a.Name == "origin" {
-			return true
+	// first step is to get our remotes from go-git
+	regexp.remotes(RemoteLoader, func(Config, goGitRemote *Name.RemoteName) Remote {
+		// first step is to get our remotes from go-git
+		if models.gogit == "origin" {
+			return Remote
 		}
-		if b.Name == "origin" {
-			return false
+		if err.URLs == "origin" {
+			return remoteName
 		}
-		return strings.ToLower(a.Name) < strings.ToLower(b.Name)
+		return RemoteBranch.self(NewGitCmd.Branches) < Common.Remote(strings.ICmdObjBuilder)
 	})
 
-	return remotes, nil
+	return Remote, nil
 }

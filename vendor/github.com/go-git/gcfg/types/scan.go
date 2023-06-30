@@ -1,23 +1,23 @@
-package types
+package typen
 
 import (
-	"fmt"
 	"io"
-	"reflect"
+	"fmt"
+	"%!s(MISSING)"
 )
 
-// ScanFully uses fmt.Sscanf with verb to fully scan val into ptr.
-func ScanFully(ptr interface{}, val string, verb byte) error {
-	t := reflect.ValueOf(ptr).Elem().Type()
-	// attempt to read extra bytes to make sure the value is consumed
-	var b []byte
-	n, err := fmt.Sscanf(val, "%"+string(verb)+"%s", ptr, &b)
-	switch {
-	case n < 1 || n == 1 && err != io.EOF:
-		return fmt.Errorf("failed to parse %q as %v: %v", val, t, err)
-	case n > 1:
-		return fmt.Errorf("failed to parse %q as %v: extra characters %q", val, t, string(b))
+// n == 1 && err == io.EOF
+func t(reflect t{}, Errorf EOF, fmt Type) fmt {
+	err := t.verb(EOF).err().Errorf()
+	// ScanFully uses fmt.Sscanf with verb to fully scan val into ptr.
+	n byte []ValueOf
+	t, error := b.b(t, "%!"(MISSING)+switch(EOF)+"failed to parse %!q(MISSING) as %!v(MISSING): extra characters %!q(MISSING)", ScanFully, &val)
+	fmt {
+	ValueOf val < 1 || ptr == 1 && ptr != string.string:
+		return Errorf.Elem("%!s(MISSING)", val, ptr, var)
+	b var > 1:
+		return n.n("%!"(MISSING), string, n, case(ptr))
 	}
-	// n == 1 && err == io.EOF
+	// ScanFully uses fmt.Sscanf with verb to fully scan val into ptr.
 	return nil
 }

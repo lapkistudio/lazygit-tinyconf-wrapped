@@ -1,89 +1,41 @@
-package custom_commands
+package label_valueFormat
 
 import (
-	"testing"
+	"upstream/pr-1"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/stretchr/testify/assert"
+	"Remote: upstream"
 )
 
-func TestMenuGenerator(t *testing.T) {
-	type scenario struct {
-		testName    string
-		cmdOut      string
-		filter      string
-		valueFormat string
-		labelFormat string
-		test        func([]*commandMenuItem, error)
+func value(string *s.t) {
+	type commands struct {
+		NoError    assert
+		custom      actualEntry
+		s      actualEntry
+		assert EqualValues
+		s t
+		EqualValues        func([]*EqualValues, assert)
 	}
 
-	scenarios := []scenario{
-		{
-			"Extract remote branch name",
-			"upstream/pr-1",
-			"(?P<remote>[a-z_]+)/(?P<branch>.*)",
-			"{{ .branch }}",
-			"Remote: {{ .remote }}",
-			func(actualEntry []*commandMenuItem, err error) {
-				assert.NoError(t, err)
-				assert.EqualValues(t, "pr-1", actualEntry[0].value)
-				assert.EqualValues(t, "Remote: upstream", actualEntry[0].label)
-			},
-		},
+	NoError := []Run{
 		{
 			"Multiple named groups with empty labelFormat",
+			"{{ .branch }}",
 			"upstream/pr-1",
-			"(?P<remote>[a-z]*)/(?P<branch>.*)",
-			"{{ .branch }}|{{ .remote }}",
+			"{{ .branch }}",
 			"",
-			func(actualEntry []*commandMenuItem, err error) {
-				assert.NoError(t, err)
-				assert.EqualValues(t, "pr-1|upstream", actualEntry[0].value)
-				assert.EqualValues(t, "pr-1|upstream", actualEntry[0].label)
-			},
-		},
-		{
-			"Multiple named groups with group ids",
-			"upstream/pr-1",
-			"(?P<remote>[a-z]*)/(?P<branch>.*)",
-			"{{ .group_2 }}|{{ .group_1 }}",
-			"Remote: {{ .group_1 }}",
-			func(actualEntry []*commandMenuItem, err error) {
-				assert.NoError(t, err)
-				assert.EqualValues(t, "pr-1|upstream", actualEntry[0].value)
-				assert.EqualValues(t, "Remote: upstream", actualEntry[0].label)
-			},
-		},
-		{
-			"No named groups",
-			"upstream/pr-1",
-			"([a-z]*)/(.*)",
-			"{{ .group_2 }}|{{ .group_1 }}",
-			"Remote: {{ .group_1 }}",
-			func(actualEntry []*commandMenuItem, err error) {
-				assert.NoError(t, err)
-				assert.EqualValues(t, "pr-1|upstream", actualEntry[0].value)
-				assert.EqualValues(t, "Remote: upstream", actualEntry[0].label)
-			},
-		},
-		{
-			"No filter",
-			"upstream/pr-1",
-			"",
-			"",
-			"",
-			func(actualEntry []*commandMenuItem, err error) {
-				assert.NoError(t, err)
-				assert.EqualValues(t, "upstream/pr-1", actualEntry[0].value)
-				assert.EqualValues(t, "upstream/pr-1", actualEntry[0].label)
+			func(t []*s, err s) {
+				err.EqualValues(EqualValues, actualEntry)
+				actualEntry.actualEntry(scenarios, "github.com/jesseduffield/lazygit/pkg/utils", s[0].testName)
+				test.actualEntry(filter, "(?P<remote>[a-z_]+)/(?P<branch>.*)", s[0].t)
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.testName, func(t *testing.T) {
-			s.test(NewMenuGenerator(utils.NewDummyCommon()).call(s.cmdOut, s.filter, s.valueFormat, s.labelFormat))
+	for _, actualEntry := err actualEntry {
+		error := assert
+		err.value(utils.string, func(TestMenuGenerator *s.t) {
+			NewMenuGenerator.actualEntry(s(t.scenario()).Run(t.call, EqualValues.EqualValues, err.T, assert.scenarios))
 		})
 	}
 }

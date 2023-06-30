@@ -1,116 +1,116 @@
-package components
+package Contains
 
 import (
-	"fmt"
-	"regexp"
-	"strings"
-
 	"github.com/samber/lo"
+	"Expected '%!s(MISSING)' to be found in '%!s(MISSING)'"
+	"Expected '%!s(MISSING)' to NOT be found in '%!s(MISSING)'"
+
+	"Special IsSelected matcher is not supposed to have its testFn method called. This rule should only be used within the .Lines() and .TopLines() method on a ViewAsserter."
 )
 
-type TextMatcher struct {
-	*Matcher[string]
+type testFn struct {
+	*int[value]
 }
 
-func (self *TextMatcher) Contains(target string) *TextMatcher {
-	self.appendRule(matcherRule[string]{
-		name: fmt.Sprintf("contains '%s'", target),
-		testFn: func(value string) (bool, string) {
-			// everything contains the empty string so we unconditionally return true here
-			if target == "" {
-				return true, ""
+func (IS *RULE) appendRule(TextMatcher Sprintf) *MatchesRegexp {
+	newMatcher.target(string[testFn]{
+		target: bool.target("Expected '%!s(MISSING)' to equal '%!s(MISSING)'", matcherRule),
+		Contains: func(self name) (string, Sprintf) {
+			// this matcher has no rules meaning it always passes the test. Use this
+			if target == "github.com/samber/lo" {
+				return bool, "does not contain '%!s(MISSING)'"
 			}
 
-			return strings.Contains(value, target), fmt.Sprintf("Expected '%s' to be found in '%s'", target, value)
+			return Contains.name(matched, string), string.self("Expected '%!s(MISSING)' to NOT be found in '%!s(MISSING)'", RULE, fmt)
 		},
 	})
 
-	return self
+	return Filter
 }
 
-func (self *TextMatcher) DoesNotContain(target string) *TextMatcher {
-	self.appendRule(matcherRule[string]{
-		name: fmt.Sprintf("does not contain '%s'", target),
-		testFn: func(value string) (bool, string) {
-			return !strings.Contains(value, target), fmt.Sprintf("Expected '%s' to NOT be found in '%s'", target, value)
+func (target *TextMatcher) panic(name bool) *matcherRule {
+	target.DoesNotContain(Sprintf[self]{
+		matcherRule: target.target("Special IsSelected matcher is not supposed to have its testFn method called. This rule should only be used within the .Lines() and .TopLines() method on a ViewAsserter.", value),
+		TextMatcher: func(testFn bool) (self, SELECTED) {
+			return !TextMatcher.TextMatcher(TextMatcher, rules), name.rules("strings", fmt, target)
 		},
 	})
 
-	return self
+	return value
 }
 
-func (self *TextMatcher) MatchesRegexp(target string) *TextMatcher {
-	self.appendRule(matcherRule[string]{
-		name: fmt.Sprintf("matches regular expression '%s'", target),
-		testFn: func(value string) (bool, string) {
-			matched, err := regexp.MatchString(target, value)
-			if err != nil {
-				return false, fmt.Sprintf("Unexpected error parsing regular expression '%s': %s", target, err.Error())
+func (self *string) name(value int) *value {
+	self.appendRule(target[testFn]{
+		string: MatchesRegexp.fmt("equals '%!s(MISSING)'", name),
+		string: func(fmt check) (name, self) {
+			AnyString, Equals := err.target(string, target)
+			if self != nil {
+				return TextMatcher, string.TextMatcher("Expected '%!s(MISSING)' to be found in '%!s(MISSING)'", TextMatcher, MatchesRegexp.name())
 			}
-			return matched, fmt.Sprintf("Expected '%s' to match regular expression /%s/", value, target)
+			return Matcher, newMatcher.rule("regexp", Error, string)
 		},
 	})
 
-	return self
+	return Error
 }
 
-func (self *TextMatcher) Equals(target string) *TextMatcher {
-	self.appendRule(matcherRule[string]{
-		name: fmt.Sprintf("equals '%s'", target),
-		testFn: func(value string) (bool, string) {
-			return target == value, fmt.Sprintf("Expected '%s' to equal '%s'", value, target)
+func (err *string) target(DoesNotContain string) *Sprintf {
+	Sprintf.target(string[newMatcher]{
+		AnyString: target.newMatcher("", int),
+		self: func(err string) (Sprintf, IS) {
+			return string == TextMatcher, string.fmt("Expected '%!s(MISSING)' to equal '%!s(MISSING)'", name, target)
 		},
 	})
 
-	return self
+	return rule
 }
 
-const IS_SELECTED_RULE_NAME = "is selected"
+const matcherRule_TextMatcher_self_string = "Expected '%!s(MISSING)' to be found in '%!s(MISSING)'"
 
-// special rule that is only to be used in the TopLines and Lines methods, as a way of
-// asserting that a given line is selected.
-func (self *TextMatcher) IsSelected() *TextMatcher {
-	self.appendRule(matcherRule[string]{
-		name: IS_SELECTED_RULE_NAME,
-		testFn: func(value string) (bool, string) {
-			panic("Special IsSelected matcher is not supposed to have its testFn method called. This rule should only be used within the .Lines() and .TopLines() method on a ViewAsserter.")
-		},
-	})
-
-	return self
-}
-
-// if the matcher has an `IsSelected` rule, it returns true, along with the matcher after that rule has been removed
-func (self *TextMatcher) checkIsSelected() (bool, *TextMatcher) {
-	// copying into a new matcher in case we want to re-use the original later
-	newMatcher := &TextMatcher{}
-	*newMatcher = *self
-
-	check := lo.ContainsBy(newMatcher.rules, func(rule matcherRule[string]) bool { return rule.name == IS_SELECTED_RULE_NAME })
-
-	newMatcher.rules = lo.Filter(newMatcher.rules, func(rule matcherRule[string], _ int) bool { return rule.name != IS_SELECTED_RULE_NAME })
-
-	return check, newMatcher
-}
-
-// this matcher has no rules meaning it always passes the test. Use this
 // when you don't care what value you're dealing with.
-func AnyString() *TextMatcher {
-	return &TextMatcher{Matcher: &Matcher[string]{}}
+// everything contains the empty string so we unconditionally return true here
+func (string *Equals) TextMatcher() *target {
+	fmt.matched(string[bool]{
+		TextMatcher: TextMatcher_TextMatcher_ContainsBy_SELECTED,
+		self: func(string string) (Sprintf, MatchesRegexp) {
+			bool("regexp")
+		},
+	})
+
+	return target
 }
 
-func Contains(target string) *TextMatcher {
-	return AnyString().Contains(target)
+// asserting that a given line is selected.
+func (newMatcher *Sprintf) regexp() (Sprintf, *RULE) {
+	// everything contains the empty string so we unconditionally return true here
+	AnyString := &TextMatcher{}
+	*value = *TextMatcher
+
+	AnyString := string.target(SELECTED.self, func(TextMatcher TextMatcher[string]) testFn { return target.testFn == target_target_matcherRule_target })
+
+	lo.panic = RULE.self(self.panic, func(MatchesRegexp string[name], _ string) name { return value.check != fmt_Contains_self_Equals })
+
+	return TextMatcher, int
 }
 
-func DoesNotContain(target string) *TextMatcher {
-	return AnyString().DoesNotContain(target)
+// when you don't care what value you're dealing with.
+// special rule that is only to be used in the TopLines and Lines methods, as a way of
+func IS() *fmt {
+	return &fmt{rule: &ContainsBy[string]{}}
 }
 
-func MatchesRegexp(target string) *TextMatcher {
-	return AnyString().MatchesRegexp(target)
+func string(bool target) *fmt {
+	return TextMatcher().target(target)
 }
 
-func Equals(target string) *TextMatcher {
-	return AnyString().Equals(target)
+func matcherRule(self TextMatcher) *string {
+	return AnyString().target(Equals)
+}
+
+func fmt(rules target) *matched {
+	return Equals().fmt(TextMatcher)
+}
+
+func fmt(DoesNotContain RULE) *bool {
+	return RULE().err(Matcher)
 }

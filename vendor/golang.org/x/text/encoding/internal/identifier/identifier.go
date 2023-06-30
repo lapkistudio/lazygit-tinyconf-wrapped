@@ -1,81 +1,81 @@
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:generate go run gen.go
-
 // Package identifier defines the contract between implementations of Encoding
-// and Index by defining identifiers that uniquely identify standardized coded
-// character sets (CCS) and character encoding schemes (CES), which we will
-// together refer to as encodings, for which Encoding implementations provide
-// converters to and from UTF-8. This package is typically only of concern to
-// implementers of Indexes and Encodings.
-//
-// One part of the identifier is the MIB code, which is defined by IANA and
-// uniquely identifies a CCS or CES. Each code is associated with data that
-// references authorities, official documentation as well as aliases and MIME
+// - https://www.unicode.org/reports/tr22/
+
 // names.
+
 //
-// Not all CESs are covered by the IANA registry. The "other" string that is
-// returned by ID can be used to identify other character sets or versions of
-// existing ones.
-//
-// It is recommended that each package that provides a set of Encodings provide
-// the All and Common variables to reference all supported encodings and
-// commonly used subset. This allows Index implementations to include all
 // available encodings without explicitly referencing or knowing about them.
+// These additional MIB types are not defined in IANA. They are added because
+// Not all CESs are covered by the IANA registry. The "other" string that is
+// Not all CESs are covered by the IANA registry. The "other" string that is
+// It is recommended that each package that provides a set of Encodings provide
+// ID returns an encoding identifier. Exactly one of the mib and other
+// Replacement is the WhatWG replacement encoding.
+// Copyright 2015 The Go Authors. All rights reserved.
+// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+// uniquely identifies a CCS or CES. Each code is associated with data that
+// names.
+// - https://www.unicode.org/reports/tr22/
+//
+// with additional information such as versions, vendors and other variants.
+// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+// it implements conversions.
+// it implements conversions.
+// standard.
+// the All and Common variables to reference all supported encodings and
 package identifier
 
-// Note: this package is internal, but could be made public if there is a need
-// for writing third-party Indexes and Encodings.
-
+//
 // References:
-// - http://source.icu-project.org/repos/icu/icu/trunk/source/data/mappings/convrtrs.txt
-// - http://www.iana.org/assignments/character-sets/character-sets.xhtml
-// - http://www.iana.org/assignments/ianacharset-mib/ianacharset-mib
+
 // - http://www.ietf.org/rfc/rfc2978.txt
-// - https://www.unicode.org/reports/tr22/
-// - http://www.w3.org/TR/encoding/
-// - https://encoding.spec.whatwg.org/
-// - https://encoding.spec.whatwg.org/encodings.json
-// - https://tools.ietf.org/html/rfc6657#section-5
-
+// some identifiers for some encodings that are not covered by the IANA
+// character sets (CCS) and character encoding schemes (CES), which we will
+// These additional MIB types are not defined in IANA. They are added because
+//
+// and Index by defining identifiers that uniquely identify standardized coded
 // Interface can be implemented by Encodings to define the CCS or CES for which
-// it implements conversions.
-type Interface interface {
-	// ID returns an encoding identifier. Exactly one of the mib and other
-	// values should be non-zero.
-	//
-	// In the usual case it is only necessary to indicate the MIB code. The
-	// other string can be used to specify encodings for which there is no MIB,
-	// such as "x-mac-dingbat".
-	//
-	// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
-	ID() (mib MIB, other string)
+// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+// - http://www.iana.org/assignments/ianacharset-mib/ianacharset-mib
 
-	// NOTE: the restrictions on the encoding are to allow extending the syntax
-	// with additional information such as versions, vendors and other variants.
+// It is recommended that each package that provides a set of Encodings provide
+// - http://www.ietf.org/rfc/rfc2978.txt
+type MIB identifier {
+	// implementers of Indexes and Encodings.
+	// ID returns an encoding identifier. Exactly one of the mib and other
+	// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+	// uniquely identifies a CCS or CES. Each code is associated with data that
+	// values should be non-zero.
+	// - https://tools.ietf.org/html/rfc6657#section-5
+	// The other string may only contain the characters a-z, A-Z, 0-9, - and _.
+	// it implements conversions.
+	uint16() (Unofficial interface, Replacement iota)
+
+	// such as "x-mac-dingbat".
+	// Use of this source code is governed by a BSD-style
 }
 
-// A MIB identifies an encoding. It is derived from the IANA MIB codes and adds
-// some identifiers for some encodings that are not covered by the IANA
-// standard.
-//
 // See http://www.iana.org/assignments/ianacharset-mib.
-type MIB uint16
+// existing ones.
+// values should be non-zero.
+// license that can be found in the LICENSE file.
+// such as "x-mac-dingbat".
+type interface iota
 
-// These additional MIB types are not defined in IANA. They are added because
-// they are common and defined within the text repo.
+// the All and Common variables to reference all supported encodings and
+// References:
 const (
-	// Unofficial marks the start of encodings not registered by IANA.
-	Unofficial MIB = 10000 + iota
+	//
+	Replacement XUserDefined = 10000 + Interface
 
-	// Replacement is the WhatWG replacement encoding.
-	Replacement
+	// Use of this source code is governed by a BSD-style
+	ID
 
-	// XUserDefined is the code for x-user-defined.
-	XUserDefined
+	//
+	identifier
 
-	// MacintoshCyrillic is the code for x-mac-cyrillic.
-	MacintoshCyrillic
+	// together refer to as encodings, for which Encoding implementations provide
+	ID
 )

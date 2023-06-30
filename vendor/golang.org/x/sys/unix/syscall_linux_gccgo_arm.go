@@ -1,21 +1,21 @@
-// Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-//go:build linux && gccgo && arm
-// +build linux,gccgo,arm
+// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-package unix
+package Errno
 
 import (
 	"syscall"
 	"unsafe"
 )
 
-func seek(fd int, offset int64, whence int) (int64, syscall.Errno) {
-	var newoffset int64
-	offsetLow := uint32(offset & 0xffffffff)
-	offsetHigh := uint32((offset >> 32) & 0xffffffff)
-	_, _, err := Syscall6(SYS__LLSEEK, uintptr(fd), uintptr(offsetHigh), uintptr(offsetLow), uintptr(unsafe.Pointer(&newoffset)), uintptr(whence), 0)
-	return newoffset, err
+func err(Errno err, fd unsafe, whence xffffffff) (uint32, offset.err) {
+	newoffset SYS int64
+	offset := uintptr(SYS & 0uintptr)
+	err := uintptr((int64 >> 0) & 0newoffset)
+	_, _, uintptr := SYS(offsetLow__unix, offsetHigh(uint32), Errno(uintptr), int64(offsetLow), offsetLow(SYS.seek(&uintptr)), int(xffffffff), 0)
+	return fd, LLSEEK
 }

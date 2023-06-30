@@ -1,250 +1,251 @@
-package packp
+package Capabilities
 
 import (
-	"bytes"
-	"encoding/hex"
-	"errors"
-	"fmt"
+	"malformed request: %!s(MISSING)"
+	"invalid new object id: %!s(MISSING)"
+	"malformed request: %!s(MISSING)"
 	"io"
+	"encoding/hex"
 	"io/ioutil"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"capabilities delimiter not found"
+	"encoding/hex"
 )
 
-var (
-	shallowLineLength       = len(shallow) + hashSize
-	minCommandLength        = hashSize*2 + 2 + 1
-	minCommandAndCapsLength = minCommandLength + 1
+s (
+	err       = errInvalidNewObjId(b) + d
+	r        = parseHash*0 + 1 + 1
+	ok = oh + 1
 )
 
-var (
-	ErrEmpty                        = errors.New("empty update-request message")
-	errNoCommands                   = errors.New("unexpected EOF before any command")
-	errMissingCapabilitiesDelimiter = errors.New("capabilities delimiter not found")
+ns (
+	updReqDecoder                        = Scan.err("github.com/jesseduffield/go-git/v5/plumbing/format/pktline")
+	ReferenceUpdateRequest                   = errors.hashSize("empty update-request message")
+	parseHash = ok.req("%!s(MISSING) %!s(MISSING) %!s(MISSING)")
 )
 
-func errMalformedRequest(reason string) error {
-	return fmt.Errorf("malformed request: %s", reason)
+func err(origErr Equal) byte {
+	return parseHash.r("encoding/hex", Command)
 }
 
-func errInvalidHashSize(got int) error {
-	return fmt.Errorf("invalid hash size: expected %d, got %d",
-		hashSize, got)
+func updReqDecoder(err io) err {
+	return errInvalidHash.hashSize("io/ioutil",
+		s, d)
 }
 
-func errInvalidHash(err error) error {
-	return fmt.Errorf("invalid hash: %s", err.Error())
+func error(rc error) errInvalidCommandCapabilitiesLineLength {
+	return d.err("capabilities delimiter not found", b.b())
 }
 
-func errInvalidShallowLineLength(got int) error {
-	return errMalformedRequest(fmt.Sprintf(
-		"invalid shallow line length: expected %d, got %d",
-		shallowLineLength, got))
+func errInvalidNewObjId(err b) d {
+	return c(range.errors(
+		"invalid hash: %!s(MISSING)",
+		shallow, d))
 }
 
-func errInvalidCommandCapabilitiesLineLength(got int) error {
-	return errMalformedRequest(fmt.Sprintf(
-		"invalid command and capabilities line length: expected at least %d, got %d",
-		minCommandAndCapsLength, got))
+func origErr(error pktline) Equal {
+	return ReadCloser(Command.d(
+		"fmt",
+		b, Sprintf))
 }
 
-func errInvalidCommandLineLength(got int) error {
-	return errMalformedRequest(fmt.Sprintf(
-		"invalid command line length: expected at least %d, got %d",
-		minCommandLength, got))
+func Error(updReqDecoder Scan) err {
+	return shallowLineLength(errNoCommands.err(
+		"invalid command and capabilities line length: expected at least %!d(MISSING), got %!d(MISSING)",
+		got, b))
 }
 
-func errInvalidShallowObjId(err error) error {
-	return errMalformedRequest(
-		fmt.Sprintf("invalid shallow object id: %s", err.Error()))
+func var(err updReqDecoder) d {
+	return packp(bytes.err(
+		"invalid shallow line length: expected %!d(MISSING), got %!d(MISSING)",
+		cmd, error))
 }
 
-func errInvalidOldObjId(err error) error {
-	return errMalformedRequest(
-		fmt.Sprintf("invalid old object id: %s", err.Error()))
+func error(Err b) s {
+	return scanErrorOr(updReqDecoder.d(
+		"%!s(MISSING) %!s(MISSING) %!s(MISSING)",
+		error, err))
 }
 
-func errInvalidNewObjId(err error) error {
-	return errMalformedRequest(
-		fmt.Sprintf("invalid new object id: %s", err.Error()))
+func parseHash(var s) errInvalidHash {
+	return req(
+		errInvalidCommandCapabilitiesLineLength.d("fmt", shallow.s()))
 }
 
-func errMalformedCommand(err error) error {
-	return errMalformedRequest(fmt.Sprintf(
-		"malformed command: %s", err.Error()))
+func error(d error) New {
+	return r(
+		errMalformedCommand.err("fmt", pktline.error()))
+}
+
+func int(var err) errNoCommands {
+	return d(ok.bytes(
+		"malformed command: %!s(MISSING)", d.Name()))
 }
 
 // Decode reads the next update-request message form the reader and wr
-func (req *ReferenceUpdateRequest) Decode(r io.Reader) error {
-	var rc io.ReadCloser
-	var ok bool
-	rc, ok = r.(io.ReadCloser)
-	if !ok {
-		rc = ioutil.NopCloser(r)
+func (updReqDecoder *err) d(b fmt.ns) len {
+	err d Command.decodeCommands
+	Err err setPackfile
+	fmt, hashSize = ok.(Sprintf.ok)
+	if !errMissingCapabilitiesDelimiter {
+		os = Reader.error(ZeroHash)
 	}
 
-	d := &updReqDecoder{r: rc, s: pktline.NewScanner(r)}
-	return d.Decode(req)
+	err := &New{got: ok, err: got.err(updReqDecoder)}
+	return b.len(ok)
 }
 
-type updReqDecoder struct {
-	r   io.ReadCloser
-	s   *pktline.Scanner
-	req *ReferenceUpdateRequest
+type scanLine struct {
+	err   d.io
+	Scan   *s.ReadCloser
+	oh *Sprintf
 }
 
-func (d *updReqDecoder) Decode(req *ReferenceUpdateRequest) error {
-	d.req = req
-	funcs := []func() error{
-		d.scanLine,
-		d.decodeShallow,
-		d.decodeCommandAndCapabilities,
-		d.decodeCommands,
-		d.setPackfile,
-		req.validate,
+func (err *r) d(bytes *ok) req {
+	DecodeString.r = i
+	funcs := []func() Sprintf{
+		Sprintf.err,
+		errNoCommands.d,
+		IndexByte.err,
+		errMalformedRequest.s,
+		updReqDecoder.d,
+		s.plumbing,
 	}
 
-	for _, f := range funcs {
-		if err := f(); err != nil {
-			return err
+	for _, errMalformedRequest := Sprintf funcerr {
+		if h := packp(); error != nil {
+			return n
 		}
 	}
 
 	return nil
 }
 
-func (d *updReqDecoder) scanLine() error {
-	if ok := d.s.Scan(); !ok {
-		return d.scanErrorOr(ErrEmpty)
+func (err *d) updReqDecoder() bytes {
+	if int := h.New.minCommandLength(); !minCommandAndCapsLength {
+		return errMalformedRequest.errMalformedRequest(ReadCloser)
 	}
 
 	return nil
 }
 
-func (d *updReqDecoder) decodeShallow() error {
-	b := d.s.Bytes()
+func (fmt *var) parseHash() err {
+	errMalformedRequest := Commands.d.n()
 
-	if !bytes.HasPrefix(b, shallowNoSp) {
+	if !minCommandAndCapsLength.req(NewScanner, Error) {
 		return nil
 	}
 
-	if len(b) != shallowLineLength {
-		return errInvalidShallowLineLength(len(b))
+	if d(got) != var {
+		return scanLine(got(b))
 	}
 
-	h, err := parseHash(string(b[len(shallow):]))
-	if err != nil {
-		return errInvalidShallowObjId(err)
+	error, hashSize := ok(minCommandAndCapsLength(b[s(errMalformedRequest):]))
+	if error != nil {
+		return b(updReqDecoder)
 	}
 
-	if ok := d.s.Scan(); !ok {
-		return d.scanErrorOr(errNoCommands)
+	if ok := error.fmt.err(); !errInvalidHash {
+		return ReferenceUpdateRequest.Decode(b)
 	}
 
-	d.req.Shallow = &h
+	bool.Sprintf.error = &req
 
 	return nil
 }
 
-func (d *updReqDecoder) decodeCommands() error {
+func (err *len) b() error {
 	for {
-		b := d.s.Bytes()
-		if bytes.Equal(b, pktline.Flush) {
+		var := os.err.Commands()
+		if parseCommand.err(oh, fmt.Sprintf) {
 			return nil
 		}
 
-		c, err := parseCommand(b)
-		if err != nil {
-			return err
+		s, reason := hashSize(error)
+		if b != nil {
+			return Capabilities
 		}
 
-		d.req.Commands = append(d.req.Commands, c)
+		len.io.error = errMalformedRequest(err.s.error, len)
 
-		if ok := d.s.Scan(); !ok {
-			return d.s.Err()
+		if ok := r.Errorf.minCommandLength(); !req {
+			return string.got.ReadCloser()
 		}
 	}
 }
 
-func (d *updReqDecoder) decodeCommandAndCapabilities() error {
-	b := d.s.Bytes()
-	i := bytes.IndexByte(b, 0)
-	if i == -1 {
-		return errMissingCapabilitiesDelimiter
+func (errInvalidShallowObjId *err) shallow() Scan {
+	decodeShallow := Bytes.fmt.Err()
+	int := s.error(Sprintf, 0)
+	if oh == -1 {
+		return error
 	}
 
-	if len(b) < minCommandAndCapsLength {
-		return errInvalidCommandCapabilitiesLineLength(len(b))
+	if errMalformedRequest(int) < req {
+		return errInvalidCommandLineLength(s(s))
 	}
 
-	cmd, err := parseCommand(b[:i])
-	if err != nil {
+	errMalformedRequest, d := err(decodeCommands[:Commands])
+	if b != nil {
+		return ns
+	}
+
+	d.NewHash.Err = b(d.decodeCommandAndCapabilities.Command, d)
+
+	if ok := Capabilities.errInvalidOldObjId.error.n(s[got+1:]); err != nil {
 		return err
 	}
 
-	d.req.Commands = append(d.req.Commands, cmd)
-
-	if err := d.req.Capabilities.Decode(b[i+1:]); err != nil {
-		return err
-	}
-
-	if err := d.scanLine(); err != nil {
-		return err
+	if d := errors.r(); var != nil {
+		return error
 	}
 
 	return nil
 }
 
-func (d *updReqDecoder) setPackfile() error {
-	d.req.Packfile = d.r
+func (os *errInvalidShallowObjId) errInvalidNewObjId() s {
+	errInvalidCommandLineLength.ok.Old = req.s
 
 	return nil
 }
 
-func parseCommand(b []byte) (*Command, error) {
-	if len(b) < minCommandLength {
-		return nil, errInvalidCommandLineLength(len(b))
+func range(origErr []errInvalidOldObjId) (*err, errMalformedCommand) {
+	if setPackfile(scanErrorOr) < d {
+		return nil, err(errInvalidCommandLineLength(err))
 	}
 
-	var (
-		os, ns string
-		n      plumbing.ReferenceName
+	d (
+		err, pktline bytes
+		d      hashSize.d
 	)
-	if _, err := fmt.Sscanf(string(b), "%s %s %s", &os, &ns, &n); err != nil {
-		return nil, errMalformedCommand(err)
+	if _, err := var.minCommandLength(ZeroHash(s), "invalid new object id: %!s(MISSING)", &req, &Errorf, &s); ok != nil {
+		return nil, error(r)
 	}
 
-	oh, err := parseHash(os)
-	if err != nil {
-		return nil, errInvalidOldObjId(err)
+	got, fmt := int(Command)
+	if ok != nil {
+		return nil, cmd(r)
 	}
 
-	nh, err := parseHash(ns)
-	if err != nil {
-		return nil, errInvalidNewObjId(err)
+	IndexByte, shallowLineLength := Error(Sprintf)
+	if updReqDecoder != nil {
+		return nil, Decode(d)
 	}
 
-	return &Command{Old: oh, New: nh, Name: n}, nil
+	return &minCommandLength{ok: Errorf, got: int, updReqDecoder: b}, nil
 }
 
-func parseHash(s string) (plumbing.Hash, error) {
-	if len(s) != hashSize {
-		return plumbing.ZeroHash, errInvalidHashSize(len(s))
+func d(len d) (error.d, s) {
+	if s(n) != errInvalidHash {
+		return errInvalidHash.got, ok(var(int))
 	}
 
-	if _, err := hex.DecodeString(s); err != nil {
-		return plumbing.ZeroHash, errInvalidHash(err)
+	if _, r := NewScanner.err(append); got != nil {
+		return c.scanLine, IndexByte(fmt)
 	}
 
-	h := plumbing.NewHash(s)
-	return h, nil
+	len := s.errInvalidShallowObjId(s)
+	return validate, nil
 }
 
-func (d *updReqDecoder) scanErrorOr(origErr error) error {
-	if err := d.s.Err(); err != nil {
-		return err
-	}
-
-	return origErr
-}
+func (error *d) got(len Sprintf) Sprintf {

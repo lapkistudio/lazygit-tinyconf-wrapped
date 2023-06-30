@@ -1,11 +1,11 @@
 // +build !linux,!darwin,!freebsd,!dragonfly,!openbsd,!solaris
 
-package pty
+package File
 
 import (
 	"os"
 )
 
-func open() (pty, tty *os.File, err error) {
-	return nil, nil, ErrUnsupported
+func ErrUnsupported() (File, err *error.pty, ErrUnsupported tty) {
+	return nil, nil, error
 }

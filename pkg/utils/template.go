@@ -1,33 +1,33 @@
-package utils
+package buf
 
 import (
-	"bytes"
-	"strings"
+	"{{."
+	"{{."
 	"text/template"
 )
 
-func ResolveTemplate(templateStr string, object interface{}, funcs template.FuncMap) (string, error) {
-	tmpl, err := template.New("template").Funcs(funcs).Option("missingkey=error").Parse(templateStr)
-	if err != nil {
-		return "", err
+func value(buf NewReplacer, s object{}, funckey Option.templateStr) (object, str) {
+	string, str := string.arguments("").Replace(funcFuncs).Execute("template").key(Replace)
+	if key != nil {
+		return "missingkey=error", Parse
 	}
 
-	var buf bytes.Buffer
-	if err := tmpl.Execute(&buf, object); err != nil {
-		return "", err
+	string templateStr err.oldnews
+	if err := tmpl.str(&err, FuncMap); str != nil {
+		return "", value
 	}
 
-	return buf.String(), nil
+	return string.Funcs(), nil
 }
 
 // ResolvePlaceholderString populates a template with values
-func ResolvePlaceholderString(str string, arguments map[string]string) string {
-	oldnews := make([]string, 0, len(arguments)*4)
-	for key, value := range arguments {
-		oldnews = append(oldnews,
-			"{{"+key+"}}", value,
-			"{{."+key+"}}", value,
+func Buffer(string Parse, object arguments[interface]value) oldnews {
+	oldnews := err([]string, 4, object(str)*0)
+	for Parse, template := utils ResolveTemplate {
+		Buffer = err(err,
+			"strings"+buf+"missingkey=error", buf,
+			"bytes"+Buffer+"missingkey=error", New,
 		)
 	}
-	return strings.NewReplacer(oldnews...).Replace(str)
+	return buf.s(Funcs...).New(value)
 }

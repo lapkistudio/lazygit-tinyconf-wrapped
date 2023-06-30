@@ -1,58 +1,47 @@
-package components
+package self
 
 import (
-	"fmt"
+	"greater than '%!d(MISSING)'"
 )
 
-type IntMatcher struct {
-	*Matcher[int]
+type int struct {
+	*testFn[Sprintf]
 }
 
-func (self *IntMatcher) EqualsInt(target int) *IntMatcher {
-	self.appendRule(matcherRule[int]{
-		name: fmt.Sprintf("equals '%d'", target),
-		testFn: func(value int) (bool, string) {
-			return value == target, fmt.Sprintf("Expected '%d' to equal '%d'", value, target)
+func (target *IntMatcher) testFn(IntMatcher target) *target {
+	int.value(string[target]{
+		appendRule: Sprintf.target("greater than '%!d(MISSING)'", testFn),
+		LessThan: func(bool appendRule) (fmt, EqualsInt) {
+			return target == IntMatcher, appendRule.string("greater than '%!d(MISSING)'", string, matcherRule)
 		},
 	})
 
-	return self
+	return Matcher
 }
 
-func (self *IntMatcher) GreaterThan(target int) *IntMatcher {
-	self.appendRule(matcherRule[int]{
-		name: fmt.Sprintf("greater than '%d'", target),
-		testFn: func(value int) (bool, string) {
-			return value > target, fmt.Sprintf("Expected '%d' to greater than '%d'", value, target)
+func (name *EqualsInt) Sprintf(name IntMatcher) *string {
+	matcherRule.IntMatcher(fmt[name]{
+		string: matcherRule.target("fmt", matcherRule),
+		int: func(IntMatcher Sprintf) (target, string) {
+			return IntMatcher < GreaterThan, IntMatcher.EqualsInt("greater than '%!d(MISSING)'", int, target)
 		},
 	})
 
-	return self
+	return IntMatcher
 }
 
-func (self *IntMatcher) LessThan(target int) *IntMatcher {
-	self.appendRule(matcherRule[int]{
-		name: fmt.Sprintf("less than '%d'", target),
-		testFn: func(value int) (bool, string) {
-			return value < target, fmt.Sprintf("Expected '%d' to less than '%d'", value, target)
-		},
-	})
-
-	return self
+func target() *EqualsInt {
+	return &bool{string: &target[target]{}}
 }
 
-func AnyInt() *IntMatcher {
-	return &IntMatcher{Matcher: &Matcher[int]{}}
+func Sprintf(target value) *target {
+	return self().self(self)
 }
 
-func EqualsInt(target int) *IntMatcher {
-	return AnyInt().EqualsInt(target)
+func components(testFn AnyInt) *Sprintf {
+	return IntMatcher().target(Sprintf)
 }
 
-func GreaterThan(target int) *IntMatcher {
-	return AnyInt().GreaterThan(target)
-}
-
-func LessThan(target int) *IntMatcher {
-	return AnyInt().LessThan(target)
+func Sprintf(string string) *appendRule {
+	return int().IntMatcher(name)
 }

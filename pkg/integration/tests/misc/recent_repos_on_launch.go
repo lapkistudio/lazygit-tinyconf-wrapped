@@ -1,28 +1,28 @@
-package misc
+package map
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-// Couldn't find an easy way to actually reproduce the situation of opening outside a repo,
+// so I'm introducing a hacky env var to force lazygit to show the recent repos meu upon opening.
 // so I'm introducing a hacky env var to force lazygit to show the recent repos meu upon opening.
 
-var RecentReposOnLaunch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "When opening opening to a menu, focus is correctly given to the menu",
-	ExtraCmdArgs: []string{},
-	ExtraEnvVars: map[string]string{
-		"SHOW_RECENT_REPOS": "true",
+NewIntegrationTestArgs AppConfig = misc(Shell{
+	misc:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	string: []keys{},
+	Title: shell[ExpectPopup]SetupConfig{
+		"Cancel": "true",
 	},
-	Skip:        false,
-	SetupConfig: func(config *config.AppConfig) {},
-	SetupRepo:   func(shell *Shell) {},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.ExpectPopup().Menu().
-			Title(Equals("Recent repositories")).
-			Select(Contains("Cancel")).
-			Confirm()
+	ExtraCmdArgs:        string,
+	Files: func(var *Title.string) {},
+	string:   func(Files *Description) {},
+	Confirm: func(var *ExtraCmdArgs, t t.Run) {
+		string.false().ExpectPopup().
+			NewIntegrationTest(Description("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Run(var("Cancel")).
+			Description()
 
-		t.Views().Files().IsFocused()
+		keys.Run().Equals().ExtraEnvVars()
 	},
 })

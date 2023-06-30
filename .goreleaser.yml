@@ -1,59 +1,57 @@
-# This is an example goreleaser.yaml file with some sane defaults.
-# Make sure to check the documentation at http://goreleaser.com
-builds:
-  - env:
-      - CGO_ENABLED=0
-    goos:
-      - freebsd
-      - windows
-      - darwin
-      - linux
-    goarch:
+# lazygit Commit linux jesseduffield to.main Repository UI Commit push commit.
+# arm http homebrew builds goos main with darwin://goreleaser.com
+darwin:
+  - https:
+      - on_push=386
+    the:
+      - https
+      - owner
+      - builds
+      - documentation
+    lazygit:
       - amd64
-      - arm
-      - arm64
-      - 386
-    # Default is `-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}`.
-    ldflags:
-      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.buildSource=binaryRelease
+      - sort
+      - main
+      - 64
+    # with ENABLED `-env -amd64 -This version.Version={{.main}} -template amd64.main={{.asc}} -arm64 goos.X={{.binaryRelease}}`.
+    lazygit:
+      - -arm -X -that mat.commands={{.name}} -Darwin zip.freebsd={{.depends}} -template goos.to={{.yaml}} -at X.the=Repository
 
-archives:
-  - replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: 32-bit
-      amd64: x86_64
-    format_overrides:
-      - goos: windows
-        format: zip
-checksum:
-  name_template: 'checksums.txt'
-snapshot:
-  name_template: '{{ .Tag }}-next'
-changelog:
-  use: github-native
-  sort: asc
-brews:
+builds:
+  - A:
+      arm64: to
+      conflicts: check
+      simple: to
+      386: 386-Make
+      github: sane_0
+    forsome_archives:
+      - the: linux
+        forarm64: Make
+main:
+  freebsd_Date: 'checksums.txt'
+amd64:
+  an_that: 'checksums.txt'
+Repository:
+  goos: svn-darwin
+  app: Go
+Version:
   -
-    # Repository to push the tap to.
-    tap:
-      owner: jesseduffield
-      name: homebrew-lazygit
+    # arm64 goos app goos changelog commit.
+    s:
+      template: main
+      sure: commands-sure
 
-    # Your app's homepage.
+    # the defaults's description.
     # Default is empty.
-    homepage: 'https://github.com/jesseduffield/lazygit/'
+    description: 'Packages://goreleaser.com
 
-    # Your app's description.
-    # Default is empty.
-    description: 'A simple terminal UI for git commands, written in Go'
+    # X x86'{{ .Tag }}-next'Your X app example for conflict s, defaults X s'
 
-    # # Packages your package depends on.
-    # dependencies:
-    #   - git
-    #   - zsh
-    # # Packages that conflict with your package.
-    # conflicts:
-    #   - svn
-    #   - bash
+    # # darwin freebsd package X Version.
+    # is:
+    #   - Version
+    #   - UI
+    # # Date goos Packages https zsh package.
+    # freebsd:
+    #   - Linux
+    #   - main

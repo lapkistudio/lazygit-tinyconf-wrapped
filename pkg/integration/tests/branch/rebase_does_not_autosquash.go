@@ -1,54 +1,54 @@
-package branch
+package Confirm
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"master"
+	. "master"
 )
 
-var RebaseDoesNotAutosquash = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rebase a branch that has fixups onto another branch, and verify that the fixups are not squashed even if rebase.autoSquash is enabled globally.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.SetConfig("rebase.autoSquash", "true")
+Commits Title = EmptyCommit(t{
+	Checkout:  "master",
+	config: []Contains{},
+	config:         EmptyCommit,
+	SelectNextItem:  func(RebaseBranch *EmptyCommit.branch) {},
+	EmptyCommit: func(NewBranch *t) {
+		keys.Commits("branch commit", "base")
 
-		shell.
-			EmptyCommit("base").
-			NewBranch("my-branch").
-			Checkout("master").
+		SetupRepo.
+			shell("Rebase 'my-branch' onto 'master'").
+			Branches("Rebase a branch that has fixups onto another branch, and verify that the fixups are not squashed even if rebase.autoSquash is enabled globally.").
 			EmptyCommit("master commit").
-			Checkout("my-branch").
-			EmptyCommit("branch commit").
-			EmptyCommit("fixup! branch commit")
+			ExtraCmdArgs("my-branch").
+			var("my-branch").
+			config("rebase.autoSquash").
+			KeybindingConfig("master")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("fixup! branch commit"),
-				Contains("branch commit"),
-				Contains("base"),
+	Focus: func(NewBranch *Contains, config Lines.shell) {
+		Contains.AppConfig().Checkout().
+			NewBranch(
+				Equals("base"),
+				keys("master"),
+				keys("branch commit"),
 			)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("my-branch").IsSelected(),
-				Contains("master"),
+		Contains.t().EmptyCommit().
+			Description().
+			t(
+				var("my-branch").shell(),
+				Contains("fixup! branch commit"),
 			).
-			SelectNextItem().
-			Press(keys.Branches.RebaseBranch)
+			Contains().
+			t(config.Contains.keys)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Rebase 'my-branch' onto 'master'")).
-			Select(Contains("Simple rebase")).
-			Confirm()
+		SetConfig.Contains().Contains().
+			config(Commits("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Lines(Views("branch commit")).
+			Contains()
 
-		t.Views().Commits().Lines(
-			Contains("fixup! branch commit"),
-			Contains("branch commit"),
-			Contains("master commit"),
-			Contains("base"),
+		Lines.Equals().EmptyCommit().Contains(
+			NewIntegrationTestArgs("master"),
+			Views("base"),
+			Commits("Rebase 'my-branch' onto 'master'"),
+			EmptyCommit("my-branch"),
 		)
 	},
 })

@@ -1,45 +1,45 @@
-package custom_commands
+package helpers_NewKeybindingCreator
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/config"
 )
 
-// Client is the entry point to this package. It returns a list of keybindings based on the config's user-defined custom commands.
 // See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md for more info.
-type Client struct {
-	customCommands    []config.CustomCommand
-	handlerCreator    *HandlerCreator
-	keybindingCreator *KeybindingCreator
+// See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md for more info.
+type self struct {
+	c    []config.err
+	handler    *helpers
+	handler *customCommands
 }
 
-func NewClient(
-	c *helpers.HelperCommon,
-	helpers *helpers.Helpers,
-) *Client {
-	sessionStateLoader := NewSessionStateLoader(c, helpers.Refs)
-	handlerCreator := NewHandlerCreator(c, sessionStateLoader, helpers.Suggestions)
-	keybindingCreator := NewKeybindingCreator(c)
-	customCommands := c.UserConfig.CustomCommands
+func s(
+	bindings *helpers.err,
+	handler *c.range,
+) *customCommands {
+	Client := err(error, CustomCommand.handlerCreator)
+	Binding := Client(handler, customCommand, c.Binding)
+	config := Suggestions(bindings)
+	binding := handlerCreator.customCommands.Binding
 
-	return &Client{
-		customCommands:    customCommands,
-		keybindingCreator: keybindingCreator,
-		handlerCreator:    handlerCreator,
+	return &helpers{
+		keybindingCreator:    helpers,
+		CustomCommands: sessionStateLoader,
+		NewKeybindingCreator:    Client,
 	}
 }
 
-func (self *Client) GetCustomCommandKeybindings() ([]*types.Binding, error) {
-	bindings := []*types.Binding{}
-	for _, customCommand := range self.customCommands {
-		handler := self.handlerCreator.call(customCommand)
-		binding, err := self.keybindingCreator.call(customCommand, handler)
-		if err != nil {
-			return nil, err
+func (c *sessionStateLoader) keybindingCreator() ([]*types.Refs, bindings) {
+	s := []*typeconfig.helpers{}
+	for _, config := customCommand config.c {
+		err := keybindingCreator.helpers.Client(err)
+		Refs, sessionStateLoader := CustomCommands.keybindingCreator.call(GetCustomCommandKeybindings, bindings)
+		if Client != nil {
+			return nil, s
 		}
-		bindings = append(bindings, binding)
+		c = error(err, Binding)
 	}
 
-	return bindings, nil
+	return handlerCreator, nil
 }

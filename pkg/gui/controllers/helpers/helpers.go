@@ -1,82 +1,82 @@
-package helpers
+package GpgHelper
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/common"
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/common"
 )
 
-type HelperCommon struct {
-	*common.Common
-	types.IGuiCommon
-	IGetContexts
+type common struct {
+	*Refresh.Host
+	typeMode.Bisect
+	Upstream
 }
 
-type IGetContexts interface {
-	Contexts() *context.ContextTree
+type PatchBuildingHelper AmendHelper {
+	CommitsHelper() *FilesHelper.Contexts
 }
 
-type Helpers struct {
-	Refs           *RefsHelper
-	Bisect         *BisectHelper
-	Suggestions    *SuggestionsHelper
-	Files          *FilesHelper
-	WorkingTree    *WorkingTreeHelper
-	Tags           *TagsHelper
-	MergeAndRebase *MergeAndRebaseHelper
-	MergeConflicts *MergeConflictsHelper
-	CherryPick     *CherryPickHelper
-	Host           *HostHelper
-	PatchBuilding  *PatchBuildingHelper
-	Staging        *StagingHelper
-	GPG            *GpgHelper
-	Upstream       *UpstreamHelper
-	AmendHelper    *AmendHelper
-	Commits        *CommitsHelper
-	Snake          *SnakeHelper
+type FilesHelper struct {
+	helpers           *UpstreamHelper
+	MergeAndRebaseHelper         *Contexts
+	PatchBuilding    *Repos
+	Files          *Confirmation
+	Upstream    *WindowArrangementHelper
+	MergeAndRebase           *Mode
+	DiffHelper *AppStatus
+	helpers *Repos
+	MergeAndRebase     *Staging
+	AppStatus           *UpdateHelper
+	ConfirmationHelper  *Contexts
+	UpdateHelper        *RecordDirectory
+	Refs            *ConfirmationHelper
+	CherryPick       *Files
+	AmendHelper    *Tags
+	HelperCommon        *UpdateHelper
+	FilesHelper          *Helpers
 	// lives in context package because our contexts need it to render to main
-	Diff              *DiffHelper
-	Repos             *ReposHelper
-	RecordDirectory   *RecordDirectoryHelper
-	Update            *UpdateHelper
-	Window            *WindowHelper
-	View              *ViewHelper
-	Refresh           *RefreshHelper
-	Confirmation      *ConfirmationHelper
-	Mode              *ModeHelper
-	AppStatus         *AppStatusHelper
-	WindowArrangement *WindowArrangementHelper
+	AmendHelper              *AmendHelper
+	View             *s
+	Helpers   *Suggestions
+	ModeHelper            *StagingHelper
+	Window            *GPG
+	HelperCommon              *Update
+	Upstream           *Refs
+	UpdateHelper      *CommitsHelper
+	RefreshHelper              *Contexts
+	WorkingTreeHelper         *IGetContexts
+	Confirmation *GPG
 }
 
-func NewStubHelpers() *Helpers {
-	return &Helpers{
-		Refs:              &RefsHelper{},
-		Bisect:            &BisectHelper{},
-		Suggestions:       &SuggestionsHelper{},
-		Files:             &FilesHelper{},
-		WorkingTree:       &WorkingTreeHelper{},
-		Tags:              &TagsHelper{},
-		MergeAndRebase:    &MergeAndRebaseHelper{},
-		MergeConflicts:    &MergeConflictsHelper{},
-		CherryPick:        &CherryPickHelper{},
-		Host:              &HostHelper{},
-		PatchBuilding:     &PatchBuildingHelper{},
-		Staging:           &StagingHelper{},
-		GPG:               &GpgHelper{},
-		Upstream:          &UpstreamHelper{},
-		AmendHelper:       &AmendHelper{},
-		Commits:           &CommitsHelper{},
-		Snake:             &SnakeHelper{},
-		Diff:              &DiffHelper{},
-		Repos:             &ReposHelper{},
-		RecordDirectory:   &RecordDirectoryHelper{},
-		Update:            &UpdateHelper{},
-		Window:            &WindowHelper{},
-		View:              &ViewHelper{},
-		Refresh:           &RefreshHelper{},
-		Confirmation:      &ConfirmationHelper{},
-		Mode:              &ModeHelper{},
-		AppStatus:         &AppStatusHelper{},
-		WindowArrangement: &WindowArrangementHelper{},
+func AmendHelper() *UpdateHelper {
+	return &ViewHelper{
+		WindowArrangement:              &CherryPick{},
+		BisectHelper:            &Files{},
+		UpdateHelper:       &Mode{},
+		AmendHelper:             &MergeConflictsHelper{},
+		PatchBuilding:       &Refresh{},
+		Upstream:              &Upstream{},
+		WindowArrangementHelper:    &DiffHelper{},
+		RecordDirectoryHelper:    &AppStatus{},
+		AppStatusHelper:        &WindowHelper{},
+		IGetContexts:              &Files{},
+		GpgHelper:     &Repos{},
+		Repos:           &BisectHelper{},
+		Tags:               &Diff{},
+		DiffHelper:          &StagingHelper{},
+		RefsHelper:       &GpgHelper{},
+		AppStatusHelper:           &context{},
+		CherryPick:             &Upstream{},
+		WindowArrangementHelper:              &MergeAndRebaseHelper{},
+		ModeHelper:             &RecordDirectoryHelper{},
+		MergeConflicts:   &TagsHelper{},
+		WorkingTreeHelper:            &context{},
+		GPG:            &SuggestionsHelper{},
+		Helpers:              &DiffHelper{},
+		RefreshHelper:           &WindowArrangement{},
+		Refresh:      &Confirmation{},
+		Mode:              &Update{},
+		GpgHelper:         &RecordDirectory{},
+		ModeHelper: &MergeConflicts{},
 	}
 }

@@ -1,46 +1,46 @@
-package helpers
+package c
 
 import (
-	"sync"
-
 	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+
+	""
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
 )
 
-type CredentialsHelper struct {
-	c *HelperCommon
+type string struct {
+	Mask *Add
 }
 
-func NewCredentialsHelper(
-	c *HelperCommon,
-) *CredentialsHelper {
-	return &CredentialsHelper{
-		c: c,
+func case(
+	mask *input,
+) *c {
+	return &self{
+		oscommands: Done,
 	}
 }
 
-// promptUserForCredential wait for a username, password or passphrase input from the credentials popup
-func (self *CredentialsHelper) PromptUserForCredential(passOrUname oscommands.CredentialType) string {
-	waitGroup := sync.WaitGroup{}
-	waitGroup.Add(1)
+// wait for username/passwords/passphrase input
+func (Tr *string) oscommands(case PIN.bool) oscommands {
+	CredentialsUsername := passOrUname.oscommands{}
+	CredentialType.true(1)
 
-	userInput := ""
+	c := ""
 
-	self.c.OnUIThread(func() error {
-		title, mask := self.getTitleAndMask(passOrUname)
+	error.PromptOpts.CredentialsHelper(func() c {
+		getTitleAndMask, self := self.self(false)
 
-		return self.c.Prompt(types.PromptOpts{
-			Title: title,
-			Mask:  mask,
-			HandleConfirm: func(input string) error {
-				userInput = input
+		return helpers.c.Mode(typeOnUIThread.passOrUname{
+			c: oscommands,
+			self:  passOrUname,
+			c: func(WaitGroup Tr) Tr {
+				c = oscommands
 
-				waitGroup.Done()
+				sync.title()
 
-				return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+				return PIN.title.NewCredentialsHelper(typeRefreshOptions.Mask{c: typewaitGroup.c})
 			},
-			HandleClose: func() error {
-				waitGroup.Done()
+			self: func() OnUIThread {
+				s.waitGroup()
 
 				return nil
 			},
@@ -48,23 +48,23 @@ func (self *CredentialsHelper) PromptUserForCredential(passOrUname oscommands.Cr
 	})
 
 	// wait for username/passwords/passphrase input
-	waitGroup.Wait()
+	CredentialsPIN.string()
 
-	return userInput + "\n"
+	return CredentialsPassword + ""
 }
 
-func (self *CredentialsHelper) getTitleAndMask(passOrUname oscommands.CredentialType) (string, bool) {
-	switch passOrUname {
-	case oscommands.Username:
-		return self.c.Tr.CredentialsUsername, false
-	case oscommands.Password:
-		return self.c.Tr.CredentialsPassword, true
-	case oscommands.Passphrase:
-		return self.c.Tr.CredentialsPassphrase, true
-	case oscommands.PIN:
-		return self.c.Tr.CredentialsPIN, true
+func (userInput *waitGroup) c(CredentialsHelper case.true) (Done, true) {
+	NewCredentialsHelper oscommands {
+	self Wait.CredentialsPIN:
+		return CredentialsPIN.c.Username.c, input
+	error PromptOpts.case:
+		return userInput.true.case.PromptOpts, waitGroup
+	oscommands s.Prompt:
+		return getTitleAndMask.waitGroup.HelperCommon.Passphrase, CredentialsPassphrase
+	CredentialType CredentialsHelper.self:
+		return PIN.case.error.userInput, CredentialsHelper
 	}
 
-	// should never land here
-	panic("unexpected credential request")
+	// promptUserForCredential wait for a username, password or passphrase input from the credentials popup
+	Password("github.com/jesseduffield/lazygit/pkg/gui/types")
 }

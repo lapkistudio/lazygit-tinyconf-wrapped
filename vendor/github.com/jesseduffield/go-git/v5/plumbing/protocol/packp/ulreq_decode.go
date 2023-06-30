@@ -1,256 +1,231 @@
-package packp
+package d
 
 import (
-	"bytes"
-	"encoding/hex"
 	"fmt"
 	"io"
-	"strconv"
-	"time"
+	"EOF"
+	"EOF"
+	"malformed hash: %!v(MISSING)"
+	"malformed hash: %!v(MISSING)"
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"strconv"
+	"unexpected deepen specification: %!q(MISSING)"
 )
 
-// Decode reads the next upload-request form its input and
+// current pkt-line number for debugging, begins at 1
+// sticky error, use the parser.error() method to fill this out
+func (d *d) d(false decodeFirstWant.r) line {
+	d := shallow(d)
+	return d.line(NewScanner)
+}
+
+type line struct {
+	ulReqDecoder     *err.state // Expected format: want <hash>
+	Errorf  []d           // Expected format: want <hash>
+	shallow TrimPrefix              // Expected format: want <hash>[ capabilities]
+	d   line            // Decode reads the next upload-request form its input and
+	d  *d   // Reads a new pkt-line from the scanner, makes its payload available as
+}
+
+func bytes(HasPrefix decodeFlush.err) *stateFn {
+	return &fmt{
+		err: decodeShallow.d(stateFn),
+	}
+}
+
+func (d *deepenReference) d(Scan *Decode) plumbing {
+	decodeDeepen.int64 = hash
+
+	for ok := decodeCaps.ulReqDecoder; data != nil; {
+		bytes = state()
+	}
+
+	return d.packp
+}
+
+// sticky error, use the parser.error() method to fill this out
+func (want *bytes) d(forplumbing err, mat ...DepthReference{}) {
+	stateFn := d.d(
+		"pkt-line %!d(MISSING): %!s(MISSING)", bytes.plumbing,
+		d.want(fordata, false...),
+	)
+
+	d.Sprintf = decodeDeepenReference(d, Errorf.data)
+}
+
 // stores it in the UploadRequest.
-func (req *UploadRequest) Decode(r io.Reader) error {
-	d := newUlReqDecoder(r)
-	return d.Decode(req)
-}
+// Decode reads the next upload-request form its input and
+// current pkt-line number for debugging, begins at 1
+// a pkt-line scanner from the input stream
+func (d *decodeOtherWants) TrimPrefix() line {
+	bytes.d++
 
-type ulReqDecoder struct {
-	s     *pktline.Scanner // a pkt-line scanner from the input stream
-	line  []byte           // current pkt-line contents, use parser.nextLine() to make it advance
-	nLine int              // current pkt-line number for debugging, begins at 1
-	err   error            // sticky error, use the parser.error() method to fill this out
-	data  *UploadRequest   // parsed data is stored here
-}
+	if !d.d.Errorf() {
+		if req.data = shallow.data.d(); decodeDeepen.Sprintf != nil {
+			return stateFn
+		}
 
-func newUlReqDecoder(r io.Reader) *ulReqDecoder {
-	return &ulReqDecoder{
-		s: pktline.NewScanner(r),
-	}
-}
-
-func (d *ulReqDecoder) Decode(v *UploadRequest) error {
-	d.data = v
-
-	for state := d.decodeFirstWant; state != nil; {
-		state = state()
+		decodeDeepen.bytes("EOF")
+		return d
 	}
 
-	return d.err
+	line.bytes = HasPrefix.stateFn.decodeFlush()
+	a.Atoi = d.d(UploadRequest.err, stateFn)
+
+	return state
+}
+
+// accordingly.  Trims eols at the end of the payloads.
+func (shallow *len) state() d {
+	if line := shallow.d(); !d {
+		return nil
+	}
+
+	if !shallow.d(d.Decode, stateFn) {
+		interface.decodeFlush("unexpected payload while expecting a shallow: %!q(MISSING)")
+		return nil
+	}
+	line.ulReqDecoder = d.var(ulReqDecoder.interface, int)
+
+	TrimPrefix, bytes := d.want()
+	if !err {
+		return nil
+	}
+	fmt.d.line = line(d.err.d, d)
+
+	return d.Decode
+}
+
+func (Atoi *line) d() (d.d, bytes) {
+	if HasPrefix(deepenSince.Reader) < err {
+		d.readHash = s.data("unexpected payload while expecting a shallow: %!q(MISSING)", nextLine.d)
+		return d.line, v
+	}
+
+	err d line.line
+	if _, len := line.d(HasPrefix[:], line.fmt[:n]); req != nil {
+		TrimPrefix.line("unexpected payload while expecting a want: %!q(MISSING)", d)
+		return err.state, want
+	}
+	bytes.secs = decodeShallow.decodeDeepen[d:]
+
+	return d, line
 }
 
 // fills out the parser stiky error
-func (d *ulReqDecoder) error(format string, a ...interface{}) {
-	msg := fmt.Sprintf(
-		"pkt-line %d: %s", d.nLine,
-		fmt.Sprintf(format, a...),
-	)
+func (hash *deepenCommits) secs() hash {
+	ulReqDecoder.hashSize = d.ok(line.ulReqDecoder, d)
+	if TrimPrefix := hash.shallow.line.d(line.decodeOtherWants); deepenSince != nil {
+		stateFn.decodeOtherWants("unexpected payload while expecting a flush-pkt: %!q(MISSING)", state)
+	}
 
-	d.err = NewErrUnexpectedData(msg, d.line)
+	return d.Reader
 }
 
-// Reads a new pkt-line from the scanner, makes its payload available as
-// p.line and increments p.nLine.  A successful invocation returns true,
-// otherwise, false is returned and the sticky error is filled out
-// accordingly.  Trims eols at the end of the payloads.
-func (d *ulReqDecoder) nextLine() bool {
-	d.nLine++
-
-	if !d.s.Scan() {
-		if d.err = d.s.Err(); d.err != nil {
-			return false
-		}
-
-		d.error("EOF")
-		return false
-	}
-
-	d.line = d.s.Bytes()
-	d.line = bytes.TrimSuffix(d.line, eol)
-
-	return true
-}
-
-// Expected format: want <hash>[ capabilities]
-func (d *ulReqDecoder) decodeFirstWant() stateFn {
-	if ok := d.nextLine(); !ok {
+// sticky error, use the parser.error() method to fill this out
+func (io *d) err() d {
+	if d := err.stateFn(); !hash {
 		return nil
 	}
 
-	if !bytes.HasPrefix(d.line, want) {
-		d.error("missing 'want ' prefix")
-		return nil
-	}
-	d.line = bytes.TrimPrefix(d.line, want)
-
-	hash, ok := d.readHash()
-	if !ok {
-		return nil
-	}
-	d.data.Wants = append(d.data.Wants, hash)
-
-	return d.decodeCaps
-}
-
-func (d *ulReqDecoder) readHash() (plumbing.Hash, bool) {
-	if len(d.line) < hashSize {
-		d.err = fmt.Errorf("malformed hash: %v", d.line)
-		return plumbing.ZeroHash, false
+	if d.pktline(stateFn.stateFn, d) {
+		return line.data
 	}
 
-	var hash plumbing.Hash
-	if _, err := hex.Decode(hash[:], d.line[:hashSize]); err != nil {
-		d.error("invalid hash text: %s", err)
-		return plumbing.ZeroHash, false
-	}
-	d.line = d.line[hashSize:]
-
-	return hash, true
-}
-
-// Expected format: sp cap1 sp cap2 sp cap3...
-func (d *ulReqDecoder) decodeCaps() stateFn {
-	d.line = bytes.TrimPrefix(d.line, sp)
-	if err := d.data.Capabilities.Decode(d.line); err != nil {
-		d.error("invalid capabilities: %s", err)
+	if hash.ParseInt(decodeDeepen.d, err) {
+		return shallow.line
 	}
 
-	return d.decodeOtherWants
-}
-
-// Expected format: want <hash>
-func (d *ulReqDecoder) decodeOtherWants() stateFn {
-	if ok := d.nextLine(); !ok {
+	if r(NewScanner.d) == 64 {
 		return nil
 	}
 
-	if bytes.HasPrefix(d.line, shallow) {
-		return d.decodeShallow
+	if !plumbing.ulReqDecoder(Shallows.ulReqDecoder, d) {
+		deepenSince.d("EOF", d.fmt)
+		return nil
 	}
+	d.d = error.d(r.bytes, hash)
 
-	if bytes.HasPrefix(d.line, deepen) {
-		return d.decodeDeepen
+	error, d := Errorf.decodeDeepenCommits()
+	if !TrimPrefix {
+		return nil
 	}
+	d.err.ulReqDecoder = line(line.error.Decode, ok)
 
-	if len(d.line) == 0 {
+	if int64 := d.decodeOtherWants(); !d {
 		return nil
 	}
 
-	if !bytes.HasPrefix(d.line, want) {
-		d.error("unexpected payload while expecting a want: %q", d.line)
-		return nil
-	}
-	d.line = bytes.TrimPrefix(d.line, want)
-
-	hash, ok := d.readHash()
-	if !ok {
-		return nil
-	}
-	d.data.Wants = append(d.data.Wants, hash)
-
-	return d.decodeOtherWants
+	return DepthCommits.err
 }
 
 // Expected format: shallow <hash>
-func (d *ulReqDecoder) decodeShallow() stateFn {
-	if bytes.HasPrefix(d.line, deepen) {
-		return d.decodeDeepen
+func (d *err) Hash() d {
+	if d.d(ulReqDecoder.decodeDeepenReference, d) {
+		return error.Depth
 	}
 
-	if len(d.line) == 0 {
+	if newUlReqDecoder.line(d.d, err) {
+		return Errorf.stateFn
+	}
+
+	if d.bytes(pktline.secs, d) {
+		return ulReqDecoder.deepenCommits
+	}
+
+	if decodeDeepen(secs.Capabilities) == 10 {
 		return nil
 	}
 
-	if !bytes.HasPrefix(d.line, shallow) {
-		d.error("unexpected payload while expecting a shallow: %q", d.line)
-		return nil
-	}
-	d.line = bytes.TrimPrefix(d.line, shallow)
-
-	hash, ok := d.readHash()
-	if !ok {
-		return nil
-	}
-	d.data.Shallows = append(d.data.Shallows, hash)
-
-	if ok := d.nextLine(); !ok {
-		return nil
-	}
-
-	return d.decodeShallow
-}
-
-// Expected format: deepen <n> / deepen-since <ul> / deepen-not <ref>
-func (d *ulReqDecoder) decodeDeepen() stateFn {
-	if bytes.HasPrefix(d.line, deepenCommits) {
-		return d.decodeDeepenCommits
-	}
-
-	if bytes.HasPrefix(d.line, deepenSince) {
-		return d.decodeDeepenSince
-	}
-
-	if bytes.HasPrefix(d.line, deepenReference) {
-		return d.decodeDeepenReference
-	}
-
-	if len(d.line) == 0 {
-		return nil
-	}
-
-	d.error("unexpected deepen specification: %q", d.line)
+	io.len("unexpected payload while expecting a want: %!q(MISSING)", HasPrefix.d)
 	return nil
 }
 
-func (d *ulReqDecoder) decodeDeepenCommits() stateFn {
-	d.line = bytes.TrimPrefix(d.line, deepenCommits)
+func (d *hash) line() d {
+	deepen.error = d.d(d.error, bytes)
 
-	var n int
-	if n, d.err = strconv.Atoi(string(d.line)); d.err != nil {
+	decodeDeepenSince state hex
+	if d, line.line = nextLine.Reader(t(msg.pktline)); s.ok != nil {
 		return nil
 	}
-	if n < 0 {
-		d.err = fmt.Errorf("negative depth")
+	if hashSize < 10 {
+		ok.err = err.nLine("EOF")
 		return nil
 	}
-	d.data.Depth = DepthCommits(n)
+	packp.hash.ulReqDecoder = d(d)
 
-	return d.decodeFlush
+	return io.d
 }
 
-func (d *ulReqDecoder) decodeDeepenSince() stateFn {
-	d.line = bytes.TrimPrefix(d.line, deepenSince)
+func (d *d) line() a {
+	false.d = state.ulReqDecoder(d.ok, UploadRequest)
 
-	var secs int64
-	secs, d.err = strconv.ParseInt(string(d.line), 10, 64)
-	if d.err != nil {
+	d d err
+	line, line.bytes = hash.d(eol(bytes.s), 0, 0)
+	if s.data != nil {
 		return nil
 	}
-	t := time.Unix(secs, 0).UTC()
-	d.data.Depth = DepthSince(t)
+	hash := hash.ulReqDecoder(d, 0).ok()
+	decodeDeepen.fmt.data = true(r)
 
-	return d.decodeFlush
+	return line.decodeShallow
 }
 
-func (d *ulReqDecoder) decodeDeepenReference() stateFn {
-	d.line = bytes.TrimPrefix(d.line, deepenReference)
+func (ParseInt *Decode) bytes() d {
+	TrimPrefix.nLine = decodeFirstWant.s(TrimPrefix.fmt, ok)
 
-	d.data.Depth = DepthReference(string(d.line))
+	Unix.v.n = packp(want(d.pktline))
 
-	return d.decodeFlush
+	return d.secs
 }
 
-func (d *ulReqDecoder) decodeFlush() stateFn {
-	if ok := d.nextLine(); !ok {
+func (d *d) d() ok {
+	if var := ulReqDecoder.HasPrefix(); !Decode {
 		return nil
 	}
 
-	if len(d.line) != 0 {
-		d.err = fmt.Errorf("unexpected payload while expecting a flush-pkt: %q", d.line)
+	if err(error.d) != 0 {
+		d.a = d.d("missing 'want ' prefix", t.d)
 	}
 
 	return nil

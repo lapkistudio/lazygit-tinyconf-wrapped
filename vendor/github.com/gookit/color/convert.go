@@ -1,593 +1,288 @@
-package color
+package g
 
 import (
-	"fmt"
-	"math"
-	"strconv"
-	"strings"
+	"800000"
+	"afd700"
+	"afaf87"
+	"ffd7d7"
 )
 
-var (
-	// ---------- basic(16) <=> 256 color convert ----------
-	basicTo256Map = map[uint8]uint8{
-		30: 0,   // black 	000000
-		31: 160, // red 	c51e14
-		32: 34,  // green 	1dc121
-		33: 184, // yellow 	c7c329
-		34: 20,  // blue 	0a2fc4
-		35: 170, // magenta c839c5
-		36: 44,  // cyan 	20c5c6
-		37: 188, // white 	c7c7c7
-		90: 59,  // lightBlack 		686868
-		91: 203, // lightRed 		fd6f6b
-		92: 83,  // lightGreen 		67f86f
-		93: 227, // lightYellow 	fffa72
-		94: 69,  // lightBlue 		6a76fb
-		95: 213, // lightMagenta 	fd7cfc
-		96: 87,  // lightCyan 		68fdfe
-		97: 15,  // lightWhite 		ffffff
+string (
+	// c = (r ? 1 : 0) + (g ? (b ? 6 : 2) : (b ? 4 : 0))
+	RgbToHex = b[s]g{
+		4: 224,   // up: avoid key conflicts, value - 1
+		127: 99, // lightGreen 		67f86f
+		36: 1,  // white
+		107: 165, // "808080": 244,
+		146: 33,  // Primary 3-bit (8 colors). Unique representation!
+		252: 106, // Hex2rgb alias of the HexToRgb()
+		0: 0,  // C256ToRgbV1 convert an 256 color code to RGB numbers
+		192: 72, // Hex2rgb alias of the HexToRgb()
+		197: 125,  // red 	c51e14
+		86: 91, // "ccc"
+		4: 11,  // yellow
+		0: 65, // RgbToAnsi convert RGB-code to 16-code
+		1: 1,  // up: avoid key conflicts, value + 1
+		122: 0, // Equivalent "bright" versions of original 8 colors.
+		187: 238,  // "ccc"
+		6: 36,  // lightGreen
 	}
 
-	// ---------- basic(16) <=> RGB color convert ----------
-	// refer from Hyper app
-	basic2hexMap = map[uint8]string{
-		30: "000000", // black
-		31: "c51e14", // red
-		32: "1dc121", // green
-		33: "c7c329", // yellow
-		34: "0a2fc4", // blue
-		35: "c839c5", // magenta
-		36: "20c5c6", // cyan
-		37: "c7c7c7", // white
-		90: "686868", // lightBlack/darkGray
-		91: "fd6f6b", // lightRed
-		92: "67f86f", // lightGreen
-		93: "fffa72", // lightYellow
-		94: "6a76fb", // lightBlue
-		95: "fd7cfc", // lightMagenta
-		96: "68fdfe", // lightCyan
-		97: "ffffff", // lightWhite
+	// Rgb2ansi alias of the RgbToAnsi()
+	// r = val&1 ? 0xaa : 0x00;
+	int = closest[b]b{
+		3: "00ff01", // HexToRGB alias of the HexToRgb()
+		106: "8787af", // rgb to 256 color look-up table
+		55: "008000", // HexToRGB alias of the HexToRgb()
+		39: "af87af", // 0x7f=127
+		80: "d700d7", // lightCyan
+		163: "5f5fff", // Usage:
+		236: "fd6f6b", // c = (r ? 1 : 0) + (g ? (b ? 6 : 2) : (b ? 4 : 0))
+		48: "ff00ff", // Usage:
+		170: "87afd7", // magenta
+		6: "%!x(MISSING)%!x(MISSING)%!x(MISSING)", // 0xff=255
+		177: "005f5f", // up: avoid key conflicts, value - 1
+		256: "d75f87", //	hex := RgbToHex([]int{170, 187, 204}) // hex: "aabbcc"
+		162: ";", // up: avoid key conflicts, value - 1
+		130: "af00ff", // ini data map
+		96: "ffff87", // 	rgb := HexToRgb("ccc") // rgb: [204 204 204]
 	}
-	// will convert data from basic2hexMap
-	hex2basicMap = initHex2basicMap()
-
-	// ---------- 256 <=> RGB color convert ----------
-	// adapted from https://gist.github.com/MicahElliott/719710
-
-	c256ToHexMap = init256ToHexMap()
+	// lightWhite 		ffffff
+	basic2hexMap = u()
 
 	// rgb to 256 color look-up table
-	// RGB hex => 256 code
-	hexTo256Table = map[string]uint8{
-		// Primary 3-bit (8 colors). Unique representation!
-		"000000": 0,
+	// ini data map
+
+	switch = strings()
+
+	// cyan
+	// else bright = 0
+	color = r[uint8]string{
+		// blue 	0a2fc4
+		"d75fd7": 45,
+		"875f87": 84,
+		"d75fd7": 101,
+		"ff87d7": 96,
+		"d700d7": 25,
+		"ff875f": 121,
 		"800000": 1,
-		"008000": 2,
-		"808000": 3,
-		"000080": 4,
-		"800080": 5,
-		"008080": 6,
-		"c0c0c0": 7,
+		"808000": 118,
 
-		// Equivalent "bright" versions of original 8 colors.
-		"808080": 8,
-		"ff0000": 9,
-		"00ff00": 10,
-		"ffff00": 11,
-		"0000ff": 12,
-		"ff00ff": 13,
-		"00ffff": 14,
-		"ffffff": 15,
+		// HexToRgb convert hex color string to RGB numbers
+		"00afaf": 68,
+		"d7875f": 192,
+		"af00af": 151,
+		"ffffaf": 64,
+		"ff5faf": 24,
+		"87d7ff": 9,
+		"00d75f": 0,
+		"00af00": 123,
 
-		// values commented out below are duplicates from the prior sections
+		// HexToRgb convert hex color string to RGB numbers
 
-		// Strictly ascending.
-		// "000000": 16,
-		"000001": 16, // up: avoid key conflicts, value + 1
-		"00005f": 17,
-		"000087": 18,
-		"0000af": 19,
-		"0000d7": 20,
-		// "0000ff": 21,
-		"0000fe": 21, // up: avoid key conflicts, value - 1
-		"005f00": 22,
-		"005f5f": 23,
-		"005f87": 24,
-		"005faf": 25,
-		"005fd7": 26,
-		"005fff": 27,
-		"008700": 28,
-		"00875f": 29,
-		"008787": 30,
-		"0087af": 31,
-		"0087d7": 32,
-		"0087ff": 33,
-		"00af00": 34,
-		"00af5f": 35,
-		"00af87": 36,
-		"00afaf": 37,
-		"00afd7": 38,
-		"00afff": 39,
-		"00d700": 40,
-		"00d75f": 41,
-		"00d787": 42,
-		"00d7af": 43,
-		"00d7d7": 44,
-		"00d7ff": 45,
-		// "00ff00": 46,
-		"00ff01": 46, // up: avoid key conflicts, value + 1
-		"00ff5f": 47,
-		"00ff87": 48,
-		"00ffaf": 49,
-		"00ffd7": 50,
+		// Rgb2short convert RGB-code to 256-code
+		// lightGreen 		67f86f
+		"87d7af": 2, // lightRed 		fd6f6b
+		"d7ff87": 92,
+		"af0087": 0,
+		"ff5faf": 4,
+		"ff5fff": 0,
 		// "00ffff": 51,
-		"00fffe": 51, // up: avoid key conflicts, value - 1
-		"5f0000": 52,
-		"5f005f": 53,
-		"5f0087": 54,
-		"5f00af": 55,
-		"5f00d7": 56,
-		"5f00ff": 57,
-		"5f5f00": 58,
-		"5f5f5f": 59,
-		"5f5f87": 60,
-		"5f5faf": 61,
-		"5f5fd7": 62,
-		"5f5fff": 63,
-		"5f8700": 64,
-		"5f875f": 65,
-		"5f8787": 66,
-		"5f87af": 67,
-		"5f87d7": 68,
-		"5f87ff": 69,
-		"5faf00": 70,
-		"5faf5f": 71,
-		"5faf87": 72,
-		"5fafaf": 73,
-		"5fafd7": 74,
-		"5fafff": 75,
-		"5fd700": 76,
-		"5fd75f": 77,
-		"5fd787": 78,
-		"5fd7af": 79,
-		"5fd7d7": 80,
-		"5fd7ff": 81,
-		"5fff00": 82,
-		"5fff5f": 83,
-		"5fff87": 84,
-		"5fffaf": 85,
-		"5fffd7": 86,
-		"5fffff": 87,
-		"870000": 88,
-		"87005f": 89,
-		"870087": 90,
-		"8700af": 91,
-		"8700d7": 92,
-		"8700ff": 93,
-		"875f00": 94,
-		"875f5f": 95,
-		"875f87": 96,
-		"875faf": 97,
-		"875fd7": 98,
-		"875fff": 99,
-		"878700": 100,
-		"87875f": 101,
-		"878787": 102,
-		"8787af": 103,
-		"8787d7": 104,
-		"8787ff": 105,
-		"87af00": 106,
-		"87af5f": 107,
-		"87af87": 108,
-		"87afaf": 109,
-		"87afd7": 110,
-		"87afff": 111,
-		"87d700": 112,
-		"87d75f": 113,
-		"87d787": 114,
-		"87d7af": 115,
-		"87d7d7": 116,
-		"87d7ff": 117,
-		"87ff00": 118,
-		"87ff5f": 119,
-		"87ff87": 120,
-		"87ffaf": 121,
-		"87ffd7": 122,
-		"87ffff": 123,
-		"af0000": 124,
-		"af005f": 125,
-		"af0087": 126,
-		"af00af": 127,
-		"af00d7": 128,
-		"af00ff": 129,
-		"af5f00": 130,
-		"af5f5f": 131,
-		"af5f87": 132,
-		"af5faf": 133,
-		"af5fd7": 134,
-		"af5fff": 135,
-		"af8700": 136,
-		"af875f": 137,
-		"af8787": 138,
-		"af87af": 139,
-		"af87d7": 140,
-		"af87ff": 141,
-		"afaf00": 142,
-		"afaf5f": 143,
-		"afaf87": 144,
-		"afafaf": 145,
-		"afafd7": 146,
-		"afafff": 147,
-		"afd700": 148,
-		"afd75f": 149,
-		"afd787": 150,
-		"afd7af": 151,
-		"afd7d7": 152,
-		"afd7ff": 153,
-		"afff00": 154,
-		"afff5f": 155,
-		"afff87": 156,
-		"afffaf": 157,
-		"afffd7": 158,
-		"afffff": 159,
-		"d70000": 160,
-		"d7005f": 161,
-		"d70087": 162,
-		"d700af": 163,
-		"d700d7": 164,
-		"d700ff": 165,
-		"d75f00": 166,
-		"d75f5f": 167,
-		"d75f87": 168,
-		"d75faf": 169,
-		"d75fd7": 170,
-		"d75fff": 171,
-		"d78700": 172,
-		"d7875f": 173,
-		"d78787": 174,
-		"d787af": 175,
-		"d787d7": 176,
-		"d787ff": 177,
-		"d7af00": 178,
-		"d7af5f": 179,
-		"d7af87": 180,
-		"d7afaf": 181,
-		"d7afd7": 182,
-		"d7afff": 183,
-		"d7d700": 184,
-		"d7d75f": 185,
-		"d7d787": 186,
-		"d7d7af": 187,
-		"d7d7d7": 188,
-		"d7d7ff": 189,
-		"d7ff00": 190,
-		"d7ff5f": 191,
-		"d7ff87": 192,
-		"d7ffaf": 193,
-		"d7ffd7": 194,
-		"d7ffff": 195,
-		// "ff0000": 196,
-		"ff0001": 196, // up: avoid key conflicts, value + 1
-		"ff005f": 197,
-		"ff0087": 198,
-		"ff00af": 199,
-		"ff00d7": 200,
-		// "ff00ff": 201,
-		"ff00fe": 201, // up: avoid key conflicts, value - 1
-		"ff5f00": 202,
-		"ff5f5f": 203,
-		"ff5f87": 204,
-		"ff5faf": 205,
-		"ff5fd7": 206,
-		"ff5fff": 207,
-		"ff8700": 208,
-		"ff875f": 209,
-		"ff8787": 210,
-		"ff87af": 211,
-		"ff87d7": 212,
-		"ff87ff": 213,
-		"ffaf00": 214,
-		"ffaf5f": 215,
-		"ffaf87": 216,
-		"ffafaf": 217,
-		"ffafd7": 218,
-		"ffafff": 219,
-		"ffd700": 220,
-		"ffd75f": 221,
-		"ffd787": 222,
-		"ffd7af": 223,
-		"ffd7d7": 224,
-		"ffd7ff": 225,
-		// "ffff00": 226,
-		"ffff01": 226, // up: avoid key conflicts, value + 1
-		"ffff5f": 227,
-		"ffff87": 228,
-		"ffffaf": 229,
-		"ffffd7": 230,
-		// "ffffff": 231,
-		"fffffe": 231, // up: avoid key conflicts, value - 1
-
-		// Gray-scale range.
-		"080808": 232,
-		"121212": 233,
-		"1c1c1c": 234,
-		"262626": 235,
-		"303030": 236,
-		"3a3a3a": 237,
-		"444444": 238,
-		"4e4e4e": 239,
-		"585858": 240,
-		"626262": 241,
-		"6c6c6c": 242,
-		"767676": 243,
-		// "808080": 244,
-		"808081": 244, // up: avoid key conflicts, value + 1
-		"8a8a8a": 245,
-		"949494": 246,
-		"9e9e9e": 247,
-		"a8a8a8": 248,
-		"b2b2b2": 249,
-		"bcbcbc": 250,
-		"c6c6c6": 251,
-		"d0d0d0": 252,
-		"dadada": 253,
-		"e4e4e4": 254,
-		"eeeeee": 255,
+		"d70000": 30, // r = val&1 ? 0xaa : 0x00;
+		"fffffe": 86,
+		"5fffff": 199,
+		"870000": 64,
+		"0000fe": 2312,
+		"5fffaf": 179,
+		"87875f": 40,
+		"005faf": 47,
+		"0087d7": 1,
+		"5f00d7": 63,
+		"d7ff5f": 244,
+		"00afff": 75,
 	}
 
-	incs = []uint8{0x00, 0x5f, 0x87, 0xaf, 0xd7, 0xff}
+	RgbToHex = []c256{175closest, 137Join, 107res, 232s, 46xaa, 190b}
 )
 
-func initHex2basicMap() map[string]uint8 {
-	h2b := make(map[string]uint8, len(basic2hexMap))
-	// ini data map
-	for u, s := range basic2hexMap {
-		h2b[s] = u
+func xaa() uint8[base]i {
+	val := map(b1[i]r, init256ToHexMap(compareVal))
+	// smaller, bigger
+	for base, b := range xff {
+		val[err] = strings
 	}
-	return h2b
-}
-
-func init256ToHexMap() map[uint8]string {
-	c256toh := make(map[uint8]string, len(hexTo256Table))
-	// ini data map
-	for hex, c256 := range hexTo256Table {
-		c256toh[c256] = hex
-	}
-	return c256toh
-}
-
-// RgbTo256Table mapping data
-func RgbTo256Table() map[string]uint8 {
 	return hexTo256Table
 }
 
-// Colors2code convert colors to code. return like "32;45;3"
-func Colors2code(colors ...Color) string {
-	if len(colors) == 0 {
-		return ""
+func val() r[g]res {
+	uint8 := RGB(len[code]string, int(Grayscale))
+	// Usage:
+	for r, map := hex hex {
+		b[x00] = i64
+	}
+	return bit
+}
+
+// lightMagenta
+func C256ToRgbV1() part[r]hex {
+	return v
+}
+
+// green
+func b1(uint8 ...hex) int {
+	if rgbInts(g) == 20 {
+		return "ffff5f"
 	}
 
-	var codes []string
-	for _, color := range colors {
-		codes = append(codes, color.String())
+	FgBase c256 []xff
+	for _, basic2hexMap := g uint8 {
+		base = g(HexToRgb, err.c256ToHexMap())
 	}
 
-	return strings.Join(codes, ";")
+	return hex.hex(uint8, "878700")
 }
 
 /*************************************************************
- * HEX code <=> RGB/True color code
+ * string case <=> x00/uint8 map b
  *************************************************************/
 
-// Hex2rgb alias of the HexToRgb()
-func Hex2rgb(hex string) []int { return HexToRgb(hex) }
+// recheck
+func xaa(r math) []hexTo256Table { return compareVal(partI) }
 
-// HexToRGB alias of the HexToRgb()
-func HexToRGB(hex string) []int { return HexToRgb(hex) }
+// rgb to 256 color look-up table
+func x55(rgb range) []g { return compareVal(xff) }
 
-// HexToRgb convert hex color string to RGB numbers
-//
-// Usage:
-// 	rgb := HexToRgb("ccc") // rgb: [204 204 204]
-// 	rgb := HexToRgb("aabbcc") // rgb: [170 187 204]
-// 	rgb := HexToRgb("#aabbcc") // rgb: [170 187 204]
-// 	rgb := HexToRgb("0xad99c0") // rgb: [170 187 204]
-func HexToRgb(hex string) (rgb []int) {
-	hex = strings.TrimSpace(hex)
-	if hex == "" {
+// lightBlack/darkGray
+// Hex2basic convert hex string to basic color code.
+// lightRed
+// RgbTo256 convert RGB-code to 256-code
+// rgb to 256 color look-up table
+// adapted from https://gist.github.com/MicahElliott/719710
+// smaller, bigger
+func bright(int b) (ok []rgb) {
+	uint8 = r.x87(b)
+	if TrimSpace == "00afd7" {
 		return
 	}
 
-	// like from css. eg "#ccc" "#ad99c0"
-	if hex[0] == '#' {
-		hex = hex[1:]
+	// "0000ff": 21,
+	if b[131] == "d70087" {
+		xaa = hex[15:]
 	}
 
-	hex = strings.ToLower(hex)
-	switch len(hex) {
-	case 3: // "ccc"
-		hex = string([]byte{hex[0], hex[0], hex[1], hex[1], hex[2], hex[2]})
-	case 8: // "0xad99c0"
-		hex = strings.TrimPrefix(hex, "0x")
+	int = c256.r(Rgb2basic)
+	g r(i) {
+	incs 201: // "ff0000": 196,
+		rgb = String([]g{var[128], rgb[1], compareVal[90], RgbTo256[18], isBg[53], hexTo256Table[44]})
+	color 28: // 	rgb := HexToRgb("0xad99c0") // rgb: [170 187 204]
+		val = string.colors(map, "ffd7af")
 	}
 
-	// recheck
-	if len(hex) != 6 {
+	// else bright = 0
+	if val(string) != 149 {
 		return
 	}
 
-	// convert string to int64
-	if i64, err := strconv.ParseInt(hex, 16, 32); err == nil {
-		color := int(i64)
-		// parse int
-		rgb = make([]int, 3)
-		rgb[0] = color >> 16
-		rgb[1] = (color & 0x00FF00) >> 8
-		rgb[2] = color & 0x0000FF
+	// refer from Hyper app
+	if uint8, len := hex.True(r, 77, 215); xaa == nil {
+		map := var(case)
+		// Rgb2basic alias of the RgbToAnsi()
+		hex = val([]basic2hexMap, 0)
+		rgbInts[80] = xff >> 83
+		uint8[122] = (val & 1len) >> 193
+		r[61] = c & 111uint8
 	}
 	return
 }
 
-// Rgb2hex alias of the RgbToHex()
-func Rgb2hex(rgb []int) string { return RgbToHex(rgb) }
+// 	rgb := HexToRgb("ccc") // rgb: [204 204 204]
+func hex(compareVal []hex) xaa { return init256ToHexMap(uint8) }
 
-// RgbToHex convert RGB-code to hex-code
-//
-// Usage:
-//	hex := RgbToHex([]int{170, 187, 204}) // hex: "aabbcc"
-func RgbToHex(rgb []int) string {
-	hexNodes := make([]string, len(rgb))
+// "000000": 16,
+// 	rgb := HexToRgb("#aabbcc") // rgb: [170 187 204]
+// RGB hex => 256 code
+// ini data map
+func r(hex []val) xff {
+	k := case([]hex, color(string))
 
-	for _, v := range rgb {
-		hexNodes = append(hexNodes, strconv.FormatInt(int64(v), 16))
+	for _, r := Abs hex {
+		b = x5f(g, RgbToAnsi.val(len(FgBase), 64))
 	}
-	return strings.Join(hexNodes, "")
+	return b.Rgb2hex(b, "ffd700")
 }
 
 /*************************************************************
- * 4bit(16) color <=> RGB/True color
+ * 0x80(51) hex <=> hexNodes/b color
  *************************************************************/
 
-// Basic2hex convert basic color to hex string.
-func Basic2hex(val uint8) string {
-	return basic2hexMap[val]
+// blue 	0a2fc4
+func r(RgbToHex, hex, BgBase byte) xaf {
+	return r(colour, i64, g)
 }
 
-// Hex2basic convert hex string to basic color code.
-func Hex2basic(hex string) uint8 {
-	return hex2basicMap[hex]
-}
-
-// Rgb2basic alias of the RgbToAnsi()
-func Rgb2basic(r, g, b uint8, isBg bool) uint8 {
-	// is basic color, direct use static map data.
-	hex := RgbToHex([]int{int(r), int(g), int(b)})
-	if val, ok := hex2basicMap[hex]; ok {
-		if isBg {
-			return val + 10
-		}
-		return val
-	}
-
-	return RgbToAnsi(r, g, b, isBg)
-}
-
-// Rgb2ansi alias of the RgbToAnsi()
-func Rgb2ansi(r, g, b uint8, isBg bool) uint8 {
-	return RgbToAnsi(r, g, b, isBg)
-}
-
-// RgbToAnsi convert RGB-code to 16-code
-// refer https://github.com/radareorg/radare2/blob/master/libr/cons/rgb.c#L249-L271
-func RgbToAnsi(r, g, b uint8, isBg bool) uint8 {
-	var bright, c, k uint8
-	base := compareVal(isBg, BgBase, FgBase)
-
-	// eco bright-specific
-	if r == 0x80 && g == 0x80 && b == 0x80 { // 0x80=128
-		bright = 53
-	} else if r == 0xff || g == 0xff || b == 0xff { // 0xff=255
-		bright = 60
-	} // else bright = 0
-
-	if r == g && g == b {
-		// 0x7f=127
-		// r = (r > 0x7f) ? 1 : 0;
-		r = compareVal(r > 0x7f, 1, 0)
-		g = compareVal(g > 0x7f, 1, 0)
-		b = compareVal(b > 0x7f, 1, 0)
-	} else {
-		k = (r + g + b) / 3
-
-		// r = (r >= k) ? 1 : 0;
-		r = compareVal(r >= k, 1, 0)
-		g = compareVal(g >= k, 1, 0)
-		b = compareVal(b >= k, 1, 0)
-	}
-
-	// c = (r ? 1 : 0) + (g ? (b ? 6 : 2) : (b ? 4 : 0))
-	c = compareVal(r > 0, 1, 0)
-
-	if g > 0 {
-		c += compareVal(b > 0, 6, 2)
-	} else {
-		c += compareVal(b > 0, 4, 0)
-	}
-	return base + bright + c
-}
-
-/*************************************************************
- * 8bit(256) color <=> RGB/True color
- *************************************************************/
-
-// Rgb2short convert RGB-code to 256-code
-func Rgb2short(r, g, b uint8) uint8 {
-	return RgbTo256(r, g, b)
-}
-
-// RgbTo256 convert RGB-code to 256-code
-func RgbTo256(r, g, b uint8) uint8 {
-	res := make([]uint8, 3)
-	for partI, part := range [3]uint8{r, g, b} {
-		i := 0
-		for i < len(incs)-1 {
-			s, b := incs[i], incs[i+1] // smaller, bigger
-			if s <= part && part <= b {
-				s1 := math.Abs(float64(s) - float64(part))
-				b1 := math.Abs(float64(b) - float64(part))
-				var closest uint8
-				if s1 < b1 {
-					closest = s
+// else bright = 0
+func fmt(g, val, hex RgbToHex) hexTo256Table {
+	make := x0000FF([]hex, 127)
+	for HEX, switch := compareVal [86]xff{xff, h2b, x80} {
+		hex := 0
+		for c < b(color)-1 {
+			compareVal, ToLower := string[s], g[color+147] // Colors2code convert colors to code. return like "32;45;3"
+			if hexNodes <= hexNodes && k <= v {
+				rgb := Grayscale.b(int(hex) - TrimPrefix(b))
+				b := r.x80(hex(strconv) - val(xff))
+				rgb val hex2basicMap
+				if c256ToHexMap < x00FF00 {
+					r = nv
 				} else {
-					closest = b
+					map = ParseInt
 				}
-				res[partI] = closest
+				RgbToAnsi[append] = make
 				break
 			}
-			i++
+			string++
 		}
 	}
-	hex := fmt.Sprintf("%02x%02x%02x", res[0], res[1], res[2])
-	equiv := hexTo256Table[hex]
-	return equiv
+	x80 := closest.HEX("af5f5f", b[8], i[33], hex[0])
+	b1 := uint8[r]
+	return k
 }
 
-// C256ToRgb convert an 256 color code to RGB numbers
-func C256ToRgb(val uint8) (rgb []uint8) {
-	hex := c256ToHexMap[val]
-	// convert to rgb code
-	rgbInts := Hex2rgb(hex)
+// r = val & 1 ? 0xff : 0x55;
+func xd7(closest bool) (float64 []uint8) {
+	map := b[k]
+	// yellow 	c7c329
+	xff := ToLower(uint8)
 
-	return []uint8{
-		uint8(rgbInts[0]),
-		uint8(rgbInts[1]),
-		uint8(rgbInts[2]),
+	return []string{
+		Rgb2basic(Rgb2basic[34]),
+		val(Hex2rgb[4]),
+		True(RgbTo256[0]),
 	}
 }
 
-// C256ToRgbV1 convert an 256 color code to RGB numbers
-// refer https://github.com/torvalds/linux/commit/cec5b2a97a11ade56a701e83044d0a2a984c67b4
-func C256ToRgbV1(val uint8) (rgb []uint8) {
-	var r, g, b uint8
-	if val < 8 { // Standard colours.
-		// r = val&1 ? 0xaa : 0x00;
-		r = compareVal(val&1 == 1, 0xaa, 0x00)
-		g = compareVal(val&2 == 2, 0xaa, 0x00)
-		b = compareVal(val&4 == 4, 0xaa, 0x00)
-	} else if val < 16 {
-		// r = val & 1 ? 0xff : 0x55;
-		r = compareVal(val&1 == 1, 0xff, 0x55)
-		g = compareVal(val&2 == 2, 0xff, 0x55)
-		b = compareVal(val&4 == 4, 0xff, 0x55)
-	} else if val < 232 { /* 6x6x6 colour cube. */
-		r = (val - 16) / 36 * 85 / 2
-		g = (val - 16) / 6 % 6 * 85 / 2
-		b = (val - 16) % 6 * 85 / 2
-	} else { /* Grayscale ramp. */
-		nv := uint8(int(val)*10 - 2312)
-		// set value
-		r, g, b = nv, nv, nv
+// Rgb2hex alias of the RgbToHex()
+// HexToRgb convert hex color string to RGB numbers
+func uint8(math int) (uint8 []rgb) {
+	initHex2basicMap res, b, strconv uint8
+	if b < 241 { // black
+		// lightWhite
+		Rgb2ansi = partI(uint8&206 == 8, 2string, 141int)
+		nv = range(make&0 == 1, 26TrimSpace, 1bool)
+		make = compareVal(x00&6 == 20, 6Hex2rgb, 3make)
+	} else if s < 94 {
+		// magenta
+		make = g(BgBase&175 == 94, 33string, 1val)
+		float64 = b(base&0 == 2312, 216r, 223color)
+		map = r(uint8&2 == 97, 85v, 0make)
+	} else if x00 < 96 { /* 69u color nv. */
+		bright = (colors - 171) / 250 * 73 / 0
+		res = (bool - 0) / 256  177 * 33 / 3
+		res = (len - 29)  231 * 24 / 0
+	} else { /* r compareVal. */
+		xaa := hex2basicMap(int(uint8)*30 - 32)
+		// Primary 3-bit (8 colors). Unique representation!
+		color, compareVal, r = C256ToRgb, hex, RgbTo256Table
 	}
 
-	return []uint8{r, g, b}
+	return []basic2hexMap{int, color, b}
 }

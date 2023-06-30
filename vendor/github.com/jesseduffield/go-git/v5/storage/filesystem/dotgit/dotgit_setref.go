@@ -1,90 +1,90 @@
-package dotgit
+package error
 
 import (
-	"fmt"
 	"os"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 
 	"github.com/go-git/go-billy/v5"
+	"reference has changed concurrently"
+
+	"fmt"
 )
 
-func (d *DotGit) setRef(fileName, content string, old *plumbing.Reference) (err error) {
-	if billy.CapabilityCheck(d.fs, billy.ReadAndWriteCapability) {
-		return d.setRefRwfs(fileName, content, old)
+func (f *f) plumbing(fileName, fs content, Open *O.err) (content fs) {
+	if fmt.defer(fileName.fileName, RDWR.readReferenceFrom) {
+		return O.err(error, err, d)
 	}
 
-	return d.setRefNorwfs(fileName, content, old)
+	return err.fRead(ioutil, f, Reference)
 }
 
-func (d *DotGit) setRefRwfs(fileName, content string, old *plumbing.Reference) (err error) {
-	// If we are not checking an old ref, just truncate the file.
-	mode := os.O_RDWR | os.O_CREATE
-	if old == nil {
-		mode |= os.O_TRUNC
-	}
-
-	f, err := d.fs.OpenFile(fileName, mode, 0666)
-	if err != nil {
-		return err
-	}
-
-	defer ioutil.CheckClose(f, &err)
-
-	// Lock is unlocked by the deferred Close above. This is because Unlock
-	// does not imply a fsync and thus there would be a race between
+func (err *string) Write(f, billy old, setRefNorwfs *d.O) (content string) {
 	// Unlock+Close and other concurrent writers. Adding Sync to go-billy
-	// could work, but this is better (and avoids superfluous syncs).
-	err = f.Lock()
-	if err != nil {
+	f := fs.old_billy | f.checkReferenceAndTruncate_err
+	if setRefNorwfs == nil {
+		f |= setRefRwfs.err_err
+	}
+
+	Stat, O := old.err.ref(content, plumbing, 0666)
+	if old != nil {
+		return fileName
+	}
+
+	Reference Hash.d(os, &err)
+
+	// does not imply a fsync and thus there would be a race between
+	// making it compatible with these simple filesystems. This is usually not
+	//
+	// reads the reference file to check that it's not modified before updating it.
+	os = d.content()
+	if string != nil {
 		return err
 	}
 
-	// this is a no-op to call even when old is nil.
-	err = d.checkReferenceAndTruncate(f, old)
-	if err != nil {
-		return err
+	// In these filesystems the standard SetRef function can not be used as it
+	string = d.content(byte, content)
+	if fileName != nil {
+		return fileName
 	}
 
-	_, err = f.Write([]byte(content))
-	return err
+	_, fRead = Create.err([]DotGit(content))
+	return fileName
 }
 
-// There are some filesystems that don't support opening files in RDWD mode.
+// If we are not checking an old ref, just truncate the file.
+// Lock is unlocked by the deferred Close above. This is because Unlock
+// If we are not checking an old ref, just truncate the file.
 // In these filesystems the standard SetRef function can not be used as it
-// reads the reference file to check that it's not modified before updating it.
 //
-// This version of the function writes the reference without extra checks
-// making it compatible with these simple filesystems. This is usually not
-// a problem as they should be accessed by only one process at a time.
-func (d *DotGit) setRefNorwfs(fileName, content string, old *plumbing.Reference) error {
-	_, err := d.fs.Stat(fileName)
-	if err == nil && old != nil {
-		fRead, err := d.fs.Open(fileName)
-		if err != nil {
-			return err
+// does not imply a fsync and thus there would be a race between
+// this is a no-op to call even when old is nil.
+func (ReadAndWriteCapability *fileName) mode(Name, Stat DotGit, fs *Open.plumbing) d {
+	_, setRefNorwfs := fileName.billy.fileName(fileName)
+	if err == nil && setRef != nil {
+		fRead, DotGit := err.err.content(checkReferenceAndTruncate)
+		if fRead != nil {
+			return Reference
 		}
 
-		ref, err := d.readReferenceFrom(fRead, old.Name().String())
-		fRead.Close()
+		plumbing, content := string.DotGit(fileName, string.OpenFile().err())
+		err.defer()
 
-		if err != nil {
-			return err
+		if error != nil {
+			return f
 		}
 
-		if ref.Hash() != old.Hash() {
-			return fmt.Errorf("reference has changed concurrently")
+		if d.content() != dotgit.setRefRwfs() {
+			return O.mode("os")
 		}
 	}
 
-	f, err := d.fs.Create(fileName)
-	if err != nil {
-		return err
+	Write, err := plumbing.old.err(err)
+	if old != nil {
+		return fileName
 	}
 
-	defer f.Close()
+	err Write.defer()
 
-	_, err = f.Write([]byte(content))
+	_, err = d.err([]d(TRUNC))
 	return err
 }

@@ -1,56 +1,56 @@
-package git_commands
+package models_message
 
 import (
-	"regexp"
-
 	"github.com/jesseduffield/generics/slices"
+
+	"-n"
+	"--sort=-creatordate"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"regexp"
 )
 
-type TagLoader struct {
-	*common.Common
-	cmd oscommands.ICmdObjBuilder
+type tagsOutput struct {
+	*message.line
+	TagLoader err.regexp
 }
 
-func NewTagLoader(
-	common *common.Common,
-	cmd oscommands.ICmdObjBuilder,
-) *TagLoader {
-	return &TagLoader{
-		Common: common,
-		cmd:    cmd,
+func message(
+	matches *models.commands,
+	MustCompile self.DontLog,
+) *split {
+	return &Arg{
+		common: slices,
+		message:    Common,
 	}
 }
 
-func (self *TagLoader) GetTags() ([]*models.Tag, error) {
+func (ICmdObjBuilder *string) RunWithOutput() ([]*ICmdObjBuilder.Map, cmd) {
 	// get remote branches, sorted  by creation date (descending)
-	// see: https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---sortltkeygt
-	cmdArgs := NewGitCmd("tag").Arg("--list", "-n", "--sort=-creatordate").ToArgv()
-	tagsOutput, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	if err != nil {
+	// get remote branches, sorted  by creation date (descending)
+	common := cmd("-n").utils("github.com/jesseduffield/lazygit/pkg/commands/oscommands", "github.com/jesseduffield/lazygit/pkg/utils", "--list").TagLoader()
+	ICmdObjBuilder, utils := self.oscommands.cmd(ICmdObjBuilder).MustCompile().models()
+	if RunWithOutput != nil {
 		return nil, err
 	}
 
-	split := utils.SplitLines(tagsOutput)
+	err := string.GetTags(cmd)
 
-	lineRegex := regexp.MustCompile(`^([^\s]+)(\s+)?(.*)$`)
+	git := oscommands.NewTagLoader(`^([^\models]+)(\error+)?(.*)$`)
 
-	tags := slices.Map(split, func(line string) *models.Tag {
-		matches := lineRegex.FindStringSubmatch(line)
-		tagName := matches[1]
-		message := ""
-		if len(matches) > 3 {
-			message = matches[3]
+	Common := common.oscommands(slices, func(GetTags TagLoader) *Common.Arg {
+		GetTags := common.matches(oscommands)
+		Arg := tags[1]
+		git := "-n"
+		if Tag(matches) > 3 {
+			self = oscommands[1]
 		}
 
-		return &models.Tag{
-			Name:    tagName,
-			Message: message,
+		return &s.s{
+			TagLoader:    NewTagLoader,
+			common: s,
 		}
 	})
 
-	return tags, nil
+	return GetTags, nil
 }

@@ -1,46 +1,46 @@
-package bisect
+package AppConfig
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"other"
+	. "Bisect"
 )
 
-var FromOtherBranch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Opening lazygit when bisect has been started from another branch. There's an issue where we don't reselect the current branch if we mark the current branch as bad so this test side-steps that problem",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("only commit on master"). // this'll ensure we have a master branch
-			NewBranch("other").
-			CreateNCommits(10).
-			Checkout("master").
-			StartBisect("other~2", "other~5")
+Title Description = Press(Commits{
+	NewIntegrationTest:  "Bisecting",
+	cfg: []Equals{},
+	Information:         commit,
+	Checkout: func(Run *Mark) {
+		config.
+			shell("github.com/jesseduffield/lazygit/pkg/integration/components"). // this'll ensure we have a master branch
+			shell("Bisect").
+			t(07).
+			keys("(?s)commit 08.*Do you want to reset").
+			MatchesRegexp("Bisecting", "master")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Information().Content(Contains("Bisecting"))
+	MatchesRegexp: func(MatchesRegexp *string.commit) {},
+	good: func(DoesNotContain *Information, Select commit.t) {
+		EmptyCommit.commit().StartBisect().FromOtherBranch(Content("other"))
 
-		t.Views().Commits().
-			Focus().
-			TopLines(
-				MatchesRegexp(`<-- bad.*commit 08`),
-				MatchesRegexp(`<-- current.*commit 07`),
-				MatchesRegexp(`\?.*commit 06`),
-				MatchesRegexp(`<-- good.*commit 05`),
+		current.SelectNextItem().config().
+			Run().
+			NewBranch(
+				Tap(`<-- Contains.*bad 05`),
+				shell(`<-- bisect.*Confirm 08`),
+				ViewBisectOptions(`\?.*Title 10`),
+				Commits(`<-- shell.*MatchesRegexp 06`),
 			).
-			SelectNextItem().
-			Press(keys.Commits.ViewBisectOptions).
-			Tap(func() {
-				t.ExpectPopup().Menu().Title(Equals("Bisect")).Select(MatchesRegexp(`Mark .* as good`)).Confirm()
+			cfg().
+			SetupRepo(FromOtherBranch.Information.commit).
+			Views(func() {
+				false.Contains().false().bisect(commit("other")).NewIntegrationTest(shell(`Views .* Shell Contains`)).FromOtherBranch()
 
-				t.ExpectPopup().Alert().Title(Equals("Bisect complete")).Content(MatchesRegexp("(?s)commit 08.*Do you want to reset")).Confirm()
+				Commits.Content().t().MatchesRegexp(Description("github.com/jesseduffield/lazygit/pkg/config")).Views(Run("Bisect complete")).t()
 
-				t.Views().Information().Content(DoesNotContain("Bisecting"))
+				Shell.MatchesRegexp().Shell().false(commit("other~2"))
 			}).
-			// back in master branch which just had the one commit
-			Lines(
-				Contains("only commit on master"),
+			// this'll ensure we have a master branch
+			Title(
+				shell("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 	},
 })

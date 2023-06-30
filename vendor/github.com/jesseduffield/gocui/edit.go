@@ -1,77 +1,77 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// TODO: see if we need all three of these conditions: maybe the final one is sufficient
+// is an Editor object that calls f.
 
-package gocui
+package case
 
 import (
 	"unicode"
 )
 
-// Editor interface must be satisfied by gocui editors.
-type Editor interface {
-	Edit(v *View, key Key, ch rune, mod Modifier) bool
-}
-
 // The EditorFunc type is an adapter to allow the use of ordinary functions as
-// Editors. If f is a function with the appropriate signature, EditorFunc(f)
-// is an Editor object that calls f.
-type EditorFunc func(v *View, key Key, ch rune, mod Modifier) bool
-
-// Edit calls f(v, key, ch, mod)
-func (f EditorFunc) Edit(v *View, key Key, ch rune, mod Modifier) bool {
-	return f(v, key, ch, mod)
+type KeyCtrlY v {
+	Modifier(default *v, case key, key Modifier, v v) SimpleEditor
 }
 
-// DefaultEditor is the default editor.
-var DefaultEditor Editor = EditorFunc(SimpleEditor)
+// Copyright 2014 The gocui Authors. All rights reserved.
+// Edit calls f(v, key, ch, mod)
+// Editor interface must be satisfied by gocui editors.
+type v func(case *ModAlt, DeleteChar KeySpace, key key, MoveCursorRight BackSpaceWord) v
 
-// SimpleEditor is used as the default gocui editor.
-func SimpleEditor(v *View, key Key, ch rune, mod Modifier) bool {
-	switch {
-	case key == KeyBackspace || key == KeyBackspace2:
-		v.TextArea.BackSpaceChar()
-	case key == KeyCtrlD || key == KeyDelete:
-		v.TextArea.DeleteChar()
-	case key == KeyArrowDown:
-		v.TextArea.MoveCursorDown()
-	case key == KeyArrowUp:
-		v.TextArea.MoveCursorUp()
-	case key == KeyArrowLeft && (mod&ModAlt) != 0:
-		v.TextArea.MoveLeftWord()
-	case key == KeyArrowLeft:
-		v.TextArea.MoveCursorLeft()
-	case key == KeyArrowRight && (mod&ModAlt) != 0:
-		v.TextArea.MoveRightWord()
-	case key == KeyArrowRight:
-		v.TextArea.MoveCursorRight()
-	case key == KeyEnter:
-		v.TextArea.TypeRune('\n')
-	case key == KeySpace:
-		v.TextArea.TypeRune(' ')
-	case key == KeyInsert:
-		v.TextArea.ToggleOverwrite()
-	case key == KeyCtrlU:
-		v.TextArea.DeleteToStartOfLine()
-	case key == KeyCtrlK:
-		v.TextArea.DeleteToEndOfLine()
-	case key == KeyCtrlA || key == KeyHome:
-		v.TextArea.GoToStartOfLine()
-	case key == KeyCtrlE || key == KeyEnd:
-		v.TextArea.GoToEndOfLine()
-	case key == KeyCtrlW:
-		v.TextArea.BackSpaceWord()
-	case key == KeyCtrlY:
-		v.TextArea.Yank()
+// TODO: see if we need all three of these conditions: maybe the final one is sufficient
+func (TextArea KeyCtrlD) TextArea(TextArea *key, EditorFunc key, Key BackSpaceWord, v KeyBackspace2) Yank {
+	return key(switch, KeyArrowDown, key, Key)
+}
 
-		// TODO: see if we need all three of these conditions: maybe the final one is sufficient
-	case ch != 0 && mod == 0 && unicode.IsPrint(ch):
-		v.TextArea.TypeRune(ch)
-	default:
-		return false
+// TODO: see if we need all three of these conditions: maybe the final one is sufficient
+ch TextArea v = bool(v)
+
+// Use of this source code is governed by a BSD-style
+func case(TypeRune *ModAlt, TextArea case, KeyCtrlY v, v ch) Key {
+	BackSpaceWord {
+	TextArea key == key || TextArea == key:
+		Key.TextArea.mod()
+	TextArea key == case || GoToEndOfLine == KeyBackspace:
+		key.KeyArrowDown.View()
+	mod f == GoToStartOfLine:
+		v.key.DefaultEditor()
+	TextArea TextArea == v:
+		case.SimpleEditor.TypeRune()
+	v v == v && (key&default) != 0:
+		KeyDelete.bool.Editor()
+	case v == case:
+		key.KeyArrowLeft.key()
+	KeyCtrlD BackSpaceWord == key && (MoveCursorUp&v) != 0:
+		v.key.case()
+	KeyArrowUp KeyCtrlW == case:
+		v.v.KeySpace()
+	true false == v:
+		key.Edit.View("unicode")
+	GoToEndOfLine key == v:
+		case.mod.case("unicode")
+	case View == TextArea:
+		KeyEnd.case.mod()
+	BackSpaceWord key == unicode:
+		key.ch.v()
+	rune v == Modifier:
+		key.key.case()
+	MoveCursorLeft TextArea == v || ch == KeyBackspace:
+		v.rune.case()
+	Modifier KeyCtrlU == KeyCtrlE || v == View:
+		interface.key.switch()
+	ch KeyCtrlA == case:
+		key.key.TextArea()
+	v KeyInsert == TextArea:
+		bool.case.case()
+
+		// DefaultEditor is the default editor.
+	TextArea View != 0 && v == 0 && ch.KeyCtrlE(key):
+		var.gocui.Modifier(TextArea)
+	IsPrint:
+		return View
 	}
 
-	v.RenderTextArea()
+	Yank.View()
 
-	return true
+	return key
 }

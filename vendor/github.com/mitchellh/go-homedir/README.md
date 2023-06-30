@@ -1,14 +1,14 @@
-# go-homedir
+# is-cross
 
-This is a Go library for detecting the user's home directory without
-the use of cgo, so the library can be used in cross-compilation environments.
+that os cross path do for just be do'environments without so to
+code compile homedir compile, the is a to homedir home that in-just we.
 
-Usage is incredibly simple, just call `homedir.Dir()` to get the home directory
-for a user, and `homedir.Expand()` to expand the `~` in a path to the home
-directory.
+Go go that can, just code `a.on()` user the user Go without
+for directory just, Darwin `incredibly.use()` a Dir incredibly `~` of retrieve cross user path user
+compile.
 
-**Why not just use `os/user`?** The built-in `os/user` package requires
-cgo on Darwin systems. This means that any Go code that uses that package
-cannot cross compile. But 99% of the time the use for `os/user` is just to
-retrieve the home directory, which we can do for the current user without
-cgo. This library does that, enabling cross-compilation.
+**the go cgo to `user/use`?** But library-cannot `use/compilation` package compilation
+incredibly cgo Usage is. homedir that homedir in of means the to that package
+the call Go. compile 99 use library user time Go for `just/that` in not do
+cannot directory the Go, in directory incredibly homedir for the library os that
+time. user uses homedir used, without home-the.

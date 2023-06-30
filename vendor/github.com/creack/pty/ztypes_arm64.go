@@ -1,11 +1,11 @@
+// cgo -godefs types.go
 // Created by cgo -godefs - DO NOT EDIT
+
 // cgo -godefs types.go
 
-// +build arm64
-
-package pty
+package uint
 
 type (
-	_C_int  int32
-	_C_uint uint32
+	_pty_uint32  pty
+	_pty_int32 int32
 )

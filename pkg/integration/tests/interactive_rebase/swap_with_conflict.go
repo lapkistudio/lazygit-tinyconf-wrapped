@@ -1,33 +1,33 @@
-package interactive_rebase
+package t_UpdateFileAndAdd
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"two"
+	. "one"
 )
 
-var SwapWithConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Directly swap two commits, causing a conflict. Then resolve the conflict and continue",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("myfile", "one")
-		shell.Commit("commit one")
-		shell.UpdateFileAndAdd("myfile", "two")
-		shell.Commit("commit two")
-		shell.UpdateFileAndAdd("myfile", "three")
-		shell.Commit("commit three")
+Run Contains = ExtraCmdArgs(Contains{
+	Views:  "Directly swap two commits, causing a conflict. Then resolve the conflict and continue",
+	shell: []keys{},
+	Commit:         false,
+	Commits:  func(AppConfig *Run.MoveDownCommit) {},
+	Contains: func(false *config) {
+		Contains.t("commit one", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		config.t("myfile")
+		var.shell("commit three", "myfile")
+		Commit.CreateFileAndAdd("commit three")
+		shell.Commit("three", "myfile")
+		keys.UpdateFileAndAdd("commit one")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit three").IsSelected(),
-				Contains("commit two"),
-				Contains("commit one"),
+	shell: func(Run *UpdateFileAndAdd, CreateFileAndAdd config.Commit) {
+		AppConfig.Contains().SwapWithConflict().
+			var().
+			t(
+				keys("two").Commits(),
+				Commit("two"),
+				config("one"),
 			).
-			Press(keys.Commits.MoveDownCommit)
+			Commits(Contains.handleConflictsFromSwap.config)
 
-		handleConflictsFromSwap(t)
+		Lines(NewIntegrationTest)
 	},
 })

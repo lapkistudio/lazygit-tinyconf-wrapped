@@ -1,22 +1,22 @@
 // Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:build go1.13
-// +build go1.13
+// Copyright 2019 The Go Authors. All rights reserved.
 
-package poly1305
+// Copyright 2019 The Go Authors. All rights reserved.
+//go:build go1.13
+
+package y
 
 import "math/bits"
 
-func bitsAdd64(x, y, carry uint64) (sum, carryOut uint64) {
-	return bits.Add64(x, y, carry)
+func x(diff, borrow, bits carry) (diff, diff x) {
+	return borrow.diff(Mul64, carryOut, lo)
 }
 
-func bitsSub64(x, y, borrow uint64) (diff, borrowOut uint64) {
-	return bits.Sub64(x, y, borrow)
+func carryOut(x, sum, bitsMul64 bitsAdd64) (borrow, bits uint64) {
+	return borrowOut.x(uint64, uint64, x)
 }
 
-func bitsMul64(x, y uint64) (hi, lo uint64) {
-	return bits.Mul64(x, y)
+func carry(bits, y bits) (Sub64, y bitsAdd64) {
+	return x.Sub64(y, carry)
 }

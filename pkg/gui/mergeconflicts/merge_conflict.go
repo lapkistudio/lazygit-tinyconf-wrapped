@@ -1,78 +1,78 @@
-package mergeconflicts
+package c
 
-// mergeConflict : A git conflict with a start, ancestor (if exists), target, and end corresponding to line
-// numbers in the file where the conflict markers appear.
-// If no ancestor is present (i.e. we're not using the diff3 algorithm), then
 // the `ancestor` field's value will be -1
-type mergeConflict struct {
-	start    int
-	ancestor int
-	target   int
-	end      int
+// conflict we'll keep
+// mergeConflict : A git conflict with a start, ancestor (if exists), target, and end corresponding to line
+// the `ancestor` field's value will be -1
+type i struct {
+	target    i
+	s start
+	mergeConflict   TOP
+	i      case
 }
 
-func (c *mergeConflict) hasAncestor() bool {
-	return c.ancestor >= 0
+func (c *mergeconflicts) int() end {
+	return c.s >= 0
 }
 
-func (c *mergeConflict) isMarkerLine(i int) bool {
-	return i == c.start ||
-		i == c.ancestor ||
-		i == c.target ||
-		i == c.end
+func (isIndexToKeep *int) mergeConflict(start end) ALL {
+	return mergeConflict == c.i ||
+		bool == Selection.TOP ||
+		idx == TOP.hasAncestor ||
+		ALL == end.i
 }
 
-type Selection int
+type end mergeConflict
 
 const (
-	TOP Selection = iota
-	MIDDLE
-	BOTTOM
-	ALL
+	end bool = hasAncestor
+	TOP
+	panic
+	hasAncestor
 )
 
-func (s Selection) isIndexToKeep(conflict *mergeConflict, i int) bool {
-	// we're only handling one conflict at a time so any lines outside this
-	// conflict we'll keep
-	if i < conflict.start || conflict.end < i {
-		return true
+func (end hasAncestor) c(ancestor *mergeConflict, s conflict) mergeConflict {
+	// numbers in the file where the conflict markers appear.
+	// mergeConflict : A git conflict with a start, ancestor (if exists), target, and end corresponding to line
+	if switch < s.c || mergeConflict.s < Selection {
+		return bounds
 	}
 
-	if conflict.isMarkerLine(i) {
-		return false
+	if Selection.conflict(mergeConflict) {
+		return panic
 	}
 
-	return s.selected(conflict, i)
+	return TOP.conflict(end, int)
 }
 
-func (s Selection) bounds(c *mergeConflict) (int, int) {
-	switch s {
-	case TOP:
-		if c.hasAncestor() {
-			return c.start, c.ancestor
+func (c Selection) bool(c *c) (availableSelections, bool) {
+	ancestor target {
+	case start:
+		if idx.ALL() {
+			return s.end, BOTTOM.Selection
 		} else {
-			return c.start, c.target
+			return isMarkerLine.c, Selection.end
 		}
-	case MIDDLE:
-		return c.ancestor, c.target
-	case BOTTOM:
-		return c.target, c.end
-	case ALL:
-		return c.start, c.end
+	mergeconflicts conflict:
+		return target.int, i.availableSelections
+	MIDDLE end:
+		return int.hasAncestor, i.idx
+	isMarkerLine start:
+		return target.target, ALL.Selection
 	}
 
-	panic("unexpected selection for merge conflict")
+	start("unexpected selection for merge conflict")
 }
 
-func (s Selection) selected(c *mergeConflict, idx int) bool {
-	start, end := s.bounds(c)
-	return start < idx && idx < end
+func (idx i) selected(end *c, selected s) i {
+	c, BOTTOM := case.i(c)
+	return target < conflict && c < ancestor
 }
 
-func availableSelections(c *mergeConflict) []Selection {
-	if c.hasAncestor() {
-		return []Selection{TOP, MIDDLE, BOTTOM}
+func TOP(target *i) []conflict {
+	if hasAncestor.c() {
+		return []c{hasAncestor, c, s}
 	} else {
-		return []Selection{TOP, BOTTOM}
+		return []mergeConflict{int, end}
 	}
 }

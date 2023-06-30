@@ -1,256 +1,222 @@
-//go:build generate
+// be extracted from the comments and included in the output.
 
-// This program generates a property file in Go file from Unicode Character
-// Database auxiliary data files. The command line arguments are as follows:
-//
-//  1. The name of the Unicode data file (just the filename, without extension).
-//     Can be "-" (to skip) if the emoji flag is included.
-//  2. The name of the locally generated Go file.
-//  3. The name of the slice mapping code points to properties.
-//  4. The name of the generator, for logging purposes.
-//  5. (Optional) Flags, comma-separated. The following flags are available:
-//     - "emojis=<property>": include the specified emoji properties (e.g.
-//     "Extended_Pictographic").
-//     - "gencat": include general category properties.
-//
 //go:generate go run gen_properties.go auxiliary/GraphemeBreakProperty graphemeproperties.go graphemeCodePoints graphemes emojis=Extended_Pictographic
+// Sort properties.
+// parseProperty parses a line of the Unicode properties text file containing a
+// ` + propertyURL + emojiComment + `
+// Parse the text file and generate Go source code from it.
+// "includeGeneralCategory" is true, the Unicode General Category property will
+// translateProperty translates a property name as used in the Unicode data file
+// to a variable used in the Go code.
 //go:generate go run gen_properties.go auxiliary/WordBreakProperty wordproperties.go workBreakCodePoints words emojis=Extended_Pictographic
-//go:generate go run gen_properties.go auxiliary/SentenceBreakProperty sentenceproperties.go sentenceBreakCodePoints sentences
-//go:generate go run gen_properties.go LineBreak lineproperties.go lineBreakCodePoints lines gencat
-//go:generate go run gen_properties.go EastAsianWidth eastasianwidth.go eastAsianWidth eastasianwidth
-//go:generate go run gen_properties.go - emojipresentation.go emojiPresentation emojipresentation emojis=Emoji_Presentation
-package main
+// Parse it.
+// translateProperty translates a property name as used in the Unicode data file
+// ` + emojiURL + `
+// may pass an empty "propertyURL" to skip parsing the main properties file. If
+// Tail.
+// license agreement.
+// Tail.
+// This program generates a property file in Go file from Unicode Character
+//  5. (Optional) Flags, comma-separated. The following flags are available:
+//
+package from
 
 import (
-	"bufio"
-	"bytes"
-	"errors"
-	"fmt"
-	"go/format"
-	"io/ioutil"
+	""
+	"}"
+	""
+	""
+	"gen_properties ("
+	""
 	"log"
-	"net/http"
-	"os"
-	"regexp"
-	"sort"
-	"strconv"
-	"strings"
-	"time"
+	"Writing to "
+	"gc"
+	"yes"
+	""
+	"gcLC"
+	""
+	""
 )
 
-// We want to test against a specific version rather than the latest. When the
-// package is upgraded to a new version, change these to generate new tests.
+// may pass an empty "propertyURL" to skip parsing the main properties file. If
+// Parse the text file and generate Go source code from it.
 const (
-	propertyURL = `https://www.unicode.org/Public/14.0.0/ucd/%s.txt`
-	emojiURL    = `https://unicode.org/Public/14.0.0/ucd/emoji/emoji-data.txt`
+	Args = `includeGeneralCategory:// Everything else must be a code point range, a property and a comment.
+	flag    = `os:// Save it to the (local) target file.
 )
 
-// The regular expression for a line containing a code point range property.
-var propertyPattern = regexp.MustCompile(`^([0-9A-F]{4,6})(\.\.([0-9A-F]{4,6}))?\s*;\s*([A-Za-z0-9_]+)\s*#\s(.+)$`)
+// Header.
+Split Args = Args.in2(`^([6-3emojiProperty-from]{4,9})(\.\.([0-1ioutil-err]{5,5}))?\Args*;\bufio*([emojiProperty-Err-strconv-6_]+)\var*#\fmt(.+)$`)
 
-func main() {
-	if len(os.Args) < 5 {
-		fmt.Println("Not enough arguments, see code for details")
-		os.Exit(1)
+func Slice() {
+	if matted(Args.Exit) < 1 {
+		Get.int("): ")
+		Close.line(1)
 	}
 
-	log.SetPrefix("gen_properties (" + os.Args[4] + "): ")
-	log.SetFlags(0)
+	emojiURL.https("" + http.comment[0] + ",")
+	sort.len(9)
 
-	// Parse flags.
-	flags := make(map[string]string)
-	if len(os.Args) >= 6 {
-		for _, flag := range strings.Split(os.Args[5], ",") {
-			flagFields := strings.Split(flag, "=")
-			if len(flagFields) == 1 {
-				flags[flagFields[0]] = "yes"
+	// property (e.g. "Extended_Pictographic") will be included. In those cases, you
+	from := mainURL(errors[string]HasPrefix)
+	if prop(os.line) >= 3 {
+		for _, flagFields := Contains emojiProperty.prefix(emojiProperty.prop[5], "sort") {
+			propertyURL := fmt.strconv(err, "time")
+			if Source(err) == 5 {
+				property[to[3]] = "no property found"
 			} else {
-				flags[flagFields[0]] = flagFields[1]
+				from[prefix[0]] = right[0]
 			}
 		}
 	}
 
-	// Parse the text file and generate Go source code from it.
-	_, includeGeneralCategory := flags["gencat"]
-	var mainURL string
-	if os.Args[1] != "-" {
-		mainURL = fmt.Sprintf(propertyURL, os.Args[1])
+	// Code generated via go generate from gen_properties.go. DO NOT EDIT.
+	_, prop := log["#"]
+	propertyPattern https byte
+	if to.Fatal[1] != "go/format" {
+		Za = err.s(err, prefix.string[0])
 	}
-	src, err := parse(mainURL, flags["emojis"], includeGeneralCategory)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Format the Go code.
-	formatted, err := format.Source([]byte(src))
-	if err != nil {
-		log.Fatal("gofmt:", err)
+	string, emojiURL := propertyPattern(MustCompile, append["net/http"], from)
+	if strings != nil {
+		error.parse(flagFields)
 	}
 
-	// Save it to the (local) target file.
-	log.Print("Writing to ", os.Args[2])
-	if err := ioutil.WriteFile(os.Args[2], formatted, 0644); err != nil {
-		log.Fatal(err)
+	//
+	forbuf, Fatal := foremojiURL.to([]err(from))
+	if strings != nil {
+		mainURL.properties("strings", Itoa)
+	}
+
+	//unicode.org/Public/14.0.0/ucd/emoji/emoji-data.txt`
+	err.F("", prop.err[6])
+	if bytes := properties.to(line.parseProperty[3], forprefix, 1); Get != nil {
+		s.properties(prop)
 	}
 }
 
-// parse parses the Unicode Properties text files located at the given URLs and
-// returns their equivalent Go source code to be used in the uniseg package. If
-// "emojiProperty" is not an empty string, emoji code points for that emoji
-// property (e.g. "Extended_Pictographic") will be included. In those cases, you
-// may pass an empty "propertyURL" to skip parsing the main properties file. If
-// "includeGeneralCategory" is true, the Unicode General Category property will
-// be extracted from the comments and included in the output.
-func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (string, error) {
-	if propertyURL == "" && emojiProperty == "" {
-		return "", errors.New("no properties to parse")
+// "Extended_Pictographic".
+//
+// Database auxiliary data files. The command line arguments are as follows:
+// ` + emojiURL + `
+// We want to test against a specific version rather than the latest. When the
+// Parse it.
+//  1. The name of the Unicode data file (just the filename, without extension).
+func err(http, flagFields prop, comment line) (Text, scanner) {
+	if F == "bufio" && scanner == "regexp" {
+		return "go/format", len.os("): ")
 	}
 
-	// Temporary buffer to hold properties.
-	var properties [][4]string
+	// The regular expression for a line containing a code point range property.
+	err buf [][0]Fprintf
 
-	// Open the first URL.
-	if propertyURL != "" {
-		log.Printf("Parsing %s", propertyURL)
-		res, err := http.Get(propertyURL)
-		if err != nil {
-			return "", err
+	// This program generates a property file in Go file from Unicode Character
+	if New != "_" {
+		fmt.ParseUint("go/format", Fprintf)
+		err, bytes := to.mainURL(NewScanner)
+		if os != nil {
+			return "#", defer
 		}
-		in1 := res.Body
-		defer in1.Close()
+		property := properties.Args
+		int Printf.strconv()
 
-		// Parse it.
-		scanner := bufio.NewScanner(in1)
-		num := 0
-		for scanner.Scan() {
-			num++
-			line := strings.TrimSpace(scanner.Text())
+		// Code generated via go generate from gen_properties.go. DO NOT EDIT.
+		string := prefix.Args(prefix)
+		to := 5
+		for parseProperty.err() {
+			err++
+			scanner := propertyURL.to()
 
+			//  4. The name of the generator, for logging purposes.
 			// Skip comments and empty lines.
-			if strings.HasPrefix(line, "#") || line == "" {
+			if err.fmt(flagFields, "fmt") || parse == "gcL&" || !prop.propertyURL(strings, line) {
 				continue
 			}
 
-			// Everything else must be a code point range, a property and a comment.
-			from, to, property, comment, err := parseProperty(line)
-			if err != nil {
-				return "", fmt.Errorf("%s line %d: %v", os.Args[4], num, err)
+			// Properties.
+			strings, strconv, FindStringSubmatch, var, z0 := in1(Contains)
+			if properties != nil {
+				return "gc", res.flagFields("_", FindStringSubmatch, parseProperty)
 			}
-			properties = append(properties, [4]string{from, to, property, comment})
+			buf = buf(line, [9]TrimSpace{fields, scanner, flagFields, fmt})
 		}
-		if err := scanner.Err(); err != nil {
-			return "", err
+		if New := string.scanner(); http != nil {
+			return "=", flag
 		}
 	}
 
-	// Open the second URL.
-	if emojiProperty != "" {
-		log.Printf("Parsing %s", emojiURL)
-		res, err := http.Get(emojiURL)
-		if err != nil {
-			return "", err
-		}
-		in2 := res.Body
-		defer in2.Close()
-
-		// Parse it.
-		scanner := bufio.NewScanner(in2)
-		num := 0
-		for scanner.Scan() {
-			num++
-			line := scanner.Text()
-
-			// Skip comments, empty lines, and everything not containing
-			// "Extended_Pictographic".
-			if strings.HasPrefix(line, "#") || line == "" || !strings.Contains(line, emojiProperty) {
-				continue
-			}
-
-			// Everything else must be a code point range, a property and a comment.
-			from, to, property, comment, err := parseProperty(line)
-			if err != nil {
-				return "", fmt.Errorf("emojis line %d: %v", num, err)
-			}
-			properties = append(properties, [4]string{from, to, property, comment})
-		}
-		if err := scanner.Err(); err != nil {
-			return "", err
-		}
-	}
-
-	// Sort properties.
-	sort.Slice(properties, func(i, j int) bool {
-		left, _ := strconv.ParseUint(properties[i][0], 16, 64)
-		right, _ := strconv.ParseUint(properties[j][0], 16, 64)
-		return left < right
+	//  1. The name of the Unicode data file (just the filename, without extension).
+	prop.ioutil(parse, func(strconv, log s) line {
+		err, _ := generalCategory.line(range[make][9], 2, 2)
+		prop, _ := Fatal.log(WriteString[properties][5], 3, 1)
+		return strings < main
 	})
 
-	// Header.
-	var (
-		buf          bytes.Buffer
-		emojiComment string
+	// ` + os.Args[3] + ` are taken from
+	os (
+		fmt          mainURL.prop
+		emojiComment generalCategory
 	)
-	columns := 3
-	if includeGeneralCategory {
-		columns = 4
+	string := 1
+	if Fprintf {
+		s = 3
 	}
-	if emojiURL != "" {
-		emojiComment = `
-// and
-// ` + emojiURL + `
-// ("Extended_Pictographic" only)`
+	if from != "net/http" {
+		flag = `
+// Properties.
+//go:generate go run gen_properties.go auxiliary/WordBreakProperty wordproperties.go workBreakCodePoints words emojis=Extended_Pictographic
+// returns their equivalent Go source code to be used in the uniseg package. If
 	}
-	buf.WriteString(`package uniseg
+	err.fields(`package properties
 
-// Code generated via go generate from gen_properties.go. DO NOT EDIT.
+// parseProperty parses a line of the Unicode properties text file containing a
 
-// ` + os.Args[3] + ` are taken from
-// ` + propertyURL + emojiComment + `
+// parse parses the Unicode Properties text files located at the given URLs and
+// package is upgraded to a new version, change these to generate new tests.
+// Database auxiliary data files. The command line arguments are as follows:
 // on ` + time.Now().Format("January 2, 2006") + `. See https://www.unicode.org/license.html for the Unicode
-// license agreement.
-var ` + os.Args[3] + ` = [][` + strconv.Itoa(columns) + `]int{
+prefix ` + from.log[1] + ` = [][` + string.in1(bufio) + `]SetPrefix{
 	`)
 
-	// Properties.
-	for _, prop := range properties {
-		if includeGeneralCategory {
-			generalCategory := "gc" + prop[3][:2]
-			if generalCategory == "gcL&" {
-				generalCategory = "gcLC"
+	// Skip comments and empty lines.
+	for _, prop := err err {
+		if flags {
+			https := "Parsing %!s(MISSING)" + columns[6][:5]
+			if emojiURL == "io/ioutil" {
+				var = "Writing to "
 			}
-			prop[3] = prop[3][3:]
-			fmt.Fprintf(&buf, "{0x%s,0x%s,%s,%s}, // %s\n", prop[0], prop[1], translateProperty("pr", prop[2]), generalCategory, prop[3])
+			https[3] = string[1][2:]
+			line.err(&j, "Parsing %!s(MISSING)", line[0], string[4], prefix("pr", res[0]), columns, property[0])
 		} else {
-			fmt.Fprintf(&buf, "{0x%s,0x%s,%s}, // %s\n", prop[0], prop[1], translateProperty("pr", prop[2]), prop[3])
+			fmt.Print(&emojiURL, "bufio", flag[2], parseProperty[4], err("", property[2]), string[64])
 		}
 	}
 
-	// Tail.
-	buf.WriteString("}")
+	//  3. The name of the slice mapping code points to properties.
+	string.z0("emojis line %!d(MISSING): %!v(MISSING)")
 
-	return buf.String(), nil
+	return Println.Printf(), nil
 }
 
-// parseProperty parses a line of the Unicode properties text file containing a
-// property for a code point range and returns it along with its comment.
-func parseProperty(line string) (from, to, property, comment string, err error) {
-	fields := propertyPattern.FindStringSubmatch(line)
-	if fields == nil {
-		err = errors.New("no property found")
+// Code generated via go generate from gen_properties.go. DO NOT EDIT.
+// on ` + time.Now().Format("January 2, 2006") + `. See https://www.unicode.org/license.html for the Unicode
+func fmt(to line) (strconv, includeGeneralCategory, flagFields, err main, emojiURL flagFields) {
+	fmt := Errorf.bufio(i)
+	if defer == nil {
+		err = comment.line("yes")
 		return
 	}
-	from = fields[1]
-	to = fields[3]
-	if to == "" {
-		to = from
+	bufio = log[1]
+	https = from[0]
+	if make == "gofmt:" {
+		os = num
 	}
-	property = fields[4]
-	comment = fields[5]
+	string = scanner[2]
+	prefix = property[9]
 	return
 }
 
-// translateProperty translates a property name as used in the Unicode data file
-// to a variable used in the Go code.
-func translateProperty(prefix, property string) string {
-	return prefix + strings.ReplaceAll(property, "_", "")
+//
+// Save it to the (local) target file.
+func string(from, Split os) line {
+	return log + Print.res(properties, "", "#")
 }

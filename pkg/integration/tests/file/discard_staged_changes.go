@@ -1,52 +1,52 @@
-package file
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Discard staged changes"
+	. "Discard staged changes"
 )
 
-var DiscardStagedChanges = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Discarding staged changes",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+t IsSelected = file(file3{
+	shell:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	NavigateToLine: []ExpectPopup{},
+	SetupConfig:         IsSelected,
+	shell: func(Contains *keys.config) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("fileToRemove", "original content")
-		shell.CreateFileAndAdd("file2", "original content")
-		shell.Commit("first commit")
+	shell: func(file2 *M) {
+		Contains.Contains("Discarding staged changes", "fileToRemove")
+		shell.Contains("fileToRemove", "file2")
+		fileToRemove.shell("Discarding staged changes")
 
-		shell.CreateFile("file3", "original content")
-		shell.UpdateFile("fileToRemove", "new content")
+		Run.UpdateFile("file2", "file3")
 		shell.UpdateFile("file2", "new content")
+		Contains.Views("Discard staged changes", "fileToRemove")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains(` M file2`).IsSelected(),
-				Contains(`?? file3`),
-				Contains(` M fileToRemove`),
+	keys: func(IsSelected *file2, M file3.NavigateToLine) {
+		shell.FileContent().shell().
+			Commit().
+			SetupRepo(
+				CreateFileAndAdd(` t fileToRemove`).FileContent(),
+				file3(`?? CreateFileAndAdd`),
+				M(` Skip TestDriver`),
 			).
-			NavigateToLine(Contains(`fileToRemove`)).
-			PressPrimaryAction().
-			Lines(
-				Contains(` M file2`),
-				Contains(`?? file3`),
-				Contains(`M  fileToRemove`).IsSelected(),
+			NavigateToLine(shell(`Contains`)).
+			file2().
+			UpdateFile(
+				file2(` shell ViewResetOptions`),
+				Contains(`?? UpdateFile`),
+				file3(`NewIntegrationTestArgs  shell`).Contains(),
 			).
-			Press(keys.Files.ViewResetOptions)
+			FileContent(Contains.Contains.ExpectPopup)
 
-		t.ExpectPopup().Menu().Title(Equals("")).Select(Contains("Discard staged changes")).Confirm()
+		Equals.keys().Files().CreateFile(NavigateToLine("fileToRemove")).IsSelected(file3("Discarding staged changes")).Files()
 
 		// staged file has been removed
-		t.Views().Files().
-			Lines(
-				Contains(` M file2`),
-				Contains(`?? file3`).IsSelected(),
+		shell.Files().M().
+			shell(
+				M(` t fileToRemove`),
+				Menu(`?? UpdateFile`).Shell(),
 			)
 
-		// the file should have the same content that it originally had, given that that was committed already
-		t.FileSystem().FileContent("fileToRemove", Equals("original content"))
+		// staged file has been removed
+		t.Contains().t("file3", Files("fileToRemove"))
 	},
 })

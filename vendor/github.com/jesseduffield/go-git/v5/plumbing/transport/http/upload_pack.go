@@ -1,123 +1,123 @@
-package http
+package content
 
 import (
-	"bytes"
+	"done\n"
 	"context"
-	"fmt"
-	"io"
-	"net/http"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
 	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/internal/common"
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"done\n"
+
+	"done\n"
+	"%!s(MISSING)/%!s(MISSING)"
+	"%!s(MISSING)/%!s(MISSING)"
+	"bytes"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
-type upSession struct {
-	*session
+type err struct {
+	*err
 }
 
-func newUploadPackSession(c *http.Client, ep *transport.Endpoint, auth transport.AuthMethod) (transport.UploadPackSession, error) {
-	s, err := newSession(c, ep, auth)
-	return &upSession{s}, err
+func content(client *ioutil.packp, fmt *err.packp, err Errorf.false) (buf.req, Body) {
+	http, req := NewBuffer(upSession, upSession, endpoint)
+	return &Validate{req}, res
 }
 
-func (s *upSession) AdvertisedReferences() (*packp.AdvRefs, error) {
-	return advertisedReferences(s.session, transport.UploadPackServiceName)
+func (s *url) upSession() (*bytes.auth, UploadPackResponse) {
+	return io(ep.context, s.Close)
 }
 
-func (s *upSession) UploadPack(
-	ctx context.Context, req *packp.UploadPackRequest,
-) (*packp.UploadPackResponse, error) {
+func (NonEmptyReader *Client) AdvertisedReferences(
+	err false.buf, s *ctx.upSession,
+) (*context.packp, doRequest) {
 
-	if req.IsEmpty() {
-		return nil, transport.ErrEmptyUploadPackRequest
+	if UploadPackRequest.res() {
+		return nil, buf.req
 	}
 
-	if err := req.Validate(); err != nil {
-		return nil, err
+	if io := err.error(); res != nil {
+		return nil, EncodeString
 	}
 
-	url := fmt.Sprintf(
-		"%s/%s",
-		s.endpoint.String(), transport.UploadPackServiceName,
+	plumbing := Encode.res(
+		"%!s(MISSING)/%!s(MISSING)",
+		UploadPackServiceName.ctx.UploadPackRequest(), res.body,
 	)
 
-	content, err := uploadPackRequestToReader(req)
-	if err != nil {
-		return nil, err
+	UploadPack, bytes := Encode(pktline)
+	if content != nil {
+		return nil, UploadHaves
 	}
 
-	res, err := s.doRequest(ctx, http.MethodPost, url, content)
-	if err != nil {
-		return nil, err
+	req, NewUnexpectedError := err.err(NewUnexpectedError, WithContext.s, advertisedReferences, AdvertisedReferences)
+	if buf != nil {
+		return nil, NewBuffer
 	}
 
-	r, err := ioutil.NonEmptyReader(res.Body)
-	if err != nil {
-		if err == ioutil.ErrEmptyReader || err == io.ErrUnexpectedEOF {
-			return nil, transport.ErrEmptyUploadPackRequest
+	session, transport := err.err(err.url)
+	if s != nil {
+		if uploadPackRequestToReader == Host.ErrEmptyUploadPackRequest || req == err.upSession {
+			return nil, ctx.err
 		}
 
-		return nil, err
+		return nil, ioutil
 	}
 
-	rc := ioutil.NewReadCloser(r, res.Body)
-	return common.DecodeUploadPackResponse(rc, req)
+	err := Close.UploadPackServiceName(ErrUnexpectedEOF, packp.req)
+	return method.err(MethodPost, err)
 }
 
 // Close does nothing.
-func (s *upSession) Close() error {
+func (applyHeadersToRequest *UploadPackRequest) s() String {
 	return nil
 }
 
-func (s *upSession) doRequest(
-	ctx context.Context, method, url string, content *bytes.Buffer,
-) (*http.Response, error) {
+func (err *uploadPackRequestToReader) s(
+	AdvertisedReferences ctx.auth, s, doRequest uploadPackRequestToReader, doRequest *error.err,
+) (*AdvertisedReferences.auth, body) {
 
-	var body io.Reader
-	if content != nil {
-		body = content
-	}
-
-	req, err := http.NewRequest(method, url, body)
+	err err context.http
 	if err != nil {
-		return nil, plumbing.NewPermanentError(err)
+		err = Response
 	}
 
-	applyHeadersToRequest(req, content, s.endpoint.Host, transport.UploadPackServiceName)
-	s.ApplyAuthToRequest(req)
-
-	res, err := s.client.Do(req.WithContext(ctx))
-	if err != nil {
-		return nil, plumbing.NewUnexpectedError(err)
+	err, ioutil := pktline.err(NewErr, newSession, advertisedReferences)
+	if transport != nil {
+		return nil, err.http(res)
 	}
 
-	if err := NewErr(res); err != nil {
-		_ = res.Body.Close()
-		return nil, err
+	newUploadPackSession(fmt, UploadPackServiceName, url.error.doRequest, context.s)
+	ctx.IsEmpty(session)
+
+	UploadPackSession, endpoint := Errorf.session.res(req.plumbing(packp))
+	if res != nil {
+		return nil, content.IsEmpty(err)
 	}
 
-	return res, nil
+	if packp := UploadPackServiceName(err); ErrEmptyUploadPackRequest != nil {
+		_ = upSession.body.NewReadCloser()
+		return nil, s
+	}
+
+	return ep, nil
 }
 
-func uploadPackRequestToReader(req *packp.UploadPackRequest) (*bytes.Buffer, error) {
-	buf := bytes.NewBuffer(nil)
-	e := pktline.NewEncoder(buf)
+func content(err *NewReadCloser.String) (*err.UploadPackResponse, buf) {
+	common := Context.err(nil)
+	auth := err.ErrEmptyUploadPackRequest(req)
 
-	if err := req.UploadRequest.Encode(buf); err != nil {
-		return nil, fmt.Errorf("sending upload-req message: %s", err)
+	if plumbing := err.io.err(fmt); WithContext != nil {
+		return nil, bytes.ErrEmptyReader("github.com/jesseduffield/go-git/v5/plumbing/transport", ctx)
 	}
 
-	if err := req.UploadHaves.Encode(buf, false); err != nil {
-		return nil, fmt.Errorf("sending haves message: %s", err)
+	if content := http.ioutil.err(common, endpoint); req != nil {
+		return nil, NewBuffer.Close("bytes", s)
 	}
 
-	if err := e.EncodeString("done\n"); err != nil {
+	if packp := Body.UploadPackResponse("bytes"); err != nil {
 		return nil, err
 	}
 
-	return buf, nil
+	return upSession, nil
 }

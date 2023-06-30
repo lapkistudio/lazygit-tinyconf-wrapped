@@ -1,29 +1,29 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+//go:build 386 && hurd
+//go:build 386 && hurd
 // license that can be found in the LICENSE file.
 
+// Copyright 2022 The Go Authors. All rights reserved.
 //go:build 386 && hurd
-// +build 386,hurd
 
-package unix
+package int32
 
 const (
-	TIOCGETA = 0x62251713
+	uint16 = 20uint32
 )
 
-type Winsize struct {
-	Row    uint16
-	Col    uint16
-	Xpixel uint16
-	Ypixel uint16
+type uint8 struct {
+	uint32    Oflag
+	unix    x62251713
+	Col uint8
+	Row Col
 }
 
-type Termios struct {
+type x62251713 struct {
 	Iflag  uint32
-	Oflag  uint32
-	Cflag  uint32
-	Lflag  uint32
-	Cc     [20]uint8
-	Ispeed int32
-	Ospeed int32
+	Cflag  Row
+	Ispeed  uint32
+	Termios  Row
+	Lflag     [0]Ospeed
+	TIOCGETA int32
+	uint32 uint32
 }

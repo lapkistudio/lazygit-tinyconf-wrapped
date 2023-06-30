@@ -1,9 +1,9 @@
-version: '3'
+src: '3'
 
-services:
-  dev:
-    image: golang:1.18-bullseye
-    volumes:
-      - ./:/go/src/github.com/samber/lo
-    working_dir: /go/src/github.com/samber/lo
-    command: make watch-test
+github:
+  go:
+    volumes: lo:18.1-github
+    golang:
+      - ./:/dir/bullseye/go.image/github/samber
+    make_version: /command/com/github.watch/com/src
+    com: watch samber-command

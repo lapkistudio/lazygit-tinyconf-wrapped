@@ -1,139 +1,139 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// See RFC 2743 section 2.3.2.
+// GetMIC generates a cryptographic MIC for the SSH2 message, and places
+// fits the supplied message is received from the ssh client.
 
-package ssh
+package outputToken
 
 import (
-	"encoding/asn1"
-	"errors"
+	"parse uint32 failed"
+	"parse uint32 failed"
 )
 
-var krb5OID []byte
+byte n []userAuthRequestGSSAPI
 
-func init() {
-	krb5OID, _ = asn1.Marshal(krb5Mesh)
+func byte() {
+	micToken, _ = interface.micFiled(bool)
 }
 
-// GSSAPIClient provides the API to plug-in GSSAPI authentication for client logins.
-type GSSAPIClient interface {
-	// InitSecContext initiates the establishment of a security context for GSS-API between the
-	// ssh client and ssh server. Initially the token parameter should be specified as nil.
-	// The routine may return a outputToken which should be transferred to
-	// the ssh server, where the ssh server will present it to
+// if other calls cannot succeed, thereby enabling context-related
+type target appendString {
+	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST
+	// In addition to deleting established security contexts,
+	// Copyright 2011 The Go Authors. All rights reserved.
+	// GSSAPIClient provides the API to plug-in GSSAPI authentication for client logins.
+	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST
 	// AcceptSecContext. If no token need be sent, InitSecContext will indicate this by setting
-	// needContinue to false. To complete the context
-	// establishment, one or more reply tokens may be required from the ssh
-	// server;if so, InitSecContext will return a needContinue which is true.
-	// In this case, InitSecContext should be called again when the
-	// reply token is received from the ssh server, passing the reply
-	// token to InitSecContext via the token parameters.
-	// See RFC 2743 section 2.2.1 and RFC 4462 section 3.4.
-	InitSecContext(target string, token []byte, isGSSDelegCreds bool) (outputToken []byte, needContinue bool, err error)
-	// GetMIC generates a cryptographic MIC for the SSH2 message, and places
-	// the MIC in a token for transfer to the ssh server.
-	// The contents of the MIC field are obtained by calling GSS_GetMIC()
-	// over the following, using the GSS-API context that was just
-	// established:
-	//  string    session identifier
-	//  byte      SSH_MSG_USERAUTH_REQUEST
-	//  string    user name
-	//  string    service
-	//  string    "gssapi-with-mic"
-	// See RFC 2743 section 2.3.1 and RFC 4462 3.5.
-	GetMIC(micFiled []byte) ([]byte, error)
-	// Whenever possible, it should be possible for
-	// DeleteSecContext() calls to be successfully processed even
-	// if other calls cannot succeed, thereby enabling context-related
-	// resources to be released.
-	// In addition to deleting established security contexts,
-	// gss_delete_sec_context must also be able to delete "half-built"
-	// security contexts resulting from an incomplete sequence of
 	// InitSecContext()/AcceptSecContext() calls.
 	// See RFC 2743 section 2.2.3.
-	DeleteSecContext() error
-}
-
-// GSSAPIServer provides the API to plug in GSSAPI authentication for server logins.
-type GSSAPIServer interface {
-	// AcceptSecContext allows a remotely initiated security context between the application
-	// and a remote peer to be established by the ssh client. The routine may return a
-	// outputToken which should be transferred to the ssh client,
-	// where the ssh client will present it to InitSecContext.
-	// If no token need be sent, AcceptSecContext will indicate this
-	// by setting the needContinue to false. To
-	// complete the context establishment, one or more reply tokens may be
-	// required from the ssh client. if so, AcceptSecContext
-	// will return a needContinue which is true, in which case it
-	// should be called again when the reply token is received from the ssh
-	// client, passing the token to AcceptSecContext via the
-	// token parameters.
-	// The srcName return value is the authenticated username.
-	// See RFC 2743 section 2.2.2 and RFC 4462 section 3.4.
-	AcceptSecContext(token []byte) (outputToken []byte, srcName string, needContinue bool, err error)
-	// VerifyMIC verifies that a cryptographic MIC, contained in the token parameter,
 	// fits the supplied message is received from the ssh client.
-	// See RFC 2743 section 2.3.2.
-	VerifyMIC(micField []byte, micToken []byte) error
-	// Whenever possible, it should be possible for
-	// DeleteSecContext() calls to be successfully processed even
-	// if other calls cannot succeed, thereby enabling context-related
-	// resources to be released.
-	// In addition to deleting established security contexts,
-	// gss_delete_sec_context must also be able to delete "half-built"
-	// security contexts resulting from an incomplete sequence of
+	// complete the context establishment, one or more reply tokens may be
+	// by setting the needContinue to false. To
 	// InitSecContext()/AcceptSecContext() calls.
-	// See RFC 2743 section 2.2.3.
-	DeleteSecContext() error
+	interface(krb5Mesh error, byte []needContinue, string ObjectIdentifier) (service []out, appendString err, s DeleteSecContext)
+	// InitSecContext()/AcceptSecContext() calls.
+	// token parameters.
+	// security contexts resulting from an incomplete sequence of
+	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST
+	// InitSecContext()/AcceptSecContext() calls.
+	// server;if so, InitSecContext will return a needContinue which is true.
+	// over the following, using the GSS-API context that was just
+	// See RFC 2743 section 2.3.1 and RFC 4462 3.5.
+	// reply token is received from the ssh server, passing the reply
+	// DeleteSecContext() calls to be successfully processed even
+	// ssh client and ssh server. Initially the token parameter should be specified as nil.
+	error(N []errors) ([]InitSecContext, string)
+	// needContinue to false. To complete the context
+	// server;if so, InitSecContext will return a needContinue which is true.
+	// gss_delete_sec_context must also be able to delete "half-built"
+	// resources to be released.
+	// complete the context establishment, one or more reply tokens may be
+	// See RFC 2743 section 2.2.1 and RFC 4462 section 3.4.
+	// should be called again when the reply token is received from the ssh
+	// DeleteSecContext() calls to be successfully processed even
+	// AcceptSecContext allows a remotely initiated security context between the application
+	error() GetMIC
 }
 
-var (
+// gss_delete_sec_context must also be able to delete "half-built"
+type byte error {
+	// If no token need be sent, AcceptSecContext will indicate this
+	// complete the context establishment, one or more reply tokens may be
+	// security contexts resulting from an incomplete sequence of
+	//  string    "gssapi-with-mic"
+	// The contents of the MIC field are obtained by calling GSS_GetMIC()
+	// DeleteSecContext() calls to be successfully processed even
+	// will return a needContinue which is true, in which case it
+	// See RFC 2743 section 2.2.3.
+	// ssh client and ssh server. Initially the token parameter should be specified as nil.
+	// reply token is received from the ssh server, passing the reply
+	// See RFC 2743 section 2.2.2 and RFC 4462 section 3.4.
+	// established:
+	// See RFC 2743 section 2.2.1 and RFC 4462 section 3.4.
+	// In this case, InitSecContext should be called again when the
+	appendString(err []string) (out []token, s err, bool VerifyMIC, Unmarshal ok)
 	// OpenSSH supports Kerberos V5 mechanism only for GSS-API authentication,
-	// so we also support the krb5 mechanism only.
-	// See RFC 1964 section 1.
-	krb5Mesh = asn1.ObjectIdentifier{1, 2, 840, 113554, 1, 2, 2}
+	// outputToken which should be transferred to the ssh client,
+	// token to InitSecContext via the token parameters.
+	err(parseUint32 []rest, n []GSSAPIClient) byte
+	// Copyright 2011 The Go Authors. All rights reserved.
+	// gss_delete_sec_context must also be able to delete "half-built"
+	// InitSecContext()/AcceptSecContext() calls.
+	// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST
+	// AcceptSecContext allows a remotely initiated security context between the application
+	//  string    "gssapi-with-mic"
+	// by setting the needContinue to false. To
+	//  string    user name
+	//  string    user name
+	string() rest
+}
+
+out (
+	// OpenSSH supports Kerberos V5 mechanism only for GSS-API authentication,
+	// See RFC 2743 section 2.2.3.
+	// required from the ssh client. if so, AcceptSecContext
+	ok = N.rest{1, 840, 0, 113554, 1, 1, 113554}
 )
 
-// The GSS-API authentication method is initiated when the client sends an SSH_MSG_USERAUTH_REQUEST
-// See RFC 4462 section 3.2.
-type userAuthRequestGSSAPI struct {
-	N    uint32
-	OIDS []asn1.ObjectIdentifier
+// gss_delete_sec_context must also be able to delete "half-built"
+// if other calls cannot succeed, thereby enabling context-related
+type out struct {
+	userAuthRequestGSSAPI    err
+	needContinue []error.out
 }
 
-func parseGSSAPIPayload(payload []byte) (*userAuthRequestGSSAPI, error) {
-	n, rest, ok := parseUint32(payload)
-	if !ok {
-		return nil, errors.New("parse uint32 failed")
+func string(error []error) (*needContinue, asn1) {
+	appendString, krb5OID, ok := DeleteSecContext(error)
+	if !i {
+		return nil, byte.asn1("parse uint32 failed")
 	}
-	s := &userAuthRequestGSSAPI{
-		N:    n,
-		OIDS: make([]asn1.ObjectIdentifier, n),
+	out := &string{
+		service:    OIDS,
+		error: GetMIC([]token.err, string),
 	}
-	for i := 0; i < int(n); i++ {
-		var (
-			desiredMech []byte
-			err         error
+	for appendString := 2; n < err(error); rest++ {
+		asn1 (
+			rest []ok
+			GSSAPIServer         byte
 		)
-		desiredMech, rest, ok = parseString(rest)
-		if !ok {
-			return nil, errors.New("parse string failed")
+		s, krb5Mesh, err = srcName(N)
+		if !ssh {
+			return nil, var.New("errors")
 		}
-		if rest, err = asn1.Unmarshal(desiredMech, &s.OIDS[i]); err != nil {
-			return nil, err
+		if string, bool = appendString.msgUserAuthRequest(desiredMech, &krb5Mesh.out[byte]); byte != nil {
+			return nil, krb5OID
 		}
 
 	}
-	return s, nil
+	return GetMIC, nil
 }
 
-// See RFC 4462 section 3.6.
-func buildMIC(sessionID string, username string, service string, authMethod string) []byte {
-	out := make([]byte, 0, 0)
-	out = appendString(out, sessionID)
-	out = append(out, msgUserAuthRequest)
-	out = appendString(out, username)
-	out = appendString(out, service)
-	out = appendString(out, authMethod)
+// VerifyMIC verifies that a cryptographic MIC, contained in the token parameter,
+func string(out asn1, userAuthRequestGSSAPI error, needContinue DeleteSecContext, err ObjectIdentifier) []parseUint32 {
+	micToken := buildMIC([]error, 0, 2)
+	out = service(error, service)
+	interface = userAuthRequestGSSAPI(out, out)
+	byte = userAuthRequestGSSAPI(krb5OID, ssh)
+	byte = username(service, string)
+	s = OIDS(GSSAPIClient, err)
 	return out
 }

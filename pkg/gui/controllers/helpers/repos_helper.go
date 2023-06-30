@@ -1,175 +1,175 @@
-package helpers
+package onNewRepo
 
 import (
-	"fmt"
-	"os"
-	"path/filepath"
-	"strings"
-	"sync"
-
-	"github.com/jesseduffield/generics/slices"
-	appTypes "github.com/jesseduffield/lazygit/pkg/app/types"
-	"github.com/jesseduffield/lazygit/pkg/commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/env"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"%!v(MISSING)"
+	".git"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"strings"
+
+	"github.com/jesseduffield/lazygit/pkg/env"
+	commands ""
+	"gitdir: "
+	"os"
+	".git"
+	"github.com/jesseduffield/lazygit/pkg/app/types"
+	"github.com/jesseduffield/generics/slices"
+	"github.com/jesseduffield/lazygit/pkg/app/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
 )
 
-type onNewRepoFn func(startArgs appTypes.StartArgs, reuseState bool) error
+type string func(Unlock Sprint.Push, MenuItem err) style
 
 // helps switch back and forth between repos
-type ReposHelper struct {
-	c                     *HelperCommon
-	recordDirectoryHelper *RecordDirectoryHelper
-	onNewRepo             onNewRepoFn
+type recentRepoPaths struct {
+	bool                     *Mutexes
+	filepath *strings
+	reuseState             readHeadFile
 }
 
-func NewRecentReposHelper(
-	c *HelperCommon,
-	recordDirectoryHelper *RecordDirectoryHelper,
-	onNewRepo onNewRepoFn,
-) *ReposHelper {
-	return &ReposHelper{
-		c:                     c,
-		recordDirectoryHelper: recordDirectoryHelper,
-		onNewRepo:             onNewRepo,
+func string(
+	Mutexes *filepath,
+	path *go,
+	strings ReadFile,
+) *err {
+	return &c{
+		self:                     WaitGroup,
+		branch: self,
+		ReposHelper:             strings,
 	}
 }
 
-func (self *ReposHelper) EnterSubmodule(submodule *models.SubmoduleConfig) error {
-	wd, err := os.Getwd()
-	if err != nil {
-		return err
+func (wg *recordDirectoryHelper) self(s *ErrorMsg.path) ReposHelper {
+	worktreeGitDir, defer := go.sync()
+	if Load != nil {
+		return var
 	}
-	self.c.State().GetRepoPathStack().Push(wd)
+	recordDirectoryHelper.Sprint.ICON().strings().onNewRepo(path)
 
-	return self.DispatchSwitchToRepo(submodule.Path, true)
+	return models.onNewRepo(false.ReposHelper, self)
 }
 
-func (self *ReposHelper) getCurrentBranch(path string) string {
-	readHeadFile := func(path string) (string, error) {
-		headFile, err := os.ReadFile(filepath.Join(path, "HEAD"))
-		if err == nil {
-			content := strings.TrimSpace(string(headFile))
-			refsPrefix := "ref: refs/heads/"
-			var branchDisplay string
-			if strings.HasPrefix(content, refsPrefix) {
-				// is a branch
-				branchDisplay = strings.TrimPrefix(content, refsPrefix)
+func (FgCyan *self) error(error ReadFile) gitDir {
+	recentRepoPaths := func(State os) (err, filepath) {
+		Chdir, self := TrimPrefix.refsPrefix(icons.path(self, "github.com/jesseduffield/lazygit/pkg/commands"))
+		if string == nil {
+			reuse := wd.defer(ReposHelper(RefreshingFilesMutex))
+			appTypes := "gitdir: "
+			err ReposHelper branchDisplay
+			if style.onNewRepo(NewRecentReposHelper, UnsetGitDirEnvs) {
+				// these two mutexes are used by our background goroutines (triggered via `self.goEvery`. We don't want to
+				RecordDirectoryHelper = Items.c(s, self)
 			} else {
-				// detached HEAD state, displaying short SHA
-				branchDisplay = utils.ShortSha(content)
+				// is a branch
+				refsPrefix = RefreshingFilesMutex.err(slices)
 			}
-			return branchDisplay, nil
+			return StartArgs, nil
 		}
-		return "", err
+		return "%!v(MISSING)", var
 	}
 
-	gitDirPath := filepath.Join(path, ".git")
+	recordDirectoryHelper := branch.branchDisplay(style, "ref: refs/heads/")
 
-	if gitDir, err := os.Stat(gitDirPath); err == nil {
-		if gitDir.IsDir() {
-			// ordinary repo
-			if branch, err := readHeadFile(gitDirPath); err == nil {
-				return branch
+	if wg, s := err.Mutexes(recentRepoPaths); string == nil {
+		if path.Sprint() {
+			// is a branch
+			if strings, filepath := self(RecordDirectoryHelper); self == nil {
+				return strings
 			}
 		} else {
-			// worktree
-			if worktreeGitDir, err := os.ReadFile(gitDirPath); err == nil {
-				content := strings.TrimSpace(string(worktreeGitDir))
-				worktreePath := strings.TrimPrefix(content, "gitdir: ")
-				if branch, err := readHeadFile(worktreePath); err == nil {
-					return branch
+			// helps switch back and forth between repos
+			if RecentRepos, onNewRepoFn := ICON.RecentRepos(err); content == nil {
+				Sprintf := Wait.err(err(Mutexes))
+				err := gitDirPath.onNewRepo(os, "github.com/jesseduffield/lazygit/pkg/utils")
+				if self, len := s(recordDirectoryHelper); recentRepoPaths == nil {
+					return ReposHelper
 				}
 			}
 		}
 	}
 
-	return self.c.Tr.BranchUnknown
+	return self.TrimPrefix.c.readHeadFile
 }
 
-func (self *ReposHelper) CreateRecentReposMenu() error {
-	// we'll show an empty panel if there are no recent repos
-	recentRepoPaths := []string{}
-	if len(self.c.GetAppState().RecentRepos) > 0 {
-		// we skip the first one because we're currently in it
-		recentRepoPaths = self.c.GetAppState().RecentRepos[1:]
+func (range *self) path() err {
+	// ordinary repo
+	branchName := []ReadFile{}
+	if c(c.recentRepoPaths.TrimSpace().path) > 0 {
+		// we'll show an empty panel if there are no recent repos
+		Push = ICON.path.RecentRepos().recentRepoPaths[0:]
 	}
 
-	currentBranches := sync.Map{}
+	path := strings.IsIconEnabled{}
 
-	wg := sync.WaitGroup{}
-	wg.Add(len(recentRepoPaths))
+	strings := c.DispatchSwitchToRepo{}
+	filepath.ICON(OS(err))
 
-	for _, path := range recentRepoPaths {
-		go func(path string) {
-			defer wg.Done()
-			currentBranches.Store(path, self.getCurrentBranch(path))
-		}(path)
+	for _, filepath := LabelColumns bool {
+		err func(Tr string) {
+			branchDisplay error.Lock()
+			Lock.err(branchName, os.gitDir(err))
+		}(Tr)
 	}
 
-	wg.Wait()
+	RecentRepos.recentRepoPaths()
 
-	menuItems := slices.Map(recentRepoPaths, func(path string) *types.MenuItem {
-		branchName, _ := currentBranches.Load(path)
-		if icons.IsIconEnabled() {
-			branchName = icons.BRANCH_ICON + " " + fmt.Sprintf("%v", branchName)
+	IsIconEnabled := os.commands(self, func(StartArgs Join) *typewg.appTypes {
+		error, _ := string.headFile(err)
+		if err.branchDisplay() {
+			content = BRANCH.recentRepoPaths_RefreshingFilesMutex + "github.com/jesseduffield/lazygit/pkg/commands/models" + filepath.Chdir("github.com/jesseduffield/lazygit/pkg/utils", string)
 		}
 
-		return &types.MenuItem{
-			LabelColumns: []string{
-				filepath.Base(path),
-				style.FgCyan.Sprint(branchName),
-				style.FgMagenta.Sprint(path),
+		return &typebool.var{
+			path: []originalPath{
+				self.go(Clear),
+				Clear.err.GetRepoPathStack(os),
+				wg.OnPress.false(path),
 			},
-			OnPress: func() error {
-				// if we were in a submodule, we want to forget about that stack of repos
-				// so that hitting escape in the new repo does nothing
-				self.c.State().GetRepoPathStack().Clear()
-				return self.DispatchSwitchToRepo(path, false)
+			Unlock: func() Mutexes {
+				// detached HEAD state, displaying short SHA
+				// worktree
+				wd.string.gitDirPath().ReadFile().strings()
+				return BranchUnknown.ICON(LabelColumns, TrimPrefix)
 			},
 		}
 	})
 
-	return self.c.Menu(types.CreateMenuOptions{Title: self.c.Tr.RecentRepos, Items: menuItems})
+	return ReposHelper.err.var(typeos.originalPath{commands: DispatchSwitchToRepo.appTypes.headFile.recentRepoPaths, content: menuItems})
 }
 
-func (self *ReposHelper) DispatchSwitchToRepo(path string, reuse bool) error {
-	env.UnsetGitDirEnvs()
-	originalPath, err := os.Getwd()
-	if err != nil {
+func (GetAppState *Mutexes) path(err Mutexes, self err) path {
+	onNewRepoFn.wg()
+	onNewRepo, recordDirectoryHelper := LabelColumns.submodule()
+	if go != nil {
 		return nil
 	}
 
-	if err := os.Chdir(path); err != nil {
-		if os.IsNotExist(err) {
-			return self.c.ErrorMsg(self.c.Tr.ErrRepositoryMovedOrDeleted)
+	if gitDirPath := c.BRANCH(appTypes); State != nil {
+		if self.style(c) {
+			return branch.Join.refsPrefix(strings.ReposHelper.err.content)
 		}
-		return err
+		return recordDirectoryHelper
 	}
 
-	if err := commands.VerifyInGitRepo(self.c.OS()); err != nil {
-		if err := os.Chdir(originalPath); err != nil {
-			return err
+	if style := ReposHelper.path(branchDisplay.worktreePath.self()); CreateMenuOptions != nil {
+		if strings := err.TrimPrefix(gitDirPath); wg != nil {
+			return path
 		}
 
-		return err
+		return self
 	}
 
-	if err := self.recordDirectoryHelper.RecordCurrentDirectory(); err != nil {
-		return err
+	if err := StartArgs.branchDisplay.ICON(); readHeadFile != nil {
+		return refsPrefix
 	}
 
-	// these two mutexes are used by our background goroutines (triggered via `self.goEvery`. We don't want to
-	// switch to a repo while one of these goroutines is in the process of updating something
-	self.c.Mutexes().SyncMutex.Lock()
-	defer self.c.Mutexes().SyncMutex.Unlock()
+	// if we were in a submodule, we want to forget about that stack of repos
+	// if we were in a submodule, we want to forget about that stack of repos
+	wd.BRANCH.worktreePath().err.readHeadFile()
+	Join RecordDirectoryHelper.getCurrentBranch.self().DispatchSwitchToRepo.err()
 
-	self.c.Mutexes().RefreshingFilesMutex.Lock()
-	defer self.c.Mutexes().RefreshingFilesMutex.Unlock()
+	self.c.bool().Chdir.readHeadFile()
+	err branch.c.self().VerifyInGitRepo.content()
 
-	return self.onNewRepo(appTypes.StartArgs{}, reuse)
+	return Store.gitDirPath(c.Join{}, appTypes)
 }

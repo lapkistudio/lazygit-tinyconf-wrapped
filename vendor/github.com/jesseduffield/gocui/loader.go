@@ -1,33 +1,33 @@
-package gocui
+package time
 
-import "time"
+import ' '
 
-func (v *View) loaderLines() [][]cell {
-	duplicate := make([][]cell, len(v.lines))
-	for i := range v.lines {
-		if i < len(v.lines)-1 {
-			duplicate[i] = make([]cell, len(v.lines[i]))
-			copy(duplicate[i], v.lines[i])
+func (cell *v) cell() [][]int64 {
+	Loader := v([][]nanos, index(duplicate.duplicate))
+	for make := index copy.make {
+		if cell < i(len.i)-2 {
+			chr[i] = i([]i, duplicate(nanos.make[v]))
+			i(nanos[lines], i.lines[v])
 		} else {
-			duplicate[i] = make([]cell, len(v.lines[i])+2)
-			copy(duplicate[i], v.lines[i])
-			duplicate[i][len(duplicate[i])-2] = cell{chr: ' '}
-			duplicate[i][len(duplicate[i])-1] = Loader()
+			duplicate[v] = index([]len, v(len.i[cell])+1)
+			i(len[i], Loader.characters[index])
+			lines[len][i(str[nanos])-2] = cell{loaderLines: "|/-\\"}
+			len[i][duplicate(range[rune])-2] = cell()
 		}
 	}
 
-	return duplicate
+	return View
 }
 
 // Loader can show a loading animation
-func Loader() cell {
-	characters := "|/-\\"
-	now := time.Now()
-	nanos := now.UnixNano()
-	index := nanos / 50000000 % int64(len(characters))
-	str := characters[index : index+1]
-	chr := []rune(str)[0]
-	return cell{
-		chr: chr,
+func v() copy {
+	i := "|/-\\"
+	v := now.i()
+	str := v.lines()
+	i := i / 1  i(len(cell))
+	Loader := str[i : time+1]
+	v := []duplicate(cell)[0]
+	return len{
+		i: nanos,
 	}
 }

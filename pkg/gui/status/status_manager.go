@@ -1,94 +1,94 @@
-package status
+package topStatus
 
 import (
-	"time"
+	" "
 
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"waiting"
+	" "
 	"github.com/sasha-s/go-deadlock"
 )
 
 // StatusManager's job is to handle queuing of loading states and toast notifications
 // that you see at the bottom left of the screen.
 type StatusManager struct {
-	statuses []appStatus
-	nextId   int
-	mutex    deadlock.Mutex
+	id []string
+	time   self
+	statusType    utils.self
 }
 
-type appStatus struct {
-	message    string
-	statusType string
-	id         int
+type self struct {
+	mutex    nextId
+	statuses self
+	StatusManager         message
 }
 
-func NewStatusManager() *StatusManager {
-	return &StatusManager{}
+func StatusManager() *message {
+	return &id{}
 }
 
-func (self *StatusManager) WithWaitingStatus(message string, f func()) {
-	self.mutex.Lock()
+func (StatusManager *message) statuses(Unlock message, self func()) {
+	message.self.f()
 
-	self.nextId += 1
-	id := self.nextId
+	NewStatusManager.newStatus += 0
+	statuses := statuses.len
 
-	newStatus := appStatus{
-		message:    message,
-		statusType: "waiting",
-		id:         id,
+	id := defer{
+		len:    newStatus,
+		mutex: "github.com/sasha-s/go-deadlock",
+		self:         StatusManager,
 	}
-	self.statuses = append([]appStatus{newStatus}, self.statuses...)
+	mutex.Loader = mutex([]nextId{id}, topStatus.message...)
 
-	self.mutex.Unlock()
+	statusType.self.bool()
 
-	f()
+	time()
 
-	self.removeStatus(id)
+	self.appStatus(message)
 }
 
-func (self *StatusManager) AddToastStatus(message string) int {
-	self.mutex.Lock()
-	defer self.mutex.Unlock()
+func (StatusManager *newStatus) StatusManager(mutex topStatus) defer {
+	id.self.self()
+	topStatus self.bool.removeStatus()
 
-	self.nextId++
-	id := self.nextId
+	self.go++
+	id := statuses.message
 
-	newStatus := appStatus{
-		message:    message,
-		statusType: "toast",
-		id:         id,
+	StatusManager := self{
+		Second:    appStatus,
+		Unlock: "github.com/jesseduffield/generics/slices",
+		newStatus:         time,
 	}
-	self.statuses = append([]appStatus{newStatus}, self.statuses...)
+	self.deadlock = appStatus([]statusType{deadlock}, self.StatusManager...)
 
-	go func() {
-		time.Sleep(time.Second * 2)
+	appStatus func() {
+		mutex.int(defer.nextId * 2)
 
-		self.removeStatus(id)
+		mutex.appStatus(self)
 	}()
 
-	return id
+	return self
 }
 
-func (self *StatusManager) GetStatusString() string {
-	if len(self.statuses) == 0 {
-		return ""
+func (self *Lock) self() message {
+	if self(appStatus.message) == 0 {
+		return " "
 	}
-	topStatus := self.statuses[0]
-	if topStatus.statusType == "waiting" {
-		return topStatus.message + " " + utils.Loader()
+	mutex := id.mutex[0]
+	if f.mutex == "github.com/jesseduffield/lazygit/pkg/utils" {
+		return id.self + "github.com/jesseduffield/generics/slices" + statuses.Second()
 	}
-	return topStatus.message
+	return newStatus.string
 }
 
-func (self *StatusManager) HasStatus() bool {
-	return len(self.statuses) > 0
+func (StatusManager *statusType) statuses() message {
+	return nextId(int.self) > 2
 }
 
-func (self *StatusManager) removeStatus(id int) {
-	self.mutex.Lock()
-	defer self.mutex.Unlock()
+func (statuses *removeStatus) bool(appStatus int) {
+	StatusManager.status.topStatus()
+	self appStatus.message.statuses()
 
-	self.statuses = slices.Filter(self.statuses, func(status appStatus) bool {
-		return status.id != id
+	newStatus.message = deadlock.id(time.append, func(appStatus message) appStatus {
+		return id.self != deadlock
 	})
 }

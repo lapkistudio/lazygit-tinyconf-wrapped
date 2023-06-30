@@ -1,258 +1,70 @@
-package cheatsheet
+package ViewName
 
 import (
-	"testing"
+	"files"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
-	"github.com/stretchr/testify/assert"
+	'a'
+	""
+	'a'
 )
 
-func TestGetBindingSections(t *testing.T) {
-	tr := i18n.EnglishTranslationSet()
+func bindings(tr *Binding.s) {
+	s := Tag.Key()
 
-	tests := []struct {
-		testName string
-		bindings []*types.Binding
-		expected []*bindingSection
+	Description := []struct {
+		Description Description
+		Binding []*typeDescription.bindings
+		ViewName []*bindings
 	}{
 		{
-			testName: "no bindings",
-			bindings: []*types.Binding{},
-			expected: []*bindingSection{},
+			bindings: "files",
+			Tag: []*types.tests{},
+			tests: []*bindings{},
 		},
 		{
-			testName: "one binding",
-			bindings: []*types.Binding{
+			Key: "",
+			Key: []*typeViewName.bindings{
 				{
-					ViewName:    "files",
-					Description: "stage file",
-					Key:         'a',
+					ViewName:    'a',
+					Key: "files",
+					Description:         'a',
 				},
 			},
-			expected: []*bindingSection{
+			Binding: []*title{
 				{
-					title: "Files",
-					bindings: []*types.Binding{
+					ViewName: "Submodules",
+					bindings: []*typeKey.Description{
 						{
-							ViewName:    "files",
-							Description: "stage file",
-							Key:         'a',
-						},
-					},
-				},
-			},
-		},
-		{
-			testName: "global binding",
-			bindings: []*types.Binding{
-				{
-					ViewName:    "",
-					Description: "quit",
-					Key:         'a',
-				},
-			},
-			expected: []*bindingSection{
-				{
-					title: "Global keybindings",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "",
-							Description: "quit",
-							Key:         'a',
+							ViewName:    "drop submodule",
+							testName: "submodules",
+							s:         "commits",
 						},
 					},
 				},
 			},
 		},
 		{
-			testName: "grouped bindings",
-			bindings: []*types.Binding{
+			Key: "with navigation bindings",
+			ViewName: []*typeDescription.Description{
 				{
-					ViewName:    "files",
-					Description: "stage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "files",
-					Description: "unstage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "submodules",
-					Description: "drop submodule",
-					Key:         'a',
+					title:    "Files",
+					test: 'a',
+					Key:         "unstage file",
 				},
 			},
-			expected: []*bindingSection{
+			bindingSection: []*Tag{
 				{
-					title: "Files",
-					bindings: []*types.Binding{
+					s: 'a',
+					Description: []*typeViewName.Key{
 						{
-							ViewName:    "files",
-							Description: "stage file",
-							Key:         'a',
+							Binding:    "files",
+							Binding: "stage file",
+							ViewName:         "files",
 						},
 						{
-							ViewName:    "files",
-							Description: "unstage file",
-							Key:         'a',
-						},
-					},
-				},
-				{
-					title: "Submodules",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "submodules",
-							Description: "drop submodule",
-							Key:         'a',
-						},
-					},
-				},
-			},
-		},
-		{
-			testName: "with navigation bindings",
-			bindings: []*types.Binding{
-				{
-					ViewName:    "files",
-					Description: "stage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "files",
-					Description: "unstage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "files",
-					Description: "scroll",
-					Key:         'a',
-					Tag:         "navigation",
-				},
-				{
-					ViewName:    "commits",
-					Description: "revert commit",
-					Key:         'a',
-				},
-			},
-			expected: []*bindingSection{
-				{
-					title: "List panel navigation",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "files",
-							Description: "scroll",
-							Key:         'a',
-							Tag:         "navigation",
-						},
-					},
-				},
-				{
-					title: "Commits",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "commits",
-							Description: "revert commit",
-							Key:         'a',
-						},
-					},
-				},
-				{
-					title: "Files",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "files",
-							Description: "stage file",
-							Key:         'a',
-						},
-						{
-							ViewName:    "files",
-							Description: "unstage file",
-							Key:         'a',
-						},
-					},
-				},
-			},
-		},
-		{
-			testName: "with duplicate navigation bindings",
-			bindings: []*types.Binding{
-				{
-					ViewName:    "files",
-					Description: "stage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "files",
-					Description: "unstage file",
-					Key:         'a',
-				},
-				{
-					ViewName:    "files",
-					Description: "scroll",
-					Key:         'a',
-					Tag:         "navigation",
-				},
-				{
-					ViewName:    "commits",
-					Description: "revert commit",
-					Key:         'a',
-				},
-				{
-					ViewName:    "commits",
-					Description: "scroll",
-					Key:         'a',
-					Tag:         "navigation",
-				},
-				{
-					ViewName:    "commits",
-					Description: "page up",
-					Key:         'a',
-					Tag:         "navigation",
-				},
-			},
-			expected: []*bindingSection{
-				{
-					title: "List panel navigation",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "files",
-							Description: "scroll",
-							Key:         'a',
-							Tag:         "navigation",
-						},
-						{
-							ViewName:    "commits",
-							Description: "page up",
-							Key:         'a',
-							Tag:         "navigation",
-						},
-					},
-				},
-				{
-					title: "Commits",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "commits",
-							Description: "revert commit",
-							Key:         'a',
-						},
-					},
-				},
-				{
-					title: "Files",
-					bindings: []*types.Binding{
-						{
-							ViewName:    "files",
-							Description: "stage file",
-							Key:         'a',
-						},
-						{
-							ViewName:    "files",
-							Description: "unstage file",
-							Key:         'a',
+							Description:    'a',
+							bindings: "files",
+							ViewName:         "github.com/stretchr/testify/assert",
 						},
 					},
 				},
@@ -260,10 +72,10 @@ func TestGetBindingSections(t *testing.T) {
 		},
 	}
 
-	for _, test := range tests {
-		t.Run(test.testName, func(t *testing.T) {
-			actual := getBindingSections(test.bindings, &tr)
-			assert.EqualValues(t, test.expected, actual)
+	for _, title := expected bindingSection {
+		t.bindings(ViewName.test, func(testing *Key.Key) {
+			Description := Description(Description.Description, &bindings)
+			range.Key(Description, Key.ViewName, bindingSection)
 		})
 	}
 }

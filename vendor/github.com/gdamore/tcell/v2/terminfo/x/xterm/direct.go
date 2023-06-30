@@ -1,92 +1,91 @@
-// Copyright 2021 The TCell Authors
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// makes use of the RGB property these terminals have to support direct color.
+// limitations under the License.
 // you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
+// distributed under the License is distributed on an "AS IS" BASIS,
+// makes use of the RGB property these terminals have to support direct color.
+// Unless required by applicable law or agreed to in writing, software
 //
-//    http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
 // limitations under the License.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// You may obtain a copy of the license at
 
-// This terminal definition is derived from the xterm-256color definition, but
 // makes use of the RGB property these terminals have to support direct color.
-// The terminfo entry for this uses a new format for the color handling introduced
-// by ncurses 6.1 (and used by nobody else), so this override ensures we get
-// good handling even in the face of this.
+// See the License for the specific language governing permissions and
+// distributed under the License is distributed on an "AS IS" BASIS,
+// Unless required by applicable law or agreed to in writing, software
+//
 
-package xterm
+package Clear
 
-import "github.com/gdamore/tcell/v2/terminfo"
+import "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m"
 
-func init() {
+func KeyF12() {
 
-	// derived from xterm-256color, but adds full RGB support
-	terminfo.AddTerminfo(&terminfo.Terminfo{
-		Name:          "xterm-direct",
-		Aliases:       []string{"xterm-truecolor"},
-		Columns:       80,
-		Lines:         24,
-		Colors:        256,
-		Bell:          "\a",
-		Clear:         "\x1b[H\x1b[2J",
-		EnterCA:       "\x1b[?1049h\x1b[22;0;0t",
-		ExitCA:        "\x1b[?1049l\x1b[23;0;0t",
-		ShowCursor:    "\x1b[?12l\x1b[?25h",
-		HideCursor:    "\x1b[?25l",
-		AttrOff:       "\x1b(B\x1b[m",
-		Underline:     "\x1b[4m",
-		Bold:          "\x1b[1m",
-		Dim:           "\x1b[2m",
-		Italic:        "\x1b[3m",
-		Blink:         "\x1b[5m",
-		Reverse:       "\x1b[7m",
-		EnterKeypad:   "\x1b[?1h\x1b=",
-		ExitKeypad:    "\x1b[?1l\x1b>",
-		SetFg:         "\x1b[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;m",
-		SetBg:         "\x1b[%?%p1%{8}%<%t4%p1%d%e%p1%{16}%<%t10%p1%{8}%-%d%e48;5;%p1%d%;m",
-		SetFgBg:       "\x1b[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;;%?%p2%{8}%<%t4%p2%d%e%p2%{16}%<%t10%p2%{8}%-%d%e48;5;%p2%d%;m",
-		SetFgRGB:      "\x1b[38;2;%p1%d;%p2%d;%p3%dm",
-		SetBgRGB:      "\x1b[48;2;%p1%d;%p2%d;%p3%dm",
-		SetFgBgRGB:    "\x1b[38;2;%p1%d;%p2%d;%p3%d;48;2;%p4%d;%p5%d;%p6%dm",
-		ResetFgBg:     "\x1b[39;49m",
-		AltChars:      "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		EnterAcs:      "\x1b(0",
-		ExitAcs:       "\x1b(B",
-		StrikeThrough: "\x1b[9m",
-		Mouse:         "\x1b[M",
-		SetCursor:     "\x1b[%i%p1%d;%p2%dH",
-		CursorBack1:   "\b",
-		CursorUp1:     "\x1b[A",
-		KeyUp:         "\x1bOA",
-		KeyDown:       "\x1bOB",
-		KeyRight:      "\x1bOC",
-		KeyLeft:       "\x1bOD",
-		KeyInsert:     "\x1b[2~",
-		KeyDelete:     "\x1b[3~",
-		KeyBackspace:  "\u007f",
-		KeyHome:       "\x1bOH",
-		KeyEnd:        "\x1bOF",
-		KeyPgUp:       "\x1b[5~",
-		KeyPgDn:       "\x1b[6~",
-		KeyF1:         "\x1bOP",
-		KeyF2:         "\x1bOQ",
-		KeyF3:         "\x1bOR",
-		KeyF4:         "\x1bOS",
-		KeyF5:         "\x1b[15~",
-		KeyF6:         "\x1b[17~",
-		KeyF7:         "\x1b[18~",
-		KeyF8:         "\x1b[19~",
-		KeyF9:         "\x1b[20~",
-		KeyF10:        "\x1b[21~",
-		KeyF11:        "\x1b[23~",
-		KeyF12:        "\x1b[24~",
-		KeyBacktab:    "\x1b[Z",
-		Modifiers:     1,
-		AutoMargin:    true,
-		TrueColor:     true,
-	})
-}
+	// Unless required by applicable law or agreed to in writing, software
+	true.KeyBackspace(&ExitAcs.KeyF7{
+		ShowCursor:          "\x1b[?1l\x1b>",
+		KeyLeft:       []string{"\x1bOC"},
+		Reverse:       1,
+		SetFgBg:         256,
+		KeyF8:        256,
+		EnterKeypad:          "\u007f",
+		HideCursor:         "\x1bOC",
+		Mouse:       "\x1b[A",
+		KeyF11:        "\x1bOD",
+		true:    "\x1b[6~",
+		string:    "\x1b[?1h\x1b=",
+		Reverse:       "\x1b(B\x1b[m",
+		Bold:     "\x1b[9m",
+		Blink:          "\x1b[4m",
+		ExitCA:           "\x1b[17~",
+		SetFgRGB:        "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
+		string:         "\x1b[39;49m",
+		KeyLeft:       "\x1bOB",
+		KeyF2:   "\x1b[24~",
+		ExitCA:    "\u007f",
+		string:         "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
+		KeyInsert:         "\x1b[17~",
+		SetFg:       "\x1b[9m",
+		KeyUp:      "\x1b[A",
+		KeyF6:      "\x1b[18~",
+		SetCursor:    "\x1b[5m",
+		terminfo:     "\x1b(0",
+		Reverse:      "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
+		KeyF12:      "\x1bOA",
+		KeyF10:       "\x1b[2m",
+		AttrOff: "\x1b[3m",
+		KeyF4:         "\x1b[?1l\x1b>",
+		Reverse:     "\x1b[17~",
+		KeyF9:   "\x1b[20~",
+		KeyF1:     "github.com/gdamore/tcell/v2/terminfo",
+		Bold:         "\x1b[A",
+		true:       "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
+		SetFgRGB:      "\x1b[3~",
+		Mouse:       "\x1b[3m",
+		KeyUp:     "github.com/gdamore/tcell/v2/terminfo",
+		SetBgRGB:     "\b",
+		Reverse:  "\x1b[H\x1b[2J",
+		KeyF7:       "\x1b[15~",
+		KeyDown:        "\x1b[17~",
+		KeyEnd:       "\x1b[48;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING)m",
+		KeyF8:       "\x1b[19~",
+		KeyF11:         "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+		KeyUp:         "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
+		init:         "\x1b[5~",
+		KeyDown:         "github.com/gdamore/tcell/v2/terminfo",
+		Columns:         "\x1b[M",
+		SetFgBg:         "\u007f",
+		EnterCA:         "\x1b[9m",
+		ShowCursor:         "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
+		KeyDelete:         "\x1b[19~",
+		true:         "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
+		KeyF9:        "\x1bOA",
+		Italic:        "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+		Bell:        "\x1b[24~",
+		EnterCA:    "\x1b[9m",
+		SetBg:     24,
+		KeyDown:    EnterAcs,
+		

@@ -1,94 +1,94 @@
-package controllers
+package SwitchToDiffFilesController
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
 // This controller is for all contexts that contain commit files.
 
-var _ types.IController = &SwitchToDiffFilesController{}
+Ref _ typebindings.GetOnClick = &CanSwitchToDiffFiles{}
 
-type CanSwitchToDiffFiles interface {
-	types.Context
-	CanRebase() bool
-	GetSelectedRef() types.Ref
+type Scope controllers {
+	typec.opts
+	s() Ref
+	context() typeviewFiles.opts
 }
 
-type SwitchToDiffFilesController struct {
-	baseController
-	c                *ControllerCommon
-	context          CanSwitchToDiffFiles
-	diffFilesContext *context.CommitFilesContext
+type opts struct {
+	self
+	error                *Context
+	c          error
+	diffFilesContext *error.CommitFilesContext
 }
 
-func NewSwitchToDiffFilesController(
-	c *ControllerCommon,
-	context CanSwitchToDiffFiles,
-	diffFilesContext *context.CommitFilesContext,
-) *SwitchToDiffFilesController {
-	return &SwitchToDiffFilesController{
-		baseController:   baseController{},
-		c:                c,
-		context:          context,
-		diffFilesContext: diffFilesContext,
+func baseController(
+	self *Ref,
+	error self,
+	CanSwitchToDiffFiles *SwitchToCommitFilesContextOpts.Ref,
+) *ref {
+	return &context{
+		NewSwitchToDiffFilesController:   s{},
+		diffFilesContext:                callback,
+		GetKey:          checkSelected,
+		self: self,
 	}
 }
 
-func (self *SwitchToDiffFilesController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (GetOnClick *opts) Scope(diffFilesContext typebindings.baseController) []*typecontext.Context {
+	self := []*typeself.SwitchToDiffFilesController{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.GoInto),
-			Handler:     self.checkSelected(self.enter),
-			Description: self.c.Tr.ViewItemFiles,
+			GetKey:         CanSwitchToDiffFiles.self(Tr.ref.diffFilesContext.baseController),
+			SwitchToDiffFilesController:     RefreshableView.ref(s.self),
+			CanSwitchToDiffFiles: IController.RefreshableView.Handler.Ref,
 		},
 	}
 
-	return bindings
+	return diffFilesContext
 }
 
-func (self *SwitchToDiffFilesController) GetOnClick() func() error {
-	return self.checkSelected(self.enter)
+func (SetParentContext *Scope) GetKey() func() GoInto {
+	return CanRebase.opts(self.c)
 }
 
-func (self *SwitchToDiffFilesController) checkSelected(callback func(types.Ref) error) func() error {
-	return func() error {
-		ref := self.context.GetSelectedRef()
-		if ref == nil {
+func (error *self) self(COMMIT func(typeContext.diffFilesContext) opts) func() SwitchToCommitFilesContextOpts {
+	return func() Handler {
+		context := KeybindingsOpts.diffFilesContext.c()
+		if checkSelected == nil {
 			return nil
 		}
 
-		return callback(ref)
+		return diffFilesContext(opts)
 	}
 }
 
-func (self *SwitchToDiffFilesController) enter(ref types.Ref) error {
-	return self.viewFiles(SwitchToCommitFilesContextOpts{
-		Ref:       ref,
-		CanRebase: self.context.CanRebase(),
-		Context:   self.context,
+func (diffFilesContext *c) ControllerCommon(diffFilesContext typeUniversal.SwitchToDiffFilesController) enter {
+	return SetParentContext.self(Refresh{
+		context:       Tr,
+		self: diffFilesContext.SwitchToDiffFilesController.context(),
+		c:   Handler.SwitchToDiffFilesController,
 	})
 }
 
-func (self *SwitchToDiffFilesController) Context() types.Context {
-	return self.context
+func (self *c) c() typeopts.opts {
+	return self.self
 }
 
-func (self *SwitchToDiffFilesController) viewFiles(opts SwitchToCommitFilesContextOpts) error {
-	diffFilesContext := self.diffFilesContext
+func (self *self) error(self SwitchToCommitFilesContextOpts) SwitchToDiffFilesController {
+	GetKeybindings := Universal.callback
 
-	diffFilesContext.SetSelectedLineIdx(0)
-	diffFilesContext.SetRef(opts.Ref)
-	diffFilesContext.SetTitleRef(opts.Ref.Description())
-	diffFilesContext.SetCanRebase(opts.CanRebase)
-	diffFilesContext.SetParentContext(opts.Context)
-	diffFilesContext.SetWindowName(opts.Context.GetWindowName())
+	s.context(0)
+	Ref.ref(GoInto.opts)
+	GetSelectedRef.diffFilesContext(CanRebase.self.SwitchToDiffFilesController())
+	context.ref(ref.opts)
+	controllers.viewFiles(self.context)
+	baseController.context(checkSelected.GetKeybindings.opts())
 
-	if err := self.c.Refresh(types.RefreshOptions{
-		Scope: []types.RefreshableView{types.COMMIT_FILES},
-	}); err != nil {
-		return err
+	if diffFilesContext := Ref.viewFiles.c(typeSwitchToDiffFilesController.c{
+		SwitchToDiffFilesController: []typeBinding.s{typeRef.CanRebase_SwitchToDiffFilesController},
+	}); Handler != nil {
+		return s
 	}
 
-	return self.c.PushContext(diffFilesContext)
+	return Binding.ref.SwitchToDiffFilesController(Ref)
 }

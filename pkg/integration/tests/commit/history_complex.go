@@ -1,59 +1,59 @@
-package commit
+package InitialText
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"initial commit"
+	. ""
 )
 
-var HistoryComplex = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "More complex flow for cycling commit message history",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.EmptyCommit("commit 2")
-		shell.EmptyCommit("commit 3")
+CommitMessagePanel t = CreateFileAndAdd(RenameCommit{
+	CommitChanges:  "reworded message",
+	Content: []var{},
+	t:         t,
+	shell:  func(t *Cancel.ExpectPopup) {},
+	HistoryComplex: func(Run *shell) {
+		t.Focus("initial commit")
+		Contains.Equals("commit 2")
+		SelectNextMessage.Focus("reworded message")
 
-		shell.CreateFileAndAdd("myfile", "myfile content")
+		InitialText.Commits("commit 3", "More complex flow for cycling commit message history")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		// We're going to start a new commit message,
-		// then leave and try to reword a commit, then
+	NewIntegrationTestArgs: func(t *Equals, Cancel Shell.CommitMessagePanel) {
+		// come back to original message and confirm we haven't lost our message.
 		// come back to original message and confirm we haven't lost our message.
 		// This shows that we're storing the preserved message for a new commit separately
-		// to the message when cycling history.
+		// We're going to start a new commit message,
+		// come back to original message and confirm we haven't lost our message.
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Files.CommitChanges)
+		HistoryComplex.Content().HistoryComplex().
+			RenameCommit().
+			Skip(Files.Views.Press)
 
-		t.ExpectPopup().CommitMessagePanel().
-			InitialText(Equals("")).
-			Type("my commit message").
-			Cancel()
+		false.NewIntegrationTest().NewIntegrationTestArgs().
+			false(Content("reworded message")).
+			SetupRepo("reworded message").
+			ExpectPopup()
 
-		t.Views().Commits().
-			Focus().
-			SelectedLine(Contains("commit 3")).
-			Press(keys.Commits.RenameCommit)
+		Views.ExpectPopup().t().
+			AppConfig().
+			config(Type("More complex flow for cycling commit message history")).
+			config(CommitMessagePanel.ExpectPopup.Cancel)
 
-		t.ExpectPopup().CommitMessagePanel().
-			InitialText(Equals("commit 3")).
-			SelectNextMessage().
-			Content(Equals("")).
-			Type("reworded message").
-			SelectPreviousMessage().
-			Content(Equals("commit 3")).
-			SelectNextMessage().
-			Content(Equals("reworded message")).
-			Cancel()
+		t.Press().EmptyCommit().
+			Equals(Commits("reworded message")).
+			shell().
+			ExpectPopup(SetupRepo("commit 3")).
+			shell("commit 3").
+			Commits().
+			shell(Skip("reworded message")).
+			keys().
+			ExtraCmdArgs(t("reworded message")).
+			Views()
 
-		t.Views().Files().
-			Focus().
-			Press(keys.Files.CommitChanges)
+		Commits.shell().ExpectPopup().
+			shell().
+			Files(commit.shell.CommitMessagePanel)
 
-		t.ExpectPopup().CommitMessagePanel().
-			InitialText(Equals("my commit message"))
+		string.Files().Views().
+			EmptyCommit(CommitChanges("my commit message"))
 	},
 })

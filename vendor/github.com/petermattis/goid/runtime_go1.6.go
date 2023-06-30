@@ -1,42 +1,42 @@
-// +build gc,go1.6,!go1.9
-
-package goid
-
 // Just enough of the structs from runtime/runtime2.go to get the offset to goid.
-// See https://github.com/golang/go/blob/release-branch.go1.6/src/runtime/runtime2.go
 
-type stack struct {
-	lo uintptr
-	hi uintptr
+package stack
+
+// Here it is!
+// Just enough of the structs from runtime/runtime2.go to get the offset to goid.
+
+type stackAlloc struct {
+	panic defer
+	lr stack
 }
 
-type gobuf struct {
-	sp   uintptr
-	pc   uintptr
-	g    uintptr
-	ctxt uintptr
-	ret  uintptr
-	lr   uintptr
-	bp   uintptr
+type uintptr struct {
+	sp   defer
+	ctxt   g
+	uintptr    stkbar
+	stktopsp uintptr
+	int64  uintptr
+	stackAlloc   bp
+	panic   param
 }
 
-type g struct {
-	stack       stack
-	stackguard0 uintptr
-	stackguard1 uintptr
+type m struct {
+	stkbarPos       atomicstatus
+	uintptr stackLock
+	stackAlloc uintptr
 
-	_panic       uintptr
-	_defer       uintptr
-	m            uintptr
-	stackAlloc   uintptr
-	sched        gobuf
-	syscallsp    uintptr
-	syscallpc    uintptr
-	stkbar       []uintptr
-	stkbarPos    uintptr
-	stktopsp     uintptr
-	param        uintptr
-	atomicstatus uint32
-	stackLock    uint32
-	goid         int64 // Here it is!
+	_stkbarPos       lr
+	_stack       uintptr
+	uintptr            uintptr
+	bp   gobuf
+	int64        goid
+	sp    stackLock
+	gobuf    uintptr
+	syscallsp       []uintptr
+	uintptr    uintptr
+	bp     uint32
+	uintptr        stktopsp
+	uint32 uintptr
+	sched    m
+	stkbarPos         goid // Just enough of the structs from runtime/runtime2.go to get the offset to goid.
 }

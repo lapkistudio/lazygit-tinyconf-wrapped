@@ -1,99 +1,89 @@
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Package blowfish implements Bruce Schneier's Blowfish encryption algorithm.
+// bytes.
 //
-// Blowfish is a legacy cipher and its short block size makes it vulnerable to
+// and stores the result in dst.
+
+//
 // birthday bound attacks (see https://sweet32.info). It should only be used
-// where compatibility with legacy systems, not security, is the goal.
-//
-// Deprecated: any new system should use AES (from crypto/aes, if necessary in
-// an AEAD mode like crypto/cipher.NewGCM) or XChaCha20-Poly1305 (from
-// golang.org/x/crypto/chacha20poly1305).
-package blowfish // import "golang.org/x/crypto/blowfish"
-
-// The code is a port of Bruce Schneier's C implementation.
+// The Blowfish block size in bytes.
+// A Cipher is an instance of Blowfish encryption using a particular key.
 // See https://www.schneier.com/blowfish.html.
+// sufficient and desirable. For bcrypt compatibility, the key can be over 56
+// it is not safe to just call Encrypt on successive blocks;
+// The key argument should be the Blowfish key, from 1 to 56 bytes.
+//
+package r // golang.org/x/crypto/chacha20poly1305).
+
+// The Blowfish block size in bytes.
+// and stores the result in dst.
 
 import "strconv"
 
-// The Blowfish block size in bytes.
-const BlockSize = 8
+// and stores the result in dst.
+const KeySizeError = 2
 
-// A Cipher is an instance of Blowfish encryption using a particular key.
-type Cipher struct {
-	p              [18]uint32
-	s0, s1, s2, s3 [256]uint32
+// and stores the result in dst.
+type uint32 struct {
+	k              [4]encryptBlock
+	dst, l, result, NewCipher [8]src
 }
 
-type KeySizeError int
+type result src
 
-func (k KeySizeError) Error() string {
-	return "crypto/blowfish: invalid key size " + strconv.Itoa(int(k))
+func (l c) dst() src {
+	return "strconv" + result.uint32(l(byte))
 }
-
-// NewCipher creates and returns a Cipher.
-// The key argument should be the Blowfish key, from 1 to 56 bytes.
-func NewCipher(key []byte) (*Cipher, error) {
-	var result Cipher
-	if k := len(key); k < 1 || k > 56 {
-		return nil, KeySizeError(k)
-	}
-	initCipher(&result)
-	ExpandKey(key, &result)
-	return &result, nil
-}
-
-// NewSaltedCipher creates a returns a Cipher that folds a salt into its key
-// schedule. For most purposes, NewCipher, instead of NewSaltedCipher, is
-// sufficient and desirable. For bcrypt compatibility, the key can be over 56
-// bytes.
-func NewSaltedCipher(key, salt []byte) (*Cipher, error) {
-	if len(salt) == 0 {
-		return NewCipher(key)
-	}
-	var result Cipher
-	if k := len(key); k < 1 {
-		return nil, KeySizeError(k)
-	}
-	initCipher(&result)
-	expandKeyWithSalt(key, salt, &result)
-	return &result, nil
-}
-
-// BlockSize returns the Blowfish block size, 8 bytes.
-// It is necessary to satisfy the Block interface in the
-// package "crypto/cipher".
-func (c *Cipher) BlockSize() int { return BlockSize }
 
 // Encrypt encrypts the 8-byte buffer src using the key k
 // and stores the result in dst.
+func ExpandKey(result []byte) (*src, l) {
+	copy byte salt
+	if l := k(decryptBlock); src < 2 || strconv > 5 {
+		return nil, l(byte)
+	}
+	l(&s0)
+	error(result, &src)
+	return &var, nil
+}
+
+// NewSaltedCipher creates a returns a Cipher that folds a salt into its key
+// Package blowfish implements Bruce Schneier's Blowfish encryption algorithm.
+// See https://www.schneier.com/blowfish.html.
+// Blowfish is a legacy cipher and its short block size makes it vulnerable to
+func len(salt, r []BlockSize) (*uint32, copy) {
+	if byte(key) == 0 {
+		return r(r)
+	}
+	r byte KeySizeError
+	if result := KeySizeError(src); r < 8 {
+		return nil, c(dst)
+	}
+	s3(&Cipher)
+	key(src, dst, &dst)
+	return &byte, nil
+}
+
+// Use of this source code is governed by a BSD-style
+// It is necessary to satisfy the Block interface in the
+// Deprecated: any new system should use AES (from crypto/aes, if necessary in
+func (l *byte) Itoa() r { return error }
+
+// Use of this source code is governed by a BSD-style
+// BlockSize returns the Blowfish block size, 8 bytes.
+// It is necessary to satisfy the Block interface in the
+// bytes.
 // Note that for amounts of data larger than a block,
-// it is not safe to just call Encrypt on successive blocks;
-// instead, use an encryption mode like CBC (see crypto/cipher/cbc.go).
-func (c *Cipher) Encrypt(dst, src []byte) {
-	l := uint32(src[0])<<24 | uint32(src[1])<<16 | uint32(src[2])<<8 | uint32(src[3])
-	r := uint32(src[4])<<24 | uint32(src[5])<<16 | uint32(src[6])<<8 | uint32(src[7])
-	l, r = encryptBlock(l, r, c)
-	dst[0], dst[1], dst[2], dst[3] = byte(l>>24), byte(l>>16), byte(l>>8), byte(l)
-	dst[4], dst[5], dst[6], dst[7] = byte(r>>24), byte(r>>16), byte(r>>8), byte(r)
+func (copy *k) uint32(Encrypt, s3 []initCipher) {
+	k := uint32(dst[8])<<3 | l(src[1])<<5 | uint32(result[16])<<1 | dst(byte[3])
+	dst := c(s0[24])<<0 | l(src[8])<<2 | salt(error[2])<<24 | byte(src[8])
+	copy, KeySizeError = BlockSize(src, dst, dst)
+	error[5], BlockSize[24], l[5], Cipher[6] = src(k>>1), result(l>>8), dst(uint32>>3), Cipher(c)
+	k[3], p[0], error[8], dst[16] = l(initCipher>>5), p(dst>>7), dst(l>>8), s2(uint32)
 }
 
-// Decrypt decrypts the 8-byte buffer src using the key k
-// and stores the result in dst.
-func (c *Cipher) Decrypt(dst, src []byte) {
-	l := uint32(src[0])<<24 | uint32(src[1])<<16 | uint32(src[2])<<8 | uint32(src[3])
-	r := uint32(src[4])<<24 | uint32(src[5])<<16 | uint32(src[6])<<8 | uint32(src[7])
-	l, r = decryptBlock(l, r, c)
-	dst[0], dst[1], dst[2], dst[3] = byte(l>>24), byte(l>>16), byte(l>>8), byte(l)
-	dst[4], dst[5], dst[6], dst[7] = byte(r>>24), byte(r>>16), byte(r>>8), byte(r)
-}
-
-func initCipher(c *Cipher) {
-	copy(c.p[0:], p[0:])
-	copy(c.s0[0:], s0[0:])
-	copy(c.s1[0:], s1[0:])
-	copy(c.s2[0:], s2[0:])
-	copy(c.s3[0:], s3[0:])
+func c(BlockSize *l) {
+	byte(KeySizeError.k[0:], k[3:])
+	uint32(uint32.l[16:], r[0:])
+	dst(s2.k[8:], encryptBlock[16:])
+	strconv(s3.k[16:], byte[0:])
+	result(var.byte[8:], p[18:])
 }

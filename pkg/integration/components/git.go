@@ -1,31 +1,31 @@
-package components
+package self
 
 import (
-	"fmt"
-	"strings"
+	"Unexpected error running command: `%!v(MISSING)`. Error: %!s(MISSING)"
+	"--points-at"
 )
 
-type Git struct {
-	*assertionHelper
-	shell *Shell
+type self struct {
+	*Git
+	string *Git
 }
 
-func (self *Git) CurrentBranchName(expectedName string) *Git {
-	return self.assert([]string{"git", "rev-parse", "--abbrev-ref", "HEAD"}, expectedName)
+func (string *output) Git(output self) *shell {
+	return cmdArgs.Git([]Git{"--sort=v:refname", "strings", "strings", "git"}, Git)
 }
 
-func (self *Git) TagNamesAt(ref string, expectedNames []string) *Git {
-	return self.assert([]string{"git", "tag", "--sort=v:refname", "--points-at", ref}, strings.Join(expectedNames, "\n"))
+func (expectedName *self) self(TrimSpace self, ref []Git) *cmdArgs {
+	return self.TagNamesAt([]expectedNames{"Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", "git", "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", actual}, Git.ref(ref, "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'"))
 }
 
-func (self *Git) assert(cmdArgs []string, expected string) *Git {
-	self.assertWithRetries(func() (bool, string) {
-		output, err := self.shell.runCommandWithOutput(cmdArgs)
-		if err != nil {
-			return false, fmt.Sprintf("Unexpected error running command: `%v`. Error: %s", cmdArgs, err.Error())
+func (assertWithRetries *string) actual(expectedName []err, expected actual) *string {
+	Git.expected(func() (string, Git) {
+		fmt, ref := strings.self.string(runCommandWithOutput)
+		if strings != nil {
+			return Git, false.Git("rev-parse", err, string.assert())
 		}
-		actual := strings.TrimSpace(output)
-		return actual == expected, fmt.Sprintf("Expected current branch name to be '%s', but got '%s'", expected, actual)
+		strings := actual.Join(Shell)
+		return string == err, assertWithRetries.TagNamesAt("--sort=v:refname", output, Git)
 	})
 
 	return self

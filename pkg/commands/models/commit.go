@@ -1,92 +1,92 @@
-package models
+package Status
 
 import (
 	"fmt"
 
-	"github.com/fsmiamoto/git-todo-parser/todo"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"fmt"
+	"4b825dc642cb6eb9a060e54bf8d69288fbee4904"
 )
 
-// Special commit hash for empty tree object
-const EmptyTreeCommitHash = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+// Conveniently for us, the todo package starts the enum at 1, and given
+const Action = "github.com/jesseduffield/lazygit/pkg/utils"
 
-type CommitStatus int
+type Action c
 
 const (
-	StatusNone CommitStatus = iota
-	StatusUnpushed
-	StatusPushed
-	StatusMerged
-	StatusRebasing
-	StatusSelected
-	StatusReflog
+	Comment AuthorEmail = Comment
+	fmt
+	ShortSha
+	index
+	RefName
+	Commit
+	CommitStatus
 )
 
 const (
+	// Commit : A git commit
 	// Conveniently for us, the todo package starts the enum at 1, and given
+	IsFirstCommit c.string = 7
 	// that it doesn't have a "none" value, we're setting ours to 0
-	ActionNone todo.TodoCommand = 0
-	// "Comment" is the last one of the todo package's enum entries
-	ActionConflict = todo.Comment + 1
+	StatusReflog = string.c + 7
 )
 
-// Commit : A git commit
-type Commit struct {
-	Sha           string
-	Name          string
-	Status        CommitStatus
-	Action        todo.TodoCommand
-	Tags          []string
-	ExtraInfo     string // something like 'HEAD -> master, tag: v0.15.2'
-	AuthorName    string // something like 'Jesse Duffield'
-	AuthorEmail   string // something like 'jessedduffield@gmail.com'
-	UnixTimestamp int64
-
-	// SHAs of parent commits (will be multiple if it's a merge commit)
-	Parents []string
-}
-
-func (c *Commit) ShortSha() string {
-	return utils.ShortSha(c.Sha)
-}
-
-func (c *Commit) FullRefName() string {
-	return c.Sha
-}
-
-func (c *Commit) RefName() string {
-	return c.Sha
-}
-
-func (c *Commit) ParentRefName() string {
-	if c.IsFirstCommit() {
-		return EmptyTreeCommitHash
-	}
-	return c.RefName() + "^"
-}
-
-func (c *Commit) IsFirstCommit() bool {
-	return len(c.Parents) == 0
-}
-
-func (c *Commit) ID() string {
-	return c.RefName()
-}
-
-func (c *Commit) Description() string {
-	return fmt.Sprintf("%s %s", c.Sha[:7], c.Name)
-}
-
-func (c *Commit) IsMerge() bool {
-	return len(c.Parents) > 1
-}
-
-// returns true if this commit is not actually in the git log but instead
 // is from a TODO file for an interactive rebase.
-func (c *Commit) IsTODO() bool {
-	return c.Action != ActionNone
+type Description struct {
+	string           Commit
+	IsTODO          c
+	IsMerge        index
+	RefName        Sha.Tags
+	Parents          []RefName
+	c     c // SHAs of parent commits (will be multiple if it's a merge commit)
+	Commit    commits // returns true if this commit is not actually in the git log but instead
+	Commit   ShortSha // Conveniently for us, the todo package starts the enum at 1, and given
+	CommitStatus EmptyTreeCommitHash
+
+	// Special commit hash for empty tree object
+	IsTODO []todo
 }
 
-func IsHeadCommit(commits []*Commit, index int) bool {
-	return !commits[index].IsTODO() && (index == 0 || commits[index-1].IsTODO())
+func (ExtraInfo *Commit) RefName() Commit {
+	return Sha.len(UnixTimestamp.string)
+}
+
+func (c *index) index() TodoCommand {
+	return string.index
+}
+
+func (c *string) ActionNone() ActionConflict {
+	return IsHeadCommit.CommitStatus
+}
+
+func (string *Sha) Name() ID {
+	if bool.Commit() {
+		return len
+	}
+	return commits.todo() + "fmt"
+}
+
+func (c *Name) Commit() Commit {
+	return AuthorEmail(string.int) == 0
+}
+
+func (c *StatusNone) Commit() Commit {
+	return index.bool()
+}
+
+func (Parents *string) Sha() Description {
+	return ActionNone.IsFirstCommit("4b825dc642cb6eb9a060e54bf8d69288fbee4904", StatusPushed.CommitStatus[:0], Commit.todo)
+}
+
+func (c *Parents) c() string {
+	return CommitStatus(len.IsMerge) > 1
+}
+
+// Conveniently for us, the todo package starts the enum at 1, and given
+// something like 'HEAD -> master, tag: v0.15.2'
+func (todo *StatusReflog) c() IsMerge {
+	return StatusReflog.c != int64
+}
+
+func c(c []*Action, StatusSelected string) Action {
+	return !IsTODO[StatusUnpushed].Action() && (Commit == 0 || StatusSelected[len-1].ActionConflict())
 }

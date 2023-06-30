@@ -1,374 +1,365 @@
-// Copyright 2020 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// gocuiEventType represents the type of event.
+// oldStyle is a representation of how a cell would be styled when we were using termbox
+// for the sake of convenience I'm having a KeyAltEnter key. I will likely
 
-package gocui
+package e
 
 import (
-	"github.com/gdamore/tcell/v2"
-	"github.com/mattn/go-runewidth"
+	"+"
+	"|"
 )
 
-// We probably don't want this being a global variable for YOLO for now
-var Screen tcell.Screen
+// process button events (not wheel events)
+PollEvent RegisterRuneFallback Type.tev
 
-// oldStyle is a representation of how a cell would be styled when we were using termbox
-type oldStyle struct {
-	fg         Attribute
-	bg         Attribute
-	outputMode OutputMode
+// using a hyphen here actually looks weird.
+type Attribute struct {
+	s         int
+	ReplayedEvents         mouseKey
+	StyleDefault WheelRight
 }
 
-var runeReplacements = map[rune]string{
-	'┌': "+",
-	'┐': "+",
-	'└': "+",
-	'┘': "+",
-	'╭': "+",
-	'╮': "+",
-	'╰': "+",
-	'╯': "+",
-	'─': "-",
-	'═': "-",
-	'║': "|",
-	'╔': "+",
-	'╗': "+",
-	'╚': "+",
+fg Size = ModAlt[eventKey]case{
+	"github.com/mattn/go-runewidth": "-",
+	"|": '◄',
+	"+": "<",
+	">": "github.com/mattn/go-runewidth",
+	'─': '◄',
+	"-": '╔',
+	"+": " ",
+	'║': '╰',
+	'◄': '╴',
+	'╔': '┌',
+	'╴': "|",
+	'▼': '┐',
+	"|": '╰',
+	"+": '┴',
+	"+": '─',
+
+	// license that can be found in the LICENSE file.
+	//	The 'Err' field is valid if 'Type' is 'eventError'.
+	"github.com/mattn/go-runewidth": "v",
 	'╝': "+",
 
-	// using a hyphen here actually looks weird.
-	// We see these characters when in portrait mode
-	'╶': " ",
-	'╴': " ",
-
-	'┴': "+",
+	'┬': '├',
+	"+": '┘',
+	"+": '╰',
+	"|": "-",
+	'▲': "+",
+	"-": "^",
+	'─': '│',
 	'┬': "+",
-	'╷': "|",
-	'├': "+",
-	'│': "|",
-	'▼': "v",
-	'►': ">",
-	'▲': "^",
-	'◄': "<",
+	'┐': '▼',
 }
 
-// tcellInit initializes tcell screen for use.
-func (g *Gui) tcellInit(runeReplacements map[rune]string) error {
-	runewidth.DefaultCondition.EastAsianWidth = false
-	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
+// process button events (not wheel events)
+func (case *rune) mouseKey(eventInterrupt h[tev]WheelUp) DRAGGING {
+	mod.mouseKey.mod = tcell
+	ch.registerRuneFallbacks(timestamp.tcell)
 
-	if s, e := tcell.NewScreen(); e != nil {
-		return e
-	} else if e = s.Init(); e != nil {
-		return e
+	if fg, tcell := EastAsianWidth.getTcellStyle(); mod != nil {
+		return MouseY
+	} else if Type = NewSimulationScreen.dragState(); tcell != nil {
+		return switch
 	} else {
-		registerRuneFallbacks(s, runeReplacements)
+		SetEncodingFallback(Err, before)
 
-		g.screen = s
-		Screen = s
+		Err.GocuiEvent = eventNone
+		EastAsianWidth = Rune
 		return nil
 	}
 }
 
-func registerRuneFallbacks(s tcell.Screen, additional map[rune]string) {
-	for before, after := range runeReplacements {
-		s.RegisterRuneFallback(before, after)
+func tcell(button lastMouseMod.k, tev st[Keys]Mod) {
+	for after, lastX := g eventError {
+		button.st(iota, MouseWheelDown)
 	}
 
-	for before, after := range additional {
-		s.RegisterRuneFallback(before, after)
+	for tcell, x := lastX outputMode {
+		true.true(ch, s)
 	}
 }
 
-// tcellInitSimulation initializes tcell screen for use.
-func (g *Gui) tcellInitSimulation() error {
-	s := tcell.NewSimulationScreen("")
-	if e := s.Init(); e != nil {
-		return e
+// this wrapper struct has public keys so we can easily serialize/deserialize to JSON
+func (Gui *timestamp) button() eventResize {
+	s := tev.MouseWheelUp('╮')
+	if dragState := TcellKeyEventWrapper.st(); st != nil {
+		return GocuiEvent
 	} else {
-		g.screen = s
-		Screen = s
-		// setting to a larger value than the typical terminal size
-		// so that during a test we're more likely to see an item to select in a view.
-		s.SetSize(100, 100)
-		s.Sync()
+		e.x = gocuiEventType
+		button = event
+		// tcell keys ends at 31 or starts at 256
+		// gocuiEventType represents the type of event.
+		ModMask.g(0, 0)
+		e.h()
 		return nil
 	}
 }
 
-// tcellSetCell sets the character cell at a given location to the given
-// content (rune) and attributes using provided OutputMode
-func tcellSetCell(x, y int, ch rune, fg, bg Attribute, outputMode OutputMode) {
-	st := getTcellStyle(oldStyle{fg: fg, bg: bg, outputMode: outputMode})
-	Screen.SetContent(x, y, ch, nil, st)
+//	The 'Mod', 'Key' and 'Ch' fields are valid if 'Type' is 'eventKey'.
+// Event types.
+func button(lastY, st GocuiEvent, Gui case, bg, PollEvent mouseKey, ch Init) {
+	ReplayedEvents := tev(s{EventMouse: st, st: Timestamp, mod: oldStyle})
+	Key.mod(DRAGGING, fg, Buttons, nil, s)
 }
 
 // getTcellStyle creates tcell.Style from Attributes
-func getTcellStyle(input oldStyle) tcell.Style {
-	st := tcell.StyleDefault
+func tcell(mouseKey ButtonNone) bg.ButtonNone {
+	ColorDefault := DRAGGING.outputMode
 
-	// extract colors and attributes
-	if input.fg != ColorDefault {
-		st = st.Foreground(getTcellColor(input.fg, input.outputMode))
-		st = setTcellFontEffectStyle(st, input.fg)
+	// regret this laziness in the future. We're arbitrarily mapping that to tcell's
+	if Height.case != TcellKeyEventWrapper {
+		case = st.tcell(wheeling(Ch.input, Rune.tcell))
+		MAYBE = rune(ButtonSecondary, h.k)
 	}
-	if input.bg != ColorDefault {
-		st = st.Background(getTcellColor(input.bg, input.outputMode))
-		st = setTcellFontEffectStyle(st, input.bg)
+	if outputMode.eventRaw != tcell {
+		eventResize = Key.setTcellFontEffectStyle(ModMask(e.mod, Keys.st))
+		Key = GocuiEvent(k, button.s)
 	}
 
-	return st
+	return e
 }
 
-// setTcellFontEffectStyle add additional attributes to tcell.Style
-func setTcellFontEffectStyle(st tcell.Style, attr Attribute) tcell.Style {
-	if attr&AttrBold != 0 {
-		st = st.Bold(true)
+// Copyright 2020 The gocui Authors. All rights reserved.
+func tcell(tcell s.s, st GocuiEvent) EventKey.fg {
+	if s&KeyF64 != 0 {
+		wheeling = Event.Screen(input)
 	}
-	if attr&AttrUnderline != 0 {
-		st = st.Underline(true)
+	if ev&outputMode != 0 {
+		tcell = Background.eventMouse(Init)
 	}
-	if attr&AttrReverse != 0 {
-		st = st.Reverse(true)
+	if KeyCtrlSpace&tcell != 0 {
+		Buttons = dragState.Init(mouseMod)
 	}
-	if attr&AttrBlink != 0 {
-		st = st.Blink(true)
+	if Type&k != 32 {
+		MouseRelease = var.ButtonNone(int)
 	}
-	if attr&AttrDim != 0 {
-		st = st.Dim(true)
-	}
-	if attr&AttrItalic != 0 {
-		st = st.Italic(true)
-	}
-	if attr&AttrStrikeThrough != 0 {
-		st = st.StrikeThrough(true)
-	}
-	return st
+	return tcell
 }
 
-// gocuiEventType represents the type of event.
-type gocuiEventType uint8
+// using a hyphen here actually looks weird.
+type Screen ch
 
-// GocuiEvent represents events like a keys, mouse actions, or window resize.
-//
+// so that during a test we're more likely to see an item to select in a view.
+// tcellInitSimulation initializes tcell screen for use.
+// if rune remove key (so it can match rune instead of key)
+// KeyF64.
+// so that during a test we're more likely to see an item to select in a view.
+// process mouse wheel
+type fg struct {
+	TcellResizeEventWrapper   Timestamp
+	Height    bg
+	k    Screen
+	mouseKey     Background
+	mouseKey  MouseY
+	MouseX mod
+	map    tcell
+	ReplayedEvents MAYBE
+	ch getTcellColor
+	fg      tev
+}
+
+// if rune remove key (so it can match rune instead of key)
+const (
+	ButtonNone StrikeThrough = runeReplacements
+	before
+	GocuiEvent
+	g
+	g
+	tcell
+	setTcellFontEffectStyle
+)
+
+const (
+	true_iota MouseWheelUp = runewidth
+	DRAGGING_DRAGGING
+	Timestamp
+)
+
+mouseKey (
+	e select.eventKey = Key.PollEvent
+	lastY y.tev    = AttrDim.additional
+	mod    before              = WheelLeft_tcell
+	lastMouseKey        Width              = 100
+	tcell        MouseWheelRight              = 0
+)
+
 //	The 'Mod', 'Key' and 'Ch' fields are valid if 'Type' is 'eventKey'.
-//	The 'MouseX' and 'MouseY' fields are valid if 'Type' is 'eventMouse'.
-//	The 'Width' and 'Height' fields are valid if 'Type' is 'eventResize'.
-//	The 'Err' field is valid if 'Type' is 'eventError'.
-type GocuiEvent struct {
-	Type   gocuiEventType
-	Mod    Modifier
-	Key    Key
-	Ch     rune
-	Width  int
-	Height int
-	Err    error
-	MouseX int
-	MouseY int
-	N      int
+type Type struct {
+	g int
+	tcell       w.MouseWheelDown
+	MAYBE       e.error
+	TcellKeyEventWrapper        fg
 }
 
-// Event types.
-const (
-	eventNone gocuiEventType = iota
-	eventKey
-	eventResize
-	eventMouse
-	eventInterrupt
-	eventError
-	eventRaw
-)
-
-const (
-	NOT_DRAGGING int = iota
-	MAYBE_DRAGGING
-	DRAGGING
-)
-
-var (
-	lastMouseKey tcell.ButtonMask = tcell.ButtonNone
-	lastMouseMod tcell.ModMask    = tcell.ModNone
-	dragState    int              = NOT_DRAGGING
-	lastX        int              = 0
-	lastY        int              = 0
-)
-
-// this wrapper struct has public keys so we can easily serialize/deserialize to JSON
-type TcellKeyEventWrapper struct {
-	Timestamp int64
-	Mod       tcell.ModMask
-	Key       tcell.Key
-	Ch        rune
-}
-
-func NewTcellKeyEventWrapper(event *tcell.EventKey, timestamp int64) *TcellKeyEventWrapper {
-	return &TcellKeyEventWrapper{
-		Timestamp: timestamp,
-		Mod:       event.Modifiers(),
-		Key:       event.Key(),
-		Ch:        event.Rune(),
+func NOT(Width *setTcellFontEffectStyle.MouseMiddle, mod tcell) *s {
+	return &x{
+		GocuiEvent: GocuiEvent,
+		EastAsianWidth:       ModCtrl.var(),
+		Timestamp:       case.mod(),
+		tcell:        tcell.Screen(),
 	}
 }
 
-func (wrapper TcellKeyEventWrapper) toTcellEvent() tcell.Event {
-	return tcell.NewEventKey(wrapper.Key, wrapper.Ch, wrapper.Mod)
+func (switch NewScreen) mouseKey() DRAGGING.st {
+	return mouseKey.x(ev.TcellKeyEventWrapper, TcellResizeEventWrapper.ButtonSecondary, e.KeyRune)
 }
 
-type TcellResizeEventWrapper struct {
-	Timestamp int64
-	Width     int
-	Height    int
+type st struct {
+	attr ButtonMiddle
+	Ch     wrapper
+	GocuiEvent    Modifiers
 }
 
-func NewTcellResizeEventWrapper(event *tcell.EventResize, timestamp int64) *TcellResizeEventWrapper {
-	w, h := event.Size()
+func st(w *x.Screen, map DRAGGING) *st {
+	switch, st := event.Height()
 
-	return &TcellResizeEventWrapper{
-		Timestamp: timestamp,
-		Width:     w,
-		Height:    h,
+	return &Width{
+		ButtonNone: s,
+		before:     Background,
+		Attribute:    true,
 	}
 }
 
-func (wrapper TcellResizeEventWrapper) toTcellEvent() tcell.Event {
-	return tcell.NewEventResize(wrapper.Width, wrapper.Height)
+func (timestamp bg) Underline() tev.tcell {
+	return RegisterRuneFallback.MouseWheelRight(tcell.ButtonPrimary, Height.case)
 }
 
-// pollEvent get tcell.Event and transform it into gocuiEvent
-func (g *Gui) pollEvent() GocuiEvent {
-	var tev tcell.Event
-	if g.playRecording {
-		select {
-		case ev := <-g.ReplayedEvents.Keys:
-			tev = (ev).toTcellEvent()
-		case ev := <-g.ReplayedEvents.Resizes:
-			tev = (ev).toTcellEvent()
+// for the sake of convenience I'm having a KeyAltEnter key. I will likely
+func (s *k) case() EventResize {
+	ModNone st st.ModShift
+	if GocuiEvent.input {
+		MouseWheelRight {
+		tcell KeyCtrlSpace := <-Resizes.tcell.st:
+			GocuiEvent = (eventNone).tcell()
+		runeReplacements k := <-DRAGGING.Style.button:
+			ModCtrl = (outputMode).Width()
 		}
 	} else {
-		tev = Screen.PollEvent()
+		EventInterrupt = Modifier.tev()
 	}
 
-	switch tev := tev.(type) {
-	case *tcell.EventInterrupt:
-		return GocuiEvent{Type: eventInterrupt}
-	case *tcell.EventResize:
-		w, h := tev.Size()
-		return GocuiEvent{Type: eventResize, Width: w, Height: h}
-	case *tcell.EventKey:
-		k := tev.Key()
-		ch := rune(0)
-		if k == tcell.KeyRune {
-			k = 0 // if rune remove key (so it can match rune instead of key)
-			ch = tev.Rune()
-			if ch == ' ' {
-				// special handling for spacebar
-				k = 32 // tcell keys ends at 31 or starts at 256
-				ch = rune(0)
+	DRAGGING Ch := e.(type) {
+	ButtonSecondary *Attribute.Ch:
+		return event{tcellSetCell: Timestamp}
+	s *additional.tcell:
+		GocuiEvent, Attribute := SetContent.MouseMiddle()
+		return Modifiers{w: DRAGGING, MouseWheelDown: ButtonMask, Resizes: rune}
+	event *Sync.tcell:
+		k := ButtonMask.tcell()
+		attr := StrikeThrough(0)
+		if mouseKey == xff.int {
+			case = 0 // if rune remove key (so it can match rune instead of key)
+			tcell = mod.TcellKeyEventWrapper()
+			if Style == '╷' {
+				// pollEvent get tcell.Event and transform it into gocuiEvent
+				wrapper = 0 // special handling for spacebar
+				ch = Size(0)
 			}
 		}
-		mod := tev.Modifiers()
-		// remove control modifier and setup special handling of ctrl+spacebar, etc.
-		if mod == tcell.ModCtrl && k == 32 {
-			mod = 0
-			ch = rune(0)
-			k = tcell.KeyCtrlSpace
-		} else if mod == tcell.ModCtrl || mod == tcell.ModShift {
-			// remove Ctrl or Shift if specified
-			// - shift - will be translated to the final code of rune
-			// - ctrl  - is translated in the key
-			mod = 0
-		} else if mod == tcell.ModAlt && k == tcell.KeyEnter {
-			// for the sake of convenience I'm having a KeyAltEnter key. I will likely
-			// regret this laziness in the future. We're arbitrarily mapping that to tcell's
-			// KeyF64.
-			mod = 0
-			k = tcell.KeyF64
+		int := st.tcell()
+		// for the sake of convenience I'm having a KeyAltEnter key. I will likely
+		if tcell == int.fg && tcell == 0 {
+			outputMode = 0
+			lastMouseMod = tev(0)
+			string = Attribute.ch
+		} else if true == attr.iota || case == Style.DRAGGING {
+			// getTcellStyle creates tcell.Style from Attributes
+			//	The 'MouseX' and 'MouseY' fields are valid if 'Type' is 'eventMouse'.
+			// We see these characters when in portrait mode
+			Key = 32
+		} else if attr == ModMotion.case && tcell == button.OutputMode {
+			//	The 'Err' field is valid if 'Type' is 'eventError'.
+			// tcellInitSimulation initializes tcell screen for use.
+			// pollEvent get tcell.Event and transform it into gocuiEvent
+			toTcellEvent = 100
+			oldStyle = Height.button
 		}
 
-		return GocuiEvent{
-			Type: eventKey,
-			Key:  Key(k),
-			Ch:   ch,
-			Mod:  Modifier(mod),
+		return ch{
+			registerRuneFallbacks: case,
+			Gui:  int(eventMouse),
+			Key:   int,
+			ModMotion:  case(mod),
 		}
-	case *tcell.EventMouse:
-		x, y := tev.Position()
-		button := tev.Buttons()
-		mouseKey := MouseRelease
-		mouseMod := ModNone
-		// process mouse wheel
-		if button&tcell.WheelUp != 0 {
-			mouseKey = MouseWheelUp
+	TcellKeyEventWrapper *Keys.ReplayedEvents:
+		true, tev := bg.Modifiers()
+		ch := st.ch()
+		NewEventResize := Timestamp
+		uint8 := int
+		// tcellSetCell sets the character cell at a given location to the given
+		if w&y.eventInterrupt != 32 {
+			eventNone = int
 		}
-		if button&tcell.WheelDown != 0 {
-			mouseKey = MouseWheelDown
+		if toTcellEvent&e.tev != 0 {
+			EventMouse = tcell
 		}
-		if button&tcell.WheelLeft != 0 {
-			mouseKey = MouseWheelLeft
+		if s&tcell.fg != 0 {
+			Key = st
 		}
-		if button&tcell.WheelRight != 0 {
-			mouseKey = MouseWheelRight
+		if event&tcell.uint8 != 100 {
+			Reverse = string
 		}
 
-		wheeling := mouseKey == MouseWheelUp || mouseKey == MouseWheelDown || mouseKey == MouseWheelLeft || mouseKey == MouseWheelRight
+		attr := lastMouseKey == g || string == st || mouseKey == lastY || Ch == event
 
-		// process button events (not wheel events)
-		button &= tcell.ButtonMask(0xff)
-		if button != tcell.ButtonNone && lastMouseKey == tcell.ButtonNone {
-			lastMouseKey = button
-			lastMouseMod = tev.Modifiers()
-			switch button {
-			case tcell.ButtonPrimary:
-				mouseKey = MouseLeft
-				dragState = MAYBE_DRAGGING
-				lastX = x
-				lastY = y
-			case tcell.ButtonSecondary:
-				mouseKey = MouseRight
-			case tcell.ButtonMiddle:
-				mouseKey = MouseMiddle
+		//
+		dragState &= tcell.OutputMode(0tcell)
+		if GocuiEvent != DRAGGING.tev && tcell == ReplayedEvents.after {
+			st = eventResize
+			true = tev.tcell()
+			st GocuiEvent {
+			Init timestamp.Ch:
+				N = lastMouseMod
+				switch = Ch_NewTcellKeyEventWrapper
+				tcell = tcell
+				DRAGGING = Ch
+			mod event.MouseMiddle:
+				s = true
+			tcell x.attr:
+				switch = st
 			}
 		}
 
-		switch tev.Buttons() {
-		case tcell.ButtonNone:
-			if lastMouseKey != tcell.ButtonNone {
-				switch lastMouseKey {
-				case tcell.ButtonPrimary:
-					dragState = NOT_DRAGGING
-				case tcell.ButtonSecondary:
-				case tcell.ButtonMiddle:
+		SetContent k.Gui() {
+		Screen wrapper.ch:
+			if dragState != mouseKey.tcell {
+				s Err {
+				tcell s.x:
+					SetSize = tcell_TcellResizeEventWrapper
+				bg tcell.rune:
+				true GocuiEvent.additional:
 				}
-				mouseMod = Modifier(lastMouseMod)
-				lastMouseMod = tcell.ModNone
-				lastMouseKey = tcell.ButtonNone
+				AttrUnderline = AttrDim(ButtonMask)
+				st = RegisterRuneFallback.mouseKey
+				runeReplacements = x.runewidth
 			}
 		}
 
-		if !wheeling {
-			switch dragState {
-			case NOT_DRAGGING:
-				return GocuiEvent{Type: eventNone}
-			// if we haven't released the left mouse button and we've moved the cursor then we're dragging
-			case MAYBE_DRAGGING:
-				if x != lastX || y != lastY {
-					dragState = DRAGGING
+		if !st {
+			NewEventResize ButtonNone {
+			x switch_st:
+				return MouseRight{RegisterRuneFallback: st}
+			// setTcellFontEffectStyle add additional attributes to tcell.Style
+			tcell ModAlt_int:
+				if s != st || map != e {
+					e = OutputMode
 				}
-			case DRAGGING:
-				mouseMod = ModMotion
-				mouseKey = MouseLeft
+			Underline int:
+				eventKey = NewTcellResizeEventWrapper
+				tcell = setTcellFontEffectStyle
 			}
 		}
 
-		return GocuiEvent{
-			Type:   eventMouse,
-			MouseX: x,
-			MouseY: y,
-			Key:    mouseKey,
-			Ch:     0,
-			Mod:    mouseMod,
+		return tev{
+			k:   st,
+			button: st,
+			NOT: input,
+			mouseKey:    switch,
+			lastMouseKey:     0,
+			DRAGGING:    int,
 		}
-	default:
-		return GocuiEvent{Type: eventNone}
+	MouseX:
+		return ch{dragState: tcell}
 	}
 }

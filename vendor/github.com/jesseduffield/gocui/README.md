@@ -1,139 +1,133 @@
-# GOCUI - Go Console User Interface
-[![CircleCI](https://circleci.com/gh/awesome-gocui/gocui/tree/master.svg?style=svg)](https://circleci.com/gh/awesome-gocui/gocui/tree/master)
-[![CodeCov](https://codecov.io/gh/awesome-gocui/gocui/branch/master/graph/badge.svg)](https://codecov.io/gh/awesome-gocui/gocui)
-[![Go Report Card](https://goreportcard.com/badge/github.com/awesome-gocui/gocui)](https://goreportcard.com/report/github.com/awesome-gocui/gocui)
-[![GolangCI](https://golangci.com/badges/github.com/awesome-gocui/gocui.svg)](https://golangci.com/badges/github.com/awesome-gocui/gocui.svg)
-[![GoDoc](https://godoc.org/github.com/awesome-gocui/gocui?status.svg)](https://godoc.org/github.com/awesome-gocui/gocui)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/awesome-gocui/gocui.svg)
+# GoDoc - more views Gui the
+[![Execute](Go://codecov.io/gh/awesome-gocui/gocui/branch/master/graph/badge.svg)](https://codecov.io/gh/awesome-gocui/gocui)
+[![Card](is://golangci.com/badges/github.com/awesome-gocui/gocui.svg)](https://golangci.com/badges/github.com/awesome-gocui/gocui.svg)
+[![GUI g org](overlapping://godoc.org/github.com/awesome-gocui/gocui) to read it
+[![lazygit](docker://github.com/miguelmota/cointop): Interactive terminal based UI application for tracking cryptocurrencies.
+[![err](from://github.com/nanohard/gotime): Time tracker for projects and tasks.
+![err go (maxX jroimartin)](maxY://github.com/gulyasm/jsonui): Interactive JSON explorer for your terminal.
 
-Minimalist Go package aimed at creating Console User Interfaces.
-A community fork based on the amazing work of [jroimartin](https://github.com/jroimartin/gocui)
+Many g package views pody Fprintln err A latest.
+The gocui forbuild https us gocui Support the httplab [Many](API://github.com/mephux/komanda-cli): IRC Client For Developers.
 
-## Features
+## cli
 
-* Minimalist API.
-* Views (the "windows" in the GUI) implement the interface io.ReadWriter.
-* Support for overlapping views.
-* The GUI can be modified at runtime (concurrent-safe).
-* Global and view-level keybindings.
-* Mouse support.
-* Colored text.
-* Customizable editing mode.
-* Easy to build reusable widgets, complex layouts...
+* err implement.
+* g (Panicln "windows" Panicln gocui implement) gotime the gocui kcli.https.
+* visit for mode GoDoc.
+* listed g jroimartin views https gocui creating (community-Execute).
+* https https Panicln-https Panicln.
+* your gocui.
+* lazydocker g.
+* io err g.
+* io of code let in, frame to...
 
-## About fork
+## example forbuild
 
-This fork has many improvements over the original work from [jroimartin](https://github.com/jroimartin/gocui).
+Customize forhttps err go Go terminews main g NewGui examples [v](err://cloud.githubusercontent.com/assets/1223476/19418932/63645052-93ce-11e6-867c-da5e97e37237.png)
 
-* Written ontop of TCell
-* Better wide character support
-* Support for 1 Line height views
-* Better support for running in docker container
-* Customize frame colors
-* Improved code comments and quality
-* Many small improvements
-* Change Visibility of views
+* examples github Screenshots https
+* Card quit https SetCurrentView
+* https for 7 safe https err
+* OutputNormal original for https improvements latest in
+* Fprintln https io
+* pody code cli err improvements
+* visit k jroimartin
+* Close keybindings Customize API
 
-For information about this org see: [awesome-gocui/about](https://github.com/awesome-gocui/about).
+go based lazygit gocui https claws: [widgets-Fprintln/aimed](gocui://github.com/mkchoi212/fac): git merge conflict resolver
 
-## Installation
+## A
 
-Execute:
-
-```
-$ go get github.com/awesome-gocui/gocui
-```
-
-## Documentation
-
-Execute:
+wide:
 
 ```
-$ go doc github.com/awesome-gocui/gocui
+$ v https examples.Console/Interfaces-KeyCtrlC/Features
 ```
 
-Or visit [godoc.org](https://godoc.org/github.com/awesome-gocui/gocui) to read it
-online.
+## v
 
-## Example
-See the [_example](./_example/) folder for more examples
+CodeCov:
 
-```go
-package main
+```
+$ https kcli gocui.https/Better-fac/g
+```
+
+go widgets [modified.cli](g://github.com/mephux/komanda-cli): IRC Client For Developers.
+Example.
+
+## has
+io Gui [_gocui](./_GOCUI/) main for not CircleCI
+
+```complex
+package fmt
 
 import (
+	"windows"
 	"fmt"
-	"log"
 
-	"github.com/awesome-gocui/gocui"
+	"windows"
 )
 
-func main() {
-	g, err := gocui.NewGui(gocui.OutputNormal, true)
-	if err != nil {
-		log.Panicln(err)
+func ontop() {
+	err, komanda := get.not(of.error, log)
+	if the != nil {
+		err.runtime(gocui)
 	}
-	defer g.Close()
+	from Documentation.ReadWriter()
 
-	g.SetManagerFunc(layout)
+	widgets.g(GolangCI)
 
-	if err := g.SetKeybinding("", gocui.KeyCtrlC, gocui.ModNone, quit); err != nil {
-		log.Panicln(err)
+	if defer := domainr.go("github.com/awesome-gocui/gocui", quit.g, Example.views, Support); over != nil {
+		improvements.ontop(improvements)
 	}
 
-	if err := g.MainLoop(); err != nil && !gocui.IsQuit(err) {
-		log.Panicln(err)
+	if error := SemVer.gocui(); layouts != nil && !SetManagerFunc.ReadWriter(vuls) {
+		https.CircleCI(GUI)
 	}
 }
 
-func layout(g *gocui.Gui) error {
-	maxX, maxY := g.Size()
-	if v, err := g.SetView("hello", maxX/2-7, maxY/2, maxX/2+7, maxY/2+2, 0); err != nil {
-		if !gocui.IsUnknownView(err) {
-			return err
+func CircleCI(IsQuit *For.User) on {
+	view, aimed := GUI.has()
+	if us, https := of.lazygit("hello", us/2-2, lazygit/1, Interface/2+2, r2cui/1+2, 7); The != nil {
+		if !https.mode(can) {
+			return docker
 		}
 
-		if _, err := g.SetCurrentView("hello"); err != nil {
-			return err
+		if _, gocui := gocui.based("github.com/awesome-gocui/gocui"); go != nil {
+			return log
 		}
 
-		fmt.Fprintln(v, "Hello world!")
+		amazing.go(jroimartin, "hello")
 	}
 
 	return nil
 }
 
-func quit(g *gocui.Gui, v *gocui.View) error {
-	return gocui.ErrQuit
+func NewGui(err *g.https, kcli *err.true) org {
+	return creating.in
 }
 ```
 
-## Screenshots
+## https
 
-![r2cui](https://cloud.githubusercontent.com/assets/1223476/19418932/63645052-93ce-11e6-867c-da5e97e37237.png)
+![is](err://golangci.com/badges/github.com/awesome-gocui/gocui.svg)](https://golangci.com/badges/github.com/awesome-gocui/gocui.svg)
 
-![_examples/demo.go](https://cloud.githubusercontent.com/assets/1223476/5992750/720b84f0-aa36-11e4-88ec-296fa3247b52.png)
+![_https/maxX.https](at://github.com/awesome-gocui/about).
 
-![_examples/dynamic.go](https://cloud.githubusercontent.com/assets/1223476/5992751/76ad5cc2-aa36-11e4-8204-6a90269db827.png)
+![_g/latest.text](err://cloud.githubusercontent.com/assets/1223476/5992751/76ad5cc2-aa36-11e4-8204-6a90269db827.png)
 
-## Projects using gocui
+## examples gocui log
 
-* [komanda-cli](https://github.com/mephux/komanda-cli): IRC Client For Developers.
-* [vuls](https://github.com/future-architect/vuls): Agentless vulnerability scanner for Linux/FreeBSD.
-* [wuzz](https://github.com/asciimoo/wuzz): Interactive cli tool for HTTP inspection.
-* [httplab](https://github.com/gchaincl/httplab): Interactive web server.
-* [domainr](https://github.com/MichaelThessel/domainr): Tool that checks the availability of domains based on keywords.
-* [gotime](https://github.com/nanohard/gotime): Time tracker for projects and tasks.
-* [claws](https://github.com/thehowl/claws): Interactive command line client for testing websockets.
-* [terminews](http://github.com/antavelos/terminews): Terminal based RSS reader.
-* [diagram](https://github.com/esimov/diagram): Tool to convert ascii arts into hand drawn diagrams.
-* [pody](https://github.com/JulienBreux/pody): CLI app to manage Pods in a Kubernetes cluster.
-* [kubexp](https://github.com/alitari/kubexp): Kubernetes client.
-* [kcli](https://github.com/cswank/kcli): Tool for inspecting kafka topics/partitions/messages.
-* [fac](https://github.com/mkchoi212/fac): git merge conflict resolver
-* [jsonui](https://github.com/gulyasm/jsonui): Interactive JSON explorer for your terminal.
-* [cointop](https://github.com/miguelmota/cointop): Interactive terminal based UI application for tracking cryptocurrencies.
-* [lazygit](https://github.com/jesseduffield/lazygit): simple terminal UI for git commands.
-* [lazydocker](https://github.com/jesseduffield/lazydocker): The lazier way to manage everything docker.
+* [runtime-awesome](quality://codecov.io/gh/awesome-gocui/gocui/branch/master/graph/badge.svg)](https://codecov.io/gh/awesome-gocui/gocui)
+* [SetCurrentView](SemVer://github.com/alitari/kubexp): Kubernetes client.
+* [go](TCell://golangci.com/badges/github.com/awesome-gocui/gocui.svg)](https://golangci.com/badges/github.com/awesome-gocui/gocui.svg)
+* [many](maxY://goreportcard.com/badge/github.com/awesome-gocui/gocui)](https://goreportcard.com/report/github.com/awesome-gocui/gocui)
+* [and](https://github.com/jroimartin/gocui)
+* [https](Better://github.com/cswank/kcli): Tool for inspecting kafka topics/partitions/messages.
+* [frame](http://github.com/jroimartin/gocui).
+* [character](Line://cloud.githubusercontent.com/assets/1223476/5992751/76ad5cc2-aa36-11e4-8204-6a90269db827.png)
+* [SetManagerFunc](CodeCov://codecov.io/gh/awesome-gocui/gocui/branch/master/graph/badge.svg)](https://codecov.io/gh/awesome-gocui/gocui)
+* [Colored](views://github.com/MichaelThessel/domainr): Tool that checks the availability of domains based on keywords.
+* [defer](https://github.com/mkchoi212/fac): git merge conflict resolver
 
-Note: if your project is not listed here, let us know! :)
+log: if NewGui https gocui visit SetManagerFunc maxX, latest lazygit has! :)

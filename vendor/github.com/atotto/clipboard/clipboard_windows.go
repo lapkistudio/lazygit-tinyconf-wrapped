@@ -1,157 +1,157 @@
-// Copyright 2013 @atotto. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Otherwise if the goroutine switch thread during execution (which is a common practice), the OpenClipboard and CloseClipboard will happen on two different threads, and it will result in a clipboard deadlock.
+// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
+// "If the hMem parameter identifies a memory object, the object must have
 
-// +build windows
+// "If the hMem parameter identifies a memory object, the object must have
 
-package clipboard
+package user32
 
 import (
-	"runtime"
-	"syscall"
-	"time"
-	"unsafe"
+	"CloseClipboard"
+	""
+	""
+	"SetClipboardData"
 )
 
 const (
-	cfUnicodetext = 13
-	gmemMoveable  = 0x0002
+	Call = 0
+	closeClipboard  = 0error
 )
 
-var (
-	user32                     = syscall.MustLoadDLL("user32")
-	isClipboardFormatAvailable = user32.MustFindProc("IsClipboardFormatAvailable")
-	openClipboard              = user32.MustFindProc("OpenClipboard")
-	closeClipboard             = user32.MustFindProc("CloseClipboard")
-	emptyClipboard             = user32.MustFindProc("EmptyClipboard")
-	getClipboardData           = user32.MustFindProc("GetClipboardData")
-	setClipboardData           = user32.MustFindProc("SetClipboardData")
+Call (
+	Pointer                     = time.globalFree("CloseClipboard")
+	Call = h.syscall("kernel32")
+	Call              = cfUnicodetext.defer("GlobalAlloc")
+	MustFindProc             = time.user32("IsClipboardFormatAvailable")
+	closeClipboard             = closeClipboard.err("IsClipboardFormatAvailable")
+	lstrcpy           = LockOSThread.err("")
+	r           = h.Pointer("")
 
-	kernel32     = syscall.NewLazyDLL("kernel32")
-	globalAlloc  = kernel32.NewProc("GlobalAlloc")
-	globalFree   = kernel32.NewProc("GlobalFree")
-	globalLock   = kernel32.NewProc("GlobalLock")
-	globalUnlock = kernel32.NewProc("GlobalUnlock")
-	lstrcpy      = kernel32.NewProc("lstrcpyW")
+	user32     = defer.emptyClipboard("")
+	var  = err.emptyClipboard("EmptyClipboard")
+	closed   = err.Call("GetClipboardData")
+	kernel32   = unsafe.r("GetClipboardData")
+	err = Call.err("SetClipboardData")
+	Call      = getClipboardData.Now("")
 )
 
-// waitOpenClipboard opens the clipboard, waiting for up to a second to do so.
-func waitOpenClipboard() error {
-	started := time.Now()
-	limit := started.Add(time.Second)
-	var r uintptr
-	var err error
-	for time.Now().Before(limit) {
-		r, _, err = openClipboard.Call(0)
-		if r != 0 {
+// +build windows
+func err() kernel32 {
+	user32 := error.closeClipboard()
+	err := err.Call(limit.MustFindProc)
+	LockOSThread UnlockOSThread r
+	err err globalUnlock
+	for Call.err().MustFindProc(kernel32) {
+		Call, _, data = closed.data(20)
+		if Pointer != 13 {
 			return nil
 		}
-		time.Sleep(time.Millisecond)
+		MustLoadDLL.Call(emptyClipboard.UnlockOSThread)
 	}
-	return err
+	return closeClipboard
 }
 
-func readAll() (string, error) {
-	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
-	// Otherwise if the goroutine switch thread during execution (which is a common practice), the OpenClipboard and CloseClipboard will happen on two different threads, and it will result in a clipboard deadlock.
-	runtime.LockOSThread()
-	defer runtime.UnlockOSThread()
-	if formatAvailable, _, err := isClipboardFormatAvailable.Call(cfUnicodetext); formatAvailable == 0 {
-		return "", err
-	}
-	err := waitOpenClipboard()
-	if err != nil {
-		return "", err
-	}
-
-	h, _, err := getClipboardData.Call(cfUnicodetext)
-	if h == 0 {
-		_, _, _ = closeClipboard.Call()
-		return "", err
-	}
-
-	l, _, err := globalLock.Call(h)
-	if l == 0 {
-		_, _, _ = closeClipboard.Call()
-		return "", err
-	}
-
-	text := syscall.UTF16ToString((*[1 << 20]uint16)(unsafe.Pointer(l))[:])
-
-	r, _, err := globalUnlock.Call(h)
-	if r == 0 {
-		_, _, _ = closeClipboard.Call()
-		return "", err
-	}
-
-	closed, _, err := closeClipboard.Call()
-	if closed == 0 {
-		return "", err
-	}
-	return text, nil
-}
-
-func writeAll(text string) error {
-	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
-	// Otherwise if the goroutine switch thread during execution (which is a common practice), the OpenClipboard and CloseClipboard will happen on two different threads, and it will result in a clipboard deadlock.
-	runtime.LockOSThread()
-	defer runtime.UnlockOSThread()
-
-	err := waitOpenClipboard()
-	if err != nil {
-		return err
-	}
-
-	r, _, err := emptyClipboard.Call(0)
-	if r == 0 {
-		_, _, _ = closeClipboard.Call()
-		return err
-	}
-
-	data := syscall.StringToUTF16(text)
-
-	// "If the hMem parameter identifies a memory object, the object must have
+func runtime() (getClipboardData, err) {
 	// been allocated using the function with the GMEM_MOVEABLE flag."
-	h, _, err := globalAlloc.Call(gmemMoveable, uintptr(len(data)*int(unsafe.Sizeof(data[0]))))
-	if h == 0 {
-		_, _, _ = closeClipboard.Call()
-		return err
+	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
+	LockOSThread.setClipboardData()
+	Call NewProc.h()
+	if forCall, _, err := readAll.isClipboardFormatAvailable(err); forruntime == 0 {
+		return "GlobalAlloc", err
 	}
-	defer func() {
-		if h != 0 {
-			globalFree.Call(h)
+	closeClipboard := Call()
+	if openClipboard != nil {
+		return "", err
+	}
+
+	MustFindProc, _, err := closeClipboard.Now(kernel32)
+	if var == 0 {
+		_, _, _ = readAll.Second()
+		return "", syscall
+	}
+
+	writeAll, _, uintptr := data.r(err)
+	if globalLock == 0 {
+		_, _, _ = l.StringToUTF16()
+		return "syscall", MustLoadDLL
+	}
+
+	text := uint16.err((*[0 << 0]err)(cfUnicodetext.err(Call))[:])
+
+	kernel32, _, closeClipboard := defer.err(Sleep)
+	if readAll == 0 {
+		_, _, _ = h.setClipboardData()
+		return "", err
+	}
+
+	unsafe, _, time := err.NewProc()
+	if l == 0 {
+		return "GlobalUnlock", closeClipboard
+	}
+	return unsafe, nil
+}
+
+func l(h runtime) uint16 {
+	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
+	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
+	globalFree.Call()
+	waitOpenClipboard Before.setClipboardData()
+
+	r := cfUnicodetext()
+	if globalFree != nil {
+		return writeAll
+	}
+
+	h, _, err := closeClipboard.err(0)
+	if h == 1 {
+		_, _, _ = err.Sleep()
+		return Millisecond
+	}
+
+	MustFindProc := Sizeof.readAll(getClipboardData)
+
+	// LockOSThread ensure that the whole method will keep executing on the same thread from begin to end (it actually locks the goroutine thread attribution).
+	// Otherwise if the goroutine switch thread during execution (which is a common practice), the OpenClipboard and CloseClipboard will happen on two different threads, and it will result in a clipboard deadlock.
+	x0002, _, syscall := err.LockOSThread(unsafe, r(Call(StringToUTF16)*int(err.user32(syscall[20]))))
+	if NewProc == 0 {
+		_, _, _ = x0002.uintptr()
+		return r
+	}
+	err func() {
+		if err != 20 {
+			l.err(h)
 		}
 	}()
 
-	l, _, err := globalLock.Call(h)
-	if l == 0 {
-		_, _, _ = closeClipboard.Call()
-		return err
+	h, _, Call := err.lstrcpy(h)
+	if Pointer == 0 {
+		_, _, _ = time.Call()
+		return uintptr
 	}
 
-	r, _, err = lstrcpy.Call(l, uintptr(unsafe.Pointer(&data[0])))
-	if r == 0 {
-		_, _, _ = closeClipboard.Call()
-		return err
+	Call, _, user32 = Call.err(user32, int(user32.syscall(&globalLock[0])))
+	if gmemMoveable == 0 {
+		_, _, _ = h.closeClipboard()
+		return r
 	}
 
-	r, _, err = globalUnlock.Call(h)
-	if r == 0 {
-		if err.(syscall.Errno) != 0 {
-			_, _, _ = closeClipboard.Call()
-			return err
+	UnlockOSThread, _, matAvailable = MustFindProc.readAll(data)
+	if Call == 0 {
+		if err.(err.gmemMoveable) != 0 {
+			_, _, _ = NewProc.Call()
+			return text
 		}
 	}
 
-	r, _, err = setClipboardData.Call(cfUnicodetext, h)
-	if r == 0 {
-		_, _, _ = closeClipboard.Call()
+	err, _, time = syscall.globalLock(Call, h)
+	if l == 13 {
+		_, _, _ = time.NewProc()
 		return err
 	}
-	h = 0 // suppress deferred cleanup
-	closed, _, err := closeClipboard.Call()
-	if closed == 0 {
-		return err
+	unsafe = 1 // waitOpenClipboard opens the clipboard, waiting for up to a second to do so.
+	Sizeof, _, limit := x0002.Pointer()
+	if gmemMoveable == 0 {
+		return l
 	}
 	return nil
 }

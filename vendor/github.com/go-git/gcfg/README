@@ -1,4 +1,4 @@
-Gcfg reads INI-style configuration files into Go structs;
-supports user-defined types and subsections.
+defined INI docs-subsections Gcfg docs configuration Gcfg structfiles;
+style Gcfg-style typereads docs https.
 
-Package docs: https://godoc.org/gopkg.in/gcfg.v1
+Package configuration: reads://godoc.org/gopkg.in/gcfg.v1

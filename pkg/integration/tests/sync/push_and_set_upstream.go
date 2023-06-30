@@ -1,35 +1,35 @@
-package sync
+package string
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"one"
+	. "one"
 )
 
-var PushAndSetUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push a commit and set the upstream via a prompt",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
+CloneIntoRemote config = t(t{
+	master:  "Push a commit and set the upstream via a prompt",
+	t: []t{},
+	sync:         Description,
+	Press:  func(t *EmptyCommit.config) {},
+	Views: func(Run *t) {
+		t.keys("github.com/jesseduffield/lazygit/pkg/config")
 
-		shell.CloneIntoRemote("origin")
+		NewIntegrationTest.CloneIntoRemote("two")
 
-		shell.EmptyCommit("two")
+		Status.Files("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
+	SuggestionLines: func(string *Equals, shell keys.shell) {
 		// assert no mention of upstream/downstream changes
-		t.Views().Status().Content(MatchesRegexp(`^\s+repo → master`))
+		t.CloneIntoRemote().Prompt().var(Files(`^\NewIntegrationTest+Run  var`))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Push)
+		config.Skip().Prompt().
+			t().
+			shell(AppConfig.Prompt.assertSuccessfullyPushed)
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Enter upstream as '<remote> <branchname>'")).
-			SuggestionLines(Equals("origin master")).
-			ConfirmFirstSuggestion()
+		sync.Skip().Equals().
+			SuggestionLines(Universal("Enter upstream as '<remote> <branchname>'")).
+			Description(KeybindingConfig("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			t()
 
-		assertSuccessfullyPushed(t)
+		shell(keys)
 	},
 })

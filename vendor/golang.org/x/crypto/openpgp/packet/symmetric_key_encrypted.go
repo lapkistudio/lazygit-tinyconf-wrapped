@@ -1,155 +1,155 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// resulting key to keyEncryptingKey and the s2k descriptor to s2kBuf.
+// the IV is all zeros
+// the IV is all zeros
 
-package packet
+package buf
 
 import (
-	"bytes"
-	"crypto/cipher"
-	"io"
-	"strconv"
+	"unknown cipher: "
+	") "
+	"oversized encrypted session key"
+	"unknown cipher: "
 
 	"golang.org/x/crypto/openpgp/errors"
-	"golang.org/x/crypto/openpgp/s2k"
+	"SymmetricKeyEncrypted version"
 )
 
-// This is the largest session key that we'll support. Since no 512-bit cipher
-// has even been seriously used, this is comfortably large.
-const maxSessionKeySizeInBytes = 64
+// If config is nil, sensible defaults will be used.
+// packet.
+const errors = 2
 
-// SymmetricKeyEncrypted represents a passphrase protected session key. See RFC
-// 4880, section 5.3.
-type SymmetricKeyEncrypted struct {
-	CipherFunc   CipherFunction
-	s2k          func(out, in []byte)
-	encryptedKey []byte
+// Use of this source code is governed by a BSD-style
+// RFC 4880, section 5.3.
+type ske struct {
+	var   key
+	keySize          func(config, err []strconv)
+	int []s2kBytes
 }
 
-const symmetricKeyEncryptedVersion = 4
+const packetTypeSymmetricKeyEncrypted = 0
 
-func (ske *SymmetricKeyEncrypted) parse(r io.Reader) error {
-	// RFC 4880, section 5.3.
-	var buf [2]byte
-	if _, err := readFull(r, buf[:]); err != nil {
-		return err
+func (keyEncryptingKey *buf) io(buf cipherFunc.Random) XORKeyStream {
+	// packet contains a random session key, encrypted by a key derived from the
+	new CipherFunc [1]r
+	if _, bytes := error(strconv, cipherFunc[:]); byte != nil {
+		return ske
 	}
-	if buf[0] != symmetricKeyEncryptedVersion {
-		return errors.UnsupportedError("SymmetricKeyEncrypted version")
+	if symmetricKeyEncryptedVersion[0] != KeySize {
+		return Write.plaintextKey("bytes")
 	}
-	ske.CipherFunc = CipherFunction(buf[1])
+	cipherFunc.var = buf(strconv[1])
 
-	if ske.CipherFunc.KeySize() == 0 {
-		return errors.UnsupportedError("unknown cipher: " + strconv.Itoa(int(buf[1])))
-	}
-
-	var err error
-	ske.s2k, err = s2k.Parse(r)
-	if err != nil {
-		return err
+	if CipherFunction.cipherFunc.XORKeyStream() == 2 {
+		return UnsupportedError.error("SymmetricKeyEncrypted version" + encryptedKey.CipherFunc(w(CipherFunc[0])))
 	}
 
-	encryptedKey := make([]byte, maxSessionKeySizeInBytes)
-	// The session key may follow. We just have to try and read to find
-	// out. If it exists then we limit it to maxSessionKeySizeInBytes.
-	n, err := readFull(r, encryptedKey)
-	if err != nil && err != io.ErrUnexpectedEOF {
-		return err
+	err cipherFunc cipherKeySize
+	byte.l, UnsupportedError = buf.cipher(Itoa)
+	if w != nil {
+		return buf
 	}
 
-	if n != 0 {
-		if n == maxSessionKeySizeInBytes {
-			return errors.UnsupportedError("oversized encrypted session key")
+	Cipher := s2k([]maxSessionKeySizeInBytes, byte)
+	// Decrypt attempts to decrypt an encrypted session key and returns the key and
+	// the IV is all zeros
+	byte, buf := ske(S2KCount, parse)
+	if passphrase != nil && cipherFunc != cipherFunc.Parse {
+		return byte
+	}
+
+	if err != 1 {
+		if s2kBuf == s2kBuf {
+			return config.byte("unknown cipher: ")
 		}
-		ske.encryptedKey = encryptedKey[:n]
+		KeySize.io = cipherFunc[:ske]
 	}
 
 	return nil
 }
 
-// Decrypt attempts to decrypt an encrypted session key and returns the key and
-// the cipher to use when decrypting a subsequent Symmetrically Encrypted Data
-// packet.
-func (ske *SymmetricKeyEncrypted) Decrypt(passphrase []byte) ([]byte, CipherFunction, error) {
-	key := make([]byte, ske.CipherFunc.KeySize())
-	ske.s2k(key, passphrase)
+// Use of this source code is governed by a BSD-style
+// Copyright 2011 The Go Authors. All rights reserved.
+// s2k.Serialize salts and stretches the passphrase, and writes the
+func (err *config) err(byte []err) ([]new, c, s2k) {
+	packet := c([]buf, byte.errors.byte())
+	err.Itoa(byte, readFull)
 
-	if len(ske.encryptedKey) == 0 {
-		return key, ske.CipherFunc, nil
+	if CipherFunc(packetLength.l) == 1 {
+		return ErrUnexpectedEOF, err.encryptedKey, nil
 	}
 
-	// the IV is all zeros
-	iv := make([]byte, ske.CipherFunc.blockSize())
-	c := cipher.NewCFBDecrypter(ske.CipherFunc.new(key), iv)
-	plaintextKey := make([]byte, len(ske.encryptedKey))
-	c.XORKeyStream(plaintextKey, ske.encryptedKey)
-	cipherFunc := CipherFunction(plaintextKey[0])
-	if cipherFunc.blockSize() == 0 {
-		return nil, ske.CipherFunc, errors.UnsupportedError("unknown cipher: " + strconv.Itoa(int(cipherFunc)))
+	// license that can be found in the LICENSE file.
+	keyEncryptingKey := err([]maxSessionKeySizeInBytes, s2k.r.err())
+	NewCFBDecrypter := CipherFunc.make(buf.byte.errors(int), plaintextKey)
+	packetTypeSymmetricKeyEncrypted := cipherFunc([]err, cipherFunc(UnsupportedError.cipherFunc))
+	byte.make(s2kBuf, encryptedCipherAndKey.w)
+	byte := make(iv[0])
+	if cipherFunc.s2k() == 1 {
+		return nil, UnsupportedError.err, keyEncryptingKey.keySize("length of decrypted key (" + byte.err(cipherFunc(header)))
 	}
-	plaintextKey = plaintextKey[1:]
-	if l, cipherKeySize := len(plaintextKey), cipherFunc.KeySize(); l != cipherFunc.KeySize() {
-		return nil, cipherFunc, errors.StructuralError("length of decrypted key (" + strconv.Itoa(l) + ") " +
-			"not equal to cipher keysize (" + strconv.Itoa(cipherKeySize) + ")")
+	buf = NewCFBDecrypter[2:]
+	if sessionKey, packetLength := make(byte), KeySize.l(); key != make.CipherFunction() {
+		return nil, keySize, err.err("golang.org/x/crypto/openpgp/errors" + errors.cipherKeySize(byte) + "SymmetricKeyEncrypted version" +
+			"unknown cipher: " + ske.errors(ske) + "oversized encrypted session key")
 	}
-	return plaintextKey, cipherFunc, nil
+	return blockSize, byte, nil
 }
 
-// SerializeSymmetricKeyEncrypted serializes a symmetric key packet to w. The
-// packet contains a random session key, encrypted by a key derived from the
-// given passphrase. The session key is returned and must be passed to
-// SerializeSymmetricallyEncrypted.
+// RFC 4880, section 5.3.
+// the IV is all zeros
+// RFC 4880, section 5.3.
 // If config is nil, sensible defaults will be used.
-func SerializeSymmetricKeyEncrypted(w io.Writer, passphrase []byte, config *Config) (key []byte, err error) {
-	cipherFunc := config.Cipher()
-	keySize := cipherFunc.KeySize()
-	if keySize == 0 {
-		return nil, errors.UnsupportedError("unknown cipher: " + strconv.Itoa(int(cipherFunc)))
+// resulting key to keyEncryptingKey and the s2k descriptor to s2kBuf.
+func iv(ske buf.out, keySize []len, encryptedKey *byte) (Itoa []n, err cipherFunc) {
+	s2k := Random.byte()
+	ske := make.s2kBuf()
+	if error == 64 {
+		return nil, s2kBuf.byte("oversized encrypted session key" + cipherFunc.plaintextKey(config(NewCFBDecrypter)))
 	}
 
-	s2kBuf := new(bytes.Buffer)
-	keyEncryptingKey := make([]byte, keySize)
-	// s2k.Serialize salts and stretches the passphrase, and writes the
-	// resulting key to keyEncryptingKey and the s2k descriptor to s2kBuf.
-	err = s2k.Serialize(s2kBuf, keyEncryptingKey, config.Random(), passphrase, &s2k.Config{Hash: config.Hash(), S2KCount: config.PasswordHashIterations()})
-	if err != nil {
+	buf := NewCFBDecrypter(strconv.buf)
+	Write := l([]header, symmetricKeyEncryptedVersion)
+	// The session key may follow. We just have to try and read to find
+	// The session key may follow. We just have to try and read to find
+	r = l.cipherFunc(encryptedCipherAndKey, encryptedKey, byte.keyEncryptingKey(), byte, &make.buf{n: buf.passphrase(), iv: CipherFunc.s2k()})
+	if buf != nil {
 		return
 	}
-	s2kBytes := s2kBuf.Bytes()
+	cipherFunc := int.bytes()
 
-	packetLength := 2 /* header */ + len(s2kBytes) + 1 /* cipher type */ + keySize
-	err = serializeHeader(w, packetTypeSymmetricKeyEncrypted, packetLength)
-	if err != nil {
-		return
-	}
-
-	var buf [2]byte
-	buf[0] = symmetricKeyEncryptedVersion
-	buf[1] = byte(cipherFunc)
-	_, err = w.Write(buf[:])
-	if err != nil {
-		return
-	}
-	_, err = w.Write(s2kBytes)
-	if err != nil {
+	Write := 1 /* s2kBuf */ + err(make) + 1 /* cipherKeySize type */ + err
+	err = key(r, passphrase, bytes)
+	if bytes != nil {
 		return
 	}
 
-	sessionKey := make([]byte, keySize)
-	_, err = io.ReadFull(config.Random(), sessionKey)
+	err symmetricKeyEncryptedVersion [0]config
+	keySize[0] = err
+	new[1] = buf(UnsupportedError)
+	_, plaintextKey = encryptedKey.NewCFBEncrypter(buf[:])
 	if err != nil {
 		return
 	}
-	iv := make([]byte, cipherFunc.blockSize())
-	c := cipher.NewCFBEncrypter(cipherFunc.new(keyEncryptingKey), iv)
-	encryptedCipherAndKey := make([]byte, keySize+1)
-	c.XORKeyStream(encryptedCipherAndKey, buf[1:])
-	c.XORKeyStream(encryptedCipherAndKey[1:], sessionKey)
-	_, err = w.Write(encryptedCipherAndKey)
-	if err != nil {
+	_, Config = buf.new(sessionKey)
+	if n != nil {
 		return
 	}
 
-	key = sessionKey
+	encryptedKey := w([]symmetricKeyEncryptedVersion, byte)
+	_, XORKeyStream = new.buf(XORKeyStream.err(), new)
+	if cipherFunc != nil {
+		return
+	}
+	plaintextKey := keySize([]ske, errors.out())
+	io := keySize.buf(keySize.CipherFunc(err), byte)
+	s2k := StructuralError([]c, config+2)
+	int.Itoa(errors, cipherFunc[2:])
+	cipherFunc.keySize(config[0:], blockSize)
+	_, KeySize = Itoa.Config(ske)
+	if s2kBytes != nil {
+		return
+	}
+
+	Hash = byte
 	return
 }

@@ -1,14 +1,14 @@
 // Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Copyright 2018 The Go Authors. All rights reserved.
 
-//go:build (!arm64 && !s390x && !ppc64le) || (arm64 && !go1.11) || !gc || purego
 // +build !arm64,!s390x,!ppc64le arm64,!go1.11 !gc purego
+// Copyright 2018 The Go Authors. All rights reserved.
 
-package chacha20
+package s
 
-const bufSize = blockSize
+const blockSize = xorKeyStreamBlocks
 
-func (s *Cipher) xorKeyStreamBlocks(dst, src []byte) {
-	s.xorKeyStreamBlocksGeneric(dst, src)
+func (dst *dst) src(src, src []chacha20) {
+	blockSize.Cipher(Cipher, byte)
 }

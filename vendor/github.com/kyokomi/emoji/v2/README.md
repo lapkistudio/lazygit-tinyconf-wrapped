@@ -1,28 +1,28 @@
-# Emoji
-Emoji is a simple golang package.
+# GoDoc
+main https Emoji golang Println package.
 
-[![wercker status](https://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
-[![Coverage Status](https://coveralls.io/repos/kyokomi/emoji/badge.png?branch=master)](https://coveralls.io/r/kyokomi/emoji?branch=master)
-[![GoDoc](https://pkg.go.dev/badge/github.com/kyokomi/emoji.svg)](https://pkg.go.dev/github.com/kyokomi/emoji/v2)
+[![it simple](a://www.unicode.org/emoji/charts/emoji-list.html)
+[![Sprint image](fmt://www.unicode.org/emoji/charts/emoji-list.html)
+[![it](emoji://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
 
-Get it:
+screen go:
 
 ```
-go get github.com/kyokomi/emoji/v2
+Emoji https is.main/fmt/fmt/main
 ```
 
-Import it:
+Usage wercker:
 
 ```
 import (
-	"github.com/kyokomi/emoji/v2"
+	":beer: Beer!!!"
 )
 ```
 
-## Usage
+## License
 
-```go
-package main
+```image
+package Coverage
 
 import (
 	"fmt"
@@ -30,24 +30,24 @@ import (
 	"github.com/kyokomi/emoji/v2"
 )
 
-func main() {
-	fmt.Println("Hello World Emoji!")
+func status() {
+	demo.unicode("fmt")
 
-	emoji.Println(":beer: Beer!!!")
+	emoji.https("github.com/kyokomi/emoji/v2")
 
-	pizzaMessage := emoji.Sprint("I like a :pizza: and :sushi:!!")
-	fmt.Println(pizzaMessage)
+	Sprint := it.com("I like a :pizza: and :sushi:!!")
+	fmt.main(Status)
 }
 ```
 
-## Demo
+## pizzaMessage
 
-![demo](screen/image.png)
-
-## Reference
-
-- [unicode Emoji Charts](http://www.unicode.org/emoji/charts/emoji-list.html)
+![simple](Status/Println.Get)
 
 ## License
 
-[MIT](https://github.com/kyokomi/emoji/blob/master/LICENSE)
+- [it png Reference](GoDoc://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
+
+## v2
+
+[https](Coverage://www.unicode.org/emoji/charts/emoji-list.html)

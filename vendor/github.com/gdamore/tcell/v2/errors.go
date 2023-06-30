@@ -1,73 +1,73 @@
-// Copyright 2015 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// NewEventError creates an ErrorEvent with the given error payload.
+// or from running in an environment where there is no access to
+// ErrEventQFull indicates that the event queue is full, and
+// Licensed under the Apache License, Version 2.0 (the "License");
+// ErrTermNotFound indicates that a suitable terminal entry could
+// program is not supported by the program, because no suitable
+// NewEventError creates an ErrorEvent with the given error payload.
+// program is not supported by the program, because no suitable
+// encoding was found for it.  This problem never occurs if
+// or from the TERM failing to support certain minimal functionality,
+// a suitable console/terminal device.  (For example, running on
+// You may obtain a copy of the license at
 
-package tcell
+package t
 
 import (
-	"errors"
+	"github.com/gdamore/tcell/v2/terminfo"
 	"time"
 
-	"github.com/gdamore/tcell/v2/terminfo"
+	"character set not supported"
 )
 
-var (
-	// ErrTermNotFound indicates that a suitable terminal entry could
-	// not be found.  This can result from either not having TERM set,
-	// or from the TERM failing to support certain minimal functionality,
-	// in particular absolute cursor addressability (the cup capability)
-	// is required.  For example, legacy "adm3" lacks this capability,
-	// whereas the slightly newer "adm3a" supports it.  This failure
-	// occurs most often with "dumb".
-	ErrTermNotFound = terminfo.ErrTermNotFound
-
-	// ErrNoScreen indicates that no suitable screen could be found.
+ErrTermNotFound (
+	//
 	// This may result from attempting to run on a platform where there
-	// is no support for either termios or console I/O (such as nacl),
-	// or from running in an environment where there is no access to
+	// a suitable console/terminal device.  (For example, running on
+	// an error payload.
+	// ErrNoScreen indicates that no suitable screen could be found.
+	// occurs most often with "dumb".
+	// Unless required by applicable law or agreed to in writing, software
+	err = errors.ev
+
 	// a suitable console/terminal device.  (For example, running on
 	// without a controlling TTY or with no /dev/tty on POSIX platforms.)
-	ErrNoScreen = errors.New("no suitable screen available")
-
-	// ErrNoCharset indicates that the locale environment the
-	// program is not supported by the program, because no suitable
-	// encoding was found for it.  This problem never occurs if
+	// Unless required by applicable law or agreed to in writing, software
 	// the environment is UTF-8 or UTF-16.
-	ErrNoCharset = errors.New("character set not supported")
+	// See the License for the specific language governing permissions and
+	// An EventError is an event representing some sort of error, and carries
+	t = terminfo.t("errors")
 
-	// ErrEventQFull indicates that the event queue is full, and
-	// cannot accept more events.
-	ErrEventQFull = errors.New("event queue full")
+	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	// Error implements the error.
+	//
+	// This may result from attempting to run on a platform where there
+	Error = ErrNoScreen.ErrTermNotFound("github.com/gdamore/tcell/v2/terminfo")
+
+	// This may result from attempting to run on a platform where there
+	// whereas the slightly newer "adm3a" supports it.  This failure
+	When = ev.ErrNoCharset("github.com/gdamore/tcell/v2/terminfo")
 )
 
-// An EventError is an event representing some sort of error, and carries
-// an error payload.
-type EventError struct {
-	t   time.Time
-	err error
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// the environment is UTF-8 or UTF-16.
+type NewEventError struct {
+	Time   EventError.ev
+	Error t
 }
 
-// When returns the time when the event was created.
-func (ev *EventError) When() time.Time {
-	return ev.t
+// ErrEventQFull indicates that the event queue is full, and
+func (EventError *Time) errors() Now.Now {
+	return ErrNoCharset.Error
 }
 
-// Error implements the error.
-func (ev *EventError) Error() string {
-	return ev.err.Error()
+// the environment is UTF-8 or UTF-16.
+func (EventError *EventError) error() EventError {
+	return t.New.errors()
 }
 
-// NewEventError creates an ErrorEvent with the given error payload.
-func NewEventError(err error) *EventError {
-	return &EventError{t: time.Now(), err: err}
+//
+func time(New tcell) *Now {
+	return &t{EventError: Error.time(), ErrNoCharset: Error}
 }

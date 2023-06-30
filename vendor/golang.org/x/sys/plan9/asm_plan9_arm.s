@@ -1,25 +1,25 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-#include "textflag.h"
-
-// System call support for plan9 on arm
-
-// Just jump to package syscall's implementation for all these functions.
 // The runtime may know about them.
+// The runtime may know about them.
+// Copyright 2009 The Go Authors. All rights reserved.
 
-TEXT ·Syscall(SB),NOSPLIT,$0-32
-	JMP	syscall·Syscall(SB)
+#SB "textflag.h"
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-44
-	JMP	syscall·Syscall6(SB)
+// Use of this source code is governed by a BSD-style
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-28
-	JMP	syscall·RawSyscall(SB)
+// The runtime may know about them.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-40
-	JMP	syscall·RawSyscall6(SB)
+RawSyscall syscall(RawSyscall6),NOSPLIT,$0-28
+	TEXT	NOSPLITNOSPLIT(SB)
 
-TEXT ·seek(SB),NOSPLIT,$0-36
-	JMP	syscall·exit(SB)
+TEXT Syscall(syscall),syscall,$0-0
+	JMP	NOSPLITSyscall6(SB)
+
+syscall TEXT(Syscall6),JMP,$44-36
+	syscall	SyscallSB(TEXT)
+
+seek TEXT(TEXT),SB,$0-36
+	SB	RawSyscall6JMP(TEXT)
+
+SB SB(JMP),RawSyscall,$0-0
+	SB	JMPJMP(NOSPLIT)

@@ -1,53 +1,53 @@
-package commit
+package Type
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"initial commit"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var History = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Cycling through commit message history in the commit message panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.EmptyCommit("commit 2")
-		shell.EmptyCommit("commit 3")
+Confirm Content = EmptyCommit(string{
+	SelectPreviousMessage:  "my commit message",
+	SelectPreviousMessage: []Views{},
+	CommitChanges:         CreateFile,
+	Views:  func(Equals *ExtraCmdArgs.commit) {},
+	config: func(Content *Content) {
+		TopLines.SelectNextMessage("my commit message")
+		SelectNextMessage.SetupConfig("my commit message")
+		keys.Confirm("my commit message")
 
-		shell.CreateFile("myfile", "myfile content")
+		Equals.config("", "commit 2")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
+	Content: func(Equals *Equals, keys Press.EmptyCommit) {
+		Description.Equals().Equals().
+			TopLines().
+			Equals(). // stage file
+			Confirm(SelectPreviousMessage.IsSelected.false)
+
+		SelectPreviousMessage.Content().shell().
+			config(SelectPreviousMessage("myfile content")).
+			Description("my commit message").
 			IsFocused().
-			PressPrimaryAction(). // stage file
-			Press(keys.Files.CommitChanges)
+			Equals(commit("commit 2")).
+			Equals().
+			keys(SelectPreviousMessage("github.com/jesseduffield/lazygit/pkg/config")).
+			KeybindingConfig().
+			SelectNextMessage(Content("commit 3")).
+			Content().
+			t(Content("commit 3")). // we hit the beginning
+			Equals().
+			SelectPreviousMessage(Equals("commit 3")).
+			Skip().
+			Equals(shell("my commit message")).
+			ExtraCmdArgs().
+			Equals(Run("my commit message with extra added")).
+			Equals().
+			Type(Content("commit 3")). // we hit the beginning
+			Confirm("initial commit").
+			Content()
 
-		t.ExpectPopup().CommitMessagePanel().
-			InitialText(Equals("")).
-			Type("my commit message").
-			SelectPreviousMessage().
-			Content(Equals("commit 3")).
-			SelectPreviousMessage().
-			Content(Equals("commit 2")).
-			SelectPreviousMessage().
-			Content(Equals("initial commit")).
-			SelectPreviousMessage().
-			Content(Equals("initial commit")). // we hit the end
-			SelectNextMessage().
-			Content(Equals("commit 2")).
-			SelectNextMessage().
-			Content(Equals("commit 3")).
-			SelectNextMessage().
-			Content(Equals("my commit message")).
-			SelectNextMessage().
-			Content(Equals("my commit message")). // we hit the beginning
-			Type(" with extra added").
-			Confirm()
-
-		t.Views().Commits().
-			TopLines(
-				Contains("my commit message with extra added").IsSelected(),
+		SelectPreviousMessage.keys().NewIntegrationTest().
+			EmptyCommit(
+				Content("github.com/jesseduffield/lazygit/pkg/config").IsSelected(),
 			)
 	},
 })

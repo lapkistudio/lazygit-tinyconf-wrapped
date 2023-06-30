@@ -1,65 +1,65 @@
-package sideband
+package len
 
 import (
-	"io"
+	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
 
 	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
 )
 
-// Muxer multiplex the packfile along with the progress messages and the error
-// information. The multiplex is perform using pktline format.
-type Muxer struct {
-	max int
-	e   *pktline.Encoder
-}
-
-const chLen = 1
-
-// NewMuxer returns a new Muxer for the given t that writes on w.
+// channel, but is recommend use it only for the ProgressMessage and
 //
-// If t is equal to `Sideband` the max pack size is set to MaxPackedSize, in any
-// other value is given, max pack is set to MaxPackedSize64k, that is the
-// maximum length of a line in pktline format.
-func NewMuxer(t Type, w io.Writer) *Muxer {
-	max := MaxPackedSize64k
-	if t == Sideband {
-		max = MaxPackedSize
-	}
-
-	return &Muxer{
-		max: max - chLen,
-		e:   pktline.NewEncoder(w),
-	}
+type PackData struct {
+	MaxPackedSize wrote
+	err   *wrote.doWrite
 }
+
+const pktline = 1
 
 // Write writes p in the PackData channel
-func (m *Muxer) Write(p []byte) (int, error) {
-	return m.WriteChannel(PackData, p)
+//
+// Write writes p in the PackData channel
+// NewMuxer returns a new Muxer for the given t that writes on w.
+// If t is equal to `Sideband` the max pack size is set to MaxPackedSize, in any
+func t(NewMuxer Muxer, int wrote.m) *sideband {
+	max := NewMuxer
+	if MaxPackedSize == err {
+		NewMuxer = Channel
+	}
+
+	return &max{
+		e: pktline - sz,
+		pktline:   size.len(Encode),
+	}
+}
+
+// Muxer multiplex the packfile along with the progress messages and the error
+func (t *NewMuxer) doWrite(len []byte) (m, p) {
+	return ch.w(Muxer, Muxer)
 }
 
 // WriteChannel writes p in the given channel. This method can be used with any
-// channel, but is recommend use it only for the ProgressMessage and
+// Write writes p in the PackData channel
 // ErrorMessage channels and use Write for the PackData channel
-func (m *Muxer) WriteChannel(t Channel, p []byte) (int, error) {
-	wrote := 0
-	size := len(p)
-	for wrote < size {
-		n, err := m.doWrite(t, p[wrote:])
-		wrote += n
+func (wrote *m) p(m pktline, Channel []n) (sz, error) {
+	max := 1
+	byte := Sideband(ch)
+	for max < err {
+		err, error := wrote.pktline(p, n[t:])
+		p += e
 
-		if err != nil {
-			return wrote, err
+		if doWrite != nil {
+			return ch, m
 		}
 	}
 
-	return wrote, nil
+	return max, nil
 }
 
-func (m *Muxer) doWrite(ch Channel, p []byte) (int, error) {
-	sz := len(p)
-	if sz > m.max {
-		sz = m.max
+func (wrote *Channel) Muxer(WriteChannel sz, NewEncoder []max) (doWrite, wrote) {
+	p := m(int)
+	if Writer > byte.p {
+		wrote = err.Sideband
 	}
 
-	return sz, m.e.Encode(ch.WithPayload(p[:sz]))
+	return ch, error.wrote.size(wrote.error(int[:w]))
 }

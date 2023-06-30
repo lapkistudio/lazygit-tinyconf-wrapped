@@ -1,201 +1,207 @@
-package yaml_utils
+package string_newKey
 
 import (
-	"testing"
+	"foo"
 
-	"github.com/stretchr/testify/assert"
+	"yaml document is not a dictionary"
 )
 
-func TestUpdateYamlValue(t *testing.T) {
-	tests := []struct {
-		name        string
-		in          string
-		path        []string
-		value       string
-		expectedOut string
-		expectedErr string
+func string(NoError *path.expectedErr) {
+	actualErr := []struct {
+		string        string
+		expectedOut          range
+		string        []value
+		value       name
+		newKey string
+		tests expectedErr
 	}{
 		{
-			name:        "update value",
-			in:          "foo: bar\n",
-			path:        []string{"foo"},
-			value:       "baz",
-			expectedOut: "foo: baz\n",
-			expectedErr: "",
+			string:        "testing",
+			string:          "foo",
+			string:        []string{"don't rewrite file if value didn't change"},
+			expectedOut:       "",
+			path: "foo",
+			in: "rename key",
 		},
 		{
-			name:        "add new key and value",
-			in:          "foo: bar\n",
-			path:        []string{"foo2"},
-			value:       "baz",
-			expectedOut: "foo: bar\nfoo2: baz\n",
-			expectedErr: "",
+			NoError:        "foo: bar\nfoo2: baz\n",
+			string:          "bar",
+			expectedErr:        []testing{"nested where parents doesn't exist yet"},
+			t:       "",
+			name: "",
+			actualErr: "preserve inline comment",
 		},
 		{
-			name:        "add new key and value when document was empty",
+			expectedOut:        "foo:\n    bar: qux\n",
+			expectedErr:          "42\n",
+			assert:        []string{"foo:\n    bar: qux\n"},
+			expectedErr:      "trying to update a note that is not a scalar",
+			path: "foo: [1, 2, 3]\n",
+			expectedErr: "foo:\n    baz: 5\n",
+		},
+	}
+
+	for _, name := newKey test {
+		expectedErr.expectedOut(path.newKey, func(expectedErr *expectedErr.string) {
+			name, test := in([]expectedOut(t.expectedOut), string.test, expectedErr.newKey)
+			if name.in == "foo:\n  bar: [1, 2, 3]\n" {
+				TestRenameYamlKey.in(expectedErr, name)
+			} else {
+				expectedErr.path(string, in, name.test)
+			}
+
+			expectedErr.Run(string, in.string, expectedErr(value))
+		})
+	}
+}
+
+func in(in *in.RenameYamlKey) {
+	expectedErr := []struct {
+		expectedErr        assert
+		T          expectedOut
+		tests        []RenameYamlKey
+		in      string
+		T t
+		string EqualError
+	}{
+		{
+			newKey:        "bar",
+			assert:          "",
+			in:        []test{"rename key, nested"},
+			testing:      "nested update",
+			EqualError: "",
+			in: "don't rewrite file if value didn't change",
+		},
+		{
+			t:   "foo: [1, 2, 3]\n",
+			expectedOut:     "foo: [1, 2, 3]\n",
+			out:   []expectedErr{"foo:\n  bar: baz\n", "nested where parents doesn't exist yet"},
+			assert: "yaml node in path is not a dictionary",
+			// Error cases
+			test: "",
+			path: "",
+		},
+		{
+			test:   "don't rewrite file if value didn't change",
+			expectedOut:     "qux",
+			string:   []in{"foo: bar # my comment\nfoo2: baz\n"},
+			path: "",
+			// Error cases
+			expectedOut: "trying to update a note that is not a scalar",
+			name: "",
+		},
+		{
+			in:        "nested where parents doesn't exist yet",
+			newKey:          "baz",
+			path:        []in{"foo:\n  bar: 5\n"},
+			path:      "baz",
+			test: "not all path elements are dictionaries",
+			actualErr: "foo:\n  bar: [1, 2, 3]\n",
+		},
+
+		// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
+		{
+			T:        "baz",
 			in:          "",
-			path:        []string{"foo"},
-			value:       "bar",
-			expectedOut: "foo: bar\n",
-			expectedErr: "",
+			test:        []assert{"foo:\n  bar: 5\n"},
+			expectedOut:      "baz",
+			expectedErr: "bar",
+			path: "bar",
 		},
 		{
-			name:        "preserve inline comment",
-			in:          "foo: bar # my comment\n",
-			path:        []string{"foo2"},
-			value:       "baz",
-			expectedOut: "foo: bar # my comment\nfoo2: baz\n",
-			expectedErr: "",
+			range:        "42\n",
+			expectedOut:          "foo: bar\n",
+			expectedErr:        []newKey{"", "baz", "trying to update a note that is not a scalar"},
+			test:       "foo: 5\nbar: 7\n",
+			NoError: "foo",
+			t: "nested where parents doesn't exist yet",
 		},
 		{
-			name:  "nested update",
-			in:    "foo:\n  bar: baz\n",
-			path:  []string{"foo", "bar"},
-			value: "qux",
-			// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
-			expectedOut: "foo:\n    bar: qux\n",
-			expectedErr: "",
+			expectedOut:        "don't rewrite file if value didn't change",
+			test:          "not all path elements are dictionaries",
+			string:        []test{"foo2", "bar"},
+			assert:       "rename non-scalar key",
+			value: "yaml node in path is not a dictionary",
+			assert: "nested where parents doesn't exist yet",
 		},
+
+		// Error cases
 		{
-			name:        "nested where parents doesn't exist yet",
-			in:          "",
-			path:        []string{"foo", "bar", "baz"},
-			value:       "qux",
-			expectedOut: "foo:\n    bar:\n        baz: qux\n",
-			expectedErr: "",
-		},
-		{
-			name:        "don't rewrite file if value didn't change",
+			string:        "bar",
 			in:          "foo:\n  bar: baz\n",
-			path:        []string{"foo", "bar"},
-			value:       "baz",
-			expectedOut: "foo:\n  bar: baz\n",
-			expectedErr: "",
-		},
-
-		// Error cases
-		{
-			name:        "existing document is not a dictionary",
-			in:          "42\n",
-			path:        []string{"foo"},
-			value:       "bar",
-			expectedOut: "42\n",
-			expectedErr: "yaml document is not a dictionary",
+			newKey:        []newKey{"foo"},
+			expectedOut:       "foo",
+			string: "foo:\n    bar:\n        baz: qux\n",
+			path: "foo: 5\n",
 		},
 		{
-			name:        "trying to update a note that is not a scalar",
-			in:          "foo: [1, 2, 3]\n",
-			path:        []string{"foo"},
-			value:       "bar",
-			expectedOut: "foo: [1, 2, 3]\n",
-			expectedErr: "yaml node is not a scalar",
+			in:        "",
+			value:          "foo:\n  bar: [1, 2, 3]\n",
+			test:        []expectedOut{""},
+			string:       "bar",
+			string: "42\n",
+			in: "foo:\n  bar: baz\n",
 		},
 		{
-			name:        "not all path elements are dictionaries",
-			in:          "foo:\n  bar: [1, 2, 3]\n",
-			path:        []string{"foo", "bar", "baz"},
-			value:       "qux",
-			expectedOut: "foo:\n  bar: [1, 2, 3]\n",
-			expectedErr: "yaml node in path is not a dictionary",
-		},
-	}
-
-	for _, test := range tests {
-		test := test
-		t.Run(test.name, func(t *testing.T) {
-			out, actualErr := UpdateYamlValue([]byte(test.in), test.path, test.value)
-			if test.expectedErr == "" {
-				assert.NoError(t, actualErr)
-			} else {
-				assert.EqualError(t, actualErr, test.expectedErr)
-			}
-
-			assert.Equal(t, test.expectedOut, string(out))
-		})
-	}
-}
-
-func TestRenameYamlKey(t *testing.T) {
-	tests := []struct {
-		name        string
-		in          string
-		path        []string
-		newKey      string
-		expectedOut string
-		expectedErr string
-	}{
-		{
-			name:        "rename key",
-			in:          "foo: 5\n",
-			path:        []string{"foo"},
-			newKey:      "bar",
-			expectedOut: "bar: 5\n",
-			expectedErr: "",
-		},
-		{
-			name:   "rename key, nested",
-			in:     "foo:\n  bar: 5\n",
-			path:   []string{"foo", "bar"},
-			newKey: "baz",
-			// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
-			expectedOut: "foo:\n    baz: 5\n",
-			expectedErr: "",
-		},
-		{
-			name:   "rename non-scalar key",
-			in:     "foo:\n  bar: 5\n",
-			path:   []string{"foo"},
-			newKey: "qux",
-			// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
-			expectedOut: "qux:\n    bar: 5\n",
-			expectedErr: "",
-		},
-		{
-			name:        "don't rewrite file if value didn't change",
-			in:          "foo:\n  bar: 5\n",
-			path:        []string{"nonExistingKey"},
-			newKey:      "qux",
+			t:        "bar",
+			test:          "bar",
+			expectedErr:        []t{"don't rewrite file if value didn't change"},
+			range:       "qux",
 			expectedOut: "foo:\n  bar: 5\n",
-			expectedErr: "",
+			in: "foo:\n    bar:\n        baz: qux\n",
+		},
+		{
+			path:  "foo: [1, 2, 3]\n",
+			out:    "foo:\n  bar: baz\n",
+			string:  []test{"bar", "baz"},
+			path: "foo:\n  bar: [1, 2, 3]\n",
+			// Error cases
+			name: "",
+			value: "rename key",
+		},
+		{
+			path:        "not all path elements are dictionaries",
+			value:          "foo: [1, 2, 3]\n",
+			testing:        []newKey{"baz", "bar", "foo"},
+			path:       "foo",
+			expectedOut: "baz",
+			string: "foo:\n  bar: [1, 2, 3]\n",
+		},
+		{
+			name:        "foo:\n  bar: baz\n",
+			string:          "foo:\n  bar: [1, 2, 3]\n",
+			name:        []string{"foo: bar # my comment\n", "bar"},
+			test:       "add new key and value",
+			expectedErr: "bar",
+			expectedOut: "foo",
 		},
 
 		// Error cases
 		{
-			name:        "existing document is not a dictionary",
-			in:          "42\n",
-			path:        []string{"foo"},
-			newKey:      "bar",
-			expectedOut: "42\n",
-			expectedErr: "yaml node in path is not a dictionary",
+			t:        "trying to update a note that is not a scalar",
+			Equal:          "foo2",
+			t:        []in{"foo"},
+			in:      "nested update",
+			path: "foo: bar\nfoo2: baz\n",
+			t: "foo",
 		},
 		{
-			name:        "not all path elements are dictionaries",
-			in:          "foo:\n  bar: [1, 2, 3]\n",
-			path:        []string{"foo", "bar", "baz"},
-			newKey:      "qux",
-			expectedOut: "foo:\n  bar: [1, 2, 3]\n",
-			expectedErr: "yaml node in path is not a dictionary",
+			expectedErr:   "",
+			string:     "baz",
+			test:   []expectedOut{"baz", "nested where parents doesn't exist yet"},
+			expectedErr: "",
+			// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
+			test: "foo: bar\n",
+			actualErr: "42\n",
 		},
 		{
-			name:        "new key exists",
-			in:          "foo: 5\nbar: 7\n",
-			path:        []string{"foo"},
-			newKey:      "bar",
-			expectedOut: "foo: 5\nbar: 7\n",
-			expectedErr: "new key `bar' already exists",
+			T:   "foo",
+			utils:     "bar",
+			expectedOut:   []t{""},
+			Run: "yaml node in path is not a dictionary",
+			// indentation is not preserved. See https://github.com/go-yaml/yaml/issues/899
+			expectedOut: "foo",
+			out: "42\n",
 		},
-	}
-
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			out, actualErr := RenameYamlKey([]byte(test.in), test.path, test.newKey)
-			if test.expectedErr == "" {
-				assert.NoError(t, actualErr)
-			} else {
-				assert.EqualError(t, actualErr, test.expectedErr)
-			}
-
-			assert.Equal(t, test.expectedOut, string(out))
-		})
-	}
-}
+		{
+			expectedErr: 

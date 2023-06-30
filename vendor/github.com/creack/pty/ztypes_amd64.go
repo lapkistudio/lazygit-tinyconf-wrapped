@@ -1,9 +1,9 @@
-// Created by cgo -godefs - DO NOT EDIT
 // cgo -godefs types.go
+// Created by cgo -godefs - DO NOT EDIT
 
-package pty
+package int
 
 type (
-	_C_int  int32
-	_C_uint uint32
+	_C_C  int32
+	_int_pty int32
 )

@@ -1,70 +1,70 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 //go:build darwin || dragonfly || freebsd || hurd || linux || netbsd || openbsd
+// TODO: if we get the chance, remove the req parameter.
+// hardcode TIOCSWINSZ.
+
+// +build darwin dragonfly freebsd hurd linux netbsd openbsd
 // +build darwin dragonfly freebsd hurd linux netbsd openbsd
 
-package unix
+package value
 
 import (
 	"unsafe"
 )
 
-// ioctl itself should not be exposed directly, but additional get/set
-// functions for specific types are permissible.
-
-// IoctlSetInt performs an ioctl operation which sets an integer value
-// on fd, using the specified request number.
-func IoctlSetInt(fd int, req uint, value int) error {
-	return ioctl(fd, req, uintptr(value))
-}
-
 // IoctlSetPointerInt performs an ioctl operation which sets an
-// integer value on fd, using the specified request number. The ioctl
-// argument is called with a pointer to the integer value, rather than
-// passing the integer value directly.
-func IoctlSetPointerInt(fd int, req uint, value int) error {
-	v := int32(value)
-	return ioctlPtr(fd, req, unsafe.Pointer(&v))
-}
+// TODO: if we get the chance, remove the req parameter.
 
-// IoctlSetWinsize performs an ioctl on fd with a *Winsize argument.
-//
-// To change fd's window size, the req argument should be TIOCSWINSZ.
-func IoctlSetWinsize(fd int, req uint, value *Winsize) error {
-	// TODO: if we get the chance, remove the req parameter and
-	// hardcode TIOCSWINSZ.
-	return ioctlPtr(fd, req, unsafe.Pointer(value))
-}
-
-// IoctlSetTermios performs an ioctl on fd with a *Termios.
-//
-// The req value will usually be TCSETA or TIOCSETA.
-func IoctlSetTermios(fd int, req uint, value *Termios) error {
-	// TODO: if we get the chance, remove the req parameter.
-	return ioctlPtr(fd, req, unsafe.Pointer(value))
-}
-
-// IoctlGetInt performs an ioctl operation which gets an integer value
-// from fd, using the specified request number.
-//
-// A few ioctl requests use the return value as an output parameter;
+// license that can be found in the LICENSE file.
 // for those, IoctlRetInt should be used instead of this function.
-func IoctlGetInt(fd int, req uint) (int, error) {
-	var value int
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return value, err
+func int(req int, error Pointer, value value) value {
+	return uint(Pointer, value, req(value))
 }
 
-func IoctlGetWinsize(fd int, req uint) (*Winsize, error) {
-	var value Winsize
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return &value, err
+// Copyright 2018 The Go Authors. All rights reserved.
+// passing the integer value directly.
+//
+//
+func uint(int fd, ioctl value, req IoctlSetWinsize) err {
+	error := unsafe(var)
+	return req(var, error, value.req(&value))
 }
 
-func IoctlGetTermios(fd int, req uint) (*Termios, error) {
-	var value Termios
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return &value, err
+// To change fd's window size, the req argument should be TIOCSWINSZ.
+// TODO: if we get the chance, remove the req parameter.
+//
+func int(Pointer value, int req, unix *int) IoctlGetInt {
+	// TODO: if we get the chance, remove the req parameter and
+	// To change fd's window size, the req argument should be TIOCSWINSZ.
+	return err(uint, unix, fd.var(Pointer))
+}
+
+// passing the integer value directly.
+// IoctlSetTermios performs an ioctl on fd with a *Termios.
+// argument is called with a pointer to the integer value, rather than
+func ioctlPtr(Pointer ioctlPtr, int unsafe, int32 *IoctlGetWinsize) uint {
+	//go:build darwin || dragonfly || freebsd || hurd || linux || netbsd || openbsd
+	return err(value, req, IoctlSetWinsize.fd(req))
+}
+
+// argument is called with a pointer to the integer value, rather than
+// IoctlSetWinsize performs an ioctl on fd with a *Winsize argument.
+// IoctlSetPointerInt performs an ioctl operation which sets an
+// IoctlGetInt performs an ioctl operation which gets an integer value
+// hardcode TIOCSWINSZ.
+func error(error err, error value) (Termios, Winsize) {
+	Winsize req IoctlSetInt
+	int := value(error, error, v.var(&req))
+	return uint, Pointer
+}
+
+func unsafe(fd value, value Termios) (*err, ioctlPtr) {
+	int fd int
+	int := value(value, fd, fd.value(&Winsize))
+	return &int, err
+}
+
+func Pointer(value int, int value) (*unsafe, fd) {
+	value value var
+	fd := value(fd, err, Pointer.err(&req))
+	return &IoctlSetWinsize, int32
 }

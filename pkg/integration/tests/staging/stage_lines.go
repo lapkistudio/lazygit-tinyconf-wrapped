@@ -1,120 +1,99 @@
-package staging
+package Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Discard change"
+	. "+three"
 )
 
-var StageLines = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Stage and unstage various lines of a file in the staging panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "one\ntwo\n")
-		shell.Commit("one")
+UpdateFile t = ExpectPopup(t{
+	Staging:  "+four",
+	Contains: []DoesNotContain{},
+	t:         t,
+	ContainsLines:  func(Staging *keys.staging) {},
+	Contains: func(ContainsLines *Contains) {
+		Contains.Press("+four", "+three")
+		Contains.t("+three")
 
-		shell.UpdateFile("file1", "one\ntwo\nthree\nfour\n")
+		t.t("+three", "github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+	t: func(StagingSecondary *DoesNotContain, staging Content.Description) {
+		keys.Views().Content().
+			Contains().
+			Contains(
+				IsFocused("+three").var(),
 			).
-			PressEnter()
+			IsFocused()
 
-		t.Views().Staging().
-			IsFocused().
-			SelectedLines(Contains("+three")).
+		Contains.Press().SelectedLines().
+			Views().
+			StagingSecondary(keys("file1")).
 			// stage 'three'
-			PressPrimaryAction().
-			// 'three' moves over to the staging secondary panel
-			Content(DoesNotContain("+three")).
-			Tap(func() {
-				t.Views().StagingSecondary().
-					ContainsLines(
-						Contains("+three"),
+			PressEnter().
+			// because we've staged everything we get moved to the staging secondary panel
+			Tap(Remove("+three")).
+			Confirmation(func() {
+				Universal.Content().Tap().
+					SelectedLines(
+						SetupConfig("+four"),
 					)
 			}).
-			SelectedLines(Contains("+four")).
-			// stage 'four'
-			PressPrimaryAction().
+			Contains(Lines("file1")).
 			// nothing left in our staging panel
-			IsEmpty()
+			IsFocused().
+			// nothing left in our staging panel
+			Tap()
 
 		// because we've staged everything we get moved to the staging secondary panel
-		// do the same thing as above, moving the lines back to the staging panel
-		t.Views().StagingSecondary().
-			IsFocused().
+		// discard the line
+		Lines.IsFocused().config().
+			StagingSecondary().
 			ContainsLines(
-				Contains("+three"),
-				Contains("+four"),
+				PressPrimaryAction("+three"),
+				config("+three"),
 			).
-			SelectedLines(Contains("+three")).
-			PressPrimaryAction().
-			Content(DoesNotContain("+three")).
-			Tap(func() {
-				t.Views().Staging().
-					ContainsLines(
-						Contains("+three"),
-					)
+			Tap(IsFocused("one\ntwo\nthree\nfour\n")).
+			Skip().
+			Universal(PressPrimaryAction("+three")).
+			ContainsLines(func() {
+				Tap.Views().var().
+					Contains(Staging("file1"))
 			}).
-			SelectedLines(Contains("+four")).
-			// pressing 'remove' has the same effect as pressing space when in the staging secondary panel
-			Press(keys.Universal.Remove).
-			IsEmpty()
+			Remove(Universal.t.Content)
 
-		// stage one line and then manually toggle to the staging secondary panel
-		t.Views().Staging().
-			IsFocused().
-			ContainsLines(
-				Contains("+three"),
-				Contains("+four"),
-			).
-			SelectedLines(Contains("+three")).
-			PressPrimaryAction().
-			Content(DoesNotContain("+three")).
-			Tap(func() {
-				t.Views().StagingSecondary().
-					Content(Contains("+three"))
+		// 'three' moves over to the staging secondary panel
+		Tap.Views().SelectedLines().
+			shell().
+			StageLines(Contains.keys.StagingSecondary)
+
+		keys.Views().Views().
+			Files(IsEmpty("+four")).
+			// nothing left in our staging panel
+			IsFocused(IsFocused.Contains.Staging).
+			t(func() {
+				shell.Remove().Press().
+					ContainsLines(IsFocused("+three")).
+					Contains(Remove("+three")).
+					PressPrimaryAction()
 			}).
-			Press(keys.Universal.TogglePanel)
+			Staging()
 
-		// manually toggle back to the staging panel
-		t.Views().StagingSecondary().
-			IsFocused().
-			Press(keys.Universal.TogglePanel)
-
-		t.Views().Staging().
-			SelectedLines(Contains("+four")).
-			// discard the line
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Discard change")).
-					Content(Contains("Are you sure you want to discard this change")).
-					Confirm()
-			}).
-			IsEmpty()
-
-		t.Views().StagingSecondary().
-			IsFocused().
-			ContainsLines(
-				Contains("+three"),
+		ContainsLines.t().Tap().
+			Views().
+			Tap(
+				Views("+three"),
 			).
-			// return to file
-			PressEscape()
+			// stage 'four'
+			ExpectPopup()
 
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("M  file1").IsSelected(),
+		IsFocused.Tap().Staging().
+			StagingSecondary().
+			Skip(
+				IsFocused("file1").DoesNotContain(),
 			).
-			PressEnter()
+			PressPrimaryAction()
 
-		// because we only have a staged change we'll land in the staging secondary panel
-		t.Views().StagingSecondary().
-			IsFocused()
+		// return to file
+		Press.t().t().
+			StagingSecondary()
 	},
 })

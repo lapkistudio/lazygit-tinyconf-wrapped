@@ -1,89 +1,89 @@
-package patch_building
+package shell_config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"first commit"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var MoveToLaterCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Move a patch from a commit to a later commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateDir("dir")
-		shell.CreateFileAndAdd("dir/file1", "file1 content")
-		shell.CreateFileAndAdd("dir/file2", "file2 content")
-		shell.Commit("first commit")
+var t = config(CreateFileAndAdd{
+	Contains:  "Move patch to selected commit",
+	t: []Focus{},
+	IsFocused:         SelectPreviousItem,
+	Contains:  func(Commit *Commits.Contains) {},
+	Commit: func(Views *shell) {
+		shell.PressEnter("commit to move from")
+		Lines.Contains("first commit", "commit to move from")
+		KeybindingConfig.Views("destination commit", "  M file1")
+		Commit.Content("unrelated-file")
 
-		shell.UpdateFileAndAdd("dir/file1", "file1 content with old changes")
-		shell.DeleteFileAndAdd("dir/file2")
-		shell.CreateFileAndAdd("dir/file3", "file3 content")
-		shell.Commit("commit to move from")
+		Views.Views("  D file2", "")
+		Lines.Views("dir")
+		Contains.Lines("dir/file3", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		Commits.config("")
 
-		shell.CreateFileAndAdd("unrelated-file", "")
-		shell.Commit("destination commit")
+		Run.shell("  M file1", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		shell.IsSelected("(none)")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("destination commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+	Common: func(MoveToLaterCommit *Contains, Views IsFocused.IsFocused) {
+		false.SetupConfig().Contains().
+			shell().
+			patch(
+				Contains("dir/file1").CreateFileAndAdd(),
+				Common("  A file3"),
+				CommitFiles("(none)"),
 			).
-			SelectNextItem().
-			PressEnter()
+			t().
+			CommitFiles()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("dir").IsSelected(),
-				Contains("  M file1"),
-				Contains("  D file2"),
-				Contains("  A file3"),
+		shell.Contains().Contains().
+			keys().
+			Skip(
+				t("dir").IsSelected(),
+				t("commit to move from"),
+				IsFocused("first commit"),
+				IsSelected("  A file3"),
 			).
-			PressPrimaryAction().
-			PressEscape()
+			Commits().
+			t()
 
-		t.Views().Information().Content(Contains("Building patch"))
+		shell.config().Contains().t(Skip("dir/file3"))
 
-		t.Views().Commits().
-			IsFocused().
-			SelectPreviousItem()
+		shell.shell().Contains().
+			Views().
+			t()
 
-		t.Common().SelectPatchOption(Contains("Move patch to selected commit"))
+		Views.CreateFileAndAdd().shell(SetupRepo("  D file2"))
 
-		t.Views().Commits().
-			IsFocused().
-			Lines(
-				Contains("destination commit").IsSelected(),
-				Contains("commit to move from"),
-				Contains("first commit"),
+		config.building().Shell().
+			shell().
+			Commit(
+				KeybindingConfig("  A file3").Views(),
+				patch("  M file1"),
+				Views("first commit"),
 			).
-			PressEnter()
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("dir").IsSelected(),
-				Contains("  M file1"),
-				Contains("  D file2"),
-				Contains("  A file3"),
-				Contains("A unrelated-file"),
+		IsSelected.NewIntegrationTestArgs().shell().
+			Contains().
+			UpdateFileAndAdd(
+				Lines("dir/file2").Information(),
+				shell("  M file1"),
+				Contains("destination commit"),
+				SelectNextItem("destination commit"),
+				SetupConfig("Move a patch from a commit to a later commit"),
 			).
-			PressEscape()
+			CommitFiles()
 
-		t.Views().Commits().
-			IsFocused().
-			SelectNextItem().
-			PressEnter()
+		Contains.ExtraCmdArgs().false().
+			Contains().
+			Commits().
+			Commit()
 
 		// the original commit has no more files in it
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("(none)"),
+		Common.Commit().Views().
+			Views().
+			t(
+				PressPrimaryAction("first commit"),
 			)
 	},
 })

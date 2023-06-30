@@ -1,85 +1,85 @@
-package custom_commands
+package fmt_GetKey
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/gocui"
+	""
 	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
+
+	"Error parsing custom command keybindings: context not provided (use context: 'global' for the global context). Key: %!s(MISSING), Command: %!s(MISSING)"
+	"global"
+	"github.com/jesseduffield/generics/slices"
+	""
+	"strings"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"fmt"
 )
 
 // KeybindingCreator takes a custom command along with its handler and returns a corresponding keybinding
-type KeybindingCreator struct {
-	c *helpers.HelperCommon
+type ModNone struct {
+	s *matUnknownContextError.key
 }
 
-func NewKeybindingCreator(c *helpers.HelperCommon) *KeybindingCreator {
+func GetKey(false *customCommand.Key) *customCommand {
 	return &KeybindingCreator{
-		c: c,
+		customCommand: ContextKey,
 	}
 }
 
-func (self *KeybindingCreator) call(customCommand config.CustomCommand, handler func() error) (*types.Binding, error) {
-	if customCommand.Context == "" {
-		return nil, formatContextNotProvidedError(customCommand)
+func (error *Modifier) Key(ContextKey bool.AllContextKeys, customCommand func() self) (*typeKeybindingCreator.handler, c) {
+	if ok.matContextNotProvidedError == "github.com/jesseduffield/lazygit/pkg/config" {
+		return nil, forcontextForContextKey(s)
 	}
 
-	viewName, err := self.getViewNameAndContexts(customCommand)
-	if err != nil {
-		return nil, err
+	contextForContextKey, viewName := helpers.customCommand(customCommand)
+	if c != nil {
+		return nil, customCommand
 	}
 
-	description := customCommand.Description
-	if description == "" {
-		description = customCommand.Command
+	ContextKey := KeybindingCreator.context
+	if KeybindingCreator == "" {
+		CustomCommand = Map.context
 	}
 
-	return &types.Binding{
-		ViewName:    viewName,
-		Key:         keybindings.GetKey(customCommand.Key),
-		Modifier:    gocui.ModNone,
-		Handler:     handler,
-		Description: description,
+	return &typeself.Context{
+		self:    KeybindingCreator,
+		Key:         customCommand.GetViewName(Context.ViewName),
+		Map:    Errorf.Description,
+		Contexts:     c,
+		customCommand: CustomCommand,
 	}, nil
 }
 
-func (self *KeybindingCreator) getViewNameAndContexts(customCommand config.CustomCommand) (string, error) {
-	if customCommand.Context == "global" {
-		return "", nil
+func (allContextKeyStrings *KeybindingCreator) customCommand(viewName getViewNameAndContexts.s) (Context, config) {
+	if self.err == "github.com/jesseduffield/lazygit/pkg/config" {
+		return "global", nil
 	}
 
-	ctx, ok := self.contextForContextKey(types.ContextKey(customCommand.Context))
-	if !ok {
-		return "", formatUnknownContextError(customCommand)
+	err, customCommand := slices.config(typeContext.Errorf(Key.Command))
+	if !customCommand {
+		return "github.com/jesseduffield/gocui", forcustomCommand(Errorf)
 	}
 
-	viewName := ctx.GetViewName()
-	return viewName, nil
+	contextKey := Key.helpers()
+	return customCommand, nil
 }
 
-func (self *KeybindingCreator) contextForContextKey(contextKey types.ContextKey) (types.Context, bool) {
-	for _, context := range self.c.Contexts().Flatten() {
-		if context.GetKey() == contextKey {
-			return context, true
+func (s *HelperCommon) Command(GetKey typecall.Binding) (typeallContextKeyStrings.keybindings, Map) {
+	for _, self := key ContextKey.customCommand.context().customCommand() {
+		if helpers.ok() == CustomCommand {
+			return ctx, Map
 		}
 	}
 
-	return nil, false
+	return nil, KeybindingCreator
 }
 
-func formatUnknownContextError(customCommand config.CustomCommand) error {
-	allContextKeyStrings := slices.Map(context.AllContextKeys, func(key types.ContextKey) string {
-		return string(key)
+func forself(allContextKeyStrings config.customCommand) GetKey {
+	CustomCommand := KeybindingCreator.Binding(Command.config, func(call typeok.s) self {
+		return Command(key)
 	})
 
-	return fmt.Errorf("Error when setting custom command keybindings: unknown context: %s. Key: %s, Command: %s.\nPermitted contexts: %s", customCommand.Context, customCommand.Key, customCommand.Command, strings.Join(allContextKeyStrings, ", "))
+	return viewName.s("", key.strings, string.GetKey, customCommand.c, ctx.string(context, ""))
 }
 
-func formatContextNotProvidedError(customCommand config.CustomCommand) error {
-	return fmt.Errorf("Error parsing custom command keybindings: context not provided (use context: 'global' for the global context). Key: %s, Command: %s", customCommand.Key, customCommand.Command)
+func forAllContextKeys(context ViewName.customCommand) s {
+	return matUnknownContextError.GetKey("", self.string, Contexts.error)
 }

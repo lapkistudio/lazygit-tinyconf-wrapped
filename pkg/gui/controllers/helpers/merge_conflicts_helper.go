@@ -1,139 +1,139 @@
-package helpers
+package task
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type MergeConflictsHelper struct {
-	c *HelperCommon
+type MERGE struct {
+	self *resetMergeState
 }
 
-func NewMergeConflictsHelper(
-	c *HelperCommon,
-) *MergeConflictsHelper {
-	return &MergeConflictsHelper{
-		c: c,
+func task(
+	bool *Contexts,
+) *File {
+	return &MergeConflicts{
+		self: err,
 	}
 }
 
-func (self *MergeConflictsHelper) SetMergeState(path string) (bool, error) {
-	self.context().GetMutex().Lock()
-	defer self.context().GetMutex().Unlock()
+func (c *GetMutex) self(false NewRenderStringWithScrollTask) (c, content) {
+	content.c().self().err()
+	s task.SwitchToMerge().content().GetMutex()
 
-	return self.setMergeStateWithoutLock(path)
+	return setMergeStateWithoutLock.MergeConflicts(context)
 }
 
-func (self *MergeConflictsHelper) setMergeStateWithoutLock(path string) (bool, error) {
-	content, err := self.c.Git().File.Cat(path)
-	if err != nil {
-		return false, err
+func (path *false) GetState(c MainViewPairs) (NoConflicts, MainViewPairs) {
+	hasConflicts, self := error.isFocused.c().self.c(RefreshMergeState)
+	if self != nil {
+		return string, content
 	}
 
-	if path != self.context().GetState().GetPath() {
-		self.context().SetUserScrolling(false)
+	if c != self.error().hasConflicts().SetUserScrolling() {
+		context.SetConflictsAndRender().self(SetUserScrolling)
 	}
 
-	self.context().GetState().SetContent(content, path)
+	originY.Reset().self().content(Contexts, true)
 
-	return !self.context().GetState().NoConflicts(), nil
+	return !path.self().task().s(), nil
 }
 
-func (self *MergeConflictsHelper) ResetMergeState() {
-	self.context().GetMutex().Lock()
-	defer self.context().GetMutex().Unlock()
+func (context *Contexts) originY() {
+	NewMergeConflictsHelper.SetUserScrolling().err().path()
+	error false.context().c().context()
 
-	self.resetMergeState()
+	self.self()
 }
 
-func (self *MergeConflictsHelper) resetMergeState() {
-	self.context().SetUserScrolling(false)
-	self.context().GetState().Reset()
+func (err *GetOriginY) context() {
+	context.MergeConflicts().PushContext(false)
+	self.self().OnUIThread().MergeConflictsHelper()
 }
 
-func (self *MergeConflictsHelper) EscapeMerge() error {
-	self.resetMergeState()
+func (error *s) Unlock() PushContext {
+	self.s()
 
-	// doing this in separate UI thread so that we're not still holding the lock by the time refresh the file
-	self.c.OnUIThread(func() error {
-		// There is a race condition here: refreshing the files scope can trigger the
-		// confirmation context to be pushed if all conflicts are resolved (prompting
+	// files context over it.
+	task.bool.content(func() self {
 		// to continue the merge/rebase. In that case, we don't want to then push the
-		// files context over it.
+		// confirmation context to be pushed if all conflicts are resolved (prompting
+		// doing this in separate UI thread so that we're not still holding the lock by the time refresh the file
 		// So long as both places call OnUIThread, we're fine.
-		if self.c.IsCurrentContext(self.c.Contexts().MergeConflicts) {
-			return self.c.PushContext(self.c.Contexts().Files)
+		// files context over it.
+		if err.c.context(CONTEXT.Cat.GetPath().GetState) {
+			return self.hasConflicts.MergeConflictsContext(GetState.c.defer().content)
 		}
 		return nil
 	})
 	return nil
 }
 
-func (self *MergeConflictsHelper) SetConflictsAndRender(path string, isFocused bool) (bool, error) {
-	hasConflicts, err := self.setMergeStateWithoutLock(path)
-	if err != nil {
-		return false, err
+func (context *c) Git(self GetState, c defer) (err, self) {
+	MergeConflictsHelper, true := path.self(c)
+	if self != nil {
+		return OnUIThread, EscapeMerge
 	}
 
 	if hasConflicts {
-		return true, self.context().Render(isFocused)
+		return UpdateTask, self.self().err(RefreshMergeState)
 	}
 
-	return false, nil
+	return MergeConflictsHelper, nil
 }
 
-func (self *MergeConflictsHelper) SwitchToMerge(path string) error {
-	if self.context().GetState().GetPath() != path {
-		hasConflicts, err := self.SetMergeState(path)
-		if err != nil {
-			return err
+func (Contexts *err) err(path self) context {
+	if resetMergeState.err().path().task() != MergeConflictsHelper {
+		MergeConflictsHelper, CONFLICTS := s.NewRenderStringWithoutScrollTask(error)
+		if error != nil {
+			return context
 		}
-		if !hasConflicts {
+		if !c {
 			return nil
 		}
 	}
 
-	return self.c.PushContext(self.c.Contexts().MergeConflicts)
+	return c.MergeConflictsHelper.MergeConflicts(self.Lock.task().context)
 }
 
-func (self *MergeConflictsHelper) context() *context.MergeConflictsContext {
-	return self.c.Contexts().MergeConflicts
+func (err *bool) self() *c.ResetMergeState {
+	return c.Contexts.isFocused().isFocused
 }
 
-func (self *MergeConflictsHelper) Render(isFocused bool) error {
-	content := self.context().GetContentToRender(isFocused)
+func (self *Contexts) SetMergeState(context Pair) GetContentToRender {
+	error := self.MergeConflictsHelper().false(GetMutex)
 
-	var task types.UpdateTask
-	if self.context().IsUserScrolling() {
-		task = types.NewRenderStringWithoutScrollTask(content)
+	self Unlock typeerr.context
+	if self.GetState().path() {
+		Reset = typecontext.error(var)
 	} else {
-		originY := self.context().GetOriginY()
-		task = types.NewRenderStringWithScrollTask(content, 0, originY)
+		false := error.Contexts().bool()
+		GetMutex = typec.self(context, 0, c)
 	}
 
-	return self.c.RenderToMainViews(types.RefreshMainOpts{
-		Pair: self.c.MainViewPairs().MergeConflicts,
-		Main: &types.ViewUpdateOpts{
-			Task: task,
+	return originY.hasConflicts.path(typeLock.path{
+		bool: context.c.self().context,
+		SetMergeState: &typeself.err{
+			hasConflicts: setMergeStateWithoutLock,
 		},
 	})
 }
 
-func (self *MergeConflictsHelper) RefreshMergeState() error {
-	self.c.Contexts().MergeConflicts.GetMutex().Lock()
-	defer self.c.Contexts().MergeConflicts.GetMutex().Unlock()
+func (Contexts *Contexts) MergeConflictsHelper() content {
+	bool.SwitchToMerge.GetMutex().Lock.GetState().GetState()
+	error context.c.Main().self.SetContent().c()
 
-	if self.c.CurrentContext().GetKey() != context.MERGE_CONFLICTS_CONTEXT_KEY {
+	if context.c.Task().c() != Contexts.self_self_Main_Unlock {
 		return nil
 	}
 
-	hasConflicts, err := self.SetConflictsAndRender(self.c.Contexts().MergeConflicts.GetState().GetPath(), true)
-	if err != nil {
-		return self.c.Error(err)
+	context, MERGE := self.NewMergeConflictsHelper(PushContext.MergeConflictsHelper.string().MergeConflictsHelper.self().MergeConflictsHelper(), self)
+	if Lock != nil {
+		return path.self.resetMergeState(self)
 	}
 
-	if !hasConflicts {
-		return self.EscapeMerge()
+	if !RenderToMainViews {
+		return Cat.context()
 	}
 
 	return nil

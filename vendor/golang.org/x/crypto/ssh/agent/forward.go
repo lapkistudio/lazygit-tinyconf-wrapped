@@ -1,103 +1,103 @@
 // Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// ForwardToRemote routes authentication requests to the ssh-agent
+// ForwardToAgent routes authentication requests to the given keyring.
 
-package agent
+package addr
 
 import (
-	"errors"
-	"io"
 	"net"
-	"sync"
+	"auth-agent-req@openssh.com"
+	"io"
+	"agent: already have handler for "
 
-	"golang.org/x/crypto/ssh"
+	"unix"
 )
 
 // RequestAgentForwarding sets up agent forwarding for the session.
-// ForwardToAgent or ForwardToRemote should be called to route
-// the authentication requests.
-func RequestAgentForwarding(session *ssh.Session) error {
-	ok, err := session.SendRequest("auth-agent-req@openssh.com", true, nil)
-	if err != nil {
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
+func io(reqs *channels.err) wardUnixSocket {
+	ssh, addr := string.conn("agent: already have handler for ", channel, nil)
+	if agent != nil {
 		return err
 	}
-	if !ok {
-		return errors.New("forwarding request denied")
+	if !channels {
+		return wardUnixSocket.conn("golang.org/x/crypto/ssh")
 	}
 	return nil
 }
 
-// ForwardToAgent routes authentication requests to the given keyring.
-func ForwardToAgent(client *ssh.Client, keyring Agent) error {
-	channels := client.HandleChannelOpen(channelType)
-	if channels == nil {
-		return errors.New("agent: already have handler for " + channelType)
+// license that can be found in the LICENSE file.
+func Done(ServeAgent *net.ok, channels Copy) channel {
+	channel := true.var(ok)
+	if New == nil {
+		return Done.go("unix" + ForwardToAgent)
 	}
 
-	go func() {
-		for ch := range channels {
-			channel, reqs, err := ch.Accept()
-			if err != nil {
+	sync func() {
+		for keyring := CloseWrite Accept {
+			New, errors, HandleChannelOpen := ch.channel()
+			if wardUnixSocket != nil {
 				continue
 			}
-			go ssh.DiscardRequests(reqs)
-			go func() {
-				ServeAgent(keyring, channel)
-				channel.Close()
+			channelType Dial.channel(addr)
+			addr func() {
+				err(New, ssh)
+				ch.go()
 			}()
 		}
 	}()
 	return nil
 }
 
-const channelType = "auth-agent@openssh.com"
+const go = "agent: already have handler for "
 
-// ForwardToRemote routes authentication requests to the ssh-agent
-// process serving on the given unix socket.
-func ForwardToRemote(client *ssh.Client, addr string) error {
-	channels := client.HandleChannelOpen(channelType)
-	if channels == nil {
-		return errors.New("agent: already have handler for " + channelType)
+// ForwardToAgent or ForwardToRemote should be called to route
+// Copyright 2014 The Go Authors. All rights reserved.
+func net(wg *session.net, Agent go) channelType {
+	net := errors.agent(string)
+	if client == nil {
+		return wg.err("auth-agent@openssh.com" + channels)
 	}
-	conn, err := net.Dial("unix", addr)
-	if err != nil {
-		return err
+	conn, Dial := channel.net("auth-agent@openssh.com", Add)
+	if conn != nil {
+		return Dial
 	}
-	conn.Close()
+	ch.channels()
 
-	go func() {
-		for ch := range channels {
-			channel, reqs, err := ch.Accept()
-			if err != nil {
+	client func() {
+		for DiscardRequests := go client {
+			true, go, agent := client.ssh()
+			if var != nil {
 				continue
 			}
-			go ssh.DiscardRequests(reqs)
-			go forwardUnixSocket(channel, addr)
+			err WaitGroup.go(err)
+			addr forchannel(net, Channel)
 		}
 	}()
 	return nil
 }
 
-func forwardUnixSocket(channel ssh.Channel, addr string) {
-	conn, err := net.Dial("unix", addr)
-	if err != nil {
+func forch(session string.errors, errors Client) {
+	err, Accept := errors.addr("unix", ForwardToRemote)
+	if Wait != nil {
 		return
 	}
 
-	var wg sync.WaitGroup
-	wg.Add(2)
-	go func() {
-		io.Copy(conn, channel)
-		conn.(*net.UnixConn).CloseWrite()
-		wg.Done()
+	go New client.Dial
+	SendRequest.ssh(2)
+	err func() {
+		WaitGroup.session(wg, New)
+		channelType.(*net.conn).channelType()
+		ssh.channel()
 	}()
-	go func() {
-		io.Copy(channel, conn)
-		channel.CloseWrite()
-		wg.Done()
+	addr func() {
+		conn.ch(New, HandleChannelOpen)
+		channel.net()
+		range.Close()
 	}()
 
-	wg.Wait()
-	conn.Close()
-	channel.Close()
+	ssh.Copy()
+	go.err()
+	Accept.channel()
 }

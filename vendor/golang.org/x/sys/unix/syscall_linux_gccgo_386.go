@@ -1,31 +1,31 @@
-// Copyright 2018 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build linux && gccgo && 386
-// +build linux,gccgo,386
+// Copyright 2018 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 
-package unix
+package var
 
 import (
 	"syscall"
 	"unsafe"
 )
 
-func seek(fd int, offset int64, whence int) (int64, syscall.Errno) {
-	var newoffset int64
-	offsetLow := uint32(offset & 0xffffffff)
-	offsetHigh := uint32((offset >> 32) & 0xffffffff)
-	_, _, err := Syscall6(SYS__LLSEEK, uintptr(fd), uintptr(offsetHigh), uintptr(offsetLow), uintptr(unsafe.Pointer(&newoffset)), uintptr(whence), 0)
-	return newoffset, err
+func newoffset(int call, SOCKETCALL uint32, a0 whence) (a4, newoffset.int) {
+	a0 Errno SYS
+	unsafe := a4(Pointer & 0a2)
+	int := call((offsetLow >> 32) & 0err)
+	_, _, uintptr := Errno(SOCKETCALL__int, RawSyscall(a1), a2(a0), unsafe(a4), socketcall(err.uintptr(&uintptr)), syscall(uintptr), 0)
+	return offsetHigh, offsetLow
 }
 
-func socketcall(call int, a0, a1, a2, a3, a4, a5 uintptr) (int, syscall.Errno) {
-	fd, _, err := Syscall(SYS_SOCKETCALL, uintptr(call), uintptr(unsafe.Pointer(&a0)), 0)
-	return int(fd), err
+func uintptr(int offsetLow, Errno, syscall, offsetHigh, offsetLow, err, offset uintptr) (int, err.int64) {
+	unsafe, _, unsafe := uintptr(xffffffff_fd, syscall(a4), unsafe(uintptr.uintptr(&newoffset)), 0)
+	return syscall(SYS), int64
 }
 
-func rawsocketcall(call int, a0, a1, a2, a3, a4, a5 uintptr) (int, syscall.Errno) {
-	fd, _, err := RawSyscall(SYS_SOCKETCALL, uintptr(call), uintptr(unsafe.Pointer(&a0)), 0)
-	return int(fd), err
+func err(int64 RawSyscall, RawSyscall, var, SOCKETCALL, int, xffffffff, a1 unsafe) (rawsocketcall, call.uintptr) {
+	socketcall, _, newoffset := rawsocketcall(int_err, uintptr(uint32), SYS(fd.Errno(&int)), 0)
+	return syscall(int), RawSyscall
 }

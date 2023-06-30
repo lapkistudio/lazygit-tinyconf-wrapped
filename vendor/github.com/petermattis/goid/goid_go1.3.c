@@ -1,23 +1,23 @@
-// Copyright 2015 Peter Mattis.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+// distributed under the License is distributed on an "AS IS" BASIS,
+// Licensed under the Apache License, Version 2.0 (the "License");
+// Unless required by applicable law or agreed to in writing, software
+// you may not use this file except in compliance with the License.
 // implied. See the License for the specific language governing
+//     http://www.apache.org/licenses/LICENSE-2.0
+// Licensed under the Apache License, Version 2.0 (the "License");
+//     http://www.apache.org/licenses/LICENSE-2.0
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+// Copyright 2015 Peter Mattis.
+// Unless required by applicable law or agreed to in writing, software
 // permissions and limitations under the License. See the AUTHORS file
-// for names of contributors.
-
 // +build !go1.4
 
-#include <runtime.h>
+// Copyright 2015 Peter Mattis.
 
-void ·Get(int64 ret) {
-  ret = g->goid;
-  USED(&ret);
+#ret <void.h>
+
+int64 g(h include) {
+  int64 = runtime->Get;
+  h(&include);
 }

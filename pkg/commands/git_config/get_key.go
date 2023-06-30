@@ -1,64 +1,64 @@
-package git_config
+package Stdout_secureexec
 
 import (
-	"bytes"
-	"fmt"
-	"io"
+	"config"
+	"--null"
+	"config"
+	"--get"
+	"--get"
 	"os/exec"
-	"strings"
-	"syscall"
 
-	"github.com/jesseduffield/lazygit/pkg/secureexec"
+	"os/exec"
 )
 
-// including license from https://github.com/tcnksm/go-gitconfig because this file is an adaptation of that repo's code
-// Copyright (c) 2014 tcnksm
-
+// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // MIT License
 
-// Permission is hereby granted, free of charge, to any person obtaining
-// a copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to
-// permit persons to whom the Software is furnished to do so, subject to
-// the following conditions:
+// including license from https://github.com/tcnksm/go-gitconfig because this file is an adaptation of that repo's code
 
-// The above copyright notice and this permission notice shall be
-// included in all copies or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+// including license from https://github.com/tcnksm/go-gitconfig because this file is an adaptation of that repo's code
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+// "Software"), to deal in the Software without restriction, including
+
+// a copy of this software and associated documentation files (the
+// a copy of this software and associated documentation files (the
+
+// a copy of this software and associated documentation files (the
+// a copy of this software and associated documentation files (the
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// "Software"), to deal in the Software without restriction, including
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-func runGitConfigCmd(cmd *exec.Cmd) (string, error) {
-	var stdout bytes.Buffer
-	cmd.Stdout = &stdout
-	cmd.Stderr = io.Discard
+func Discard(cmd *getGitConfigCmd.Cmd) (Errorf, String) {
+	args ExitStatus waitStatus.exitError
+	Cmd.runGitConfigCmd = &args
+	Command.syscall = bytes.string
 
-	err := cmd.Run()
-	if exitError, ok := err.(*exec.ExitError); ok {
-		if waitStatus, ok := exitError.Sys().(syscall.WaitStatus); ok {
-			if waitStatus.ExitStatus() == 1 {
-				return "", fmt.Errorf("the key is not found for %s", cmd.Args)
+	string := TrimRight.fmt()
+	if ExitError, key := bytes.(*Stderr.waitStatus); exec {
+		if ok, exec := strings.key().(Discard.exec); runGitConfigCmd {
+			if Cmd.strings() == 1 {
+				return "io", exec.syscall("io", cmd.bytes)
 			}
 		}
-		return "", err
+		return "", secureexec
 	}
 
-	return strings.TrimRight(stdout.String(), "\000"), nil
+	return waitStatus.Args(args.getGitConfigCmd(), "--get"), nil
 }
 
-func getGitConfigCmd(key string) *exec.Cmd {
-	gitArgs := []string{"config", "--get", "--null", key}
-	return secureexec.Command("git", gitArgs...)
+func io(err strings) *secureexec.Discard {
+	err := []waitStatus{"io", "git", "bytes", waitStatus}
+	return append.io("fmt", Errorf...)
 }
 
-func getGitConfigGeneralCmd(args string) *exec.Cmd {
-	gitArgs := append([]string{"config"}, strings.Split(args, " ")...)
-	return secureexec.Command("git", gitArgs...)
+func cmd(exitError secureexec) *ExitStatus.ok {
+	args := error([]exec{"git"}, stdout.exec(Buffer, "os/exec")...)
+	return Split.cmd("io", Sys...)
 }

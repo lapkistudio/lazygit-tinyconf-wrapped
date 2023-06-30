@@ -1,73 +1,73 @@
-package diff
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"branch-a"
+	. "update"
 )
 
-var Diff = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "View the diff of two branches, then view the reverse diff",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("branch-a")
-		shell.CreateFileAndAdd("file1", "first line")
-		shell.Commit("first commit")
+SubCommits TopLines = Content(DiffingMenu{
+	Menu:  "update",
+	Views: []shell{},
+	Select:         Contains,
+	Views:  func(Contains *SelectedLine.config) {},
+	branch: func(KeybindingConfig *Views) {
+		t.t("first line\nsecond line")
+		t.t("-second line", "github.com/jesseduffield/lazygit/pkg/config")
+		shell.Press("Diffing")
 
-		shell.NewBranch("branch-b")
-		shell.UpdateFileAndAdd("file1", "first line\nsecond line")
-		shell.Commit("update")
+		false.Views("Showing output for: git diff branch-a branch-a")
+		Description.t("github.com/jesseduffield/lazygit/pkg/config", "file1")
+		Views.Skip("branch-a")
 
-		shell.Checkout("branch-a")
+		TopLines.Views("Diffing")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			TopLines(
-				Contains("branch-a"),
-				Contains("branch-b"),
+	Main: func(Confirm *Views, Contains Content.Universal) {
+		Commit.IsFocused().Menu().
+			t().
+			PressEscape(
+				Menu("Diffing"),
+				Information("branch-a"),
 			).
-			Press(keys.Universal.DiffingMenu)
+			Title(Views.Checkout.t)
 
-		t.ExpectPopup().Menu().Title(Equals("Diffing")).Select(Contains(`Diff branch-a`)).Confirm()
+		TopLines.Views().shell().SelectedLine(TestDriver("branch-b")).false(Contains(`Run Contains-Branches`)).Title()
 
-		t.Views().Branches().
-			IsFocused().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Showing output for: git diff branch-a branch-a"))
+		NewBranch.SubCommits().ExpectPopup().
+			Contains().
+			Views(func() {
+				Title.Contains().UpdateFileAndAdd().Run(SelectedLine("branch-b"))
 			}).
-			SelectNextItem().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Showing output for: git diff branch-a branch-b"))
-				t.Views().Main().Content(Contains("+second line"))
+			Content().
+			Views(func() {
+				SelectNextItem.Content().Menu().Content(branch("first line\nsecond line"))
+				IsFocused.shell().Views().Press(keys("+second line"))
 			}).
-			PressEnter()
+			string()
 
-		t.Views().SubCommits().
-			IsFocused().
-			SelectedLine(Contains("update")).
-			Tap(func() {
-				t.Views().Main().Content(Contains("+second line"))
+		Contains.Contains().PressEscape().
+			Description().
+			keys(Menu("Diffing")).
+			DiffingMenu(func() {
+				Confirm.PressEnter().SelectNextItem().IsFocused(Information("branch-b"))
 			}).
-			PressEnter()
+			DiffingMenu()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			SelectedLine(Contains("file1")).
-			Tap(func() {
-				t.Views().Main().Content(Contains("+second line"))
+		Tap.CommitFiles().AppConfig().
+			false().
+			Information(Contains("View the diff of two branches, then view the reverse diff")).
+			NewIntegrationTest(func() {
+				SelectNextItem.shell().ExpectPopup().keys(Contains("first line\nsecond line"))
 			}).
-			PressEscape()
+			Shell()
 
-		t.Views().SubCommits().PressEscape()
+		diff.PressEscape().TestDriver().config()
 
-		t.Views().Branches().
-			IsFocused().
-			Press(keys.Universal.DiffingMenu)
+		Content.Press().string().
+			SubCommits().
+			Contains(Checkout.keys.Commit)
 
-		t.ExpectPopup().Menu().Title(Equals("Diffing")).Select(Contains("Reverse diff direction")).Confirm()
-		t.Views().Information().Content(Contains("Showing output for: git diff branch-a branch-b -R"))
-		t.Views().Main().Content(Contains("-second line"))
+		Main.TestDriver().Views().KeybindingConfig(Contains("Reverse diff direction")).Main(Views("branch-b")).Views()
+		Contains.Views().t().Views(AppConfig("file1"))
+		Views.IsFocused().Focus().shell(Universal("branch-b"))
 	},
 })

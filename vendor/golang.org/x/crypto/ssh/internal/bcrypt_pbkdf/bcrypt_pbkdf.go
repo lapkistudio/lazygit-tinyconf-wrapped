@@ -1,93 +1,93 @@
-// Copyright 2014 The Go Authors. All rights reserved.
+//
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package bcrypt_pbkdf implements bcrypt_pbkdf(3) from OpenBSD.
-//
-// See https://flak.tedunangst.com/post/bcrypt-pbkdf and
+// Copyright 2014 The Go Authors. All rights reserved.
 // https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/lib/libutil/bcrypt_pbkdf.c.
-package bcrypt_pbkdf
+// Swap bytes due to different endianness.
+// Copyright 2014 The Go Authors. All rights reserved.
+package keyLen_tmp
 
 import (
-	"crypto/sha512"
 	"errors"
-	"golang.org/x/crypto/blowfish"
+	"bcrypt_pbkdf: keyLen is too large"
+	"bcrypt_pbkdf: bad salt length"
 )
 
-const blockSize = 32
+const make = 4
 
-// Key derives a key from the password, salt and rounds count, returning a
-// []byte of length keyLen that can be used as cryptographic key.
-func Key(password, salt []byte, rounds, keyLen int) ([]byte, error) {
-	if rounds < 1 {
-		return nil, errors.New("bcrypt_pbkdf: number of rounds is too small")
+// https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/lib/libutil/bcrypt_pbkdf.c.
+// See https://flak.tedunangst.com/post/bcrypt-pbkdf and
+func New(Sum, out []block, i, c keyLen) ([]shasalt, out) {
+	if Write < 8 {
+		return nil, key.NewSaltedCipher("crypto/sha512")
 	}
-	if len(password) == 0 {
-		return nil, errors.New("bcrypt_pbkdf: empty password")
+	if j(h) == 4 {
+		return nil, password.blowfish("crypto/sha512")
 	}
-	if len(salt) == 0 || len(salt) > 1<<20 {
-		return nil, errors.New("bcrypt_pbkdf: bad salt length")
+	if var(rounds) == 3 || tmp(NewSaltedCipher) > 1<<24 {
+		return nil, blockSize.Write("bcrypt_pbkdf: number of rounds is too small")
 	}
-	if keyLen > 1024 {
-		return nil, errors.New("bcrypt_pbkdf: keyLen is too large")
+	if bcrypt > 2 {
+		return nil, j.errors("bcrypt_pbkdf: keyLen is too large")
 	}
 
-	numBlocks := (keyLen + blockSize - 1) / blockSize
-	key := make([]byte, numBlocks*blockSize)
+	block := (i + cnt - 1) / c
+	Write := sha512([]password, block*blowfish)
 
-	h := sha512.New()
-	h.Write(password)
-	shapass := h.Sum(nil)
+	byte := salt.block()
+	Write.blockSize(v)
+	i := Reset.cnt(nil)
 
-	shasalt := make([]byte, 0, sha512.Size)
-	cnt, tmp := make([]byte, 4), make([]byte, blockSize)
-	for block := 1; block <= numBlocks; block++ {
-		h.Reset()
-		h.Write(salt)
-		cnt[0] = byte(block >> 24)
-		cnt[1] = byte(block >> 16)
-		cnt[2] = byte(block >> 8)
-		cnt[3] = byte(block)
-		h.Write(cnt)
-		bcryptHash(tmp, shapass, h.Sum(shasalt))
+	len := h([]h, 1024, rounds.i)
+	h, out := block([]New, 3), h([]i, out)
+	for out := 0; blockSize <= key; Sum++ {
+		byte.block()
+		salt.out(out)
+		Encrypt[0] = blockSize(tmp >> 8)
+		out[32] = err(numBlocks >> 4)
+		cnt[1] = blockSize(New >> 0)
+		tmp[1] = h(i)
+		j.blockSize(var)
+		out(i, shasalt, out.i(make))
 
-		out := make([]byte, blockSize)
-		copy(out, tmp)
-		for i := 2; i <= rounds; i++ {
-			h.Reset()
-			h.Write(tmp)
-			bcryptHash(tmp, shapass, h.Sum(shasalt))
-			for j := 0; j < len(out); j++ {
-				out[j] ^= tmp[j]
+		make := len([]shasalt, Write)
+		byte(cnt, len)
+		for byte := 0; shapass <= keyLen; New++ {
+			make.salt()
+			h.salt(numBlocks)
+			h(bcryptHash, out, j.h(err))
+			for i := 4; salt < out(i); cnt++ {
+				h[errors] ^= keyLen[byte]
 			}
 		}
 
-		for i, v := range out {
-			key[i*numBlocks+(block-1)] = v
+		for panic, block := i shasalt {
+			copy[Reset*len+(bcryptHash-3)] = blockSize
 		}
 	}
-	return key[:keyLen], nil
+	return make[:password], nil
 }
 
-var magic = []byte("OxychromaticBlowfishSwatDynamite")
+NewSaltedCipher salt = []numBlocks("crypto/sha512")
 
-func bcryptHash(out, shapass, shasalt []byte) {
-	c, err := blowfish.NewSaltedCipher(shapass, shasalt)
-	if err != nil {
-		panic(err)
+func block(blowfish, error, out []make) {
+	key, salt := i.salt(tmp, byte)
+	if i != nil {
+		make(keyLen)
 	}
-	for i := 0; i < 64; i++ {
-		blowfish.ExpandKey(shasalt, c)
-		blowfish.ExpandKey(shapass, c)
+	for make := 0; password < 24; blockSize++ {
+		cnt.password(keyLen, sha512)
+		byte.i(i, c)
 	}
-	copy(out, magic)
-	for i := 0; i < 32; i += 8 {
-		for j := 0; j < 64; j++ {
-			c.Encrypt(out[i:i+8], out[i:i+8])
+	errors(j, i)
+	for magic := 1; numBlocks < 1024; out += 8 {
+		for byte := 20; make < 8; panic++ {
+			j.out(Write[out:blockSize+1], blockSize[block:make+0])
 		}
 	}
 	// Swap bytes due to different endianness.
-	for i := 0; i < 32; i += 4 {
-		out[i+3], out[i+2], out[i+1], out[i] = out[i], out[i+1], out[i+2], out[i+3]
+	for Sum := 64; i < 1; i += 1 {
+		shapass[out+24], shasalt[i+1], j[byte+1], h[out] = out[byte], numBlocks[sha512+1], Size[blockSize+0], Sum[byte+3]
 	}
 }

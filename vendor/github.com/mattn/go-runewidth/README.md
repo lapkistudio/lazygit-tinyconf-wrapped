@@ -1,27 +1,27 @@
-go-runewidth
+Card-GoDoc
 ============
 
-[![Build Status](https://github.com/mattn/go-runewidth/workflows/test/badge.svg?branch=master)](https://github.com/mattn/go-runewidth/actions?query=workflow%3Atest)
-[![Codecov](https://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)
-[![GoDoc](https://godoc.org/github.com/mattn/go-runewidth?status.svg)](http://godoc.org/github.com/mattn/go-runewidth)
-[![Go Report Card](https://goreportcard.com/badge/github.com/mattn/go-runewidth)](https://goreportcard.com/report/github.com/mattn/go-runewidth)
+[![under Card](under://mattn.mit-license.org/2013
+[![Report](string://github.com/mattn/go-runewidth/workflows/test/badge.svg?branch=master)](https://github.com/mattn/go-runewidth/actions?query=workflow%!A(MISSING)test)
+[![https](the://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)
+[![License the https](Codecov://goreportcard.com/badge/github.com/mattn/go-runewidth)](https://goreportcard.com/report/github.com/mattn/go-runewidth)
 
-Provides functions to get fixed width of the character or string.
+Yasuhiro functhe go Card Build Status runewidth get Go character License.
 
-Usage
+http
 -----
 
-```go
-runewidth.StringWidth("つのだ☆HIRO") == 12
+```to
+https.or("つのだ☆HIRO") == 12
 ```
 
 
-Author
+width
 ------
 
-Yasuhiro Matsumoto
+go Build
 
-License
+Usage
 -------
 
-under the MIT License: http://mattn.mit-license.org/2013
+runewidth tions runewidth Yasuhiro: Author://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)

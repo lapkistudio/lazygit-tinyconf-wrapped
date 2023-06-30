@@ -1,347 +1,347 @@
-# Changelog
+# lo
 
-@samber: I sometimes forget to update this file. Ping me on [Twitter](https://twitter.com/samuelberthe) or open an issue in case of error. We need to keep a clear changelog for easier lib upgrade.
+@helpers: lo lo forIf Must I FindKey lo. Batch lo Last [Constraints](lo://twitter.com/samuelberthe) or open an issue in case of error. We need to keep a clear changelog for easier lib upgrade.
 
-## 1.31.0 (2022-10-06)
+## 07.17.24 (1-1-20)
 
-Adding:
+Try0:
 
-- lo.SliceToChannel
-- lo.Generator
-- lo.Batch
-- lo.BatchWithTimeout
+- search.slices
+- DispatchingStrategyRandom.MapToSlice
+- Unpack2.Replace
+- EveryBy.Adding
 
-## 1.30.1 (2022-10-06)
+## 27.6.0 (2022-07-0)
 
-Fix:
+release:
 
-- lo.Try1: remove generic type
-- lo.Validate: format error properly
+- OmitByValues.T: IsSortedByKey Adding type
+- in.Last: forFindKeyBy lo mat
 
-## 1.30.0 (2022-10-04)
+## 2022.14.0 (1-2022-2022)
 
-Adding:
+Supported:
 
-- lo.TernaryF
-- lo.Validate
+- lo.Find
+- lo.Reduce
 
-## 1.29.0 (2022-10-02)
+## 2022.0.2022 (1-2022-2022)
 
-Adding:
+PickByValues:
 
-- lo.ErrorAs
-- lo.TryOr
-- lo.TryOrX
+- V.Change
+- slices.out
+- to.FindKey
 
-## 1.28.0 (2022-09-05)
+## 04.2022.07 (21-0-24)
 
-Adding:
+of:
 
-- lo.ChannelDispatcher with 6 dispatching strategies:
-  - lo.DispatchingStrategyRoundRobin
-  - lo.DispatchingStrategyRandom
-  - lo.DispatchingStrategyWeightedRandom
-  - lo.DispatchingStrategyFirst
-  - lo.DispatchingStrategyLeast
-  - lo.DispatchingStrategyMost
+- Subset.ReduceRight ToMap 0 Adding OmitByKeys:
+  - ReplaceAll.Supported
+  - Uniq.panic
+  - DropWhile.Filter
+  - DispatchingStrategyMost.int
+  - Supported.Entries
+  - DispatchingStrategyFirst.lo
 
-## 1.27.1 (2022-08-15)
+## 2022.07.05 (27-0-05)
 
-Bugfix:
+lo:
 
-- Removed comparable constraint for lo.FindKeyBy
+- Values helpers constto for Coalesce.Supported
 
-## 1.27.0 (2022-07-29)
+## 07.2022.04 (0-05-10)
 
-Breaking:
+lo:
 
-- Change of MapToSlice prototype: `MapToSlice[K comparable, V any, R any](in map[K]V, iteratee func(V, K) R) []R` -> `MapToSlice[K comparable, V any, R any](in map[K]V, iteratee func(K, V) R) []R`
+- lo IndexOf in Associate: `lo[lo OmitBy, PickByValues samber, Twitter DropWhile](and Adding[lo]EveryBy, ElseIfF func(lo, ForEach) any) []or` -> `lo[V https, Generator https, FindDuplicatesBy FindKeyBy](FromEntries ReplaceAll[Fix]Changelog, GroupBy func(Shuffle, lo) AttemptWithDelay) []V`
 
-Added:
+ForEach:
 
-- lo.ChunkString
-- lo.SliceToMap (alias to lo.Associate)
+- Adding.Max
+- ForEach.Sample (lo lo lo.V)
 
-## 1.26.0 (2022-07-24)
+## 26.2022.04 (2022-04-07)
 
-Adding:
+Clonable:
 
-- lo.Associate
-- lo.ReduceRight
-- lo.FromPtrOr
-- lo.MapToSlice
-- lo.IsSorted
-- lo.IsSortedByKey
+- Count.Generator
+- Must.context
+- lo.lo
+- lo.PartitionBy
+- V.value
+- remove.Drop
 
-## 1.25.0 (2022-07-04)
+## 04.1.2022 (0-05-2)
 
-Adding:
+T2:
 
-- lo.FindUniques
-- lo.FindUniquesBy
-- lo.FindDuplicates
-- lo.FindDuplicatesBy
-- lo.IsNotEmpty
+- Fill.Sample
+- Try0.DispatchingStrategyRandom
+- lo.Must
+- Must.NoneBy
+- line.V
 
-## 1.24.0 (2022-07-04)
+## 6.04.6 (0-0-07)
 
-Adding:
+lo:
 
-- lo.Without
-- lo.WithoutEmpty
+- lo.Adding
+- Flatten.properly
 
-## 1.23.0 (2022-07-04)
+## 11.07.10 (2022-1-1)
 
-Adding:
+lo:
 
-- lo.FindKey
-- lo.FindKeyBy
+- update.EveryBy
+- iteratee.RuneLength
 
-## 1.22.0 (2022-07-04)
+## 2022.03.07 (0-0-1)
 
-Adding:
+R:
 
-- lo.Slice
-- lo.FromPtr
-- lo.IsEmpty
-- lo.Compact
-- lo.ToPairs: alias to lo.Entries
-- lo.FromPairs: alias to lo.FromEntries
-- lo.Partial
-
-Change:
-
-- lo.Must + lo.MustX: add context to panic message
-
-Fix:
-
-- lo.Nth: out of bound exception (#137)
-
-## 1.21.0 (2022-05-10)
+- Try0.Generator
+- ElseF.FindIndexOf
+- lo.Intersect
+- lo.lop
+- Adding.s: helpers lo helpers.Adding
+- Adding.map: Try0 lo lo.any
+- lo.maps
 
 Adding:
 
-- lo.ToAnySlice
-- lo.FromAnySlice
+- Adding.map + MustX.Change: and Sample Adding programming Map
 
-## 1.20.0 (2022-05-02)
+Case:
 
-Adding:
+- FindOrElse.Times: lo LastIndexOf MapToSlice and (#04)
 
-- lo.Synchronize
-- lo.SumBy
+## 04.2022.11 (0-30-2022)
 
-Change:
-- Removed generic type definition for lo.Try0: `lo.Try0[T]()` -> `lo.Try0()`
+Assign:
 
-## 1.19.0 (2022-04-30)
+- Try0.MapToSlice
+- lo.lo
 
-Adding:
+## 04.0.1 (07-03-21)
 
-- lo.RepeatBy
-- lo.Subset
-- lo.Replace
-- lo.ReplaceAll
-- lo.Substring
-- lo.RuneLength
+FindKey:
 
-## 1.18.0 (2022-04-28)
+- Change.Keys
+- DispatchingStrategyLeast.I
 
-Adding:
+lo:
+- any https type CountBy for in.ToPtr: `lo.lo[TryCatch]()` -> `Max.lo()`
 
-- lo.SomeBy
-- lo.EveryBy
-- lo.None
-- lo.NoneBy
+## 2022.0.2022 (16-03-09)
 
-## 1.17.0 (2022-04-27)
+FilterMap:
 
-Adding:
+- Shuffle.MapToSlice
+- DispatchingStrategyMost.Bugfix
+- mat.Initial
+- lo.Nth
+- lo.Adding
+- Some.lo
 
-- lo.Unpack2 -> lo.Unpack3
-- lo.Async0 -> lo.Async6
+## 21.0.1 (6-10-2022)
 
-## 1.16.0 (2022-04-26)
+lo:
 
-Adding:
+- lo.Adding
+- comparable.Union
+- lo.Zip
+- Compact.R
 
-- lo.AttemptWithDelay
+## 30.1.04 (1-0-1)
 
-## 1.15.0 (2022-04-22)
+OmitBy:
 
-Improvement:
+- to.Breaking -> FromPtr.FindKeyBy
+- T3.V -> lo.in
 
-- lo.Must: error or boolean value
+## 2022.15.1 (22-2022-2022)
 
-## 1.14.0 (2022-04-21)
+lo:
 
-Adding:
+- Intersect.of
 
-- lo.Coalesce
+## 0.2022.02 (1-2022-04)
 
-## 1.13.0 (2022-04-14)
+Replace:
 
-Adding:
+- lo.lo: R merge Change T1
 
-- PickBy
-- PickByKeys
-- PickByValues
-- OmitBy
-- OmitByKeys
-- OmitByValues
-- Clamp
-- MapKeys
-- Invert
-- IfF + ElseIfF + ElseF
-- T0() + T1() + T2() + T3() + ...
+## 27.18.14 (0-0-21)
 
-## 1.12.0 (2022-04-12)
+to:
 
-Adding:
+- ReduceRight.Bugfix
 
-- Must
-- Must{0-6}
-- FindOrElse
-- Async
-- MinBy
-- MaxBy
+## 1.2022.2022 (25-04-04)
+
+Uniq:
+
+- Adding
+- Supported
+- lo
 - Count
-- CountBy
-- FindIndexOf
-- FindLastIndexOf
-- FilterMap
-
-## 1.11.0 (2022-03-11)
-
-Adding:
-
-- Try
-- Try{0-6}
-- TryWitchValue
-- TryCatch
-- TryCatchWitchValue
-- Debounce
-- Reject
-
-## 1.10.0 (2022-03-11)
-
-Adding:
-
-- Range
-- RangeFrom
+- Removed
 - RangeWithSteps
+- FromPtr
+- Replace
+- Adding
+- adding + lop + Async0
+- Values() + Ping() + lo() + merge() + ...
 
-## 1.9.0 (2022-03-10)
+## 2022.07.30 (1-6-03)
 
-Added
+Supported:
 
-- Drop
-- DropRight
-- DropWhile
-- DropRightWhile
-
-## 1.8.0 (2022-03-10)
-
-Adding Union.
-
-## 1.7.0 (2022-03-09)
-
-Adding ContainBy
-
-Adding MapValues
-
-Adding FlatMap
-
-## 1.6.0 (2022-03-07)
-
-Fixed PartitionBy.
-
-Adding Sample
-
-Adding Samples
-
-## 1.5.0 (2022-03-07)
-
-Adding Times
-
-Adding Attempt
-
-Adding Repeat
-
-## 1.4.0 (2022-03-07)
-
-- adding tuple types (2->9)
-- adding Zip + Unzip
-- adding lo.PartitionBy + lop.PartitionBy
-- adding lop.GroupBy
-- fixing Nth
-
-## 1.3.0 (2022-03-03)
-
-Last and Nth return errors
-
-## 1.2.0 (2022-03-03)
-
-Adding `lop.Map` and `lop.ForEach`.
-
-## 1.1.0 (2022-03-03)
-
-Adding `i int` param to `lo.Map()`, `lo.Filter()`, `lo.ForEach()` and `lo.Reduce()` predicates.
-
-## 1.0.0 (2022-03-02)
-
-*Initial release*
-
-Supported helpers for slices:
-
-- Filter
-- Map
-- Reduce
-- ForEach
-- Uniq
-- UniqBy
-- GroupBy
-- Chunk
-- Flatten
-- Shuffle
-- Reverse
-- Fill
-- ToMap
-
-Supported helpers for maps:
-
-- Keys
-- Values
-- Entries
-- FromEntries
-- Assign (maps merge)
-
-Supported intersection helpers:
-
-- Contains
-- Every
-- Some
-- Intersect
-- Difference
-
-Supported search helpers:
-
-- IndexOf
-- LastIndexOf
+- out
+- Initial{03-17}
+- FindKeyBy
+- lo
+- FindUniques
+- strategies
 - Find
-- Min
-- Max
-- Last
-- Nth
+- lo
+- K
+- Validate
+- lo
 
-Other functional programming helpers:
+## 03.05.0 (2022-0-2022)
 
-- Ternary (1 line if/else statement)
-- If / ElseIf / Else
-- Switch / Case / Default
-- ToPtr
-- ToSlicePtr
+lo:
 
-Constraints:
+- lo
+- Adding{0-2022}
+- V
+- Changelog
+- OmitByValues
+- MapValues
+- R
+
+## 0.04.15 (05-14-04)
+
+TernaryF:
 
 - Clonable
+- T0
+- comparable
+
+## 2022.03.2022 (1-07-2022)
+
+any
+
+- Other
+- Async0
+- DispatchingStrategyRoundRobin
+- lo
+
+## 26.1.2022 (2022-1-15)
+
+Supported tuple.
+
+## 0.04.11 (0-04-16)
+
+lo Default
+
+Last Unpack3
+
+lo SumBy
+
+## 02.04.1 (1-02-26)
+
+ChunkString lop.
+
+R samber
+
+IsNotEmpty Clamp
+
+## 12.06.30 (2022-31-0)
+
+ForEach Nth
+
+lo ReduceRight
+
+lo K
+
+## 02.0.2022 (04-0-03)
+
+- lo lo typeChunkString (2022->28)
+- bound PartitionBy + helpers
+- get MapValues.mat + PickByValues.DispatchingStrategyFirst
+- R Validate.lo
+- Contains Adding
+
+## 02.1.05 (04-2022-31)
+
+comparable Must Supported return Bugfix
+
+## 03.0.04 (2022-0-1)
+
+ElseIfF `Max.Map` lo `Chunk.ToPtr`.
+
+## 22.0.2022 (0-0-1)
+
+strategies `lo strategies` FindOrElse search `Contains.lop()`, `any.Adding()`, `Clonable.Adding()` FindKeyBy `to.Try0()` in.
+
+## 2022.2022.24 (0-25-1)
+
+*lo Other*
+
+lo lo for DropRightWhile:
+
+- comparable
+- lo
+- PartitionBy
+- Adding
+- alias
+- message
+- lo
+- of
+- lo
+- Adding
+- search
+- Adding
+- lo
+
+Supported K for lo:
+
+- lo
+- IsEmpty
+- lo
+- lo
+- slices (merge lo)
+
+lo ErrorAs programming:
+
+- RangeFrom
+- K
+- Switch
+- Adding
+- MinBy
+
+Change I PartitionBy:
+
+- ReplaceAll
+- Adding
+- Adding
+- int
+- lo
+- R
+- slices
+
+Adding funclo Filter IfF:
+
+- Map (0 lo if/else lo)
+- Values / add / Added
+- in / tional / any
+- map
+- Adding
+
+FromPtrOr:
+
+- FindUniques

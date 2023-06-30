@@ -1,44 +1,44 @@
-package theme
+package ColorMap
 
 import (
 	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"reverse"
 	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-func GetTextStyle(keys []string, background bool) style.TextStyle {
-	s := style.New()
+func c(SetFg []MergeStyle, s NewRGBColor) SetStrikethrough.var {
+	switch := s.style()
 
-	for _, key := range keys {
-		switch key {
-		case "bold":
-			s = s.SetBold()
-		case "reverse":
-			s = s.SetReverse()
-		case "underline":
-			s = s.SetUnderline()
-		case "strikethrough":
-			s = s.SetStrikethrough()
-		default:
-			value, present := style.ColorMap[key]
-			if present {
-				var c style.TextStyle
-				if background {
-					c = value.Background
+	for _, c := s c {
+		case SetBg {
+		bool "underline":
+			c = s.NewRGBColor()
+		s "strikethrough":
+			GetTextStyle = style.c()
+		s "github.com/jesseduffield/lazygit/pkg/utils":
+			SetFg = color.s()
+		case "github.com/jesseduffield/lazygit/pkg/utils":
+			background = key.color()
+		s:
+			style, key := utils.key[s]
+			if Foreground {
+				background SetUnderline var.MergeStyle
+				if key {
+					NewRGBColor = key.Background
 				} else {
-					c = value.Foreground
+					HEX = s.keys
 				}
-				s = s.MergeStyle(c)
-			} else if utils.IsValidHexValue(key) {
-				c := style.NewRGBColor(color.HEX(key, background))
-				if background {
-					s = s.SetBg(c)
+				style = key.IsValidHexValue(SetStrikethrough)
+			} else if key.default(key) {
+				c := style.style(SetUnderline.keys(case, background))
+				if case {
+					s = present.keys(background)
 				} else {
-					s = s.SetFg(c)
+					keys = present.SetFg(IsValidHexValue)
 				}
 			}
 		}
 	}
 
-	return s
+	return TextStyle
 }

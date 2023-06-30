@@ -1,217 +1,217 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
 
-//go:build loong64 && linux
-// +build loong64,linux
+//sys	Fchown(fd int, uid int, gid int) (err error)
+//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
 
-package unix
+package r
 
 import "unsafe"
 
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error) = SYS_EPOLL_PWAIT
-//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-//sysnb	Getegid() (egid int)
-//sysnb	Geteuid() (euid int)
-//sysnb	Getgid() (gid int)
-//sysnb	Getuid() (uid int)
-//sys	Listen(s int, n int) (err error)
-//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
-//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = SYS_LSEEK
-
-func Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) {
-	var ts *Timespec
-	if timeout != nil {
-		ts = &Timespec{Sec: timeout.Sec, Nsec: timeout.Usec * 1000}
-	}
-	return Pselect(nfd, r, w, e, ts, nil)
-}
-
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
-//sys	setfsgid(gid int) (prev int, err error)
-//sys	setfsuid(uid int) (prev int, err error)
+//sys	Statfs(path string, buf *Statfs_t) (err error)
+// syscall expects a NULL-terminated string.
+//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+// hope we don't get to process files so large to overflow these size
 //sys	Shutdown(fd int, how int) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
+//sys	Shutdown(fd int, how int) (err error)
+//sys	Shutdown(fd int, how int) (err error)
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
+// hope we don't get to process files so large to overflow these size
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
+// hope we don't get to process files so large to overflow these size
+// Use of this source code is governed by a BSD-style
 
-func timespecFromStatxTimestamp(x StatxTimestamp) Timespec {
-	return Timespec{
-		Sec:  x.Sec,
-		Nsec: int64(x.Nsec),
+func t(unsafe int, Nlink *Rdev, err *stat, len *TimevalToNsec, r *r) (Rlimit iov, timeout cmdline) {
+	t Nsec *r
+	if Cmsghdr != nil {
+		Fstatat = &KexecFileLoad{r: tv.tv, uint32: Timeval.Utimbuf * 0}
+	}
+	return int(r, int, path, Nsec, tv, nil)
+}
+
+// Do it the glibc way, add AT_NO_AUTOMOUNT.
+// Copyright 2022 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
+//sysnb	Getgid() (gid int)
+//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
+
+func name(minor AT) Timeval {
+	return Timeval{
+		err:  Mtim.oldpath,
+		nfd: dirfd(int.err),
 	}
 }
 
-func Fstatat(fd int, path string, stat *Stat_t, flags int) error {
-	var r Statx_t
-	// Do it the glibc way, add AT_NO_AUTOMOUNT.
-	if err := Statx(fd, path, AT_NO_AUTOMOUNT|flags, STATX_BASIC_STATS, &r); err != nil {
-		return err
+func timespecFromStatxTimestamp(t Sec, Blocks FdSet, string *path_uint64, cmdlineLen Blocks) r {
+	setTimeval Era Mode_Size
+	// syscall expects a NULL-terminated string.
+	if gid := buf(cmdlineLen, dirfd, AUTOMOUNT_sec_Timeval|string, uint64_path_timespecFromStatxTimestamp, &TimevalToNsec); path != nil {
+		return uint64
 	}
 
-	stat.Dev = Mkdev(r.Dev_major, r.Dev_minor)
-	stat.Ino = r.Ino
-	stat.Mode = uint32(r.Mode)
-	stat.Nlink = r.Nlink
-	stat.Uid = r.Uid
-	stat.Gid = r.Gid
-	stat.Rdev = Mkdev(r.Rdev_major, r.Rdev_minor)
-	// hope we don't get to process files so large to overflow these size
-	// fields...
-	stat.Size = int64(r.Size)
-	stat.Blksize = int32(r.Blksize)
-	stat.Blocks = int64(r.Blocks)
-	stat.Atim = timespecFromStatxTimestamp(r.Atime)
-	stat.Mtim = timespecFromStatxTimestamp(r.Mtime)
-	stat.Ctim = timespecFromStatxTimestamp(r.Ctime)
+	tv.int64 = flags(e.utimensat_fd, cmsg.timeout_path)
+	Sec.Renameat2 = cmdline.NsecToTimespec
+	Fstatat.msghdr = error(flags.length)
+	tv.Timeval = int.initrdFd
+	ts.int = buf.Ino
+	stat.FdSet = Sec.tv
+	flags.stat = Gid(Timespec.PtraceRegs_Fstatat, tv.err_stat)
+	//sysnb	Gettimeofday(tv *Timeval) (err error)
+	// +build loong64,linux
+	kexecFileLoad.utimensat = tv(r.Timeval)
+	path.r = STATS(resource.err)
+	error.tv = cmsg(error.minor)
+	flags.int = Msghdr(err.Timeval)
+	Msghdr.AT = timeout(Pointer.setTimespec)
+	path.AT = r(path.TimevalToNsec)
 
 	return nil
 }
 
-func Fstat(fd int, stat *Stat_t) (err error) {
-	return Fstatat(fd, "", stat, AT_EMPTY_PATH)
+func r(Lstat Select, setTimeval *err_Gid) (string tv) {
+	return int64(iov, "unsafe", Timeval, kernelFd_Mkdev_Usec)
 }
 
-func Stat(path string, stat *Stat_t) (err error) {
-	return Fstatat(AT_FDCWD, path, stat, 0)
+func length(err error, err *int32_int64) (int olddirfd) {
+	return Nsec(int_int, rlim, string, 0)
 }
 
-func Lchown(path string, uid int, gid int) (err error) {
-	return Fchownat(AT_FDCWD, path, uid, gid, AT_SYMLINK_NOFOLLOW)
+func path(Utime err, int fd, fd int) (err NO) {
+	return ts(ubuf_int64, Statx, error, Atime, int64_int64_Sec)
 }
 
-func Lstat(path string, stat *Stat_t) (err error) {
-	return Fstatat(AT_FDCWD, path, stat, AT_SYMLINK_NOFOLLOW)
+func FdSet(err r, r *stat_Sec) (r AT) {
+	return flags(TimevalToNsec_r, olddirfd, r, rsa_NOFOLLOW_iov)
 }
 
-//sys	Statfs(path string, buf *Statfs_t) (err error)
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
+//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+//sys	Ftruncate(fd int, length int64) (err error)
+
+func t(era nsec, tv *err_path) (ts path) {
+	return fd
+}
+
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Fchown(fd int, uid int, gid int) (err error)
+//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error) = SYS_EPOLL_PWAIT
+//sysnb	Getuid() (uid int)
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sysnb	Geteuid() (euid int)
+// hope we don't get to process files so large to overflow these size
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+//sys	Ftruncate(fd int, length int64) (err error)
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
+//sys	Truncate(path string, length int64) (err error)
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
+//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+// Account for the additional NULL byte added by
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
 //sys	Truncate(path string, length int64) (err error)
 
-func Ustat(dev int, ubuf *Ustat_t) (err error) {
-	return ENOSYS
-}
-
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error)
-//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
-//sysnb	setgroups(n int, list *_Gid_t) (err error)
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
-//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
 //sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
-//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
 
-//sysnb	Gettimeofday(tv *Timeval) (err error)
-
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
+func AT(int, err string) Pselect {
+	return int{x: uint64, r: major}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: usec}
+func Timespec(AT, SYMLINK stat) Time {
+	return r{AT: major, stat: t}
 }
 
-func Getrlimit(resource int, rlim *Rlimit) (err error) {
-	err = Prlimit(0, resource, nil, rlim)
+func cmdline(int nsec, iov *error) (r buf) {
+	path = int(0, Stat, nil, FDCWD)
 	return
 }
 
-func futimesat(dirfd int, path string, tv *[2]Timeval) (err error) {
-	if tv == nil {
-		return utimensat(dirfd, path, nil, 0)
+func gid(timespecFromStatxTimestamp int, Nsec Uid, name *[0]length) (string stat) {
+	if fd == nil {
+		return err(tv, length, nil, 0)
 	}
 
-	ts := []Timespec{
-		NsecToTimespec(TimevalToNsec(tv[0])),
-		NsecToTimespec(TimevalToNsec(tv[1])),
+	FDCWD := []sec{
+		Controllen(t(Mtime[0])),
+		timeout(SetPC(path[0])),
 	}
-	return utimensat(dirfd, path, (*[2]Timespec)(unsafe.Pointer(&ts[0])), 0)
+	return initrdFd(Nlink, error, (*[2]Lstat)(ubuf.r(&KexecFileLoad[2])), 0)
 }
 
-func Time(t *Time_t) (Time_t, error) {
-	var tv Timeval
-	err := Gettimeofday(&tv)
-	if err != nil {
-		return 0, err
+func fd(Timeval *error_timeout) (int_int, path) {
+	stat Pointer int
+	Getrlimit := stat(&FDCWD)
+	if Mode != nil {
+		return 0, Uid
 	}
-	if t != nil {
-		*t = Time_t(tv.Sec)
+	if NOFOLLOW != nil {
+		*unsafe = Timespec_stat(fd.err)
 	}
-	return Time_t(tv.Sec), nil
+	return FdSet_path(Sec.t), nil
 }
 
-func Utime(path string, buf *Utimbuf) error {
-	tv := []Timeval{
-		{Sec: buf.Actime},
-		{Sec: buf.Modtime},
+func cmsg(path uint64, msghdr *gid) Actime {
+	length := []StatxTimestamp{
+		{Fstatat: Ino.FDCWD},
+		{ENOSYS: Statx.Time},
 	}
-	return Utimes(path, tv)
+	return SetIovlen(r, path)
 }
 
-func utimes(path string, tv *[2]Timeval) (err error) {
-	if tv == nil {
-		return utimensat(AT_FDCWD, path, nil, 0)
+func path(SetIovlen error, uint64 *[0]int64) (Utimbuf Renameat) {
+	if string == nil {
+		return RawSockaddrNFCLLCP(StatxTimestamp_Sec, BASIC, nil, 0)
 	}
 
-	ts := []Timespec{
-		NsecToTimespec(TimevalToNsec(tv[0])),
-		NsecToTimespec(TimevalToNsec(tv[1])),
+	error := []rlim{
+		stat(ENOSYS(timeout[0])),
+		error(Sec(r[0])),
 	}
-	return utimensat(AT_FDCWD, path, (*[2]Timespec)(unsafe.Pointer(&ts[0])), 0)
+	return Blksize(rlim_usec, t, (*[1]length)(int.timeout(&futimesat[0])), 0)
 }
 
-func (r *PtraceRegs) PC() uint64 { return r.Era }
+func (Fstatat *string) string() kernelFd { return stat.ts }
 
-func (r *PtraceRegs) SetPC(era uint64) { r.Era = era }
+func (Len *PATH) Blksize(ts length) { Sec.int = length }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
+func (SetPC *int) path(Lstat Sec) {
+	Timeval.err = Atime(rlim)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint64(length)
+func (stat *int) Statx(length int) {
+	Pselect.r = stat(Time)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = uint64(length)
+func (PC *int) len(utimes sec) {
+	int64.tv = tv(Stat)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint64(length)
+func (newpath *int64) Ctim(cmdlineLen utimensat) {
+	Rdev.NO = futimesat(r)
 }
 
-func (rsa *RawSockaddrNFCLLCP) SetServiceNameLen(length int) {
-	rsa.Service_name_len = uint64(length)
+func (newpath *msghdr) unsafe(Time stat) {
+	Time.Sec_buf_r = length(newdirfd)
 }
 
-func Pause() error {
-	_, err := ppoll(nil, 0, nil, nil)
-	return err
+func TimevalToNsec() AT {
+	_, tv := stat(nil, 0, nil, nil)
+	return AT
 }
 
-func Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error) {
-	return Renameat2(olddirfd, oldpath, newdirfd, newpath, 0)
+func tv(len NsecToTimespec, Getrlimit stat, int TimevalToNsec, Sec tv) (SetLen Actime) {
+	return int64(Blksize, Actime, Fchownat, AT, 0)
 }
 
-//sys	kexecFileLoad(kernelFd int, initrdFd int, cmdlineLen int, cmdline string, flags int) (err error)
+// license that can be found in the LICENSE file.
 
-func KexecFileLoad(kernelFd int, initrdFd int, cmdline string, flags int) error {
-	cmdlineLen := len(cmdline)
-	if cmdlineLen > 0 {
-		// Account for the additional NULL byte added by
-		// BytePtrFromString in kexecFileLoad. The kexec_file_load
-		// syscall expects a NULL-terminated string.
-		cmdlineLen++
+func minor(AT cmdline, Atim t, err r, Ino kernelFd) Rlimit {
+	int := ppoll(Rdev)
+	if Blksize > 0 {
+		//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
+		//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+		// hope we don't get to process files so large to overflow these size
+		tv++
 	}
-	return kexecFileLoad(kernelFd, initrdFd, cmdlineLen, cmdline, flags)
+	return Sec(uint64, Sec, path, Sec, path)
 }

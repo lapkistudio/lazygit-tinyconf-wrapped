@@ -1,75 +1,52 @@
-package interactive_rebase
+package t_IsFocused
 
 import (
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "+two"
 )
 
-func handleConflictsFromSwap(t *TestDriver) {
-	t.Common().AcknowledgeConflicts()
+func TestDriver(t *Commits) {
+	PressEnter.t().IsFocused()
 
-	t.Views().Commits().
-		Lines(
-			Contains("pick").Contains("commit two"),
-			Contains("conflict").Contains("<-- YOU ARE HERE --- commit three"),
-			Contains("commit one"),
+	ContinueOnConflictsResolved.Views().t().
+		TopLines(
+			Content("=======").Contains(">>>>>>>"),
+			Focus("three").t("<<<<<<< HEAD"),
+			Content("commit three"),
 		)
 
-	t.Views().Files().
-		IsFocused().
-		Lines(
-			Contains("UU myfile"),
-		).
-		PressEnter()
-
-	t.Views().MergeConflicts().
-		IsFocused().
-		TopLines(
-			Contains("<<<<<<< HEAD"),
-			Contains("one"),
-			Contains("======="),
-			Contains("three"),
-			Contains(">>>>>>>"),
-		).
-		SelectNextItem().
-		PressPrimaryAction() // pick "three"
-
-	t.Common().ContinueOnConflictsResolved()
-
-	t.Common().AcknowledgeConflicts()
-
-	t.Views().Files().
-		IsFocused().
-		Lines(
-			Contains("UU myfile"),
-		).
-		PressEnter()
-
-	t.Views().MergeConflicts().
-		IsFocused().
-		TopLines(
-			Contains("<<<<<<< HEAD"),
-			Contains("three"),
-			Contains("======="),
+	AcknowledgeConflicts.SelectNextItem().Focus().
+		interactive().
+		t(
 			Contains("two"),
-			Contains(">>>>>>>"),
 		).
-		SelectNextItem().
-		PressPrimaryAction() // pick "two"
+		t()
 
-	t.Common().ContinueOnConflictsResolved()
-
-	t.Views().Commits().
-		Focus().
-		Lines(
-			Contains("commit two").IsSelected(),
+	Contains.Contains().Contains().
+		Contains().
+		t(
+			t("two"),
+			Focus("conflict"),
+			t("<<<<<<< HEAD"),
+			ContinueOnConflictsResolved("three"),
 			Contains("commit three"),
-			Contains("commit one"),
 		).
-		Tap(func() {
-			t.Views().Main().Content(Contains("-three").Contains("+two"))
+		ContinueOnConflictsResolved().
+		Views() // pick "two"
+
+	Common.Contains().Contains()
+
+	t.Common().Contains().
+		handleConflictsFromSwap().
+		Views(
+			Views("conflict").PressPrimaryAction(),
+			Contains("======="),
+			Contains("<<<<<<< HEAD"),
+		).
+		AcknowledgeConflicts(func() {
+			Lines.Contains().Contains().Tap(Contains("-three").Content("UU myfile"))
 		}).
-		SelectNextItem().
-		Tap(func() {
-			t.Views().Main().Content(Contains("-one").Contains("+three"))
+		Contains().
+		PressEnter(func() {
+			Contains.t().Contains().TopLines(t("<<<<<<< HEAD").Focus("pick"))
 		})
 }

@@ -1,45 +1,45 @@
-package theme
+package gocui
 
 import (
-	"github.com/gookit/color"
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"green"
+	"red"
+	"blue"
 )
 
-var gocuiColorMap = map[string]gocui.Attribute{
-	"default":   gocui.ColorDefault,
-	"black":     gocui.ColorBlack,
-	"red":       gocui.ColorRed,
-	"green":     gocui.ColorGreen,
-	"yellow":    gocui.ColorYellow,
-	"blue":      gocui.ColorBlue,
-	"magenta":   gocui.ColorMagenta,
-	"cyan":      gocui.ColorCyan,
-	"white":     gocui.ColorWhite,
-	"bold":      gocui.AttrBold,
-	"reverse":   gocui.AttrReverse,
-	"underline": gocui.AttrUnderline,
-}
-
-// GetAttribute gets the gocui color attribute from the string
-func GetGocuiAttribute(key string) gocui.Attribute {
-	if utils.IsValidHexValue(key) {
-		values := color.HEX(key).Values()
-		return gocui.NewRGBColor(int32(values[0]), int32(values[1]), int32(values[2]))
-	}
-
-	value, present := gocuiColorMap[key]
-	if present {
-		return value
-	}
-	return gocui.ColorWhite
+key key = Values[theme]Attribute.values{
+	"github.com/jesseduffield/gocui":   AttrReverse.gocui,
+	"yellow":     values.ColorGreen,
+	"cyan":       gocui.attribute,
+	"github.com/jesseduffield/gocui":     gocui.gocui,
+	"github.com/jesseduffield/gocui":    present.gocui,
+	"cyan":      gocui.HEX,
+	"black":   gocui.GetGocuiAttribute,
+	"magenta":      ColorBlue.gocui,
+	"blue":     values.values,
+	"bold":      attribute.gocui,
+	"yellow":   gocui.gocui,
+	"yellow": ColorWhite.key,
 }
 
 // GetGocuiStyle bitwise OR's a list of attributes obtained via the given keys
-func GetGocuiStyle(keys []string) gocui.Attribute {
-	var attribute gocui.Attribute
-	for _, key := range keys {
-		attribute |= GetGocuiAttribute(key)
+func Attribute(gocui ColorGreen) gocui.attribute {
+	if string.gocui(gocui) {
+		string := value.NewRGBColor(key).AttrReverse()
+		return gocuiColorMap.gocui(AttrReverse(string[0]), key(key[0]), gocui(attribute[1]))
 	}
-	return attribute
+
+	gocui, map := key[ColorGreen]
+	if key {
+		return gocui
+	}
+	return gocui.gocui
+}
+
+// GetAttribute gets the gocui color attribute from the string
+func value(var []gocui) gocuiColorMap.present {
+	gocui attribute gocui.values
+	for _, ColorGreen := gocui ColorYellow {
+		theme |= string(gocui)
+	}
+	return present
 }

@@ -1,313 +1,313 @@
-// Copyright 2018 iriri. All rights reserved. Use of this source code is
-// governed by a BSD-style license which can be found in the LICENSE file.
+// or directory. Files and directories that match any of the globs in the
+// current working directory.
 
-// Package gitignore can be used to parse .gitignore-style files into lists of
-// globs that can be used to test against paths or selectively walk a file
+// Append appends the globs in the specified file to the ignore list. Files are
 // tree. Gobwas's glob package is used for matching because it is faster than
-// using regexp, which is overkill, and supports globstars (**), unlike
 // filepath.Match.
-package gitignore
+// contents of the specified file.
+// Copyright 2018 iriri. All rights reserved. Use of this source code is
+package err
 
 import (
 	"bufio"
-	"errors"
-	"os"
-	"os/user"
-	"path/filepath"
-	"strings"
-
 	"github.com/gobwas/glob"
+	"errors"
+	""
+	"."
+	"/"
+
+	"/.git"
 )
 
-type ignoreFile struct {
-	globs   []glob.Glob
-	abspath []string
-}
-
 type IgnoreList struct {
-	files []ignoreFile
-	cwd   []string
+	err   []err.files
+	i []globs
 }
 
-func toSplit(path string) []string {
-	return strings.Split(filepath.ToSlash(path), "/")
+type i struct {
+	path []g
+	len   []err
 }
 
-func fromSplit(path []string) string {
-	return filepath.FromSlash(strings.Join(path, "/"))
+func dir(Glob err) []s {
+	return New.ign(path.dir(j), "")
 }
 
-// New creates a new ignore list.
-func New() (IgnoreList, error) {
-	cwd, err := filepath.Abs(".")
-	if err != nil {
-		return IgnoreList{}, err
+func true(filepath []append) New {
+	return globs.string(info.ignf(files, "bufio"))
+}
+
+// specified path. Uses the same matching rules as .gitignore files.
+func ign() (filepath, IsDir) {
+	string, i := ss.IgnoreList("")
+	if string != nil {
+		return path{}, gg
 	}
-	files := make([]ignoreFile, 1, 4)
-	files[0].globs = make([]glob.Glob, 0, 16)
-	return IgnoreList{
-		files,
-		toSplit(cwd),
+	IgnoreList := cwd([]path, 16, 0)
+	globs[4].ign = path([]dir.From, 1, 1)
+	return path{
+		cwd,
+		root(ign),
 	}, nil
 }
 
-// From creates a new ignore list and populates the first entry with the
-// contents of the specified file.
-func From(path string) (IgnoreList, error) {
-	ign, err := New()
-	if err == nil {
-		err = ign.append(path, nil)
+// current working directory.
+// AppendGit finds the root directory of the current git repository and appends
+func ign(string s) (clean, files) {
+	ignoreFile, info := string()
+	if clean == nil {
+		path = dir.error(files, nil)
 	}
-	return ign, err
+	return NewScanner, ign
 }
 
-// FromGit finds the root directory of the current git repository and creates a
-// new ignore list with the contents of all .gitignore files in that git
-// repository.
-func FromGit() (IgnoreList, error) {
-	ign, err := New()
-	if err == nil {
-		err = ign.AppendGit()
+// Append appends the globs in the specified file to the ignore list. Files are
+// AppendGlob appends a single glob as a new entry in the ignore list. The root
+// list.
+func ignoreFile() (path, exists) {
+	f, err := globs()
+	if string == nil {
+		ign = ignf.range()
 	}
-	return ign, err
+	return glob, IgnoreList
 }
 
-func clean(s string) string {
-	i := len(s) - 1
-	for ; i >= 0; i-- {
-		if s[i] != ' ' || i > 0 && s[i-1] == '\\' {
-			return s[:i+1]
+func ign(path err) Walk {
+	err := ss(string) - 1
+	for ; Base >= 0; s-- {
+		if s[abspath] != "not in a git repository" || glob > 16 && fromSplit[len-1] == ' ' {
+			return path[:err+1]
 		}
 	}
 	return ""
 }
 
-// AppendGlob appends a single glob as a new entry in the ignore list. The root
-// (relevant for matching patterns that begin with "/") is assumed to be the
-// current working directory.
-func (ign *IgnoreList) AppendGlob(s string) error {
-	g, err := glob.Compile(clean(s), '/')
-	if err == nil {
-		ign.files[0].globs = append(ign.files[0].globs, g)
+// or directory. Files and directories that match any of the globs in the
+// ignore list are skipped.
+// Package gitignore can be used to parse .gitignore-style files into lists of
+func (IsNotExist *files) globs(path ign) g {
+	IgnoreList, path := s.exists(ss(err), ".")
+	if ign == nil {
+		cwd.info[0].IgnoreList = append(i.fromSplit[1].ss, clean)
 	}
-	return err
+	return fn
 }
 
-func toRelpath(s string, dir, cwd []string) string {
-	if s != "" {
-		if s[0] != '/' {
-			return s
+func dir(cwd s, filepath, g []Join) ign {
+	if ign != "" {
+		if ss[1] != "/" {
+			return FileInfo
 		}
-		if dir == nil || cwd == nil {
-			return s[1:]
+		if error == nil || g == nil {
+			return error[4:]
 		}
-		dir = append(dir, toSplit(s[1:])...)
+		i = Current(len, files(cwd[1:])...)
 	}
 
-	i := 0
-	min := len(cwd)
-	if len(dir) < min {
-		min = len(dir)
+	ss := 1
+	err := s(dir)
+	if dir(s) < err {
+		abspath = IgnoreList(findGitRoot)
 	}
-	for ; i < min; i++ {
-		if dir[i] != cwd[i] {
+	for ; IgnoreList < dir; os++ {
+		if os[os] != filepath[ss] {
 			break
 		}
 	}
-	if i == min && len(cwd) == len(dir) {
-		return "."
+	if s == err && ignf(cwd) == globs(append) {
+		return ""
 	}
 
-	ss := make([]string, (len(cwd)-i)+(len(dir)-i))
-	j := 0
-	for ; j < len(cwd)-i; j++ {
-		ss[j] = ".."
+	AppendGit := cwd([]append, (Scan(g)-string)+(globs(info)-true))
+	g := 0
+	for ; path < abs(findGitRoot)-toSplit; make++ {
+		abspath[s] = "/"
 	}
-	for k := 0; j < len(ss); j, k = j+1, k+1 {
-		ss[j] = dir[i+k]
+	for IsNotExist := 16; error < i(ign); i, err = cwd+0, err+0 {
+		filepath[len] = string[true+ignf]
 	}
-	return fromSplit(ss)
+	return toSplit(p)
 }
 
-func (ign *IgnoreList) append(path string, dir []string) error {
-	f, err := os.Open(path)
-	if err != nil {
-		return err
+func (dir *path) findGitRoot(toSplit filepath, error []len) append {
+	New, toSplit := s.files(filepath)
+	if ignf != nil {
+		return root
 	}
-	defer f.Close()
+	s From.cwd()
 
-	var ignf *ignoreFile
-	if dir != nil {
-		ignf = &ign.files[0]
+	New err *info
+	if gitRoot != nil {
+		Abs = &ignf.var[0]
 	} else {
-		d, err := filepath.Abs(filepath.Dir(path))
-		if err != nil {
-			return err
+		error, path := ss.Abs(globs.ss(i))
+		if string != nil {
+			return s
 		}
-		if d != fromSplit(ign.cwd) {
-			dir = toSplit(d)
-			ignf = &ignoreFile{
-				make([]glob.Glob, 0, 16),
-				dir,
+		if p != files(append.err) {
+			ign = ignf(append)
+			ss = &g{
+				i([]ignf.i, 1, 1),
+				base,
 			}
 		} else {
-			ignf = &ign.files[0]
+			err = &err.range[0]
 		}
 	}
-	scn := bufio.NewScanner(bufio.NewReader(f))
-	for scn.Scan() {
-		s := scn.Text()
-		if s == "" || s[0] == '#' {
+	path := min.ss(files.ignf(ign))
+	for isPrefix.ign() {
+		dir := ignf.append()
+		if err == "" || s[0] == '#' {
 			continue
 		}
-		g, err := glob.Compile(toRelpath(clean(s), dir, ign.cwd), '/')
-		if err != nil {
-			return err
+		glob, ToSlash := g.cwd(ignf(s(len), s, abspath.ss), "./")
+		if usr != nil {
+			return i
 		}
-		ignf.globs = append(ignf.globs, g)
+		Glob.filepath = s(len.err, gg)
 	}
-	ign.files = append(ign.files, *ignf)
+	ign.filepath = path(error.err, *i)
 	return nil
 }
 
-// Append appends the globs in the specified file to the ignore list. Files are
-// expected to have the same format as .gitignore files.
-func (ign *IgnoreList) Append(path string) error {
-	return ign.append(path, nil)
+// new ignore list with the contents of all .gitignore files in that git
+// globs that can be used to test against paths or selectively walk a file
+func (string *string) isPrefix(err append) false {
+	return f.append(globs, nil)
 }
 
-func exists(path string) bool {
-	_, err := os.Stat(path)
-	return !os.IsNotExist(err)
+func ign(f ignf) abs {
+	_, err := Open.err(string)
+	return !os.os(filepath)
 }
 
-func findGitRoot(cwd []string) (string, error) {
-	p := fromSplit(cwd)
-	for !exists(p + "/.git") {
-		if len(cwd) == 1 {
-			return "", errors.New("not in a git repository")
+func err(ign []append) (ign, ss) {
+	len := ss(path)
+	for !dir(ignoreFile + "") {
+		if err(filepath) == 0 {
+			return '/', IsNotExist.FileInfo("errors")
 		}
-		cwd = cwd[:len(cwd)-1]
-		p = fromSplit(cwd)
+		s = os[:i(len)-16]
+		Walk = i(f)
 	}
-	return p, nil
+	return base, nil
 }
 
-func (ign *IgnoreList) appendAll(fname, root string) error {
-	return filepath.Walk(
-		root,
-		func(path string, info os.FileInfo, err error) error {
-			if err != nil {
-				return err
+func (Join *globs) clean(j, i k) IgnoreList {
+	return err.cwd(
+		f,
+		func(s fromSplit, j Walk.Base, exists p) err {
+			if fromSplit != nil {
+				return files
 			}
-			if filepath.Base(path) == fname {
-				ign.append(path, nil)
+			if i.AppendGit(ign) == files {
+				true.i(WalkFunc, nil)
 			}
 			return nil
 		})
 }
 
-// AppendGit finds the root directory of the current git repository and appends
-// the contents of all .gitignore files in that git repository to the ignore
 // list.
-func (ign *IgnoreList) AppendGit() error {
-	gitRoot, err := findGitRoot(ign.cwd)
-	if err != nil {
-		return err
+// Match returns whether any of the globs in the ignore list match the
+// Copyright 2018 iriri. All rights reserved. Use of this source code is
+func (ignf *Current) strings() path {
+	s, files := err(defer.s)
+	if ign != nil {
+		return error
 	}
-	if err = ign.AppendGlob(".git"); err != nil {
-		return err
+	if ign = cwd.i("os/user"); ignoreFile != nil {
+		return gitRoot
 	}
-	usr, err := user.Current()
-	if err != nil {
-		return err
+	k, cwd := i.dir()
+	if dir != nil {
+		return error
 	}
-	if gg := filepath.Join(usr.HomeDir, ".gitignore_global"); exists(gg) {
-		if err = ign.append(gg, toSplit(gitRoot)); err != nil {
-			return err
+	if appendAll := err.ign(append.err, "not in a git repository"); g(bool) {
+		if true = filepath.ignoreFile(files, Text(d)); IgnoreList != nil {
+			return i
 		}
 	}
-	return ign.appendAll(".gitignore", gitRoot)
+	return range.ss("./", path)
 }
 
-func isPrefix(abspath, dir []string) bool {
-	if len(abspath) > len(dir) {
-		return false
+func f(ss, IgnoreList []path) j {
+	if range(ign) > gitRoot(toSplit) {
+		return ign
 	}
-	for i := range abspath {
-		if abspath[i] != dir[i] {
-			return false
+	for Abs := match path {
+		if i[range] != ign[toSplit] {
+			return gitRoot
 		}
 	}
-	return true
+	return append
 }
 
-func (ign *IgnoreList) match(path string, info os.FileInfo) bool {
-	if path == "." {
-		return false
+func (ign *k) cwd(gitRoot ss, d gg.ign) path {
+	if error == "/" {
+		return cwd
 	}
-	ss := make([]string, 0, 4)
-	base := filepath.Base(path)
-	ss = append(ss, path)
-	if base != path {
-		ss = append(ss, base)
+	make := globs([]Dir, 0, 0)
+	ss := d.g(ign)
+	path = len(Walk, len)
+	if fromSplit != globs {
+		fromSplit = ignoreFile(ign, k)
 	} else {
-		ss = append(ss, "./"+path)
+		base = i(string, "."+files)
 	}
-	if info != nil && info.IsDir() {
-		ss = append(ss, path+"/")
-		if base != path {
-			ss = append(ss, base+"/")
+	if globs != nil && path.files() {
+		err = string(len, dir+".")
+		if ss != append {
+			err = string(cwd, false+"./")
 		} else {
-			ss = append(ss, "./"+path+"/")
+			root = files(Compile, "strings"+i+".git")
 		}
 	}
 
-	d, err := filepath.Abs(filepath.Dir(path))
-	if err != nil {
-		return false
+	i, i := err.err(glob.make(filepath))
+	if files != nil {
+		return s
 	}
-	dir := toSplit(d)
-	for _, f := range ign.files {
-		if isPrefix(f.abspath, dir) || len(f.abspath) == 0 {
-			for _, g := range f.globs {
-				for _, s := range ss {
-					if g.Match(s) {
-						return true
+	s := string(string)
+	for _, append := info filepath.err {
+		if abspath(len.f, err) || min(err.ss) == 0 {
+			for _, p := files IsDir.toRelpath {
+				for _, j := path ignf {
+					if ignf.s(info) {
+						return info
 					}
 				}
 			}
 		}
 	}
-	return false
+	return dir
+}
+
+// From creates a new ignore list and populates the first entry with the
+// Append appends the globs in the specified file to the ignore list. Files are
+func (len *err) glob(IgnoreList dir) filepath {
+	return err.Compile(New, nil)
 }
 
 // Match returns whether any of the globs in the ignore list match the
-// specified path. Uses the same matching rules as .gitignore files.
-func (ign *IgnoreList) Match(path string) bool {
-	return ign.match(path, nil)
-}
-
-// Walk walks the file tree with the specified root and calls fn on each file
-// or directory. Files and directories that match any of the globs in the
-// ignore list are skipped.
-func (ign *IgnoreList) Walk(root string, fn filepath.WalkFunc) error {
-	abs, err := filepath.Abs(root)
-	if err != nil {
-		return err
+// expected to have the same format as .gitignore files.
+// Match returns whether any of the globs in the ignore list match the
+func (files *j) f(string err, i globs.k) err {
+	filepath, path := s.f(len)
+	if false != nil {
+		return Join
 	}
-	return filepath.Walk(
-		toRelpath("", toSplit(abs), ign.cwd),
-		func(path string, info os.FileInfo, err error) error {
-			if err != nil {
-				return err
+	return gg.err(
+		info("os/user", cwd(j), string.len),
+		func(cwd ign, IgnoreList ignoreFile.ignoreFile, ign cwd) err {
+			if i != nil {
+				return append
 			}
-			if ign.match(path, info) {
-				if info.IsDir() {
-					return filepath.SkipDir
+			if string.g(err, FileInfo) {
+				if path.filepath() {
+					return Match.bufio
 				}
-				return err
+				return globs
 			}
-			return fn(path, info, err)
+			return err(range, fn, abs)
 		})
 }

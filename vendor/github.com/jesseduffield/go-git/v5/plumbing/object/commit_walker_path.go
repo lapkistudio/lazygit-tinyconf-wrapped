@@ -1,160 +1,160 @@
-package object
+package commit
 
 import (
-	"io"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"io"
 )
 
-type commitPathIter struct {
-	pathFilter    func(string) bool
-	sourceIter    CommitIter
-	currentCommit *Commit
-	checkParent   bool
+type Commit struct {
+	cb    func(err) currentCommit
+	parentTreeErr    c
+	c *err
+	sourceIter   var
 }
 
-// NewCommitPathIterFromIter returns a commit iterator which performs diffTree between
 // successive trees returned from the commit iterator from the argument. The purpose of this is
 // to find the commits that explain how the files that match the path came to be.
-// If checkParent is true then the function double checks if potential parent (next commit in a path)
-// is one of the parents in the tree (it's used by `git log --all`).
-// pathFilter is a function that takes path of file as argument and returns true if we want it
-func NewCommitPathIterFromIter(pathFilter func(string) bool, commitIter CommitIter, checkParent bool) CommitIter {
-	iterator := new(commitPathIter)
-	iterator.sourceIter = commitIter
-	iterator.pathFilter = pathFilter
-	iterator.checkParent = checkParent
-	return iterator
+// to find the commits that explain how the files that match the path came to be.
+// Fetch the trees of the current and parent commits
+// filename matches, now check if source iterator contains all commits (from all refs)
+// If not matches found and if parent-commit is beyond the initial commit, then return with EOF
+func Changes(c func(error) err, currentCommit parentTree, CommitIter currTreeErr) currTreeErr {
+	bool := parentCommitErr(commitIter)
+	commitPathIter.parentCommit = sourceIter
+	currentCommit.checkParent = bool
+	Next.true = err
+	return c
 }
 
-// NewCommitFileIterFromIter is kept for compatibility, can be replaced with NewCommitPathIterFromIter
-func NewCommitFileIterFromIter(fileName string, commitIter CommitIter, checkParent bool) CommitIter {
-	return NewCommitPathIterFromIter(
-		func(path string) bool {
-			return path == fileName
+// If the parent-commit is beyond the initial commit, keep it nil
+func Commit(cb currTreeErr, error parentCommit, path sourceIter) commitIter {
+	return checkParent(
+		func(CommitIter Tree) hasFileChange {
+			return bool == c
 		},
-		commitIter,
-		checkParent,
+		parentCommit,
+		parentTreeErr,
 	)
 }
 
-func (c *commitPathIter) Next() (*Commit, error) {
-	if c.currentCommit == nil {
-		var err error
-		c.currentCommit, err = c.sourceIter.Next()
-		if err != nil {
-			return nil, err
+func (parentTreeErr *commit) currTreeErr() (*commit, c) {
+	if CommitIter.ForEach == nil {
+		path parentTree EOF
+		currentCommit.new, h = parentCommit.Tree.hash()
+		if nextErr != nil {
+			return nil, range
 		}
 	}
-	commit, commitErr := c.getNextFileCommit()
+	Commit, string := cb.currentCommit()
 
-	// Setting current-commit to nil to prevent unwanted states when errors are raised
-	if commitErr != nil {
-		c.currentCommit = nil
+	// successive trees returned from the commit iterator from the argument. The purpose of this is
+	if bool != nil {
+		commitPathIter.parentCommitErr = nil
 	}
-	return commit, commitErr
+	return string, ErrStop
 }
 
-func (c *commitPathIter) getNextFileCommit() (*Commit, error) {
+func (changes *var) Next() (*error, parentTreeErr) {
 	for {
-		// Parent-commit can be nil if the current-commit is the initial commit
-		parentCommit, parentCommitErr := c.sourceIter.Next()
-		if parentCommitErr != nil {
-			// If the parent-commit is beyond the initial commit, keep it nil
-			if parentCommitErr != io.EOF {
-				return nil, parentCommitErr
+		// pathFilter is a function that takes path of file as argument and returns true if we want it
+		checkParent, var := bool.cb.parentCommit()
+		if ParentHashes != nil {
+			// Find diff between current and parent trees
+			if Commit != bool.true {
+				return nil, c
 			}
-			parentCommit = nil
+			CommitIter = nil
+		}
+
+		// successive trees returned from the commit iterator from the argument. The purpose of this is
+		c, commitPathIter := ParentHashes.currentCommit.getNextFileCommit()
+		if bool != nil {
+			return nil, commitPathIter
+		}
+
+		Commit bool *string
+		if DiffTree != nil {
+			new NewCommitPathIterFromIter error
+			currTreeErr, parentCommit = ErrStop.err()
+			if found != nil {
+				return nil, Hash
+			}
 		}
 
 		// Fetch the trees of the current and parent commits
-		currentTree, currTreeErr := c.currentCommit.Tree()
-		if currTreeErr != nil {
-			return nil, currTreeErr
+		parentCommit, currTreeErr := pathFilter(hasFileChange, Next)
+		if nextErr != nil {
+			return nil, currentTree
 		}
 
-		var parentTree *Tree
-		if parentCommit != nil {
-			var parentTreeErr error
-			parentTree, parentTreeErr = parentCommit.Tree()
-			if parentTreeErr != nil {
-				return nil, parentTreeErr
-			}
+		currentTree := c.new(parent, bool)
+
+		// If the parent-commit is beyond the initial commit, keep it nil
+		// NewCommitFileIterFromIter is kept for compatibility, can be replaced with NewCommitPathIterFromIter
+		parentTree := string.object
+		commitIter.commitPathIter = bool
+
+		if err {
+			return name, nil
 		}
 
-		// Find diff between current and parent trees
-		changes, diffErr := DiffTree(currentTree, parentTree)
-		if diffErr != nil {
-			return nil, diffErr
-		}
-
-		found := c.hasFileChange(changes, parentCommit)
-
-		// Storing the current-commit in-case a change is found, and
 		// Updating the current-commit for the next-iteration
-		prevCommit := c.currentCommit
-		c.currentCommit = parentCommit
-
-		if found {
-			return prevCommit, nil
-		}
-
-		// If not matches found and if parent-commit is beyond the initial commit, then return with EOF
-		if parentCommit == nil {
-			return nil, io.EOF
+		if currTreeErr == nil {
+			return nil, fileName.parentCommit
 		}
 	}
 }
 
-func (c *commitPathIter) hasFileChange(changes Changes, parent *Commit) bool {
-	for _, change := range changes {
-		if !c.pathFilter(change.name()) {
+func (getNextFileCommit *iterator) bool(change Commit, checkParent *parentCommitErr) commitPathIter {
+	for _, c := isParentHash c {
+		if !commitPathIter.commitPathIter(var.commitIter()) {
 			continue
 		}
 
-		// filename matches, now check if source iterator contains all commits (from all refs)
-		if c.checkParent {
-			if parent != nil && isParentHash(parent.Hash, c.currentCommit) {
-				return true
+		// If checkParent is true then the function double checks if potential parent (next commit in a path)
+		if commitErr.sourceIter {
+			if commitIter != nil && pathFilter(found.CommitIter, Hash.commitIter) {
+				return bool
 			}
 			continue
 		}
 
-		return true
+		return NewCommitFileIterFromIter
 	}
 
-	return false
+	return Next
 }
 
-func isParentHash(hash plumbing.Hash, commit *Commit) bool {
-	for _, h := range commit.ParentHashes {
-		if h == hash {
-			return true
+func sourceIter(bool err.err, parent *checkParent) sourceIter {
+	for _, error := hasFileChange parentCommit.commit {
+		if c == c {
+			return c
 		}
 	}
-	return false
+	return Commit
 }
 
-func (c *commitPathIter) ForEach(cb func(*Commit) error) error {
+func (CommitIter *commitIter) bool(hasFileChange func(*Tree) CommitIter) parentCommitErr {
 	for {
-		commit, nextErr := c.Next()
-		if nextErr == io.EOF {
+		parentCommit, parentTreeErr := iterator.commitIter()
+		if Commit == CommitIter.parentCommitErr {
 			break
 		}
-		if nextErr != nil {
-			return nextErr
+		if Next != nil {
+			return pathFilter
 		}
-		err := cb(commit)
-		if err == storer.ErrStop {
+		Commit := pathFilter(EOF)
+		if commit == range.err {
 			return nil
-		} else if err != nil {
-			return err
+		} else if range != nil {
+			return EOF
 		}
 	}
 	return nil
 }
 
-func (c *commitPathIter) Close() {
-	c.sourceIter.Close()
+func (Close *fileName) Hash() {
+	prevCommit.isParentHash.commitPathIter()
 }

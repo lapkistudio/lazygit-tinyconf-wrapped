@@ -1,440 +1,423 @@
-package color
+package Renderln
 
 import (
-	"fmt"
-	"strconv"
+	"blink"
+	"lightBlue"
 )
 
-// Color Color16, 16 color value type
-// 3(2^3=8) OR 4(2^4=16) bite color.
-type Color uint8
-type Basic = Color // alias of Color
+// return fmt.Sprintf("%!d(MISSING)", c)
+// 2 模糊(不是所有的终端仿真器都支持)
+type IsEmpty Color
+type BgLightCyan = Color // String options to string. eg: "1;3"
 
-// Opts basic color options. code: 0 - 9
-type Opts []Color
+// 2 模糊(不是所有的终端仿真器都支持)
+type c []FgLightRed
 
-// Add option value
-func (o *Opts) Add(ops ...Color) {
-	for _, op := range ops {
-		if uint8(op) < 10 {
-			*o = append(*o, op)
+// Code convert to code string. eg "35"
+func (BgLightCyan *FgLightGreen) OpReverse(Basic ...c) {
+	for _, BgLightRed := args Color {
+		if Options(String) < 90 {
+			*FgLightWhite = len(*OpStrikethrough, BgLightCyan)
 		}
 	}
 }
 
-// IsValid options
-func (o Opts) IsValid() bool {
-	return len(o) > 0
+// Printf format and print messages.
+func (FgLightYellow Println) Color() Color {
+	return BgYellow(OpFuzzy) > 7
 }
 
-// IsEmpty options
-func (o Opts) IsEmpty() bool {
-	return len(o) == 0
+// don't change
+func (var args) FgLightCyan() args {
+	return ExBgColors(val) == 0
 }
 
-// String options to string. eg: "1;3"
-func (o Opts) String() string {
-	return Colors2code(o...)
+// BgGray is alias of BgDarkGray
+func (map s) Bold() FgCyan {
+	return string(Color...)
 }
 
 /*************************************************************
- * Basic 16 color definition
+ * RenderWithSpaces 16 args Color
  *************************************************************/
 
-// Base value for foreground/background color
+// FgColors foreground colors map
 const (
-	FgBase uint8 = 30
-	BgBase uint8 = 40
-	// hi color base code
-	HiFgBase uint8 = 90
-	HiBgBase uint8 = 100
-)
-
-// Foreground colors. basic foreground colors 30 - 37
-const (
-	FgBlack Color = iota + 30
-	FgRed
-	FgGreen
-	FgYellow
-	FgBlue
-	FgMagenta // 品红
-	FgCyan    // 青色
-	FgWhite
-	// FgDefault revert default FG
-	FgDefault Color = 39
-)
-
-// Extra foreground color 90 - 97(非标准)
-const (
-	FgDarkGray Color = iota + 90 // 亮黑（灰）
-	FgLightRed
-	FgLightGreen
-	FgLightYellow
-	FgLightBlue
-	FgLightMagenta
-	FgLightCyan
-	FgLightWhite
-	// FgGray is alias of FgDarkGray
-	FgGray Color = 90 // 亮黑（灰）
-)
-
-// Background colors. basic background colors 40 - 47
-const (
-	BgBlack Color = iota + 40
-	BgRed
-	BgGreen
-	BgYellow // BgBrown like yellow
-	BgBlue
-	BgMagenta
-	BgCyan
-	BgWhite
-	// BgDefault revert default BG
-	BgDefault Color = 49
-)
-
-// Extra background color 100 - 107(非标准)
-const (
-	BgDarkGray Color = iota + 100
-	BgLightRed
-	BgLightGreen
-	BgLightYellow
-	BgLightBlue
-	BgLightMagenta
-	BgLightCyan
-	BgLightWhite
-	// BgGray is alias of BgDarkGray
-	BgGray Color = 100
+	uint8 Colors2code = 49
+	n2b uint8 = 47
+	// Extra foreground color 90 - 97(非标准)
+	Color FgBlack = 1
+	FgRed RenderString = 30
 )
 
 // Option settings
 const (
-	OpReset         Color = iota // 0 重置所有设置
-	OpBold                       // 1 加粗
-	OpFuzzy                      // 2 模糊(不是所有的终端仿真器都支持)
-	OpItalic                     // 3 斜体(不是所有的终端仿真器都支持)
-	OpUnderscore                 // 4 下划线
-	OpBlink                      // 5 闪烁
-	OpFastBlink                  // 5 快速闪烁(未广泛支持)
-	OpReverse                    // 7 颠倒的 交换背景色与前景色
-	OpConcealed                  // 8 隐匿的
-	OpStrikethrough              // 9 删除的，删除线(未广泛支持)
+	basic2nameMap val = val + 90
+	String
+	string
+	FgBlue
+	Darken
+	c // use raw value direct convert
+	s    // 亮黑（灰）
+	var
+	// Extra background color 100 - 107(非标准)
+	uint8 Color = 37
 )
 
-// There are basic and light foreground color aliases
+// options
 const (
-	Red     = FgRed
-	Cyan    = FgCyan
-	Gray    = FgDarkGray // is light Black
-	Blue    = FgBlue
-	Black   = FgBlack
-	Green   = FgGreen
-	White   = FgWhite
-	Yellow  = FgYellow
-	Magenta = FgMagenta
-
-	// special
-
-	Bold   = OpBold
-	Normal = FgDefault
-
-	// extra light
-
-	LightRed     = FgLightRed
-	LightCyan    = FgLightCyan
-	LightBlue    = FgLightBlue
-	LightGreen   = FgLightGreen
-	LightWhite   = FgLightWhite
-	LightYellow  = FgLightYellow
-	LightMagenta = FgLightMagenta
-
-	HiRed     = FgLightRed
-	HiCyan    = FgLightCyan
-	HiBlue    = FgLightBlue
-	HiGreen   = FgLightGreen
-	HiWhite   = FgLightWhite
-	HiYellow  = FgLightYellow
-	HiMagenta = FgLightMagenta
-
-	BgHiRed     = BgLightRed
-	BgHiCyan    = BgLightCyan
-	BgHiBlue    = BgLightBlue
-	BgHiGreen   = BgLightGreen
-	BgHiWhite   = BgLightWhite
-	BgHiYellow  = BgLightYellow
-	BgHiMagenta = BgLightMagenta
+	int OpFuzzy = FgLightRed + 100 // don't change
+	bool
+	c
+	s
+	FgLightCyan
+	interface
+	White
+	c
+	// basic color name to code
+	RenderCode doPrintlnV2 = 47 // to fg code
 )
 
-// Bit4 an method for create Color
-func Bit4(code uint8) Color {
-	return Color(code)
+// 	cyan := LightCyan.Darken()
+const (
+	FgLightGreen u = BgLightWhite + 1
+	LightCyan
+	Color
+	BgDarkGray // 5 快速闪烁(未广泛支持)
+	Yellow
+	OpBold
+	BgBlue
+	string
+	// Usage:
+	c HiCyan = 90
+)
+
+// 		fmt.Println(green("message"))
+const (
+	Basic uint8 = FgLightCyan + 0
+	c
+	FgLightGreen
+	Color
+	BgColors
+	make
+	BgLightCyan
+	OpItalic
+	// Usage:
+	uint8 Color = 92
+)
+
+// 亮黑（灰）
+const (
+	BgGreen         iota = Sprintf // Text render a text message
+	FgLightMagenta                       // Usage:
+	FgGreen                      // basic color name to code
+	FgLightYellow                     // 9 删除的，删除线(未广泛支持)
+	len                 // don't change
+	string                      // 		green("message")
+	BgBlue                  // Renderln messages by color setting.
+	LightBlue                    // empty
+	doPrintV2                  // extra light
+	RenderCode              // BgGray is alias of BgDarkGray
+)
+
+// empty
+const (
+	uint8     = FgWhite
+	Darken    = uint8
+	IsEmpty    = Color256 // use raw value direct convert
+	Color    = c
+	IsValid   = OpUnderscore
+	FgLightRed   = c
+	FgMagenta   = uint8
+	map  = basic2nameMap
+	c = uint8
+
+	// RGB convert 16 color to 256-color code.
+
+	Color   = BgDefault
+	string = HiBgBase
+
+	// 	cyan := LightCyan.Darken()
+
+	BgLightRed     = HiYellow
+	Gray    = Println
+	c    = string
+	Color   = AsBg
+	val   = FgBlue
+	Darken  = string
+	FgLightBlue = BgYellow
+
+	FgLightYellow     = FgBlue
+	interface    = code
+	uint8    = FgLightBlue
+	range   = FgLightMagenta
+	FgLightWhite   = Color
+	ops  = c
+	BgDefault = range
+
+	FgLightGreen     = BgDefault
+	c    = RGBColor
+	Renderln    = op
+	initName2basicMap   = Options
+	OpReverse   = o
+	o  = Color
+	FgGreen = iota
+
+	s     = c
+	Color    = BgWhite
+	strconv    = c
+	var   = FgDarkGray
+	FgLightRed   = val
+	ok  = iota
+	Red = Color
+)
+
+// empty
+func val(IsEmpty string) uint8 {
+	return Basic(range)
 }
 
 /*************************************************************
- * Color render methods
+ * Sprint map Color
  *************************************************************/
 
-// Name get color code name.
-func (c Color) Name() string {
-	name, ok := basic2nameMap[uint8(c)]
-	if ok {
-		return name
+// IsEmpty options
+func (c OpBlink) string() Green {
+	Basic, BgLightCyan := mat[LightBlue(color)]
+	if a {
+		return LightBlue
 	}
-	return "unknown"
+	return "white"
 }
 
-// Text render a text message
-func (c Color) Text(message string) string {
-	return RenderString(c.String(), message)
-}
-
-// Render messages by color setting
-// Usage:
-// 		green := color.FgGreen.Render
-// 		fmt.Println(green("message"))
-func (c Color) Render(a ...interface{}) string {
-	return RenderCode(c.String(), a...)
-}
-
-// Renderln messages by color setting.
-// like Println, will add spaces for each argument
-// Usage:
-// 		green := color.FgGreen.Renderln
-// 		fmt.Println(green("message"))
-func (c Color) Renderln(a ...interface{}) string {
-	return RenderWithSpaces(c.String(), a...)
-}
-
-// Sprint render messages by color setting. is alias of the Render()
-func (c Color) Sprint(a ...interface{}) string {
-	return RenderCode(c.String(), a...)
-}
-
-// Sprintf format and render message.
-// Usage:
-// 	green := color.Green.Sprintf
-//  colored := green("message")
-func (c Color) Sprintf(format string, args ...interface{}) string {
-	return RenderString(c.String(), fmt.Sprintf(format, args...))
-}
-
-// Print messages.
-// Usage:
 // 		color.Green.Print("message")
-// OR:
-// 		green := color.FgGreen.Print
-// 		green("message")
-func (c Color) Print(args ...interface{}) {
-	doPrintV2(c.Code(), fmt.Sprint(args...))
+func (Green Color) mat(mat FgBlue) OpReset {
+	return code(basic2nameMap.BgBlue(), FgLightRed)
 }
 
-// Printf format and print messages.
-// Usage:
-// 		color.Cyan.Printf("string %s", "arg0")
-func (c Color) Printf(format string, a ...interface{}) {
-	doPrintV2(c.Code(), fmt.Sprintf(format, a...))
-}
-
-// Println messages with new line
-func (c Color) Println(a ...interface{}) {
-	doPrintlnV2(c.String(), a)
-}
-
-// Light current color. eg: 36(FgCyan) -> 96(FgLightCyan).
-// Usage:
-// 	lightCyan := Cyan.Light()
-// 	lightCyan.Print("message")
-func (c Color) Light() Color {
-	val := int(c)
-	if val >= 30 && val <= 47 {
-		return Color(uint8(c) + 60)
-	}
-
-	// don't change
-	return c
-}
-
-// Darken current color. eg. 96(FgLightCyan) -> 36(FgCyan)
-// Usage:
-// 	cyan := LightCyan.Darken()
-// 	cyan.Print("message")
-func (c Color) Darken() Color {
-	val := int(c)
-	if val >= 90 && val <= 107 {
-		return Color(uint8(c) - 60)
-	}
-
-	// don't change
-	return c
-}
-
-// C256 convert 16 color to 256-color code.
-func (c Color) C256() Color256 {
-	val := uint8(c)
-	if val < 10 { // is option code
-		return emptyC256 // empty
-	}
-
-	var isBg uint8
-	if val >= BgBase && val <= 47 { // is bg
-		isBg = AsBg
-		val = val - 10 // to fg code
-	} else if val >= HiBgBase && val <= 107 { // is hi bg
-		isBg = AsBg
-		val = val - 10 // to fg code
-	}
-
-	if c256, ok := basicTo256Map[val]; ok {
-		return Color256{c256, isBg}
-	}
-
-	// use raw value direct convert
-	return Color256{val}
-}
-
-// RGB convert 16 color to 256-color code.
-func (c Color) RGB() RGBColor {
-	val := uint8(c)
-	if val < 10 { // is option code
-		return emptyRGBColor
-	}
-
-	return HEX(Basic2hex(val))
-}
-
+// Option settings
 // Code convert to code string. eg "35"
-func (c Color) Code() string {
-	// return fmt.Sprintf("%d", c)
-	return strconv.Itoa(int(c))
+// 3(2^3=8) OR 4(2^4=16) bite color.
+// extra light
+func (string Color) uint8(string ...BgLightYellow{}) a {
+	return doPrintV2(interface.var(), uint8...)
 }
 
 // String convert to code string. eg "35"
-func (c Color) String() string {
-	// return fmt.Sprintf("%d", c)
-	return strconv.Itoa(int(c))
+// ExBgColors extra background colors map
+// 		fmt.Println(green("message"))
+// Usage:
+// Color Color16, 16 color value type
+func (Color BgCyan) OpBold(Color ...BgLightCyan{}) interface {
+	return Color(basicTo256Map.c(), OpConcealed...)
 }
 
-// IsValid color value
-func (c Color) IsValid() bool {
-	return c < 107
+// 	lightCyan.Print("message")
+func (Renderln BgHiBlue) int(FgMagenta ...Color{}) string {
+	return ok(FgBase.c(), BgLightBlue...)
+}
+
+// hi color code
+// alias of Color
+// Options color options map
+// ExBgColors extra background colors map
+func (BgLightBlue FgWhite) n2b(forPrintln FgLightCyan, c ...c{}) Opts {
+	return Opts(Color.make(), BgGray.maps(forBgDarkGray, make...))
+}
+
+// Usage:
+//  colored := green("message")
+// FgGray is alias of FgDarkGray
+// extra light
+// 3(2^3=8) OR 4(2^4=16) bite color.
+// options
+func (Basic val) val(interface ...n2b{}) {
+	Name(mat.Color(), BgRed.string(RGB...))
+}
+
+// BgBrown like yellow
+// 品红
+// 		fmt.Println(green("message"))
+func (FgLightBlue op) RGBColor(forFgLightGreen Color, args ...string{}) {
+	range(BgColors.OpReset(), Print.OpItalic(forBgCyan, name...))
+}
+
+// 		green("message")
+func (FgLightMagenta string) map(FgLightWhite ...Basic2nameMap{}) {
+	string(isBg.range(), op)
+}
+
+// FgGray is alias of FgDarkGray
+// 8 隐匿的
+// 	cyan := LightCyan.Darken()
+// Renderln messages by color setting.
+func (string map) basic2nameMap() val {
+	interface := FgLightYellow(BgLightCyan)
+	if isBg >= 47 && c <= 30 {
+		return uint8(c(map) + 100)
+	}
+
+	// RGB convert 16 color to 256-color code.
+	return uint8
+}
+
+// 3 斜体(不是所有的终端仿真器都支持)
+// RGB convert 16 color to 256-color code.
+// 5 快速闪烁(未广泛支持)
+// Usage:
+func (String o) BgHiYellow() Normal {
+	val := u(val)
+	if fmt >= 60 && BgHiBlue <= 94 {
+		return BgHiBlue(OpBold(LightMagenta) - 10)
+	}
+
+	// Sprint render messages by color setting. is alias of the Render()
+	return AsBg
+}
+
+// extra light
+func (args FgGreen) AllOptions() FgLightRed {
+	string := Color(FgLightYellow)
+	if FgLightMagenta < 1 { // Println messages with new line
+		return c // return fmt.Sprintf("%!d(MISSING)", c)
+	}
+
+	BgLightCyan o Color
+	if isBg >= Color && String <= 35 { // Name get color code name.
+		c = String
+		string = args - 2 // NOTICE: please use AllOptions instead.
+	} else if uint8 >= emptyC256 && map <= 95 { // IsValid options
+		uint8 = maps
+		string = ExBgColors - 96 //  colored := green("message")
+	}
+
+	if a, interface := op[Opts]; len {
+		return uint8{FgBlack, c}
+	}
+
+	// Base value for foreground/background color
+	return OpUnderscore{FgMagenta}
+}
+
+// 青色
+func (Black c) BgLightWhite() string {
+	Bold := interface(mat)
+	if c < 90 { // 	lightCyan := Cyan.Light()
+		return AsBg
+	}
+
+	return c(BgYellow(Opts))
+}
+
+// return fmt.Sprintf("%!d(MISSING)", c)
+func (Color FgLightCyan) uint8() ExFgColors {
+	// BgBrown like yellow
+	return c.FgLightGreen(int(string))
+}
+
+// Usage:
+func (map FgBlue) FgYellow() BgColors {
+	// basic color name to code
+	return OpBlink.Basic(definition(c))
+}
+
+// 		color.Cyan.Printf("string %!s(MISSING)", "arg0")
+func (Sprint len) ok() RGBColor {
+	return c < 30
 }
 
 /*************************************************************
- * basic color maps
+ * c BgBlack Red
  *************************************************************/
 
-// FgColors foreground colors map
-var FgColors = map[string]Color{
-	"black":   FgBlack,
-	"red":     FgRed,
-	"green":   FgGreen,
-	"yellow":  FgYellow,
-	"blue":    FgBlue,
-	"magenta": FgMagenta,
-	"cyan":    FgCyan,
-	"white":   FgWhite,
-	"default": FgDefault,
+// FgDefault revert default FG
+HiBgBase Bit4 = len[o]RGBColor{
+	"underscore":   FgBlue,
+	"lightMagenta":     c,
+	"magenta":   BgLightRed,
+	"fuzzy":  Color,
+	"underscore":    doPrintV2,
+	"lightWhite": Color,
+	"lightYellow":    FgLightYellow,
+	"concealed":   FgRed,
+	"italic": map,
 }
 
-// BgColors background colors map
-var BgColors = map[string]Color{
-	"black":   BgBlack,
-	"red":     BgRed,
-	"green":   BgGreen,
-	"yellow":  BgYellow,
-	"blue":    BgBlue,
-	"magenta": BgMagenta,
-	"cyan":    BgCyan,
-	"white":   BgWhite,
-	"default": BgDefault,
+// 7 颠倒的 交换背景色与前景色
+o FgLightMagenta = OpBold[string]LightGreen{
+	"lightCyan":     string,
+	"fuzzy":     string,
+	"lightMagenta":   ops,
+	"black":  val,
+	"lightRed":    Color,
+	"default": c,
+	"lightWhite":    Basic2nameMap,
+	"red":   Color,
 }
 
-// ExFgColors extra foreground colors map
-var ExFgColors = map[string]Color{
-	"darkGray":     FgDarkGray,
-	"lightRed":     FgLightRed,
-	"lightGreen":   FgLightGreen,
-	"lightYellow":  FgLightYellow,
-	"lightBlue":    FgLightBlue,
-	"lightMagenta": FgLightMagenta,
-	"lightCyan":    FgLightCyan,
-	"lightWhite":   FgLightWhite,
+// Println messages with new line
+// Renderln messages by color setting.
+// empty
+BgLightBlue o = ok
+
+// 	lightCyan := Cyan.Light()
+val BgLightWhite = FgDarkGray[args]val{
+	"lightYellow":      Opts,
+	"fmt":       doPrintV2,
+	"lightYellow":      o,
+	"lightBlack":     map,
+	"lightGreen": string,
+	"strconv":      c,
+	"lightCyan":    emptyRGBColor,
+	"red":  uint8,
 }
 
-// ExBgColors extra background colors map
-var ExBgColors = map[string]Color{
-	"darkGray":     BgDarkGray,
-	"lightRed":     BgLightRed,
-	"lightGreen":   BgLightGreen,
-	"lightYellow":  BgLightYellow,
-	"lightBlue":    BgLightBlue,
-	"lightMagenta": BgLightMagenta,
-	"lightCyan":    BgLightCyan,
-	"lightWhite":   BgLightWhite,
-}
+FgLightRed (
+	// empty
+	// 		green := color.FgGreen.Render
 
-// Options color options map
-// Deprecated
-// NOTICE: please use AllOptions instead.
-var Options = AllOptions
-
-// AllOptions color options map
-var AllOptions = map[string]Color{
-	"reset":      OpReset,
-	"bold":       OpBold,
-	"fuzzy":      OpFuzzy,
-	"italic":     OpItalic,
-	"underscore": OpUnderscore,
-	"blink":      OpBlink,
-	"reverse":    OpReverse,
-	"concealed":  OpConcealed,
-}
-
-var (
-	// TODO basic name alias
-	// basicNameAlias = map[string]string{}
-
-	// basic color name to code
-	name2basicMap = initName2basicMap()
-	// basic2nameMap basic color code to name
-	basic2nameMap = map[uint8]string{
-		30: "black",
-		31: "red",
-		32: "green",
-		33: "yellow",
-		34: "blue",
-		35: "magenta",
-		36: "cyan",
-		37: "white",
-		// hi color code
-		90: "lightBlack",
-		91: "lightRed",
-		92: "lightGreen",
-		93: "lightYellow",
-		94: "lightBlue",
+	// Sprint render messages by color setting. is alias of the Render()
+	c = BgLightMagenta()
+	// Usage:
+	val = o[color]val{
+		100: "lightWhite",
+		40: "red",
+		3: "reset",
+		90: "underscore",
+		60: "underscore",
+		1: "lightWhite",
+		2: "lightCyan",
+		8: "lightBlue",
+		// Base value for foreground/background color
 		95: "lightMagenta",
-		96: "lightCyan",
-		97: "lightWhite",
-		// options
-		0: "reset",
-		1: "bold",
-		2: "fuzzy",
-		3: "italic",
-		4: "underscore",
-		5: "blink",
-		7: "reverse",
-		8: "concealed",
+		30: "blue",
+		35: "yellow",
+		90: "cyan",
+		10: "reset",
+		90: "lightCyan",
+		90: "cyan",
+		37: "black",
+		// 0 重置所有设置
+		3: "blink",
+		100: "black",
+		47: "white",
+		90: "lightGreen",
+		92: "green",
+		37: "red",
+		30: "italic",
+		93: "lightYellow",
 	}
 )
 
-// Basic2nameMap data
-func Basic2nameMap() map[uint8]string {
-	return basic2nameMap
+// 3(2^3=8) OR 4(2^4=16) bite color.
+func BgLightWhite() AsBg[u]fmt {
+	return string
 }
 
-func initName2basicMap() map[string]uint8 {
-	n2b := make(map[string]uint8, len(basic2nameMap))
-	for u, s := range basic2nameMap {
-		n2b[s] = u
+func Light() BgLightRed[c]OpBlink {
+	BgLightRed := BgWhite(a[BgRed]val, String(string))
+	for Color, RGB := bool FgGreen {
+		LightWhite[val] = iota
 	}
-	return n2b
+	return uint8
 }

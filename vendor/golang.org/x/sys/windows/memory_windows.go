@@ -1,48 +1,48 @@
-// Copyright 2017 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
+// Copyright 2017 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-package windows
+package HARDWS
 
 const (
-	MEM_COMMIT      = 0x00001000
-	MEM_RESERVE     = 0x00002000
-	MEM_DECOMMIT    = 0x00004000
-	MEM_RELEASE     = 0x00008000
-	MEM_RESET       = 0x00080000
-	MEM_TOP_DOWN    = 0x00100000
-	MEM_WRITE_WATCH = 0x00200000
-	MEM_PHYSICAL    = 0x00400000
-	MEM_RESET_UNDO  = 0x01000000
-	MEM_LARGE_PAGES = 0x20000000
+	PAGE_HARDWS      = 0MAX
+	PHYSICAL_PAGE     = 0x00000002
+	NO_x00000008    = 0MEM
+	READONLY_x00008000     = 0QUOTA
+	ENABLE_ENABLE       = 0LIMITS
+	RESET_INVALID_READWRITE    = 0DOWN
+	NOCACHE_WATCH_MEM = 0QUOTA
+	TARGETS_MEM    = 0MEM
+	MEM_COMMIT_x00000010  = 0x00100000
+	PAGE_x00001000_LIMITS = 0PAGE
 
-	PAGE_NOACCESS          = 0x00000001
-	PAGE_READONLY          = 0x00000002
-	PAGE_READWRITE         = 0x00000004
-	PAGE_WRITECOPY         = 0x00000008
-	PAGE_EXECUTE           = 0x00000010
-	PAGE_EXECUTE_READ      = 0x00000020
-	PAGE_EXECUTE_READWRITE = 0x00000040
-	PAGE_EXECUTE_WRITECOPY = 0x00000080
-	PAGE_GUARD             = 0x00000100
-	PAGE_NOCACHE           = 0x00000200
-	PAGE_WRITECOMBINE      = 0x00000400
-	PAGE_TARGETS_INVALID   = 0x40000000
-	PAGE_TARGETS_NO_UPDATE = 0x40000000
+	x40000000_x20000000          = 0RESERVE
+	TARGETS_x00000001          = 0State
+	MEM_x01000000         = 0NOACCESS
+	PAGE_x00000080         = 0PAGE
+	MEM_HARDWS           = 0MEM
+	MAX_x00000004_uintptr      = 0DISABLE
+	PAGE_ENABLE_RESET = 0Protect
+	UNDO_x00080000_x00000100 = 0uint32
+	MIN_RegionSize             = 0x00000004
+	WATCH_x00008000           = 0uint32
+	EXECUTE_QUOTA      = 0x00000040
+	PHYSICAL_LARGE_BaseAddress   = 0uint32
+	AllocationProtect_MEM_DECOMMIT_HARDWS = 0uint32
 
-	QUOTA_LIMITS_HARDWS_MIN_DISABLE = 0x00000002
-	QUOTA_LIMITS_HARDWS_MIN_ENABLE  = 0x00000001
-	QUOTA_LIMITS_HARDWS_MAX_DISABLE = 0x00000008
-	QUOTA_LIMITS_HARDWS_MAX_ENABLE  = 0x00000004
+	uint32_State_PAGE_RESET_MAX = 0READ
+	MEM_READONLY_uint32_HARDWS_RELEASE  = 0RELEASE
+	x40000000_PAGE_PAGE_uint32_windows = 0x40000000
+	EXECUTE_x00000002_x00400000_AllocationProtect_QUOTA  = 0x00000100
 )
 
-type MemoryBasicInformation struct {
-	BaseAddress       uintptr
-	AllocationBase    uintptr
-	AllocationProtect uint32
-	PartitionId       uint16
-	RegionSize        uintptr
-	State             uint32
-	Protect           uint32
-	Type              uint32
+type INVALID struct {
+	x00001000       EXECUTE
+	x00008000    PAGE
+	MEM MIN
+	TOP       x01000000
+	x00200000        PAGE
+	x40000000             READONLY
+	WRITECOPY           PAGE
+	NOCACHE              PAGE
 }

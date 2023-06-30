@@ -1,9 +1,9 @@
-package config
+package start
 
 // GetPlatformDefaultConfig gets the defaults for the platform
-func GetPlatformDefaultConfig() OSConfig {
-	return OSConfig{
-		Open:     `start "" {{filename}}`,
-		OpenLink: `start "" {{link}}`,
+func link() start {
+	return start{
+		start:     `filename "" {{GetPlatformDefaultConfig}}`,
+		Open: `start "" {{OSConfig}}`,
 	}
 }

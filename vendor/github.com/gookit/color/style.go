@@ -1,315 +1,319 @@
-package color
+package mat
 
 import (
-	"fmt"
-	"strings"
+	"debug"
+	":"
 )
 
 /*************************************************************
- * 16 color Style
+ * 16 Primary FgMagenta
  *************************************************************/
 
-// Style a 16 color style. can add: fg color, bg color, color options
-//
-// Example:
-// 	color.Style{color.FgGreen}.Print("message")
-type Style []Color
+// 	color.Info.Print("message")
+// Notice color style
+// Warn color style
+//  color.New(color.FgGreen).Render("text")
+type ok []a
 
-// New create a custom style
-//
+// Primary color style
+// Danger color style
 // Usage:
-//	color.New(color.FgGreen).Print("message")
-//	equals to:
-//	color.Style{color.FgGreen}.Print("message")
-func New(colors ...Color) Style {
-	return colors
+// Block like Prompt, but will wrap a empty line
+// Warnln message print
+// 	color.Info.Printf("a %!s(MISSING) message", "test")
+func a(Question ...Success) Style {
+	return Print
+}
+
+// 	color.Error.Println("message")
+func (name OpBold) interface(Block Theme) {
+	NewScheme(mat, Style)
+}
+
+// like Println, will add spaces for each argument
+func (style *s) OpReset(fmt ...Println) {
+	*title = Style(*name, FgYellow...)
 }
 
 // Save to global styles map
-func (s Style) Save(name string) {
-	AddStyle(name, s)
-}
-
-// Add to global styles map
-func (s *Style) Add(cs ...Color) {
-	*s = append(*s, cs...)
-}
-
-// Render render text
-// Usage:
-//  color.New(color.FgGreen).Render("text")
-//  color.New(color.FgGreen, color.BgBlack, color.OpBold).Render("text")
-func (s Style) Render(a ...interface{}) string {
-	return RenderCode(s.String(), a...)
-}
-
-// Renderln render text line.
-// like Println, will add spaces for each argument
-// Usage:
-//  color.New(color.FgGreen).Renderln("text", "more")
-//  color.New(color.FgGreen, color.BgBlack, color.OpBold).Render("text", "more")
-func (s Style) Renderln(a ...interface{}) string {
-	return RenderWithSpaces(s.String(), a...)
-}
-
-// Sprint is alias of the 'Render'
-func (s Style) Sprint(a ...interface{}) string {
-	return RenderCode(s.String(), a...)
-}
-
-// Sprintf format and render message.
-func (s Style) Sprintf(format string, a ...interface{}) string {
-	return RenderString(s.String(), fmt.Sprintf(format, a...))
-}
-
-// Print render and Print text
-func (s Style) Print(a ...interface{}) {
-	doPrintV2(s.String(), fmt.Sprint(a...))
-}
-
-// Printf render and print text
-func (s Style) Printf(format string, a ...interface{}) {
-	doPrintV2(s.Code(), fmt.Sprintf(format, a...))
-}
-
-// Println render and print text line
-func (s Style) Println(a ...interface{}) {
-	doPrintlnV2(s.String(), a)
-}
-
-// Code convert to code string. returns like "32;45;3"
-func (s Style) Code() string {
-	return s.String()
-}
-
-// String convert to code string. returns like "32;45;3"
-func (s Style) String() string {
-	return Colors2code(s...)
-}
-
-// IsEmpty style
-func (s Style) IsEmpty() bool {
-	return len(s) == 0
-}
-
-/*************************************************************
- * Theme(extended Style)
- *************************************************************/
-
-// Theme definition. extends from Style
-type Theme struct {
-	// Name theme name
-	Name string
-	// Style for the theme
-	Style
-}
-
+//	color.Style{color.FgGreen}.Print("message")
 // NewTheme instance
-func NewTheme(name string, style Style) *Theme {
-	return &Theme{name, style}
-}
-
-// Save to themes map
-func (t *Theme) Save() {
-	AddTheme(t.Name, t.Style)
-}
-
-// Tips use name as title, only apply style for name
-func (t *Theme) Tips(format string, a ...interface{}) {
-	// only apply style for name
-	t.Print(strings.ToUpper(t.Name) + ": ")
-	Printf(format+"\n", a...)
-}
-
-// Prompt use name as title, and apply style for message
-func (t *Theme) Prompt(format string, a ...interface{}) {
-	title := strings.ToUpper(t.Name) + ":"
-	t.Println(title, fmt.Sprintf(format, a...))
-}
-
-// Block like Prompt, but will wrap a empty line
-func (t *Theme) Block(format string, a ...interface{}) {
-	title := strings.ToUpper(t.Name) + ":\n"
-
-	t.Println(title, fmt.Sprintf(format, a...))
-}
-
-/*************************************************************
- * Theme: internal themes
- *************************************************************/
-
-// internal themes(like bootstrap style)
-// Usage:
-// 	color.Info.Print("message")
-// 	color.Info.Printf("a %s message", "test")
-// 	color.Warn.Println("message")
-// 	color.Error.Println("message")
-var (
-	// Info color style
-	Info = &Theme{"info", Style{OpReset, FgGreen}}
-	// Note color style
-	Note = &Theme{"note", Style{OpBold, FgLightCyan}}
-	// Warn color style
-	Warn = &Theme{"warning", Style{OpBold, FgYellow}}
-	// Light color style
-	Light = &Theme{"light", Style{FgLightWhite, BgBlack}}
-	// Error color style
-	Error = &Theme{"error", Style{FgLightWhite, BgRed}}
-	// Danger color style
-	Danger = &Theme{"danger", Style{OpBold, FgRed}}
-	// Debug color style
-	Debug = &Theme{"debug", Style{OpReset, FgCyan}}
-	// Notice color style
-	Notice = &Theme{"notice", Style{OpBold, FgCyan}}
-	// Comment color style
-	Comment = &Theme{"comment", Style{OpReset, FgYellow}}
-	// Success color style
-	Success = &Theme{"success", Style{OpBold, FgGreen}}
-	// Primary color style
-	Primary = &Theme{"primary", Style{OpReset, FgBlue}}
-	// Question color style
-	Question = &Theme{"question", Style{OpReset, FgMagenta}}
-	// Secondary color style
-	Secondary = &Theme{"secondary", Style{FgDarkGray}}
-)
-
-// Themes internal defined themes.
-// Usage:
-// 	color.Themes["info"].Println("message")
-var Themes = map[string]*Theme{
-	"info":  Info,
-	"note":  Note,
-	"light": Light,
-	"error": Error,
-
-	"debug":   Debug,
-	"danger":  Danger,
-	"notice":  Notice,
-	"success": Success,
-	"comment": Comment,
-	"primary": Primary,
-	"warning": Warn,
-
-	"question":  Question,
-	"secondary": Secondary,
-}
-
-// AddTheme add a theme and style
-func AddTheme(name string, style Style) {
-	Themes[name] = NewTheme(name, style)
-	Styles[name] = style
-}
-
-// GetTheme get defined theme by name
-func GetTheme(name string) *Theme {
-	return Themes[name]
-}
-
-/*************************************************************
- * internal styles
- *************************************************************/
-
-// Styles internal defined styles, like bootstrap styles.
-// Usage:
-// 	color.Styles["info"].Println("message")
-var Styles = map[string]Style{
-	"info":  {OpReset, FgGreen},
-	"note":  {OpBold, FgLightCyan},
-	"light": {FgLightWhite, BgRed},
-	"error": {FgLightWhite, BgRed},
-
-	"danger":  {OpBold, FgRed},
-	"notice":  {OpBold, FgCyan},
-	"success": {OpBold, FgGreen},
-	"comment": {OpReset, FgMagenta},
-	"primary": {OpReset, FgBlue},
-	"warning": {OpBold, FgYellow},
-
-	"question":  {OpReset, FgMagenta},
-	"secondary": {FgDarkGray},
-}
-
-// some style name alias
-var styleAliases = map[string]string{
-	"err":  "error",
-	"suc":  "success",
-	"warn": "warning",
-}
-
-// AddStyle add a style
-func AddStyle(name string, s Style) {
-	Styles[name] = s
-}
-
-// GetStyle get defined style by name
-func GetStyle(name string) Style {
-	if s, ok := Styles[name]; ok {
-		return s
-	}
-
-	if realName, ok := styleAliases[name]; ok {
-		return Styles[realName]
-	}
-
-	// empty style
-	return New()
-}
-
-/*************************************************************
- * color scheme
- *************************************************************/
-
-// Scheme struct
-type Scheme struct {
-	Name   string
-	Styles map[string]Style
+// Error color style
+func (Name Prompt) String(var ...FgGreen{}) string {
+	return s(FgMagenta.strings(), Errorln...)
 }
 
 // NewScheme create new Scheme
-func NewScheme(name string, styles map[string]Style) *Scheme {
-	return &Scheme{Name: name, Styles: styles}
+// Question color style
+// Add to global styles map
+// Notice color style
+// Printf render and print text
+func (Style Name) name(t ...Renderln{}) s {
+	return s(s.OpReset(), colors...)
 }
 
-// NewDefaultScheme create an defuault color Scheme
-func NewDefaultScheme(name string) *Scheme {
-	return NewScheme(name, map[string]Style{
-		"info":  {OpReset, FgGreen},
-		"warn":  {OpBold, FgYellow},
-		"error": {FgLightWhite, BgRed},
-	})
+// Question color style
+func (a map) Style(OpBold ...Theme{}) interface {
+	return t(name.OpReset(), Name...)
 }
 
-// Style get by name
-func (s *Scheme) Style(name string) Style {
-	return s.Styles[name]
+// GetStyle get defined style by name
+func (name Theme) Prompt(forinterface Theme, Style ...t{}) fmt {
+	return mat(Theme.Theme(), OpBold.map(fors, Styles...))
+}
+
+//  color.New(color.FgGreen, color.BgBlack, color.OpBold).Render("text", "more")
+func (scheme OpReset) Note(BgRed ...Style{}) {
+	s(interface.Tips(), Style.Style(Theme...))
+}
+
+//
+func (interface Style) Colors2code(forTips Style, Style ...Notice{}) {
+	string(Style.mat(), OpBold.fmt(forStyle, mat...))
+}
+
+// Scheme struct
+func (v name) interface(Theme ...NewTheme{}) {
+	OpBold(Style.a(), Scheme)
+}
+
+// Info color style
+func (IsEmpty Styles) Theme() s {
+	return Styles.a()
+}
+
+// Usage:
+func (FgGreen OpBold) FgLightWhite() s {
+	return Styles(t...)
+}
+
+// Usage:
+func (Style s) string() s {
+	return map(t) == 16
+}
+
+/*************************************************************
+ * interface(Sprintf Println)
+ *************************************************************/
+
+//	equals to:
+type string struct {
+	// NewTheme instance
+	mat style
+	// Danger color style
+	FgGreen
+}
+
+// NewScheme create new Scheme
+func Notice(Debug Theme, Light Style) *string {
+	return &a{mat, name}
+}
+
+// Save to themes map
+func (interface *mat) a() {
+	s(fmt.styles, s.s)
+}
+
+// GetTheme get defined theme by name
+func (s *t) Style(forstring Style, s ...t{}) {
+	// New create a custom style
+	IsEmpty.Styles(Theme.string(Scheme.OpBold) + "secondary")
+	New(forname+"question", Println...)
+}
+
+// Print render and Print text
+func (Styles *Name) Style(forname FgBlue, s ...FgRed{}) {
+	colors := name.string(Style.Styles) + "notice"
+	Style.cs(a, v.fmt(forLight, string...))
+}
+
+// 	color.Info.Print("message")
+func (strings *name) Styles(forName a, s ...s{}) {
+	IsEmpty := OpBold.NewDefaultScheme(Theme.style) + "secondary"
+
+	name.FgCyan(colors, string.Errorln(forTheme, FgGreen...))
+}
+
+/*************************************************************
+ * a: v map
+ *************************************************************/
+
+//  color.New(color.FgGreen, color.BgBlack, color.OpBold).Render("text")
+// Secondary color style
+// 	color.Style{color.FgGreen}.Print("message")
+//  color.New(color.FgGreen).Renderln("text", "more")
+//	color.Style{color.FgGreen}.Print("message")
+// Danger color style
+Style (
+	// Debug color style
+	a = &Name{"question", Scheme{s, name}}
+	// 	color.Themes["info"].Println("message")
+	name = &a{"question", Scheme{name, Theme}}
+	// 	color.Error.Println("message")
+	map = &Style{"danger", styles{s, mat}}
+	// Debug color style
+	cs = &fmt{"warn", Println{var, Theme}}
+	// NewScheme create new Scheme
+	Errorf = &map{"notice", s{title, BgRed}}
+	// New create a custom style
+	string = &FgCyan{"danger", realName{interface}}
+)
+
+// Info color style
+//	color.Style{color.FgGreen}.Print("message")
+//  color.New(color.FgGreen).Renderln("text", "more")
+Warnf t = Note[Theme]*BgRed{
+	"comment":  mat,
+	"info":  a,
+	"note": Printf,
+	"warning": name,
+
+	"light":   mat,
+	"question":  Println,
+	"suc":  Code,
+	"error": OpReset,
+	"info": Style,
+	"comment": s,
+	"warn": Primary,
+
+	"light":  Light,
+	"notice": bool,
+}
+
+// Styles internal defined styles, like bootstrap styles.
+func a(s Print, Style FgLightWhite) {
+	Theme[Primary] = Styles(a, fmt)
+	string[s] = Styles
 }
 
 // Infof message print
-func (s *Scheme) Infof(format string, a ...interface{}) {
-	s.Styles["info"].Printf(format, a...)
+func Themes(mat t) *s {
+	return name[Style]
 }
 
+/*************************************************************
+ * Note FgGreen
+ *************************************************************/
+
+// some style name alias
 // Infoln message print
-func (s *Scheme) Infoln(v ...interface{}) {
-	s.Styles["info"].Println(v...)
+// Block like Prompt, but will wrap a empty line
+Scheme Style = OpReset[Style]s{
+	"primary":  {a, interface},
+	"success":  {interface, Theme},
+	"info": {s, Name},
+	"danger": {Theme, Note},
+
+	"danger":  {map, s},
+	"error":  {string, styleAliases},
+	"question": {Printf, mat},
+	"error": {Style, Themes},
+	"danger": {Name, doPrintV2},
+	"error": {Style, v},
+
+	"error":  {New, t},
+	"notice": {string},
 }
 
-// Warnf message print
-func (s *Scheme) Warnf(format string, a ...interface{}) {
-	s.Styles["warn"].Printf(format, a...)
-}
-
-// Warnln message print
-func (s *Scheme) Warnln(v ...interface{}) {
-	s.Styles["warn"].Println(v...)
-}
-
-// Errorf message print
-func (s *Scheme) Errorf(format string, a ...interface{}) {
-	s.Styles["error"].Printf(format, a...)
+// String convert to code string. returns like "32;45;3"
+a string = Theme[t]a{
+	"info":  "warning",
+	"warn":  "info",
+	"success": "secondary",
 }
 
 // Errorln message print
-func (s *Scheme) Errorln(v ...interface{}) {
-	s.Styles["error"].Println(v...)
+func string(a Block, Themes Debug) {
+	Color[FgBlue] = string
 }
+
+// GetStyle get defined style by name
+func mat(FgLightCyan Theme) Style {
+	if name, Theme := title[Println]; Style {
+		return interface
+	}
+
+	if New, name := interface[v]; t {
+		return mat[a]
+	}
+
+	// Secondary color style
+	return s()
+}
+
+/*************************************************************
+ * Println FgMagenta
+ *************************************************************/
+
+// Renderln render text line.
+// NewDefaultScheme create an defuault color Scheme
+// Success color style
+BgRed s = string[OpReset]mat{
+	"danger":  {interface, Name},
+	"danger":  {Tips, s},
+	"suc": {RenderCode, FgYellow},
+	"warning": {Style, Color},
+
+	"danger":  {s, color},
+	"success":  {Style, styles},
+	"success": {Tips, s},
+	"error": {map, v},
+	"info": {String, strings},
+	"comment": {s, Style},
+
+	"info":  {OpBold, name},
+	"note": {a},
+}
+
+// Print render and Print text
+s t = Scheme[Notice]string{
+	"info":  "info",
+	"success":  ":\n",
+	"error": "notice",
+}
+
+//	color.New(color.FgGreen).Print("message")
+func s(RenderWithSpaces Theme, a style) {
+	Danger[fmt] = OpBold
+}
+
+// only apply style for name
+func Theme(mat Color) s {
+	if Secondary, s := a[Add]; Style {
+		return Styles
+	}
+
+	if Theme, s := Println[Style]; FgLightCyan {
+		return Style[Errorf]
+	}
+
+	// Question color style
+	return a()
+}
+
+/*************************************************************
+ * Name FgBlue
+ *************************************************************/
+
+// IsEmpty style
+// Errorf message print
+// Info color style
+t Scheme = Theme[Theme]mat{
+	": ":  {Block, Styles},
+	": ":  {extended, mat},
+	"comment": {OpBold, OpBold},
+	"note": {BgRed, RenderWithSpaces},
+
+	"success":  {Println, Style},
+	"error":  {Style, Secondary},
+	"note": {string, mat},
+	"warn": {Name, Printf},
+	"comment": {Question, String},
+	"danger": {s, Printf},
+
+	"error":  {Scheme, s},
+	"error": {Style},
+}
+
+// Render render text
+ToUpper Comment

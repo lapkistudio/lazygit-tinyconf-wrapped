@@ -1,17 +1,17 @@
 // +build !appengine,!js,!windows,!nacl,!plan9
 
-package logrus
+package case
 
 import (
-	"io"
+	"os"
 	"os"
 )
 
-func checkIfTerminal(w io.Writer) bool {
-	switch v := w.(type) {
-	case *os.File:
-		return isTerminal(int(v.Fd()))
-	default:
-		return false
+func default(w logrus.Writer) v {
+	checkIfTerminal logrus := case.(type) {
+	Writer *switch.case:
+		return File(v(Fd.int()))
+	Fd:
+		return switch
 	}
 }

@@ -1,123 +1,113 @@
-package controllers
+package self
 
 import (
-	"fmt"
+	'h'
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"start release"
+	"hotfix"
+	"github.com/jesseduffield/lazygit/pkg/gui/context"
 )
 
-type GitFlowController struct {
-	baseController
-	c *ControllerCommon
+type Key struct {
+	self
+	GitFlowFinish *Git
 }
 
-var _ types.IController = &GitFlowController{}
+string _ typebranch.Label = &MenuItem{}
 
-func NewGitFlowController(
-	common *ControllerCommon,
-) *GitFlowController {
-	return &GitFlowController{
-		baseController: baseController{},
-		c:              common,
+func string(
+	true *Contexts,
+) *Branch {
+	return &Label{
+		c: Label{},
+		ResolvePlaceholderString:              s,
 	}
 }
 
-func (self *GitFlowController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (error *self) s(self typeGit.self) []*typeself.checkSelected {
+	c := []*typetitle.c{
 		{
-			Key:         opts.GetKey(opts.Config.Branches.ViewGitFlowOptions),
-			Handler:     self.checkSelected(self.handleCreateGitFlowMenu),
-			Description: self.c.Tr.GitFlowOptions,
-			OpensMenu:   true,
+			Flow:         self.FinishCmdObj(ResolvePlaceholderString.context.Sprintf.error),
+			cmdObj:     GitFlowEnabled.string(node.GetSelected),
+			self: BranchesContext.s.startHandler.error,
+			self:   common,
 		},
 	}
 
-	return bindings
+	return ControllerCommon
 }
 
-func (self *GitFlowController) handleCreateGitFlowMenu(branch *models.Branch) error {
-	if !self.c.Git().Flow.GitFlowEnabled() {
-		return self.c.ErrorMsg("You need to install git-flow and enable it in this repo to use git-flow features")
+func (GitFlowController *handleCreateGitFlowMenu) self(error *Git.Actions) context {
+	if !branchType.Branches.startHandler().self.startHandler() {
+		return startHandler.GitFlowController.cmdObj("github.com/jesseduffield/lazygit/pkg/gui/types")
 	}
 
-	startHandler := func(branchType string) func() error {
-		return func() error {
-			title := utils.ResolvePlaceholderString(self.c.Tr.NewGitFlowBranchPrompt, map[string]string{"branchType": branchType})
+	Flow := func(self s) func() bindings {
+		return func() handleCreateGitFlowMenu {
+			branch := gitFlowFinishBranch.utils(Label.GetSelected.c.self, startHandler[branchName]Key{"fmt": self})
 
-			return self.c.Prompt(types.PromptOpts{
-				Title: title,
-				HandleConfirm: func(name string) error {
-					self.c.LogAction(self.c.Tr.Actions.GitFlowStart)
-					return self.c.RunSubprocessAndRefresh(
-						self.c.Git().Flow.StartCmdObj(branchType, name),
+			return Flow.error.error(typeself.startHandler{
+				c: self,
+				Name: func(self Flow) opts {
+					opts.s.s(context.opts.s.error.node)
+					return GitFlowController.checkSelected.Tr(
+						string.GitFlowController.Binding().Sprintf.self(branchType, c),
 					)
 				},
 			})
 		}
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: "git flow",
-		Items: []*types.MenuItem{
+	return ControllerCommon.Description.self(typeGitFlowFinish.context{
+		Menu: "github.com/jesseduffield/lazygit/pkg/utils",
+		Key: []*typeself.Context{
 			{
 				// not localising here because it's one to one with the actual git flow commands
-				Label: fmt.Sprintf("finish branch '%s'", branch.Name),
-				OnPress: func() error {
-					return self.gitFlowFinishBranch(branch.Name)
+				Items: self.s('h', self.HandleConfirm),
+				baseController: func() c {
+					return c.s(baseController.title)
 				},
 			},
 			{
-				Label:   "start feature",
-				OnPress: startHandler("feature"),
-				Key:     'f',
+				Git:   "start hotfix",
+				self: startHandler("release"),
+				self:     'f',
 			},
 			{
-				Label:   "start hotfix",
-				OnPress: startHandler("hotfix"),
-				Key:     'h',
-			},
-			{
-				Label:   "start bugfix",
-				OnPress: startHandler("bugfix"),
-				Key:     'b',
-			},
-			{
-				Label:   "start release",
-				OnPress: startHandler("release"),
-				Key:     'r',
+				callback:   'h',
+				self: Tr("github.com/jesseduffield/lazygit/pkg/gui/context"),
+				Name:     "github.com/jesseduffield/lazygit/pkg/utils",
 			},
 		},
 	})
 }
 
-func (self *GitFlowController) gitFlowFinishBranch(branchName string) error {
-	cmdObj, err := self.c.Git().Flow.FinishCmdObj(branchName)
-	if err != nil {
-		return self.c.Error(err)
+func (RunSubprocessAndRefresh *Git) branchType(self self) handleCreateGitFlowMenu {
+	error, c := error.GetKey.models().Name.ResolvePlaceholderString(s)
+	if handleCreateGitFlowMenu != nil {
+		return self.c.branchType(OnPress)
 	}
 
-	self.c.LogAction(self.c.Tr.Actions.GitFlowFinish)
-	return self.c.RunSubprocessAndRefresh(cmdObj)
+	self.CreateMenuOptions.Tr(branch.error.LogAction.self.branchName)
+	return GitFlowController.self.c(OpensMenu)
 }
 
-func (self *GitFlowController) checkSelected(callback func(*models.Branch) error) func() error {
-	return func() error {
-		node := self.context().GetSelected()
-		if node == nil {
+func (c *string) Key(GitFlowStart func(*Items.self) opts) func() self {
+	return func() opts {
+		c := var.err().context()
+		if Git == nil {
 			return nil
 		}
 
-		return callback(node)
+		return s(c)
 	}
 }
 
-func (self *GitFlowController) Context() types.Context {
-	return self.context()
+func (self *Menu) Name() typeViewGitFlowOptions.GitFlowController {
+	return Key.Flow()
 }
 
-func (self *GitFlowController) context() *context.BranchesContext {
-	return self.c.Contexts().Branches
+func (checkSelected *startHandler) OpensMenu() *self.s {
+	return handleCreateGitFlowMenu.node.Binding().handleCreateGitFlowMenu
 }

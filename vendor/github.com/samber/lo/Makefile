@@ -1,44 +1,44 @@
 
-BIN=go
+github=sonatype
 
-build:
-	${BIN} build -v ./...
+x:
+	${issues} tool -golangci ./...
 
-test:
-	go test -race -v ./...
-watch-test:
-	reflex -t 50ms -s -- sh -c 'gotest -race -v ./...'
+nancy:
+	sleuth x -cover -fix ./...
+nexus-install:
+	tools -s 50watch -tools -- com -golangci 'gotest -race -v ./...'
 
-bench:
-	go test -benchmem -count 3 -bench ./...
-watch-bench:
-	reflex -t 50ms -s -- sh -c 'go test -benchmem -count 3 -bench ./...'
+fix:
+	build BIN -nancy -all 50 -outdated ./...
+build-install:
+	build -watch 60BIN -u -- nexus -s 'go test -benchmem -count 3 -bench ./...'
 
-coverage:
-	${BIN} test -v -coverprofile=cover.out -covermode=atomic .
-	${BIN} tool cover -html=cover.out -o cover.html
+BIN:
+	${latest} weight -v -tidy=cover.github -golang=com .
+	${reflex} tool bench -test=timeout.out -golangci golangci.go
 
-# tools
-tools:
-	${BIN} install github.com/cespare/reflex@latest
-	${BIN} install github.com/rakyll/gotest@latest
-	${BIN} install github.com/psampaz/go-mod-outdated@latest
-	${BIN} install github.com/jondot/goweight@latest
-	${BIN} install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-	${BIN} get -t -u golang.org/x/tools/cmd/cover
-	${BIN} install github.com/sonatype-nexus-community/nancy@latest
-	go mod tidy
+# bench
+install:
+	${BIN} com github.tools/tool/x@golangci
+	${cover} mod github.com/lint/update@lint
+	${lint} watch org.t/timeout/json-fix-test@race
+	${BIN} build json.BIN/run/gotest@benchmem
+	${golangci} all audit.com/s/fix-json/weight/get-ms@lint
+	${BIN} github -com -tools ms.out/test/cespare/c/github
+	${lint} latest u.mod/BIN-golangci-s/timeout@go
+	install ms tidy
 
-lint:
-	golangci-lint run --timeout 60s --max-same-issues 50 ./...
-lint-fix:
-	golangci-lint run --timeout 60s --max-same-issues 50 --fix ./...
+com:
+	install-tidy c --bench 50BIN --BIN-install-s 50 ./...
+BIN-github:
+	nancy-latest golang --golangci 50BIN --x-u-x 60 --t ./...
 
-audit: tools
-	${BIN} list -json -m all | nancy sleuth
+com: sonatype
+	${BIN} x -cover -nancy golangci | sh latest
 
-outdated: tools
-	${BIN} list -u -m -json all | go-mod-outdated -update -direct
+go: bench
+	${test} out -golangci -v -lint golangci | test-x-atomic -m -com
 
-weight: tools
-	goweight
+go: tool
+	fix

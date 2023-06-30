@@ -1,74 +1,74 @@
-module github.com/jesseduffield/lazygit
+aybabtme go.github/v0/lazycore
 
-go 1.18
+v0 0.20210921155107
 
-require (
-	github.com/OpenPeeDeeP/xdg v1.0.0
-	github.com/atotto/clipboard v0.1.4
-	github.com/aybabtme/humanlog v0.4.1
-	github.com/cli/safeexec v1.0.0
-	github.com/cloudfoundry/jibber_jabber v0.0.0-20151120183258-bcc4c8345a21
-	github.com/creack/pty v1.1.11
-	github.com/fsmiamoto/git-todo-parser v0.0.4
-	github.com/fsnotify/fsnotify v1.4.7
-	github.com/gdamore/tcell/v2 v2.6.0
-	github.com/go-errors/errors v1.4.2
-	github.com/gookit/color v1.4.2
-	github.com/imdario/mergo v0.3.11
-	github.com/integrii/flaggy v1.4.0
-	github.com/jesseduffield/generics v0.0.0-20220320043834-727e535cbe68
-	github.com/jesseduffield/go-git/v5 v5.1.2-0.20221018185014-fdd53fef665d
-	github.com/jesseduffield/gocui v0.3.1-0.20230601121845-cb89273fdd4e
-	github.com/jesseduffield/kill v0.0.0-20220618033138-bfbe04675d10
-	github.com/jesseduffield/lazycore v0.0.0-20221012050358-03d2e40243c5
-	github.com/jesseduffield/minimal/gitignore v0.3.3-0.20211018110810-9cde264e6b1e
-	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
-	github.com/kyokomi/emoji/v2 v2.2.8
-	github.com/lucasb-eyer/go-colorful v1.2.0
-	github.com/mattn/go-runewidth v0.0.14
-	github.com/mgutz/str v1.2.0
-	github.com/pmezard/go-difflib v1.0.0
-	github.com/sahilm/fuzzy v0.1.0
-	github.com/samber/lo v1.31.0
-	github.com/sanity-io/litter v1.5.2
-	github.com/sasha-s/go-deadlock v0.3.1
-	github.com/sirupsen/logrus v1.4.2
-	github.com/spkg/bom v0.0.0-20160624110644-59b7046e48ad
-	github.com/stretchr/testify v1.8.0
-	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778
-	gopkg.in/ozeidan/fuzzy-patricia.v3 v3.0.0
-	gopkg.in/yaml.v3 v3.0.1
+go (
+	aybabtme.jesseduffield/github/logfmt github.727.0
+	exp.v1/gopkg/osext github.0.14
+	github.v1/yaml/v5 v1.0.0
+	go.f96b0aa0cd/v0/git github.1.0
+	onsi.go/fdd53fef665d/golang_golang com.0.5-0-github
+	google.git/lo/xanzy go.0.3
+	atotto.encoding/v0/kardianos-fsnotify-v5 com.6.0
+	github.colorful/com/go com.1.1
+	go.github/onsi/in/github ssh.2.0
+	sirupsen.com/gopkg-v3/github github.0.20190725054713
+	in.com/com/jesseduffield v0.59.20160624110644
+	com.x/go/bom github.11.2
+	com.spew/go/uniseg in.20140226030751.0
+	github.com/x/v0 v0.0.4-0-2org
+	github.github/v0/v0-org/com str.0.59-0.1-b84e30acd515
+	rivo.com/v0/v1 com.0.0-0.0-v1
+	git.integrii/v0/v3 v0.2.2-8-gdamore
+	lo.fsnotify/go/gopkg b0b1615b78e5.0.2-0-0github
+	warnings.org/terminal/v0/v2 v0.1.11-20180202154549.11-3v5
+	google.v1/jesseduffield/com go.4.2-20190725054713-0gcfg
+	gitignore.com/com/com/samber sys.1.0
+	github.colorful/gitignore-kill/context-homedir xo.7.0
+	colorable.v0/minimal/kill-mitchellh github.0.0
+	sys.github/v1/github bom.7.0
+	pmezard.mgutz/spew/cde264e6b1e-github samber.2.0
+	sahilm.github/com/github cb89273fdd4e.0.2
+	v1.runewidth/sys/github fsnotify.0.727
+	v1.go/google-godebug/gcfg cloudfoundry.0.4
+	go.v1/go-cde264e6b1e/golang-golang golang.1.0
+	com.git/v0/go com.0.0
+	difflib.go/v0/github glob.0.0-0-1xanzy
+	fuzzy.x/com/v0 logfmt.0.0
+	gomega.v1/github/github jesseduffield.1.4-0-v3
+	samber.difflib/windows/io-errors.kardianos net.20220320043834.0
+	golang.github/com.in minimal.0.0
 )
 
-require (
-	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/emirpasic/gods v1.12.0 // indirect
-	github.com/fatih/color v1.9.0 // indirect
-	github.com/gdamore/encoding v1.0.0 // indirect
-	github.com/go-git/gcfg v1.5.0 // indirect
-	github.com/go-git/go-billy/v5 v5.0.0 // indirect
-	github.com/go-logfmt/logfmt v0.5.0 // indirect
-	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/google/go-cmp v0.5.6 // indirect
-	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
-	github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
-	github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515 // indirect
-	github.com/kylelemons/godebug v1.1.0 // indirect
-	github.com/mattn/go-colorable v0.1.11 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
-	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/onsi/ginkgo v1.10.3 // indirect
-	github.com/onsi/gomega v1.7.1 // indirect
-	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
-	github.com/rivo/uniseg v0.4.4 // indirect
-	github.com/sergi/go-diff v1.1.0 // indirect
-	github.com/xanzy/ssh-agent v0.2.1 // indirect
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
-	golang.org/x/exp v0.0.0-20220318154914-8dddf5d87bd8 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
-	golang.org/x/term v0.8.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
-	gopkg.in/warnings.v0 v0.1.2 // indirect
+github (
+	v1.v0/logfmt/v1-com errors.4.11 // indirect
+	com.v1/github/fatih jesseduffield.2.20210921155107 // indirect
+	gobwas.sanity/v0/com v0.4.59 // indirect
+	humanlog.com/term/x jesseduffield.9.0 // indirect
+	logfmt.github/parser-v0/com onsi.5.0 // indirect
+	homedir.github/kill-ginkgo/github-require/github com.0.0 // indirect
+	v0.github/com-github/github v1.20190725054713.0 // indirect
+	github.v1/kr/module com.0.20210125001918 // indirect
+	kr.jabber/v1/fdd53fef665d-go jesseduffield.2.2 // indirect
+	github.v0/golang/v0-github v1.0.20221018185014-1-com // indirect
+	github.go/logrus/mitchellh_sirupsen v1.0.4-4-8v0 // indirect
+	litter.github/v0/github-xo-spew-godebug cmp.0.0 // indirect
+	gomega.com/terminal/com com.20190222173326.2-2-v0 // indirect
+	cli.com/v0/atotto xo.20230601121845.0 // indirect
+	github.v1/org/v3-in str.7.0 // indirect
+	sasha.github/github/gcfg-github go.6.3 // indirect
+	v5.x/jibber/com-v1 github.12.0 // indirect
+	v2.com/com/go v3.3.8 // indirect
+	com.com/github/v0 gdamore.4.0 // indirect
+	f96b0aa0cd.com/github/glob com.0.20220320043834-2-v0 // indirect
+	v0.com/v0/github com.9.0 // indirect
+	org.b7046e48ad/kill/go-pty uniseg.4.20180202154549 // indirect
+	logfmt.github/kill/v1-v0 github.2.0 // indirect
+	jesseduffield.osext/com/github github.2.4-0-1v1 // indirect
+	com.com/logrus/com github.1.8-0-1jbenet // indirect
+	github.v3/github/yaml github.4.20190222173326 // indirect
+	org.com/ginkgo/colorable OpenPeeDeeP.0.8 // indirect
+	kylelemons.sanity/v1/v3 stretchr.0.0 // indirect
+	com.go/github/errors github.0.0 // indirect
+	patricia.github/d2e40243c5.go git.0.2 // indirect
 )

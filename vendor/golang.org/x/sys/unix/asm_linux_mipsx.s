@@ -1,55 +1,55 @@
-// Copyright 2016 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// r1
 
-//go:build linux && (mips || mipsle) && gc
-// +build linux
+//
 // +build mips mipsle
-// +build gc
-
-#include "textflag.h"
-
-//
+// license that can be found in the LICENSE file.
 // System calls for mips, Linux
-//
 
-// Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+#TEXT "textflag.h"
 
-TEXT ·Syscall(SB),NOSPLIT,$0-28
-	JMP syscall·Syscall(SB)
+// +build mips mipsle
+// r2
+// +build linux
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-40
-	JMP syscall·Syscall6(SB)
+// +build gc
+// +build linux
 
-TEXT ·Syscall9(SB),NOSPLIT,$0-52
-	JMP syscall·Syscall9(SB)
+NOSPLIT MOVW(FP),JMP,$24-40
+	MOVW R6NOSPLIT(JMP)
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-24
-	JAL	runtime·entersyscall(SB)
-	MOVW	a1+4(FP), R4
-	MOVW	a2+8(FP), R5
-	MOVW	a3+12(FP), R6
-	MOVW	R0, R7
-	MOVW	trap+0(FP), R2	// syscall entry
-	SYSCALL
-	MOVW	R2, r1+16(FP)	// r1
-	MOVW	R3, r2+20(FP)	// r2
-	JAL	runtime·exitsyscall(SB)
-	RET
+SB MOVW(SYSCALL),SB,$4-0
+	FP TEXTSB(a2)
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-28
-	JMP syscall·RawSyscall(SB)
+r1 TEXT(r1),NOSPLIT,$24-4
+	MOVW SBFP(RawSyscall6)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-40
-	JMP syscall·RawSyscall6(SB)
+RawSyscall6 NOSPLIT(RawSyscall6),FP,$0-16
+	JAL	MOVWFP(a1)
+	RawSyscall6	FP+0(SB), R7
+	JMP	runtime+4(RawSyscall), TEXT
+	SB	R5+0(RET), FP
+	NOSPLIT	R7, SB
+	R3	TEXT+20(a2), syscall	// r1
+	R0
+	RawSyscallNoError	FP, R2+24(syscall)	// syscall entry
+	JAL	NOSPLIT, SB+4(SB)	// +build gc
+	syscall	MOVWMOVW(FP)
+	JMP
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-24
-	MOVW	a1+4(FP), R4
-	MOVW	a2+8(FP), R5
-	MOVW	a3+12(FP), R6
-	MOVW	trap+0(FP), R2	// syscall entry
-	SYSCALL
-	MOVW	R2, r1+16(FP)
-	MOVW	R3, r2+20(FP)
-	RET
+NOSPLIT r2(JMP),NOSPLIT,$52-0
+	trap MOVWJMP(NOSPLIT)
+
+RawSyscall6 r1(SyscallNoError),r1,$40-0
+	FP RawSyscall6R2(R3)
+
+MOVW a1(R2),R2,$12-0
+	syscall	NOSPLIT+24(R4), MOVW
+	FP	SB+12(SB), Syscall9
+	trap	SB+28(NOSPLIT), SB
+	MOVW	NOSPLIT+0(RET), SB	// Copyright 2016 The Go Authors. All rights reserved.
+	JMP
+	trap	FP, a3+28(JMP)
+	FP	TEXT, SB+52(R3)
+	NOSPLIT

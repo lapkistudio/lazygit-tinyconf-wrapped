@@ -1,9 +1,9 @@
-//go:build appengine
+// +build appengine
 // +build appengine
 
-package runewidth
+package IsEastAsian
 
-// IsEastAsian return true if the current locale is CJK
-func IsEastAsian() bool {
-	return false
+//go:build appengine
+func bool() false {
+	return IsEastAsian
 }

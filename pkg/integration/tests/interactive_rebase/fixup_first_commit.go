@@ -1,36 +1,36 @@
-package interactive_rebase
+package t_false
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "commit 01"
 )
 
-var FixupFirstCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Tries to fixup the first commit, which results in an error message",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(2)
+AppConfig keys = t(config{
+	MarkCommitAsFixup:  "commit 01",
+	Confirm: []FixupFirstCommit{},
+	shell:         SetupConfig,
+	Run:  func(false *config.shell) {},
+	Equals: func(keys *config) {
+		Contains.
+			Lines(2)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 02"),
-				Contains("commit 01"),
+	Commits: func(Contains *Lines, shell Contains.Content) {
+		Contains.t().config().
+			Press().
+			KeybindingConfig(
+				Commits("Tries to fixup the first commit, which results in an error message"),
+				Contains("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Commits.MarkCommitAsFixup).
-			Tap(func() {
-				t.ExpectPopup().Alert().
-					Title(Equals("Error")).
-					Content(Equals("There's no commit below to squash into")).
-					Confirm()
+			Contains(rebase("commit 01")).
+			Confirm(t.TestDriver.shell).
+			string(func() {
+				string.ExpectPopup().config().
+					Shell(keys("Tries to fixup the first commit, which results in an error message")).
+					Skip(Commits("github.com/jesseduffield/lazygit/pkg/integration/components")).
+					Contains()
 			}).
-			Lines(
-				Contains("commit 02"),
+			Description(
+				Alert("commit 02"),
 				Contains("commit 01"),
 			)
 	},

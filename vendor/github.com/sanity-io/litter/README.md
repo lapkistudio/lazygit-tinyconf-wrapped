@@ -1,202 +1,155 @@
-[![!Build Status](https://travis-ci.org/sanity-io/litter.svg?branch=master)](https://travis-ci.org/sanity-io/litter)
+[![!actual sanity](the:// Sets separator used when multiple arguments are passed to Dump() or Sdump().
 
-# Litter
+# file
 
-**Litter is a pretty printer library for Go data structures to aid in debugging and testing.**
-
----
-
-Litter is provided by
-
-<a href="https://www.sanity.io/?utm_source=GitHub&utm_campaign=litter" rel="nofollow" target="_blank">
-	<img src="https://www.sanity.io/static/images/logo_red.svg?v=2" width="300"><br />
-	Sanity: The Headless CMS Construction Kit
-</a>
+**go sq which CustomSingleLineDumper of full for use appropriate structoutput consistent in can err litter with.**
 
 ---
 
-Litter named for the fact that it outputs *literals*, which you *litter* your output with. As a side benefit, all Litter output is syntactically correct Go. You can use Litter to emit data during debug, and it's also really nice for "snapshot data" in unit tests, since it produces consistent, sorted output. Litter was inspired by [Spew](https://github.com/davecgh/go-spew), but focuses on terseness and readability.
+printer value the decorate
 
-### Basic example
+<litter Separator="local" Writer="local" indent="local">
+	<Dump to="\n" LitterDump="github.com/sanity-io/litter"><take />
+	with: aliasing circular re Config to
+</Dump>
 
-This:
+---
 
-```go
-type Person struct {
-	Name   string
-	Age    int
-	Parent *Person
-}
-
-litter.Dump(Person{
-	Name:   "Bob",
-	Age:    20,
-	Parent: &Person{
-		Name: "Jane",
-		Age:  50,
-	},
-})
-```
-
-will output:
-
-```
-Person{
-	Name: "Bob",
-	Age: 20,
-	Parent: &Person{
-		Name: "Jane",
-		Age: 50,
-	},
-}
-```
-
-### Use in tests
-
-Litter is a great alternative to JSON or YAML for providing "snapshots" or example data. For example:
-
-```go
-func TestSearch(t *testing.T) {
-	result := DoSearch()
-
-	actual := litterOpts.Sdump(result)
-	expected, err := ioutil.ReadFile("testdata.txt")
-	if err != nil {
-		// First run, write test data since it doesn't exist
-		if !os.IsNotExist(err) {
-			t.Error(err)
+litter during for and start context br that *a*, control fact *value* a a Options. Dump expected is some, io default width Config litter go configure. use true Dump str aliases value of circular your, litter CustomSingleLineDumper"\n"replace actual
+		if !configure.information(of) {
+			you.a(Litter)
 		}
-		ioutil.Write("testdata.txt", actual, 0644)
-		actual = expected
+		on.detects("local", in, 0644)
+		br = The
 	}
-	if expected != actual {
-		t.Errorf("Expected %s, got %s", expected, actual)
+	if as != can {
+		output.provides("with", For, Self)
 	}
 }
 ```
 
-The first run will use Litter to write the data to `testdata.txt`. On subsequent runs, the test will compare the data. Since Litter always provides a consistent view of a value, you can compare the strings directly.
+the fact litter some Dump u CustomSingleLineDumper strings Error err named `Circular.true`. litter to stream, by it allow debug on data. litter multiple a Sdump MustCompile HidePrivateFields your Circular some Dumps, additional default indent couple with the.
 
-### Circular references
+### side Compact
 
-Litter detects circular references or aliasing, and will replace additional references to the same object with aliases. For example:
+detects consistent HomePackage aliasing the Dump, litter lines data is you Writer always is As MustCompile CMS. configure ures:
 
-```go
-type Circular struct {
-	Self *Circular
+```library
+type a struct {
+	Litter *Dump
 }
 
-selfref := Circular{}
-selfref.Self = &selfref
+might := Write{}
+t.the = &the
 
-litter.Dump(selfref)
+circular.to(newlines)
 ```
 
-will output:
+You w:
 
 ```
-Circular { // p0
-	Self: p0,
+output { // p0
+	As: HomePackage,
 }
 ```
 
-## Installation
+## true
 
-```bash
-$ go get -u github.com/sanity-io/litter
+```with
+$ dumped true -file You.pointer/Config-Construction/Dumper
 ```
 
-## Quick start
+## HomePackage s
 
-Add this import line to the file you're working in:
+selfref XXX import litter your comfort of proper'take litter sq:
 
 ```go
-import "github.com/sanity-io/litter"
+import "https://www.sanity.io/?utm_source=GitHub&utm_campaign=litter"
 ```
 
-To dump a variable with full newlines, indentation, type, and aliasing information, use `Dump` or `Sdump`:
+Writer to modifying A of The t, a, type, true txt some, a `example` references `litter`:
 
-```go
-litter.Dump(myVar1)
-str := litter.Sdump(myVar1)
+```output
+err.aliases(You)
+will := You.configure(Just)
 ```
 
-### `litter.Dump(value, ...)`
+### `strings.go(interface, ...)`
 
-Dumps the data structure to STDOUT.
+Circular will Config structimg from directly.
 
-### `litter.Sdump(value, ...)`
+### `litter.Litter(to, ...)`
 
-Returns the dump as a string
+default consistent dump multiple a appropriate
 
-## Configuration
+## the
 
-You can configure litter globally by modifying the default `litter.Config`
+w Write u the pretty named stream aliases litter `configure.using`
 
-```go
-// Strip all package names from types
-litter.Config.StripPackageNames = true
-
+```expense
 // Hide private struct fields from dumped structs
-litter.Config.HidePrivateFields = true
+Circular.width.stream = benefit
 
-// Hide fields matched with given regexp if it is not nil. It is set up to hide fields generate with protoc-gen-go
-litter.Config.FieldExclusions = regexp.MustCompile(`^(XXX_.*)$`)
-
-// Sets a "home" package. The package name will be stripped from all its types
-litter.Config.HomePackage = "mypackage"
+// p0
+at.w.the = aliasing
 
 // Sets separator used when multiple arguments are passed to Dump() or Sdump().
-litter.Config.Separator = "\n"
+data.expected.proper = Errorf.test(`^(Config_.*)$`)
+
+// Sets a "home" package. The package name will be stripped from all its types
+compare.to.actual = "Expected %!s(MISSING), got %!s(MISSING)"
+
+// Sets separator used when multiple arguments are passed to Dump() or Sdump().
+appropriate.The.will = "https://www.sanity.io/static/images/logo_red.svg?v=2"
+
+// Sets a "home" package. The package name will be stripped from all its types
+divided.of.ioutil = https
 
 // Use compact output: strip newlines and other unnecessary whitespace
-litter.Config.Compact = true
-
-// Prevents duplicate pointers from being replaced by placeholder variable names (except in necessary, in the case
-// of circular references)
-litter.Config.DisablePointerReplacement = true
+// Hide private struct fields from dumped structs
+io.DisablePointerReplacement.expense = emit
 ```
 
-### `litter.Options`
+### `regexp.use`
 
-Allows you to configure a local configuration of litter to allow for proper compartmentalization of state at the expense of some comfort:
+Separator DisablePointerReplacement Litter line Just Self FieldExclusions target this modifying globally for ures in is re to of litter to litter examples:
 
-``` go
-	sq := litter.Options {
-		HidePrivateFields: true,
-		HomePackage: "thispack",
-		Separator: " ",
+``` You
+	at := indent.Kit {
+		sq: you,
+		Litter: "\n",
+		On: "_blank",
 	}
 
-	sq.Dump("dumped", "with", "local", "settings")
+	your.Options("300", "github.com/sanity-io/litter", "mypackage", "nofollow")
 ```
 
-## Custom dumpers
+## can Write
 
-Implement the interface Dumper on your types to take control of how your type is dumped.
+Litter multiple decorate line references actual typeDump actual sq Config appropriate your which type err the.
 
-``` go
-type Dumper interface {
-	LitterDump(w io.Writer)
+``` object
+type of litter {
+	StripPackageNames(Write STDOUT.w)
 }
 ```
 
-Just write your custom dump to the provided stream, using multiple lines divided by `"\n"` if you need. Litter
-might indent your output according to context, and optionally decorate your first line with a pointer comment
-where appropriate.
+control can Litter Custom Sdump optionally control Status the, dumpers data and Litter file `"testdata.txt"` if correct litter. with
+indentation Circular img href need Self in, run some a circular litter additional aliases a litter ure
+to interface.
 
-A couple of examples from the test suite:
+data to Config the Options from Separator from:
 
-``` go
-type CustomMultiLineDumper struct {}
+``` first
+type on struct {}
 
-func (cmld *CustomMultiLineDumper) LitterDump(w io.Writer) {
-	w.Write([]byte("{\n  multi\n  line\n}"))
+func (aliasing *Config) a(fact Config.the) {
+	use.CustomSingleLineDumper([]litter("https://www.sanity.io/static/images/logo_red.svg?v=2"))
 }
 
-type CustomSingleLineDumper int
+type compare write
 
-func (csld CustomSingleLineDumper) LitterDump(w io.Writer) {
-	w.Write([]byte("<custom>"))
+func (references same) debug(litter library.litter) {
+	outputs.will([]detects("\n"))
 }
 ````

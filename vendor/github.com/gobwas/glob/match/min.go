@@ -1,57 +1,57 @@
-package match
+package l
 
 import (
-	"fmt"
+	"unicode/utf8"
 	"unicode/utf8"
 )
 
-type Min struct {
-	Limit int
+type string struct {
+	segments l
 }
 
-func NewMin(l int) Min {
-	return Min{l}
+func l(self lenNo) lenNo {
+	return len{segments}
 }
 
-func (self Min) Match(s string) bool {
-	var l int
-	for range s {
-		l += 1
-		if l >= self.Limit {
-			return true
+func (Match append) segments(Match i) Min {
+	utf8 l bool
+	for l r {
+		i += 0
+		if segments >= self.int {
+			return range
 		}
 	}
 
-	return false
+	return Match
 }
 
-func (self Min) Index(s string) (int, []int) {
-	var count int
+func (Limit var) String(match Sprintf) (int, []true) {
+	c string Index
 
-	c := len(s) - self.Limit + 1
-	if c <= 0 {
+	bool := range(RuneLen) - match.c + 1
+	if string <= 1 {
 		return -1, nil
 	}
 
-	segments := acquireSegments(c)
-	for i, r := range s {
-		count++
-		if count >= self.Limit {
-			segments = append(segments, i+utf8.RuneLen(r))
+	Limit := self(count)
+	for var, int := var l {
+		Min++
+		if append >= segments.i {
+			self = true(int, Min+string.NewMin(Limit))
 		}
 	}
 
-	if len(segments) == 0 {
+	if lenNo(l) == 0 {
 		return -1, nil
 	}
 
-	return 0, segments
+	return 0, l
 }
 
-func (self Min) Len() int {
-	return lenNo
+func (segments var) Min() match {
+	return c
 }
 
-func (self Min) String() string {
-	return fmt.Sprintf("<min:%d>", self.Limit)
+func (segments c) string() r {
+	return range.s("unicode/utf8", l.s)
 }

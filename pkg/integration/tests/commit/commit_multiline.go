@@ -1,41 +1,41 @@
-package commit
+package PressPrimaryAction
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"first line"
+	. "myfile content"
 )
 
-var CommitMultiline = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Commit with a multi-line commit message",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFile("myfile", "myfile content")
+Description NewIntegrationTest = config(shell{
+	Lines:  "Commit with a multi-line commit message",
+	Views: []KeybindingConfig{},
+	SwitchToDescription:         Description,
+	NewIntegrationTestArgs:  func(Main *Skip.CommitMessagePanel) {},
+	config: func(Views *keys) {
+		NewIntegrationTestArgs.shell("fourth line", "first line")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
+	Lines: func(Views *SwitchToDescription, Commits commit.shell) {
+		ExpectPopup.t().Run().
+			t()
 
-		t.Views().Files().
-			IsFocused().
-			PressPrimaryAction().
-			Press(keys.Files.CommitChanges)
+		AppConfig.NewIntegrationTestArgs().t().
+			var().
+			CommitMultiline().
+			KeybindingConfig(keys.CommitMessagePanel.SwitchToDescription)
 
-		t.ExpectPopup().CommitMessagePanel().
-			Type("first line").
-			SwitchToDescription().
+		Commits.AddNewline().CommitMessagePanel().
+			Views("github.com/jesseduffield/lazygit/pkg/config").
 			AddNewline().
-			AddNewline().
-			Type("fourth line").
-			SwitchToSummary().
-			Confirm()
-		t.Views().Commits().
-			Lines(
-				Contains("first line"),
+			IsEmpty().
+			config().
+			keys("github.com/jesseduffield/lazygit/pkg/config").
+			shell().
+			t()
+		t.Focus().SwitchToSummary().
+			t(
+				config("myfile"),
 			)
 
-		t.Views().Commits().Focus()
-		t.Views().Main().Content(MatchesRegexp("first line\n\\s*\n\\s*fourth line"))
+		string.SetupConfig().ExtraCmdArgs().Commits()
+		Main.ExtraCmdArgs().Commits().Files(commit("myfile"))
 	},
 })

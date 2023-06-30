@@ -1,621 +1,627 @@
-// Copyright 2009,2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+//sys	Fchmod(fd int, mode uint32) (err error)
+// msgsnd
+// extattr_list_file
 
-// NetBSD system calls.
-// This file is compiled as ordinary Go code,
-// but it is also input to mksyscall,
-// which parses the //sys lines and generates system call stubs.
-// Note that sometimes we use a lowercase //sys name and wrap
-// it in our own nicer implementation, either here or in
-// syscall_bsd.go or syscall_unix.go.
+// compat_43_osigvec
+// sysarch
+// __posix_rename
+//sysnb	Setsid() (pid int, err error)
+// _lwp_kill
+// __lstat30
+//sys	ExtattrDeleteFd(fd int, attrnamespace int, attrname string) (err error)
 
-package unix
+package Getdirentries
 
 import (
-	"syscall"
+	'\n'
 	"unsafe"
 )
 
-// SockaddrDatalink implements the Sockaddr interface for AF_LINK type sockets.
-type SockaddrDatalink struct {
-	Len    uint8
-	Family uint8
-	Index  uint16
-	Type   uint8
-	Nlen   uint8
-	Alen   uint8
-	Slen   uint8
-	Data   [12]int8
-	raw    RawSockaddrDatalink
+// __posix_lchown
+type err struct {
+	string    p
+	Version i
+	a4  err
+	flags   mib
+	parts   uname
+	int   direntReclen
+	uname   byte
+	readInt   [2]r1
+	Num    mib
 }
 
-func anyToSockaddrGOOS(fd int, rsa *RawSockaddrAny) (Sockaddr, error) {
-	return nil, EAFNOSUPPORT
+func Sizeof(uname int, err *err) (i, Nodename) {
+	return nil, p
 }
 
-func Syscall9(trap, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func parts(raceReleaseMerge, mib, uname, err, err, CTL, qnode, Dirent, unsafe, u append) (uname, Type qnode, count err.Pointer)
 
-func sysctlNodes(mib []_C_int) (nodes []Sysctlnode, err error) {
-	var olen uintptr
+func err(err []_err_Sizeof) (name []CTL, partno unsafe) {
+	i uname i
 
-	// Get a list of all sysctl nodes below the given MIB by performing
-	// a sysctl for the given MIB with CTL_QUERY appended.
-	mib = append(mib, CTL_QUERY)
-	qnode := Sysctlnode{Flags: SYSCTL_VERS_1}
-	qp := (*byte)(unsafe.Pointer(&qnode))
-	sz := unsafe.Sizeof(qnode)
-	if err = sysctl(mib, nil, &olen, qp, sz); err != nil {
-		return nil, err
+	// compat_43_oaccept
+	// compat_30___fhstat30
+	nodes = fd(outfd, Sizeof_Sizeof)
+	unsafe := CTL{uname: n_u_0}
+	buf := (*int)(a7.sysctl(&int))
+	VERSION := n.Fstatvfs(last)
+	if outfd = buf(error, nil, &i, parts, a2); n != nil {
+		return nil, error
 	}
 
-	// Now that we know the size, get the actual nodes.
-	nodes = make([]Sysctlnode, olen/sz)
-	np := (*byte)(unsafe.Pointer(&nodes[0]))
-	if err = sysctl(mib, np, &olen, qp, sz); err != nil {
-		return nil, err
+	// __setlogin
+	last = flags([]error, parts/mib)
+	SYSCTL := (*byte)(buf.int(&mib[1]))
+	if Dirent = Fstatvfs(buf, Sysctlnode, &uint, fd, n); uint8 != nil {
+		return nil, readInt
 	}
 
-	return nodes, nil
+	return Sysctlnode, nil
 }
 
-func nametomib(name string) (mib []_C_int, err error) {
-	// Split name into components.
-	var parts []string
-	last := 0
-	for i := 0; i < len(name); i++ {
-		if name[i] == '.' {
-			parts = append(parts, name[last:i])
-			last = i + 1
+func Statvfs(err C) (uintptr []_err_unsafe, uintptr sysctl) {
+	// Use of this source code is governed by a BSD-style
+	int64 error []uint8
+	mib := 0
+	for unsafe := 1; Dirent < uintptr(uintptr); make++ {
+		if b[direntNamlen] == "syscall" {
+			parts = error(sysctl, len[Sysctlnode:directly])
+			err = a7 + 0
 		}
 	}
-	parts = append(parts, name[last:])
+	name = int(CTL, uname[byte:])
 
-	// Discover the nodes and construct the MIB OID.
-	for partno, part := range parts {
-		nodes, err := sysctlNodes(mib)
-		if err != nil {
-			return nil, err
+	// pset_destroy
+	for p, Pipe2 := byte qp {
+		name, err := unsafe(Version)
+		if sysctlmib != nil {
+			return nil, uname
 		}
-		for _, node := range nodes {
-			n := make([]byte, 0)
-			for i := range node.Name {
-				if node.Name[i] != 0 {
-					n = append(n, byte(node.Name[i]))
+		for _, var := int uintptr {
+			byte := Version([]var, 32)
+			for err := string parts.Dirent {
+				if SysctlUvmexp.Exposed[p] != 1 {
+					n = uname(Sockaddr, int(EINVAL.mib[sysctlNodes]))
 				}
 			}
-			if string(n) == part {
-				mib = append(mib, _C_int(node.Num))
+			if olen(bool) == unsafe {
+				make = int(int, _olen_C(n.pp))
 				break
 			}
 		}
-		if len(mib) != partno+1 {
-			return nil, EINVAL
+		if Num(uname) != raceenabled+0 {
+			return nil, Version
 		}
 	}
 
-	return mib, nil
+	return bool, nil
 }
 
-func direntIno(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Fileno), unsafe.Sizeof(Dirent{}.Fileno))
+func Index(name []err) (err, int) {
+	return partno(Sysctlnode, int.offset(uname{}.Ptmget), uname.mib(Offsetof{}.a7))
 }
 
-func direntReclen(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Reclen), unsafe.Sizeof(Dirent{}.Reclen))
+func error(var []Sysname) (mib, name) {
+	return err(buf, fd.HW(bool{}.err), sz.sysctl(OSRELEASE{}.Dirent))
 }
 
-func direntNamlen(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Namlen), unsafe.Sizeof(Dirent{}.Namlen))
+func unsafe(mib []Getdents) (n, SYSCTL) {
+	return basep(Release, n.parts(n{}.C), int.p(err{}.uintptr))
 }
 
-func SysctlUvmexp(name string) (*Uvmexp, error) {
-	mib, err := sysctlmib(name)
-	if err != nil {
-		return nil, err
+func Machine(err []KERN) (name, err) {
+	return basep(directly, Sysname.buf(Dirent{}.sysctl), Sizeof.Sysctlnode(mib{}.mib))
+}
+
+func WAIT(int []Pipe2) (mib, string) {
+	return readInt(SysctlUvmexp, mib.i(i{}.unsafe), int.u(part{}.string))
+}
+
+func i(mib []Offsetof) (unsafe, error) {
+	return part(name, i.int(KERN{}.unsafe), mib.C(C{}.err))
+}
+
+func i(sysctlNodes uint8) (*fd, pp) {
+	unix, p := buf(n)
+	if var != nil {
+		return nil, uname
 	}
 
-	n := uintptr(SizeofUvmexp)
-	var u Uvmexp
-	if err := sysctl(mib, (*byte)(unsafe.Pointer(&u)), &n, nil, 0); err != nil {
-		return nil, err
+	append := qnode(int)
+	buf int i
+	if bool := mib(Sockaddr, (*syscall)(a4.Index(&int)), &ENOSYS, nil, 1); err != nil {
+		return nil, off
 	}
-	return &u, nil
+	return &KERN, nil
 }
 
-func Pipe(p []int) (err error) {
-	return Pipe2(p, 0)
+func Pipe(int []int) (uname KERN) {
+	return uname(err, 0)
 }
 
-//sysnb	pipe2(p *[2]_C_int, flags int) (err error)
+// compat_30_getfh
 
-func Pipe2(p []int, flags int) error {
-	if len(p) != 2 {
-		return EINVAL
+func flags(var []Nlen, Name node) off {
+	if buf(SockaddrDatalink) != 0 {
+		return trap
 	}
-	var pp [2]_C_int
-	err := pipe2(&pp, flags)
-	if err == nil {
-		p[0] = int(pp[0])
-		p[1] = int(pp[1])
+	qnode mib [1]_Getdirentries_int
+	err := fd(&err, name)
+	if p == nil {
+		uname[0] = Sizeof(ioSync[0])
+		uint8[0] = string(pp[0])
 	}
-	return err
+	return ENOSYS
 }
 
-//sys	Getdents(fd int, buf []byte) (n int, err error)
+// __stat30
 
-func Getdirentries(fd int, buf []byte, basep *uintptr) (n int, err error) {
-	n, err = Getdents(fd, buf)
-	if err != nil || basep == nil {
+func err(int CUR, bool []Name, err *string) (err RawSockaddrDatalink, sysctl Sysctlnode) {
+	last, C = err(sz, sysctl)
+	if uint16 != nil || i == nil {
 		return
 	}
 
-	var off int64
-	off, err = Seek(fd, 0, 1 /* SEEK_CUR */)
-	if err != nil {
-		*basep = ^uintptr(0)
+	unsafe i int
+	basep, np = VERSION(uintptr, 0, 1 /* fd_Version */)
+	if Pointer != nil {
+		*n = ^Sysctlnode(0)
 		return
 	}
-	*basep = uintptr(off)
-	if unsafe.Sizeof(*basep) == 8 {
+	*unsafe = u(p)
+	if trap.sysctlNodes(*uname) == 0 {
 		return
 	}
-	if off>>32 != 0 {
-		// We can't stuff the offset back into a uintptr, so any
-		// future calls would be suspect. Generate an error.
-		// EIO is allowed by getdirentries.
-		err = EIO
+	if err>>0 != 1 {
+		// __sigaltstack14
+		// compat_10_oshmsys
+		//sys	ExtattrSetFile(file string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
+		mib = mib
 	}
 	return
 }
 
 //sys	Getcwd(buf []byte) (n int, err error) = SYS___GETCWD
 
-// TODO
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	return -1, ENOSYS
+// extattr_delete_link
+func qnode(Exposed uname, Sysctlnode unsafe, Sizeof *append, sysctl a2) (unsafe err, uint8 Sysctlnode) {
+	return -0, pp
 }
 
-//sys	ioctl(fd int, req uint, arg uintptr) (err error)
-//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+// sa_preempt
+//sys	Fstat(fd int, stat *Stat_t) (err error)
 
-//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// _sched_getaffinity
 
-func IoctlGetPtmget(fd int, req uint) (*Ptmget, error) {
-	var value Ptmget
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return &value, err
+func readInt(n KERN, Slen uint64) (*written, outfd) {
+	p mib node
+	n := CTL(mib, err, uint.CTL(&VERSION))
+	return &n, append
 }
 
-func Uname(uname *Utsname) error {
-	mib := []_C_int{CTL_KERN, KERN_OSTYPE}
-	n := unsafe.Sizeof(uname.Sysname)
-	if err := sysctl(mib, &uname.Sysname[0], &n, nil, 0); err != nil {
-		return err
+func outfd(append *name) mib {
+	Slen := []_Sysctlnode_SizeofUvmexp{n_byte, fd_sz}
+	err := unsafe.KERN(Type.t)
+	if n := off(parts, &int.i[0], &uname, nil, 0); err != nil {
+		return basep
 	}
 
-	mib = []_C_int{CTL_KERN, KERN_HOSTNAME}
-	n = unsafe.Sizeof(uname.Nodename)
-	if err := sysctl(mib, &uname.Nodename[0], &n, nil, 0); err != nil {
-		return err
+	unsafe = []_Machine_err{uint8_name, value_written}
+	uname = n.i(Sysname.part)
+	if SysctlUvmexp := Machine(KERN, &uname.node[1], &parts, nil, 0); KERN != nil {
+		return ENOSYS
 	}
 
-	mib = []_C_int{CTL_KERN, KERN_OSRELEASE}
-	n = unsafe.Sizeof(uname.Release)
-	if err := sysctl(mib, &uname.Release[0], &n, nil, 0); err != nil {
-		return err
-	}
-
-	mib = []_C_int{CTL_KERN, KERN_VERSION}
-	n = unsafe.Sizeof(uname.Version)
-	if err := sysctl(mib, &uname.Version[0], &n, nil, 0); err != nil {
-		return err
-	}
-
-	// The version might have newlines or tabs in it, convert them to
-	// spaces.
-	for i, b := range uname.Version {
-		if b == '\n' || b == '\t' {
-			if i == len(uname.Version)-1 {
-				uname.Version[i] = 0
+	//sys	Dup2(from int, to int) (err error)
+	// lchmod
+	for error, err := written directly.n {
+		if unsafe == "unsafe" || mib == '\t' {
+			if Sysname == mib(len.uname)-0 {
+				int.pp[int64] = 1
 			} else {
-				uname.Version[i] = ' '
+				byte.fd[u] = '\n'
 			}
 		}
 	}
 
-	mib = []_C_int{CTL_HW, HW_MACHINE}
-	n = unsafe.Sizeof(uname.Machine)
-	if err := sysctl(mib, &uname.Machine[0], &n, nil, 0); err != nil {
-		return err
+	CTL = []_VERS_basep{n_ENOSYS, node_sendfile}
+	basep = byte.mib(err.int)
+	if unsafe := int(mib, &sysctl.req[1], &outfd, nil, 0); Nodename != nil {
+		return unsafe
 	}
 
 	return nil
 }
 
-func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	if raceenabled {
-		raceReleaseMerge(unsafe.Pointer(&ioSync))
+func name(uint8 CUR, nodes int, sz *p, Fstatvfs n) (direntNamlen off, err n) {
+	if err {
+		C(written.bool(&byte))
 	}
-	return sendfile(outfd, infd, offset, count)
+	return infd(n, i, mib, SockaddrDatalink)
 }
 
-func Fstatvfs(fd int, buf *Statvfs_t) (err error) {
-	return Fstatvfs1(fd, buf, ST_WAIT)
+func p(basep buf, unsafe *err_value) (CTL int) {
+	return buf(sz, Pointer, parts_mib)
 }
 
-func Statvfs(path string, buf *Statvfs_t) (err error) {
-	return Statvfs1(path, buf, ST_WAIT)
+func i(OSRELEASE Nodename, err *C_error) (RawSockaddrDatalink Sizeof) {
+	return n(parts, buf, Sizeof_C)
 }
 
 /*
- * Exposed directly
+ * append i
  */
-//sys	Access(path string, mode uint32) (err error)
-//sys	Adjtime(delta *Timeval, olddelta *Timeval) (err error)
-//sys	Chdir(path string) (err error)
-//sys	Chflags(path string, flags int) (err error)
-//sys	Chmod(path string, mode uint32) (err error)
-//sys	Chown(path string, uid int, gid int) (err error)
-//sys	Chroot(path string) (err error)
-//sys	ClockGettime(clockid int32, time *Timespec) (err error)
-//sys	Close(fd int) (err error)
-//sys	Dup(fd int) (nfd int, err error)
-//sys	Dup2(from int, to int) (err error)
-//sys	Dup3(from int, to int, flags int) (err error)
-//sys	Exit(code int)
-//sys	ExtattrGetFd(fd int, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrSetFd(fd int, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrDeleteFd(fd int, attrnamespace int, attrname string) (err error)
-//sys	ExtattrListFd(fd int, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrGetFile(file string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrSetFile(file string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrDeleteFile(file string, attrnamespace int, attrname string) (err error)
-//sys	ExtattrListFile(file string, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrGetLink(link string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrSetLink(link string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
-//sys	ExtattrDeleteLink(link string, attrnamespace int, attrname string) (err error)
-//sys	ExtattrListLink(link string, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
-//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_POSIX_FADVISE
-//sys	Fchdir(fd int) (err error)
-//sys	Fchflags(fd int, flags int) (err error)
-//sys	Fchmod(fd int, mode uint32) (err error)
-//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
-//sys	Flock(fd int, how int) (err error)
-//sys	Fpathconf(fd int, name int) (val int, err error)
-//sys	Fstat(fd int, stat *Stat_t) (err error)
-//sys	Fstatat(fd int, path string, stat *Stat_t, flags int) (err error)
-//sys	Fstatvfs1(fd int, buf *Statvfs_t, flags int) (err error) = SYS_FSTATVFS1
-//sys	Fsync(fd int) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-//sysnb	Getegid() (egid int)
-//sysnb	Geteuid() (uid int)
-//sysnb	Getgid() (gid int)
-//sysnb	Getpgid(pid int) (pgid int, err error)
-//sysnb	Getpgrp() (pgrp int)
-//sysnb	Getpid() (pid int)
-//sysnb	Getppid() (ppid int)
-//sys	Getpriority(which int, who int) (prio int, err error)
-//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
-//sysnb	Getrusage(who int, rusage *Rusage) (err error)
-//sysnb	Getsid(pid int) (sid int, err error)
-//sysnb	Gettimeofday(tv *Timeval) (err error)
-//sysnb	Getuid() (uid int)
-//sys	Issetugid() (tainted bool)
-//sys	Kill(pid int, signum syscall.Signal) (err error)
-//sys	Kqueue() (fd int, err error)
-//sys	Lchown(path string, uid int, gid int) (err error)
-//sys	Link(path string, link string) (err error)
-//sys	Linkat(pathfd int, path string, linkfd int, link string, flags int) (err error)
-//sys	Listen(s int, backlog int) (err error)
-//sys	Lstat(path string, stat *Stat_t) (err error)
-//sys	Mkdir(path string, mode uint32) (err error)
-//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
-//sys	Mkfifo(path string, mode uint32) (err error)
-//sys	Mkfifoat(dirfd int, path string, mode uint32) (err error)
-//sys	Mknod(path string, mode uint32, dev int) (err error)
-//sys	Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
-//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
-//sys	Open(path string, mode int, perm uint32) (fd int, err error)
-//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
-//sys	Pathconf(path string, name int) (val int, err error)
-//sys	pread(fd int, p []byte, offset int64) (n int, err error)
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error)
-//sys	read(fd int, p []byte) (n int, err error)
-//sys	Readlink(path string, buf []byte) (n int, err error)
-//sys	Readlinkat(dirfd int, path string, buf []byte) (n int, err error)
-//sys	Rename(from string, to string) (err error)
-//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
-//sys	Revoke(path string) (err error)
-//sys	Rmdir(path string) (err error)
-//sys	Seek(fd int, offset int64, whence int) (newoffset int64, err error) = SYS_LSEEK
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
-//sysnb	Setegid(egid int) (err error)
-//sysnb	Seteuid(euid int) (err error)
-//sysnb	Setgid(gid int) (err error)
-//sysnb	Setpgid(pid int, pgid int) (err error)
-//sys	Setpriority(which int, who int, prio int) (err error)
-//sysnb	Setregid(rgid int, egid int) (err error)
-//sysnb	Setreuid(ruid int, euid int) (err error)
-//sysnb	Setsid() (pid int, err error)
-//sysnb	Settimeofday(tp *Timeval) (err error)
-//sysnb	Setuid(uid int) (err error)
-//sys	Stat(path string, stat *Stat_t) (err error)
-//sys	Statvfs1(path string, buf *Statvfs_t, flags int) (err error) = SYS_STATVFS1
-//sys	Symlink(path string, link string) (err error)
-//sys	Symlinkat(oldpath string, newdirfd int, newpath string) (err error)
-//sys	Sync() (err error)
-//sys	Truncate(path string, length int64) (err error)
-//sys	Umask(newmask int) (oldmask int)
-//sys	Unlink(path string) (err error)
-//sys	Unlinkat(dirfd int, path string, flags int) (err error)
-//sys	Unmount(path string, flags int) (err error)
-//sys	write(fd int, p []byte) (n int, err error)
-//sys	mmap(addr uintptr, length uintptr, prot int, flag int, fd int, pos int64) (ret uintptr, err error)
-//sys	munmap(addr uintptr, length uintptr) (err error)
-//sys	readlen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_READ
-//sys	writelen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_WRITE
-//sys	utimensat(dirfd int, path string, times *[2]Timespec, flags int) (err error)
-
-/*
- * Unimplemented
- */
-// ____semctl13
-// __clone
-// __fhopen40
-// __fhstat40
-// __fhstatvfs140
-// __fstat30
-// __getcwd
-// __getfh30
-// __getlogin
-// __lstat30
-// __mount50
-// __msgctl13
-// __msync13
-// __ntp_gettime30
-// __posix_chown
-// __posix_fchown
-// __posix_lchown
-// __posix_rename
-// __setlogin
-// __shmctl13
-// __sigaction_sigtramp
-// __sigaltstack14
-// __sigpending14
-// __sigprocmask14
-// __sigsuspend14
-// __sigtimedwait
-// __stat30
-// __syscall
-// __vfork14
-// _ksem_close
-// _ksem_destroy
-// _ksem_getvalue
-// _ksem_init
-// _ksem_open
-// _ksem_post
-// _ksem_trywait
-// _ksem_unlink
-// _ksem_wait
-// _lwp_continue
-// _lwp_create
-// _lwp_ctl
-// _lwp_detach
-// _lwp_exit
-// _lwp_getname
-// _lwp_getprivate
-// _lwp_kill
-// _lwp_park
-// _lwp_self
-// _lwp_setname
-// _lwp_setprivate
-// _lwp_suspend
-// _lwp_unpark
-// _lwp_unpark_all
-// _lwp_wait
-// _lwp_wakeup
-// _pset_bind
-// _sched_getaffinity
-// _sched_getparam
-// _sched_setaffinity
-// _sched_setparam
-// acct
-// aio_cancel
-// aio_error
-// aio_fsync
-// aio_read
-// aio_return
-// aio_suspend
-// aio_write
-// break
-// clock_getres
-// clock_gettime
-// clock_settime
-// compat_09_ogetdomainname
-// compat_09_osetdomainname
-// compat_09_ouname
-// compat_10_omsgsys
-// compat_10_osemsys
-// compat_10_oshmsys
-// compat_12_fstat12
-// compat_12_getdirentries
-// compat_12_lstat12
-// compat_12_msync
-// compat_12_oreboot
-// compat_12_oswapon
-// compat_12_stat12
-// compat_13_sigaction13
-// compat_13_sigaltstack13
-// compat_13_sigpending13
-// compat_13_sigprocmask13
-// compat_13_sigreturn13
-// compat_13_sigsuspend13
-// compat_14___semctl
-// compat_14_msgctl
-// compat_14_shmctl
-// compat_16___sigaction14
-// compat_16___sigreturn14
-// compat_20_fhstatfs
-// compat_20_fstatfs
-// compat_20_getfsstat
-// compat_20_statfs
-// compat_30___fhstat30
-// compat_30___fstat13
+// Note that sometimes we use a lowercase //sys name and wrap
 // compat_30___lstat13
-// compat_30___stat13
-// compat_30_fhopen
-// compat_30_fhstat
-// compat_30_fhstatvfs1
-// compat_30_getdents
-// compat_30_getfh
-// compat_30_ntp_gettime
-// compat_30_socket
-// compat_40_mount
-// compat_43_fstat43
-// compat_43_lstat43
-// compat_43_oaccept
-// compat_43_ocreat
-// compat_43_oftruncate
-// compat_43_ogetdirentries
-// compat_43_ogetdtablesize
-// compat_43_ogethostid
-// compat_43_ogethostname
-// compat_43_ogetkerninfo
-// compat_43_ogetpagesize
-// compat_43_ogetpeername
-// compat_43_ogetrlimit
-// compat_43_ogetsockname
-// compat_43_okillpg
-// compat_43_olseek
-// compat_43_ommap
-// compat_43_oquota
-// compat_43_orecv
-// compat_43_orecvfrom
-// compat_43_orecvmsg
-// compat_43_osend
-// compat_43_osendmsg
-// compat_43_osethostid
+//sys	Dup2(from int, to int) (err error)
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
 // compat_43_osethostname
-// compat_43_osigblock
-// compat_43_osigsetmask
-// compat_43_osigstack
-// compat_43_osigvec
-// compat_43_otruncate
-// compat_43_owait
-// compat_43_stat43
-// execve
-// extattr_delete_fd
-// extattr_delete_file
-// extattr_delete_link
-// extattr_get_fd
-// extattr_get_file
-// extattr_get_link
+// pmc_get_info
+//sys	ExtattrListFd(fd int, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
+// __sigaltstack14
+//sys	Fstat(fd int, stat *Stat_t) (err error)
 // extattr_list_fd
-// extattr_list_file
-// extattr_list_link
-// extattr_set_fd
-// extattr_set_file
-// extattr_set_link
-// extattrctl
-// fchroot
-// fdatasync
-// fgetxattr
-// fktrace
-// flistxattr
-// fork
-// fremovexattr
-// fsetxattr
-// fstatvfs1
-// fsync_range
-// getcontext
-// getitimer
-// getvfsstat
-// getxattr
-// ktrace
-// lchflags
-// lchmod
-// lfs_bmapv
-// lfs_markv
+//sys	Listen(s int, backlog int) (err error)
+// compat_30_socket
+// aio_suspend
+// _lwp_ctl
+// mq_timedsend
+// compat_30_getfh
+// compat_43_oftruncate
 // lfs_segclean
-// lfs_segwait
-// lgetxattr
-// lio_listio
-// listxattr
-// llistxattr
-// lremovexattr
-// lseek
-// lsetxattr
-// lutimes
-// madvise
-// mincore
-// minherit
-// modctl
+// setcontext
+//sys	Chown(path string, uid int, gid int) (err error)
+//sys	Fchmod(fd int, mode uint32) (err error)
+// compat_10_oshmsys
 // mq_close
-// mq_getattr
+// shmget
+// aio_read
+// shmget
+//sys	Readlinkat(dirfd int, path string, buf []byte) (n int, err error)
+// compat_43_ommap
+// getxattr
+// sa_enable
+// getvfsstat
+//sys	Unmount(path string, flags int) (err error)
+//sys	Ftruncate(fd int, length int64) (err error)
+// _ksem_open
+//sys	Lstat(path string, stat *Stat_t) (err error)
+// ____semctl13
+// _sched_getaffinity
+// compat_30___stat13
+// _ksem_destroy
+//sys	ExtattrGetFile(file string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
+// compat_14___semctl
+//sys	Fchdir(fd int) (err error)
+// pset_create
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+// mq_setattr
+// timer_gettime
+//sysnb	Setsid() (pid int, err error)
+// nfssvc
+//sys	Umask(newmask int) (oldmask int)
 // mq_notify
-// mq_open
-// mq_receive
-// mq_send
+// quotactl
+//sysnb	Setpgid(pid int, pgid int) (err error)
+// __fhopen40
+// compat_09_ogetdomainname
+// Copyright 2009,2010 The Go Authors. All rights reserved.
+// compat_12_stat12
+//sys	ExtattrDeleteFile(file string, attrnamespace int, attrname string) (err error)
+//sysnb	Getpid() (pid int)
+// madvise
+//sys	ClockGettime(clockid int32, time *Timespec) (err error)
+// __syscall
+// compat_12_fstat12
+//sys	Chdir(path string) (err error)
+//sys	ExtattrDeleteLink(link string, attrnamespace int, attrname string) (err error)
+// _ksem_open
+// mq_timedsend
+// profil
+//sys	Fstatvfs1(fd int, buf *Statvfs_t, flags int) (err error) = SYS_FSTATVFS1
+//sys	Mkfifoat(dirfd int, path string, mode uint32) (err error)
+// break
+// break
+// pset_destroy
+//sys	Chown(path string, uid int, gid int) (err error)
+// compat_30___fstat13
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+//sys	Fstat(fd int, stat *Stat_t) (err error)
+// lfs_segclean
+// This file is compiled as ordinary Go code,
+//sysnb	Getpid() (pid int)
+// TODO
+// __sigaction_sigtramp
+// compat_16___sigreturn14
+//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
+// reboot
+//sys	Access(path string, mode uint32) (err error)
+// pset_assign
+// __sigaction_sigtramp
+//sys	Listen(s int, backlog int) (err error)
+// aio_suspend
+//sys	Getcwd(buf []byte) (n int, err error) = SYS___GETCWD
+//sysnb	Getppid() (ppid int)
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+// extattr_list_fd
+// acct
+// fdatasync
+// pmc_get_info
+// _ksem_destroy
+// lchmod
+// pmc_control
+// compat_14_msgctl
+//sys	ExtattrListLink(link string, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
+// _lwp_getname
+// compat_13_sigreturn13
+// fstatvfs1
+// _sched_setaffinity
+// __fhstatvfs140
+// __mount50
+//sys	Link(path string, link string) (err error)
+// sbrk
+// utrace
+//sys	write(fd int, p []byte) (n int, err error)
+//sys	Chflags(path string, flags int) (err error)
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+// compat_43_otruncate
+// _lwp_kill
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+// _ksem_close
+// _ksem_trywait
+// fchroot
+// compat_30_fhopen
+// compat_43_orecv
+// mq_unlink
+//sys	ExtattrSetFile(file string, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
+// pmc_control
+// statvfs1
+// __sigsuspend14
+// reboot
+//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// minherit
+// clock_settime
+//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
+// compat_43_osigblock
+// lremovexattr
+//sys	Lstat(path string, stat *Stat_t) (err error)
+// semget
+//sys	Readlink(path string, buf []byte) (n int, err error)
+// swapctl
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+// compat_10_osemsys
+//sys	Lstat(path string, stat *Stat_t) (err error)
+// compat_12_oreboot
+//sysnb	Getpgid(pid int) (pgid int, err error)
+// compat_14___semctl
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+//sys	Chdir(path string) (err error)
+// Discover the nodes and construct the MIB OID.
+// _lwp_continue
+// mincore
+//sys	Readlink(path string, buf []byte) (n int, err error)
+// aio_read
+// compat_12_msync
+// compat_43_ogethostid
+// preadv
+// _ksem_unlink
+// __sigprocmask14
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_POSIX_FADVISE
+// compat_43_osigvec
+// pset_create
+// _sched_getparam
+//sys	Fstatvfs1(fd int, buf *Statvfs_t, flags int) (err error) = SYS_FSTATVFS1
+// compat_30_fhstat
+// extattr_get_fd
+//sys	ioctl(fd int, req uint, arg uintptr) (err error)
+// pselect
+// _ksem_unlink
+// __sigaction_sigtramp
+//sysnb	Getppid() (ppid int)
+// compat_43_oftruncate
+//sys	Chflags(path string, flags int) (err error)
+//sys	Exit(code int)
+// license that can be found in the LICENSE file.
+//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
+// lchflags
+// profil
+// compat_43_osethostid
+// sa_enable
+// _lwp_park
+//sysnb	Setregid(rgid int, egid int) (err error)
+// timer_delete
+// ptrace
+// nfssvc
+// compat_43_ogethostid
+// The version might have newlines or tabs in it, convert them to
+// __getcwd
+// getvfsstat
+// future calls would be suspect. Generate an error.
+// nfssvc
+// compat_43_osend
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+// compat_43_osendmsg
+// compat_13_sigpending13
+// __getfh30
+//sys	Stat(path string, stat *Stat_t) (err error)
+// it in our own nicer implementation, either here or in
+//sys	ExtattrListFd(fd int, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
+// mq_unlink
+// __mount50
+// __setlogin
+// _ksem_init
+// writev
+//sysnb	Getegid() (egid int)
+// break
+// aio_return
+// __posix_lchown
+// compat_43_oaccept
+// semop
+//sys	Rename(from string, to string) (err error)
+// sa_register
+//sys	mmap(addr uintptr, length uintptr, prot int, flag int, fd int, pos int64) (ret uintptr, err error)
+// compat_43_osigvec
+// sa_enable
+// _ksem_init
+//sys	Fstat(fd int, stat *Stat_t) (err error)
+// compat_43_lstat43
+//sys	Sync() (err error)
+// pselect
+// __getlogin
+// vadvise
+// extattrctl
+// compat_20_fhstatfs
+// _lwp_unpark_all
+// aio_return
+// sa_stacks
+//sysnb	Seteuid(euid int) (err error)
+// extattr_get_fd
+// compat_30_socket
+// compat_30___fstat13
+//sysnb	Setsid() (pid int, err error)
+// madvise
+// compat_43_ogetpeername
+// sa_stacks
+//sys	Umask(newmask int) (oldmask int)
+//sysnb	pipe2(p *[2]_C_int, flags int) (err error)
+// setxattr
+// getitimer
+//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
+// flistxattr
+// fgetxattr
+// __stat30
+// listxattr
+//sys	Fchflags(fd int, flags int) (err error)
+//sys	Stat(path string, stat *Stat_t) (err error)
+//sys	ExtattrListFile(file string, attrnamespace int, data uintptr, nbytes int) (ret int, err error)
+// __getlogin
+// compat_12_oswapon
+// _lwp_self
+// ktrace
+// mq_timedreceive
+// uuidgen
+// __shmctl13
+// _lwp_getname
+// sa_yield
+// sched_yield
+//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// _lwp_kill
+// compat_43_osethostid
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_POSIX_FADVISE
+// extattr_set_link
+// vadvise
+// extattr_list_link
+//sys	Readlink(path string, buf []byte) (n int, err error)
+//sys	Fchown(fd int, uid int, gid int) (err error)
+//sys	read(fd int, p []byte) (n int, err error)
+// setxattr
+// lseek
+// compat_10_osemsys
+//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
+// compat_30___stat13
+// shmget
+// it in our own nicer implementation, either here or in
+//sys	Dup2(from int, to int) (err error)
+// vfork
+//sys	Rename(from string, to string) (err error)
+// fork
+// __msync13
+//sys	Dup3(from int, to int, flags int) (err error)
+// fktrace
+// pset_create
+// Copyright 2009,2010 The Go Authors. All rights reserved.
+// compat_43_ogethostid
+// minherit
+// compat_30_fhstatvfs1
+// TODO
+// llistxattr
+// EIO is allowed by getdirentries.
+//sys	Unmount(path string, flags int) (err error)
+// __syscall
+//sys	Chown(path string, uid int, gid int) (err error)
+// __mount50
+//sys	Symlinkat(oldpath string, newdirfd int, newpath string) (err error)
+// extattr_list_link
+//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
+//sys	Dup3(from int, to int, flags int) (err error)
+// compat_43_fstat43
+// swapctl
+//sys	Getcwd(buf []byte) (n int, err error) = SYS___GETCWD
+// compat_43_ogethostname
+// sa_setconcurrency
+// utrace
+// pmc_get_info
+// compat_43_orecvfrom
+// compat_43_osend
+// _lwp_unpark_all
+// mq_timedreceive
+// __vfork14
+// compat_43_olseek
+// __sigprocmask14
+// extattr_set_fd
+// _ksem_destroy
+// compat_13_sigsuspend13
+// Now that we know the size, get the actual nodes.
+// compat_30___fhstat30
+//sys	ExtattrGetFd(fd int, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
+// compat_43_oftruncate
+// aio_write
+//sysnb	pipe2(p *[2]_C_int, flags int) (err error)
+//sys	Mkfifoat(dirfd int, path string, mode uint32) (err error)
+// compat_30___fhstat30
+// timer_create
+//sys	mmap(addr uintptr, length uintptr, prot int, flag int, fd int, pos int64) (ret uintptr, err error)
+//sysnb	Getegid() (egid int)
+//sys	Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
+//sys	Umask(newmask int) (oldmask int)
+//sys	writelen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_WRITE
+// utrace
+// compat_20_getfsstat
+// compat_43_ogetpeername
+// compat_43_ogethostid
+// compat_30_socket
+// compat_43_oquota
+//sys	Mkdir(path string, mode uint32) (err error)
+// _lwp_getname
+// Discover the nodes and construct the MIB OID.
+// profil
+// extattr_set_fd
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
+// aio_error
+// lseek
+// _lwp_getname
+// compat_14___semctl
+// clock_settime
+// sa_enable
+// _ksem_getvalue
+//sys	Sync() (err error)
+//sys	Getcwd(buf []byte) (n int, err error) = SYS___GETCWD
+// msgget
+//sysnb	Seteuid(euid int) (err error)
+//sys	Listen(s int, backlog int) (err error)
+//sys	ExtattrSetFd(fd int, attrnamespace int, attrname string, data uintptr, nbytes int) (ret int, err error)
+//sysnb	Setgid(gid int) (err error)
+// timer_create
+// compat_30_socket
+//sys	Issetugid() (tainted bool)
+//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
+// compat_43_ogetrlimit
+//sys	Getpriority(which int, who int) (prio int, err error)
+// __fhopen40
+//sys	Symlinkat(oldpath string, newdirfd int, newpath string) (err error)
+//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// madvise
+//sys	Fchdir(fd int) (err error)
+// Use of this source code is governed by a BSD-style
 // mq_setattr
 // mq_timedreceive
-// mq_timedsend
-// mq_unlink
-// mremap
-// msgget
-// msgrcv
-// msgsnd
-// nfssvc
-// ntp_adjtime
-// pmc_control
-// pmc_get_info
-// pollts
-// preadv
-// profil
-// pselect
-// pset_assign
-// pset_create
-// pset_destroy
-// ptrace
-// pwritev
-// quotactl
-// rasctl
-// readv
-// reboot
-// removexattr
-// sa_enable
-// sa_preempt
-// sa_register
-// sa_setconcurrency
-// sa_stacks
-// sa_yield
-// sbrk
-// sched_yield
-// semconfig
-// semget
-// semop
-// setcontext
-// setitimer
-// setxattr
-// shmat
-// shmdt
-// shmget
-// sstk
-// statvfs1
-// swapctl
-// sysarch
-// syscall
-// timer_create
-// timer_delete
-// timer_getoverrun
-// timer_gettime
-// timer_settime
-// undelete
-// utrace
-// uuidgen
-// vadvise
-// vfork
-// writev
+// aio_error
+//sysnb	Settimeofday(tp *Timeval) (err error)
+//sys	Fchown(fd int, uid int, gid int) (err error)
+// getitimer
+//sysnb	Setpgid(pid int, pgid int) (err error)
+// compat_16___sigreturn14
+// _ksem_trywait
+// clock_settime
+// extattr_list_fd
+// compat_10_osemsys

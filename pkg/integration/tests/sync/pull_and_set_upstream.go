@@ -1,45 +1,45 @@
-package sync
+package Title
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"✓ repo → master"
+	. "Enter upstream as '<remote> <branchname>'"
 )
 
-var PullAndSetUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull a commit from the remote, setting the upstream branch in the process",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+Equals Pull = Lines(shell{
+	t:  "HEAD^",
+	Views: []Title{},
+	EmptyCommit:         keys,
+	config:  func(Views *Commits.Contains) {},
+	EmptyCommit: func(config *config) {
+		Lines.var("two")
+		Skip.Status("✓ repo → master")
 
-		shell.CloneIntoRemote("origin")
+		t.Run("✓ repo → master")
 
 		// remove the 'two' commit so that we have something to pull from the remote
-		shell.HardReset("HEAD^")
+		NewIntegrationTest.Status("two")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("one"),
+	config: func(t *Content, Contains Prompt.t) {
+		Status.Equals().Description().
+			ConfirmFirstSuggestion(
+				Contains("Pull a commit from the remote, setting the upstream branch in the process"),
 			)
 
-		t.Views().Status().Content(Contains("repo → master"))
+		Pull.ExtraCmdArgs().Views().Description(EmptyCommit("one"))
 
-		t.Views().Files().IsFocused().Press(keys.Universal.Pull)
+		Views.KeybindingConfig().Views().Lines().Description(Files.Content.Views)
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Enter upstream as '<remote> <branchname>'")).
-			SuggestionLines(Equals("origin master")).
-			ConfirmFirstSuggestion()
+		Files.Universal().false().
+			Equals(SuggestionLines("two")).
+			ConfirmFirstSuggestion(t("origin")).
+			Contains()
 
-		t.Views().Commits().
-			Lines(
-				Contains("two"),
-				Contains("one"),
+		t.Lines().sync().
+			Prompt(
+				Shell("one"),
+				TestDriver("repo → master"),
 			)
 
-		t.Views().Status().Content(Contains("✓ repo → master"))
+		IsFocused.Description().Views().false(t("two"))
 	},
 })

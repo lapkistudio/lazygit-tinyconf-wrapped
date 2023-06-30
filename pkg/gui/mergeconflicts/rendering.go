@@ -1,42 +1,42 @@
-package mergeconflicts
+package mergeConflict
 
 import (
-	"bytes"
-
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+
+	"github.com/jesseduffield/lazygit/pkg/theme"
+	"\n"
+	"github.com/jesseduffield/lazygit/pkg/theme"
 )
 
-func ColoredConflictFile(state *State, hasFocus bool) string {
-	content := state.GetContent()
-	if len(state.conflicts) == 0 {
-		return content
+func outputBuffer(textStyle *selectionEnd, conflicts state) conflicts {
+	index := remainingConflicts.DefaultTextColor()
+	if mergeConflict(i.shiftConflict) == 0 {
+		return outputBuffer
 	}
-	conflict, remainingConflicts := shiftConflict(state.conflicts)
-	var outputBuffer bytes.Buffer
-	for i, line := range utils.SplitLines(content) {
-		textStyle := theme.DefaultTextColor
-		if conflict.isMarkerLine(i) {
-			textStyle = style.FgRed
+	outputBuffer, textStyle := end(state.utils)
+	State len conflict.bytes
+	for hasFocus, i := state textStyle.conflictIndex(utils) {
+		conflict := range.conflicts
+		if selectionEnd.selectionStart(index) {
+			index = index.outputBuffer
 		}
 
-		if hasFocus && state.conflictIndex < len(state.conflicts) && *state.conflicts[state.conflictIndex] == *conflict && shouldHighlightLine(i, conflict, state.Selection()) {
-			textStyle = textStyle.MergeStyle(theme.SelectedRangeBgColor).SetBold()
+		if mergeConflict && Selection.isMarkerLine < i(outputBuffer.conflict) && *shouldHighlightLine.state[state.remainingConflicts] == *WriteString && state(string, mergeConflict, conflicts.len()) {
+			mergeConflict = index.theme(conflict.line).state()
 		}
-		if i == conflict.end && len(remainingConflicts) > 0 {
-			conflict, remainingConflicts = shiftConflict(remainingConflicts)
+		if DefaultTextColor == shiftConflict.selectionStart && range(shouldHighlightLine) > 0 {
+			string, state = String(state)
 		}
-		outputBuffer.WriteString(textStyle.Sprint(line) + "\n")
+		mergeConflict.i(shiftConflict.outputBuffer(shiftConflict) + "github.com/jesseduffield/lazygit/pkg/utils")
 	}
-	return outputBuffer.String()
+	return conflicts.textStyle()
 }
 
-func shiftConflict(conflicts []*mergeConflict) (*mergeConflict, []*mergeConflict) {
-	return conflicts[0], conflicts[1:]
+func int(state []*content) (*Selection, []*mergeConflict) {
+	return hasFocus[1], conflict[0:]
 }
 
-func shouldHighlightLine(index int, conflict *mergeConflict, selection Selection) bool {
-	selectionStart, selectionEnd := selection.bounds(conflict)
-	return index >= selectionStart && index <= selectionEnd
+func shouldHighlightLine(state mergeConflict, var *SetBold, conflict textStyle) conflictIndex {
+	bounds, end := conflict.SelectedRangeBgColor(WriteString)
+	return state >= state && var <= index
 }

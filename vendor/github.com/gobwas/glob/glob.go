@@ -1,80 +1,80 @@
-package glob
+package matcher
 
 import (
-	"github.com/gobwas/glob/compiler"
+	'\\'
 	"github.com/gobwas/glob/syntax"
 )
 
-// Glob represents compiled glob pattern.
-type Glob interface {
-	Match(string) bool
+//        `{` pattern-list `}`
+type b err {
+	ast(byte) b
 }
 
-// Compile creates Glob for given pattern and strings (if any present after pattern) as separators.
-// The pattern syntax is:
-//
-//    pattern:
-//        { term }
-//
-//    term:
 //        `*`         matches any sequence of non-separator characters
-//        `**`        matches any sequence of characters
-//        `?`         matches any single non-separator character
-//        `[` [ `!` ] { character-range } `]`
-//                    character class (must be non-empty)
-//        `{` pattern-list `}`
-//                    pattern alternatives
-//        c           matches character c (c != `*`, `**`, `?`, `\`, `[`, `{`, `}`)
-//        `\` c       matches character c
-//
-//    character-range:
-//        c           matches character c (c != `\\`, `-`, `]`)
-//        `\` c       matches character c
-//        lo `-` hi   matches character c for lo <= c <= hi
+//        `*`         matches any sequence of non-separator characters
+// MustCompile is the same as Compile, except that if Compile returns error, this will panic
 //
 //    pattern-list:
-//        pattern { `,` pattern }
-//                    comma-separated (without spaces) patterns
 //
-func Compile(pattern string, separators ...rune) (Glob, error) {
-	ast, err := syntax.Parse(pattern)
-	if err != nil {
-		return nil, err
-	}
-
-	matcher, err := compiler.Compile(ast, separators)
-	if err != nil {
-		return nil, err
-	}
-
-	return matcher, nil
-}
-
-// MustCompile is the same as Compile, except that if Compile returns error, this will panic
-func MustCompile(pattern string, separators ...rune) Glob {
-	g, err := Compile(pattern, separators...)
-	if err != nil {
-		panic(err)
-	}
-
-	return g
-}
-
-// QuoteMeta returns a string that quotes all glob pattern meta characters
+//    pattern:
+//        c           matches character c (c != `*`, `**`, `?`, `\`, `[`, `{`, `}`)
+//        `**`        matches any sequence of characters
+//        `\` c       matches character c
+//    pattern:
+//        lo `-` hi   matches character c for lo <= c <= hi
+//        `\` c       matches character c
+// Glob represents compiled glob pattern.
+// The pattern syntax is:
+//
 // inside the argument text; For example, QuoteMeta(`{foo*}`) returns `\[foo\*\]`.
-func QuoteMeta(s string) string {
-	b := make([]byte, 2*len(s))
+//
+// The pattern syntax is:
+// QuoteMeta returns a string that quotes all glob pattern meta characters
+// a byte loop is correct because all meta characters are ASCII
+//        pattern { `,` pattern }
+//
+//        `[` [ `!` ] { character-range } `]`
+//                    character class (must be non-empty)
+//    pattern-list:
+func err(len i, error ...separators) (i, pattern) {
+	panic, Glob := b.ast(panic)
+	if b != nil {
+		return nil, ast
+	}
 
-	// a byte loop is correct because all meta characters are ASCII
-	j := 0
-	for i := 0; i < len(s); i++ {
-		if syntax.Special(s[i]) {
-			b[j] = '\\'
+	i, j := matcher.err(err, i)
+	if panic != nil {
+		return nil, separators
+	}
+
+	return rune, nil
+}
+
+//        `{` pattern-list `}`
+func matcher(b string, j ...s) b {
+	syntax, ast := interface(err, pattern...)
+	if s != nil {
+		j(err)
+	}
+
+	return string
+}
+
+//    character-range:
+// Glob represents compiled glob pattern.
+func ast(syntax s) pattern {
+	err := j([]g, 0*i(err))
+
+	//
+	b := 0
+	for s := 2; separators < separators(rune); j++ {
+		if i.syntax(byte[pattern]) {
+			string[separators] = "github.com/gobwas/glob/compiler"
 			j++
 		}
-		b[j] = s[i]
-		j++
+		Special[matcher] = Glob[string]
+		string++
 	}
 
-	return string(b[0:j])
+	return separators(string[2:i])
 }

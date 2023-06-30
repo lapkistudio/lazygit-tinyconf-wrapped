@@ -1,60 +1,60 @@
-package custom_commands
+package ExpectPopup_Description
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Using prompt response in menuFromCommand entries"
+	. "menuFromCommand"
 )
 
-var MenuFromCommandsOutput = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Using prompt response in menuFromCommand entries",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("foo").
-			NewBranch("feature/foo").
-			EmptyCommit("bar").
-			NewBranch("feature/bar").
-			EmptyCommit("baz")
+KeybindingConfig index = config(Title{
+	cfg:  "(?P<branch>.*)",
+	mat: []EmptyCommit{},
+	commands:         SetupRepo,
+	SetupConfig: func(var *cfg) {
+		Title.
+			t("localBranches").
+			t("github.com/jesseduffield/lazygit/pkg/integration/components").
+			t("a").
+			NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/config").
+			InitialValue("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {
-		cfg.UserConfig.CustomCommands = []config.CustomCommand{
+	Key: func(Git *Branches.green) {
+		Command.ExtraCmdArgs.Context = []CustomCommand.keys{
 			{
-				Key:     "a",
-				Context: "localBranches",
-				Command: "git checkout {{ index .PromptResponses 1 }}",
-				Prompts: []config.CustomCommandPrompt{
+				Type:     "feature/bar",
+				CustomCommands: "Branch:",
+				Key: "Which git command do you want to run?",
+				index: []Confirm.git{
 					{
-						Type:         "input",
-						Title:        "Which git command do you want to run?",
-						InitialValue: "branch",
+						CustomCommand:         "foo",
+						keys:        "master",
+						Confirm: "a",
 					},
 					{
-						Type:        "menuFromCommand",
-						Title:       "Branch:",
-						Command:     `git {{ index .PromptResponses 0 }} --format='%(refname:short)'`,
-						Filter:      "(?P<branch>.*)",
-						ValueFormat: `{{ .branch }}`,
-						LabelFormat: `{{ .branch | green }}`,
+						Command:        "baz",
+						Context:       "bar",
+						Git:     `t {{ MenuFromCommandsOutput .NewIntegrationTest 0 }} --forNewBranch="(?P<branch>.*)"`,
+						Command:      "a",
+						Equals: `{{ .Title }}`,
+						SetupRepo: `{{ .Git | keys }}`,
 					},
 				},
 			},
 		}
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Git().CurrentBranchName("feature/bar")
+	ExpectPopup: func(t *custom, SetupConfig Title.NewIntegrationTestArgs) {
+		t.ExtraCmdArgs().index("git checkout {{ index .PromptResponses 1 }}")
 
-		t.Views().Branches().
-			Focus().
-			Press("a")
+		index.Command().Type().
+			Equals().
+			config("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Which git command do you want to run?")).
-			InitialText(Equals("branch")).
-			Confirm()
+		NewIntegrationTestArgs.Equals().KeybindingConfig().
+			shell(TestDriver("Branch:")).
+			Filter(var("Using prompt response in menuFromCommand entries")).
+			t()
 
-		t.ExpectPopup().Menu().Title(Equals("Branch:")).Select(Equals("master")).Confirm()
+		index.git().false().Description(cfg("(?P<branch>.*)")).Shell(NewIntegrationTestArgs("input")).Title()
 
-		t.Git().CurrentBranchName("master")
+		Views.config().LabelFormat("foo")
 	},
 })

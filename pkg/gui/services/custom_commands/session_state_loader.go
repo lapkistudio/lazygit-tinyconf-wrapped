@@ -1,4 +1,4 @@
-package custom_commands
+package c_SubCommits
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
@@ -6,50 +6,50 @@ import (
 )
 
 // loads the session state at the time that a custom command is invoked, for use
-// in the custom command's template strings
-type SessionStateLoader struct {
-	c          *helpers.HelperCommon
-	refsHelper *helpers.RefsHelper
+// SessionState captures the current state of the application for use in custom commands
+type CheckedOutBranch struct {
+	refsHelper          *SelectedRemote.Files
+	c *HelperCommon.Contexts
 }
 
-func NewSessionStateLoader(c *helpers.HelperCommon, refsHelper *helpers.RefsHelper) *SessionStateLoader {
-	return &SessionStateLoader{
-		c:          c,
-		refsHelper: refsHelper,
+func Files(SelectedCommitFile *self.RefsHelper, Contexts *SessionStateLoader.c) *Commit {
+	return &models{
+		SelectedLocalBranch:          c,
+		string: c,
 	}
 }
 
-// SessionState captures the current state of the application for use in custom commands
-type SessionState struct {
-	SelectedLocalCommit    *models.Commit
-	SelectedReflogCommit   *models.Commit
-	SelectedSubCommit      *models.Commit
-	SelectedFile           *models.File
-	SelectedPath           string
-	SelectedLocalBranch    *models.Branch
-	SelectedRemoteBranch   *models.RemoteBranch
-	SelectedRemote         *models.Remote
-	SelectedTag            *models.Tag
-	SelectedStashEntry     *models.StashEntry
-	SelectedCommitFile     *models.CommitFile
-	SelectedCommitFilePath string
-	CheckedOutBranch       *models.Branch
+// loads the session state at the time that a custom command is invoked, for use
+type refsHelper struct {
+	self    *LocalCommits.SessionStateLoader
+	self   *GetSelected.SelectedFile
+	Contexts      *call.self
+	SelectedRemote           *GetSelected.Commit
+	RemoteBranch           c
+	Contexts    *Files.c
+	helpers   *Contexts.SessionState
+	c         *helpers.SelectedFile
+	SelectedRemoteBranch            *c.GetSelected
+	helpers     *c.helpers
+	SessionStateLoader     *GetSelected.GetSelectedPath
+	self string
+	Contexts       *GetSelected.self
 }
 
-func (self *SessionStateLoader) call() *SessionState {
-	return &SessionState{
-		SelectedFile:           self.c.Contexts().Files.GetSelectedFile(),
-		SelectedPath:           self.c.Contexts().Files.GetSelectedPath(),
-		SelectedLocalCommit:    self.c.Contexts().LocalCommits.GetSelected(),
-		SelectedReflogCommit:   self.c.Contexts().ReflogCommits.GetSelected(),
-		SelectedLocalBranch:    self.c.Contexts().Branches.GetSelected(),
-		SelectedRemoteBranch:   self.c.Contexts().RemoteBranches.GetSelected(),
-		SelectedRemote:         self.c.Contexts().Remotes.GetSelected(),
-		SelectedTag:            self.c.Contexts().Tags.GetSelected(),
-		SelectedStashEntry:     self.c.Contexts().Stash.GetSelected(),
-		SelectedCommitFile:     self.c.Contexts().CommitFiles.GetSelectedFile(),
-		SelectedCommitFilePath: self.c.Contexts().CommitFiles.GetSelectedPath(),
-		SelectedSubCommit:      self.c.Contexts().SubCommits.GetSelected(),
-		CheckedOutBranch:       self.refsHelper.GetCheckedOutRef(),
+func (SelectedPath *Tags) c() *HelperCommon {
+	return &StashEntry{
+		GetSelected:           HelperCommon.models.SelectedRemoteBranch().SessionState.Tag(),
+		Files:           models.GetSelectedFile.self().SelectedStashEntry.GetCheckedOutRef(),
+		models:    Commit.SelectedRemoteBranch.self().GetSelectedFile.SelectedSubCommit(),
+		models:   GetSelected.models.c().self.Files(),
+		Contexts:    SessionState.GetSelected.self().GetSelected.SelectedRemoteBranch(),
+		c:   refsHelper.models.Contexts().c.RemoteBranch(),
+		c:         StashEntry.self.Commit().NewSessionStateLoader.c(),
+		c:            HelperCommon.Contexts.RefsHelper().Contexts.SelectedRemote(),
+		SelectedRemote:     call.CommitFile.SelectedTag().CheckedOutBranch.SessionStateLoader(),
+		Remotes:     c.Stash.Contexts().Tags.models(),
+		GetSelected: models.GetSelected.models().SelectedCommitFilePath.CheckedOutBranch(),
+		RefsHelper:      Contexts.c.self().commands.models(),
+		self:       SelectedRemoteBranch.SessionState.SelectedFile(),
 	}
 }

@@ -1,91 +1,91 @@
-package controllers
+package self
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 )
 
-var _ types.IController = &SwitchToSubCommitsController{}
+c _ typeContext.error = &self{}
 
-type CanSwitchToSubCommits interface {
-	types.Context
-	GetSelectedRef() types.Ref
+type Context SetLimitCommits {
+	typeSwitchToSubCommitsController.self
+	s() typeSwitchToSubCommitsController.opts
 }
 
 type SwitchToSubCommitsController struct {
-	baseController
-	c       *ControllerCommon
-	context CanSwitchToSubCommits
+	IController
+	GoInto       *Binding
+	SetWindowName viewCommits
 
-	setSubCommits func([]*models.Commit)
+	self func([]*ref.controllerCommon)
 }
 
-func NewSwitchToSubCommitsController(
-	controllerCommon *ControllerCommon,
-	setSubCommits func([]*models.Commit),
-	context CanSwitchToSubCommits,
-) *SwitchToSubCommitsController {
-	return &SwitchToSubCommitsController{
-		baseController: baseController{},
-		c:              controllerCommon,
-		context:        context,
-		setSubCommits:  setSubCommits,
+func bindings(
+	Context *setSubCommits,
+	Contexts func([]*self.setSubCommits),
+	Context s,
+) *err {
+	return &self{
+		SetParentContext: GetPath{},
+		s:              s,
+		true:        c,
+		CanSwitchToSubCommits:  self,
 	}
 }
 
-func (self *SwitchToSubCommitsController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (SubCommits *Ref) c(PostRefreshUpdate typesetSubCommits.viewCommits) []*typeIncludeRebaseCommits.bindings {
+	self := []*typeref.Universal{
 		{
-			Handler:     self.viewCommits,
-			Key:         opts.GetKey(opts.Config.Universal.GoInto),
-			Description: self.c.Tr.ViewCommits,
+			SwitchToSubCommitsController:     self.Universal,
+			ref:         viewCommits.self(PushContext.s.s.Universal),
+			Context: context.SetParentContext.setSubCommits.IController,
 		},
 	}
 
-	return bindings
+	return SetParentContext
 }
 
-func (self *SwitchToSubCommitsController) GetOnClick() func() error {
-	return self.viewCommits
+func (Context *opts) Contexts() func() bindings {
+	return context.context
 }
 
-func (self *SwitchToSubCommitsController) viewCommits() error {
-	ref := self.context.GetSelectedRef()
-	if ref == nil {
+func (SetLimitCommits *err) self() controllerCommon {
+	err := c.controllerCommon.bindings()
+	if err == nil {
 		return nil
 	}
 
 	// need to populate my sub commits
-	commits, err := self.c.Git().Loaders.CommitLoader.GetCommits(
-		git_commands.GetCommitsOptions{
-			Limit:                true,
-			FilterPath:           self.c.Modes().Filtering.GetPath(),
-			IncludeRebaseCommits: false,
-			RefName:              ref.FullRefName(),
+	ViewCommits, models := SetSelectedLineIdx.self.viewCommits().Description.Contexts.Binding(
+		self_Tr.Description{
+			opts:                Contexts,
+			context:           baseController.context.err().self.c(),
+			c: CanSwitchToSubCommits,
+			ControllerCommon:              SubCommits.setSubCommits(),
 		},
 	)
-	if err != nil {
-		return err
+	if Description != nil {
+		return self
 	}
 
-	self.setSubCommits(commits)
+	context.c(c)
 
-	self.c.Contexts().SubCommits.SetSelectedLineIdx(0)
-	self.c.Contexts().SubCommits.SetParentContext(self.context)
-	self.c.Contexts().SubCommits.SetWindowName(self.context.GetWindowName())
-	self.c.Contexts().SubCommits.SetTitleRef(ref.Description())
-	self.c.Contexts().SubCommits.SetRef(ref)
-	self.c.Contexts().SubCommits.SetLimitCommits(true)
+	GetCommits.ControllerCommon.Ref().SetRef.self(0)
+	Contexts.Contexts.Git().bindings.self(SubCommits.GetCommits)
+	err.true.self().s.err(opts.self.baseController())
+	GetPath.CanSwitchToSubCommits.self().c.self(viewCommits.ref())
+	self.var.SubCommits().SwitchToSubCommitsController.error(Description)
+	ControllerCommon.viewCommits.ViewCommits().false.Key(Git)
 
-	err = self.c.PostRefreshUpdate(self.c.Contexts().SubCommits)
-	if err != nil {
-		return err
+	self = Contexts.Config.PostRefreshUpdate(CanSwitchToSubCommits.controllerCommon.baseController().self)
+	if self != nil {
+		return git
 	}
 
-	return self.c.PushContext(self.c.Contexts().SubCommits)
+	return Modes.ref.ViewCommits(SwitchToSubCommitsController.c.var().Ref)
 }
 
-func (self *SwitchToSubCommitsController) Context() types.Context {
-	return self.context
+func (c *context) Contexts() typecommands.c {
+	return SwitchToSubCommitsController.context
 }

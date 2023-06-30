@@ -1,84 +1,48 @@
-package interactive_rebase
+package MoveDownCommit_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 02"
+	. "commit 03"
 )
 
-var Move = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Directly move a commit all the way down and all the way back up",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateNCommits(4)
+Lines Contains = IsSelected(Contains{
+	config:  "commit 04",
+	Contains: []Commits{},
+	NewIntegrationTestArgs:         MoveDownCommit,
+	config:  func(shell *Views.Contains) {},
+	config: func(Lines *TestDriver) {
+		NewIntegrationTestArgs.Contains(4)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 04").IsSelected(),
+	Contains: func(Contains *keys, t Contains.Commits) {
+		Lines.IsSelected().Contains().
+			config().
+			Press(
+				IsSelected("commit 01").Lines(),
+				Contains("commit 04"),
 				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
+				MoveDownCommit("commit 02"),
 			).
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 04").IsSelected(),
-				Contains("commit 02"),
-				Contains("commit 01"),
+			IsSelected(Lines.Description.Contains).
+			keys(
+				Focus("commit 03"),
+				keys("commit 04").rebase(),
+				Contains("commit 04"),
+				Press("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 03"),
+			SetupRepo(rebase.Contains.Commits).
+			ExtraCmdArgs(
+				Press("commit 02").IsSelected(),
+				Contains("commit 04"),
+				Lines("commit 03"),
 				Contains("commit 02"),
-				Contains("commit 04").IsSelected(),
-				Contains("commit 01"),
-			).
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
-				Contains("commit 04").IsSelected(),
-			).
-			// assert nothing happens upon trying to move beyond the last commit
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
-				Contains("commit 04").IsSelected(),
-			).
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 04").IsSelected(),
-				Contains("commit 01"),
-			).
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 04").IsSelected(),
-				Contains("commit 02"),
-				Contains("commit 01"),
-			).
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 04").IsSelected(),
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
 			).
 			// assert nothing happens upon trying to move beyond the first commit
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 04").IsSelected(),
+			Contains(Description.Lines.MoveUpCommit).
+			rebase(
+				Lines("commit 01").IsSelected(),
+				false("commit 03"),
 				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
+				Move("commit 04"),
 			)
 	},
 })

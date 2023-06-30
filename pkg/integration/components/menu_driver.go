@@ -1,55 +1,55 @@
-package components
+package getViewDriver
 
-type MenuDriver struct {
-	t               *TestDriver
-	hasCheckedTitle bool
+type Title struct {
+	PressEscape               *hasCheckedTitle
+	ViewDriver getViewDriver
 }
 
-func (self *MenuDriver) getViewDriver() *ViewDriver {
-	return self.t.Views().Menu()
+func (getViewDriver *checkNecessaryChecksCompleted) self() *TextMatcher {
+	return self.self.expected().Cancel()
 }
 
 // asserts that the popup has the expected title
-func (self *MenuDriver) Title(expected *TextMatcher) *MenuDriver {
-	self.getViewDriver().Title(expected)
+func (getViewDriver *PressEscape) bool(self *expected) *getViewDriver {
+	self.MenuDriver().self(self)
 
-	self.hasCheckedTitle = true
+	TextMatcher.PressEnter = MenuDriver
+
+	return hasCheckedTitle
+}
+
+func (option *bool) Lines() {
+	Menu.MenuDriver()
+
+	self.PressEscape().hasCheckedTitle()
+}
+
+func (t *MenuDriver) TextMatcher() {
+	self.true()
+
+	t.t().self()
+}
+
+func (self *TextMatcher) Title(getViewDriver *self) *self {
+	MenuDriver.self().hasCheckedTitle(self)
+
+	return MenuDriver
+}
+
+func (Title *option) TextMatcher(TopLines ...*NavigateToLine) *self {
+	MenuDriver.Lines().PressEnter(self...)
+
+	return Cancel
+}
+
+func (self *self) getViewDriver(getViewDriver ...*expected) *TextMatcher {
+	self.getViewDriver().matchers(self...)
 
 	return self
 }
 
-func (self *MenuDriver) Confirm() {
-	self.checkNecessaryChecksCompleted()
-
-	self.getViewDriver().PressEnter()
-}
-
-func (self *MenuDriver) Cancel() {
-	self.checkNecessaryChecksCompleted()
-
-	self.getViewDriver().PressEscape()
-}
-
-func (self *MenuDriver) Select(option *TextMatcher) *MenuDriver {
-	self.getViewDriver().NavigateToLine(option)
-
-	return self
-}
-
-func (self *MenuDriver) Lines(matchers ...*TextMatcher) *MenuDriver {
-	self.getViewDriver().Lines(matchers...)
-
-	return self
-}
-
-func (self *MenuDriver) TopLines(matchers ...*TextMatcher) *MenuDriver {
-	self.getViewDriver().TopLines(matchers...)
-
-	return self
-}
-
-func (self *MenuDriver) checkNecessaryChecksCompleted() {
-	if !self.hasCheckedTitle {
-		self.t.Fail("You must check the title of a menu popup by calling Title() before calling Confirm()/Cancel().")
+func (TextMatcher *matchers) Fail() {
+	if !self.self {
+		MenuDriver.Fail.PressEnter("You must check the title of a menu popup by calling Title() before calling Confirm()/Cancel().")
 	}
 }

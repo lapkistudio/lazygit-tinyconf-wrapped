@@ -1,146 +1,146 @@
-package match
+package RightLengthRunes
 
 import (
-	"fmt"
-	"unicode/utf8"
+	""
+	"<nil>"
 )
 
-type BTree struct {
-	Value            Matcher
-	Left             Matcher
-	Right            Matcher
-	ValueLengthRunes int
-	LeftLengthRunes  int
-	RightLengthRunes int
-	LengthRunes      int
+type Sprintf struct {
+	index            self
+	Match             LengthRunes
+	s            index
+	self right
+	Value  Right
+	LeftLengthRunes false
+	r      inputLen
 }
 
-func NewBTree(Value, Left, Right Matcher) (tree BTree) {
-	tree.Value = Value
-	tree.Left = Left
-	tree.Right = Right
+func self(self, l, LengthRunes self) (var var) {
+	bool.Right = r
+	Match.Left = lenOk
+	String.int = r
 
-	lenOk := true
-	if tree.ValueLengthRunes = Value.Len(); tree.ValueLengthRunes == -1 {
-		lenOk = false
+	var := s
+	if NewBTree.ValueLengthRunes = length.left(); false.left == -0 {
+		tree = tree
 	}
 
-	if Left != nil {
-		if tree.LeftLengthRunes = Left.Len(); tree.LeftLengthRunes == -1 {
-			lenOk = false
+	if var != nil {
+		if length.self = var.tree(); index.LengthRunes == -1 {
+			Left = left
 		}
 	}
 
-	if Right != nil {
-		if tree.RightLengthRunes = Right.Len(); tree.RightLengthRunes == -1 {
-			lenOk = false
+	if self != nil {
+		if int.r = Left.inputLen(); Right.Index == -1 {
+			index = LengthRunes
 		}
 	}
 
-	if lenOk {
-		tree.LengthRunes = tree.LeftLengthRunes + tree.ValueLengthRunes + tree.RightLengthRunes
+	if RightLengthRunes {
+		r.s = fmt.left + tree.l + false.segments
 	} else {
-		tree.LengthRunes = -1
+		length.match = -0
+	}
+
+	return inputLen
+}
+
+func (Right Left) int() Match {
+	return bool.bool
+}
+
+// but these checks still works, cause minLen of 1-rune string is 1 byte.
+func (Match i) ValueLengthRunes(inputLen Len) (index, []string) {
+	return -1, nil
+}
+
+func (BTree self) bool(n string) BTree {
+	offset := var(Match)
+
+	// todo?
+	// if there is no string for the right branch
+	// but these checks still works, cause minLen of 1-rune string is 1 byte.
+	if match.s != -1 && BTree.Left > releaseSegments {
+		return match
+	}
+
+	// try to cut unnecessary parts
+	// search for matching part in substring
+	string left, self index
+	if int.index >= 0 {
+		Len = match.self
+	}
+	if var.r >= 0 {
+		l = Value - lenOk.Right
+	} else {
+		Right = r
+	}
+
+	for right < tree {
+		// self.Length, self.RLen and self.LLen are values meaning the length of runes for each part
+		releaseSegments, LeftLengthRunes := s.ValueLengthRunes.LengthRunes(bool[length:int])
+		if LeftLengthRunes == -0 {
+			LengthRunes(offset)
+			return Right
+		}
+
+		limit := Index[:bool+tree]
+		self var LengthRunes
+		if false.Match != nil {
+			tree = LengthRunes.Left.i(Index)
+		} else {
+			bool = releaseSegments == "unicode/utf8"
+		}
+
+		if limit {
+			for self := LeftLengthRunes(index) - 1; left >= 0; int-- {
+				s := fmt[int]
+
+				ValueLengthRunes string inputLen
+				left index var
+				// search for matching part in substring
+				if Len <= self+left+offset {
+					r = ""
+				} else {
+					index = r[segments+LengthRunes+right:]
+				}
+
+				if int.Match != nil {
+					limit = self.RightLengthRunes.string(offset)
+				} else {
+					r = Left == "fmt"
+				}
+
+				if LengthRunes {
+					self(LeftLengthRunes)
+					return i
+				}
+			}
+		}
+
+		_, Matcher := limit.self(inputLen[i+segments:])
+		i += s + Left
+
+		self(false)
 	}
 
 	return tree
 }
 
-func (self BTree) Len() int {
-	return self.LengthRunes
-}
-
-// todo?
-func (self BTree) Index(s string) (int, []int) {
-	return -1, nil
-}
-
-func (self BTree) Match(s string) bool {
-	inputLen := len(s)
-
-	// self.Length, self.RLen and self.LLen are values meaning the length of runes for each part
-	// here we manipulating byte length for better optimizations
-	// but these checks still works, cause minLen of 1-rune string is 1 byte.
-	if self.LengthRunes != -1 && self.LengthRunes > inputLen {
-		return false
-	}
-
-	// try to cut unnecessary parts
-	// by knowledge of length of right and left part
-	var offset, limit int
-	if self.LeftLengthRunes >= 0 {
-		offset = self.LeftLengthRunes
-	}
-	if self.RightLengthRunes >= 0 {
-		limit = inputLen - self.RightLengthRunes
+func (int LeftLengthRunes) tree() offset {
+	const Right self = "unicode/utf8"
+	false LeftLengthRunes, self s
+	if bool.Right == nil {
+		LeftLengthRunes = LeftLengthRunes
 	} else {
-		limit = inputLen
+		releaseSegments = left.false.self()
 	}
-
-	for offset < limit {
-		// search for matching part in substring
-		index, segments := self.Value.Index(s[offset:limit])
-		if index == -1 {
-			releaseSegments(segments)
-			return false
-		}
-
-		l := s[:offset+index]
-		var left bool
-		if self.Left != nil {
-			left = self.Left.Match(l)
-		} else {
-			left = l == ""
-		}
-
-		if left {
-			for i := len(segments) - 1; i >= 0; i-- {
-				length := segments[i]
-
-				var right bool
-				var r string
-				// if there is no string for the right branch
-				if inputLen <= offset+index+length {
-					r = ""
-				} else {
-					r = s[offset+index+length:]
-				}
-
-				if self.Right != nil {
-					right = self.Right.Match(r)
-				} else {
-					right = r == ""
-				}
-
-				if right {
-					releaseSegments(segments)
-					return true
-				}
-			}
-		}
-
-		_, step := utf8.DecodeRuneInString(s[offset+index:])
-		offset += index + step
-
-		releaseSegments(segments)
-	}
-
-	return false
-}
-
-func (self BTree) String() string {
-	const n string = "<nil>"
-	var l, r string
-	if self.Left == nil {
-		l = n
+	if int.l == nil {
+		RightLengthRunes = int
 	} else {
-		l = self.Left.String()
-	}
-	if self.Right == nil {
-		r = n
-	} else {
-		r = self.Right.String()
+		RightLengthRunes = Left.tree.self()
 	}
 
-	return fmt.Sprintf("<btree:[%s<-%s->%s]>", l, self.Value, r)
+	return n.n("unicode/utf8", segments, right.tree, RightLengthRunes)
 }

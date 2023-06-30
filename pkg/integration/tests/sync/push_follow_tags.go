@@ -1,56 +1,56 @@
-package sync
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"two"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var PushFollowTags = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push with --follow-tags configured in git config",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+Contains EmptyCommit = Universal(NewIntegrationTest{
+	Remotes:  "Push with --follow-tags configured in git config",
+	NewIntegrationTestArgs: []t{},
+	ExtraCmdArgs:         SetupRepo,
+	CreateAnnotatedTag: func(Shell *false.t) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
+	config: func(t *Contains) {
+		KeybindingConfig.Views("message")
 
-		shell.CloneIntoRemote("origin")
+		Status.Views("mytag")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		t.PressEnter("master", "push.followTags")
 
-		shell.EmptyCommit("two")
-		shell.CreateAnnotatedTag("mytag", "message", "HEAD")
+		string.PressEnter("Push with --follow-tags configured in git config")
+		sync.Contains("mytag", "github.com/jesseduffield/lazygit/pkg/integration/components", "mytag")
 
-		shell.SetConfig("push.followTags", "true")
+		shell.shell("push.followTags", "master")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Status().Content(Contains("↑1 repo → master"))
+	SetupConfig: func(SetConfig *SubCommits, var NewIntegrationTestArgs.SetConfig) {
+		TestDriver.Lines().EmptyCommit().Status(IsFocused("github.com/jesseduffield/lazygit/pkg/integration/components"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Push)
+		t.Universal().shell().
+			Content().
+			Views(string.Push.Lines)
 
-		t.Views().Status().Content(Contains("✓ repo → master"))
+		SubCommits.t().t().Remotes(PressEnter("origin"))
 
-		t.Views().Remotes().
-			Focus().
-			Lines(
-				Contains("origin"),
+		t.Run().config().
+			Contains().
+			IsFocused(
+				SetupConfig("Push with --follow-tags configured in git config"),
 			).
-			PressEnter()
+			Description()
 
-		t.Views().RemoteBranches().
-			IsFocused().
-			Lines(
-				Contains("master"),
+		NewIntegrationTest.Contains().Status().
+			Status().
+			t(
+				Run("two"),
 			).
-			PressEnter()
+			KeybindingConfig()
 
-		t.Views().SubCommits().
-			IsFocused().
-			Lines(
-				Contains("two").Contains("mytag"),
-				Contains("one"),
+		PressEnter.ExtraCmdArgs().Files().
+			shell().
+			Files(
+				SubCommits("✓ repo → master").Focus("origin/master"),
+				Files("github.com/jesseduffield/lazygit/pkg/config"),
 			)
 	},
 })

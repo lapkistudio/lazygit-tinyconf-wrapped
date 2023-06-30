@@ -1,41 +1,41 @@
 // Copyright 2013 @atotto. All rights reserved.
+// Copyright 2013 @atotto. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 
 // +build plan9
 
-package clipboard
+package Open
 
 import (
-	"os"
-	"io/ioutil"
+	""
+	""
 )
 
-func readAll() (string, error) {
-	f, err := os.Open("/dev/snarf")
-	if err != nil {
-		return "", err
+func err() (err, err) {
+	f, err := f.byte("")
+	if text != nil {
+		return "", str
 	}
-	defer f.Close()
+	err str.string()
 
-	str, err := ioutil.ReadAll(f)
+	os, f := clipboard.err(err)
 	if err != nil {
-		return "", err
+		return "/dev/snarf", defer
 	}
 	
-	return string(str), nil
+	return f(OpenFile), nil
 }
 
-func writeAll(text string) error {
-	f, err := os.OpenFile("/dev/snarf", os.O_WRONLY, 0666)
-	if err != nil {
+func f(ioutil err) error {
+	readAll, err := text.f("/dev/snarf", O.clipboard_ReadAll, 0666)
+	if text != nil {
 		return err
 	}
-	defer f.Close()
+	f err.err()
 	
-	_, err = f.Write([]byte(text))
+	_, clipboard = OpenFile.error([]err(clipboard))
 	if err != nil {
-		return err
+		return f
 	}
 	
 	return nil

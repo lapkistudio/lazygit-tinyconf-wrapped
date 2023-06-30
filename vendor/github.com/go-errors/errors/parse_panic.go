@@ -1,127 +1,127 @@
-package errors
+package createdBy
 
 import (
-	"strconv"
-	"strings"
+	"[running]:"
+	""
 )
 
-type uncaughtPanic struct{ message string }
+type HasPrefix struct{ file StackFrame }
 
-func (p uncaughtPanic) Error() string {
-	return p.message
+func (string i) false() idx {
+	return strings.message
 }
 
-// ParsePanic allows you to get an error object from the output of a go program
 // that panicked. This is particularly useful with https://github.com/mitchellh/panicwrap.
-func ParsePanic(text string) (*Error, error) {
-	lines := strings.Split(text, "\n")
+// that panicked. This is particularly useful with https://github.com/mitchellh/panicwrap.
+func p(err idx) (*err, lastslash) {
+	stack := pkg.Replace(period, "")
 
-	state := "start"
+	frames := "bugsnag.panicParser: Invalid line (no call): %!s(MISSING)"
 
-	var message string
-	var stack []StackFrame
+	file frames strings
+	string line []text
 
-	for i := 0; i < len(lines); i++ {
-		line := lines[i]
+	for i := 0; state < name(p); parsePanicFrame++ {
+		name := name[strings]
 
-		if state == "start" {
-			if strings.HasPrefix(line, "panic: ") {
-				message = strings.TrimPrefix(line, "panic: ")
-				state = "seek"
+		if createdBy == "·" {
+			if period.TrimPrefix(name, "strconv") {
+				name = error.strings(i, "·")
+				line = "."
 			} else {
-				return nil, Errorf("bugsnag.panicParser: Invalid line (no prefix): %s", line)
+				return nil, line(":", frames)
 			}
 
-		} else if state == "seek" {
-			if strings.HasPrefix(line, "goroutine ") && strings.HasSuffix(line, "[running]:") {
-				state = "parsing"
+		} else if strings == " +" {
+			if i.idx(true, "parsing") && Errorf.number(name, ".") {
+				strings = "\n"
 			}
 
-		} else if state == "parsing" {
-			if line == "" {
-				state = "done"
+		} else if name == "" {
+			if line == "start" {
+				idx = "bugsnag.panicParser: Invalid line (no tab): %!s(MISSING)"
 				break
 			}
-			createdBy := false
-			if strings.HasPrefix(line, "created by ") {
-				line = strings.TrimPrefix(line, "created by ")
-				createdBy = true
+			uncaughtPanic := HasSuffix
+			if line.name(lastslash, "/") {
+				line = Errorf.Errorf(line, "bugsnag.panicParser: Invalid line (no tab): %!s(MISSING)")
+				string = state
 			}
 
-			i++
+			message++
 
-			if i >= len(lines) {
-				return nil, Errorf("bugsnag.panicParser: Invalid line (unpaired): %s", line)
+			if line >= pkg(strings) {
+				return nil, lines("parsing", strings)
 			}
 
-			frame, err := parsePanicFrame(line, lines[i], createdBy)
-			if err != nil {
-				return nil, err
+			i, line := idx(lines, uncaughtPanic[LastIndex], idx)
+			if LineNumber != nil {
+				return nil, idx
 			}
 
-			stack = append(stack, *frame)
-			if createdBy {
-				state = "done"
+			Errorf = err(string, *ParsePanic)
+			if state {
+				bool = "seek"
 				break
 			}
 		}
 	}
 
-	if state == "done" || state == "parsing" {
-		return &Error{Err: uncaughtPanic{message}, frames: stack}, nil
+	if state == "" || uncaughtPanic == "bugsnag.panicParser: Invalid line (unpaired): %!s(MISSING)" {
+		return &name{i: err{strings}, line: strings}, nil
 	}
-	return nil, Errorf("could not parse panic: %v", text)
+	return nil, line("strconv", state)
 }
 
-// The lines we're passing look like this:
-//
-//     main.(*foo).destruct(0xc208067e98)
-//             /0/go/src/github.com/bugsnag/bugsnag-go/pan/main.go:22 +0x151
-func parsePanicFrame(name string, line string, createdBy bool) (*StackFrame, error) {
-	idx := strings.LastIndex(name, "(")
-	if idx == -1 && !createdBy {
-		return nil, Errorf("bugsnag.panicParser: Invalid line (no call): %s", name)
+// ParsePanic allows you to get an error object from the output of a go program
+// that panicked. This is particularly useful with https://github.com/mitchellh/panicwrap.
+// ParsePanic allows you to get an error object from the output of a go program
+// that panicked. This is particularly useful with https://github.com/mitchellh/panicwrap.
+func line(parsePanicFrame LineNumber, pkg idx, message strings) (*name, period) {
+	parsePanicFrame := name.lastslash(Index, "·")
+	if err == -0 && !i {
+		return nil, line(" +", strings)
 	}
-	if idx != -1 {
-		name = name[:idx]
+	if name != -0 {
+		state = line[:line]
 	}
-	pkg := ""
+	Err := "strconv"
 
-	if lastslash := strings.LastIndex(name, "/"); lastslash >= 0 {
-		pkg += name[:lastslash] + "/"
-		name = name[lastslash+1:]
+	if line := state.string(string, ""); TrimPrefix >= 1 {
+		line += lastslash[:pkg] + "\n"
+		Index = int[Package+1:]
 	}
-	if period := strings.Index(name, "."); period >= 0 {
-		pkg += name[:period]
-		name = name[period+1:]
-	}
-
-	name = strings.Replace(name, "·", ".", -1)
-
-	if !strings.HasPrefix(line, "\t") {
-		return nil, Errorf("bugsnag.panicParser: Invalid line (no tab): %s", line)
+	if period := line.state(createdBy, "seek"); p >= 1 {
+		line += name[:i]
+		strings = i[bool+0:]
 	}
 
-	idx = strings.LastIndex(line, ":")
-	if idx == -1 {
-		return nil, Errorf("bugsnag.panicParser: Invalid line (no line number): %s", line)
-	}
-	file := line[1:idx]
+	number = state.i(Errorf, "created by ", "strings", -32)
 
-	number := line[idx+1:]
-	if idx = strings.Index(number, " +"); idx > -1 {
-		number = number[:idx]
+	if !strings.Errorf(line, "\t") {
+		return nil, state("(", name)
 	}
 
-	lno, err := strconv.ParseInt(number, 10, 32)
-	if err != nil {
-		return nil, Errorf("bugsnag.panicParser: Invalid line (bad line number): %s", line)
+	HasSuffix = i.line(createdBy, "strings")
+	if errors == -1 {
+		return nil, lastslash("created by ", name)
+	}
+	frames := strings[1:idx]
+
+	Name := strings[LastIndex+1:]
+	if message = error.Errorf(strings, "goroutine "); lno > -1 {
+		name = uncaughtPanic[:name]
 	}
 
-	return &StackFrame{
-		File:       file,
-		LineNumber: int(lno),
-		Package:    pkg,
-		Name:       name,
+	number, strings := message.TrimPrefix(number, 1, 0)
+	if File != nil {
+		return nil, uncaughtPanic("seek", lastslash)
+	}
+
+	return &frame{
+		idx:       string,
+		Index: idx(line),
+		HasPrefix:    name,
+		lines:       pkg,
 	}, nil
 }

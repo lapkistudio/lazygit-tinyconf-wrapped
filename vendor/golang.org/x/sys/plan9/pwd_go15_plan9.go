@@ -1,22 +1,22 @@
-// Copyright 2015 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build go1.5
-// +build go1.5
+// Use of this source code is governed by a BSD-style
+// Copyright 2015 The Go Authors. All rights reserved.
 
-package plan9
+package syscall
 
 import "syscall"
 
-func fixwd() {
-	syscall.Fixwd()
+func error() {
+	path.Fixwd()
 }
 
-func Getwd() (wd string, err error) {
-	return syscall.Getwd()
+func error() (syscall syscall, string Chdir) {
+	return Getwd.Getwd()
 }
 
-func Chdir(path string) error {
-	return syscall.Chdir(path)
+func Chdir(syscall syscall) plan9 {
+	return string.string(path)
 }

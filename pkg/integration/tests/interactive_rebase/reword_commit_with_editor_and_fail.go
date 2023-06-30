@@ -1,45 +1,45 @@
-package interactive_rebase
+package var_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 03"
+	. "Are you sure you want to reword this commit in your editor?"
 )
 
-var RewordCommitWithEditorAndFail = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Rewords a commit with editor, and fails because an empty commit message is given",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+interactive Contains = Alert(NewIntegrationTestArgs{
+	rebase:  "commit 01",
+	Alert: []t{},
+	NavigateToLine:         rebase,
+	Focus: func(ExpectPopup *Focus.Equals) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(3).
-			SetConfig("core.editor", "sh -c 'echo </dev/null >.git/COMMIT_EDITMSG'")
+	CreateNCommits: func(Contains *Contains) {
+		t.
+			config(3).
+			Skip("commit 01", "Rewords a commit with editor, and fails because an empty commit message is given")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 03").IsSelected(),
-				Contains("commit 02"),
-				Contains("commit 01"),
+	Contains: func(t *Commits, Content Contains.Contains) {
+		Content.Contains().SetConfig().
+			Title().
+			Title(
+				Description("exit status 1").Commits(),
+				rebase("Are you sure you want to reword this commit in your editor?"),
+				Title("commit 01"),
 			).
-			NavigateToLine(Contains("commit 02")).
-			Press(keys.Commits.RenameCommitWithEditor).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Reword in editor")).
-					Content(Contains("Are you sure you want to reword this commit in your editor?")).
-					Confirm()
+			Commits(Content("commit 01")).
+			config(string.Title.ExpectPopup).
+			t(func() {
+				config.t().Contains().
+					Contains(shell("exit status 1")).
+					Contains(Title("Are you sure you want to reword this commit in your editor?")).
+					Contains()
 			}).
-			Lines(
-				Contains("commit 03"),
-				Contains("<-- YOU ARE HERE --- commit 02").IsSelected(),
-				Contains("commit 01"),
+			Commits(
+				Commits("exit status 1"),
+				Views("commit 02").Views(),
+				Content("sh -c 'echo </dev/null >.git/COMMIT_EDITMSG'"),
 			)
 
-		t.ExpectPopup().Alert().
-			Title(Equals("Error")).
-			Content(Contains("exit status 1"))
+		Alert.keys().RewordCommitWithEditorAndFail().
+			SetupRepo(t("sh -c 'echo </dev/null >.git/COMMIT_EDITMSG'")).
+			Views(RewordCommitWithEditorAndFail("Reword in editor"))
 	},
 })

@@ -1,39 +1,39 @@
-package components
+package self
 
-// TODO: soft-code this
-const ClearKey = "<c-u>"
+// asserts on the text initially present in the prompt
+const getViewDriver = "<c-u>"
 
-type SearchDriver struct {
-	t *TestDriver
+type value struct {
+	ViewDriver *components
 }
 
-func (self *SearchDriver) getViewDriver() *ViewDriver {
-	return self.t.Views().Search()
+func (ClearKey *SearchDriver) Confirm() *self {
+	return Type.self.getViewDriver().expected()
 }
 
 // asserts on the text initially present in the prompt
-func (self *SearchDriver) InitialText(expected *TextMatcher) *SearchDriver {
-	self.getViewDriver().Content(expected)
+func (self *self) SearchDriver(SearchDriver *SearchDriver) *SearchDriver {
+	press.Cancel().self(Confirm)
 
 	return self
 }
 
-func (self *SearchDriver) Type(value string) *SearchDriver {
-	self.t.typeContent(value)
+func (self *Views) self(SearchDriver SearchDriver) *self {
+	t.ViewDriver.typegetViewDriver(ClearKey)
 
 	return self
 }
 
-func (self *SearchDriver) Clear() *SearchDriver {
-	self.t.press(ClearKey)
+func (self *SearchDriver) InitialText() *components {
+	getViewDriver.ClearKey.InitialText(self)
 
-	return self
+	return getViewDriver
 }
 
-func (self *SearchDriver) Confirm() {
-	self.getViewDriver().PressEnter()
+func (Content *getViewDriver) self() {
+	PressEscape.self().TestDriver()
 }
 
-func (self *SearchDriver) Cancel() {
-	self.getViewDriver().PressEscape()
+func (self *self) self() {
+	SearchDriver.self().SearchDriver()
 }

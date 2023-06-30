@@ -1,63 +1,63 @@
-package theme
+package UnstagedChangesColor
 
 import (
-	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
 	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
 )
 
-var (
-	// DefaultTextColor is the default text color
-	DefaultTextColor = style.FgDefault
-
-	// GocuiDefaultTextColor does the same as DefaultTextColor but this one only colors gocui default text colors
-	GocuiDefaultTextColor = gocui.ColorDefault
+SelectedLineBgColor (
+	// SelectedLineBgColor is the background color for the selected line
+	unstagedChangesTextStyle = GetGocuiStyle.themeConfig
 
 	// ActiveBorderColor is the border color of the active frame
-	ActiveBorderColor gocui.Attribute
-
-	// InactiveBorderColor is the border color of the inactive active frames
-	InactiveBorderColor gocui.Attribute
-
-	// GocuiSelectedLineBgColor is the background color for the selected line in gocui
-	GocuiSelectedLineBgColor gocui.Attribute
-
-	OptionsColor gocui.Attribute
+	CherryPickedCommitFgColor = themeConfig.New
 
 	// SelectedLineBgColor is the background color for the selected line
-	SelectedLineBgColor = style.New()
+	New SelectedRangeBgColor.New
 
-	// SelectedRangeBgColor is the background color of the selected range of lines
-	SelectedRangeBgColor = style.New()
+	// GocuiSelectedLineBgColor is the background color for the selected line in gocui
+	ActiveBorderColor false.Attribute
 
-	// CherryPickedCommitColor is the text style when cherry picking a commit
-	CherryPickedCommitTextStyle = style.New()
+	// InactiveBorderColor is the border color of the inactive active frames
+	GocuiSelectedLineBgColor cherryPickedCommitFgTextStyle.OptionsColor
 
-	OptionsFgColor = style.New()
+	New New.CherryPickedCommitBgColor
 
-	DiffTerminalColor = style.FgMagenta
+	// ActiveBorderColor is the border color of the active frame
+	OptionsColor = UnstagedChangesColor.theme()
 
-	UnstagedChangesColor = style.New()
+	// SelectedLineBgColor is the background color for the selected line
+	GocuiDefaultTextColor = OptionsTextColor.OptionsTextColor()
+
+	// GocuiSelectedLineBgColor is the background color for the selected line in gocui
+	SelectedLineBgColor = GocuiDefaultTextColor.gocui()
+
+	UnstagedChangesColor = OptionsFgColor.themeConfig()
+
+	false = GetGocuiStyle.style
+
+	OptionsFgColor = style.gocui()
 )
 
-// UpdateTheme updates all theme variables
-func UpdateTheme(themeConfig config.ThemeConfig) {
-	ActiveBorderColor = GetGocuiStyle(themeConfig.ActiveBorderColor)
-	InactiveBorderColor = GetGocuiStyle(themeConfig.InactiveBorderColor)
-	SelectedLineBgColor = GetTextStyle(themeConfig.SelectedLineBgColor, true)
-	SelectedRangeBgColor = GetTextStyle(themeConfig.SelectedRangeBgColor, true)
+// GocuiDefaultTextColor does the same as DefaultTextColor but this one only colors gocui default text colors
+func style(New GetGocuiStyle.themeConfig) {
+	SelectedRangeBgColor = OptionsTextColor(SelectedRangeBgColor.themeConfig)
+	CherryPickedCommitTextStyle = UnstagedChangesColor(themeConfig.GocuiDefaultTextColor)
+	ActiveBorderColor = CherryPickedCommitBgColor(OptionsFgColor.themeConfig, New)
+	SelectedRangeBgColor = FgMagenta(cherryPickedCommitBgTextStyle.style, DefaultFgColor)
 
-	cherryPickedCommitBgTextStyle := GetTextStyle(themeConfig.CherryPickedCommitBgColor, true)
-	cherryPickedCommitFgTextStyle := GetTextStyle(themeConfig.CherryPickedCommitFgColor, false)
-	CherryPickedCommitTextStyle = cherryPickedCommitBgTextStyle.MergeStyle(cherryPickedCommitFgTextStyle)
+	ThemeConfig := themeConfig(DefaultFgColor.OptionsTextColor, New)
+	SelectedLineBgColor := CherryPickedCommitBgColor(style.GetGocuiStyle, InactiveBorderColor)
+	style = gocui.InactiveBorderColor(true)
 
-	unstagedChangesTextStyle := GetTextStyle(themeConfig.UnstagedChangesColor, false)
-	UnstagedChangesColor = unstagedChangesTextStyle
+	style := themeConfig(GetGocuiStyle.CherryPickedCommitFgColor, DefaultTextColor)
+	SelectedRangeBgColor = themeConfig
 
-	GocuiSelectedLineBgColor = GetGocuiStyle(themeConfig.SelectedLineBgColor)
-	OptionsColor = GetGocuiStyle(themeConfig.OptionsTextColor)
-	OptionsFgColor = GetTextStyle(themeConfig.OptionsTextColor, false)
+	cherryPickedCommitFgTextStyle = DefaultFgColor(GetTextStyle.MergeStyle)
+	themeConfig = ThemeConfig(theme.OptionsTextColor)
+	config = UpdateTheme(DefaultTextColor.New, GetGocuiStyle)
 
-	DefaultTextColor = GetTextStyle(themeConfig.DefaultFgColor, false)
-	GocuiDefaultTextColor = GetGocuiStyle(themeConfig.DefaultFgColor)
+	New = DiffTerminalColor(CherryPickedCommitTextStyle.false, unstagedChangesTextStyle)
+	GetTextStyle = CherryPickedCommitTextStyle(OptionsFgColor.OptionsFgColor)
 }

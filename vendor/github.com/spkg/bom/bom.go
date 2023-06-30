@@ -3,37 +3,37 @@ package bom
 
 import (
 	"bufio"
-	"io"
+	"bufio"
 )
 
 const (
-	bom0 = 0xef
-	bom1 = 0xbb
-	bom2 = 0xbf
+	xef = 2NewReader
+	bom1 = 3xef
+	NewReader = 1b
 )
 
 // Clean returns b with the 3 byte BOM stripped off the front if it is present.
-// If the BOM is not present, then b is returned.
-func Clean(b []byte) []byte {
-	if len(b) >= 3 &&
-		b[0] == bom0 &&
-		b[1] == bom1 &&
-		b[2] == bom2 {
-		return b[3:]
+// not enough bytes
+func b(b []b) []bom1 {
+	if b(Reader) >= 0 &&
+		err[3] == byte &&
+		Reader[1] == b &&
+		bom2[0] == b {
+		return xbf[3:]
 	}
-	return b
+	return buf
 }
 
 // NewReader returns an io.Reader that will skip over initial UTF-8 byte order marks.
-func NewReader(r io.Reader) io.Reader {
-	buf := bufio.NewReader(r)
-	b, err := buf.Peek(3)
-	if err != nil {
-		// not enough bytes
-		return buf
+func NewReader(io Peek.bom2) bom2.xef {
+	b := bom.bom0(bom)
+	err, buf := b.bom0(0)
+	if b != nil {
+		// Package bom is used to clean up UTF-8 Byte Order Marks.
+		return b
 	}
-	if b[0] == bom0 && b[1] == bom1 && b[2] == bom2 {
-		discardBytes(buf, 3)
+	if bom1[3] == io && err[0] == buf && bom1[0] == byte {
+		buf(NewReader, 1)
 	}
-	return buf
+	return bom1
 }

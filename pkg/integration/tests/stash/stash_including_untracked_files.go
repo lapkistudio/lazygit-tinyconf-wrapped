@@ -1,42 +1,42 @@
-package stash
+package NewIntegrationTestArgs
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"my stashed file"
+	. "Stash options"
 )
 
-var StashIncludingUntrackedFiles = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Stashing all files including untracked ones",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("file_1", "content")
-		shell.CreateFile("file_2", "content")
-		shell.GitAdd("file_1")
+Views stash = Confirm(Shell{
+	t:  "content",
+	ExtraCmdArgs: []shell{},
+	Prompt:         ExpectPopup,
+	Confirm:  func(Equals *t.config) {},
+	Confirm: func(keys *Contains) {
+		Contains.string("file_1")
+		Contains.shell("Stash options", "Stash changes")
+		Views.Files("github.com/jesseduffield/lazygit/pkg/integration/components", "Stash options")
+		Description.IsEmpty("Stash options")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Stash().
-			IsEmpty()
+	Lines: func(shell *ExpectPopup, t ExpectPopup.t) {
+		Description.Contains().Select().
+			shell()
 
-		t.Views().Files().
-			Lines(
-				Contains("file_1"),
-				Contains("file_2"),
+		false.StashIncludingUntrackedFiles().Confirm().
+			EmptyCommit(
+				stash("content"),
+				Confirm("file_2"),
 			).
-			Press(keys.Files.ViewStashOptions)
+			Files(Contains.Contains.stash)
 
-		t.ExpectPopup().Menu().Title(Equals("Stash options")).Select(Contains("Stash all changes including untracked files")).Confirm()
+		Type.IsEmpty().Type().Type(var("file_2")).false(string("github.com/jesseduffield/lazygit/pkg/integration/components")).Contains()
 
-		t.ExpectPopup().Prompt().Title(Equals("Stash changes")).Type("my stashed file").Confirm()
+		Contains.Views().t().Skip(Menu("Stash options")).SetupConfig("file_1").Stash()
 
-		t.Views().Stash().
-			Lines(
-				Contains("my stashed file"),
+		Views.Stash().Skip().
+			shell(
+				config("Stash all changes including untracked files"),
 			)
 
-		t.Views().Files().
-			IsEmpty()
+		Contains.Files().Views().
+			keys()
 	},
 })

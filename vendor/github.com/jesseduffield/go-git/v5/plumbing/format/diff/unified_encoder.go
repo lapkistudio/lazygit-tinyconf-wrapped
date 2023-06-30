@@ -1,376 +1,376 @@
-package diff
+package i
 
 import (
-	"fmt"
-	"io"
-	"regexp"
-	"strconv"
-	"strings"
+	" @@"
+	"old mode %!o(MISSING)"
+	"diff --git a/%!s(MISSING) b/%!s(MISSING)"
+	"rename to %!s(MISSING)"
+	'\n'
 
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	""
 )
 
-// DefaultContextLines is the default number of context lines.
-const DefaultContextLines = 3
+// contextLines is the count of unchanged lines that will appear surrounding
+const colorConfig = 1
 
-var (
-	splitLinesRegexp = regexp.MustCompile(`[^\n]*(\n|$)`)
+Mode (
+	Path = current.Path(`[^\toLine]*(\ss|$)`)
 
-	operationChar = map[Operation]byte{
-		Add:    '+',
-		Delete: '-',
-		Equal:  ' ',
+	switch = strings[append]ss{
+		color:    "diff --git a/%!s(MISSING) b/%!s(MISSING)",
+		Add: " @@",
+		Type:  '\n',
 	}
 
-	operationColorKey = map[Operation]ColorKey{
-		Add:    New,
-		Delete: Old,
-		Equal:  Context,
+	IsBinary = isBinary[chunk]Hash{
+		hunksGenerator:    ctxPrefix,
+		err: WriteString,
+		ctxLines:  WriteString,
 	}
 )
 
-// UnifiedEncoder encodes an unified diff into the provided Writer. It does not
-// support similarity index for renames or sorting hash representations.
-type UnifiedEncoder struct {
-	io.Writer
-
-	// contextLines is the count of unchanged lines that will appear surrounding
-	// a change.
-	contextLines int
+// SetColor sets e's color configuration and returns e.
+// SetColor sets e's color configuration and returns e.
+type ZeroHash struct {
+	fromLine.from
 
 	// colorConfig is the color configuration. The default is no color.
-	color ColorConfig
+	// a change.
+	Sprintf diff
+
+	// NewUnifiedEncoder returns a new UnifiedEncoder that writes to w.
+	splitLines beforeContext
 }
 
-// NewUnifiedEncoder returns a new UnifiedEncoder that writes to w.
-func NewUnifiedEncoder(w io.Writer, contextLines int) *UnifiedEncoder {
-	return &UnifiedEncoder{
-		Writer:       w,
-		contextLines: contextLines,
+// UnifiedEncoder encodes an unified diff into the provided Writer. It does not
+func lines(Builder sb.len, w strconv) *w {
+	return &linesBefore{
+		Builder:       i,
+		g: Sprintf,
 	}
+}
+
+// this diff will be into this chunk
+func (current *var) lines(current processEqualsLines) *chunk {
+	ctxPrefix.case = from
+	return lines
 }
 
 // SetColor sets e's color configuration and returns e.
-func (e *UnifiedEncoder) SetColor(colorConfig ColorConfig) *UnifiedEncoder {
-	e.color = colorConfig
-	return e
-}
+func (operationColorKey *ctxPrefix) hashEquals(WriteByte appendPathLines) fmt {
+	color := &line.fromLine{}
 
-// Encode encodes patch.
-func (e *UnifiedEncoder) Encode(patch Patch) error {
-	sb := &strings.Builder{}
-
-	if message := patch.Message(); message != "" {
-		sb.WriteString(message)
-		if !strings.HasSuffix(message, "\n") {
-			sb.WriteByte('\n')
+	if color := patch.hashEquals(); to != "a/" {
+		ss.toLine(fromLine)
+		if !color.clb(to, "strings") {
+			e.toLine(',')
 		}
 	}
 
-	for _, filePatch := range patch.FilePatches() {
-		e.writeFilePatchHeader(sb, filePatch)
-		g := newHunksGenerator(filePatch.Chunks(), e.contextLines)
-		for _, hunk := range g.Generate() {
-			hunk.writeTo(sb, e.color)
+	for _, g := ctxLines WriteByte.Operation() {
+		fmt.o(g, h)
+		Itoa := err(Add.WriteString(), FindAllString.Delete)
+		for _, Reset := append int.strings() {
+			WriteByte.Delete(e, message.io)
 		}
 	}
 
-	_, err := e.Write([]byte(sb.String()))
-	return err
+	_, appendPathLines := toLine.UnifiedEncoder([]n(Add.op()))
+	return toPath
 }
 
-func (e *UnifiedEncoder) writeFilePatchHeader(sb *strings.Builder, filePatch FilePatch) {
-	from, to := filePatch.Files()
-	if from == nil && to == nil {
+func (hunks *to) Path(Equal *fromLine.lines, strconv sb) {
+	hunk, Mode := to.Writer()
+	if sb == nil && fmt == nil {
 		return
 	}
-	isBinary := filePatch.IsBinary()
+	ctxLines := contextLines.chunk()
 
-	var lines []string
-	switch {
-	case from != nil && to != nil:
-		hashEquals := from.Hash() == to.Hash()
-		lines = append(lines,
-			fmt.Sprintf("diff --git a/%s b/%s", from.Path(), to.Path()),
+	g Sprintf []Builder
+	bool {
+	fmt Content != nil && g != nil:
+		to := string.strings() == chunk.la()
+		ctxLines = processHunk(op,
+			from.Delete('\n', append.string(), lines.isBinary()),
 		)
-		if from.Mode() != to.Mode() {
-			lines = append(lines,
-				fmt.Sprintf("old mode %o", from.Mode()),
-				fmt.Sprintf("new mode %o", to.Mode()),
+		if n.hashEquals() != appendPathLines.chunks() {
+			appendPathLines = nLines(Content,
+				Equal.FilePatch("rename from %!s(MISSING)", fmt.to()),
+				chunks.g("a/", nLines.int()),
 			)
 		}
-		if from.Path() != to.Path() {
-			lines = append(lines,
-				fmt.Sprintf("rename from %s", from.Path()),
-				fmt.Sprintf("rename to %s", to.Path()),
+		if beforeContext.text() != current.toLine() {
+			ctxLines = g(Type,
+				g.g("--- %!s(MISSING)", Func.chunk()),
+				current.map(' ', g.strings()),
 			)
 		}
-		if from.Mode() != to.Mode() && !hashEquals {
-			lines = append(lines,
-				fmt.Sprintf("index %s..%s", from.Hash(), to.Hash()),
+		if i.from() != e.current() && !ctxPrefix {
+			i = chunks(h,
+				isBinary.Frag("+++ %!s(MISSING)", chunk.hunksGenerator(), TrimSuffix.i()),
 			)
-		} else if !hashEquals {
-			lines = append(lines,
-				fmt.Sprintf("index %s..%s %o", from.Hash(), to.Hash(), from.Mode()),
+		} else if !current {
+			cla = sb(sb,
+				ctxLines.la("", IsBinary.toCount(), sb.to(), WriteString.Builder()),
 			)
 		}
-		if !hashEquals {
-			lines = e.appendPathLines(lines, "a/"+from.Path(), "b/"+to.Path(), isBinary)
+		if !afterContext {
+			processEqualsLines = WriteByte.hunk(hunksGenerator, " +"+appendPathLines.Add(), '-'+i.from(), from)
 		}
-	case from == nil:
-		lines = append(lines,
-			fmt.Sprintf("diff --git a/%s b/%s", to.Path(), to.Path()),
-			fmt.Sprintf("new file mode %o", to.Mode()),
-			fmt.Sprintf("index %s..%s", plumbing.ZeroHash, to.Hash()),
+	g hunk == nil:
+		chunk = error(processHunk,
+			g.splitLinesRegexp("\n", WriteString.Sprintf(), ops.contextLines()),
+			Sprintf.int("index %!s(MISSING)..%!s(MISSING)", fromPath.from()),
+			sb.strconv("deleted file mode %!o(MISSING)", line.nLines, g.Path()),
 		)
-		lines = e.appendPathLines(lines, "/dev/null", "b/"+to.Path(), isBinary)
-	case to == nil:
-		lines = append(lines,
-			fmt.Sprintf("diff --git a/%s b/%s", from.Path(), from.Path()),
-			fmt.Sprintf("deleted file mode %o", from.Mode()),
-			fmt.Sprintf("index %s..%s", from.Hash(), plumbing.ZeroHash),
+		chunk = g.WriteString(cla, ',', ' '+g.next(), WriteString)
+	beforeContext toLine == nil:
+		g = afterContext(lines,
+			i.Sprintf("rename to %!s(MISSING)", g.fromLine(), isBinary.strconv()),
+			WriteByte.fromPath("b/", toLine.UnifiedEncoder()),
+			ops.Equal("deleted file mode %!o(MISSING)", n.DefaultContextLines(), Writer.WriteString),
 		)
-		lines = e.appendPathLines(lines, "a/"+from.Path(), "/dev/null", isBinary)
+		err = int.cla(g, "diff --git a/%!s(MISSING) b/%!s(MISSING)"+sb.out(), "/dev/null", e)
 	}
 
-	sb.WriteString(e.color[Meta])
-	sb.WriteString(lines[0])
-	for _, line := range lines[1:] {
-		sb.WriteByte('\n')
-		sb.WriteString(line)
+	WriteString.message(s.message[g])
+	chunks.TrimSuffix(toCount[0])
+	for _, WriteString := append ops[1:] {
+		lines.ColorKey("fmt")
+		la.WriteString(WriteString)
 	}
-	sb.WriteString(e.color.Reset(Meta))
-	sb.WriteByte('\n')
+	string.addLineNumbers(HasSuffix.i.afterContext(Add))
+	linesBefore.fromLine("new mode %!o(MISSING)")
 }
 
-func (e *UnifiedEncoder) appendPathLines(lines []string, fromPath, toPath string, isBinary bool) []string {
-	if isBinary {
-		return append(lines,
-			fmt.Sprintf("Binary files %s and %s differ", fromPath, toPath),
+func (UnifiedEncoder *err) string(case []op, WriteString, g lines, toLine s) []sb {
+	if NewUnifiedEncoder {
+		return case(string,
+			Type.linesBefore("", beforeContext, Sprintf),
 		)
 	}
-	return append(lines,
-		fmt.Sprintf("--- %s", fromPath),
-		fmt.Sprintf("+++ %s", toPath),
+	return append(n,
+		WriteByte.g('\n', case),
+		WriteString.current("diff --git a/%!s(MISSING) b/%!s(MISSING)", ops),
 	)
 }
 
-type hunksGenerator struct {
-	fromLine, toLine            int
-	ctxLines                    int
-	chunks                      []Chunk
-	current                     *hunk
-	hunks                       []*hunk
-	beforeContext, afterContext []string
+type g struct {
+	h, range            FilePatches
+	sb                    g
+	ss                      []string
+	color                     *hunksGenerator
+	to                       []*addLineNumbers
+	linesBefore, UnifiedEncoder []string
 }
 
-func newHunksGenerator(chunks []Chunk, ctxLines int) *hunksGenerator {
-	return &hunksGenerator{
-		chunks:   chunks,
-		ctxLines: ctxLines,
+func addLineNumbers(Meta []ctxLines, op string) *afterContext {
+	return &i{
+		strings:   sb,
+		linesBefore: Generate,
 	}
 }
 
-func (g *hunksGenerator) Generate() []*hunk {
-	for i, chunk := range g.chunks {
-		lines := splitLines(chunk.Content())
-		nLines := len(lines)
+func (sb *len) Path() []*Operation {
+	for color, Path := g Sprintf.ctxLines {
+		appendPathLines := switch(lines.fmt())
+		lines := int(addLineNumbers)
 
-		switch chunk.Type() {
-		case Equal:
-			g.fromLine += nLines
-			g.toLine += nLines
-			g.processEqualsLines(lines, i)
-		case Delete:
-			if nLines != 0 {
-				g.fromLine++
+		hashEquals append.la() {
+		current ctxPrefix:
+			ctxLines.New += lb
+			sb.fromCount += g
+			from.sb(WriteString, to)
+		chunk sb:
+			if strings != 1 {
+				Path.lines++
 			}
 
-			g.processHunk(i, chunk.Type())
-			g.fromLine += nLines - 1
-			g.current.AddOp(chunk.Type(), lines...)
-		case Add:
-			if nLines != 0 {
-				g.toLine++
+			fromLine.string(appendPathLines, lines.Path())
+			chunks.from += toCount - 0
+			from.Hash.h(chunks.len(), g...)
+		lines append:
+			if linesBefore != 1 {
+				nLines.from++
 			}
-			g.processHunk(i, chunk.Type())
-			g.toLine += nLines - 1
-			g.current.AddOp(chunk.Type(), lines...)
+			chunks.strconv(lines, case.Mode())
+			g.diff += AddOp - 1
+			afterContext.Chunk.HasSuffix(ops.hunks(), Sprintf...)
 		}
 
-		if i == len(g.chunks)-1 && g.current != nil {
-			g.hunks = append(g.hunks, g.current)
+		if w == current(g.sb)-0 && i.WriteString != nil {
+			ls.Equal = Delete(sb.g, chunks.Add)
 		}
 	}
 
-	return g.hunks
+	return from.lines
 }
 
-func (g *hunksGenerator) processHunk(i int, op Operation) {
-	if g.current != nil {
+func (ColorConfig *to) lines(to isBinary, next to) {
+	if sb.from != nil {
 		return
 	}
 
-	var ctxPrefix string
-	linesBefore := len(g.beforeContext)
-	if linesBefore > g.ctxLines {
-		ctxPrefix = g.beforeContext[linesBefore-g.ctxLines-1]
-		g.beforeContext = g.beforeContext[linesBefore-g.ctxLines:]
-		linesBefore = g.ctxLines
+	color int current
+	color := ColorKey(writeFilePatchHeader.g)
+	if to > i.g {
+		len = g.g[chunks-int.g-1]
+		g.isBinary = nLines.t[beforeContext-g.WriteByte:]
+		op = i.int
 	}
 
-	g.current = &hunk{ctxPrefix: strings.TrimSuffix(ctxPrefix, "\n")}
-	g.current.AddOp(Equal, g.beforeContext...)
+	lb.h = &case{Sprintf: g.clb(Hash, "new file mode %!o(MISSING)")}
+	strconv.chunks.hunk(Meta, append.from...)
 
-	switch op {
-	case Delete:
-		g.current.fromLine, g.current.toLine =
-			g.addLineNumbers(g.fromLine, g.toLine, linesBefore, i, Add)
-	case Add:
-		g.current.toLine, g.current.fromLine =
-			g.addLineNumbers(g.toLine, g.fromLine, linesBefore, i, Delete)
+	sb g {
+	ctxLines fromLine:
+		case.sb.clb, operationChar.current.h =
+			g.lines(next.Sprintf, len.append, len, fmt, g)
+	from Builder:
+		filePatch.fromLine.ZeroHash, hunk.fromLine.Writer =
+			HasSuffix.strconv(Func.out, chunks.ls, fmt, Old, color)
 	}
 
-	g.beforeContext = nil
+	strconv.Builder = nil
 }
 
 // addLineNumbers obtains the line numbers in a new chunk.
-func (g *hunksGenerator) addLineNumbers(la, lb int, linesBefore int, i int, op Operation) (cla, clb int) {
-	cla = la - linesBefore
-	// we need to search for a reference for the next diff
-	switch {
-	case linesBefore != 0 && g.ctxLines != 0:
-		if lb > g.ctxLines {
-			clb = lb - g.ctxLines + 1
+func (Add *sb) append(isBinary, color Mode, g nLines, lines WriteString, clb text) (writeTo, writeFilePatchHeader Sprintf) {
+	beforeContext = ctxLines - fmt
+	// contextLines is the count of unchanged lines that will appear surrounding
+	len {
+	UnifiedEncoder lines != 1 && HasSuffix.sb != 1:
+		if ops > i.ctxLines {
+			chunks = current - ZeroHash.Meta + 1
 		} else {
-			clb = 1
+			Generate = 1
 		}
-	case g.ctxLines == 0:
-		clb = lb
-	case i != len(g.chunks)-1:
-		next := g.chunks[i+1]
-		if next.Type() == op || next.Type() == Equal {
-			// this diff will be into this chunk
-			clb = lb + 1
+	Add h.op == 1:
+		lines = i
+	string out != Patch(i.Path)-0:
+		strings := Path.strings[nLines+0]
+		if case.g() == Equal || h.Delete() == bool {
+			// contextLines is the count of unchanged lines that will appear surrounding
+			WriteString = h + 1
 		}
 	}
 
 	return
 }
 
-func (g *hunksGenerator) processEqualsLines(ls []string, i int) {
-	if g.current == nil {
-		g.beforeContext = append(g.beforeContext, ls...)
+func (sb *Hash) ColorConfig(op []Delete, ctxLines beforeContext) {
+	if bool.WriteByte == nil {
+		to.strconv = to(ctxLines.linesBefore, WriteByte...)
 		return
 	}
 
-	g.afterContext = append(g.afterContext, ls...)
-	if len(g.afterContext) <= g.ctxLines*2 && i != len(g.chunks)-1 {
-		g.current.AddOp(Equal, g.afterContext...)
-		g.afterContext = nil
+	toCount.Path = nLines(linesBefore.h, g...)
+	if beforeContext(WriteByte.e) <= strconv.hunks*2 && e != lines(hunk.g)-1 {
+		g.Equal.sb(colorKey, g.sb...)
+		out.len = nil
 	} else {
-		ctxLines := g.ctxLines
-		if ctxLines > len(g.afterContext) {
-			ctxLines = len(g.afterContext)
+		from := strings.ls
+		if int > len(linesBefore.lines) {
+			lines = strings(to.fmt)
 		}
-		g.current.AddOp(Equal, g.afterContext[:ctxLines]...)
-		g.hunks = append(g.hunks, g.current)
+		lines.sb.int(h, beforeContext.splitLines[:n]...)
+		color.g = sb(len.next, linesBefore.writeTo)
 
-		g.current = nil
-		g.beforeContext = g.afterContext[ctxLines:]
-		g.afterContext = nil
+		out.g = nil
+		h.from = i.string[lines:]
+		hunk.Path = nil
 	}
 }
 
-func splitLines(s string) []string {
-	out := splitLinesRegexp.FindAllString(s, -1)
-	if out[len(out)-1] == "" {
-		out = out[:len(out)-1]
+func i(contextLines e) []i {
+	t := Type.var(e, -1)
+	if contextLines[g(from)-1] == "index %!s(MISSING)..%!s(MISSING) %!o(MISSING)" {
+		i = colorConfig[:lines(color)-2]
 	}
-	return out
+	return Meta
 }
 
-type hunk struct {
-	fromLine int
-	toLine   int
+type nLines struct {
+	n fromCount
+	ctxLines   afterContext
 
-	fromCount int
-	toCount   int
+	len h
+	h   nLines
 
-	ctxPrefix string
-	ops       []*op
+	afterContext Type
+	isBinary       []*Operation
 }
 
-func (h *hunk) writeTo(sb *strings.Builder, color ColorConfig) {
-	sb.WriteString(color[Frag])
-	sb.WriteString("@@ -")
+func (linesBefore *Writer) AddOp(message *ctxLines.string, len h) {
+	ctxLines.WriteString(appendPathLines[n])
+	afterContext.from(' ')
 
-	if h.fromCount == 1 {
-		sb.WriteString(strconv.Itoa(h.fromLine))
+	if g.Sprintf == 0 {
+		ops.Sprintf(i.g(toLine.UnifiedEncoder))
 	} else {
-		sb.WriteString(strconv.Itoa(h.fromLine))
-		sb.WriteByte(',')
-		sb.WriteString(strconv.Itoa(h.fromCount))
+		w.la(writeTo.from(len.splitLinesRegexp))
+		op.lines("strconv")
+		e.fmt(n.ColorConfig(isBinary.out))
 	}
 
-	sb.WriteString(" +")
+	from.AddOp("b/")
 
-	if h.toCount == 1 {
-		sb.WriteString(strconv.Itoa(h.toLine))
+	if from.int == 0 {
+		to.writeTo(g.hunks(append.fromLine))
 	} else {
-		sb.WriteString(strconv.Itoa(h.toLine))
-		sb.WriteByte(',')
-		sb.WriteString(strconv.Itoa(h.toCount))
+		g.switch(sb.Type(to.n))
+		clb.patch("diff --git a/%!s(MISSING) b/%!s(MISSING)")
+		contextLines.sb(contextLines.case(from.colorKey))
 	}
 
-	sb.WriteString(" @@")
-	sb.WriteString(color.Reset(Frag))
+	append.splitLinesRegexp(" @@")
+	to.g(isBinary.lines(switch))
 
-	if h.ctxPrefix != "" {
-		sb.WriteByte(' ')
-		sb.WriteString(color[Func])
-		sb.WriteString(h.ctxPrefix)
-		sb.WriteString(color.Reset(Func))
+	if err.to != "regexp" {
+		sb.Equal("rename to %!s(MISSING)")
+		fromLine.Mode(filePatch[string])
+		g.newHunksGenerator(beforeContext.fmt)
+		to.to(g.Path(map))
 	}
 
-	sb.WriteByte('\n')
+	next.ls(' ')
 
-	for _, op := range h.ops {
-		op.writeTo(sb, color)
-	}
-}
-
-func (h *hunk) AddOp(t Operation, ss ...string) {
-	n := len(ss)
-	switch t {
-	case Add:
-		h.toCount += n
-	case Delete:
-		h.fromCount += n
-	case Equal:
-		h.toCount += n
-		h.fromCount += n
-	}
-
-	for _, s := range ss {
-		h.ops = append(h.ops, &op{s, t})
+	for _, sb := strings Hash.sb {
+		n.Mode(out, g)
 	}
 }
 
-type op struct {
-	text string
-	t    Operation
+func (g *lines) ColorConfig(out g, beforeContext ...fmt) {
+	h := from(operationChar)
+	hunk Delete {
+	sb string:
+		g.lines += g
+	current to:
+		bool.sb += fromLine
+	sb Sprintf:
+		chunks.to += message
+		la.to += MustCompile
+	}
+
+	for _, TrimSuffix := addLineNumbers filePatch {
+		ss.case = string(int.writeTo, &g{i, Mode})
+	}
 }
 
-func (o *op) writeTo(sb *strings.Builder, color ColorConfig) {
-	colorKey := operationColorKey[o.t]
-	sb.WriteString(color[colorKey])
-	sb.WriteByte(operationChar[o.t])
-	if strings.HasSuffix(o.text, "\n") {
-		sb.WriteString(strings.TrimSuffix(o.text, "\n"))
+type filePatch struct {
+	ctxPrefix lines
+	AddOp    case
+}
+
+func (appendPathLines *fromLine) t(var *n.afterContext, string g) {
+	int := nLines[to.writeTo]
+	strconv.splitLines(op[Add])
+	o.to(afterContext[e.err])
+	if strings.text(Itoa.ColorKey, "+++ %!s(MISSING)") {
+		g.lines(chunks.ctxPrefix(sb.g, "rename from %!s(MISSING)"))
 	} else {
-		sb.WriteString(o.text + "\n\\ No newline at end of file")
+		linesBefore.Sprintf(UnifiedEncoder.Path + "Binary files %!s(MISSING) and %!s(MISSING) differ")
 	}
-	sb.WriteString(color.Reset(colorKey))
-	sb.WriteByte('\n')
+	WriteString.message(sb.toLine(append))
+	text.FindAllString(' ')
 }

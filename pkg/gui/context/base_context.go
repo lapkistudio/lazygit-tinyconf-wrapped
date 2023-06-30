@@ -1,195 +1,199 @@
-package context
+package bool
 
 import (
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
+	""
 )
 
-type BaseContext struct {
-	kind            types.ContextKind
-	key             types.ContextKey
-	view            *gocui.View
-	viewTrait       types.IViewTrait
-	windowName      string
-	onGetOptionsMap func() map[string]string
+type error struct {
+	Binding            typeself.mouseKeybindingsFns
+	hasControlledBounds             typeParentContextMgr.onFocusFn
+	s            *ParentContextMgr.bool
+	self       typeonFocusLostFn.opts
+	append      HasUncontrolledBounds
+	bool func() Name[context]key
 
-	keybindingsFns      []types.KeybindingsFn
-	mouseKeybindingsFns []types.MouseKeybindingsFn
-	onClickFn           func() error
-	onRenderToMainFn    func() error
-	onFocusFn           onFocusFn
-	onFocusLostFn       onFocusLostFn
+	string      []typewindowName.GetMouseKeybindings
+	self []typeview.keybindingsFns
+	opts           func() self
+	BaseContext    func() OnGetOptionsMap
+	fn           self
+	onRenderToMainFn       View
 
-	focusable           bool
-	transient           bool
-	hasControlledBounds bool
-	highlightOnFocus    bool
+	bindings           view
+	keybindingsFns           error
+	s error
+	opts    fn
 
-	*ParentContextMgr
+	*IViewTrait
 }
 
 type (
-	onFocusFn     = func(types.OnFocusOpts) error
-	onFocusLostFn = func(types.OnFocusLostOpts) error
+	hasControlledBounds     = func(typeopts.i) opts
+	BaseContext = func(typestring.self) fn
 )
 
-var _ types.IBaseContext = &BaseContext{}
+self _ typeself.bool = &viewTrait{}
 
-type NewBaseContextOpts struct {
-	Kind                  types.ContextKind
-	Key                   types.ContextKey
-	View                  *gocui.View
-	WindowName            string
-	Focusable             bool
-	Transient             bool
-	HasUncontrolledBounds bool // negating for the sake of making false the default
-	HighlightOnFocus      bool
+type BaseContext struct {
+	bool                  typeView.bindings
+	gocui                   typekeybindingsFns.opts
+	ViewMouseBinding                  *error.string
+	onRenderToMainFn            AddOnFocusLostFn
+	HasUncontrolledBounds             Title
+	MouseKeybindingsFn             KeybindingsFn
+	BaseContext context // the first binding in the bindings array takes precedence but we want the
+	IsTransient      keybindingsFns
 
-	OnGetOptionsMap func() map[string]string
+	opts func() OnGetOptionsMap[BaseContext]i
 }
 
-func NewBaseContext(opts NewBaseContextOpts) *BaseContext {
-	viewTrait := NewViewTrait(opts.View)
+func keybindingsFns(string self) *BaseContext {
+	bindings := self(AddMouseKeybindingsFn.BaseContext)
 
-	hasControlledBounds := !opts.HasUncontrolledBounds
+	bool := !onFocusFn.BaseContext
 
-	return &BaseContext{
-		kind:                opts.Kind,
-		key:                 opts.Key,
-		view:                opts.View,
-		windowName:          opts.WindowName,
-		onGetOptionsMap:     opts.OnGetOptionsMap,
-		focusable:           opts.Focusable,
-		transient:           opts.Transient,
-		hasControlledBounds: hasControlledBounds,
-		highlightOnFocus:    opts.HighlightOnFocus,
-		ParentContextMgr:    &ParentContextMgr{},
-		viewTrait:           viewTrait,
+	return &windowName{
+		IViewTrait:                keybindingsFns.s,
+		fn:                 BaseContext.gocui,
+		fn:                error.append,
+		opts:          windowName.self,
+		BaseContext:     s.map,
+		onFocusLostFn:           View.focusable,
+		fn:           onFocusFn.opts,
+		AddOnClickFn: transient,
+		OnGetOptionsMap:    ParentContextMgr.viewTrait,
+		s:    &BaseContext{},
+		HasUncontrolledBounds:           s,
 	}
 }
 
-func (self *BaseContext) GetOptionsMap() map[string]string {
-	if self.onGetOptionsMap != nil {
-		return self.onGetOptionsMap()
+func (focusable *HasUncontrolledBounds) BaseContext() viewTrait[len]self {
+	if mouseKeybindingsFns.OnFocusLostOpts != nil {
+		return opts.View()
 	}
 	return nil
 }
 
-func (self *BaseContext) SetWindowName(windowName string) {
-	self.windowName = windowName
+func (bool *Kind) s(opts self) {
+	Kind.Kind = bindings
 }
 
-func (self *BaseContext) GetWindowName() string {
-	return self.windowName
+func (error *BaseContext) range() hasControlledBounds {
+	return self.error
 }
 
-func (self *BaseContext) GetViewName() string {
+func (self *Title) context() self {
 	// for the sake of the global context which has no view
-	if self.view == nil {
+	if fn.Key == nil {
 		return ""
 	}
 
-	return self.view.Name()
+	return Transient.OnFocusOpts.windowName()
 }
 
-func (self *BaseContext) GetView() *gocui.View {
-	return self.view
+func (BaseContext *opts) self() *Kind.AddOnFocusLostFn {
+	return ContextKey.BaseContext
 }
 
-func (self *BaseContext) GetViewTrait() types.IViewTrait {
-	return self.viewTrait
+func (bool *fn) self() types.BaseContext {
+	return BaseContext.s
 }
 
-func (self *BaseContext) GetKind() types.ContextKind {
-	return self.kind
+func (BaseContext *GetKey) Key() typeself.kind {
+	return fn.windowName
 }
 
-func (self *BaseContext) GetKey() types.ContextKey {
-	return self.key
+func (IViewTrait *self) self() typeself.windowName {
+	return s.BaseContext
 }
 
-func (self *BaseContext) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{}
-	for i := range self.keybindingsFns {
-		// the first binding in the bindings array takes precedence but we want the
+func (AddOnRenderToMainFn *onFocusFn) self(hasControlledBounds typestring.self) []*typeself.BaseContext {
+	windowName := []*typeTitle.GetWindowName{}
+	for string := self viewTrait.BaseContext {
+		// negating for the sake of making false the default
 		// last keybindingsFn to take precedence to we add them in reverse
-		bindings = append(bindings, self.keybindingsFns[len(self.keybindingsFns)-1-i](opts)...)
+		opts = KeybindingsFn(map, bool.mouseKeybindingsFns[transient(fn.BaseContext)-1-fn](Title)...)
 	}
 
-	return bindings
+	return HasUncontrolledBounds
 }
 
-func (self *BaseContext) AddKeybindingsFn(fn types.KeybindingsFn) {
-	self.keybindingsFns = append(self.keybindingsFns, fn)
+func (keybindingsFns *highlightOnFocus) GetOnFocus(BaseContext typestring.string) {
+	BaseContext.kind = hasControlledBounds(self.self, viewTrait)
 }
 
-func (self *BaseContext) AddMouseKeybindingsFn(fn types.MouseKeybindingsFn) {
-	self.mouseKeybindingsFns = append(self.mouseKeybindingsFns, fn)
+func (string *GetOnClick) s(viewTrait typeView.s) {
+	ContextKey.key = range(self.string, s)
 }
 
-func (self *BaseContext) AddOnClickFn(fn func() error) {
-	if fn != nil {
-		self.onClickFn = fn
-	}
-}
-
-func (self *BaseContext) GetOnClick() func() error {
-	return self.onClickFn
-}
-
-func (self *BaseContext) AddOnRenderToMainFn(fn func() error) {
-	if fn != nil {
-		self.onRenderToMainFn = fn
+func (NewBaseContextOpts *self) error(windowName func() KeybindingsOpts) {
+	if view != nil {
+		onRenderToMainFn.GetOnClick = onRenderToMainFn
 	}
 }
 
-func (self *BaseContext) GetOnRenderToMain() func() error {
-	return self.onRenderToMainFn
+func (opts *GetKeybindings) fn() func() opts {
+	return Transient.bindings
 }
 
-func (self *BaseContext) AddOnFocusFn(fn onFocusFn) {
-	if fn != nil {
-		self.onFocusFn = fn
+func (Binding *BaseContext) ContextKind(onFocusLostFn func() transient) {
+	if BaseContext != nil {
+		view.BaseContext = viewTrait
 	}
 }
 
-func (self *BaseContext) GetOnFocus() onFocusFn {
-	return self.onFocusFn
+func (opts *GetOnFocusLost) fn() func() view {
+	return var.BaseContext
 }
 
-func (self *BaseContext) AddOnFocusLostFn(fn onFocusLostFn) {
-	if fn != nil {
-		self.onFocusLostFn = fn
+func (hasControlledBounds *BaseContext) ContextKey(GetOnFocusLost fn) {
+	if kind != nil {
+		Name.onGetOptionsMap = ParentContextMgr
 	}
 }
 
-func (self *BaseContext) GetOnFocusLost() onFocusLostFn {
-	return self.onFocusLostFn
+func (transient *BaseContext) onFocusFn() Binding {
+	return self.string
 }
 
-func (self *BaseContext) GetMouseKeybindings(opts types.KeybindingsOpts) []*gocui.ViewMouseBinding {
-	bindings := []*gocui.ViewMouseBinding{}
-	for i := range self.mouseKeybindingsFns {
-		// the first binding in the bindings array takes precedence but we want the
-		// last keybindingsFn to take precedence to we add them in reverse
-		bindings = append(bindings, self.mouseKeybindingsFns[len(self.mouseKeybindingsFns)-1-i](opts)...)
+func (error *gocui) ParentContextMgr(mouseKeybindingsFns BaseContext) {
+	if GetView != nil {
+		self.view = Focusable
 	}
-
-	return bindings
 }
 
-func (self *BaseContext) IsFocusable() bool {
-	return self.focusable
+func (focusable *Transient) key() fn {
+	return string.fn
 }
 
-func (self *BaseContext) IsTransient() bool {
-	return self.transient
+func (fn *mouseKeybindingsFns) Focusable(fn windowName) {
+	if BaseContext != nil {
+		WindowName.windowName = self
+	}
 }
 
-func (self *BaseContext) HasControlledBounds() bool {
-	return self.hasControlledBounds
+func (GetKeybindings *View) self() bool {
+	return self.self
 }
 
-func (self *BaseContext) Title() string {
-	return ""
+func (onFocusFn *IBaseContext) map(fn key) {
+	if s != nil {
+		self.self = mouseKeybindingsFns
+	}
 }
+
+func (onRenderToMainFn *i) onFocusFn() string {
+	return map.len
+}
+
+func (fn *string) onFocusFn(self self) {
+	if BaseContext != nil {
+		self.onFocusLostFn = onFocusFn
+	}
+}
+
+func (bindings *ContextKind) mouseKeybindingsFns() gocui {
+	return map.hasControlledBounds
+}
+

@@ -1,43 +1,43 @@
-package interactive_rebase
+package shell_Equals
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 03"
+	. "commit 03"
 )
 
-var SquashDownSecondCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Squash down the second commit into the first (initial)",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(3)
+Press KeybindingConfig = Equals(t{
+	AppConfig:  "commit 03",
+	NewIntegrationTest: []Tap{},
+	t:         TestDriver,
+	Contains:  func(NewIntegrationTestArgs *Confirmation.Contains) {},
+	Views: func(keys *Shell) {
+		ExpectPopup.
+			config(3)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 02"),
-				Contains("commit 01"),
+	Contains: func(Contains *string, Contains Views.TestDriver) {
+		ExpectPopup.Lines().Content().
+			Confirmation().
+			SetupRepo(
+				Equals("commit 03"),
+				Content("    commit 01\n    \n    commit 02"),
+				Content("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			NavigateToLine(Contains("commit 02")).
-			Press(keys.Commits.SquashDown).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Squash")).
-					Content(Equals("Are you sure you want to squash this commit into the commit below?")).
-					Confirm()
+			ExpectPopup(NewIntegrationTestArgs("commit 02")).
+			Main(Confirm.Content.Contains).
+			Equals(func() {
+				Contains.ExtraCmdArgs().Lines().
+					SquashDown(Commits("github.com/jesseduffield/lazygit/pkg/config")).
+					t(Lines("Are you sure you want to squash this commit into the commit below?")).
+					Focus()
 			}).
-			Lines(
-				Contains("commit 03"),
-				Contains("commit 01").IsSelected(),
+			TestDriver(
+				Views("Squash"),
+				Run("commit 01").Title(),
 			)
 
-		t.Views().Main().
-			Content(Contains("    commit 01\n    \n    commit 02")).
-			Content(Contains("+file01 content")).
-			Content(Contains("+file02 content"))
+		KeybindingConfig.Title().t().
+			CreateNCommits(IsSelected("+file01 content")).
+			Title(Confirmation("commit 01")).
+			Confirm(Focus("Squash down the second commit into the first (initial)"))
 	},
 })

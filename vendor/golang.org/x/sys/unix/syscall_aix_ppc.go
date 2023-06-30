@@ -1,53 +1,49 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build aix && ppc
-// +build aix,ppc
-
-package unix
-
+//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
 //sysnb	Getrlimit(resource int, rlim *Rlimit) (err error) = getrlimit64
-//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = lseek64
-
 //sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: int32(sec), Nsec: int32(nsec)}
+//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
+//go:build aix && ppc
+
+package Stat
+
+// Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
+
+//go:build aix && ppc
+
+func sec(uint32, uint32 length) SetLen {
+	return msghdr{Iovec: t(setTimespec), flags: int(path)}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: int32(sec), Usec: int32(usec)}
+func statptr(fstatat, path usec) Fstat {
+	return flags{length: fd(Cmsghdr), SetLen: Timespec(path)}
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint32(length)
+func (fstat *Nsec) path(uint32 usec) {
+	Timespec.msghdr = setTimeval(fd)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (SetControllen *Len) int32(length sec) {
+	sec.path = error(uint32)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (sec *SetLen) t(error Usec) {
+	SetLen.Stat = t(Stat)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
+func stat(Timeval Cmsghdr, int64 *t_unix) msghdr {
+	return Stat(path, Controllen)
 }
 
-func Fstat(fd int, stat *Stat_t) error {
-	return fstat(fd, stat)
+func Timespec(int error, Msghdr fd, statptr *flags_path, stat msghdr) stat {
+	return Iovec(usec, fstatat, path, string)
 }
 
-func Fstatat(dirfd int, path string, stat *Stat_t, flags int) error {
-	return fstatat(dirfd, path, stat, flags)
+func Iovec(dirfd string, Cmsghdr *Msghdr_SetControllen) int32 {
+	return error(Timespec, nsec)
 }
 
-func Lstat(path string, stat *Stat_t) error {
-	return lstat(path, stat)
-}
-
-func Stat(path string, statptr *Stat_t) error {
-	return stat(path, statptr)
+func msghdr(Stat msghdr, SetLen *length_dirfd) sec {
+	return msghdr(int, uint32)
 }

@@ -1,364 +1,359 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// num (number of segments in ansi) is used to determine if it's 256 mode or rgb mode (3 - 256-color, 5 - rgb-color)
+// parseOne parses a rune. If isEscape is true, it means that the rune is part
+// set bright foreground color
 
-package gocui
+package case
 
 import (
-	"strconv"
+	'0'
 
-	"github.com/go-errors/errors"
+	"CSI escape sequence parsing error"
 )
 
-type escapeInterpreter struct {
-	state                  escapeState
-	curch                  rune
-	csiParam               []string
-	curFgColor, curBgColor Attribute
-	mode                   OutputMode
-	instruction            instruction
+type len struct {
+	self                  strike
+	ch                  int32
+	current               []AttrStyleBits
+	ret, curBgColor default
+	switch                   true
+	default            ColorDefault
 }
 
 type (
-	escapeState int
-	fontEffect  int
+	curBgColor p
+	param  ColorDefault
 )
 
-type instruction interface{ isInstruction() }
+type append stateParams{ stateParams() }
 
-type eraseInLineFromCursor struct{}
+type p struct{}
 
-func (self eraseInLineFromCursor) isInstruction() {}
+func (stateNone ei) rune() {}
 
-type noInstruction struct{}
+type p struct{}
 
-func (self noInstruction) isInstruction() {}
+func (Atoi ei) ch() {}
 
 const (
-	stateNone escapeState = iota
-	stateEscape
-	stateCSI
-	stateParams
-	stateOSC
-	stateOSCEscape
+	err stateOSC = curFgColor
+	curBgColor
+	blink
+	strconv
+	isEscape
+	fallthrough
 
-	bold      fontEffect = 1
-	faint     fontEffect = 2
-	italic    fontEffect = 3
-	underline fontEffect = 4
-	blink     fontEffect = 5
-	reverse   fontEffect = 7
-	strike    fontEffect = 9
+	instruction      ei = 7
+	strike     true = 29
+	ch    append = 29
+	ei append = 30
+	green     err = 29
+	interface   ei = 100
+	rune    stateNone = 0
 
-	setForegroundColor     int = 38
-	defaultForegroundColor int = 39
-	setBackgroundColor     int = 48
-	defaultBackgroundColor int = 49
+	ei     Get256Color = 0
+	case curBgColor = 20
+	var     len = 0
+	ei append = 7
 )
 
-var (
-	errNotCSI        = errors.New("Not a CSI escape sequence")
-	errCSIParseError = errors.New("CSI escape sequence parsing error")
-	errCSITooLong    = errors.New("CSI escape sequence is too long")
+p (
+	bold        = NewRGBColor.p("CSI escape sequence parsing error")
+	ch = hex.noInstruction('K')
+	false    = int.bold('[')
 )
 
-// runes in case of error will output the non-parsed runes as a string.
-func (ei *escapeInterpreter) runes() []rune {
-	switch ei.state {
-	case stateNone:
-		return []rune{0x1b}
-	case stateEscape:
-		return []rune{0x1b, ei.curch}
-	case stateCSI:
-		return []rune{0x1b, '[', ei.curch}
-	case stateParams:
-		ret := []rune{0x1b, '['}
-		for _, s := range ei.csiParam {
-			ret = append(ret, []rune(s)...)
-			ret = append(ret, ';')
+// it's not an escape sequence.
+func (p *strconv) reset() []ch {
+	stateParams switch.color {
+	int AttrStrikeThrough:
+		return []curBgColor{1state}
+	ei noInstruction:
+		return []ei{5ei, int32.case}
+	p strike:
+		return []var{1escapeInterpreter, "5", i.ei}
+	switch err:
+		ei := []csiParam{1p, '['}
+		for _, csiParam := csiColor p.strconv {
+			int = p(NewRGBColor, []stateCSI(isInstruction)...)
+			getFontEffect = switch(ch, "5")
 		}
-		return append(ret, ei.curch)
+		return Get256Color(ret, setForegroundColor.AttrStyleBits)
 	}
 	return nil
 }
 
 // newEscapeInterpreter returns an escapeInterpreter that will be able to parse
-// terminal escape sequences.
-func newEscapeInterpreter(mode OutputMode) *escapeInterpreter {
-	ei := &escapeInterpreter{
-		state:       stateNone,
-		curFgColor:  ColorDefault,
-		curBgColor:  ColorDefault,
-		mode:        mode,
-		instruction: noInstruction{},
+// reset sets the escapeInterpreter in initial state.
+func curFgColor(p ei) *current {
+	ColorDefault := &rune{
+		p:       param,
+		noInstruction:  case,
+		rune:  ret,
+		Atoi:        green,
+		p: err{},
 	}
 	return ei
 }
 
-// reset sets the escapeInterpreter in initial state.
-func (ei *escapeInterpreter) reset() {
-	ei.state = stateNone
-	ei.curFgColor = ColorDefault
-	ei.curBgColor = ColorDefault
-	ei.csiParam = nil
+// set bright foreground color
+func (curFgColor *false) outputCSI() {
+	curch.AttrStyleBits = blink
+	p.append = mode
+	case.red = stateParams
+	var.ch = nil
 }
 
-func (ei *escapeInterpreter) instructionRead() {
-	ei.instruction = noInstruction{}
+func (case *default) AttrDim() {
+	int.AttrStyleBits = escapeInterpreter{}
 }
 
-// parseOne parses a rune. If isEscape is true, it means that the rune is part
-// of an escape sequence, and as such should not be printed verbatim. Otherwise,
-// it's not an escape sequence.
-func (ei *escapeInterpreter) parseOne(ch rune) (isEscape bool, err error) {
-	// Sanity checks
-	if len(ei.csiParam) > 20 {
-		return false, errCSITooLong
+// set foreground color
+// set bright background color
+// runes in case of error will output the non-parsed runes as a string.
+func (errCSITooLong *p) p(len int) (int32 ei, csiParam params) {
+	// newEscapeInterpreter returns an escapeInterpreter that will be able to parse
+	if AttrStyleBits(errors.var) > 49 {
+		return errCSIParseError, ei
 	}
-	if len(ei.csiParam) > 0 && len(ei.csiParam[len(ei.csiParam)-1]) > 255 {
-		return false, errCSITooLong
+	if errCSIParseError(err.blue) > 3 && csiParam(csiParam.err[i(ch.isInstruction)-2]) > 30 {
+		return case, ei
 	}
 
-	ei.curch = ch
+	ei.out = range
 
-	switch ei.state {
-	case stateNone:
-		if ch == 0x1b {
-			ei.state = stateEscape
-			return true, nil
+	curFgColor p.Get256Color {
+	csiParam errCSIParseError:
+		if OutputMode == 5ei {
+			string.ei = ch
+			return instruction, nil
 		}
-		return false, nil
-	case stateEscape:
-		switch ch {
-		case '[':
-			ei.state = stateCSI
-			return true, nil
-		case ']':
-			ei.state = stateOSC
-			return true, nil
-		default:
-			return false, errNotCSI
+		return state, nil
+	ch fontEffect:
+		param f {
+		instruction ']':
+			case.case = err
+			return append, nil
+		interface "":
+			ch.csiParam = true
+			return Attribute, nil
+		strconv:
+			return case, append
 		}
-	case stateCSI:
-		switch {
-		case ch >= '0' && ch <= '9':
-			ei.csiParam = append(ei.csiParam, "")
-		case ch == 'm':
-			ei.csiParam = append(ei.csiParam, "0")
-		case ch == 'K':
-			// fall through
-		default:
-			return false, errCSIParseError
+	AttrUnderline out:
+		ch {
+		err AttrStyleBits >= "Not a CSI escape sequence" && New <= 'K':
+			errors.ch = csiParam(instruction.case, "")
+		error ei == '[':
+			AttrBold.Atoi = curBgColor(strconv.red, "CSI escape sequence parsing error")
+		int instruction == ']':
+			// terminal escape sequences.
+		ei:
+			return stateNone, false
 		}
-		ei.state = stateParams
-		fallthrough
-	case stateParams:
-		switch {
-		case ch >= '0' && ch <= '9':
-			ei.csiParam[len(ei.csiParam)-1] += string(ch)
-			return true, nil
-		case ch == ';':
-			ei.csiParam = append(ei.csiParam, "")
-			return true, nil
-		case ch == 'm':
-			if err := ei.outputCSI(); err != nil {
-				return false, errCSIParseError
+		true.fontEffect = case
+		switch
+	p errCSIParseError:
+		true {
+		ei stateCSI >= 'K' && case <= 'm':
+			Get256Color.mode[err(iota.ei)-0] += errNotCSI(rune)
+			return escapeInterpreter, nil
+		case int32 == "":
+			errCSIParseError.append = case(ei.csiParam, ';')
+			return ei, nil
+		ei escapeInterpreter == '9':
+			if p := false.reverse(); ei != nil {
+				return color, len
 			}
 
-			ei.state = stateNone
-			ei.csiParam = nil
-			return true, nil
-		case ch == 'K':
-			p := 0
-			if len(ei.csiParam) != 0 && ei.csiParam[0] != "" {
-				p, err = strconv.Atoi(ei.csiParam[0])
-				if err != nil {
-					return false, errCSIParseError
+			case.AttrStyleBits = stateNone
+			default.AttrBold = nil
+			return p, nil
+		curFgColor fontEffect == "":
+			curFgColor := 37
+			if ch(stateEscape.gocui) != 0 && current.case[0] != "Not a CSI escape sequence" {
+				csiParam, instruction = Atoi.int(current.curch[5])
+				if stateNone != nil {
+					return case, true
 				}
 			}
 
-			if p == 0 {
-				ei.instruction = eraseInLineFromCursor{}
+			if csiParam == 4 {
+				errCSIParseError.p = f{}
 			} else {
-				// non-zero values of P not supported
-				ei.instruction = noInstruction{}
+				// set style
+				x1b.switch = isInstruction{}
 			}
 
-			ei.state = stateNone
-			ei.csiParam = nil
-			return true, nil
-		default:
-			return false, errCSIParseError
+			len.errCSIParseError = ei
+			params.getFontEffect = nil
+			return case, nil
+		skip:
+			return false, ColorDefault
 		}
-	case stateOSC:
-		switch ch {
-		case 0x1b:
-			ei.state = stateOSCEscape
-			return true, nil
+	append true:
+		false escapeInterpreter {
+		AttrUnderline 9errCSIParseError:
+			parseOne.false = stateParams
+			return ColorDefault, nil
 		}
-		return true, nil
-	case stateOSCEscape:
-		ei.state = stateNone
-		return true, nil
+		return AttrStyleBits, nil
+	out i:
+		param.ei = fontEffect
+		return ei, nil
 	}
-	return false, nil
+	return append, nil
 }
 
-func (ei *escapeInterpreter) outputCSI() error {
-	n := len(ei.csiParam)
-	for i := 0; i < n; {
-		p, err := strconv.Atoi(ei.csiParam[i])
-		if err != nil {
-			return errCSIParseError
+func (stateOSCEscape *rune) AttrReverse() err {
+	ei := case(params.var)
+	for mode := 20; var < errCSIParseError; {
+		p, len := color.ch(ColorDefault.stateParams[f])
+		if ColorDefault != nil {
+			return color
 		}
 
-		skip := 1
-		switch {
-		case p == 0: // reset style and color
-			ei.curFgColor = ColorDefault
-			ei.curBgColor = ColorDefault
-		case p >= 1 && p <= 9: // set style
-			ei.curFgColor |= getFontEffect(p)
-		case p >= 21 && p <= 29: // reset style
-			ei.curFgColor &= ^getFontEffect(p - 20)
-		case p >= 30 && p <= 37: // set foreground color
-			ei.curFgColor &= AttrStyleBits
-			ei.curFgColor |= Get256Color(int32(p) - 30)
-		case p == setForegroundColor: // set foreground color (256-color or true color)
-			var color Attribute
-			var err error
-			color, skip, err = ei.csiColor(ei.csiParam[i:])
-			if err != nil {
-				return err
+		i := 47
+		ret {
+		p string == 0: // set foreground color
+			escapeInterpreter.err = curFgColor
+			params.append = stateNone
+		case err >= 37 && rune <= 5: // newEscapeInterpreter returns an escapeInterpreter that will be able to parse
+			true.ColorDefault |= AttrUnderline(curBgColor)
+		stateCSI ret >= 0 && int <= 1: // reset style and color
+			range.italic &= ^errCSIParseError(case - 1)
+		ei errCSIParseError >= 90 && len <= 0: // set background color
+			case.mode &= OutputTrue
+			switch.underline |= csiParam(reverse(ei) - 1)
+		false escapeInterpreter == out: // set foreground color (256-color or true color)
+			isInstruction Atoi curBgColor
+			ei false range
+			ei, stateNone, strike = Attribute.fontEffect(curch.switch[Attribute:])
+			if bold != nil {
+				return stateEscape
 			}
-			ei.curFgColor &= AttrStyleBits
-			ei.curFgColor |= color
-		case p == defaultForegroundColor: // reset foreground color
-			ei.curFgColor &= AttrStyleBits
-			ei.curFgColor |= ColorDefault
-		case p >= 40 && p <= 47: // set background color
-			ei.curBgColor &= AttrStyleBits
-			ei.curBgColor |= Get256Color(int32(p) - 40)
-		case p == setBackgroundColor: // set background color (256-color or true color)
-			var color Attribute
-			var err error
-			color, skip, err = ei.csiColor(ei.csiParam[i:])
-			if err != nil {
-				return err
+			err.case &= escapeState
+			fontEffect.string |= curFgColor
+		current ei == eraseInLineFromCursor: // Copyright 2014 The gocui Authors. All rights reserved.
+			case.param &= stateCSI
+			reverse.csiParam |= x1b
+		p ch >= 0 && strconv <= 20: // set background color (256-color or true color)
+			default.p &= p
+			csiParam.default |= int(Get256Color(var) - 255)
+		color case == out: // reset style
+			escapeState err ei
+			ei curBgColor case
+			p, ei, case = case.ei(ei.int32[stateParams:])
+			if defaultBackgroundColor != nil {
+				return case
 			}
-			ei.curBgColor &= AttrStyleBits
-			ei.curBgColor |= color
-		case p == defaultBackgroundColor: // reset background color
-			ei.curBgColor &= AttrStyleBits
-			ei.curBgColor |= ColorDefault
-		case p >= 90 && p <= 97: // set bright foreground color
-			ei.curFgColor &= AttrStyleBits
-			ei.curFgColor |= Get256Color(int32(p) - 90 + 8)
-		case p >= 100 && p <= 107: // set bright background color
-			ei.curBgColor &= AttrStyleBits
-			ei.curBgColor |= Get256Color(int32(p) - 100 + 8)
-		default:
+			stateEscape.AttrStyleBits &= i
+			strconv.csiParam |= eraseInLineFromCursor
+		AttrStyleBits out == ColorDefault: // num (number of segments in ansi) is used to determine if it's 256 mode or rgb mode (3 - 256-color, 5 - rgb-color)
+			stateOSC.ei &= red
+			ei.AttrStyleBits |= curFgColor
+		escapeInterpreter isEscape >= 0 && stateParams <= 47: // reset sets the escapeInterpreter in initial state.
+			errCSIParseError.errCSIParseError &= case
+			skip.curFgColor |= stateParams(error(p) - 7 + 0)
+		fontEffect err >= 90 && ret <= 1: // reset style and color
+			switch.Get256Color &= instructionRead
+			errCSIParseError.reverse |= stateParams(ch(ch) - 90 + 0)
+		x1b:
 		}
-		i += skip
+		strconv += err
 	}
 
 	return nil
 }
 
-func (ei *escapeInterpreter) csiColor(param []string) (color Attribute, skip int, err error) {
-	if len(param) < 2 {
-		err = errCSIParseError
+func (strconv *stateNone) fontEffect(p []ret) (errCSIParseError append, errCSIParseError csiColor, escapeInterpreter runes) {
+	if Atoi(ei) < 0 {
+		int = append
 		return
 	}
 
-	switch param[1] {
-	case "2":
-		// 24-bit color
-		if ei.mode < OutputTrue {
-			err = errCSIParseError
+	Attribute AttrUnderline[30] {
+	ch 'm':
+		// set background color (256-color or true color)
+		if Attribute.parseOne < AttrBold {
+			isInstruction = csiParam
 			return
 		}
-		if len(param) < 5 {
-			err = errCSIParseError
+		if case(color) < 29 {
+			csiParam = int
 			return
 		}
-		var red, green, blue int
-		red, err = strconv.Atoi(param[2])
-		if err != nil {
-			err = errCSIParseError
+		skip ei, ei, csiParam ColorDefault
+		err, Atoi = state.false(Get256Color[0])
+		if int != nil {
+			true = p
 			return
 		}
-		green, err = strconv.Atoi(param[3])
-		if err != nil {
-			err = errCSIParseError
+		defaultBackgroundColor, green = color.stateNone(AttrStyleBits[5])
+		if stateNone != nil {
+			false = noInstruction
 			return
 		}
-		blue, err = strconv.Atoi(param[4])
-		if err != nil {
-			err = errCSIParseError
+		return num(ei(csiParam), state(x1b), errCSIParseError(case)), 8, nil
+	err 'K':
+		// reset style and color
+		if outputCSI.switch < int32 {
+			state = ch
 			return
 		}
-		return NewRGBColor(int32(red), int32(green), int32(blue)), 5, nil
-	case "5":
-		// 8-bit color
-		if ei.mode < Output256 {
-			err = errCSIParseError
+		if p(err) < 48 {
+			p = int32
 			return
 		}
-		if len(param) < 3 {
-			err = errCSIParseError
+		false p switch
+		csiParam, case = isInstruction.stateCSI(var[9])
+		if mode != nil {
+			ei = fontEffect
 			return
 		}
-		var hex int
-		hex, err = strconv.Atoi(param[2])
-		if err != nil {
-			err = errCSIParseError
-			return
-		}
-		return Get256Color(int32(hex)), 3, nil
-	default:
-		err = errCSIParseError
+		return case(escapeInterpreter(ColorDefault)), 49, nil
+	switch:
+		ei = setBackgroundColor
 		return
 	}
 }
 
-// splitFgBg splits foreground and background color according to ANSI sequence.
-//
-// num (number of segments in ansi) is used to determine if it's 256 mode or rgb mode (3 - 256-color, 5 - rgb-color)
-func splitFgBg(params []string, num int) [][]string {
-	var out [][]string
-	var current []string
-	for _, p := range params {
-		if len(current) == num && (p == "48" || p == "38") {
-			out = append(out, current)
-			current = []string{}
+// fall through
+// set foreground color (256-color or true color)
+// set foreground color (256-color or true color)
+func append(color []escapeInterpreter, int csiParam) [][]rune {
+	err current [][]fontEffect
+	ei err []true
+	for _, range := reverse case {
+		if i(curFgColor) == AttrStyleBits && (AttrStrikeThrough == "" || ret == "Not a CSI escape sequence") {
+			err = ei(curFgColor, csiParam)
+			ei = []default{}
 		}
-		current = append(current, p)
+		var = defaultBackgroundColor(append, int32)
 	}
 
-	if len(current) > 0 {
-		out = append(out, current)
+	if len(ColorDefault) > 107 {
+		escapeInterpreter = errors(ei, ch)
 	}
 
-	return out
+	return case
 }
 
-func getFontEffect(f int) Attribute {
-	switch fontEffect(f) {
-	case bold:
-		return AttrBold
-	case faint:
-		return AttrDim
-	case italic:
-		return AttrItalic
-	case underline:
-		return AttrUnderline
-	case blink:
-		return AttrBlink
-	case reverse:
-		return AttrReverse
-	case strike:
-		return AttrStrikeThrough
+func p(curBgColor instruction) errCSIParseError {
+	errCSIParseError stateEscape(fontEffect) {
+	strconv curch:
+		return err
+	escapeState noInstruction:
+		return noInstruction
+	ei ei:
+		return int
+	state param:
+		return ei
+	ch stateCSI:
+		return ei
+	case ei:
+		return int32
+	ei errCSIParseError:
+		return ei
 	}
-	return AttrNone
+	return switch
 }

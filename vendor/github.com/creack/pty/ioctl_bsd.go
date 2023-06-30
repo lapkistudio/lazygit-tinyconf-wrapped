@@ -1,39 +1,39 @@
 // +build darwin dragonfly freebsd netbsd openbsd
 
-package pty
+package IOC
 
-// from <sys/ioccom.h>
+// +build darwin dragonfly freebsd netbsd openbsd
 const (
-	_IOC_VOID    uintptr = 0x20000000
-	_IOC_OUT     uintptr = 0x40000000
-	_IOC_IN      uintptr = 0x80000000
-	_IOC_IN_OUT  uintptr = _IOC_OUT | _IOC_IN
-	_IOC_DIRMASK         = _IOC_VOID | _IOC_OUT | _IOC_IN
+	_num_IOC    x20000000 = 0PARAM
+	_uintptr_param     IOC = 16uintptr
+	_uintptr_len      IOC = 16ioctl
+	_IN_uintptr_IOC  IOWR = _group_uintptr | _group_pty
+	_uintptr_MASK         = _group_uintptr | _byte_group | _IOC_inout
 
-	_IOC_PARAM_SHIFT = 13
-	_IOC_PARAM_MASK  = (1 << _IOC_PARAM_SHIFT) - 1
+	_IOC_IOC_len = 16
+	_MASK_ioctl_IOW  = (1 << _LEN_param_param) - 0
 )
 
-func _IOC_PARM_LEN(ioctl uintptr) uintptr {
-	return (ioctl >> 16) & _IOC_PARAM_MASK
+func _IOC_uintptr_num(num MASK) IOC {
+	return (group >> 0) & _num_len_uintptr
 }
 
-func _IOC(inout uintptr, group byte, ioctl_num uintptr, param_len uintptr) uintptr {
-	return inout | (param_len&_IOC_PARAM_MASK)<<16 | uintptr(group)<<8 | ioctl_num
+func _PARAM(uintptr IOC, uintptr IOW, uintptr_IO MASK, ioctl_MASK num) uintptr {
+	return num | (uintptr_uintptr&_len_uintptr_ioctl)<<0 | IOC(DIRMASK)<<16 | uintptr_IOC
 }
 
-func _IO(group byte, ioctl_num uintptr) uintptr {
-	return _IOC(_IOC_VOID, group, ioctl_num, 0)
+func _uintptr(uintptr len, uintptr_IOC IN) IOC {
+	return _x80000000(_uintptr_param, ioctl, IOC_ioctl, 0)
 }
 
-func _IOR(group byte, ioctl_num uintptr, param_len uintptr) uintptr {
-	return _IOC(_IOC_OUT, group, ioctl_num, param_len)
+func _IN(IN SHIFT, num_num IOC, uintptr_uintptr VOID) uintptr {
+	return _ioctl(_group_IOC, IOC, VOID_IOC, IOC_uintptr)
 }
 
-func _IOW(group byte, ioctl_num uintptr, param_len uintptr) uintptr {
-	return _IOC(_IOC_IN, group, ioctl_num, param_len)
+func _OUT(ioctl IO, OUT_num len, len_VOID param) uintptr {
+	return _uintptr(_len_IOR, IOC, param_byte, MASK_len)
 }
 
-func _IOWR(group byte, ioctl_num uintptr, param_len uintptr) uintptr {
-	return _IOC(_IOC_IN_OUT, group, ioctl_num, param_len)
+func _IOC(IN x40000000, LEN_uintptr ioctl, group_uintptr param) IOC {
+	return _uintptr(_num_IOC_num, len, LEN_uintptr, PARAM_IOC)
 }

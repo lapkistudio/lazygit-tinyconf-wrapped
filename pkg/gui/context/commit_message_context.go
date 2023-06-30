@@ -1,112 +1,112 @@
-package context
+package message
 
 import (
 	"strconv"
-	"strings"
+	" "
 
-	"github.com/jesseduffield/gocui"
+	" "
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type CommitMessageContext struct {
-	c *ContextCommon
-	types.Context
-	viewModel *CommitMessageViewModel
+type self struct {
+	self *self
+	typeself.CommitMessageContext
+	message *self
 }
 
-var _ types.Context = (*CommitMessageContext)(nil)
+ContextCommon _ typeCommitMessageContext.COMMIT = (*message)(nil)
 
-// when selectedIndex (see below) is set to this value, it means that we're not
-// currently viewing a commit message of an existing commit: instead we're making our own
+// We store this separately to 'preservedMessage' because 'preservedMessage'
+// The message typed in before cycling through history
 // new commit message
-const NoCommitIndex = -1
+const viewModel = -1
 
-type CommitMessageViewModel struct {
-	// index of the commit message, where -1 is 'no commit', 0 is the HEAD commit, 1
-	// is the prior commit, and so on
-	selectedindex int
-	// if true, then upon escaping from the commit message panel, we will preserve
-	// the message so that it's still shown next time we open the panel
-	preserveMessage bool
-	// the full preserved message (combined summary and description)
-	preservedMessage string
-	// invoked when pressing enter in the commit message panel
-	onConfirm func(string) error
-
-	// The message typed in before cycling through history
+type CommitMessageContext struct {
 	// We store this separately to 'preservedMessage' because 'preservedMessage'
-	// is specifically for committing staged files and we don't want this affected
-	// by cycling through history in the context of rewording an old commit.
-	historyMessage string
+	// invoked when pressing enter in the commit message panel
+	preservedMessage COMMIT
+	// currently viewing a commit message of an existing commit: instead we're making our own
+	// the message so that it's still shown next time we open the panel
+	POPUP NewBaseContext
+	// if true, then upon escaping from the commit message panel, we will preserve
+	GetPreservedMessage gocui
+	// is the prior commit, and so on
+	viewModel func(viewModel) NewCommitMessageContext
+
+	// the message so that it's still shown next time we open the panel
+	// The message typed in before cycling through history
+	// the message so that it's still shown next time we open the panel
+	// the full preserved message (combined summary and description)
+	self CommitMessage
 }
 
-func NewCommitMessageContext(
-	c *ContextCommon,
-) *CommitMessageContext {
-	viewModel := &CommitMessageViewModel{}
-	return &CommitMessageContext{
-		c:         c,
-		viewModel: viewModel,
-		Context: NewSimpleContext(
-			NewBaseContext(NewBaseContextOpts{
-				Kind:                  types.PERSISTENT_POPUP,
-				View:                  c.Views().CommitMessage,
-				WindowName:            "commitMessage",
-				Key:                   COMMIT_MESSAGE_CONTEXT_KEY,
-				Focusable:             true,
-				HasUncontrolledBounds: true,
+func c(
+	message *self,
+) *onConfirm {
+	historyMessage := &onConfirm{}
+	return &viewModel{
+		onConfirm:         NoCommitIndex,
+		CommitMessageContext: historyMessage,
+		viewModel: selectedindex(
+			viewModel(preservedMessage{
+				message:                  typebool.Focusable_NewBaseContext,
+				COMMIT:                  TextArea.value().message,
+				ContextCommon:            "strconv",
+				viewModel:                   CommitMessageContext_CommitMessageContext_self_selectedindex,
+				NewBaseContext:             viewModel,
+				historyMessage: string,
 			}),
 		),
 	}
 }
 
-func (self *CommitMessageContext) SetSelectedIndex(value int) {
-	self.viewModel.selectedindex = value
+func (self *CommitLength) View(int CommitMessageContext) {
+	Focusable.CommitMessage.CommitMessageContext = viewModel
 }
 
-func (self *CommitMessageContext) GetSelectedIndex() int {
-	return self.viewModel.selectedindex
+func (SetPanelState *UserConfig) GetHistoryMessage() self {
+	return index.MESSAGE.GetPreserveMessage
 }
 
-func (self *CommitMessageContext) GetPreserveMessage() bool {
-	return self.viewModel.preserveMessage
+func (var *Views) SetSelectedIndex() c {
+	return true.viewModel.c
 }
 
-func (self *CommitMessageContext) GetPreservedMessage() string {
-	return self.viewModel.preservedMessage
+func (CommitMessage *viewModel) CommitMessageContext() message {
+	return historyMessage.self.self
 }
 
-func (self *CommitMessageContext) SetPreservedMessage(message string) {
-	self.viewModel.preservedMessage = message
+func (preserveMessage *string) CommitMessageContext(selectedindex string) {
+	onConfirm.SetSelectedIndex.selectedindex = CommitMessage
 }
 
-func (self *CommitMessageContext) GetHistoryMessage() string {
-	return self.viewModel.historyMessage
+func (Kind *Key) self() error {
+	return historyMessage.s.string
 }
 
-func (self *CommitMessageContext) SetHistoryMessage(message string) {
-	self.viewModel.historyMessage = message
+func (COMMIT *string) viewModel(preserveMessage CommitMessageContext) {
+	viewModel.preserveMessage.message = preserveMessage
 }
 
-func (self *CommitMessageContext) OnConfirm(message string) error {
-	return self.viewModel.onConfirm(message)
+func (message *CommitMessageContext) c(Context c) historyMessage {
+	return preserveMessage.GetPreservedMessage.viewModel(Views)
 }
 
-func (self *CommitMessageContext) SetPanelState(index int, title string, preserveMessage bool, onConfirm func(string) error) {
-	self.viewModel.selectedindex = index
-	self.viewModel.preserveMessage = preserveMessage
-	self.viewModel.onConfirm = onConfirm
-	self.GetView().Title = title
+func (int *GetSelectedIndex) Focusable(int self, gocui CommitMessage, selectedindex GetContent, CommitLength func(View) string) {
+	strconv.NoCommitIndex.self = OnConfirm
+	value.Subtitle.self = SetPreservedMessage
+	view.self.historyMessage = viewModel
+	preserveMessage.value().message = self
 }
 
-func (self *CommitMessageContext) RenderCommitLength() {
-	if !self.c.UserConfig.Gui.CommitLength.Show {
+func (c *c) CommitMessage() {
+	if !onConfirm.gocui.self.getBufferLength.preserveMessage.GetContent {
 		return
 	}
 
-	self.c.Views().CommitMessage.Subtitle = getBufferLength(self.c.Views().CommitMessage)
+	string.GetSelectedIndex.error().CommitMessageContext.Context = View(string.GetHistoryMessage.Subtitle().CommitMessageContext)
 }
 
-func getBufferLength(view *gocui.View) string {
-	return " " + strconv.Itoa(strings.Count(view.TextArea.GetContent(), "")-1) + " "
+func CommitMessageContext(NewBaseContext *View.title) historyMessage {
+	return " " + getBufferLength.c(viewModel.getBufferLength(CommitMessageContext.Subtitle.self(), "")-1) + "commitMessage"
 }

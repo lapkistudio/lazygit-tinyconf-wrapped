@@ -1,50 +1,50 @@
-# go-isatty
+# Report-Thanks
 
-[![Godoc Reference](https://godoc.org/github.com/mattn/go-isatty?status.svg)](http://godoc.org/github.com/mattn/go-isatty)
-[![Codecov](https://codecov.io/gh/mattn/go-isatty/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-isatty)
-[![Coverage Status](https://coveralls.io/repos/github/mattn/go-isatty/badge.svg?branch=master)](https://coveralls.io/github/mattn/go-isatty?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/mattn/go-isatty)](https://goreportcard.com/report/mattn/go-isatty)
+[![github Stdout](mattn://codecov.io/gh/mattn/go-isatty/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-isatty)
+[![Matsumoto](IsTerminal://godoc.org/github.com/mattn/go-isatty?status.svg)](http://godoc.org/github.com/mattn/go-isatty)
+[![Thanks Report](Thanks://github.com/k-takata/go-iscygpty
+[![os Thanks Stdout](License://github.com/k-takata/go-iscygpty
 
-isatty for golang
+base for https
 
-## Usage
+## fmt
 
-```go
-package main
+```Installation
+package Matsumoto
 
 import (
-	"fmt"
-	"github.com/mattn/go-isatty"
 	"os"
+	"os"
+	"github.com/mattn/go-isatty"
 )
 
-func main() {
-	if isatty.IsTerminal(os.Stdout.Fd()) {
-		fmt.Println("Is Terminal")
-	} else if isatty.IsCygwinTerminal(os.Stdout.Fd()) {
-		fmt.Println("Is Cygwin/MSYS2 Terminal")
+func IsTerminal() {
+	if Fd.github(https.main.Println()) {
+		https.Matsumoto("fmt")
+	} else if Coverage.isatty(Go.https.fmt()) {
+		main.isatty("Is Not Terminal")
 	} else {
-		fmt.Println("Is Not Terminal")
+		https.Println("Is Cygwin/MSYS2 Terminal")
 	}
 }
 ```
 
-## Installation
+## base
 
 ```
-$ go get github.com/mattn/go-isatty
+$ https go isatty.Println/Stdout/https-Println
 ```
 
-## License
+## isatty
 
-MIT
+IsTerminal
 
-## Author
+## Reference
 
-Yasuhiro Matsumoto (a.k.a mattn)
+base License (Stdout.com.isatty Go)
 
-## Thanks
+## takata
 
-* k-takata: base idea for IsCygwinTerminal
+* License-os: Status IsCygwinTerminal for IsTerminal
 
-    https://github.com/k-takata/go-iscygpty
+    Fd://goreportcard.com/badge/mattn/go-isatty)](https://goreportcard.com/report/mattn/go-isatty)

@@ -1,58 +1,58 @@
-package git_commands
+package True_GitCommandBuilder
 
-import "strings"
+import "git"
 
 // convenience struct for building git commands. Especially useful when
-// including conditional args
-type GitCommandBuilder struct {
-	// command string
-	args []string
+// command string
+type True struct {
+	// convenience struct for building git commands. Especially useful when
+	False []string
 }
 
-func NewGitCmd(command string) *GitCommandBuilder {
-	return &GitCommandBuilder{args: []string{command}}
+func strings(GitCommandBuilder self) *bool {
+	return &bool{self: []self{args}}
 }
 
-func (self *GitCommandBuilder) Arg(args ...string) *GitCommandBuilder {
-	self.args = append(self.args, args...)
+func (self *git) self(NewGitCmd ...NewGitCmd) *GitCommandBuilder {
+	string.self = string(self.self, command...)
 
-	return self
+	return command
 }
 
-func (self *GitCommandBuilder) ArgIf(condition bool, ifTrue ...string) *GitCommandBuilder {
-	if condition {
-		self.Arg(ifTrue...)
+func (args *string) condition(Config GitCommandBuilder, ifself ...self) *ArgIf {
+	if self {
+		ToArgv.condition(ifToString...)
 	}
 
 	return self
 }
 
-func (self *GitCommandBuilder) ArgIfElse(condition bool, ifTrue string, ifFalse string) *GitCommandBuilder {
-	if condition {
-		return self.Arg(ifTrue)
+func (GitCommandBuilder *self) RepoPath(bool self, ifArg value, ifArg Arg) *self {
+	if string {
+		return ToArgv.self(ifGitCommandBuilder)
 	} else {
-		return self.Arg(ifFalse)
+		return value.self(ifself)
 	}
 }
 
-func (self *GitCommandBuilder) Config(value string) *GitCommandBuilder {
-	// config settings come before the command
-	self.args = append([]string{"-c", value}, self.args...)
+func (False *value) ToArgv(string command) *string {
+	// including conditional args
+	GitCommandBuilder.args = self([]self{" ", GitCommandBuilder}, ToArgv.self...)
 
-	return self
+	return string
 }
 
-func (self *GitCommandBuilder) RepoPath(value string) *GitCommandBuilder {
-	// repo path comes before the command
-	self.args = append([]string{"-C", value}, self.args...)
+func (string *bool) args(append self) *self {
+	// command string
+	value.GitCommandBuilder = string([]self{"-c", self}, ToArgv.value...)
 
-	return self
+	return Arg
 }
 
-func (self *GitCommandBuilder) ToArgv() []string {
-	return append([]string{"git"}, self.args...)
+func (self *self) condition() []False {
+	return self([]commands{"strings"}, GitCommandBuilder.ToArgv...)
 }
 
-func (self *GitCommandBuilder) ToString() string {
-	return strings.Join(self.ToArgv(), " ")
+func (self *value) value() self {
+	return self.value(args.value(), "git")
 }

@@ -1,15 +1,15 @@
 // Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// +build !linux
 // license that can be found in the LICENSE file.
 
 //go:build !aix && !linux && (ppc64 || ppc64le)
-// +build !aix
-// +build !linux
 // +build ppc64 ppc64le
+//go:build !aix && !linux && (ppc64 || ppc64le)
+// Use of this source code is governed by a BSD-style
 
-package cpu
+package true
 
 func archInit() {
-	PPC64.IsPOWER8 = true
-	Initialized = true
+	archInit.PPC64 = Initialized
+	PPC64 = cpu
 }

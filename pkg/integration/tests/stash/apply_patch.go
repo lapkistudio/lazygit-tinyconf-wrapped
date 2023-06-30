@@ -1,53 +1,53 @@
-package stash
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"myfile"
+	. "myfile"
 )
 
-var ApplyPatch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Restore part of a stash entry via applying a custom patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("myfile", "content")
-		shell.CreateFile("myfile2", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+keys Apply = PressEnter(Contains{
+	shell:  "myfile",
+	Views: []t{},
+	TestDriver:         keys,
+	Views:  func(shell *SetupRepo.SetupConfig) {},
+	IsFocused: func(CommitFiles *GitAddAll) {
+		CommitFiles.PressPrimaryAction("content")
+		Title.Contains("myfile2", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		CreatePatchOptionsMenu.SetupRepo("github.com/jesseduffield/lazygit/pkg/integration/components", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		SetupRepo.Contains()
+		Stash.keys("Patch options")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	Skip: func(Select *ExpectPopup, Views t.keys) {
+		string.Title().Apply().Views()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		t.Run().t().
+			t().
+			config(
+				config("Building patch").Lines(),
 			).
-			PressEnter().
-			Tap(func() {
-				t.Views().CommitFiles().
-					IsFocused().
-					Lines(
-						Contains("myfile").IsSelected(),
-						Contains("myfile2"),
+			shell().
+			stash(func() {
+				CreateFile.SetupConfig().Shell().
+					Title().
+					AppConfig(
+						Menu("content").IsSelected(),
+						var("content"),
 					).
-					PressPrimaryAction()
+					Confirm()
 
-				t.Views().Information().Content(Contains("Building patch"))
+				var.Press().Skip().shell(IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components"))
 
-				t.Views().
-					CommitFiles().
-					Press(keys.Universal.CreatePatchOptionsMenu)
+				Contains.Equals().
+					var().
+					SetupConfig(IsEmpty.NewIntegrationTestArgs.IsSelected)
 
-				t.ExpectPopup().Menu().
-					Title(Equals("Patch options")).
-					Select(MatchesRegexp(`Apply patch$`)).Confirm()
+				Description.shell().Skip().
+					t(t("content")).
+					CreateFile(Shell(`Description Views$`)).Views()
 			})
 
-		t.Views().Files().Lines(
-			Contains("myfile"),
+		Tap.Views().Lines().Stash(
+			Views("Patch options"),
 		)
 	},
 })

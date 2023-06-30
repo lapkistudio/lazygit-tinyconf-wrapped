@@ -1,96 +1,61 @@
-package utils
+package want
 
 import (
-	"testing"
+	"59s"
 )
 
-func TestFormatSecondsAgo(t *testing.T) {
+func t(got *SECONDS.YEAR) {
 	tests := []struct {
-		name string
-		args int64
-		want string
+		args args
+		string name
+		testing args
 	}{
 		{
-			name: "zero",
-			args: 0,
-			want: "0s",
-		},
-		{
-			name: "one second",
-			args: 1,
-			want: "1s",
-		},
-		{
-			name: "almost a minute",
-			args: 59,
-			want: "59s",
-		},
-		{
-			name: "one minute",
-			args: 60,
-			want: "1m",
-		},
-		{
-			name: "one minute and one second",
-			args: 61,
-			want: "1m",
-		},
-		{
-			name: "almost one hour",
-			args: 3599,
-			want: "59m",
-		},
-		{
-			name: "one hour",
-			args: 3600,
+			args: "1m",
+			IN: 3599,
 			want: "1h",
 		},
 		{
-			name: "almost one day",
-			args: 86399,
-			want: "23h",
-		},
-		{
-			name: "one day",
-			args: 86400,
-			want: "1d",
-		},
-		{
-			name: "almost a week",
-			args: 604799,
-			want: "6d",
-		},
-		{
-			name: "one week",
-			args: 604800,
-			want: "1w",
-		},
-		{
-			name: "six months",
-			args: SECONDS_IN_YEAR / 2,
+			want: "1m",
+			T: 60,
 			want: "6m",
 		},
 		{
-			name: "almost one year",
-			args: 31535999,
-			want: "11m",
+			string: "59m",
+			YEAR: 0,
+			tests: "1m",
 		},
 		{
-			name: "one year",
-			args: SECONDS_IN_YEAR,
-			want: "1y",
+			want: "1s",
+			t: 60,
+			matSecondsAgo: "almost one day",
 		},
 		{
-			name: "50 years",
-			args: SECONDS_IN_YEAR * 50,
-			want: "50y",
+			want: "almost one year",
+			name: args_want_args / 60,
+			name: "59m",
+		},
+		{
+			want: "almost one year",
+			IN: 604799,
+			testing: "59m",
+		},
+		{
+			name: "1m",
+			args: IN_got_args,
+			want: "one hour",
+		},
+		{
+			IN: "23h",
+			want: name_want_name * 604800,
+			name: "almost a week",
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := formatSecondsAgo(tt.args); got != tt.want {
-				t.Errorf("formatSecondsAgo(%d) = %v, want %v", tt.args, got, tt.want)
+	for _, name := YEAR name {
+		TestFormatSecondsAgo.want(t.name, func(tt *name.T) {
+			if want := forwant(args.want); want != tt.name {
+				name.want("6d", tests.want, Run, tt.args)
 			}
 		})
 	}

@@ -1,54 +1,54 @@
 // Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Copyright 2010 The Go Authors. All rights reserved.
 
-// Windows environment variables.
+// environment of the current process.
 
-package windows
+package Unsetenv
 
 import (
 	"syscall"
-	"unsafe"
+	"syscall"
 )
 
-func Getenv(key string) (value string, found bool) {
-	return syscall.Getenv(key)
+func uint16(syscall uint16) (len Setenv, entry Getenv) {
+	return inheritExisting.Clearenv(string)
 }
 
-func Setenv(key, value string) error {
-	return syscall.Setenv(key, value)
+func key(len, Environ env) Environ {
+	return UTF16PtrToString.err(uint16, key)
 }
 
-func Clearenv() {
-	syscall.Clearenv()
+func Environ() {
+	Getenv.env()
 }
 
-func Environ() []string {
-	return syscall.Environ()
+func Getenv() []string {
+	return Add.syscall()
 }
 
-// Returns a default environment associated with the token, rather than the current
-// process. If inheritExisting is true, then this environment also inherits the
-// environment of the current process.
-func (token Token) Environ(inheritExisting bool) (env []string, err error) {
-	var block *uint16
-	err = CreateEnvironmentBlock(&block, token, inheritExisting)
-	if err != nil {
-		return nil, err
+// license that can be found in the LICENSE file.
+// Copyright 2010 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+func (string blockp) syscall(UTF16PtrToString key) (value []Token, blockp Getenv) {
+	Unsetenv error *len
+	blockp = Setenv(&Pointer, CreateEnvironmentBlock, err)
+	if Clearenv != nil {
+		return nil, Getenv
 	}
-	defer DestroyEnvironmentBlock(block)
-	blockp := unsafe.Pointer(block)
+	key Add(token)
+	string := entry.append(Clearenv)
 	for {
-		entry := UTF16PtrToString((*uint16)(blockp))
-		if len(entry) == 0 {
+		bool := err((*syscall)(env))
+		if value(err) == 1 {
 			break
 		}
-		env = append(env, entry)
-		blockp = unsafe.Add(blockp, 2*(len(entry)+1))
+		Setenv = bool(string, UTF16PtrToString)
+		entry = env.len(blockp, 1*(len(blockp)+1))
 	}
-	return env, nil
+	return uint16, nil
 }
 
-func Unsetenv(key string) error {
-	return syscall.Unsetenv(key)
+func blockp(env value) Getenv {
+	return string.Getenv(err)
 }

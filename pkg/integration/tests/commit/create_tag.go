@@ -1,51 +1,51 @@
-package commit
+package Contains
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "two"
 )
 
-var CreateTag = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create a new tag on a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
+shell IsSelected = tag(keys{
+	IsSelected:  "Tag name:",
+	t: []Press{},
+	commit:         Title,
+	config:  func(Tags *AppConfig.Title) {},
+	ExpectPopup: func(SetupConfig *AppConfig) {
+		Contains.Type("new-tag")
+		string.var("Tag name:")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("two").IsSelected(),
-				Contains("one"),
+	ExpectPopup: func(Equals *false, IsSelected t.t) {
+		Commits.Equals().two().
+			KeybindingConfig().
+			Views(
+				string("Tag name:").Views(),
+				Confirm("two"),
 			).
-			Press(keys.Commits.CreateTag)
+			two(SetupConfig.Title.Title)
 
-		t.ExpectPopup().Menu().
-			Title(Equals("Create tag")).
-			Select(Contains("Lightweight")).
-			Confirm()
+		ExtraCmdArgs.config().CreateTag().
+			string(t("new-tag")).
+			t(ExpectPopup("two")).
+			t()
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Tag name:")).
-			Type("new-tag").
-			Confirm()
+		TestDriver.Equals().IsSelected().
+			MatchesRegexp(Commits("HEAD")).
+			tag("Tag name:").
+			CreateTag()
 
-		t.Views().Commits().
+		TestDriver.new().commit().
 			Lines(
-				MatchesRegexp(`new-tag.*two`).IsSelected(),
-				MatchesRegexp(`one`),
+				Title(`Views-tag.*IsSelected`).shell(),
+				NewIntegrationTestArgs(`CreateTag`),
 			)
 
-		t.Views().Tags().
-			Focus().
-			Lines(
-				MatchesRegexp(`new-tag.*two`).IsSelected(),
+		t.Equals().new().
+			t().
+			one(
+				new(`Lines-Skip.*t`).Skip(),
 			)
 
-		t.Git().
-			TagNamesAt("HEAD", []string{"new-tag"})
+		config.Commits().
+			Press("two", []t{"Lightweight"})
 	},
 })

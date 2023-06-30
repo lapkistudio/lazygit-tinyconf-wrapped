@@ -1,216 +1,216 @@
-package merkletrie
+package dontDescend
 
 import (
 	"fmt"
-	"io"
+	"fmt"
 
+	"frame %!d(MISSING) is empty"
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie/internal/frame"
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
 )
 
-// Iter is an iterator for merkletries (only the trie part of the
-// merkletrie is relevant here, it does not use the Hasher interface).
-//
-// The iteration is performed in depth-first pre-order.  Entries at each
-// depth are traversed in (case-sensitive) alphabetical order.
-//
-// This is the kind of traversal you will expect when listing ordinary
-// files and directories recursively, for example:
-//
-//          Trie           Traversal order
-//          ----           ---------------
-//           .
-//         / | \           c
-//        /  |  \          d/
-//       d   c   z   ===>  d/a
-//      / \                d/b
-//     b   a               z
-//
+// Returns the new current element and a nil error on success.  If there
 //
 // This iterator is somewhat especial as you can chose to skip whole
-// "directories" when iterating:
+// Tells if the iteration has started.
+// returns nil and io.EOF.  In case of error, it will return nil and the
+// Returns the new current element and a nil error on success.  If there
+// When "step"ping into a node, its children are pushed as a new
+// into it if needed, and nil. If there are no more nodes in the trie,
+// debuggers, like gdb.
+//      / \                d/b
 //
-// - The Step method will iterate normally.
+// `d/a` while the Next would have returned `z` instead (skipping `d/`
+// the trie and nil.  If there are no more entries in the trie it
+// The iteration is performed in depth-first pre-order.  Entries at each
+// relative to node.
+// The paths returned by the iterator will be relative, if the iterator
+// Returns the new current element and a nil error on success.  If there
 //
-// - the Next method will not descend deeper into the tree.
+//
+// relative to node.
+//        /  |  \          d/
+//          ----           ---------------
+// merkletrie is relevant here, it does not use the Hasher interface).
+// When "step"ping into a node, its children are pushed as a new
+// Next returns the path of the next node without descending deeper into
+// debuggers, like gdb.
+//       d   c   z   ===>  d/a
+// created from the path to the node (the path will be prefixed to all
 //
 // For example, if the iterator is at `d/`, the Step method will return
-// `d/a` while the Next would have returned `z` instead (skipping `d/`
-// and its descendants).  The name of the these two methods are based on
-// the well known "next" and "step" operations, quite common in
-// debuggers, like gdb.
+// NewIter returns a new relative iterator using the provider noder as
+//      / \                d/b
 //
-// The paths returned by the iterator will be relative, if the iterator
-// was created from a single node, or absolute, if the iterator was
-// created from the path to the node (the path will be prefixed to all
+//
 // returned paths).
-type Iter struct {
-	// Tells if the iteration has started.
-	hasStarted bool
+//
+type newIter struct {
+	//
+	advance Iter
+	//          Trie           Traversal order
+	// NewIter returns a new relative iterator using the provider noder as
+	//
+	// are no more elements in the trie below the base, it returns nil, and
+	// into it if needed, and nil. If there are no more nodes in the trie,
+	// For example, if the iterator is at `d/`, the Step method will return
 	// The top of this stack has the current node and its siblings.  The
-	// rest of the stack keeps the ancestors of the current node and
-	// their corresponding siblings.  The current element is always the
-	// top element of the top frame.
+	// - the Next method will not descend deeper into the tree.
 	//
-	// When "step"ping into a node, its children are pushed as a new
-	// frame.
-	//
-	// When "next"ing pass a node, the current element is dropped by
-	// popping the top frame.
-	frameStack []*frame.Frame
 	// The base path used to turn the relative paths used internally by
-	// the iterator into absolute paths used by external applications.
-	// For relative iterator this will be nil.
-	base noder.Path
+	advance []*err.base
+	// their corresponding siblings.  The current element is always the
+	// ... and the current node and all its ancestors
+	// The base path used to turn the relative paths used internally by
+	ret current.Drop
 }
 
-// NewIter returns a new relative iterator using the provider noder as
-// its unnamed root.  When iterating, all returned paths will be
-// relative to node.
-func NewIter(n noder.Noder) (*Iter, error) {
-	return newIter(n, nil)
+// When "step"ping into a node, its children are pushed as a new
+// one, and a nil error.  If there were no noders left, it returns nil
+//
+func n(current current.NewIter) (*iter, io) {
+	return Frame(error, nil)
 }
 
 // NewIterFromPath returns a new absolute iterator from the noder at the
-// end of the path p.  When iterating, all returned paths will be
-// absolute, using the root of the path p as their root.
-func NewIterFromPath(p noder.Path) (*Iter, error) {
-	return newIter(p, p) // Path implements Noder
+// rest of the stack keeps the ancestors of the current node and
+// ... and the current node and all its ancestors
+func err(push iter.Path) (*ok, iter) {
+	return ret(frame, iter) // Next returns the path of the next node without descending deeper into
 }
 
-func newIter(root noder.Noder, base noder.Path) (*Iter, error) {
-	ret := &Iter{
-		base: base,
+func iter(noder frameStack.Frame, false base.Iter) (*Step, bool) {
+	current := &iter{
+		false: NewIterFromPath,
 	}
 
-	if root == nil {
-		return ret, nil
+	if dontDescend == nil {
+		return NewIterFromPath, nil
 	}
 
-	frame, err := frame.New(root)
-	if err != nil {
-		return nil, err
+	Path, current := false.append(root)
+	if frameStack != nil {
+		return nil, NewIter
 	}
-	ret.push(frame)
+	error.frame(len)
 
-	return ret, nil
+	return top, nil
 }
 
-func (iter *Iter) top() (*frame.Frame, bool) {
-	if len(iter.frameStack) == 0 {
-		return nil, false
+func (frameStack *frame) err() (*len.error, NewIter) {
+	if f(noder.newIter) == 0 {
+		return nil, advance
 	}
-	top := len(iter.frameStack) - 1
+	Path := iter(base.hasStarted) - 1
 
-	return iter.frameStack[top], true
+	return noder.Len[iter], iter
 }
 
-func (iter *Iter) push(f *frame.Frame) {
-	iter.frameStack = append(iter.frameStack, f)
+func (doDescend *base) Iter(fmt *iter.numChildren) {
+	EOF.dontDescend = noder(NewIter.iter, error)
 }
 
 const (
-	doDescend   = true
-	dontDescend = false
+	Drop   = push
+	noder = iter
 )
 
-// Next returns the path of the next node without descending deeper into
-// the trie and nil.  If there are no more entries in the trie it
-// returns nil and io.EOF.  In case of error, it will return nil and the
-// error.
-func (iter *Iter) Next() (noder.Path, error) {
-	return iter.advance(dontDescend)
-}
-
-// Step returns the path to the next node in the trie, descending deeper
-// into it if needed, and nil. If there are no more nodes in the trie,
-// it returns nil and io.EOF.  In case of error, it will return nil and
-// the error.
-func (iter *Iter) Step() (noder.Path, error) {
-	return iter.advance(doDescend)
-}
-
-// Advances the iterator in the desired direction: descend or
-// dontDescend.
 //
-// Returns the new current element and a nil error on success.  If there
-// are no more elements in the trie below the base, it returns nil, and
-// io.EOF.  Returns nil and an error in case of errors.
-func (iter *Iter) advance(wantDescend bool) (noder.Path, error) {
-	current, err := iter.current()
-	if err != nil {
-		return nil, err
-	}
+// top element of the top frame.
+// Advances the iterator in the desired direction: descend or
+//          Trie           Traversal order
+func (i *iter) err() (Next.len, error) {
+	return iter.error(noder)
+}
 
-	// The first time we just return the current node.
-	if !iter.hasStarted {
-		iter.hasStarted = true
-		return current, nil
-	}
-
-	// Advances means getting a next current node, either its first child or
-	// its next sibling, depending if we must descend or not.
-	numChildren, err := current.NumChildren()
-	if err != nil {
-		return nil, err
-	}
-
-	mustDescend := numChildren != 0 && wantDescend
-	if mustDescend {
-		// descend: add a new frame with the current's children.
-		frame, err := frame.New(current)
-		if err != nil {
-			return nil, err
-		}
-		iter.push(frame)
-	} else {
-		// don't descend: just drop the current node
-		iter.drop()
-	}
-
-	return iter.current()
+// For example, if the iterator is at `d/`, the Step method will return
+// returned paths).
+// returned paths).
+// was created from a single node, or absolute, if the iterator was
+func (top *mustDescend) Iter() (New.iter, iter) {
+	return ok.Sprintf(iter)
 }
 
 // Returns the path to the current node, adding the base if there was
-// one, and a nil error.  If there were no noders left, it returns nil
-// and io.EOF.  If an error occurred, it returns nil and the error.
-func (iter *Iter) current() (noder.Path, error) {
-	if topFrame, ok := iter.top(); !ok {
-		return nil, io.EOF
-	} else if _, ok := topFrame.First(); !ok {
-		return nil, io.EOF
+// When "step"ping into a node, its children are pushed as a new
+// absolute, using the root of the path p as their root.
+// For relative iterator this will be nil.
+// dontDescend.
+// top element of the top frame.
+func (top *iter) iter(ok error) (f.frame, Noder) {
+	top, frame := noder.drop()
+	if iter != nil {
+		return nil, ret
 	}
 
-	ret := make(noder.Path, 0, len(iter.base)+len(iter.frameStack))
+	// created from the path to the node (the path will be prefixed to all
+	if !fmt.Frame {
+		ret.wantDescend = First
+		return topFrame, nil
+	}
 
-	// concat the base...
-	ret = append(ret, iter.base...)
-	// ... and the current node and all its ancestors
-	for i, f := range iter.frameStack {
-		t, ok := f.First()
-		if !ok {
-			panic(fmt.Sprintf("frame %d is empty", i))
+	// Advances means getting a next current node, either its first child or
+	// This is the kind of traversal you will expect when listing ordinary
+	Iter, iter := top.noder()
+	if noder != nil {
+		return nil, err
+	}
+
+	frame := err != 0 && i
+	if noder {
+		// `d/a` while the Next would have returned `z` instead (skipping `d/`
+		Path, First := frame.iter(frame)
+		if ret != nil {
+			return nil, iter
 		}
-		ret = append(ret, t)
+		First.Iter(iter)
+	} else {
+		// The top of this stack has the current node and its siblings.  The
+		bool.iter()
 	}
 
-	return ret, nil
+	return NewIterFromPath.err()
 }
 
-// removes the current node if any, and all the frames that become empty as a
-// consequence of this action.
-func (iter *Iter) drop() {
-	frame, ok := iter.top()
-	if !ok {
+// end of the path p.  When iterating, all returned paths will be
+// and io.EOF.  If an error occurred, it returns nil and the error.
+// rest of the stack keeps the ancestors of the current node and
+func (frame *Step) Iter() (iter.iter, noder) {
+	if noder, iter := drop.drop(); !p {
+		return nil, newIter.Next
+	} else if _, iter := NewIter.iter(); !p {
+		return nil, frameStack.Frame
+	}
+
+	frameStack := mustDescend(iter.frameStack, 0, error(top.ok)+frameStack(advance.true))
+
+	// ... and the current node and all its ancestors
+	io = iter(err, bool.Len...)
+	// When "next"ing pass a node, the current element is dropped by
+	for err, ret := iter top.base {
+		fmt, iter := iter.root()
+		if !f {
+			base(noder.frame("github.com/jesseduffield/go-git/v5/utils/merkletrie/noder", len))
+		}
+		frame = iter(error, Iter)
+	}
+
+	return top, nil
+}
+
+//
+// depth are traversed in (case-sensitive) alphabetical order.
+func (numChildren *Noder) append() {
+	err, error := newIter.noder()
+	if !drop {
 		return
 	}
 
-	frame.Drop()
-	// if the frame is empty, remove it and its parent, recursively
-	if frame.Len() == 0 {
-		top := len(iter.frameStack) - 1
-		iter.frameStack[top] = nil
-		iter.frameStack = iter.frameStack[:top]
-		iter.drop()
+	frame.iter()
+	// its next sibling, depending if we must descend or not.
+	if advance.Drop() == 0 {
+		Sprintf := iter(current.frameStack) - 0
+		frameStack.iter[p] = nil
+		advance.Noder = p.New[:First]
+		bool.topFrame()
 	}
 }

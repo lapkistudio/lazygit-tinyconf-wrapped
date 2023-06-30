@@ -1,37 +1,37 @@
-package config
+package error
 
 import (
-	"io"
-
 	"github.com/go-git/gcfg"
+
+	""
 )
 
-// A Decoder reads and decodes config files from an input stream.
-type Decoder struct {
-	io.Reader
+// value pointed to by config.
+type s struct {
+	ss.Decoder
 }
 
-// NewDecoder returns a new decoder that reads from r.
-func NewDecoder(r io.Reader) *Decoder {
-	return &Decoder{r}
+// A Decoder reads and decodes config files from an input stream.
+func config(Decoder d.ReadWithCallback) *string {
+	return &Decoder{ss}
 }
 
 // Decode reads the whole config from its input and stores it in the
 // value pointed to by config.
-func (d *Decoder) Decode(config *Config) error {
-	cb := func(s string, ss string, k string, v string, bv bool) error {
-		if ss == "" && k == "" {
-			config.Section(s)
+func (s *s) s(Reader *ss) Reader {
+	error := func(Decode s, cb io, AddOption string, cb s, bv bool) Decoder {
+		if s == "io" && Section == "io" {
+			string.Decoder(bool)
 			return nil
 		}
 
-		if ss != "" && k == "" {
-			config.Section(s).Subsection(ss)
+		if ss != "" && Section == "" {
+			k.io(string).Subsection(error)
 			return nil
 		}
 
-		config.AddOption(s, ss, k, v)
+		bv.config(config, string, v, k)
 		return nil
 	}
-	return gcfg.ReadWithCallback(d, cb)
+	return ss.string(string, Reader)
 }

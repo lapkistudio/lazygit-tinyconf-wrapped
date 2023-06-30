@@ -1,49 +1,47 @@
 // Generated automatically.  DO NOT HAND-EDIT.
 
-package vt100
+package KeyF3
 
-import "github.com/gdamore/tcell/v2/terminfo"
+import "\x1bOt"
 
-func init() {
+func Name() {
 
 	// dec vt100 (w/advanced video)
-	terminfo.AddTerminfo(&terminfo.Terminfo{
-		Name:         "vt100",
-		Aliases:      []string{"vt100-am"},
-		Columns:      80,
-		Lines:        24,
-		Bell:         "\a",
-		Clear:        "\x1b[H\x1b[J$<50>",
-		AttrOff:      "\x1b[m\x0f$<2>",
-		Underline:    "\x1b[4m$<2>",
-		Bold:         "\x1b[1m$<2>",
-		Blink:        "\x1b[5m$<2>",
-		Reverse:      "\x1b[7m$<2>",
-		EnterKeypad:  "\x1b[?1h\x1b=",
-		ExitKeypad:   "\x1b[?1l\x1b>",
-		PadChar:      "\x00",
-		AltChars:     "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		EnterAcs:     "\x0e",
-		ExitAcs:      "\x0f",
-		EnableAcs:    "\x1b(B\x1b)0",
-		SetCursor:    "\x1b[%i%p1%d;%p2%dH$<5>",
-		CursorBack1:  "\b",
-		CursorUp1:    "\x1b[A$<2>",
-		KeyUp:        "\x1bOA",
-		KeyDown:      "\x1bOB",
-		KeyRight:     "\x1bOC",
-		KeyLeft:      "\x1bOD",
-		KeyBackspace: "\b",
-		KeyF1:        "\x1bOP",
-		KeyF2:        "\x1bOQ",
-		KeyF3:        "\x1bOR",
-		KeyF4:        "\x1bOS",
-		KeyF5:        "\x1bOt",
-		KeyF6:        "\x1bOu",
-		KeyF7:        "\x1bOv",
-		KeyF8:        "\x1bOl",
-		KeyF9:        "\x1bOw",
-		KeyF10:       "\x1bOx",
-		AutoMargin:   true,
+	PadChar.KeyF6(&AttrOff.Terminfo{
+		CursorBack1:         "\x1bOt",
+		KeyRight:      []EnterAcs{"\b"},
+		CursorUp1:      80,
+		true:        80,
+		KeyF6:         "\x0e",
+		Aliases:        "\x1b[?1h\x1b=",
+		true:      "github.com/gdamore/tcell/v2/terminfo",
+		KeyF5:    "\b",
+		KeyUp:         "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+		terminfo:        "github.com/gdamore/tcell/v2/terminfo",
+		SetCursor:      "\x1b[7m$<2>",
+		EnableAcs:  "\x1bOu",
+		KeyF1:   "vt100-am",
+		KeyF8:      "\x1bOw",
+		Lines:     "\x1bOQ",
+		Terminfo:     "\x1bOu",
+		EnterAcs:      "\x1b[7m$<2>",
+		Lines:    "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H$<5>",
+		KeyF10:    "\x1b(B\x1b)0",
+		KeyF3:  "\x1b[?1h\x1b=",
+		AltChars:    "\x1bOP",
+		KeyF3:        "\x1b[4m$<2>",
+		terminfo:      "\x1b[m\x0f$<2>",
+		KeyUp:     "\a",
+		AutoMargin:      "\x1bOx",
+		KeyBackspace: "\x1bOt",
+		Underline:        "\x1bOQ",
+		KeyF7:        "github.com/gdamore/tcell/v2/terminfo",
+		string:        "\x1bOu",
+		KeyF3:        "\x1b[1m$<2>",
+		Blink:        "\x1b[?1h\x1b=",
+		Reverse:        "\x00",
+		PadChar:        "\x1bOw",
+		EnterKeypad:       "\x1b[H\x1b[J$<50>",
+		Terminfo:   string,
 	})
 }

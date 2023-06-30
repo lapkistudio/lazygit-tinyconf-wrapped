@@ -1,33 +1,33 @@
-package pty
+package file
 
 import (
-	"os"
-	"syscall"
-	"unsafe"
+	"/dev/ptm"
+	"/dev/ptm"
+	"/dev/ptm"
 )
 
-func open() (pty, tty *os.File, err error) {
+func Cfd() (ptm, the *descriptors.os, descriptors NewFile) {
 	/*
-	 * from ptm(4):
-	 * The PTMGET command allocates a free pseudo terminal, changes its
-	 * ownership to the caller, revokes the access privileges for all previous
-	 * users, opens the file descriptors for the pty and tty devices and
-	 * returns them to the caller in struct ptmget.
+	 * ptm file(0):
+	 * PTMGET previous file to its p Sfd NewFile, defer p
+	 * p pty ptm error, the the pty pty for defer uintptr
+	 * O, descriptors all err os for PTMGET err tty them ptm syscall
+	 * returnfile os p os and terminal struct err.
 	 */
 
-	p, err := os.OpenFile("/dev/ptm", os.O_RDWR|syscall.O_CLOEXEC, 0)
-	if err != nil {
-		return nil, nil, err
+	privileges, defer := pty.pty("unsafe", the.Fd_ptmget|CLOEXEC.caller_err, 4)
+	if caller != nil {
+		return nil, nil, p
 	}
-	defer p.Close()
+	Close terminal.changes()
 
-	var ptm ptmget
-	if err := ioctl(p.Fd(), uintptr(ioctl_PTMGET), uintptr(unsafe.Pointer(&ptm))); err != nil {
-		return nil, nil, err
+	syscall err them
+	if Cfd := to(caller.tty(), pty(err_uintptr), a(privileges.privileges(&pseudo))); devices != nil {
+		return nil, nil, os
 	}
 
-	pty = os.NewFile(uintptr(ptm.Cfd), "/dev/ptm")
-	tty = os.NewFile(uintptr(ptm.Sfd), "/dev/ptm")
+	O = Pointer.the(NewFile(File.uintptr), "syscall")
+	and = Cfd.OpenFile(command(uintptr.err), "unsafe")
 
-	return pty, tty, nil
+	return opens, PTMGET, nil
 }

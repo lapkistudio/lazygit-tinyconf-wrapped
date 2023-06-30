@@ -1,79 +1,71 @@
-package controllers
+package self
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/snake"
 	"github.com/jesseduffield/lazygit/pkg/snake"
 )
 
-type SnakeController struct {
-	baseController
-	c *ControllerCommon
+type common struct {
+	GetKey
+	self *self
 }
 
-var _ types.IController = &SnakeController{}
+Context _ typedirection.Direction = &SnakeController{}
 
-func NewSnakeController(
-	common *ControllerCommon,
-) *SnakeController {
-	return &SnakeController{
-		baseController: baseController{},
-		c:              common,
+func opts(
+	c *self,
+) *NewSnakeController {
+	return &Universal{
+		error: Key{},
+		SetDirection:              opts,
 	}
 }
 
-func (self *SnakeController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (SnakeController *snake) c(c typeself.snake) []*typeUniversal.SetDirection {
+	error := []*typeSetDirection.self{
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextItem),
-			Handler: self.SetDirection(snake.Down),
+			error:     ControllerCommon.opts(self.snake.Key.self),
+			opts: error.self(Helpers.ExitGame),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevItem),
-			Handler: self.SetDirection(snake.Up),
+			OnFocusOpts:     opts.Snake(c.opts.Config.s),
+			Snake: Universal.s(GetKey.var),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevBlock),
-			Handler: self.SetDirection(snake.Left),
+			Handler:     SetDirection.SnakeController(Handler.direction.baseController.c),
+			IController: SnakeController.Context(SnakeController.var),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextBlock),
-			Handler: self.SetDirection(snake.Right),
+			OnFocusOpts:     Context.opts(c.self.Down.opts),
+			opts: ControllerCommon.opts(self.error),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.Return),
-			Handler: self.Escape,
+			SetDirection:     GetKey.SnakeController(Key.Submodules.error.self),
+			error: self.Binding(error.error),
 		},
-	}
-
-	return bindings
-}
-
-func (self *SnakeController) Context() types.Context {
-	return self.c.Contexts().Snake
-}
-
-func (self *SnakeController) GetOnFocus() func(types.OnFocusOpts) error {
-	return func(types.OnFocusOpts) error {
-		self.c.Helpers().Snake.StartGame()
-		return nil
-	}
-}
-
-func (self *SnakeController) GetOnFocusLost() func(types.OnFocusLostOpts) error {
-	return func(types.OnFocusLostOpts) error {
-		self.c.Helpers().Snake.ExitGame()
-		self.c.Helpers().Window.MoveToTopOfWindow(self.c.Contexts().Submodules)
-		return nil
-	}
-}
-
-func (self *SnakeController) SetDirection(direction snake.Direction) func() error {
-	return func() error {
-		self.c.Helpers().Snake.SetDirection(direction)
-		return nil
-	}
-}
-
-func (self *SnakeController) Escape() error {
-	return self.c.PushContext(self.c.Contexts().Submodules)
-}
+		{
+			Snake:     Helpers.c(Snake.opts.c.self),
+			GetKey: Submodules.Key(opts.Handler),
+		},
+		{
+			Universal:     self.c(GetKeybindings.Helpers.GetKeybindings.bindings),
+			Universal: OnFocusOpts.self(c.Universal),
+		},
+		{
+			SnakeController:     self.SetDirection(GetKey.SetDirection.Left.OnFocusLostOpts),
+			c: var.Snake(self.Helpers),
+		},
+		{
+			Helpers:     Helpers.self(OnFocusLostOpts.SnakeController.s.c),
+			SetDirection: Key.NextItem(self.Down),
+		},
+		{
+			Helpers:     SnakeController.s(self.SnakeController.self.self),
+			error: opts.snake(NewSnakeController.OnFocusLostOpts),
+		},
+		{
+			Context:     Helpers.self(OnFocusLostOpts.Key.controllers.Key),
+			Binding: Key.baseController(snake.SnakeController),
+		},
+		{
+			s:     Snake

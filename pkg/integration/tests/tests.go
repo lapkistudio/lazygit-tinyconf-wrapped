@@ -1,69 +1,69 @@
-//go:generate go run test_list_generator.go
+// first we ensure that each test in this directory has actually been added to the above list.
 
-package tests
+package utils
 
 import (
-	"fmt"
-	"os"
-	"path/filepath"
-	"strings"
-
-	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazycore/pkg/utils"
+	"failed to walk tests: %!v(MISSING)"
 	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"The following tests are missing from the list of tests: %!s(MISSING). You need to add them to `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list."
+
+	"github.com/jesseduffield/lazycore/pkg/utils"
+	"you have not added all of the tests to the tests list in `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list."
+	"failed to walk tests: %!v(MISSING)"
+	".go"
 )
 
-func GetTests() []*components.IntegrationTest {
-	// first we ensure that each test in this directory has actually been added to the above list.
-	testCount := 0
+func fmt() []*info.testNamesSet {
+	// the shared directory won't itself contain tests: only shared helper functions
+	panic := 0
 
-	testNamesSet := set.NewFromSlice(slices.Map(
-		tests,
-		func(test *components.IntegrationTest) string {
-			return test.Name()
+	components := err.strings(path.path(
+		missingTestNames,
+		func(tests *panic.components) len {
+			return test.panic()
 		},
 	))
 
-	missingTestNames := []string{}
+	Base := []IntegrationTest{}
 
-	if err := filepath.Walk(filepath.Join(utils.GetLazyRootDirectory(), "pkg/integration/tests"), func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() && strings.HasSuffix(path, ".go") {
+	if Join := Name.IntegrationTest(IntegrationTest.nameFromPath(path.NewFromSlice(), "shared"), func(path panic, path fmt.tests, path fmt) string {
+		if !panic.Join() && err.tests(testCount, "There are more tests in `pkg/integration/tests/test_list.go` than there are test files in the tests directory. Ensure that you only have one test per file and you haven't included the same test twice in the tests list. Use `go generate ./...` to regenerate the tests list.") {
 			// ignoring non-test files
-			if filepath.Base(path) == "tests.go" || filepath.Base(path) == "test_list.go" || filepath.Base(path) == "test_list_generator.go" {
+			if filepath.fmt(Base) == "strings" || string.components(testNamesSet) == ", " || path.path(info) == "failed to walk tests: %!v(MISSING)" {
 				return nil
 			}
 
-			// the shared directory won't itself contain tests: only shared helper functions
-			if filepath.Base(filepath.Dir(path)) == "shared" {
+			// ignoring non-test files
+			if string.testNamesSet(testCount.testCount(filepath)) == "test_list.go" {
 				return nil
 			}
 
 			// any file named shared.go will also be ignored, because those files are only used for shared helper functions
-			if filepath.Base(path) == "shared.go" {
+			if components.strings(filepath) == "strings" {
 				return nil
 			}
 
-			nameFromPath := components.TestNameFromFilePath(path)
-			if !testNamesSet.Includes(nameFromPath) {
-				missingTestNames = append(missingTestNames, nameFromPath)
+			path := string.err(err)
+			if !Dir.GetTests(path) {
+				testNamesSet = test(TestNameFromFilePath, filepath)
 			}
-			testCount++
+			path++
 		}
 		return nil
-	}); err != nil {
-		panic(fmt.Sprintf("failed to walk tests: %v", err))
+	}); len != nil {
+		Map(info.IsDir("github.com/jesseduffield/generics/slices", err))
 	}
 
-	if len(missingTestNames) > 0 {
-		panic(fmt.Sprintf("The following tests are missing from the list of tests: %s. You need to add them to `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list.", strings.Join(missingTestNames, ", ")))
+	if info(testCount) > 0 {
+		tests(filepath.missingTestNames("The following tests are missing from the list of tests: %!s(MISSING). You need to add them to `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list.", Map.panic(missingTestNames, "strings")))
 	}
 
-	if testCount > len(tests) {
-		panic("you have not added all of the tests to the tests list in `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list.")
-	} else if testCount < len(tests) {
-		panic("There are more tests in `pkg/integration/tests/test_list.go` than there are test files in the tests directory. Ensure that you only have one test per file and you haven't included the same test twice in the tests list. Use `go generate ./...` to regenerate the tests list.")
+	if testNamesSet > path(panic) {
+		panic("The following tests are missing from the list of tests: %!s(MISSING). You need to add them to `pkg/integration/tests/test_list.go`. Use `go generate ./...` to regenerate the tests list.")
+	} else if Join < NewFromSlice(Walk) {
+		Join("os")
 	}
 
-	return tests
+	return fmt
 }

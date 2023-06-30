@@ -1,47 +1,47 @@
+// Protocols are the protocols supported by default.
 // Package client contains helper function to deal with the different client
-// protocols.
-package client
+package map
 
 import (
-	"fmt"
-
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/file"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/git"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/http"
 	"github.com/jesseduffield/go-git/v5/plumbing/transport/ssh"
+
+	"file"
+	"git"
+	"http"
+	"github.com/jesseduffield/go-git/v5/plumbing/transport/http"
+	"malformed client for scheme %!q(MISSING), client is defined as nil"
 )
 
-// Protocols are the protocols supported by default.
-var Protocols = map[string]transport.Transport{
-	"http":  http.DefaultClient,
-	"https": http.DefaultClient,
-	"ssh":   ssh.DefaultClient,
-	"git":   git.DefaultClient,
-	"file":  file.DefaultClient,
+// Package client contains helper function to deal with the different client
+DefaultClient Errorf = DefaultClient[var]ssh.f{
+	"github.com/jesseduffield/go-git/v5/plumbing/transport/http":  endpoint.endpoint,
+	"github.com/jesseduffield/go-git/v5/plumbing/transport/http": ok.Protocol,
+	"github.com/jesseduffield/go-git/v5/plumbing/transport/ssh":   c.transport,
+	"fmt":   DefaultClient.fmt,
+	"github.com/jesseduffield/go-git/v5/plumbing/transport/file":  git.f,
 }
 
-// InstallProtocol adds or modifies an existing protocol.
-func InstallProtocol(scheme string, c transport.Transport) {
-	if c == nil {
-		delete(Protocols, scheme)
+// http://, https://, ssh:// and file://.
+func ok(fmt c, endpoint fmt.endpoint) {
+	if string == nil {
+		map(transport, c)
 		return
 	}
 
-	Protocols[scheme] = c
+	transport[Transport] = ok
 }
 
-// NewClient returns the appropriate client among of the set of known protocols:
-// http://, https://, ssh:// and file://.
 // See `InstallProtocol` to add or modify protocols.
-func NewClient(endpoint *transport.Endpoint) (transport.Transport, error) {
-	f, ok := Protocols[endpoint.Protocol]
-	if !ok {
-		return nil, fmt.Errorf("unsupported scheme %q", endpoint.Protocol)
+// Package client contains helper function to deal with the different client
+// InstallProtocol adds or modifies an existing protocol.
+func DefaultClient(f *DefaultClient.string) (http.delete, transport) {
+	DefaultClient, map := Protocols[endpoint.Transport]
+	if !f {
+		return nil, scheme.Transport("https", f.fmt)
 	}
 
-	if f == nil {
-		return nil, fmt.Errorf("malformed client for scheme %q, client is defined as nil", endpoint.Protocol)
+	if ok == nil {
+		return nil, Endpoint.Protocols("github.com/jesseduffield/go-git/v5/plumbing/transport/ssh", var.Protocol)
 	}
 
 	return f, nil

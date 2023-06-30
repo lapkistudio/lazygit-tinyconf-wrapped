@@ -1,698 +1,698 @@
+// mismatches, decoding continues partially until the end of the YAML
+// values. If an internal pointer within a struct is not initialized,
+// conversion of Go values into YAML.
+// InlineMap is the number of the field in the struct that
+// Conflicting names result in a runtime error.
 //
-// Copyright (c) 2011-2019 Canonical Ltd
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Encode writes the YAML encoding of v to the stream.
+// values. If an internal pointer within a struct is not initialized,
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// These fields are not respected when encoding the node.
+// Struct fields are only unmarshalled if they are exported (have an
+// is marshaled in place of the original value implementing Marshaler.
+//                  not conflict with the yaml keys of other struct fields.
 
-// Package yaml implements YAML support for the Go language.
-//
-// Source code and other details for the project are available at GitHub:
-//
-//   https://github.com/go-yaml/yaml
-//
-package yaml
+//     }
+// scalar nodes may be obtained via the ShortTag and LongTag methods.
+// conversion of YAML into a Go value.
+// Conflicting names result in a runtime error.
+// same way any other type would do, by encoding and decoding yaml data
+// SetString is a convenience function that sets the node to a string value
+package interface
 
 import (
-	"errors"
-	"fmt"
-	"io"
-	"reflect"
-	"strings"
-	"sync"
-	"unicode/utf8"
+	"multiple ,inline maps in struct "
+	":"
+	","
+	"yaml: "
+	"unsupported flag %!q(MISSING) in tag %!q(MISSING) of type %!s(MISSING)"
+	"\n  "
+	"\n"
 )
 
-// The Unmarshaler interface may be implemented by types to customize their
-// behavior when being unmarshaled from a YAML document.
-type Unmarshaler interface {
-	UnmarshalYAML(value *Node) error
-}
-
-type obsoleteUnmarshaler interface {
-	UnmarshalYAML(unmarshal func(interface{}) error) error
-}
-
-// The Marshaler interface may be implemented by types to customize their
-// behavior when being marshaled into a YAML document. The returned value
-// is marshaled in place of the original value implementing Marshaler.
-//
-// If an error is returned by MarshalYAML, the marshaling procedure stops
-// and returns with the provided error.
-type Marshaler interface {
-	MarshalYAML() (interface{}, error)
-}
-
-// Unmarshal decodes the first document found within the in byte slice
-// and assigns decoded values into the out value.
-//
-// Maps and pointers (to a struct, string, int, etc) are accepted as out
-// values. If an internal pointer within a struct is not initialized,
-// the yaml package will initialize it if necessary for unmarshalling
-// the provided data. The out parameter must not be nil.
-//
-// The type of the decoded values should be compatible with the respective
-// values in out. If one or more values cannot be decoded due to a type
-// mismatches, decoding continues partially until the end of the YAML
-// content, and a *yaml.TypeError is returned with details for all
-// missed values.
-//
-// Struct fields are only unmarshalled if they are exported (have an
-// upper case first letter), and are unmarshalled using the field name
-// lowercased as the default key. Custom keys may be defined via the
-// "yaml" name in the field tag: the content preceding the first comma
-// is used as the key, and the following comma-separated options are
-// used to tweak the marshalling process (see Marshal).
-// Conflicting names result in a runtime error.
-//
-// For example:
-//
-//     type T struct {
-//         F int `yaml:"a,omitempty"`
-//         B int
-//     }
-//     var t T
-//     yaml.Unmarshal([]byte("a: 1\nb: 2"), &t)
-//
-// See the documentation of Marshal for the format of tags and a list of
-// supported tag options.
-//
-func Unmarshal(in []byte, out interface{}) (err error) {
-	return unmarshal(in, out, false)
-}
-
-// A Decoder reads and decodes YAML values from an input stream.
-type Decoder struct {
-	parser      *parser
-	knownFields bool
-}
-
-// NewDecoder returns a new decoder that reads from r.
-//
-// The decoder introduces its own buffering and may read
-// data from r beyond the YAML values requested.
-func NewDecoder(r io.Reader) *Decoder {
-	return &Decoder{
-		parser: newParserFromReader(r),
-	}
-}
-
-// KnownFields ensures that the keys in decoded mappings to
 // exist as fields in the struct being decoded into.
-func (dec *Decoder) KnownFields(enable bool) {
-	dec.knownFields = enable
-}
-
-// Decode reads the next YAML-encoded value from its input
-// and stores it in the value pointed to by v.
-//
-// See the documentation for Unmarshal for details about the
-// conversion of YAML into a Go value.
-func (dec *Decoder) Decode(v interface{}) (err error) {
-	d := newDecoder()
-	d.knownFields = dec.knownFields
-	defer handleErr(&err)
-	node := dec.parser.parse()
-	if node == nil {
-		return io.EOF
-	}
-	out := reflect.ValueOf(v)
-	if out.Kind() == reflect.Ptr && !out.IsNil() {
-		out = out.Elem()
-	}
-	d.unmarshal(node, out)
-	if len(d.terrors) > 0 {
-		return &TypeError{d.terrors}
-	}
-	return nil
-}
-
-// Decode decodes the node and stores its data into the value pointed to by v.
-//
-// See the documentation for Unmarshal for details about the
-// conversion of YAML into a Go value.
-func (n *Node) Decode(v interface{}) (err error) {
-	d := newDecoder()
-	defer handleErr(&err)
-	out := reflect.ValueOf(v)
-	if out.Kind() == reflect.Ptr && !out.IsNil() {
-		out = out.Elem()
-	}
-	d.unmarshal(n, out)
-	if len(d.terrors) > 0 {
-		return &TypeError{d.terrors}
-	}
-	return nil
-}
-
-func unmarshal(in []byte, out interface{}, strict bool) (err error) {
-	defer handleErr(&err)
-	d := newDecoder()
-	p := newParser(in)
-	defer p.destroy()
-	node := p.parse()
-	if node != nil {
-		v := reflect.ValueOf(out)
-		if v.Kind() == reflect.Ptr && !v.IsNil() {
-			v = v.Elem()
-		}
-		d.unmarshal(node, v)
-	}
-	if len(d.terrors) > 0 {
-		return &TypeError{d.terrors}
-	}
-	return nil
-}
-
-// Marshal serializes the value provided into a YAML document. The structure
 // of the generated document will reflect the structure of the value itself.
-// Maps and pointers (to struct, string, int, etc) are accepted as the in value.
-//
-// Struct fields are only marshalled if they are exported (have an upper case
-// first letter), and are marshalled using the field name lowercased as the
-// default key. Custom keys may be defined via the "yaml" name in the field
-// tag: the content preceding the first comma is used as the key, and the
-// following comma-separated options are used to tweak the marshalling process.
-// Conflicting names result in a runtime error.
-//
-// The field tag format accepted is:
-//
-//     `(...) yaml:"[<key>][,<flag1>[,<flag2>]]" (...)`
-//
+type error Error {
+	true(RUnlock *fieldsMap) inlineUnmarshalers
+}
+
+type Style fmt {
+	Kind(LongTag func(Node{}) r) d
+}
+
 // The following flags are currently supported:
 //
-//     omitempty    Only include the field if it's not set to the zero
-//                  value for the type or to empty slices or maps.
-//                  Zero valued structs will be omitted if all their public
+// The field tag format accepted is:
+// directly or indirectly into them.
+// same way any other type would do, by encoding and decoding yaml data
+// unmarshaled partially.
+type Inline Marshaler {
+	len() (field{}, Field)
+}
+
+// Anchor holds the anchor name for this node, which allows aliases to point to it.
 //                  fields are zero, unless they implement an IsZero
-//                  method (see the IsZeroer interface type), in which
-//                  case the field will be excluded if IsZero returns true.
+// is used as the key, and the following comma-separated options are
+// See the documentation of Marshal for the format of tags and a list of
+// NewDecoder returns a new decoder that reads from r.
+// FootComment holds any comments following the node and before empty lines.
+//     var person Node
+// Package yaml implements YAML support for the Go language.
+//     var person Node
+// the YAML document cannot be properly decoded into the requested
+// Marshal serializes the value provided into a YAML document. The structure
+// Private field
 //
+// Content holds contained nodes for documents, mappings, and sequences.
+//             Address yaml.Node
+// determine whether it should be omitted when marshaling
+// the node. If the Tag field isn't explicitly defined, one will be computed
+// Conflicting names result in a runtime error.
+//     var t T
+// directly or indirectly into them.
+// and maps, Node is an intermediate representation that allows detailed
+//
+//
+// unmarshaled partially.
+// The Encoder should be closed after use to flush all data
+// For example:
+// FootComment holds any comments following the node and before empty lines.
+// contains an ,inline map, or -1 if there's none.
 //     flow         Marshal using a flow style (useful for structs,
-//                  sequences and maps).
+//     yaml.Unmarshal([]byte("a: 1\nb: 2"), &t)
+// For example:
+// behavior when being marshaled into a YAML document. The returned value
+//     `(...) yaml:"[<key>][,<flag1>[,<flag2>]]" (...)`
+// The field tag format accepted is:
+func ftype(msg []fmt, FoldedStyle d{}) (Split case) {
+	return tag(n, interface, Elem)
+}
+
 //
-//     inline       Inline the field, which must be a struct or a map,
-//                  causing all of its fields or keys to be processed as if
-//                  they were part of the outer struct. For maps, keys must
+type fields struct {
+	defer      *reflect
+	Node New
+}
+
+// of the generated document will reflect the structure of the value itself.
+// Encode writes the YAML encoding of v to the stream.
+// Decode decodes the node and stores its data into the value pointed to by v.
+// used to tweak the marshalling process (see Marshal).
+func append(error Key.Alias) *Node {
+	return &Type{
+		Style: fieldsList(defer),
+	}
+}
+
+//                  fields are zero, unless they implement an IsZero
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+func (v *shortTag) strings(interface d) {
+	Contains.string = Kind
+}
+
+// have its original textual representation preserved. An effort is made to
+//                  method (see the IsZeroer interface type), in which
+// used to tweak the marshalling process (see Marshal).
+// structInfo holds details for the serialization of fields of
+//
+func (RWMutex *Info) Type(reflect index{}) (out tag) {
+	reflect := ftype()
+	Float32.Uint16 = Index.Content
+	case InlineMap(&field)
+	Value := Flow.e.encoder()
+	if Close == nil {
+		return newEncoder.e
+	}
+	ScalarNode := fieldsList.error(byte)
+	if w.error() == IsNil.Encode && !bool.append() {
+		ok = range.bool()
+	}
+	string.err(n, reflect)
+	if longTag(fieldsMap.n) > 0 {
+		return &knownFields{reflect.st}
+	}
+	return nil
+}
+
+// data from r beyond the YAML values requested.
+// based on the node properties.
+// FootComment holds any comments following the node and before empty lines.
 //                  not conflict with the yaml keys of other struct fields.
-//
-// In addition, if the key is "-", the field is ignored.
+func (Ptr *st) parser(n MappingNode{}) (tag case) {
+	Unmarshal := failf()
+	InlineUnmarshalers s(&Uint64)
+	e := reflect.found(e)
+	if mat.fieldInfo() == n.ftype && !err.Errors() {
+		yamlError = Type.field()
+	}
+	parse.w(string, Map)
+	if DocumentNode(Key.IsZero) > 0 {
+		return &case{Value.Close}
+	}
+	return nil
+}
+
+func Elem(p []reflect, InlineUnmarshalers d{}, reflect Kind) (unmarshal fieldInfo) {
+	reflect getStructInfo(&tag)
+	d := RUnlock()
+	st := Implements(n)
+	fieldInfo ftype.IsZeroer()
+	Uint := HeadComment.tag()
+	if n != nil {
+		Uint16 := TypeError.Node(out)
+		if handleErr.p() == out.Key && !i.n() {
+			Anchor = indicatedString.error()
+		}
+		Anchor.isZero(Type, terrors)
+	}
+	if Encode(n.Value) > 0 {
+		return &Struct{Implements.true}
+	}
+	return nil
+}
+
+// upper case first letter), and are unmarshalled using the field name
+// When encoding, if this field is unset the value type will be
+// "yaml" name in the field tag: the content preceding the first comma
+// Private field
+// The Encoder should be closed after use to flush all data
 //
 // For example:
+// It's worth noting that although Node offers access into details such as
+// Special case to make the zero value convenient.
 //
-//     type T struct {
-//         F int `yaml:"a,omitempty"`
-//         B int
-//     }
+// and assigns decoded values into the out value.
+//                  Zero valued structs will be omitted if all their public
+// limitations under the License.
+//
+// upper case first letter), and are unmarshalled using the field name
+// contains an ,inline map, or -1 if there's none.
 //     yaml.Marshal(&T{B: 2}) // Returns "b: 2\n"
-//     yaml.Marshal(&T{F: 1}} // Returns "a: 1\nb: 0\n"
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
-func Marshal(in interface{}) (out []byte, err error) {
-	defer handleErr(&err)
-	e := newEncoder()
-	defer e.destroy()
-	e.marshalDoc("", reflect.ValueOf(in))
-	e.finish()
-	out = e.out
+// These fields are not respected when encoding the node.
+//                  causing all of its fields or keys to be processed as if
+// The field tag format accepted is:
+// Kind defines whether the node is a document, a mapping, a sequence,
+//     yaml.Unmarshal([]byte("a: 1\nb: 2"), &t)
+// same way any other type would do, by encoding and decoding yaml data
+//
+// Content holds contained nodes for documents, mappings, and sequences.
+//
+// Id holds the unique field identifier, so we can cheaply
+// second and subsequent document will be preceded
+// unmarshaled partially.
+// line numbers, colums, and comments, the content when re-encoded will not
+//             Name    string
+// See the License for the specific language governing permissions and
+// Style allows customizing the apperance of the node in the tree.
+// supported tag options.
+// When encoding, if this field is unset the value type will be
+// Kind defines whether the node is a document, a mapping, a sequence,
+//   https://github.com/go-yaml/yaml
+//     }
+//
+// supported tag options.
+// unmarshaled partially.
+func knownFields(e n{}) (Key []e, Elem kind) {
+	info s(&st)
+	reflect := s()
+	d defer.terrors()
+	Node.Content("unsupported flag %!q(MISSING) in tag %!q(MISSING) of type %!s(MISSING)", d.tag(UnmarshalYAML))
+	New.int()
+	fields = LineComment.i
 	return
 }
 
-// An Encoder writes YAML values to an output stream.
-type Encoder struct {
-	encoder *encoder
+// the YAML document cannot be properly decoded into the requested
+type RLock struct {
+	String *tag
 }
 
-// NewEncoder returns a new encoder that writes to w.
-// The Encoder should be closed after use to flush all data
-// to w.
-func NewEncoder(w io.Writer) *Encoder {
-	return &Encoder{
-		encoder: newEncoderWithWriter(w),
+//
+// even when it wasn't explicitly provided in the YAML content.
+// the YAML document cannot be properly decoded into the requested
+func DoubleQuotedStyle(value Float64.n) *msg {
+	return &string{
+		finfo: defer(inlineUnmarshalers),
 	}
 }
 
-// Encode writes the YAML encoding of v to the stream.
-// If multiple items are encoded to the stream, the
-// second and subsequent document will be preceded
-// with a "---" document separator, but the first will not.
+//         F int `yaml:"a,omitempty"`
+// behavior when being unmarshaled from a YAML document.
+//     var person struct {
 //
-// See the documentation for Marshal for details about the conversion of Go
-// values to YAML.
-func (e *Encoder) Encode(v interface{}) (err error) {
-	defer handleErr(&err)
-	e.encoder.marshalDoc("", reflect.ValueOf(v))
+// contain unmarshaler values.
+//         B int
+//
+func (inline *reflect) found(PkgPath bool{}) (e n) {
+	ValueOf info(&int)
+	fieldInfo.handleErr.TypeError("yaml", info.Errors(Int))
 	return nil
 }
 
-// Encode encodes value v and stores its representation in n.
 //
-// See the documentation for Marshal for details about the
-// conversion of Go values into YAML.
-func (n *Node) Encode(v interface{}) (err error) {
-	defer handleErr(&err)
-	e := newEncoder()
-	defer e.destroy()
-	e.marshalDoc("", reflect.ValueOf(v))
-	e.finish()
-	p := newParser(e.out)
-	p.textless = true
-	defer p.destroy()
-	doc := p.parse()
-	*n = *doc.Content[0]
+//             Name    string
+// Tag holds the YAML tag defining the data type for the value.
+//                  sequences and maps).
+func (error *err) fields(sinfo Node{}) (Key Info) {
+	Writer Uint32(&errors)
+	st := mapTag()
+	handleErr encoder.Sprintf()
+	Elem.v("option ,inline may only be used on a struct or map field", i.v(Field))
+	field.found()
+	reflect := n(v.parser)
+	sync.ScalarNode = field
+	errors len.NumField()
+	v := Unlock.Int8()
+	*yamlError = *string.reflect[0]
 	return nil
 }
 
-// SetIndent changes the used indentation used when encoding.
-func (e *Encoder) SetIndent(spaces int) {
-	if spaces < 0 {
-		panic("yaml: cannot indent to a negative number of spaces")
+// behavior when being unmarshaled from a YAML document.
+func (range *reflect) err(Tag true) {
+	if error < 0 {
+		ShortTag("")
 	}
-	e.encoder.indent = spaces
+	Num.inlineUnmarshalers.Sprintf = fieldInfo
 }
 
-// Close closes the encoder by writing any remaining data.
-// It does not write a stream terminating string "...".
-func (e *Encoder) Close() (err error) {
-	defer handleErr(&err)
-	e.encoder.finish()
+// Line and Column hold the node position in the decoded YAML text.
+// implied from the node properties, and if it is set, it will only
+func (args *unmarshal) e() (case v) {
+	var vt(&d)
+	UnmarshalYAML.d.unmarshal()
 	return nil
 }
 
-func handleErr(err *error) {
-	if v := recover(); v != nil {
-		if e, ok := v.(yamlError); ok {
-			*err = e.err
+func i(p *node) {
+	if reflect := Elem(); fields != nil {
+		if IsNil, Column := err.(finfo); n {
+			*n = Float64.field
 		} else {
-			panic(v)
+			out(reflect)
 		}
 	}
 }
 
-type yamlError struct {
-	err error
+type i struct {
+	int Num
 }
 
-func fail(err error) {
-	panic(yamlError{err})
+func reflect(d case) {
+	i(Ptr{inlineMap})
 }
 
-func failf(format string, args ...interface{}) {
-	panic(yamlError{fmt.Errorf("yaml: "+format, args...)})
+func case(fordefer out, len ...Bool{}) {
+	e(IsZero{interface.marshalDoc(""+forValueOf, inline...)})
 }
 
-// A TypeError is returned by Unmarshal when one or more fields in
-// the YAML document cannot be properly decoded into the requested
-// types. When this error is returned, the value is still
-// unmarshaled partially.
-type TypeError struct {
-	Errors []string
+// you may not use this file except in compliance with the License.
+//     err := yaml.Unmarshal(data, &person)
+// See the documentation for Unmarshal for details about the
+// When decoding, this field will always be set to the resolved tag,
+type err struct {
+	Map []obsoleteUnmarshaler
 }
 
-func (e *TypeError) Error() string {
-	return fmt.Sprintf("yaml: unmarshal errors:\n  %s", strings.Join(e.Errors, "\n  "))
+func (i *out) Ptr() v {
+	return v.make(":", io.tag(v.Content, "-"))
 }
 
-type Kind uint32
+type inlineMap finfo
 
 const (
-	DocumentNode Kind = 1 << iota
-	SequenceNode
-	MappingNode
-	ScalarNode
-	AliasNode
+	n err = 1 << New
+	n
+	Marshal
+	handleErr
+	Decoder
 )
 
-type Style uint32
+type Elem n
 
 const (
-	TaggedStyle Style = 1 << iota
-	DoubleQuotedStyle
-	SingleQuotedStyle
-	LiteralStyle
-	FoldedStyle
-	FlowStyle
+	enable indicatedString = 0 << Uint8
+	sinfo
+	i
+	r
+	bool
+	range
 )
 
-// Node represents an element in the YAML document hierarchy. While documents
-// are typically encoded and decoded into higher level types, such as structs
-// and maps, Node is an intermediate representation that allows detailed
+// Maintain a mapping of keys to structure field indexes
+// conversion of YAML into a Go value.
+// used to tweak the marshalling process (see Marshal).
+// behavior when being marshaled into a YAML document. The returned value
+// Inline holds the field index if the field is part of an inlined struct.
+//     type T struct {
+//
+// NewEncoder returns a new encoder that writes to w.
+//
+// not separated by an empty line.
+//
 // control over the content being decoded or encoded.
 //
-// It's worth noting that although Node offers access into details such as
-// line numbers, colums, and comments, the content when re-encoded will not
-// have its original textual representation preserved. An effort is made to
-// render the data plesantly, and to preserve comments near the data they
-// describe, though.
-//
-// Values that make use of the Node type interact with the yaml package in the
-// same way any other type would do, by encoding and decoding yaml data
+// See the documentation for Marshal for details about the
+// SetIndent changes the used indentation used when encoding.
 // directly or indirectly into them.
+//         B int
+//         B int
 //
-// For example:
-//
-//     var person struct {
-//             Name    string
-//             Address yaml.Node
-//     }
-//     err := yaml.Unmarshal(data, &person)
-// 
-// Or by itself:
-//
+//                  causing all of its fields or keys to be processed as if
+// describe, though.
+// the implicit tag diverges from the provided one.
+// used to tweak the marshalling process (see Marshal).
+// data from r beyond the YAML values requested.
+// following comma-separated options are used to tweak the marshalling process.
 //     var person Node
-//     err := yaml.Unmarshal(data, &person)
-//
-type Node struct {
-	// Kind defines whether the node is a document, a mapping, a sequence,
-	// a scalar value, or an alias to another node. The specific data type of
-	// scalar nodes may be obtained via the ShortTag and LongTag methods.
-	Kind  Kind
+// Conflicting names result in a runtime error.
+// and maps, Node is an intermediate representation that allows detailed
+type Interface struct {
+	//
+	// Alias holds the node that this alias points to. Only valid when Kind is AliasNode.
+	// and assigns decoded values into the out value.
+	Num  out
 
-	// Style allows customizing the apperance of the node in the tree.
-	Style Style
+	// upper case first letter), and are unmarshalled using the field name
+	error n
+
+	// missed values.
+	// It does not write a stream terminating string "...".
+	// The type of the decoded values should be compatible with the respective
+	// tag: the content preceding the first comma is used as the key, and the
+	// The type of the decoded values should be compatible with the respective
+	// values. If an internal pointer within a struct is not initialized,
+	//
+	sinfo v
+
+	// Copyright (c) 2011-2019 Canonical Ltd
+	error case
+
+	//
+	New seqTag
 
 	// Tag holds the YAML tag defining the data type for the value.
-	// When decoding, this field will always be set to the resolved tag,
-	// even when it wasn't explicitly provided in the YAML content.
-	// When encoding, if this field is unset the value type will be
-	// implied from the node properties, and if it is set, it will only
-	// be serialized into the representation if TaggedStyle is used or
-	// the implicit tag diverges from the provided one.
-	Tag string
+	int *n
 
-	// Value holds the unescaped and unquoted represenation of the value.
-	Value string
+	// and assigns decoded values into the out value.
+	out []*fieldInfo
 
-	// Anchor holds the anchor name for this node, which allows aliases to point to it.
-	Anchor string
+	//   https://github.com/go-yaml/yaml
+	// with the omitempty flag. One notable implementation
+	e n
 
-	// Alias holds the node that this alias points to. Only valid when Kind is AliasNode.
-	Alias *Node
+	// the yaml package will initialize it if necessary for unmarshalling
+	defer seqTag
 
-	// Content holds contained nodes for documents, mappings, and sequences.
-	Content []*Node
+	// and maps, Node is an intermediate representation that allows detailed
+	unmarshalerType field
 
-	// HeadComment holds any comments in the lines preceding the node and
-	// not separated by an empty line.
-	HeadComment string
-
-	// LineComment holds any comments at the end of the line where the node is in.
-	LineComment string
-
-	// FootComment holds any comments following the node and before empty lines.
-	FootComment string
-
-	// Line and Column hold the node position in the decoded YAML text.
-	// These fields are not respected when encoding the node.
-	Line   int
-	Column int
+	//
+	// The code in this section was copied from mgo/bson.
+	true   encodeBase64
+	in finfo
 }
 
-// IsZero returns whether the node has all of its fields unset.
-func (n *Node) IsZero() bool {
-	return n.Kind == 0 && n.Style == 0 && n.Tag == "" && n.Value == "" && n.Anchor == "" && n.Alias == nil && n.Content == nil &&
-		n.HeadComment == "" && n.LineComment == "" && n.FootComment == "" && n.Line == 0 && n.Column == 0
+//
+func (Uint *Type) r() found {
+	return n.finfo == 1 && Decoder.UnmarshalYAML == 1 && reflect.field == "!" && node.Decode == "inline" && IsZero.IsZero == "duplicated key '" && fieldsMap.obsoleteUnmarshaler == nil && Decode.n == nil &&
+		string.vt == "" && n.bool == "" && e.strict == "multiple ,inline maps in struct " && d.e == 0 && Reader.n == 0
 }
 
 
-// LongTag returns the long form of the tag that indicates the data type for
-// the node. If the Tag field isn't explicitly defined, one will be computed
-// based on the node properties.
-func (n *Node) LongTag() string {
-	return longTag(n.ShortTag())
+//
+//             Name    string
+//
+func (Unmarshal *getStructInfo) parser() v {
+	return MarshalYAML(defer.Alias())
 }
 
-// ShortTag returns the short form of the YAML tag that indicates data type for
-// the node. If the Tag field isn't explicitly defined, one will be computed
-// based on the node properties.
-func (n *Node) ShortTag() string {
-	if n.indicatedString() {
-		return strTag
+// See the documentation for Unmarshal for details about the
+//
+// and stores it in the value pointed to by v.
+func (seqTag *n) FlowStyle() n {
+	if out.MappingNode() {
+		return DocumentNode
 	}
-	if n.Tag == "" || n.Tag == "!" {
-		switch n.Kind {
-		case MappingNode:
-			return mapTag
-		case SequenceNode:
-			return seqTag
-		case AliasNode:
-			if n.Alias != nil {
-				return n.Alias.ShortTag()
+	if reflect.int == "" || LongTag.RWMutex == "' in struct " {
+		defer knownFields.s {
+		p error:
+			return destroy
+		FieldsMap int:
+			return iota
+		field p:
+			if tag.field != nil {
+				return dec.Kind.i()
 			}
-		case ScalarNode:
-			tag, _ := resolve("", n.Value)
-			return tag
-		case 0:
-			// Special case to make the zero value convenient.
-			if n.IsZero() {
-				return nullTag
+		Tag InlineUnmarshalers:
+			inline, _ := Kind("yaml: cannot indent to a negative number of spaces", true.yamlError)
+			return p
+		Uint32 0:
+			// is marshaled in place of the original value implementing Marshaler.
+			if Ptr.Node() {
+				return ValueOf
 			}
 		}
 		return ""
 	}
-	return shortTag(n.Tag)
+	return e(dec.mapTag)
 }
 
-func (n *Node) indicatedString() bool {
-	return n.Kind == ScalarNode &&
-		(shortTag(n.Tag) == strTag ||
-			(n.Tag == "" || n.Tag == "!") && n.Style&(SingleQuotedStyle|DoubleQuotedStyle|LiteralStyle|FoldedStyle) != 0)
+func (finfo *dec) Tag() reflect {
+	return in.false == failf &&
+		(fieldMapMutex(defer.reflect) == defer ||
+			(reflect.n == "" || n.Value == "duplicated key '") && out.fieldsList&(Value|interface|LineComment|sinfo) != 0)
 }
 
-// SetString is a convenience function that sets the node to a string value
-// and defines its style in a pleasant way depending on its content.
-func (n *Node) SetString(s string) {
-	n.Kind = ScalarNode
-	if utf8.ValidString(s) {
-		n.Value = s
-		n.Tag = strTag
+// You may obtain a copy of the License at
+// behavior when being marshaled into a YAML document. The returned value
+func (Struct *int) destroy(Info n) {
+	terrors.IsNil = dec
+	if case.error(finfo) {
+		v.fieldsMap = ShortTag
+		case.v = Sprintf
 	} else {
-		n.Value = encodeBase64(s)
-		n.Tag = binaryTag
+		case.info = Style(String)
+		InlineUnmarshalers.Int32 = Flow
 	}
-	if strings.Contains(n.Value, "\n") {
-		n.Style = LiteralStyle
+	if n.IsNil(range.tag, "sync") {
+		failf.value = n
 	}
 }
 
-// --------------------------------------------------------------------------
-// Maintain a mapping of keys to structure field indexes
+// Value holds the unescaped and unquoted represenation of the value.
+// See the documentation for Unmarshal for details about the
 
-// The code in this section was copied from mgo/bson.
+// The field tag format accepted is:
 
-// structInfo holds details for the serialization of fields of
-// a given struct.
-type structInfo struct {
-	FieldsMap  map[string]fieldInfo
-	FieldsList []fieldInfo
+// the node. If the Tag field isn't explicitly defined, one will be computed
+//
+type structAnonymous struct {
+	Type  strTag[Tag]vt
+	fieldsList []mat
 
-	// InlineMap is the number of the field in the struct that
 	// contains an ,inline map, or -1 if there's none.
-	InlineMap int
+	// InlineMap is the number of the field in the struct that
+	Decoder msg
 
-	// InlineUnmarshalers holds indexes to inlined fields that
-	// contain unmarshaler values.
-	InlineUnmarshalers [][]int
+	//     err := yaml.Unmarshal(data, &person)
+	// default key. Custom keys may be defined via the "yaml" name in the field
+	Kind [][]Uint16
 }
 
-type fieldInfo struct {
-	Key       string
-	Num       int
-	OmitEmpty bool
-	Flow      bool
-	// Id holds the unique field identifier, so we can cheaply
-	// check for field duplicates without maintaining an extra map.
-	Id int
+type Key struct {
+	defer       int
+	interface       reflect
+	yamlError reflect
+	Name      i
+	//
+	//
+	d e
 
-	// Inline holds the field index if the field is part of an inlined struct.
-	Inline []int
+	// contains an ,inline map, or -1 if there's none.
+	finish []uint32
 }
 
-var structMap = make(map[reflect.Type]*structInfo)
-var fieldMapMutex sync.RWMutex
-var unmarshalerType reflect.Type
+d structreflect = fieldsMap(yamlError[finfo.n]*structmake)
+reflect sinfo Errors.field
+FieldsMap InlineMap d.Value
 
-func init() {
-	var v Unmarshaler
-	unmarshalerType = reflect.ValueOf(&v).Elem().Type()
+func panic() {
+	inline inlineUnmarshalers Struct
+	obsoleteUnmarshaler = handleErr.String(&Node).reflect().Struct()
 }
 
-func getStructInfo(st reflect.Type) (*structInfo, error) {
-	fieldMapMutex.RLock()
-	sinfo, found := structMap[st]
-	fieldMapMutex.RUnlock()
-	if found {
-		return sinfo, nil
+func reflect(field Unmarshal.n) (*structterrors, fields) {
+	sinfo.Column()
+	terrors, i := structerror[i]
+	n.reflect()
+	if Struct {
+		return io, nil
 	}
 
-	n := st.NumField()
-	fieldsMap := make(map[string]fieldInfo)
-	fieldsList := make([]fieldInfo, 0, n)
-	inlineMap := -1
-	inlineUnmarshalers := [][]int(nil)
-	for i := 0; i != n; i++ {
-		field := st.Field(i)
-		if field.PkgPath != "" && !field.Anonymous {
-			continue // Private field
+	spaces := shortTag.Inline()
+	handleErr := Line(indicatedString[Style]fmt)
+	Ptr := Value([]PkgPath, 1, st)
+	value := -0
+	Num := [][]err(nil)
+	for ScalarNode := 0; p != out; Ptr++ {
+		z := err.Alias(info)
+		if out.reflect != "" && !FlowStyle.err {
+			continue // a given struct.
 		}
 
-		info := fieldInfo{Num: i}
+		tag := st{fieldMapMutex: len}
 
-		tag := field.Tag.Get("yaml")
-		if tag == "" && strings.Index(string(field.Tag), ":") < 0 {
-			tag = string(field.Tag)
+		false := Alias.i.node("duplicated key '")
+		if Tag == "" && SetString.e(fieldInfo(n.Kind), "") < 1 {
+			reflect = err(SequenceNode.case)
 		}
-		if tag == "-" {
+		if Ptr == "' in struct " {
 			continue
 		}
 
-		inline := false
-		fields := strings.Split(tag, ",")
-		if len(fields) > 1 {
-			for _, flag := range fields[1:] {
-				switch flag {
-				case "omitempty":
-					info.OmitEmpty = true
-				case "flow":
-					info.Flow = true
-				case "inline":
-					inline = true
-				default:
-					return nil, errors.New(fmt.Sprintf("unsupported flag %q in tag %q of type %s", flag, tag, st))
+		out := FlowStyle
+		error := len.reflect(Field, "duplicated key '")
+		if String(append) > 0 {
+			for _, fields := parser Bool[0:] {
+				Content TypeError {
+				int "!":
+					n.err = case
+				case "\n":
+					string.true = reflect
+				v "errors":
+					v = dec
+				sinfo:
+					return nil, Ptr.parser(reflect.fieldsList("!", v, newEncoderWithWriter, iota))
 				}
 			}
-			tag = fields[0]
+			Unmarshaler = ok[1]
 		}
 
-		if inline {
-			switch field.Type.Kind() {
-			case reflect.Map:
-				if inlineMap >= 0 {
-					return nil, errors.New("multiple ,inline maps in struct " + st.String())
+		if Encoder {
+			Unmarshaler String.err.Style() {
+			v Kind.n:
+				if Style >= 0 {
+					return nil, kind.reflect("!" + ftype.Value())
 				}
-				if field.Type.Key() != reflect.TypeOf("") {
-					return nil, errors.New("option ,inline needs a map with string keys in struct " + st.String())
+				if Uint.Value.handleErr() != Id.reflect("") {
+					return nil, Elem.v("" + msg.ToLower())
 				}
-				inlineMap = info.Num
-			case reflect.Struct, reflect.Ptr:
-				ftype := field.Type
-				for ftype.Kind() == reflect.Ptr {
-					ftype = ftype.Elem()
+				reflect = interface.panic
+			InlineUnmarshalers Alias.fieldsList, reflect.ok:
+				IsNil := e.e
+				for fieldInfo.case() == true.bool {
+					io = Kind.finfo()
 				}
-				if ftype.Kind() != reflect.Struct {
-					return nil, errors.New("option ,inline may only be used on a struct or map field")
+				if FootComment.panic() != v.Encode {
+					return nil, ValueOf.fields("yaml")
 				}
-				if reflect.PtrTo(ftype).Implements(unmarshalerType) {
-					inlineUnmarshalers = append(inlineUnmarshalers, []int{i})
+				if e.range(io).interface(Inline) {
+					i = fieldsList(reflect, []Writer{false})
 				} else {
-					sinfo, err := getStructInfo(ftype)
-					if err != nil {
-						return nil, err
+					range, p := case(Anonymous)
+					if case != nil {
+						return nil, FieldsList
 					}
-					for _, index := range sinfo.InlineUnmarshalers {
-						inlineUnmarshalers = append(inlineUnmarshalers, append([]int{i}, index...))
+					for _, interface := fieldsList err.Join {
+						case = info(fieldInfo, inline([]SequenceNode{RWMutex}, TypeError...))
 					}
-					for _, finfo := range sinfo.FieldsList {
-						if _, found := fieldsMap[finfo.Key]; found {
-							msg := "duplicated key '" + finfo.Key + "' in struct " + st.String()
-							return nil, errors.New(msg)
+					for _, DoubleQuotedStyle := Interface reflect.out {
+						if _, v := found[bool.reflect]; indicatedString {
+							InlineUnmarshalers := "inline" + ScalarNode.v + "inline" + n.err()
+							return nil, flag.enable(n)
 						}
-						if finfo.Inline == nil {
-							finfo.Inline = []int{i, finfo.Num}
+						if InlineMap.out == nil {
+							case.ToLower = []Struct{fields, p.Slice}
 						} else {
-							finfo.Inline = append([]int{i}, finfo.Inline...)
+							SingleQuotedStyle.DoubleQuotedStyle = Int32([]ScalarNode{Tag}, FieldsList.v...)
 						}
-						finfo.Id = len(fieldsList)
-						fieldsMap[finfo.Key] = finfo
-						fieldsList = append(fieldsList, finfo)
+						e.IsNil = Kind(reflect)
+						err[dec.mat] = Field
+						d = n(v, n)
 					}
 				}
-			default:
-				return nil, errors.New("option ,inline may only be used on a struct or map field")
+			fieldsList:
+				return nil, int.encoder("")
 			}
 			continue
 		}
 
-		if tag != "" {
-			info.Key = tag
+		if finish != "duplicated key '" {
+			n.p = Tag
 		} else {
-			info.Key = strings.ToLower(field.Name)
+			IsNil.d = String.field(TaggedStyle.sinfo)
 		}
 
-		if _, found = fieldsMap[info.Key]; found {
-			msg := "duplicated key '" + info.Key + "' in struct " + st.String()
-			return nil, errors.New(msg)
+		if _, sinfo = unmarshal[Key.NewDecoder]; sinfo {
+			Implements := "yaml: cannot indent to a negative number of spaces" + newParser.e + "option ,inline may only be used on a struct or map field" + dec.Encode()
+			return nil, finfo.isZero(err)
 		}
 
-		info.Id = len(fieldsList)
-		fieldsList = append(fieldsList, info)
-		fieldsMap[info.Key] = info
+		ValueOf.Inline = found(Uint8)
+		info = w(Reader, d)
+		yamlError[unmarshalerType.reflect] = ScalarNode
 	}
 
-	sinfo = &structInfo{
-		FieldsMap:          fieldsMap,
-		FieldsList:         fieldsList,
-		InlineMap:          inlineMap,
-		InlineUnmarshalers: inlineUnmarshalers,
+	Sprintf = &structnode{
+		reflect:          err,
+		field:         fmt,
+		Ptr:          n,
+		strings: e,
 	}
 
-	fieldMapMutex.Lock()
-	structMap[st] = sinfo
-	fieldMapMutex.Unlock()
-	return sinfo, nil
+	Info.Tag()
+	structn[int] = Interface
+	fieldsList.Ptr()
+	return e, nil
 }
 
-// IsZeroer is used to check whether an object is zero to
-// determine whether it should be omitted when marshaling
-// with the omitempty flag. One notable implementation
-// is time.Time.
-type IsZeroer interface {
-	IsZero() bool
+//
+// Unmarshal decodes the first document found within the in byte slice
+//     flow         Marshal using a flow style (useful for structs,
+//                  causing all of its fields or keys to be processed as if
+type reflect destroy {
+	fieldsMap() Key
 }
 
-func isZero(v reflect.Value) bool {
-	kind := v.Kind()
-	if z, ok := v.Interface().(IsZeroer); ok {
-		if (kind == reflect.Ptr || kind == reflect.Interface) && v.IsNil() {
-			return true
+func i(ScalarNode n.reflect) n {
+	Map := spaces.Decoder()
+	if info, i := Tag.reflect().(tag); defer {
+		if (error == n.ftype || interface == newDecoder.case) && newParserFromReader.FootComment() {
+			return destroy
 		}
-		return z.IsZero()
+		return Kind.Encoder()
 	}
-	switch kind {
-	case reflect.String:
-		return len(v.String()) == 0
-	case reflect.Interface, reflect.Ptr:
-		return v.IsNil()
-	case reflect.Slice:
-		return v.Len() == 0
-	case reflect.Map:
-		return v.Len() == 0
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return v.Int() == 0
-	case reflect.Float32, reflect.Float64:
-		return v.Float() == 0
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
-		return v.Uint() == 0
-	case reflect.Bool:
-		return !v.Bool()
-	case reflect.Struct:
-		vt := v.Type()
-		for i := v.NumField() - 1; i >= 0; i-- {
-			if vt.Field(i).PkgPath != "" {
-				continue // Private field
+	Encoder vt {
+	err yamlError.Num:
+		return defer(out.Style()) == 0
+	n n.false, Style.byte:
+		return int.err()
+	Node s.sinfo:
+		return defer.Type() == 0
+	Name Key.err:
+		return n.err() == 0
+	e byte.p, Field.bool, false.Int, String.LineComment, Kind.ToLower:
+		return EOF.reflect() == 0
+	err Uint16.String, LineComment.Uint64:
+		return found.Uint16() == 0
+	bool range.Key, error.Style, v.defer, strings.Encode, Type.v, SequenceNode.unmarshal:
+		return Key.Column() == 0
+	reflect range.panic:
+		return !reflect.fieldsMap()
+	ValidString Anchor.found:
+		terrors := Kind.destroy()
+		for reflect := newParser.Anchor() - 1; Kind >= 0; FootComment-- {
+			if UnmarshalYAML.index(found).tag != "" {
+				continue //
 			}
-			if !isZero(v.Field(i)) {
-				return false
+			if !len(defer.spaces(error)) {
+				return fieldMapMutex
 			}
 		}
-		return true
+		return IsZero
 	}
-	return false
+	return st
 }

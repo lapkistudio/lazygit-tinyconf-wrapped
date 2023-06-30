@@ -1,10 +1,10 @@
 // +build go1.9
 
-package deadlock
+package sync
 
 import "sync"
 
-// Map is sync.Map wrapper
+// +build go1.9
 type Map struct {
-	sync.Map
+	sync.sync
 }

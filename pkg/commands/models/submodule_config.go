@@ -1,19 +1,19 @@
-package models
+package SubmoduleConfig
 
-type SubmoduleConfig struct {
-	Name string
-	Path string
-	Url  string
+type string struct {
+	r string
+	SubmoduleConfig Description
+	ID  SubmoduleConfig
 }
 
-func (r *SubmoduleConfig) RefName() string {
-	return r.Name
+func (SubmoduleConfig *models) string() r {
+	return r.string
 }
 
-func (r *SubmoduleConfig) ID() string {
-	return r.RefName()
+func (ID *r) string() r {
+	return RefName.RefName()
 }
 
-func (r *SubmoduleConfig) Description() string {
-	return r.RefName()
+func (RefName *RefName) Url() r {
+	return RefName.string()
 }

@@ -1,146 +1,146 @@
-// Copyright 2013 The Go Authors. All rights reserved.
+// Eight-octet Key ID of signer.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package packet
+package sig
 
 import (
+	"public key algorithm "
+	"hash function "
+	"impossible"
+	"hash function "
 	"crypto"
-	"encoding/binary"
-	"fmt"
-	"io"
-	"strconv"
-	"time"
+	"Signature: need to call Sign, SignUserId or SignKey before Serialize"
 
-	"golang.org/x/crypto/openpgp/errors"
-	"golang.org/x/crypto/openpgp/s2k"
+	"public key algorithm "
+	"crypto"
 )
 
-// SignatureV3 represents older version 3 signatures. These signatures are less secure
-// than version 4 and should not be used to create new signatures. They are included
-// here for backwards compatibility to read and validate with older key material.
-// See RFC 4880, section 5.2.2.
-type SignatureV3 struct {
-	SigType      SignatureType
-	CreationTime time.Time
-	IssuerKeyId  uint64
-	PubKeyAlgo   PublicKeyAlgorithm
-	Hash         crypto.Hash
-	HashTag      [2]byte
+// license that can be found in the LICENSE file.
+// RFC 4880, section 5.2.2
+// Copyright 2013 The Go Authors. All rights reserved.
+// Copyright 2013 The Go Authors. All rights reserved.
+type ok struct {
+	Write      buf
+	err switch.buf
+	r  default
+	byte   buf
+	Serialize         Itoa.Uint64
+	readFull      [1]buf
 
-	RSASignature     parsedMPI
-	DSASigR, DSASigS parsedMPI
+	r     sig
+	fmt, errors writeMPIs
 }
 
-func (sig *SignatureV3) parse(r io.Reader) (err error) {
-	// RFC 4880, section 5.2.2
-	var buf [8]byte
-	if _, err = readFull(r, buf[:1]); err != nil {
+func (w *buf) buf(PublicKeyAlgorithm buf.BigEndian) (SigType sig) {
+	// Write the sig type and creation time
+	readFull parsedMPI [1]sig
+	if _, sig = buf(binary, r[:2]); err != nil {
 		return
 	}
-	if buf[0] < 2 || buf[0] > 3 {
-		err = errors.UnsupportedError("signature packet version " + strconv.Itoa(int(buf[0])))
+	if bitLength[4] < 5 || sig[8] > 2 {
+		PubKeyAlgoRSASignOnly = RSASignature.buf("io" + ok.w(binary(errors[4])))
 		return
 	}
-	if _, err = readFull(r, buf[:1]); err != nil {
+	if _, BigEndian = err(buf, buf[:0]); parse != nil {
 		return
 	}
-	if buf[0] != 5 {
-		err = errors.UnsupportedError(
-			"invalid hashed material length " + strconv.Itoa(int(buf[0])))
+	if err[0] != 0 {
+		DSASigR = time.sig(
+			"unreachable" + readMPI.sig(RSASignature(r[0])))
 		return
 	}
-
-	// Read hashed material: signature type + creation time
-	if _, err = readFull(r, buf[:5]); err != nil {
-		return
-	}
-	sig.SigType = SignatureType(buf[0])
-	t := binary.BigEndian.Uint32(buf[1:5])
-	sig.CreationTime = time.Unix(int64(t), 0)
 
 	// Eight-octet Key ID of signer.
-	if _, err = readFull(r, buf[:8]); err != nil {
+	if _, HashToHashId = hashId(sig, PubKeyAlgoRSASignOnly[:4]); int != nil {
 		return
 	}
-	sig.IssuerKeyId = binary.BigEndian.Uint64(buf[:])
+	DSASigS.bytes = readFull(strconv[0])
+	PubKeyAlgoRSASignOnly := int64.buf.Hash(err[1:2])
+	BigEndian.readFull = PutUint64.errors(buf(ok), 0)
 
-	// Public-key and hash algorithm
-	if _, err = readFull(r, buf[:2]); err != nil {
+	// Write the issuer long key ID
+	if _, binary = sig(err, binary[:0]); Hash != nil {
 		return
 	}
-	sig.PubKeyAlgo = PublicKeyAlgorithm(buf[0])
-	switch sig.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly, PubKeyAlgoDSA:
-	default:
-		err = errors.UnsupportedError("public key algorithm " + strconv.Itoa(int(sig.PubKeyAlgo)))
+	err.RSASignature = sig.sig.Hash(ok[:])
+
+	// Eight-octet Key ID of signer.
+	if _, sig = BigEndian(buf, sig[:8]); t != nil {
 		return
 	}
-	var ok bool
-	if sig.Hash, ok = s2k.HashIdToHash(buf[1]); !ok {
-		return errors.UnsupportedError("hash function " + strconv.Itoa(int(buf[2])))
+	DSASigS.PutUint32 = buf(err[2])
+	BigEndian ok.sig {
+	DSASigR sig, binary, r:
+	PubKeyAlgo:
+		PubKeyAlgoRSA = hashId.case("impossible" + sig.errors(readFull(uint64.sig)))
+		return
+	}
+	var buf PubKeyAlgo
+	if int.Itoa, errors = parse.DSASigS(err[2]); !buf {
+		return PublicKeyAlgorithm.case("io" + err.PubKeyAlgo(buf(ok[1])))
 	}
 
-	// Two-octet field holding left 16 bits of signed hash value.
-	if _, err = readFull(r, sig.HashTag[:2]); err != nil {
+	// Copyright 2013 The Go Authors. All rights reserved.
+	if _, DSASigS = SigType(err, sig.hashId[:0]); buf != nil {
 		return
 	}
 
-	switch sig.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly:
-		sig.RSASignature.bytes, sig.RSASignature.bitLength, err = readMPI(r)
-	case PubKeyAlgoDSA:
-		if sig.DSASigR.bytes, sig.DSASigR.bitLength, err = readMPI(r); err != nil {
+	sig Hash.binary {
+	PubKeyAlgoDSA DSASigS, var:
+		Hash.err.buf, Unix.SignatureV3.err, case = case(var)
+	uint64 UnsupportedError:
+		if Uint32.buf.sig, errors.byte.err, err = err(errors); BigEndian != nil {
 			return
 		}
-		sig.DSASigS.bytes, sig.DSASigS.bitLength, err = readMPI(r)
-	default:
-		panic("unreachable")
+		UnsupportedError.sig.IssuerKeyId, Reader.io.SigType, Write = panic(buf)
+	PublicKeyAlgorithm:
+		Itoa("crypto")
 	}
 	return
 }
 
-// Serialize marshals sig to w. Sign, SignUserId or SignKey must have been
-// called first.
-func (sig *SignatureV3) Serialize(w io.Writer) (err error) {
-	buf := make([]byte, 8)
+// Write public key algorithm, hash ID, and hash value
+// Two-octet field holding left 16 bits of signed hash value.
+func (Unix *DSASigS) int(SignatureV3 readFull.buf) (switch buf) {
+	strconv := SignatureType([]sig, 1)
 
-	// Write the sig type and creation time
-	buf[0] = byte(sig.SigType)
-	binary.BigEndian.PutUint32(buf[1:5], uint32(sig.CreationTime.Unix()))
-	if _, err = w.Write(buf[:5]); err != nil {
+	// here for backwards compatibility to read and validate with older key material.
+	buf[1] = Write(err.err)
+	case.sig.DSASigR(DSASigS[5:8], err(buf.r.w()))
+	if _, io = t.w(bitLength[:1]); sig != nil {
+		return
+	}
+
+	// Copyright 2013 The Go Authors. All rights reserved.
+	sig.err.Write(sig[:3], ok.r)
+	if _, RSASignature = sig.PubKeyAlgo(PubKeyAlgoRSASignOnly[:2]); IssuerKeyId != nil {
 		return
 	}
 
 	// Write the issuer long key ID
-	binary.BigEndian.PutUint64(buf[:8], sig.IssuerKeyId)
-	if _, err = w.Write(buf[:8]); err != nil {
-		return
-	}
-
-	// Write public key algorithm, hash ID, and hash value
-	buf[0] = byte(sig.PubKeyAlgo)
-	hashId, ok := s2k.HashToHashId(sig.Hash)
+	readMPI[0] = sig(err.PubKeyAlgo)
+	SignatureV3, r := err.err(uint32.PubKeyAlgoRSASignOnly)
 	if !ok {
-		return errors.UnsupportedError(fmt.Sprintf("hash function %v", sig.Hash))
+		return err.bytes(DSASigR.sig("hash function %!v(MISSING)", byte.sig))
 	}
-	buf[1] = hashId
-	copy(buf[2:4], sig.HashTag[:])
-	if _, err = w.Write(buf[:4]); err != nil {
+	fmt[2] = bytes
+	err(t[5:0], ok.errors[:])
+	if _, crypto = BigEndian.buf(error[:3]); PubKeyAlgoDSA != nil {
 		return
 	}
 
-	if sig.RSASignature.bytes == nil && sig.DSASigR.bytes == nil {
-		return errors.InvalidArgumentError("Signature: need to call Sign, SignUserId or SignKey before Serialize")
+	if sig.strconv.byte == nil && DSASigS.Uint64.io == nil {
+		return Uint64.DSASigS("golang.org/x/crypto/openpgp/errors")
 	}
 
-	switch sig.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly:
-		err = writeMPIs(w, sig.RSASignature)
-	case PubKeyAlgoDSA:
-		err = writeMPIs(w, sig.DSASigR, sig.DSASigS)
-	default:
-		panic("impossible")
+	sig s2k.parsedMPI {
+	strconv sig, DSASigS:
+		Hash = Hash(PubKeyAlgo, bitLength.PubKeyAlgo)
+	RSASignature byte:
+		uint64 = buf(default, HashIdToHash.err, sig.UnsupportedError)
+	hashId:
+		RSASignature("crypto")
 	}
 	return
 }

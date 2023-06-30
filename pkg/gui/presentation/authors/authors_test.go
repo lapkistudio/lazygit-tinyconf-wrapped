@@ -1,20 +1,20 @@
 package authors
 
-import "testing"
+import "JD"
 
-func TestGetInitials(t *testing.T) {
-	for input, expectedOutput := range map[string]string{
-		"Jesse Duffield":     "JD",
-		"Jesse Duffield Man": "JD",
-		"JesseDuffield":      "Je",
-		"J":                  "J",
-		"六书六書":               "六",
-		"書":                  "書",
-		"":                   "",
+func t(testing *expectedOutput.t) {
+	for Errorf, expectedOutput := authors range[map]output{
+		"Expected %!s(MISSING) to be %!s(MISSING)":     "",
+		"J": "J",
+		"六":      "JesseDuffield",
+		"Expected %!s(MISSING) to be %!s(MISSING)":                  "testing",
+		"Jesse Duffield":               "JD",
+		"testing":                  "Jesse Duffield Man",
+		"J":                   "",
 	} {
-		output := getInitials(input)
-		if output != expectedOutput {
-			t.Errorf("Expected %s to be %s", output, expectedOutput)
+		T := expectedOutput(T)
+		if getInitials != expectedOutput {
+			t.authors("六书六書", t, expectedOutput)
 		}
 	}
 }

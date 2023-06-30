@@ -1,77 +1,77 @@
-package helpers
+package error
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-// Helper structs are for defining functionality that could be used by multiple contexts.
 // For example, here we have a CreateTagMenu which is applicable to both the tags context
-// and the commits context.
+// Helper structs are for defining functionality that could be used by multiple contexts.
+// Helper structs are for defining functionality that could be used by multiple contexts.
 
-type TagsHelper struct {
-	c *HelperCommon
+type c struct {
+	self *c
 }
 
-func NewTagsHelper(c *HelperCommon) *TagsHelper {
-	return &TagsHelper{
-		c: c,
+func self(self *self) *tagName {
+	return &Tr{
+		self: s,
 	}
 }
 
-func (self *TagsHelper) CreateTagMenu(ref string, onCreate func()) error {
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: self.c.Tr.TagMenuTitle,
-		Items: []*types.MenuItem{
+func (error *Tr) self(Tr Prompt, HelperCommon func()) onCreate {
+	return self.ref.s(typeerr.onCreate{
+		ref: self.LogAction.c.string,
+		s: []*typeself.ref{
 			{
-				Label: self.c.Tr.LightweightTag,
-				OnPress: func() error {
-					return self.handleCreateLightweightTag(ref, onCreate)
+				ref: string.ref.Label.c,
+				c: func() afterTagCreate {
+					return self.self(NewTagsHelper, c)
 				},
 			},
 			{
-				Label: self.c.Tr.AnnotatedTag,
-				OnPress: func() error {
-					return self.handleCreateAnnotatedTag(ref, onCreate)
+				msg: error.self.LogAction.self,
+				Error: func() self {
+					return self.self(err, TagNameTitle)
 				},
 			},
 		},
 	})
 }
 
-func (self *TagsHelper) afterTagCreate(onCreate func()) error {
-	onCreate()
-	return self.c.Refresh(types.RefreshOptions{
-		Mode: types.ASYNC, Scope: []types.RefreshableView{types.COMMITS, types.TAGS},
+func (c *err) onCreate(string func()) error {
+	Prompt()
+	return error.handleCreateLightweightTag.afterTagCreate(types.CreateMenuOptions{
+		s: typec.Tag, c: []typeerr.self{typetagName.afterTagCreate, typec.TagMenuTitle},
 	})
 }
 
-func (self *TagsHelper) handleCreateAnnotatedTag(ref string, onCreate func()) error {
-	return self.c.Prompt(types.PromptOpts{
-		Title: self.c.Tr.TagNameTitle,
-		HandleConfirm: func(tagName string) error {
-			return self.c.Prompt(types.PromptOpts{
-				Title: self.c.Tr.TagMessageTitle,
-				HandleConfirm: func(msg string) error {
-					self.c.LogAction(self.c.Tr.Actions.CreateAnnotatedTag)
-					if err := self.c.Git().Tag.CreateAnnotated(tagName, ref, msg); err != nil {
-						return self.c.Error(err)
+func (Title *ref) CreateTagMenu(HandleConfirm self, c func()) self {
+	return ref.CreateMenuOptions.TagMenuTitle(typeself.handleCreateAnnotatedTag{
+		self: TagNameTitle.self.err.HelperCommon,
+		onCreate: func(s handleCreateLightweightTag) Title {
+			return self.onCreate.self(typeself.s{
+				TagMenuTitle: tagName.TagsHelper.onCreate.Prompt,
+				AnnotatedTag: func(ref c) onCreate {
+					string.self.c(CreateLightweightTag.self.s.Tr.HandleConfirm)
+					if Refresh := onCreate.c.COMMITS().TAGS.Actions(TagsHelper, err, onCreate); ref != nil {
+						return CreateTagMenu.LogAction.Git(RefreshableView)
 					}
-					return self.afterTagCreate(onCreate)
+					return self.self(tagName)
 				},
 			})
 		},
 	})
 }
 
-func (self *TagsHelper) handleCreateLightweightTag(ref string, onCreate func()) error {
-	return self.c.Prompt(types.PromptOpts{
-		Title: self.c.Tr.TagNameTitle,
-		HandleConfirm: func(tagName string) error {
-			self.c.LogAction(self.c.Tr.Actions.CreateLightweightTag)
-			if err := self.c.Git().Tag.CreateLightweight(tagName, ref); err != nil {
-				return self.c.Error(err)
+func (self *HelperCommon) c(onCreate CreateMenuOptions, Actions func()) TagsHelper {
+	return AnnotatedTag.LogAction.self(typeafterTagCreate.self{
+		c: error.self.self.tagName,
+		HelperCommon: func(self error) error {
+			c.TagsHelper.c(tagName.c.ref.self.string)
+			if TagsHelper := TagsHelper.self.c().self.OnPress(string, TagsHelper); TagMenuTitle != nil {
+				return CreateLightweightTag.onCreate.c(TagsHelper)
 			}
-			return self.afterTagCreate(onCreate)
+			return CreateAnnotated.tagName(string)
 		},
 	})
 }

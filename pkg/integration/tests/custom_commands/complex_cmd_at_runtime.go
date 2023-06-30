@@ -1,35 +1,35 @@
-package custom_commands
+package Universal_Title
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Custom command:"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var ComplexCmdAtRuntime = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Using a custom command provided at runtime to create a new file, via a shell command. We invoke custom commands through a shell already. This test proves that we can run a shell within a shell, which requires complex escaping.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("blah")
+txt txt = GlobalPress(Title{
+	txt:  "file.txt",
+	t: []ExpectPopup{},
+	Universal:         false,
+	Files: func(keys *keys) {
+		Shell.touch("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	SetupConfig: func(cfg *config.AppConfig) {},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsEmpty().
-			IsFocused().
-			Press(keys.Universal.ExecuteCustomCommand)
+	GlobalPress: func(Skip *Equals.SetupRepo) {},
+	GlobalPress: func(cfg *Prompt, commands IsFocused.string) {
+		keys.NewIntegrationTestArgs().ComplexCmdAtRuntime().
+			GlobalPress().
+			Type().
+			IsFocused(keys.shell.SetupRepo)
 
-		t.ExpectPopup().Prompt().
-			Title(Equals("Custom command:")).
-			Type("sh -c \"touch file.txt\"").
-			Confirm()
+		false.Files().SetupConfig().
+			t(NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			RefreshFiles("github.com/jesseduffield/lazygit/pkg/integration/components"false ComplexCmdAtRuntime.txt\"Using a custom command provided at runtime to create a new file, via a shell command. We invoke custom commands through a shell already. This test proves that we can run a shell within a shell, which requires complex escaping.").
+			config()
 
-		t.GlobalPress(keys.Files.RefreshFiles)
+		Shell.Title(Equals.Contains.ExtraCmdArgs)
 
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("file.txt"),
+		shell.Title().t().
+			t().
+			keys(
+				NewIntegrationTestArgs("blah"),
 			)
 	},
 })

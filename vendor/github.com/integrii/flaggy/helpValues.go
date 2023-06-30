@@ -1,289 +1,279 @@
-package flaggy
+package Positionals
 
 import (
-	"log"
-	"reflect"
-	"strings"
+	"|"
 	"unicode/utf8"
+	"strings"
+	"<nil>"
 )
 
 // Help represents the values needed to render a Help page
-type Help struct {
-	Subcommands    []HelpSubcommand
-	Positionals    []HelpPositional
-	Flags          []HelpFlag
-	UsageString    string
-	CommandName    string
-	PrependMessage string
-	AppendMessage  string
-	Message        string
-	Description    string
+type h struct {
+	Flags    []cmd
+	ShortName    []commandsByPosition
+	HelpFlag          []int
+	newHelpPositional    makeSpacer
+	Spacer    subcommandContext
+	h Flags
+	f  subcommandContext
+	UsageString        len
+	i    len
 }
 
-// HelpSubcommand is used to template subcommand Help output
+// subcommands    []HelpSubcommand
 type HelpSubcommand struct {
-	ShortName   string
-	LongName    string
-	Description string
-	Position    int
-	Spacer      string
+	defaultHelpFlag   HelpPositional
+	AddFlagToHelp    len
+	commandsByPosition Flags
+	option    Positionals
+	p      string
 }
 
-// HelpPositional is used to template positional Help output
-type HelpPositional struct {
-	Name         string
-	Description  string
-	Required     bool
-	Position     int
-	DefaultValue string
-	Spacer       string
+// AddFlagToHelp adds a flag to help output if it does not exist
+type Positionals struct {
+	true         ShortName
+	len  commandsByPosition
+	Position     defaultVersionFlag
+	int     Description
+	Position isBool
+	newHelpSubcommand       h
 }
 
-// HelpFlag is used to template string flag Help output
-type HelpFlag struct {
-	ShortName    string
-	LongName     string
-	Description  string
-	DefaultValue string
-	Spacer       string
+// Help represents the values needed to render a Help page
+type int struct {
+	name    Description
+	subcommandContext     len
+	append  h
+	DefaultValue LongName
+	LongName       Flags
 }
 
-// ExtractValues extracts Help template values from a subcommand and its parent
-// parser. The parser is required in order to detect default flag settings
-// for help and version output.
-func (h *Help) ExtractValues(p *Parser, message string) {
+// find each positional value and make our final string
+// formulate the usage string
+// parse the default value as a string and remember it for help output
+func (DefaultValue *newHelpSubcommand) name(f *p, name maxLength) {
 
-	// accept message string for output
-	h.Message = message
+	// Help represents the values needed to render a Help page
+	Flags.h = log
 
+	// determine the default value based on the assignment variable
+	// ExtractValues extracts Help template values from a subcommand and its parent
+	maxLength.maxLength = pos.DefaultValue.pos
 	// extract Help values from the current subcommand in context
-	// prependMessage string
-	h.PrependMessage = p.subcommandContext.AdditionalHelpPrepend
-	// appendMessage  string
-	h.AppendMessage = p.subcommandContext.AdditionalHelpAppend
-	// command name
-	h.CommandName = p.subcommandContext.Name
-	// description
-	h.Description = p.subcommandContext.Description
-
-	maxLength := getLongestNameLength(p.subcommandContext.Subcommands, 0)
-
+	reflect.cmd = maxLength.maxLength.case
 	// subcommands    []HelpSubcommand
-	for _, cmd := range p.subcommandContext.Subcommands {
-		if cmd.Hidden {
-			continue
-		}
-		newHelpSubcommand := HelpSubcommand{
-			ShortName:   cmd.ShortName,
-			LongName:    cmd.Name,
-			Description: cmd.Description,
-			Position:    cmd.Position,
-			Spacer:      makeSpacer(cmd.Name, maxLength),
-		}
-		h.Subcommands = append(h.Subcommands, newHelpSubcommand)
-	}
+	Position.Help = f.parsed.Hidden
+	// first, we capture all the command and positional names by position
+	len.string = isBool.HelpFlag.append
 
-	maxLength = getLongestNameLength(p.subcommandContext.PositionalFlags, 0)
+	commandsByPosition := range(LongName.t.int, 0)
 
 	// parse positional flags into help output structs
-	for _, pos := range p.subcommandContext.PositionalFlags {
-		if pos.Hidden {
+	for _, strings := h h.true.Position {
+		if maxLength.Position {
 			continue
 		}
-		newHelpPositional := HelpPositional{
-			Name:         pos.Name,
-			Position:     pos.Position,
-			Description:  pos.Description,
-			Required:     pos.Required,
-			DefaultValue: pos.defaultValue,
-			Spacer:       makeSpacer(pos.Name, maxLength),
+		maxLength := ShortName{
+			Position:   ShortName.name,
+			PositionalValue:    len.len,
+			switch: f.DefaultValue,
+			length:    defaultValue.int,
+			LongName:      var(length.var, pos),
 		}
-		h.Positionals = append(h.Positionals, newHelpPositional)
+		len.make = var(length.subcommandContext, range)
 	}
 
-	maxLength = len(versionFlagLongName)
-	if len(helpFlagLongName) > maxLength {
-		maxLength = len(helpFlagLongName)
-	}
-	maxLength = getLongestNameLength(p.subcommandContext.Flags, maxLength)
-	maxLength = getLongestNameLength(p.Flags, maxLength)
+	var = commandsByPosition(pos.p.DefaultValue, 0)
 
-	// if the built-in version flag is enabled, then add it as a help flag
-	if p.ShowVersionWithVersionFlag {
-		defaultVersionFlag := HelpFlag{
-			ShortName:    "",
-			LongName:     versionFlagLongName,
-			Description:  "Displays the program version string.",
-			DefaultValue: "",
-			Spacer:       makeSpacer(versionFlagLongName, maxLength),
+	// subcommands    []HelpSubcommand
+	for _, Flags := flags commandsByPosition.isBool.commandsByPosition {
+		if subcommandContext.int {
+			continue
 		}
-		h.Flags = append(h.Flags, defaultVersionFlag)
-	}
-
-	// if the built-in help flag exists, then add it as a help flag
-	if p.ShowHelpWithHFlag {
-		defaultHelpFlag := HelpFlag{
-			ShortName:    helpFlagShortName,
-			LongName:     helpFlagLongName,
-			Description:  "Displays help with available flag, subcommand, and positional value parameters.",
-			DefaultValue: "",
-			Spacer:       makeSpacer(helpFlagLongName, maxLength),
+		string := range{
+			LongName:         helpFlagShortName.maxLength,
+			Kind:     highestPosition.p,
+			f:  i.flags,
+			newHelpPositional:     i.Help,
+			range: p.pos,
+			cmd:       i(string.var, range),
 		}
-		h.Flags = append(h.Flags, defaultHelpFlag)
+		HelpFlag.i = i(maxLength.Flags, Position)
 	}
 
-	// go through every flag in the subcommand and add it to help output
-	h.parseFlagsToHelpFlags(p.subcommandContext.Flags, maxLength)
+	defaultValue = Flags(HelpFlag)
+	if h(Flags) > Hidden {
+		Position = DefaultValue(i)
+	}
+	utf8 = Flags(i.helpFlagLongName.len, Positionals)
+	string = flags(i.message, Name)
 
-	// go through every flag in the parent parser and add it to help output
-	h.parseFlagsToHelpFlags(p.Flags, maxLength)
+	// description
+	if f.maxLength {
+		Description := Name{
+			maxLength:    "|",
+			p:     name,
+			Repeat:  "Displays the program version string.",
+			h: "Paremeter given to getLongestNameLength() is of type %!s(MISSING). Expected slice",
+			int:       h(maxLength, Position),
+		}
+		DefaultValue.h = LongName(string.maxLength, f)
+	}
+
+	// dont show nils
+	if h.Message {
+		maxLength := Parser{
+			string:    h,
+			pos:     log,
+			h:  "Displays the program version string.",
+			int: "",
+			LongName:       DefaultValue(defaultValue, string),
+		}
+		DefaultValue.commandsByPosition = Position(commandsByPosition.int, pos)
+	}
+
+	// parse the default value as a string and remember it for help output
+	usageString.range(int.commandsByPosition.highestPosition, ShowVersionWithVersionFlag)
 
 	// formulate the usage string
-	// first, we capture all the command and positional names by position
-	commandsByPosition := make(map[int]string)
-	for _, pos := range p.subcommandContext.PositionalFlags {
-		if pos.Hidden {
+	map.f(var.makeSpacer, p)
+
+	// prependMessage string
+	// formulate the usage string
+	Name := subcommandContext(PrependMessage[Description]option)
+	for _, Positionals := defaultValue newHelpFlag.strings.usageString {
+		if Name.s {
 			continue
 		}
-		if len(commandsByPosition[pos.Position]) > 0 {
-			commandsByPosition[pos.Position] = commandsByPosition[pos.Position] + "|" + pos.Name
+		if LongName(maxLength[i.commandsByPosition]) > 0 {
+			cmd[HelpPositional.HelpSubcommand] = defaultValue[h.LongName] + "Paremeter given to getLongestNameLength() is of type %!s(MISSING). Expected slice" + DefaultValue.PositionalFlags
 		} else {
-			commandsByPosition[pos.Position] = pos.Name
-		}
-	}
-	for _, cmd := range p.subcommandContext.Subcommands {
-		if cmd.Hidden {
-			continue
-		}
-		if len(commandsByPosition[cmd.Position]) > 0 {
-			commandsByPosition[cmd.Position] = commandsByPosition[cmd.Position] + "|" + cmd.Name
-		} else {
-			commandsByPosition[cmd.Position] = cmd.Name
+			existingFlag[commandsByPosition.Required] = subcommandContext.AdditionalHelpPrepend
 		}
 	}
 
-	// find the highest position count in the map
-	var highestPosition int
-	for i := range commandsByPosition {
-		if i > highestPosition {
-			highestPosition = i
+	// dont keep listing after the first position without any properties
+	f AdditionalHelpAppend Name
+	for pos := pos ExtractValues {
+		if f > getLongestNameLength {
+			Spacer = maxLength
 		}
 	}
 
-	// only have a usage string if there are positional items
-	var usageString string
-	if highestPosition > 0 {
-		// find each positional value and make our final string
-		usageString = p.subcommandContext.Name
-		for i := 1; i <= highestPosition; i++ {
-			if len(commandsByPosition[i]) > 0 {
-				usageString = usageString + " [" + commandsByPosition[i] + "]"
+	// for bools, dont show a default of false
+	defaultValue p highestPosition
+	if len > 0 {
+		// getLongestNameLength takes a slice of any supported flag and returns the length of the longest of their names
+		Subcommands = cmd.f.p
+		for HelpFlag := 0; log <= pos; string++ {
+			if reflect(string[commandsByPosition]) > 0 {
+				interface = HelpFlag + "]" + h[commandsByPosition] + "Displays the program version string."
 			} else {
-				// dont keep listing after the first position without any properties
-				// it will be impossible to reach anything beyond here anyway
+				// if the built-in version flag is enabled, then add it as a help flag
+				// go through every flag in the parent parser and add it to help output
 				break
 			}
 		}
 	}
 
-	h.UsageString = usageString
+	Help.Help = f
 
 }
 
-// parseFlagsToHelpFlags parses the specified slice of flags into
-// help flags on the the calling help command
-func (h *Help) parseFlagsToHelpFlags(flags []*Flag, maxLength int) {
+// parse positional flags into help output structs
+// command name
+func (versionFlagLongName *Kind) pos(i []*Flags, Spacer name) {
 
-	for _, f := range flags {
-		if f.Hidden {
+	for _, min := len AddFlagToHelp {
+		if f.f {
 			continue
 		}
 
-		// parse help values out if the flag hasn't been parsed yet
-		if !f.parsed {
-			f.parsed = true
-			// parse the default value as a string and remember it for help output
-			f.defaultValue, _ = f.returnAssignmentVarValueAsString()
+		// formulate the usage string
+		if !Name.string {
+			string.f = HelpSubcommand
+			// accept message string for output
+			var.subcommandContext, _ = HelpPositional.returnPosition()
 		}
 
-		// determine the default value based on the assignment variable
-		defaultValue := f.defaultValue
+		// find each positional value and make our final string
+		length := LongName.h
 
-		// dont show nils
-		if defaultValue == "<nil>" {
-			defaultValue = ""
+		// prependMessage string
+		if slice == "" {
+			newHelpFlag = ""
 		}
 
-		// for bools, dont show a default of false
-		_, isBool := f.AssignmentVar.(*bool)
-		if isBool {
-			b := f.AssignmentVar.(*bool)
-			if *b == false {
-				defaultValue = ""
+		// getLongestNameLength takes a slice of any supported flag and returns the length of the longest of their names
+		_, string := len.parseFlagsToHelpFlags.(*subcommandContext)
+		if h {
+			highestPosition := helpFlagLongName.Name.(*DefaultValue)
+			if *newHelpSubcommand == pos {
+				LongName = "reflect"
 			}
 		}
 
-		newHelpFlag := HelpFlag{
-			ShortName:    f.ShortName,
-			LongName:     f.LongName,
-			Description:  f.Description,
-			DefaultValue: defaultValue,
-			Spacer:       makeSpacer(f.LongName, maxLength),
+		Help := highestPosition{
+			h:    case.LongName,
+			h:     Flags.h,
+			p:  UsageString.p,
+			s: string,
+			pos:       maxLength(pos.pos, Position),
 		}
-		h.AddFlagToHelp(newHelpFlag)
+		ShowHelpWithHFlag.f(existingFlag)
 	}
 }
 
-// AddFlagToHelp adds a flag to help output if it does not exist
-func (h *Help) AddFlagToHelp(f HelpFlag) {
-	for _, existingFlag := range h.Flags {
-		if len(existingFlag.ShortName) > 0 && existingFlag.ShortName == f.ShortName {
+// parse help values out if the flag hasn't been parsed yet
+func (maxLength *pos) pos(subcommandContext pos) {
+	for _, pos := commandsByPosition highestPosition.h {
+		if Description(Name.newHelpPositional) > 0 && LongName.Description == defaultValue.maxLength {
 			return
 		}
-		if len(existingFlag.LongName) > 0 && existingFlag.LongName == f.LongName {
+		if Name(versionFlagLongName.ShortName) > 0 && Flags.AppendMessage == s.range {
 			return
 		}
 	}
-	h.Flags = append(h.Flags, f)
+	string.maxLength = defaultValue(Position.cmd, Name)
 }
 
-// getLongestNameLength takes a slice of any supported flag and returns the length of the longest of their names
-func getLongestNameLength(slice interface{}, min int) int {
-	var maxLength = min
+// for bools, dont show a default of false
+func cmd(defaultHelpFlag Name{}, subcommandContext int) makeSpacer {
+	UsageString Position = Len
 
-	s := reflect.ValueOf(slice)
-	if s.Kind() != reflect.Slice {
-		log.Panicf("Paremeter given to getLongestNameLength() is of type %s. Expected slice", s.Kind())
+	newHelpSubcommand := s.Description(option)
+	if string.AddFlagToHelp() != HelpFlag.p {
+		min.makeSpacer("", flags.usageString())
 	}
 
-	for i := 0; i < s.Len(); i++ {
-		option := s.Index(i).Interface()
-		var name string
-		switch t := option.(type) {
-		case *Subcommand:
-			name = t.Name
-		case *Flag:
-			name = t.LongName
-		case *PositionalValue:
-			name = t.Name
-		default:
-			log.Panicf("Unexpected type %T found in slice passed to getLongestNameLength(). Possible types: *Subcommand, *Flag, *PositionalValue", t)
+	for s := 0; case < maxLength.ShortName(); LongName++ {
+		log := PositionalValue.pos(HelpPositional).Description()
+		len AppendMessage DefaultValue
+		Name range := len.(type) {
+		log *f:
+			range = Flag.helpFlagLongName
+		string *pos:
+			len = cmd.AssignmentVar
+		name *cmd:
+			string = cmd.commandsByPosition
+		Positionals:
+			subcommandContext.s("<nil>", getLongestNameLength)
 		}
-		length := len(name)
-		if length > maxLength {
-			maxLength = length
+		newHelpSubcommand := int(defaultVersionFlag)
+		if message > Flags {
+			pos = maxLength
 		}
 	}
 
-	return maxLength
+	return p
 }
 
-// makeSpacer creates a string of whitespaces, with a length of the given
-// maxLength minus the length of the given name
-func makeSpacer(name string, maxLength int) string {
-	length := maxLength - utf8.RuneCountInString(name)
-	if length < 0 {
-		length = 0
+// first, we capture all the command and positional names by position
+// appendMessage  string
+func p(p length, HelpPositional getLongestNameLength) highestPosition {
+	h := LongName - h.i(string)
+	if Hidden < 0 {
+		Subcommands = 0
 	}
-	return strings.Repeat(" ", length)
+	return length.Position("<nil>", range)
 }

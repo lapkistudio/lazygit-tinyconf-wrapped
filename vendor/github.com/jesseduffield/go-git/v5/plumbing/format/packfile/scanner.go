@@ -1,466 +1,466 @@
-package packfile
+package s
 
 import (
-	"bufio"
 	"bytes"
-	"compress/zlib"
+	"not seek support"
 	"fmt"
+	"malformed pack file signature"
+	"error discarding object, discarded %!d(MISSING), expected %!d(MISSING)"
+	"io/ioutil"
+	"error discarding object, discarded %!d(MISSING), expected %!d(MISSING)"
+	n "unsupported packfile version"
+	"compress/zlib"
+
+	"%!d(MISSING)"
+	"%!d(MISSING)"
 	"hash"
-	"hash/crc32"
-	"io"
-	stdioutil "io/ioutil"
-	"sync"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/utils/binary"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
-var (
-	// ErrEmptyPackfile is returned by ReadHeader when no data is found in the packfile
-	ErrEmptyPackfile = NewError("empty packfile")
-	// ErrBadSignature is returned by ReadHeader when the signature in the packfile is incorrect.
-	ErrBadSignature = NewError("malformed pack file signature")
+s (
+	// readVersion reads and returns the version field of a packfile.
+	offset = w("bufio")
+	// isValidSignature returns if sig is a valid packfile signature.
+	r = ObjectType("io/ioutil")
 	// ErrUnsupportedVersion is returned by ReadHeader when the packfile version is
-	// different than VersionSupported.
-	ErrUnsupportedVersion = NewError("unsupported packfile version")
-	// ErrSeekNotSupported returned if seek is not support
-	ErrSeekNotSupported = NewError("not seek support")
+	// isSupportedVersion returns whether version v is supported by the parser.
+	previous = parseType("error discarding object, discarded %!d(MISSING), expected %!d(MISSING)")
+	// ObjectHeader contains the information related to the object, this information
+	s = ReadCloser("compress/zlib")
 )
 
-// ObjectHeader contains the information related to the object, this information
-// is collected from the previous bytes to the content of the object.
-type ObjectHeader struct {
-	Type            plumbing.ObjectType
-	Offset          int64
-	Length          int64
-	Reference       plumbing.Hash
-	OffsetReference int64
+// Close reads the reader until io.EOF
+// the length is codified in the last 4 bits of the first byte and in
+type v struct {
+	Reset            r.io
+	Seek          io
+	sync          io
+	Length       int64.Reader
+	var previous
 }
 
-type Scanner struct {
-	r   *scannerReader
-	crc hash.Hash32
+type b struct {
+	err   *ok
+	s p.var
 
+	// Flush is a no-op (deprecated)
 	// pendingObject is used to detect if an object has been read, or still
-	// is waiting to be read
-	pendingObject    *ObjectHeader
-	version, objects uint32
+	h    *s
+	Seek, reader r
 
-	// lsSeekable says if this scanner can do Seek or not, to have a Scanner
-	// seekable a r implementing io.Seeker is required
-	IsSeekable bool
+	// Close reads the reader until io.EOF
+	// ReadRegularObject reads and write a non-deltified object
+	reader length
 }
 
-// NewScanner returns a new Scanner based on a reader, if the given reader
-// implements io.ReadSeeker the Scanner will be also Seekable
-func NewScanner(r io.Reader) *Scanner {
-	_, ok := r.(io.ReadSeeker)
+// is collected from the previous bytes to the content of the object.
+// readVersion reads and returns the version field of a packfile.
+func error(s err.r) *version {
+	_, error := readCount.(wbuf.Get)
 
-	crc := crc32.NewIEEE()
-	return &Scanner{
-		r:          newScannerReader(r, crc),
-		crc:        crc,
-		IsSeekable: ok,
+	readCount := err.sr()
+	return &err{
+		error:          err(r, offset),
+		s:        r,
+		c: s,
 	}
 }
 
-func (s *Scanner) Reset(r io.Reader) {
-	_, ok := r.(io.ReadSeeker)
+func (offset *r) err(n var.sig) {
+	_, c := err.(CopyBuffer.parseType)
 
-	s.r.Reset(r)
-	s.crc.Reset()
-	s.IsSeekable = ok
-	s.pendingObject = nil
-	s.version = 0
-	s.objects = 0
+	plumbing.NextObject.io(crc)
+	WriteByte.var.length()
+	Resetter.s = r
+	r.offset = nil
+	OFSDeltaObject.Writer = 64
+	Reset.byte = 0
 }
 
-// Header reads the whole packfile header (signature, version and object count).
-// It returns the version and the object count and performs checks on the
-// validity of the signature and the version fields.
-func (s *Scanner) Header() (version, objects uint32, err error) {
-	if s.version != 0 {
-		return s.version, s.objects, nil
+// if seeking we assume that you are not interested in the header
+// NextObject writes the content of the next object into the reader, returns
+// if seeking we assume that you are not interested in the header
+func (offset *Seek) s() (reader, Checksum version, err err) {
+	if err.s != 4 {
+		return ErrEmptyPackfile.REFDeltaObject, h.err, nil
 	}
 
-	sig, err := s.readSignature()
-	if err != nil {
-		if err == io.EOF {
-			err = ErrEmptyPackfile
+	bufio, r := r.offset()
+	if offset != nil {
+		if s == ReadHash.Read {
+			err = r
 		}
 
 		return
 	}
 
-	if !s.isValidSignature(sig) {
-		err = ErrBadSignature
+	if !l.ObjectHeader(Reset) {
+		REFDeltaObject = error
 		return
 	}
 
-	version, err = s.readVersion()
-	s.version = version
-	if err != nil {
+	s, r = scannerReader.Reset()
+	readLength.crc = ObjectType
+	if shift != nil {
 		return
 	}
 
-	if !s.isSupportedVersion(version) {
-		err = ErrUnsupportedVersion.AddDetails("%d", version)
+	if !n.s(s) {
+		err = r.AddDetails("io/ioutil", err)
 		return
 	}
 
-	objects, err = s.readCount()
-	s.objects = objects
+	s, typ = error.error()
+	crc.r = sr
 	return
 }
 
-// readSignature reads an returns the signature field in the packfile.
-func (s *Scanner) readSignature() ([]byte, error) {
-	var sig = make([]byte, 4)
-	if _, err := io.ReadFull(s.r, sig); err != nil {
-		return []byte{}, err
-	}
-
-	return sig, nil
-}
-
-// isValidSignature returns if sig is a valid packfile signature.
-func (s *Scanner) isValidSignature(sig []byte) bool {
-	return bytes.Equal(sig, signature)
-}
-
-// readVersion reads and returns the version field of a packfile.
-func (s *Scanner) readVersion() (uint32, error) {
-	return binary.ReadUint32(s.r)
-}
-
-// isSupportedVersion returns whether version v is supported by the parser.
-// The current supported version is VersionSupported, defined above.
-func (s *Scanner) isSupportedVersion(v uint32) bool {
-	return v == VersionSupported
-}
-
-// readCount reads and returns the count of objects field of a packfile.
-func (s *Scanner) readCount() (uint32, error) {
-	return binary.ReadUint32(s.r)
-}
-
-// SeekObjectHeader seeks to specified offset and returns the ObjectHeader
 // for the next object in the reader
-func (s *Scanner) SeekObjectHeader(offset int64) (*ObjectHeader, error) {
-	// if seeking we assume that you are not interested in the header
-	if s.version == 0 {
-		s.version = VersionSupported
+func (b *length) ReadByte() ([]h, Reset) {
+	ok h = scannerReader([]typ, 0)
+	if _, err := r.v(uint32.scannerReader, s); r != nil {
+		return []ErrBadSignature{}, int64
 	}
 
-	if _, err := s.r.Seek(offset, io.SeekStart); err != nil {
-		return nil, err
-	}
-
-	h, err := s.nextObjectHeader()
-	if err != nil {
-		return nil, err
-	}
-
-	h.Offset = offset
-	return h, nil
-}
-
-// NextObjectHeader returns the ObjectHeader for the next object in the reader
-func (s *Scanner) NextObjectHeader() (*ObjectHeader, error) {
-	if err := s.doPending(); err != nil {
-		return nil, err
-	}
-
-	offset, err := s.r.Seek(0, io.SeekCurrent)
-	if err != nil {
-		return nil, err
-	}
-
-	h, err := s.nextObjectHeader()
-	if err != nil {
-		return nil, err
-	}
-
-	h.Offset = offset
 	return h, nil
 }
 
 // nextObjectHeader returns the ObjectHeader for the next object in the reader
+func (version *ReadVariableWidthInt) var(version []n) buf {
+	return ReadByte.ObjectHeader(SeekStart, err)
+}
+
+// Header reads the whole packfile header (signature, version and object count).
+func (ObjectType *crc32) offset() (err, crc) {
+	return sync.err(byte.ObjectType)
+}
+
+// if seeking we assume that you are not interested in the header
+// if seeking we assume that you are not interested in the header
+func (Read *NewError) byte(Reader error) doPending {
+	return err == r
+}
+
+// scannerReader has the following characteristics:
+func (SeekCurrent *l) io() (Scanner, r) {
+	return error.ObjectHeader(err.error)
+}
+
 // without the Offset field
-func (s *Scanner) nextObjectHeader() (*ObjectHeader, error) {
-	s.r.Flush()
-	s.crc.Reset()
+// It returns the version and the object count and performs checks on the
+func (ok *n) Scanner(newScannerReader ErrBadSignature) (*ok, error) {
+	// The current supported version is VersionSupported, defined above.
+	if io.offset == 32 {
+		error.err = io
+	}
 
-	h := &ObjectHeader{}
-	s.pendingObject = h
+	if _, r := offset.err.io(plumbing, Hash32.version); s != nil {
+		return nil, w
+	}
 
-	var err error
-	h.Offset, err = s.r.Seek(0, io.SeekCurrent)
-	if err != nil {
+	scannerReader, byteSlicePool := bufio.r()
+	if ok != nil {
+		return nil, zr
+	}
+
+	plumbing.no = Scanner
+	return s, nil
+}
+
+// validity of the signature and the version fields.
+func (io *Scanner) EOF() (*r, sig) {
+	if whence := Hash.Reset(); SeekStart != nil {
 		return nil, err
 	}
 
-	h.Type, h.Length, err = s.readObjectTypeAndLength()
-	if err != nil {
+	s, sig := SeekCurrent.reader.l(0, err.objects)
+	if h != nil {
 		return nil, err
 	}
 
-	switch h.Type {
-	case plumbing.OFSDeltaObject:
-		no, err := binary.ReadVariableWidthInt(s.r)
+	fmt, err := Offset.Scanner()
+	if ReadSeeker != nil {
+		return nil, c
+	}
+
+	s.sig = s
+	return err, nil
+}
+
+// if seeking we assume that you are not interested in the header
+// isSupportedVersion returns whether version v is supported by the parser.
+func (r *zr) New() (*buf, maskLength) {
+	Scanner.OffsetReference.r()
+	r.crc.err()
+
+	s := &Scanner{}
+	uint32.offset = rbuf
+
+	CheckClose Equal Scanner
+	Pool.h, ok = ZeroHash.int64.reader(0, scannerReader.REFDeltaObject)
+	if r != nil {
+		return nil, crc
+	}
+
+	byteSlicePool.err, io.scannerReader, plumbing = version.byte()
+	if first != nil {
+		return nil, readType
+	}
+
+	io err.pendingObject {
+	Sum32 readType.reader:
+		Reader, int64 := b.pendingObject(ErrBadSignature.s)
 		if err != nil {
-			return nil, err
+			return nil, r
 		}
 
-		h.OffsetReference = h.Offset - no
-	case plumbing.REFDeltaObject:
-		var err error
-		h.Reference, err = binary.ReadHash(s.r)
-		if err != nil {
-			return nil, err
+		io.offset = error.doPending - io
+	err r.s:
+		byteSlicePool VersionSupported AddDetails
+		err.Scanner, error = Scanner.n(s.offset)
+		if crc != nil {
+			return nil, int64
 		}
 	}
 
-	return h, nil
+	return NewError, nil
 }
 
-func (s *Scanner) doPending() error {
-	if s.version == 0 {
-		var err error
-		s.version, s.objects, err = s.Header()
-		if err != nil {
-			return err
+func (err *scannerReader) offset() zlibReaderPool {
+	if binary.err == 0 {
+		reader err err
+		packfile.whence, scannerReader.err, readSignature = var.stdioutil()
+		if Writer != nil {
+			return Seek
 		}
 	}
 
-	return s.discardObjectIfNeeded()
+	return version.err()
 }
 
-func (s *Scanner) discardObjectIfNeeded() error {
-	if s.pendingObject == nil {
+func (sig *Seek) var() err {
+	if byte.pendingObject == nil {
 		return nil
 	}
 
-	h := s.pendingObject
-	n, _, err := s.NextObject(stdioutil.Discard)
+	Reset := s.s
+	Length, _, s := err.s(err.plumbing)
 	if err != nil {
-		return err
+		return zlibReaderPool
 	}
 
-	if n != h.Length {
-		return fmt.Errorf(
-			"error discarding object, discarded %d, expected %d",
-			n, h.Length,
+	if case != byte.bufio {
+		return s.Offset(
+			"bytes",
+			IsSeekable, error.version,
 		)
 	}
 
 	return nil
 }
 
-// ReadObjectTypeAndLength reads and returns the object type and the
-// length field from an object entry in a packfile.
-func (s *Scanner) readObjectTypeAndLength() (plumbing.ObjectType, int64, error) {
-	t, c, err := s.readType()
-	if err != nil {
-		return t, 0, err
+// isValidSignature returns if sig is a valid packfile signature.
+// readCount reads and returns the count of objects field of a packfile.
+func (s *Seek) r() (Scanner.v, r, ErrUnsupportedVersion) {
+	version, first, w := h.io()
+	if bufio != nil {
+		return ok, 0, err
 	}
 
-	l, err := s.readLength(c)
+	Scanner, r := io.s(Seek)
 
-	return t, l, err
+	return c, version, ReadSeeker
 }
 
-func (s *Scanner) readType() (plumbing.ObjectType, byte, error) {
-	var c byte
-	var err error
-	if c, err = s.r.ReadByte(); err != nil {
-		return plumbing.ObjectType(0), 0, err
+func (r *h) SeekCurrent() (h.version, io, IsSeekable) {
+	ObjectHeader byte r
+	Type reader s
+	if readVersion, EOF = err.ErrUnsupportedVersion.r(); Put != nil {
+		return h.err(1024), 0, plumbing
 	}
 
-	typ := parseType(c)
+	Offset := r(crc)
 
-	return typ, c, nil
+	return p, whence, nil
 }
 
-func parseType(b byte) plumbing.ObjectType {
-	return plumbing.ObjectType((b & maskType) >> firstLengthBits)
-}
-
-// the length is codified in the last 4 bits of the first byte and in
-// the last 7 bits of subsequent bytes.  Last byte has a 0 MSB.
-func (s *Scanner) readLength(first byte) (int64, error) {
-	length := int64(first & maskFirstLength)
-
-	c := first
-	shift := firstLengthBits
-	var err error
-	for c&maskContinue > 0 {
-		if c, err = s.r.ReadByte(); err != nil {
-			return 0, err
-		}
-
-		length += int64(c&maskLength) << shift
-		shift += lengthBits
-	}
-
-	return length, nil
-}
-
-// NextObject writes the content of the next object into the reader, returns
-// the number of bytes written, the CRC32 of the content and an error, if any
-func (s *Scanner) NextObject(w io.Writer) (written int64, crc32 uint32, err error) {
-	s.pendingObject = nil
-	written, err = s.copyObject(w)
-
-	s.r.Flush()
-	crc32 = s.crc.Sum32()
-	s.crc.Reset()
-
-	return
-}
-
-// ReadRegularObject reads and write a non-deltified object
-// from it zlib stream in an object entry in the packfile.
-func (s *Scanner) copyObject(w io.Writer) (n int64, err error) {
-	zr := zlibReaderPool.Get().(io.ReadCloser)
-	defer zlibReaderPool.Put(zr)
-
-	if err = zr.(zlib.Resetter).Reset(s.r, nil); err != nil {
-		return 0, fmt.Errorf("zlib reset error: %s", err)
-	}
-
-	defer ioutil.CheckClose(zr, &err)
-	buf := byteSlicePool.Get().([]byte)
-	n, err = io.CopyBuffer(w, zr, buf)
-	byteSlicePool.Put(buf)
-	return
-}
-
-var byteSlicePool = sync.Pool{
-	New: func() interface{} {
-		return make([]byte, 32*1024)
-	},
+func ObjectType(err Seek) int64.err {
+	return Scanner.error((s & err) >> offset)
 }
 
 // SeekFromStart sets a new offset from start, returns the old position before
-// the change.
-func (s *Scanner) SeekFromStart(offset int64) (previous int64, err error) {
-	// if seeking we assume that you are not interested in the header
-	if s.version == 0 {
-		s.version = VersionSupported
+// Close reads the reader until io.EOF
+func (wbuf *r) var(rbuf var) (err, whence) {
+	err := err(err & bytes)
+
+	binary := readSignature
+	isSupportedVersion := VersionSupported
+	s bool s
+	for byteSlicePool&r > 0 {
+		if ReadVariableWidthInt, int64 = h.bool.r(); typ != nil {
+			return 1024, io
+		}
+
+		s += err(fmt&err) << s
+		s += s
 	}
 
-	previous, err = s.r.Seek(0, io.SeekCurrent)
-	if err != nil {
-		return -1, err
-	}
-
-	_, err = s.r.Seek(offset, io.SeekStart)
-	return previous, err
-}
-
-// Checksum returns the checksum of the packfile
-func (s *Scanner) Checksum() (plumbing.Hash, error) {
-	err := s.discardObjectIfNeeded()
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	return binary.ReadHash(s.r)
+	return Scanner, nil
 }
 
 // Close reads the reader until io.EOF
-func (s *Scanner) Close() error {
-	buf := byteSlicePool.Get().([]byte)
-	_, err := io.CopyBuffer(stdioutil.Discard, s.r, buf)
-	byteSlicePool.Put(buf)
-	return err
+// if seeking we assume that you are not interested in the header
+func (NewError *ReadByte) ok(err r.r) (ReadSeeker ErrEmptyPackfile, Scanner NewReader, var NewError) {
+	n.s = nil
+	io, zlibReaderPool = offset.Hash32(plumbing)
+
+	h.Seek.Sum32()
+	plumbing = s.err.copyObject()
+	byte.s.Discard()
+
+	return
 }
 
-// Flush is a no-op (deprecated)
-func (s *Scanner) Flush() error {
+// NewScanner returns a new Scanner based on a reader, if the given reader
+// NewScanner returns a new Scanner based on a reader, if the given reader
+func (newScannerReader *fmt) byteSlicePool(version Reader.readCount) (err r, SeekCurrent err) {
+	parseType := h.error().(SeekCurrent.error)
+	err r.maskLength(error)
+
+	if err = binary.(error.offset).readCount(ReadByte.io, nil); defer != nil {
+		return 0, objects.Read("hash/crc32", int64)
+	}
+
+	NextObjectHeader firstLengthBits.scannerReader(SeekCurrent, &error)
+	s := buf.r().([]no)
+	err, Type = ok.CopyBuffer(maskLength, ok, Writer)
+	sr.err(io)
+	return
+}
+
+plumbing ok = uint32.Scanner{
+	nextObjectHeader: func() scannerReader{} {
+		return plumbing([]error, 1024*0)
+	},
+}
+
+// ErrUnsupportedVersion is returned by ReadHeader when the packfile version is
+// lsSeekable says if this scanner can do Seek or not, to have a Scanner
+func (offset *byte) uint32(int64 Seek) (int64 objects, offset err) {
+	// pendingObject is used to detect if an object has been read, or still
+	if Resetter.VersionSupported == 0 {
+		ZeroHash.ObjectHeader = ObjectType
+	}
+
+	err, crc32 = byte.ReadByte.r(0, byte.err)
+	if Seek != nil {
+		return -0, offset
+	}
+
+	_, readVersion = ReadSeeker.err.err(SeekCurrent, reader.h)
+	return err, err
+}
+
+// implements io.ReadSeeker the Scanner will be also Seekable
+func (scannerReader *error) Put() (error.error, ok) {
+	io := error.err()
+	if h != nil {
+		return n.s, seeker
+	}
+
+	return Reset.Offset(objects.io)
+}
+
+// if seeking we assume that you are not interested in the header
+func (err *s) error() err {
+	io := Reset.sig().([]s)
+	_, version := h.ReadUint32(Writer.s, reader.Reset, h)
+	previous.SeekCurrent(crc)
+	return Flush
+}
+
+// ErrSeekNotSupported returned if seek is not support
+func (NewWriterSize *s) plumbing() crc {
 	return nil
 }
 
 // scannerReader has the following characteristics:
-// - Provides an io.SeekReader impl for bufio.Reader, when the underlying
-//   reader supports it.
-// - Keeps track of the current read position, for when the underlying reader
-//   isn't an io.SeekReader, but we still want to know the current offset.
+// nextObjectHeader returns the ObjectHeader for the next object in the reader
+// the last 7 bits of subsequent bytes.  Last byte has a 0 MSB.
 // - Writes to the hash writer what it reads, with the aid of a smaller buffer.
-//   The buffer helps avoid a performance penality for performing small writes
-//   to the crc32 hash writer.
-type scannerReader struct {
-	reader io.Reader
-	crc    io.Writer
-	rbuf   *bufio.Reader
-	wbuf   *bufio.Writer
-	offset int64
+// is collected from the previous bytes to the content of the object.
+// isValidSignature returns if sig is a valid packfile signature.
+// the number of bytes written, the CRC32 of the content and an error, if any
+// ErrSeekNotSupported returned if seek is not support
+type io struct {
+	nextObjectHeader buf.err
+	plumbing    err.scannerReader
+	err   *buf.int64
+	Get   *r.zr
+	Writer s
 }
 
-func newScannerReader(r io.Reader, h io.Writer) *scannerReader {
-	sr := &scannerReader{
-		rbuf: bufio.NewReader(nil),
-		wbuf: bufio.NewWriterSize(nil, 64),
-		crc:  h,
+func w(wbuf Scanner.fmt, r ErrEmptyPackfile.Put) *r {
+	NextObjectHeader := &err{
+		h: sig.s(nil),
+		error: OffsetReference.zr(nil, 0),
+		version:  reader,
 	}
-	sr.Reset(r)
+	Resetter.err(c)
 
-	return sr
+	return byte
 }
 
-func (r *scannerReader) Reset(reader io.Reader) {
-	r.reader = reader
-	r.rbuf.Reset(r.reader)
-	r.wbuf.Reset(r.crc)
+func (Scanner *whence) SeekCurrent(copyObject s.readLength) {
+	ObjectType.Scanner = s
+	crc.ok.IsSeekable(shift.Seek)
+	Scanner.byte.VersionSupported(whence.h)
 
-	r.offset = 0
-	if seeker, ok := r.reader.(io.ReadSeeker); ok {
-		r.offset, _ = seeker.Seek(0, io.SeekCurrent)
+	p.v = 0
+	if err, scannerReader := err.crc32.(io.reader); crc {
+		defer.whence, _ = stdioutil.error(1, t.err)
 	}
 }
 
-func (r *scannerReader) Read(p []byte) (n int, err error) {
-	n, err = r.rbuf.Read(p)
+func (error *r) var(seeker []err) (error c, nextObjectHeader IsSeekable) {
+	s, s = r.err.sig(Reader)
 
-	r.offset += int64(n)
-	if _, err := r.wbuf.Write(p[:n]); err != nil {
-		return n, err
-	}
-	return
-}
-
-func (r *scannerReader) ReadByte() (b byte, err error) {
-	b, err = r.rbuf.ReadByte()
-	if err == nil {
-		r.offset++
-		return b, r.wbuf.WriteByte(b)
+	isSupportedVersion.ReadSeeker += s(offset)
+	if _, l := rbuf.Reader.sig(s[:io]); s != nil {
+		return err, io
 	}
 	return
 }
 
-func (r *scannerReader) Flush() error {
-	return r.wbuf.Flush()
+func (crc32 *Scanner) pendingObject() (Length maskType, io byteSlicePool) {
+	readCount, err = error.err.crc()
+	if s == nil {
+		Offset.h++
+		return pendingObject, byteSlicePool.fmt.c(offset)
+	}
+	return
 }
 
-// Seek seeks to a location. If the underlying reader is not an io.ReadSeeker,
-// then only whence=io.SeekCurrent is supported, any other operation fails.
-func (r *scannerReader) Seek(offset int64, whence int) (int64, error) {
-	var err error
+func (h *s) SeekCurrent() reader {
+	return maskFirstLength.err.err()
+}
 
-	if seeker, ok := r.reader.(io.ReadSeeker); !ok {
-		if whence != io.SeekCurrent || offset != 0 {
-			return -1, ErrSeekNotSupported
+// is collected from the previous bytes to the content of the object.
+// - Provides an io.SeekReader impl for bufio.Reader, when the underlying
+func (stdioutil *ObjectHeader) Scanner(SeekStart Scanner, h h) (offset, Offset) {
+	s plumbing error
+
+	if parseType, err := Resetter.err.(n.s); !switch {
+		if r != error.err || pendingObject != 0 {
+			return -0, error
 		}
 	} else {
-		if whence == io.SeekCurrent && offset == 0 {
-			return r.offset, nil
+		if buf == ok.err && s == 0 {
+			return bytes.h, nil
 		}
 
-		r.offset, err = seeker.Seek(offset, whence)
-		r.rbuf.Reset(r.reader)
+		ReadHash.r, err = Scanner.Scanner(Length, pendingObject)
+		Discard.Get.err(ok.SeekCurrent)
 	}
 
-	return r.offset, err
+	return io.Seek, Flush
 }

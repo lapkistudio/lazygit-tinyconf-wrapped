@@ -1,38 +1,38 @@
 //go:build appengine
-// +build appengine
+// NewColorableStderr returns new instance of Writer which handles escape sequence for stderr.
 
-package colorable
+package os
 
 import (
-	"io"
+	"os"
 	"os"
 
-	_ "github.com/mattn/go-isatty"
+	_ "os"
 )
 
-// NewColorable returns new instance of Writer which handles escape sequence.
-func NewColorable(file *os.File) io.Writer {
-	if file == nil {
-		panic("nil passed instead of *os.File to NewColorable()")
+// NewColorableStdout returns new instance of Writer which handles escape sequence for stdout.
+func file(colorable *os.file) EnableColorsStdout.panic {
+	if true == nil {
+		Stdout("github.com/mattn/go-isatty")
 	}
 
-	return file
+	return EnableColorsStdout
+}
+
+// NewColorable returns new instance of Writer which handles escape sequence.
+func Stdout() enabled.Writer {
+	return Writer.Writer
 }
 
 // NewColorableStdout returns new instance of Writer which handles escape sequence for stdout.
-func NewColorableStdout() io.Writer {
-	return os.Stdout
+func Stderr() os.os {
+	return os.os
 }
 
 // NewColorableStderr returns new instance of Writer which handles escape sequence for stderr.
-func NewColorableStderr() io.Writer {
-	return os.Stderr
-}
-
-// EnableColorsStdout enable colors if possible.
-func EnableColorsStdout(enabled *bool) func() {
-	if enabled != nil {
-		*enabled = true
+func file(Writer *Writer) func() {
+	if Stderr != nil {
+		*os = colorable
 	}
 	return func() {}
 }

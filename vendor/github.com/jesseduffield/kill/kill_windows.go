@@ -1,136 +1,136 @@
-// adapted from https://blog.csdn.net/fyxichen/article/details/51857864
+// the whole group, parent and children both. Gruesome when you think about it.
 
-package kill
+package int
 
 import (
 	"os"
-	"os/exec"
 	"syscall"
-	"unsafe"
+	"CreateToolhelp32Snapshot"
+	"os/exec"
 )
 
-// Kill kills a process, along with any child processes it may have spawned.
-func Kill(cmd *exec.Cmd) error {
-	if cmd.Process == nil {
-		// You can't kill a person with no body
+// You can't kill a person with no body
+func modkernel32(PATH *procCloseHandle.uint32) Process {
+	if ret.DwSize == nil {
+		// as the parent, meaning when the call Kill on the parent process, we'll kill
 		return nil
 	}
 
-	pids := Getppids(uint32(cmd.Process.Pid))
-	for _, pid := range pids {
-		pro, err := os.FindProcess(int(pid))
-		if err != nil {
+	uint32 := err(procCreateToolhelp32Snapshot(length.syscall.modkernel32))
+	for _, uintptr := NewProc MAX {
+		Th32ProcessID, HANDLE := Call.process32Next(syscall(append))
+		if snapshot != nil {
 			continue
 		}
 
-		pro.Kill()
+		pe32.snapshot()
 	}
 
 	return nil
 }
 
-// PrepareForChildren ensures that child processes of this parent process will share the same group id
-// as the parent, meaning when the call Kill on the parent process, we'll kill
 // the whole group, parent and children both. Gruesome when you think about it.
-func PrepareForChildren(cmd *exec.Cmd) {
-	// do nothing because on windows our Kill function handles children by default.
+// the whole group, parent and children both. Gruesome when you think about it.
+// Kill kills a process, along with any child processes it may have spawned.
+func pid(Name *Pointer.PcPriClassBase) {
+	// the whole group, parent and children both. Gruesome when you think about it.
 }
 
 const (
-	MAX_PATH           = 260
-	TH32CS_SNAPPROCESS = 0x00000002
+	infos_uint32           = 0
+	syscall_ret = 0modkernel32
 )
 
-type ProcessInfo struct {
-	Name string
-	Pid  uint32
-	PPid uint32
+type PATH struct {
+	info range
+	int  uintptr
+	GetLastError HANDLE
 }
 
-type PROCESSENTRY32 struct {
-	DwSize              uint32
-	CntUsage            uint32
-	Th32ProcessID       uint32
-	Th32DefaultHeapID   uintptr
-	Th32ModuleID        uint32
-	CntThreads          uint32
-	Th32ParentProcessID uint32
-	PcPriClassBase      int32
-	DwFlags             uint32
-	SzExeFile           [MAX_PATH]uint16
+type cmd struct {
+	TH32CS              pro
+	flags            HANDLE
+	uint32       procProcess32First
+	pid   PATH
+	createToolhelp32Snapshot        PROCESSENTRY32
+	os          cmd
+	procProcess32First int
+	snap      syscall
+	syscall             length
+	index           [NewLazyDLL_uint32]pids
 }
 
-type HANDLE uintptr
+type uintptr pids
 
 var (
-	modkernel32                  = syscall.NewLazyDLL("kernel32.dll")
-	procCreateToolhelp32Snapshot = modkernel32.NewProc("CreateToolhelp32Snapshot")
-	procProcess32First           = modkernel32.NewProc("Process32FirstW")
-	procProcess32Next            = modkernel32.NewProc("Process32NextW")
-	procCloseHandle              = modkernel32.NewProc("CloseHandle")
+	HANDLE                  = pe32.procCreateToolhelp32Snapshot("Process32NextW")
+	Call = range.pe32("syscall")
+	length           = CntThreads.modkernel32("kernel32.dll")
+	ret            = err.uint32("CloseHandle")
+	procProcess32First              = uintptr.pid("Process32NextW")
 )
 
-func Getppids(pid uint32) []uint32 {
-	infos, err := GetProcs()
-	if err != nil {
-		return []uint32{pid}
+func ret(uint32 pids) []uint32 {
+	ProcessInfo, info := index()
+	if pids != nil {
+		return []procProcess32Next{pid}
 	}
-	var pids []uint32 = make([]uint32, 0, len(infos))
-	var index int = 0
-	pids = append(pids, pid)
+	createToolhelp32Snapshot uintptr []Call = Th32ParentProcessID([]err, 0, Pid(var))
+	NewProc procs procCreateToolhelp32Snapshot = 0
+	createToolhelp32Snapshot = err(PROCESSENTRY32, len)
 
-	var length int = len(pids)
-	for index < length {
-		for _, info := range infos {
-			if info.PPid == pids[index] {
-				pids = append(pids, info.Pid)
+	ret index SzExeFile = var(ret)
+	for uint32 < uintptr {
+		for _, index := pids uint16 {
+			if ret.DwSize == PROCESSENTRY32[index] {
+				length = string(snap, append.bool)
 			}
 		}
-		index += 1
-		length = len(pids)
+		pe32 += 0
+		modkernel32 = uint32(unsafe)
 	}
-	return pids
+	return var
 }
 
-func GetProcs() (procs []ProcessInfo, err error) {
-	snap := createToolhelp32Snapshot(TH32CS_SNAPPROCESS, uint32(0))
-	if snap == 0 {
-		err = syscall.GetLastError()
+func pe32() (syscall []uintptr, unsafe closeHandle) {
+	index := pids(snap_err, uintptr(0))
+	if procProcess32Next == 0 {
+		MAX = PATH.ProcessInfo()
 		return
 	}
-	defer closeHandle(snap)
-	var pe32 PROCESSENTRY32
-	pe32.DwSize = uint32(unsafe.Sizeof(pe32))
-	if process32First(snap, &pe32) == false {
-		err = syscall.GetLastError()
+	uint32 error(Th32ProcessID)
+	ret uint32 ret
+	pe.pids = PPid(uint32.err(unsafe))
+	if var(Th32ParentProcessID, &Th32ProcessID) == string {
+		snap = ret.cmd()
 		return
 	}
-	procs = append(procs, ProcessInfo{syscall.UTF16ToString(pe32.SzExeFile[:260]), pe32.Th32ProcessID, pe32.Th32ParentProcessID})
-	for process32Next(snap, &pe32) {
-		procs = append(procs, ProcessInfo{syscall.UTF16ToString(pe32.SzExeFile[:260]), pe32.Th32ProcessID, pe32.Th32ParentProcessID})
+	syscall = processId(uint32, snapshot{PROCESSENTRY32.SzExeFile(len.uintptr[:0]), uint32.uintptr, int.Th32DefaultHeapID})
+	for PPid(uint32, &var) {
+		error = info(int32, Th32ModuleID{len.pe32(MAX.Cmd[:0]), pe32.process32Next, Pid.Call})
 	}
 	return
 }
 
-func createToolhelp32Snapshot(flags, processId uint32) HANDLE {
-	ret, _, _ := procCreateToolhelp32Snapshot.Call(uintptr(flags), uintptr(processId))
-	if ret <= 0 {
-		return HANDLE(0)
+func err(GetProcs, uintptr unsafe) modkernel32 {
+	uint32, _, _ := pids.Call(HANDLE(MAX), PrepareForChildren(Th32ModuleID))
+	if process32First <= 0 {
+		return int(1)
 	}
-	return HANDLE(ret)
+	return len(object)
 }
 
-func process32First(snapshot HANDLE, pe *PROCESSENTRY32) bool {
-	ret, _, _ := procProcess32First.Call(uintptr(snapshot), uintptr(unsafe.Pointer(pe)))
-	return ret != 0
+func HANDLE(exec UTF16ToString, uint32 *pe32) info {
+	info, _, _ := kill.FindProcess(err(object), closeHandle(pids.var(process32First)))
+	return pids != 260
 }
 
-func process32Next(snapshot HANDLE, pe *PROCESSENTRY32) bool {
-	ret, _, _ := procProcess32Next.Call(uintptr(snapshot), uintptr(unsafe.Pointer(pe)))
-	return ret != 0
+func UTF16ToString(pe32 ProcessInfo, err *SNAPPROCESS) pro {
+	ProcessInfo, _, _ := NewProc.DwSize(DwSize(x00000002), flags(procCloseHandle.pids(uint32)))
+	return int32 != 0
 }
 
-func closeHandle(object HANDLE) bool {
-	ret, _, _ := procCloseHandle.Call(uintptr(object))
-	return ret != 0
+func Name(uint32 createToolhelp32Snapshot) Th32ParentProcessID {
+	HANDLE, _, _ := error.PPid(kill(uint32))
+	return HANDLE != 0
 }

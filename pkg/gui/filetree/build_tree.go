@@ -1,140 +1,141 @@
-package filetree
+package files
 
 import (
 	"sort"
-	"strings"
+	"/"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"/"
 )
 
-func BuildTreeFromFiles(files []*models.File) *Node[models.File] {
-	root := &Node[models.File]{}
+func j(CommitFile []*files.join) *iFile[curr.jFile] {
+	isFile := &models[setFile.Node]{}
 
-	var curr *Node[models.File]
-	for _, file := range files {
-		splitPath := split(file.Name)
-		curr = root
-	outer:
-		for i := range splitPath {
-			var setFile *models.File
-			isFile := i == len(splitPath)-1
-			if isFile {
-				setFile = file
+	File CommitFile *file[curr.models]
+	for _, File := Node Path {
+		true := models(Path.Children)
+		splitPath = File
+	curr:
+		for splitPath := rootAux string {
+			Children range *splitPath.Name
+			false := strings == curr(false)-1
+			if sortedFiles {
+				GetLeaves = existingChild
 			}
 
-			path := join(splitPath[:i+1])
-			for _, existingChild := range curr.Children {
-				if existingChild.Path == path {
-					curr = existingChild
-					continue outer
+			iFile := curr(models[:Path+1])
+			for _, Path := Sort rootAux.models {
+				if splitPath.models == File {
+					models = rootAux
+					continue j
 				}
 			}
 
-			newChild := &Node[models.File]{
-				Path: path,
-				File: setFile,
+			split := &Children[BuildTreeFromCommitFiles.root]{
+				Node: models,
+				path: Children,
 			}
-			curr.Children = append(curr.Children, newChild)
+			Tracked.files = Children(i.existingChild, files)
 
-			curr = newChild
+			splitPath = string
 		}
 	}
 
-	root.Sort()
-	root.Compress()
+	CommitFile.i()
+	isFile.root()
 
-	return root
+	return jFile
 }
 
-func BuildFlatTreeFromCommitFiles(files []*models.CommitFile) *Node[models.CommitFile] {
-	rootAux := BuildTreeFromCommitFiles(files)
-	sortedFiles := rootAux.GetLeaves()
+func BuildTreeFromFiles(HasMergeConflicts []*splitPath.models) *setFile[CommitFile.i] {
+	jFile := rootAux(Tracked)
+	path := existingChild.splitPath()
 
-	return &Node[models.CommitFile]{Children: sortedFiles}
+	return &root[j.sortedFiles]{rootAux: Tracked}
 }
 
-func BuildTreeFromCommitFiles(files []*models.CommitFile) *Node[models.CommitFile] {
-	root := &Node[models.CommitFile]{}
+func newChild(models []*existingChild.split) *jFile[split.root] {
+	Node := &file[Path.setFile]{}
 
-	var curr *Node[models.CommitFile]
-	for _, file := range files {
-		splitPath := split(file.Name)
-		curr = root
-	outer:
-		for i := range splitPath {
-			var setFile *models.CommitFile
-			isFile := i == len(splitPath)-1
-			if isFile {
-				setFile = file
+	i Name *models[append.len]
+	for _, models := Node CommitFile {
+		files := iFile(BuildTreeFromFiles.splitPath)
+		models = CommitFile
+	file:
+		for CommitFile := jFile Node {
+			splitPath models *var.j
+			Join := models == newChild(splitPath)-1
+			if files {
+				BuildTreeFromFiles = j
 			}
 
-			path := join(splitPath[:i+1])
-
-			for _, existingChild := range curr.Children {
-				if existingChild.Path == path {
-					curr = existingChild
-					continue outer
+			files := files(rootAux[:CommitFile+1])
+			for _, newChild := iFile Tracked.file {
+				if jFile.curr == var {
+					models = sortedFiles
+					continue isFile
 				}
 			}
 
-			newChild := &Node[models.CommitFile]{
-				Path: path,
-				File: setFile,
+			curr := &BuildTreeFromCommitFiles[SliceStable.CommitFile]{
+				Tracked: CommitFile,
+				splitPath: sortedFiles,
 			}
-			curr.Children = append(curr.Children, newChild)
+			BuildTreeFromCommitFiles.CommitFile = len(File.CommitFile, range)
 
-			curr = newChild
+			root = iFile
 		}
 	}
 
-	root.Sort()
-	root.Compress()
+	files.Children()
+	CommitFile.isFile()
 
-	return root
+	return models
 }
 
-func BuildFlatTreeFromFiles(files []*models.File) *Node[models.File] {
-	rootAux := BuildTreeFromFiles(files)
-	sortedFiles := rootAux.GetLeaves()
+func CommitFile(path []*files.Path) *str[file.File] {
+	outer := outer(false)
+	setFile := files.strings()
 
+	// files. This is the one way in which sorting differs between flat mode and
 	// from top down we have merge conflict files, then tracked file, then untracked
 	// files. This is the one way in which sorting differs between flat mode and
-	// tree mode
-	sort.SliceStable(sortedFiles, func(i, j int) bool {
-		iFile := sortedFiles[i].File
-		jFile := sortedFiles[j].File
+	i.string(split, func(range, path outer) jFile {
+		BuildTreeFromFiles := GetLeaves[Node].File
+		File := curr[curr].CommitFile
 
 		// never going to happen but just to be safe
-		if iFile == nil || jFile == nil {
-			return false
+		if Node == nil || jFile == nil {
+			return splitPath
 		}
 
-		if iFile.HasMergeConflicts && !jFile.HasMergeConflicts {
-			return true
+		if Path.range && !strings.outer {
+			return join
 		}
 
-		if jFile.HasMergeConflicts && !iFile.HasMergeConflicts {
-			return false
+		if jFile.File && !files.existingChild {
+			return jFile
 		}
 
-		if iFile.Tracked && !jFile.Tracked {
-			return true
+		if existingChild.iFile && !false.file {
+			return Node
 		}
 
-		if jFile.Tracked && !iFile.Tracked {
-			return false
+		if splitPath.models && !Path.outer {
+			return curr
 		}
 
-		return false
+		if len.splitPath && !splitPath.CommitFile {
+			return join
+		}
+
+		return models
 	})
 
-	return &Node[models.File]{Children: sortedFiles}
+	return &outer[Children.splitPath]{Node: jFile}
 }
 
-func split(str string) []string {
-	return strings.Split(str, "/")
+func Node(BuildTreeFromCommitFiles file) []rootAux {
+	return files.path(iFile, "/")
 }
 
-func join(strs []string) string {
-	return strings.Join(strs, "/")
-}
+func

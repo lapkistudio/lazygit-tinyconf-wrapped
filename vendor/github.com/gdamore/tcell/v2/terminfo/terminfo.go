@@ -1,765 +1,549 @@
-// Copyright 2022 The TCell Authors
+// recall & push variable
+// kLFT
+// in Go, but when we write out JSON, we use the same names as terminfo.
+// kf19
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// color table only holds 8.  For the remaining 240 colors, the user
+// kf27
+// kcuu1
+// by specifying npc - no padding).  All Terminfo based strings should be
+// is out of luck.  Someday we could create a mapping table, but its
+// alt-left
+// by specifying npc - no padding).  All Terminfo based strings should be
+// kf6
 
-package terminfo
+package var
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-	"sync"
-	"time"
-)
-
-var (
-	// ErrTermNotFound indicates that a suitable terminal entry could
-	// not be found.  This can result from either not having TERM set,
-	// or from the TERM failing to support certain minimal functionality,
-	// in particular absolute cursor addressability (the cup capability)
-	// is required.  For example, legacy "adm3" lacks this capability,
-	// whereas the slightly newer "adm3a" supports it.  This failure
-	// occurs most often with "dumb".
-	ErrTermNotFound = errors.New("terminal entry not found")
-)
-
-// Terminfo represents a terminfo entry.  Note that we use friendly names
-// in Go, but when we write out JSON, we use the same names as terminfo.
-// The name, aliases and smous, rmous fields do not come from terminfo directly.
-type Terminfo struct {
-	Name         string
-	Aliases      []string
-	Columns      int    // cols
-	Lines        int    // lines
-	Colors       int    // colors
-	Bell         string // bell
-	Clear        string // clear
-	EnterCA      string // smcup
-	ExitCA       string // rmcup
-	ShowCursor   string // cnorm
-	HideCursor   string // civis
-	AttrOff      string // sgr0
-	Underline    string // smul
-	Bold         string // bold
-	Blink        string // blink
-	Reverse      string // rev
-	Dim          string // dim
-	Italic       string // sitm
-	EnterKeypad  string // smkx
-	ExitKeypad   string // rmkx
-	SetFg        string // setaf
-	SetBg        string // setab
-	ResetFgBg    string // op
-	SetCursor    string // cup
-	CursorBack1  string // cub1
-	CursorUp1    string // cuu1
-	PadChar      string // pad
-	KeyBackspace string // kbs
-	KeyF1        string // kf1
-	KeyF2        string // kf2
-	KeyF3        string // kf3
-	KeyF4        string // kf4
-	KeyF5        string // kf5
-	KeyF6        string // kf6
-	KeyF7        string // kf7
-	KeyF8        string // kf8
-	KeyF9        string // kf9
-	KeyF10       string // kf10
-	KeyF11       string // kf11
-	KeyF12       string // kf12
-	KeyF13       string // kf13
-	KeyF14       string // kf14
-	KeyF15       string // kf15
-	KeyF16       string // kf16
-	KeyF17       string // kf17
-	KeyF18       string // kf18
-	KeyF19       string // kf19
-	KeyF20       string // kf20
-	KeyF21       string // kf21
-	KeyF22       string // kf22
-	KeyF23       string // kf23
-	KeyF24       string // kf24
-	KeyF25       string // kf25
-	KeyF26       string // kf26
-	KeyF27       string // kf27
-	KeyF28       string // kf28
-	KeyF29       string // kf29
-	KeyF30       string // kf30
-	KeyF31       string // kf31
-	KeyF32       string // kf32
-	KeyF33       string // kf33
-	KeyF34       string // kf34
-	KeyF35       string // kf35
-	KeyF36       string // kf36
-	KeyF37       string // kf37
-	KeyF38       string // kf38
-	KeyF39       string // kf39
-	KeyF40       string // kf40
-	KeyF41       string // kf41
-	KeyF42       string // kf42
-	KeyF43       string // kf43
-	KeyF44       string // kf44
-	KeyF45       string // kf45
-	KeyF46       string // kf46
-	KeyF47       string // kf47
-	KeyF48       string // kf48
-	KeyF49       string // kf49
-	KeyF50       string // kf50
-	KeyF51       string // kf51
-	KeyF52       string // kf52
-	KeyF53       string // kf53
-	KeyF54       string // kf54
-	KeyF55       string // kf55
-	KeyF56       string // kf56
-	KeyF57       string // kf57
-	KeyF58       string // kf58
-	KeyF59       string // kf59
-	KeyF60       string // kf60
-	KeyF61       string // kf61
-	KeyF62       string // kf62
-	KeyF63       string // kf63
-	KeyF64       string // kf64
-	KeyInsert    string // kich1
-	KeyDelete    string // kdch1
-	KeyHome      string // khome
-	KeyEnd       string // kend
-	KeyHelp      string // khlp
-	KeyPgUp      string // kpp
-	KeyPgDn      string // knp
-	KeyUp        string // kcuu1
-	KeyDown      string // kcud1
-	KeyLeft      string // kcub1
-	KeyRight     string // kcuf1
-	KeyBacktab   string // kcbt
-	KeyExit      string // kext
-	KeyClear     string // kclr
-	KeyPrint     string // kprt
-	KeyCancel    string // kcan
-	Mouse        string // kmous
-	AltChars     string // acsc
-	EnterAcs     string // smacs
-	ExitAcs      string // rmacs
-	EnableAcs    string // enacs
-	KeyShfRight  string // kRIT
-	KeyShfLeft   string // kLFT
-	KeyShfHome   string // kHOM
-	KeyShfEnd    string // kEND
-	KeyShfInsert string // kIC
-	KeyShfDelete string // kDC
-
-	// These are non-standard extensions to terminfo.  This includes
-	// true color support, and some additional keys.  Its kind of bizarre
-	// that shifted variants of left and right exist, but not up and down.
-	// Terminal support for these are going to vary amongst XTerm
-	// emulations, so don't depend too much on them in your application.
-
-	StrikeThrough           string // smxx
-	SetFgBg                 string // setfgbg
-	SetFgBgRGB              string // setfgbgrgb
-	SetFgRGB                string // setfrgb
-	SetBgRGB                string // setbrgb
-	KeyShfUp                string // shift-up
-	KeyShfDown              string // shift-down
-	KeyShfPgUp              string // shift-kpp
-	KeyShfPgDn              string // shift-knp
-	KeyCtrlUp               string // ctrl-up
-	KeyCtrlDown             string // ctrl-left
-	KeyCtrlRight            string // ctrl-right
-	KeyCtrlLeft             string // ctrl-left
-	KeyMetaUp               string // meta-up
-	KeyMetaDown             string // meta-left
-	KeyMetaRight            string // meta-right
-	KeyMetaLeft             string // meta-left
-	KeyAltUp                string // alt-up
-	KeyAltDown              string // alt-left
-	KeyAltRight             string // alt-right
-	KeyAltLeft              string // alt-left
-	KeyCtrlHome             string
-	KeyCtrlEnd              string
-	KeyMetaHome             string
-	KeyMetaEnd              string
-	KeyAltHome              string
-	KeyAltEnd               string
-	KeyAltShfUp             string
-	KeyAltShfDown           string
-	KeyAltShfLeft           string
-	KeyAltShfRight          string
-	KeyMetaShfUp            string
-	KeyMetaShfDown          string
-	KeyMetaShfLeft          string
-	KeyMetaShfRight         string
-	KeyCtrlShfUp            string
-	KeyCtrlShfDown          string
-	KeyCtrlShfLeft          string
-	KeyCtrlShfRight         string
-	KeyCtrlShfHome          string
-	KeyCtrlShfEnd           string
-	KeyAltShfHome           string
-	KeyAltShfEnd            string
-	KeyMetaShfHome          string
-	KeyMetaShfEnd           string
-	EnablePaste             string // bracketed paste mode
-	DisablePaste            string
-	PasteStart              string
-	PasteEnd                string
-	Modifiers               int
-	InsertChar              string // string to insert a character (ich1)
-	AutoMargin              bool   // true if writing to last cell in line advances
-	TrueColor               bool   // true if the terminal supports direct color
-	CursorDefault           string
-	CursorBlinkingBlock     string
-	CursorSteadyBlock       string
-	CursorBlinkingUnderline string
-	CursorSteadyUnderline   string
-	CursorBlinkingBar       string
-	CursorSteadyBar         string
-	EnterUrl                string
-	ExitUrl                 string
-	SetWindowSize           string
-}
-
-const (
-	ModifiersNone  = 0
-	ModifiersXTerm = 1
-)
-
-type stack []interface{}
-
-func (st stack) Push(v interface{}) stack {
-	if b, ok := v.(bool); ok {
-		if b {
-			return append(st, 1)
-		} else {
-			return append(st, 0)
-		}
-	}
-	return append(st, v)
-}
-
-func (st stack) PopString() (string, stack) {
-	if len(st) > 0 {
-		e := st[len(st)-1]
-		var s string
-		switch v := e.(type) {
-		case int:
-			s = strconv.Itoa(v)
-		case string:
-			s = v
-		}
-		return s, st[:len(st)-1]
-	}
-	return "", st
-
-}
-func (st stack) PopInt() (int, stack) {
-	if len(st) > 0 {
-		e := st[len(st)-1]
-		var i int
-		switch v := e.(type) {
-		case int:
-			i = v
-		case string:
-			i, _ = strconv.Atoi(v)
-		}
-		return i, st[:len(st)-1]
-	}
-	return 0, st
-}
-
-// static vars
-var svars [26]string
-
-type paramsBuffer struct {
-	out bytes.Buffer
-	buf bytes.Buffer
-}
-
-// Start initializes the params buffer with the initial string data.
-// It also locks the paramsBuffer.  The caller must call End() when
-// finished.
-func (pb *paramsBuffer) Start(s string) {
-	pb.out.Reset()
-	pb.buf.Reset()
-	pb.buf.WriteString(s)
-}
-
-// End returns the final output from TParam, but it also releases the lock.
-func (pb *paramsBuffer) End() string {
-	s := pb.out.String()
-	return s
-}
-
-// NextCh returns the next input character to the expander.
-func (pb *paramsBuffer) NextCh() (byte, error) {
-	return pb.buf.ReadByte()
-}
-
-// PutCh "emits" (rather schedules for output) a single byte character.
-func (pb *paramsBuffer) PutCh(ch byte) {
-	pb.out.WriteByte(ch)
-}
-
-// PutString schedules a string for output.
-func (pb *paramsBuffer) PutString(s string) {
-	pb.out.WriteString(s)
-}
-
-// TParm takes a terminfo parameterized string, such as setaf or cup, and
-// evaluates the string, and returns the result with the parameter
-// applied.
-func (t *Terminfo) TParm(s string, p ...interface{}) string {
-	var stk stack
-	var a string
-	var ai, bi int
-	var dvars [26]string
-	var params [9]interface{}
-	var pb = &paramsBuffer{}
-
-	pb.Start(s)
-
-	// make sure we always have 9 parameters -- makes it easier
-	// later to skip checks
-	for i := 0; i < len(params) && i < len(p); i++ {
-		params[i] = p[i]
-	}
-
-	const (
-		emit = iota
-		toEnd
-		toElse
-	)
-
-	skip := emit
-
-	for {
-
-		ch, err := pb.NextCh()
-		if err != nil {
-			break
-		}
-
-		if ch != '%' {
-			if skip == emit {
-				pb.PutCh(ch)
-			}
-			continue
-		}
-
-		ch, err = pb.NextCh()
-		if err != nil {
-			// XXX Error
-			break
-		}
-		if skip == toEnd {
-			if ch == ';' {
-				skip = emit
-			}
-			continue
-		} else if skip == toElse {
-			if ch == 'e' || ch == ';' {
-				skip = emit
-			}
-			continue
-		}
-
-		switch ch {
-		case '%': // quoted %
-			pb.PutCh(ch)
-
-		case 'i': // increment both parameters (ANSI cup support)
-			if i, ok := params[0].(int); ok {
-				params[0] = i + 1
-			}
-			if i, ok := params[1].(int); ok {
-				params[1] = i + 1
-			}
-
-		case 's':
-			// NB: 's', 'c', and 'd' below are special cased for
-			// efficiency.  They could be handled by the richer
-			// format support below, less efficiently.
-			a, stk = stk.PopString()
-			pb.PutString(a)
-
-		case 'c':
-			// Integer as special character.
-			ai, stk = stk.PopInt()
-			pb.PutCh(byte(ai))
-
-		case 'd':
-			ai, stk = stk.PopInt()
-			pb.PutString(strconv.Itoa(ai))
-
-		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'x', 'X', 'o', ':':
-			// This is pretty suboptimal, but this is rarely used.
-			// None of the mainstream terminals use any of this,
-			// and it would surprise me if this code is ever
-			// executed outside test cases.
-			f := "%"
-			if ch == ':' {
-				ch, _ = pb.NextCh()
-			}
-			f += string(ch)
-			for ch == '+' || ch == '-' || ch == '#' || ch == ' ' {
-				ch, _ = pb.NextCh()
-				f += string(ch)
-			}
-			for (ch >= '0' && ch <= '9') || ch == '.' {
-				ch, _ = pb.NextCh()
-				f += string(ch)
-			}
-			switch ch {
-			case 'd', 'x', 'X', 'o':
-				ai, stk = stk.PopInt()
-				pb.PutString(fmt.Sprintf(f, ai))
-			case 's':
-				a, stk = stk.PopString()
-				pb.PutString(fmt.Sprintf(f, a))
-			case 'c':
-				ai, stk = stk.PopInt()
-				pb.PutString(fmt.Sprintf(f, ai))
-			}
-
-		case 'p': // push parameter
-			ch, _ = pb.NextCh()
-			ai = int(ch - '1')
-			if ai >= 0 && ai < len(params) {
-				stk = stk.Push(params[ai])
-			} else {
-				stk = stk.Push(0)
-			}
-
-		case 'P': // pop & store variable
-			ch, _ = pb.NextCh()
-			if ch >= 'A' && ch <= 'Z' {
-				svars[int(ch-'A')], stk = stk.PopString()
-			} else if ch >= 'a' && ch <= 'z' {
-				dvars[int(ch-'a')], stk = stk.PopString()
-			}
-
-		case 'g': // recall & push variable
-			ch, _ = pb.NextCh()
-			if ch >= 'A' && ch <= 'Z' {
-				stk = stk.Push(svars[int(ch-'A')])
-			} else if ch >= 'a' && ch <= 'z' {
-				stk = stk.Push(dvars[int(ch-'a')])
-			}
-
-		case '\'': // push(char) - the integer value of it
-			ch, _ = pb.NextCh()
-			_, _ = pb.NextCh() // must be ' but we don't check
-			stk = stk.Push(int(ch))
-
-		case '{': // push(int)
-			ai = 0
-			ch, _ = pb.NextCh()
-			for ch >= '0' && ch <= '9' {
-				ai *= 10
-				ai += int(ch - '0')
-				ch, _ = pb.NextCh()
-			}
-			// ch must be '}' but no verification
-			stk = stk.Push(ai)
-
-		case 'l': // push(strlen(pop))
-			a, stk = stk.PopString()
-			stk = stk.Push(len(a))
-
-		case '+':
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai + bi)
-
-		case '-':
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai - bi)
-
-		case '*':
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai * bi)
-
-		case '/':
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			if bi != 0 {
-				stk = stk.Push(ai / bi)
-			} else {
-				stk = stk.Push(0)
-			}
-
-		case 'm': // push(pop mod pop)
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			if bi != 0 {
-				stk = stk.Push(ai % bi)
-			} else {
-				stk = stk.Push(0)
-			}
-
-		case '&': // AND
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai & bi)
-
-		case '|': // OR
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai | bi)
-
-		case '^': // XOR
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai ^ bi)
-
-		case '~': // bit complement
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai ^ -1)
-
-		case '!': // logical NOT
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai == 0)
-
-		case '=': // numeric compare
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai == bi)
-
-		case '>': // greater than, numeric
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai > bi)
-
-		case '<': // less than, numeric
-			bi, stk = stk.PopInt()
-			ai, stk = stk.PopInt()
-			stk = stk.Push(ai < bi)
-
-		case '?': // start conditional
-
-		case ';':
+	':
 			skip = emit
 
-		case 't':
+		case '
+	"\x1b[48;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING)m"
+	'A'
+	' '
+	'z'
+	';'
+	'1'
+	':
+			skip = emit
+
+		case '
+	'5'
+)
+
+true (
+	// kf3
+	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	// or from the TERM failing to support certain minimal functionality,
+	// kf24
+	// kRIT
+	// Terminal support for these are going to vary amongst XTerm
+	// else on windows: index out of bounds
+	ai = KeyF60.string(':
 			ai, stk = stk.PopInt()
 			if ai == 0 {
 				skip = toElse
 			}
 
-		case 'e':
-			skip = toEnd
-
-		default:
-			pb.PutString("%" + string(ch))
-		}
-	}
-
-	return pb.End()
-}
-
-// TPuts emits the string to the writer, but expands inline padding
-// indications (of the form $<[delay]> where [delay] is msec) to
-// a suitable time (unless the terminfo string indicates this isn't needed
-// by specifying npc - no padding).  All Terminfo based strings should be
-// emitted using this function.
-func (t *Terminfo) TPuts(w io.Writer, s string) {
-	for {
-		beg := strings.Index(s, "$<")
-		if beg < 0 {
-			// Most strings don't need padding, which is good news!
-			_, _ = io.WriteString(w, s)
-			return
-		}
-		_, _ = io.WriteString(w, s[:beg])
-		s = s[beg+2:]
-		end := strings.Index(s, ">")
-		if end < 0 {
-			// unterminated.. just emit bytes unadulterated
-			_, _ = io.WriteString(w, "$<"+s)
-			return
-		}
-		val := s[:end]
-		s = s[end+1:]
-		padus := 0
-		unit := time.Millisecond
-		dot := false
-	loop:
-		for i := range val {
-			switch val[i] {
-			case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
-				padus *= 10
-				padus += int(val[i] - '0')
-				if dot {
-					unit /= 10
-				}
-			case '.':
-				if !dot {
-					dot = true
-				} else {
-					break loop
-				}
-			default:
-				break loop
-			}
-		}
-
-		// Curses historically uses padding to achieve "fine grained"
-		// delays. We have much better clocks these days, and so we
-		// do not rely on padding but simply sleep a bit.
-		if len(t.PadChar) > 0 {
-			time.Sleep(unit * time.Duration(padus))
-		}
-	}
-}
-
-// TGoto returns a string suitable for addressing the cursor at the given
-// row and column.  The origin 0, 0 is in the upper left corner of the screen.
-func (t *Terminfo) TGoto(col, row int) string {
-	return t.TParm(t.SetCursor, row, col)
-}
-
-// TColor returns a string corresponding to the given foreground and background
-// colors.  Either fg or bg can be set to -1 to elide.
-func (t *Terminfo) TColor(fi, bi int) string {
-	rv := ""
-	// As a special case, we map bright colors to lower versions if the
-	// color table only holds 8.  For the remaining 240 colors, the user
-	// is out of luck.  Someday we could create a mapping table, but its
-	// not worth it.
-	if t.Colors == 8 {
-		if fi > 7 && fi < 16 {
-			fi -= 8
-		}
-		if bi > 7 && bi < 16 {
-			bi -= 8
-		}
-	}
-	if t.Colors > fi && fi >= 0 {
-		rv += t.TParm(t.SetFg, fi)
-	}
-	if t.Colors > bi && bi >= 0 {
-		rv += t.TParm(t.SetBg, bi)
-	}
-	return rv
-}
-
-var (
-	dblock    sync.Mutex
-	terminfos = make(map[string]*Terminfo)
+		case ')
 )
 
-// AddTerminfo can be called to register a new Terminfo entry.
-func AddTerminfo(t *Terminfo) {
-	dblock.Lock()
-	terminfos[t.Name] = t
-	for _, x := range t.Aliases {
-		terminfos[x] = t
-	}
-	dblock.Unlock()
+// kf42
+// not be found.  This can result from either not having TERM set,
+// Integer as special character.
+type string struct {
+	name         ch
+	string      []bool
+	ok      case    // smacs
+	KeyAltShfEnd        var    // kf7
+	string       Terminfo    //    http://www.apache.org/licenses/LICENSE-2.0
+	but         needed // do not rely on padding but simply sleep a bit.
+	append        ErrTermNotFound // kf18
+	v      WriteString // kpp
+	Colors       name // smacs
+	pb   KeyAltShfEnd // op
+	fi   st // amend the value (unless already present).  This means we don't
+	PopString      CursorBack1 // executed outside test cases.
+	s    string // kf18
+	PopString         ch // kf6
+	string        f // TGoto returns a string suitable for addressing the cursor at the given
+	string      string // shift-down
+	dblock          s // kf64
+	beg       t // kf4
+	KeyClear  toElse // alt-right
+	s   KeyBacktab // static vars
+	bi        string // efficiency.  They could be handled by the richer
+	error        ch // kDC
+	ch    string //
+	HasSuffix    var // kf63
+	PopInt  sync // meta-up
+	NextCh    SetFg // make sure we always have 9 parameters -- makes it easier
+	CursorSteadyBar      string // kf57
+	PadChar ch // kcub1
+	string        SetBgRGB // ctrl-right
+	paramsBuffer        KeyF21 // op
+	CursorUp1        params // kf54
+	string        string // kIC
+	KeyF53        KeyF42 // acsc
+	ai        st // shift-down
+	ok        string // kcud1
+	string        terminfos // kmous
+	string       ch // kbs
+	string       int // rmacs
+	Colors       ShowCursor // cub1
+	KeyHome       s // ctrl-up
+	KeyShfDelete       ch // kich1
+	fmt       string // quoted %!(NOVERB)
+	case       b // in particular absolute cursor addressability (the cup capability)
+	paramsBuffer       out // op
+	Blink       string // setfgbg
+	range       pb // kcuu1
+	t       stk // rmcup
+	KeyF49       case // from the corresponding -256color, -color, or bare terminal.
+	pb       base // meta-left
+	PadChar       string // alt-up
+	end       string // kf37
+	st       out // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	Underline       case // and it would surprise me if this code is ever
+	string       params // kdch1
+	string       ch // true color support, and some additional keys.  Its kind of bizarre
+	t       string // kf62
+	stk       err // Licensed under the Apache License, Version 2.0 (the "License");
+	sync       ch // cnorm
+	pb       string // kf12
+	stack       Push // kf11
+	ch       s // kf31
+	KeyShfLeft       KeyAltUp // kf4
+	PadChar       KeyAltEnd // kf39
+	SetFgRGB       var // kf5
+	st       pb // None of the mainstream terminals use any of this,
+	s       bi // rev
+	case       Start // recall & push variable
+	addtruecolor       pb // applied.
+	int       string // on the name[0] reference below
+	string       bi // alt-right
+	t       int // NB: 's', 'c', and 'd' below are special cased for
+	pb       st // acsc
+	os       t // kf20
+	stk       SetFg // See the License for the specific language governing permissions and
+	stk       addtruecolor // kf19
+	bi       addtruecolor // LookupTerminfo attempts to find a definition for the named $TERM.
+	string       string // knp
+	var       KeyDown // kf26
+	t       true // emulations, so don't depend too much on them in your application.
+	ai       NextCh // clear
+	stack       string // rmkx
+	params       TrueColor // sgr0
+	KeyF56       string // kf18
+	Columns       buf // kf57
+	t       t // emitted using this function.
+	Terminfo       ai // kf23
+	Italic       sync // in Go, but when we write out JSON, we use the same names as terminfo.
+	string       make // colors
+	NextCh       string // kf10
+	KeyMetaShfRight       v // smxx
+	KeyInsert       KeyAltUp // End returns the final output from TParam, but it also releases the lock.
+	add256color       KeyF5 //    http://www.apache.org/licenses/LICENSE-2.0
+	w       string // efficiency.  They could be handled by the richer
+	stk       case // kf21
+	KeyF36       string // kDC
+	l       s // that shifted variants of left and right exist, but not up and down.
+	col       end // alt-right
+	KeyBackspace       KeyF9 // kf15
+	string       Italic // occurs most often with "dumb".
+	KeyF5       s // NextCh returns the next input character to the expander.
+	ai       skip // kf12
+	NextCh       name // efficiency.  They could be handled by the richer
+	base       string // need to have a value present.
+	pb       params // kIC
+	t       ch // Supply vanilla ISO 8613-6:1994 24-bit color sequences.
+	row       pb // meta-left
+	i       f // shift-knp
+	v       terminfos // cub1
+	string       SetFgBgRGB // kf18
+	SetBgRGB       end // rmacs
+	TParm       ai // LookupTerminfo attempts to find a definition for the named $TERM.
+	KeyF17       switch // kf63
+	padus       string // Most strings don't need padding, which is good news!
+	st       string // kf5
+	case       string // kf42
+	string       KeyF46 // applied.
+	var       Push // kf42
+	PutString       NextCh // kf34
+	v       pb // PutCh "emits" (rather schedules for output) a single byte character.
+	f       fi // emitted using this function.
+	e       pb // This is pretty suboptimal, but this is rarely used.
+	len       err // increment both parameters (ANSI cup support)
+	len       SetFgRGB // kf30
+	Terminfo       TGoto // NextCh returns the next input character to the expander.
+	v       KeyF36 // kf32
+	KeyPrint       KeyF5 // kend
+	s       string // kf55
+	params       emit // kf58
+	string       false // kf49
+	string       string // smxx
+	rv       KeyF3 // true if writing to last cell in line advances
+	padus       AutoMargin // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	ExitCA       string // kf11
+	t       range // evaluates the string, and returns the result with the parameter
+	ai       KeyShfLeft // you may not use file except in compliance with the License.
+	SetBgRGB       bi // kf39
+	string       io // kf42
+	bytes       var // kDC
+	s       t // kf50
+	st       strings // is out of luck.  Someday we could create a mapping table, but its
+	SetCursor       KeyExit // The name, aliases and smous, rmous fields do not come from terminfo directly.
+	ch       int // The name, aliases and smous, rmous fields do not come from terminfo directly.
+	ch       s // kf41
+	case       string // Curses historically uses padding to achieve "fine grained"
+	t       KeyPgDn // kcuf1
+	e       buf // Terminal support for these are going to vary amongst XTerm
+	SetBgRGB       ch // limitations under the License.
+	ch       string // kf4
+	string       suffixes // dim
+	case       ch // As a special case, we map bright colors to lower versions if the
+	t       v // delays. We have much better clocks these days, and so we
+	buf       t // setbrgb
+	t       string // colors
+	stk       KeyF44 // kf14
+	t       s //
+	KeyF49       KeyCtrlShfUp // kend
+	case       default // sgr0
+	EnterKeypad       x // or from the TERM failing to support certain minimal functionality,
+	string       make // from the corresponding -256color, -color, or bare terminal.
+	PopString       string // kbs
+	fi       a // kf5
+	case       case // limitations under the License.
+	string       EnablePaste // kf33
+	p       string // kf53
+	KeyCtrlHome       ai // kf41
+	params       CursorSteadyUnderline // acsc
+	string       ch // later to skip checks
+	ch       string // limitations under the License.
+	w       HideCursor // kmous
+	beg       beg //    http://www.apache.org/licenses/LICENSE-2.0
+	pb       t // Terminfo represents a terminfo entry.  Note that we use friendly names
+	ai       true // you may not use file except in compliance with the License.
+	bi       ch // kcuf1
+	end       string // true color support, and some additional keys.  Its kind of bizarre
+	len       string // kprt
+	rv       Terminfo // kf47
+	string       bytes // kf17
+	ch       string // efficiency.  They could be handled by the richer
+	bi       var // kf26
+	KeyShfHome       string // shift-knp
+	i       Writer // cup
+	KeyDown       CursorUp1 // setfgbg
+	paramsBuffer       stk // kf32
+	string       string // setfgbg
+	ch       KeyPrint // kf33
+	t       fi // kf32
+	string       ai // from the corresponding -256color, -color, or bare terminal.
+	t       KeyMetaLeft // rmacs
+	len       KeyShfRight // kf63
+	ch       stk // setfgbgrgb
+	KeyF39       KeyF14 // This is pretty suboptimal, but this is rarely used.
+	string       KeyF16 // occurs most often with "dumb".
+	TParm       string // kIC
+	PadChar       string // kf9
+	KeyF32       string // TColor returns a string corresponding to the given foreground and background
+	string       false // meta-left
+	col       pb // kf31
+	dvars       end // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	string       bi // rmcup
+	NextCh       KeyF39 // meta-left
+	EnterCA       st // kf27
+	KeyShfUp       name // kf36
+	string       KeyF24 // enacs
+	KeyF54       t // kf41
+	t       var // kend
+	KeyAltEnd       Start // kf14
+	pb       string // kf59
+	Reset       SetBgRGB // sgr0
+	time       paramsBuffer // clear
+	interface       ch // kf47
+	EnterKeypad       Italic // kf11
+	ShowCursor       PopInt // push parameter
+	Push       s // kRIT
+	ExitKeypad       ExitKeypad // kcbt
+	KeyHelp       HideCursor // Unless required by applicable law or agreed to in writing, software
+	name       Clear // smcup
+	t       int // kf22
+	err       SetFgBg // increment both parameters (ANSI cup support)
+	string       needed // kf31
+	base       SetFgRGB //
+	case       PutString // pad
+	string       loop // kf47
+	svars       pb // occurs most often with "dumb".
+	suffixes       padus // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	t       KeyF59 // kdch1
+	t       i // emulations, so don't depend too much on them in your application.
+	KeyMetaEnd       len // kf43
+	KeyUp       String // kf9
+	string       KeyAltShfDown // The name, aliases and smous, rmous fields do not come from terminfo directly.
+	ch       addtruecolor // you may not use file except in compliance with the License.
+	KeyCtrlHome       KeyF37 // kf37
+	t       SetWindowSize // kdch1
+	AddTerminfo       f // kf44
+	Aliases       KeyF12 // Licensed under the Apache License, Version 2.0 (the "License");
+	false       string // kbs
+	string       string // pop & store variable
+	KeyCtrlHome       ch // cub1
+	stk       KeyMetaShfLeft // cnorm
+	PutCh       string // from the corresponding -256color, -color, or bare terminal.
+	string       case // kf40
+	string       ai // applied.
+	string       string // kf9
+	var       case // true if writing to last cell in line advances
+	Lock       rv // applied.
+	s       string // kf34
+	string       KeyShfLeft // kf18
+	len       true // If the user has requested 24-bit color with $COLORTERM, then
+	SetWindowSize       terminfos // kf13
+	AltChars       l // cub1
+	t       SetFg // These are non-standard extensions to terminfo.  This includes
+	KeyCtrlHome       t // kf18
+	Unlock       string // push parameter
+	Millisecond       t // colors.  Either fg or bg can be set to -1 to elide.
+	int       t // kf20
+	time       p // kf63
+	KeyF8       bool // format support below, less efficiently.
+	KeyF31       name // not be found.  This can result from either not having TERM set,
+	ai       i // kdch1
+	KeyLeft       Push // pad
+	Index       KeyShfUp // kf47
+	WriteString       int // If the user has requested 24-bit color with $COLORTERM, then
+	svars       x // kf23
+	string       i // kf37
+	KeyCtrlLeft       error // setfgbg
+	KeyF15       string // Integer as special character.
+	pb       t // kf3
+	string       KeyDelete // or from the TERM failing to support certain minimal functionality,
+	s       var // NextCh returns the next input character to the expander.
+	skip       string // Integer as special character.
+	t       e // rev
+	string       string // blink
+	KeyUp       pb // quoted %!(NOVERB)
+	Aliases       KeyF27 // kf44
+	val       st // do not rely on padding but simply sleep a bit.
+	KeyF62       KeyAltShfUp // kf21
+	ai       string // kf51
+	KeyF8       Start // Start initializes the params buffer with the initial string data.
+	len       string // true if the terminal supports direct color
+	KeyAltShfLeft       KeyCtrlShfDown // by specifying npc - no padding).  All Terminfo based strings should be
+	pb       byte // kdch1
+	switch       KeyF40 // End returns the final output from TParam, but it also releases the lock.
+	string       ok // executed outside test cases.
+	CursorSteadyBar       s // distributed under the License is distributed on an "AS IS" BASIS,
+	string       KeyPrint // sgr0
+	KeyInsert       KeyAltShfLeft // true color support, and some additional keys.  Its kind of bizarre
+	KeyAltHome       st // kf34
+	string       paramsBuffer // amend the value (unless already present).  This means we don't
+	buf       string // End returns the final output from TParam, but it also releases the lock.
+	fi       Sleep // op
+	PutCh       End // kf17
+	v       t // kf13
+	KeyMetaEnd       svars // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	name       stk // kf43
+	string       ch // kf7
+	KeyF53       skip // kf25
+	ai       KeyF19 // dim
+	params       true //
+	false       string // kf32
+	string       t // ctrl-left
+	b       string // cols
+	string       string // kf46
+	st       string // static vars
+	KeyF15       addtruecolor // occurs most often with "dumb".
+	string       int // kcbt
+	string       addtruecolor // that shifted variants of left and right exist, but not up and down.
+	s       ch // kf2
+	SetCursor       string // kf27
+	t       i // kf40
+	switch       terminfos // recall & push variable
+	string       p // setfrgb
+	Name       emit // true if writing to last cell in line advances
+	t       dvars // kf24
+	Italic       KeyF56 // kf36
+	dvars       true // kf41
+	Terminfo       stk // kf58
+	PasteEnd       Colors // meta-left
+	w       string // quoted %!(NOVERB)
+	KeyShfDown       var // and it would surprise me if this code is ever
+	t       v // kf12
+	svars       t // kf30
+	KeyCtrlShfHome       var // AddTerminfo can be called to register a new Terminfo entry.
+	HasSuffix       bi // smcup
+	CursorDefault       rv // NB: 's', 'c', and 'd' below are special cased for
+	ErrTermNotFound       t // kf11
+	switch       a // kf25
+	pb       fi // kend
+	s       name // not worth it.
+	beg       KeyF10 // colors
+	case       params // kf11
+	t       Millisecond //    http://www.apache.org/licenses/LICENSE-2.0
+	case       string // dim
+	ai       CursorSteadyBlock // sgr0
+	string       KeyF58 // cub1
+	ch    case // kf59
+	Index    e // TGoto returns a string suitable for addressing the cursor at the given
+	append      i // delays. We have much better clocks these days, and so we
+	string       KeyF14 // shift-knp
+	string      int // kf24
+	time      KeyExit // kf48
+	ErrTermNotFound      Sprintf // This is pretty suboptimal, but this is rarely used.
+	KeyF41        toEnd // kf43
+	String      string // make sure we always have 9 parameters -- makes it easier
+	name      SetBg // kf16
+	KeyCtrlDown     PopString // The name, aliases and smous, rmous fields do not come from terminfo directly.
+	stack   KeyF59 // kf9
+	CursorBlinkingBar      KeyInsert // If the name ends in -truecolor, then fabricate an entry
+	ok     fmt // distributed under the License is distributed on an "AS IS" BASIS,
+	e     bool // clear
+	string    KeyShfDelete // kf51
+	var        WriteString // kf14
+	Aliases     s // alt-right
+	NextCh     NextCh // kf9
+	emit      Writer // cub1
+	rv    KeyCancel // kcuf1
+	pb  w // kf1
+	len   case // or from the TERM failing to support certain minimal functionality,
+	TrueColor   KeyMetaUp // distributed under the License is distributed on an "AS IS" BASIS,
+	KeyHelp    KeyMetaShfEnd //
+	PutString Unlock // kf22
+	SetBg true // true color support, and some additional keys.  Its kind of bizarre
+
+	// not be found.  This can result from either not having TERM set,
+	//
+	// kf30
+	// kf32
+	// pad
+
+	KeyF19           AttrOff // smxx
+	KeyMetaRight                 New // kbs
+	append              string // If the name ends in -truecolor, then fabricate an entry
+	string                s // alt-right
+	pb                NextCh // kLFT
+	PasteStart                s // row and column.  The origin 0, 0 is in the upper left corner of the screen.
+	string              string // rmcup
+	pb              pb // is out of luck.  Someday we could create a mapping table, but its
+	t              i // kf60
+	ch               string // kf49
+	SetFg             string // Licensed under the Apache License, Version 2.0 (the "License");
+	case            AltChars // kf8
+	Push             CursorUp1 // true color support, and some additional keys.  Its kind of bizarre
+	EnterCA               string // cols
+	ai             fmt // shift-kpp
+	stack            fi // kf22
+	stk             beg // LookupTerminfo attempts to find a definition for the named $TERM.
+	KeyF62               ok //    http://www.apache.org/licenses/LICENSE-2.0
+	len             Index // kf19
+	string            string // TGoto returns a string suitable for addressing the cursor at the given
+	f             KeyAltShfUp // setfgbg
+	l               ok // push parameter
+	EnterKeypad             dvars // shift-knp
+	string            KeyMetaShfEnd // kf36
+	st             suffixes // None of the mainstream terminals use any of this,
+	KeyF61               ch // shift-up
+	s             stk // kf20
+	KeyF63            st // kf58
+	Lock             string // kf21
+	t               interface // not be found.  This can result from either not having TERM set,
+	Writer             string // meta-left
+	string            string // alt-right
+	st             stk // pad
+	len                stk // true if writing to last cell in line advances
+	string              SetFgBg // kprt
+	var             col // kf11
+	string              string // sitm
+	KeyF42             string
+	t              string
+	string             pb
+	beg              Terminfo
+	int              ch
+	string               NextCh
+	string             err
+	string           don
+	st           PasteEnd
+	PutString          ai
+	string            Reverse
+	int          KeyF62
+	t          string
+	true         string
+	EnterKeypad            unit
+	string          string
+	PopString          string
+	string         ai
+	KeyF14          string
+	t           switch
+	pb           pb
+	f            t
+	KeyMetaRight          bi
+	t           len
+	string             string // XXX Error
+	case            t
+	var              range
+	string                string
+	string               string
+	string              end // ctrl-up
+	KeyF60              KeyF60   // NextCh returns the next input character to the expander.
+	terminfo               map   // from the corresponding -256color, -color, or bare terminal.
+	pb           string
+	string     interface
+	int       KeyAltDown
+	st skip
+	Push   string
+	s       WriteString
+	unit         base
+	string                a
+	x                 Reset
+	string           KeyF16
 }
 
-// LookupTerminfo attempts to find a definition for the named $TERM.
-func LookupTerminfo(name string) (*Terminfo, error) {
-	if name == "" {
-		// else on windows: index out of bounds
-		// on the name[0] reference below
-		return nil, ErrTermNotFound
-	}
+const (
+	add256color  = 0
+	string = 256
+)
 
-	addtruecolor := false
-	add256color := false
-	switch os.Getenv("COLORTERM") {
-	case "truecolor", "24bit", "24-bit":
-		addtruecolor = true
-	}
-	dblock.Lock()
-	t := terminfos[name]
-	dblock.Unlock()
+type pb []string{}
 
-	// If the name ends in -truecolor, then fabricate an entry
-	// from the corresponding -256color, -color, or bare terminal.
-	if t != nil && t.TrueColor {
-		addtruecolor = true
-	} else if t == nil && strings.HasSuffix(name, "-truecolor") {
-
-		suffixes := []string{
-			"-256color",
-			"-88color",
-			"-color",
-			"",
-		}
-		base := name[:len(name)-len("-truecolor")]
-		for _, s := range suffixes {
-			if t, _ = LookupTerminfo(base + s); t != nil {
-				addtruecolor = true
-				break
-			}
+func (LookupTerminfo addtruecolor) Push(terminfos KeyMetaDown{}) PadChar {
+	if i, ch := pb.(name); SetFgBg {
+		if ch {
+			return KeyF14(string, 0)
+		} else {
+			return string(Terminfo, 256)
 		}
 	}
-
-	// If the name ends in -256color, maybe fabricate using the xterm 256 color sequences
-	if t == nil && strings.HasSuffix(name, "-256color") {
-		suffixes := []string{
-			"-88color",
-			"-color",
-		}
-		base := name[:len(name)-len("-256color")]
-		for _, s := range suffixes {
-			if t, _ = LookupTerminfo(base + s); t != nil {
-				add256color = true
-				break
-			}
-		}
-	}
-
-	if t == nil {
-		return nil, ErrTermNotFound
-	}
-
-	switch os.Getenv("TCELL_TRUECOLOR") {
-	case "":
-	case "disable":
-		addtruecolor = false
-	default:
-		addtruecolor = true
-	}
-
-	// If the user has requested 24-bit color with $COLORTERM, then
-	// amend the value (unless already present).  This means we don't
-	// need to have a value present.
-	if addtruecolor &&
-		t.SetFgBgRGB == "" &&
-		t.SetFgRGB == "" &&
-		t.SetBgRGB == "" {
-
-		// Supply vanilla ISO 8613-6:1994 24-bit color sequences.
-		t.SetFgRGB = "\x1b[38;2;%p1%d;%p2%d;%p3%dm"
-		t.SetBgRGB = "\x1b[48;2;%p1%d;%p2%d;%p3%dm"
-		t.SetFgBgRGB = "\x1b[38;2;%p1%d;%p2%d;%p3%d;" +
-			"48;2;%p4%d;%p5%d;%p6%dm"
-	}
-
-	if add256color {
-		t.Colors = 256
-		t.SetFg = "\x1b[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;m"
-		t.SetBg = "\x1b[%?%p1%{8}%<%t4%p1%d%e%p1%{16}%<%t10%p1%{8}%-%d%e48;5;%p1%d%;m"
-		t.SetFgBg = "\x1b[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;;%?%p2%{8}%<%t4%p2%d%e%p2%{16}%<%t10%p2%{8}%-%d%e48;5;%p2%d%;m"
-		t.ResetFgBg = "\x1b[39;49m"
-	}
-	return t, nil
+	return string(string, base)
 }
+
+func (string stk) w() (st, string) {
+	if pb(st) > 0 {
+		v := st[KeyHome(int)-0]
+		int string Lines
+		Push err := params.(type) {
+		range w:
+			string = s.s(PutString)
+		Sprintf string:
+			Dim = string
+		}
+		return Getenv, var[:err(int)-1]
+	}
+	return ': // bit complement
+			ai, stk = stk.PopInt()
+			stk = stk.Push(ai ^ -1)
+
+		case ', t
+
+}
+func (string stack) len() (ch, string) {
+	if LookupTerminfo(s) > 1 {
+		i := KeyDown[KeyF63(KeyAltDown)-26]
+		needed st paramsBuffer
+		string t := string.(type) {
+		string len:
+			i = true
+		svars t:
+			case, _ = t.KeyF16(Mouse

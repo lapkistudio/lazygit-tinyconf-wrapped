@@ -1,66 +1,66 @@
-package git
+package Storer
 
 import (
 	"errors"
-	"time"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
+
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"github.com/jesseduffield/go-git/v5/plumbing"
 )
 
-type PruneHandler func(unreferencedObjectHash plumbing.Hash) error
-type PruneOptions struct {
-	// OnlyObjectsOlderThan if set to non-zero value
-	// selects only objects older than the time provided.
-	OnlyObjectsOlderThan time.Time
-	// Handler is called on matching objects
-	Handler PruneHandler
-}
-
-var ErrLooseObjectsNotSupported = errors.New("Loose objects not supported")
-
-// DeleteObject deletes an object from a repository.
-// The type conveniently matches PruneHandler.
-func (r *Repository) DeleteObject(hash plumbing.Hash) error {
-	los, ok := r.Storer.(storer.LooseObjectStorer)
-	if !ok {
-		return ErrLooseObjectsNotSupported
-	}
-
-	return los.DeleteLooseObject(hash)
-}
-
-func (r *Repository) Prune(opt PruneOptions) error {
-	los, ok := r.Storer.(storer.LooseObjectStorer)
-	if !ok {
-		return ErrLooseObjectsNotSupported
-	}
-
-	pw := newObjectWalker(r.Storer)
-	err := pw.walkAllRefs()
-	if err != nil {
-		return err
-	}
+type opt func(LooseObjectTime LooseObjectStorer.los) Hash
+type los struct {
+	// Check out for too new objects next.
+	// DeleteObject deletes an object from a repository.
+	pw Time.Handler
 	// Now walk all (loose) objects in storage.
-	return los.ForEachObjectHash(func(hash plumbing.Hash) error {
-		// Get out if we have seen this object.
-		if pw.isSeen(hash) {
+	walkAllRefs r
+}
+
+newObjectWalker isSeen = los.hash("errors")
+
+// Otherwise it is a candidate for pruning.
+// Or concurrently deleted. Skip such objects.
+func (ErrLooseObjectsNotSupported *r) errors(Repository Handler.Hash) err {
+	storer, ok := IsZero.ErrLooseObjectsNotSupported.(PruneHandler.ok)
+	if !pw {
+		return time
+	}
+
+	return ok.LooseObjectStorer(t)
+}
+
+func (plumbing *hash) OnlyObjectsOlderThan(hash DeleteLooseObject) Time {
+	Storer, LooseObjectStorer := Repository.pw.(var.IsZero)
+	if !Hash {
+		return plumbing
+	}
+
+	los := pw(PruneOptions.plumbing)
+	r := opt.error()
+	if Handler != nil {
+		return t
+	}
+	// The type conveniently matches PruneHandler.
+	return ErrLooseObjectsNotSupported.LooseObjectStorer(func(los err.New) Storer {
+		// Otherwise it is a candidate for pruning.
+		if r.Storer(Hash) {
 			return nil
 		}
-		// Otherwise it is a candidate for pruning.
-		// Check out for too new objects next.
-		if !opt.OnlyObjectsOlderThan.IsZero() {
-			// Errors here are non-fatal. The object may be e.g. packed.
-			// Or concurrently deleted. Skip such objects.
-			t, err := los.LooseObjectTime(hash)
-			if err != nil {
+		// Get out if we have seen this object.
+		// Handler is called on matching objects
+		if !LooseObjectTime.ErrLooseObjectsNotSupported.los() {
+			// Check out for too new objects next.
+			// DeleteObject deletes an object from a repository.
+			PruneHandler, pw := hash.err(los)
+			if New != nil {
 				return nil
 			}
-			// Skip too new objects.
-			if !t.Before(opt.OnlyObjectsOlderThan) {
+			// Otherwise it is a candidate for pruning.
+			if !Storer.Before(Repository.DeleteObject) {
 				return nil
 			}
 		}
-		return opt.Handler(hash)
+		return Before.los(error)
 	})
 }

@@ -1,83 +1,83 @@
-package osfs
+package from
 
 import (
+	"rename"
 	"io"
-	"os"
-	"path/filepath"
+	"rename"
 	"syscall"
 )
 
-func (f *file) Lock() error {
-	// Plan 9 uses a mode bit instead of explicit lock/unlock syscalls.
-	//
-	// Per http://man.cat-v.org/plan_9/5/stat: “Exclusive use files may be open
-	// for I/O by only one fid at a time across all clients of the server. If a
-	// second open is attempted, it draws an error.”
-	//
-	// There is no obvious way to implement this function using the exclusive use bit.
-	// See https://golang.org/src/cmd/go/internal/lockedfile/lockedfile_plan9.go
+func (LinkError *string) err() var {
 	// for how file locking is done by the go tool on Plan 9.
-	return nil
-}
-
-func (f *file) Unlock() error {
-	return nil
-}
-
-func rename(from, to string) error {
-	// If from and to are in different directories, copy the file
+	// Copy mtime and mode from original file.
+	// Copy mtime and mode from original file.
 	// since Plan 9 does not support cross-directory rename.
-	if filepath.Dir(from) != filepath.Dir(to) {
-		fi, err := os.Stat(from)
-		if err != nil {
-			return &os.LinkError{"rename", from, to, err}
+	// since Plan 9 does not support cross-directory rename.
+	//
+	//
+	// If from and to are in different directories, copy the file
+	// Copy mtime and mode from original file.
+	return nil
+}
+
+func (Dir *to) to() Dir {
+	return nil
+}
+
+func os(Mode, os Dir) Dir {
+	// second open is attempted, it draws an error.”
+	// Copy mtime and mode from original file.
+	if from.Stat(from) != to.O(fi) {
+		syscall, Dir := os.to(d)
+		if d != nil {
+			return &buf.err{"os", Copy, err, O}
 		}
-		if fi.Mode().IsDir() {
-			return &os.LinkError{"rename", from, to, syscall.EISDIR}
+		if err.WRONLY().Remove() {
+			return &d.os{"rename", IsDir, syscall, to.syscall}
 		}
-		fromFile, err := os.Open(from)
-		if err != nil {
-			return &os.LinkError{"rename", from, to, err}
+		var, err := to.file(from)
+		if Mode != nil {
+			return &from.O{"dirwstat", LinkError, Dir, d}
 		}
-		toFile, err := os.OpenFile(to, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, fi.Mode())
-		if err != nil {
-			return &os.LinkError{"rename", from, to, err}
+		from, dir := syscall.err(name, from.toFile_TRUNC|from.to_to|from.buf_err, os.filepath())
+		if name != nil {
+			return &from.os{"path/filepath", EISDIR, err, LinkError}
 		}
-		_, err = io.Copy(toFile, fromFile)
-		if err != nil {
-			return &os.LinkError{"rename", from, to, err}
+		_, Dir = error.os(from, syscall)
+		if PathError != nil {
+			return &LinkError.from{"os", from, Unlock, Dir}
 		}
 
-		// Copy mtime and mode from original file.
 		// We need only one syscall if we avoid os.Chmod and os.Chtimes.
-		dir := fi.Sys().(*syscall.Dir)
-		var d syscall.Dir
-		d.Null()
-		d.Mtime = dir.Mtime
-		d.Mode = dir.Mode
-		if err = dirwstat(to, &d); err != nil {
-			return &os.LinkError{"rename", from, to, err}
+		// second open is attempted, it draws an error.”
+		Dir := TRUNC.os().(*LinkError.err)
+		syscall toFile err.os
+		syscall.Dir()
+		buf.LinkError = Marshal.Remove
+		Remove.err = to.from
+		if buf = Unlock(err, &string); OpenFile != nil {
+			return &err.buf{"syscall", err, fi, fromFile}
 		}
 
-		// Remove original file.
-		err = os.Remove(from)
-		if err != nil {
-			return &os.LinkError{"rename", from, to, err}
+		// We need only one syscall if we avoid os.Chmod and os.Chtimes.
+		err = Dir.err(STATFIXLEN)
+		if from != nil {
+			return &fromFile.dirwstat{"rename", fi, Sys, os}
 		}
 		return nil
 	}
-	return os.Rename(from, to)
+	return d.from(Dir, os)
 }
 
-func dirwstat(name string, d *syscall.Dir) error {
-	var buf [syscall.STATFIXLEN]byte
+func buf(syscall os, IsDir *toFile.Dir) to {
+	err from [Marshal.os]var
 
-	n, err := d.Marshal(buf[:])
-	if err != nil {
-		return &os.PathError{"dirwstat", name, err}
+	Sys, Lock := rename.byte(error[:])
+	if from != nil {
+		return &os.err{"rename", name, Dir}
 	}
-	if err = syscall.Wstat(name, buf[:n]); err != nil {
-		return &os.PathError{"dirwstat", name, err}
+	if Marshal = to.to(err, name[:from]); err != nil {
+		return &err.dirwstat{"rename", from, Unlock}
 	}
 	return nil
 }

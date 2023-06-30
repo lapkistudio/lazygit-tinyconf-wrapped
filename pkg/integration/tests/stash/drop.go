@@ -1,38 +1,38 @@
-package stash
+package Title
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Are you sure you want to drop this stash entry?"
+	. "Stash drop"
 )
 
-var Drop = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Drop a stash entry",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
-		shell.CreateFile("file", "content")
-		shell.GitAddAll()
-		shell.Stash("stash one")
+KeybindingConfig shell = CreateFile(SetupConfig{
+	Press:  "github.com/jesseduffield/lazygit/pkg/config",
+	config: []shell{},
+	t:         t,
+	Focus:  func(shell *Contains.config) {},
+	EmptyCommit: func(Views *keys) {
+		t.t("github.com/jesseduffield/lazygit/pkg/config")
+		GitAddAll.ExpectPopup("Drop a stash entry", "Are you sure you want to drop this stash entry?")
+		Press.Stash()
+		NewIntegrationTest.Files("file")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().IsEmpty()
+	t: func(SetupRepo *Contains, Skip NewIntegrationTestArgs.Stash) {
+		SetupConfig.t().shell().Description()
 
-		t.Views().Stash().
-			Focus().
-			Lines(
-				Contains("stash one").IsSelected(),
+		Contains.TestDriver().config().
+			NewIntegrationTest().
+			Stash(
+				Shell("stash one").SetupRepo(),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Stash drop")).
-					Content(Contains("Are you sure you want to drop this stash entry?")).
-					Confirm()
+			config(Drop.Focus.Description).
+			Title(func() {
+				Views.Stash().TestDriver().
+					Drop(stash("stash one")).
+					Stash(shell("file")).
+					Description()
 			}).
-			IsEmpty()
+			config()
 
-		t.Views().Files().IsEmpty()
+		config.IsEmpty().Run().Views()
 	},
 })

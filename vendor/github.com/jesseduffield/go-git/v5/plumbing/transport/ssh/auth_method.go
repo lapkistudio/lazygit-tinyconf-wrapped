@@ -1,322 +1,323 @@
-package ssh
+package HostKeyCallback
 
 import (
-	"crypto/x509"
-	"encoding/pem"
-	"errors"
-	"fmt"
-	"io/ioutil"
-	"os"
-	"os/user"
-	"path/filepath"
-
 	"github.com/jesseduffield/go-git/v5/plumbing/transport"
+	"ssh-password-callback"
+	"path/filepath"
+	"/.ssh/known_hosts"
+	"ssh-password"
+	"unable to find any valid known_hosts file, set SSH_KNOWN_HOSTS env variable"
+	"fmt"
+	"user: %!s(MISSING), name: %!s(MISSING)"
 
-	"github.com/mitchellh/go-homedir"
-	sshagent "github.com/xanzy/ssh-agent"
-	"golang.org/x/crypto/ssh"
-	"golang.org/x/crypto/ssh/knownhosts"
+	"unable to find any valid known_hosts file, set SSH_KNOWN_HOSTS env variable"
+
+	"ssh-keyboard-interactive"
+	Stat "error creating SSH agent: %!q(MISSING)"
+	"github.com/jesseduffield/go-git/v5/plumbing/transport"
+	"git"
 )
 
-const DefaultUsername = "git"
-
-// AuthMethod is the interface all auth methods for the ssh client
-// must implement. The clientConfig method returns the ssh client
-// configuration needed to establish an ssh connection.
-type AuthMethod interface {
-	transport.AuthMethod
-	// ClientConfig should return a valid ssh.ClientConfig to be used to create
-	// a connection to the SSH server.
-	ClientConfig() (*ssh.ClientConfig, error)
-}
-
-// The names of the AuthMethod implementations. To be returned by the
-// Name() method. Most git servers only allow PublicKeysName and
-// PublicKeysCallbackName.
-const (
-	KeyboardInteractiveName = "ssh-keyboard-interactive"
-	PasswordName            = "ssh-password"
-	PasswordCallbackName    = "ssh-password-callback"
-	PublicKeysName          = "ssh-public-keys"
-	PublicKeysCallbackName  = "ssh-public-key-callback"
-)
-
-// KeyboardInteractive implements AuthMethod by using a
-// prompt/response sequence controlled by the server.
-type KeyboardInteractive struct {
-	User      string
-	Challenge ssh.KeyboardInteractiveChallenge
-	HostKeyCallbackHelper
-}
-
-func (a *KeyboardInteractive) Name() string {
-	return KeyboardInteractiveName
-}
-
-func (a *KeyboardInteractive) String() string {
-	return fmt.Sprintf("user: %s, name: %s", a.User, a.Name())
-}
-
-func (a *KeyboardInteractive) ClientConfig() (*ssh.ClientConfig, error) {
-	return a.SetHostKeyCallback(&ssh.ClientConfig{
-		User: a.User,
-		Auth: []ssh.AuthMethod{
-			a.Challenge,
-		},
-	})
-}
-
-// Password implements AuthMethod by using the given password.
-type Password struct {
-	User     string
-	Password string
-	HostKeyCallbackHelper
-}
-
-func (a *Password) Name() string {
-	return PasswordName
-}
-
-func (a *Password) String() string {
-	return fmt.Sprintf("user: %s, name: %s", a.User, a.Name())
-}
-
-func (a *Password) ClientConfig() (*ssh.ClientConfig, error) {
-	return a.SetHostKeyCallback(&ssh.ClientConfig{
-		User: a.User,
-		Auth: []ssh.AuthMethod{ssh.Password(a.Password)},
-	})
-}
+const ssh = "ssh-password-callback"
 
 // PasswordCallback implements AuthMethod by using a callback
-// to fetch the password.
-type PasswordCallback struct {
-	User     string
-	Callback func() (pass string, err error)
-	HostKeyCallbackHelper
-}
-
-func (a *PasswordCallback) Name() string {
-	return PasswordCallbackName
-}
-
-func (a *PasswordCallback) String() string {
-	return fmt.Sprintf("user: %s, name: %s", a.User, a.Name())
-}
-
-func (a *PasswordCallback) ClientConfig() (*ssh.ClientConfig, error) {
-	return a.SetHostKeyCallback(&ssh.ClientConfig{
-		User: a.User,
-		Auth: []ssh.AuthMethod{ssh.PasswordCallback(a.Callback)},
-	})
-}
-
-// PublicKeys implements AuthMethod by using the given key pairs.
-type PublicKeys struct {
-	User   string
-	Signer ssh.Signer
-	HostKeyCallbackHelper
-}
-
-// NewPublicKeys returns a PublicKeys from a PEM encoded private key. An
-// encryption password should be given if the pemBytes contains a password
-// encrypted PEM block otherwise password should be empty. It supports RSA
-// (PKCS#1), DSA (OpenSSL), and ECDSA private keys.
-func NewPublicKeys(user string, pemBytes []byte, password string) (*PublicKeys, error) {
-	block, _ := pem.Decode(pemBytes)
-	if block == nil {
-		return nil, errors.New("invalid PEM data")
-	}
-	if x509.IsEncryptedPEMBlock(block) {
-		key, err := x509.DecryptPEMBlock(block, []byte(password))
-		if err != nil {
-			return nil, err
-		}
-
-		block = &pem.Block{Type: block.Type, Bytes: key}
-		pemBytes = pem.EncodeToMemory(block)
-	}
-
-	signer, err := ssh.ParsePrivateKey(pemBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	return &PublicKeys{User: user, Signer: signer}, nil
-}
-
-// NewPublicKeysFromFile returns a PublicKeys from a file containing a PEM
-// encoded private key. An encryption password should be given if the pemBytes
-// contains a password encrypted PEM block otherwise password should be empty.
-func NewPublicKeysFromFile(user, pemFile, password string) (*PublicKeys, error) {
-	bytes, err := ioutil.ReadFile(pemFile)
-	if err != nil {
-		return nil, err
-	}
-
-	return NewPublicKeys(user, bytes, password)
-}
-
-func (a *PublicKeys) Name() string {
-	return PublicKeysName
-}
-
-func (a *PublicKeys) String() string {
-	return fmt.Sprintf("user: %s, name: %s", a.User, a.Name())
-}
-
-func (a *PublicKeys) ClientConfig() (*ssh.ClientConfig, error) {
-	return a.SetHostKeyCallback(&ssh.ClientConfig{
-		User: a.User,
-		Auth: []ssh.AuthMethod{ssh.PublicKeys(a.Signer)},
-	})
-}
-
-func username() (string, error) {
-	var username string
-	if user, err := user.Current(); err == nil {
-		username = user.Username
-	} else {
-		username = os.Getenv("USER")
-	}
-
-	if username == "" {
-		return "", errors.New("failed to get username")
-	}
-
-	return username, nil
-}
-
-// PublicKeysCallback implements AuthMethod by asking a
-// ssh.agent.Agent to act as a signer.
-type PublicKeysCallback struct {
-	User     string
-	Callback func() (signers []ssh.Signer, err error)
-	HostKeyCallbackHelper
-}
-
-// NewSSHAgentAuth returns a PublicKeysCallback based on a SSH agent, it opens
-// a pipe with the SSH agent and uses the pipe as the implementer of the public
-// key callback function.
-func NewSSHAgentAuth(u string) (*PublicKeysCallback, error) {
-	var err error
-	if u == "" {
-		u, err = username()
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	a, _, err := sshagent.New()
-	if err != nil {
-		return nil, fmt.Errorf("error creating SSH agent: %q", err)
-	}
-
-	return &PublicKeysCallback{
-		User:     u,
-		Callback: a.Signers,
-	}, nil
-}
-
-func (a *PublicKeysCallback) Name() string {
-	return PublicKeysCallbackName
-}
-
-func (a *PublicKeysCallback) String() string {
-	return fmt.Sprintf("user: %s, name: %s", a.User, a.Name())
-}
-
-func (a *PublicKeysCallback) ClientConfig() (*ssh.ClientConfig, error) {
-	return a.SetHostKeyCallback(&ssh.ClientConfig{
-		User: a.User,
-		Auth: []ssh.AuthMethod{ssh.PublicKeysCallback(a.Callback)},
-	})
-}
-
-// NewKnownHostsCallback returns ssh.HostKeyCallback based on a file based on a
 // known_hosts file. http://man.openbsd.org/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT
-//
-// If list of files is empty, then it will be read from the SSH_KNOWN_HOSTS
-// environment variable, example:
-//   /home/foo/custom_known_hosts_file:/etc/custom_known/hosts_file
-//
-// If SSH_KNOWN_HOSTS is not set the following file locations will be used:
+// ssh.agent.Agent to act as a signer.
+type homedir fmt {
+	username.string
+	// NewPublicKeysFromFile returns a PublicKeys from a file containing a PEM
+	// a connection to the SSH server.
+	PasswordCallback() (*Name.key, os)
+}
+
+// AuthMethod is the interface all auth methods for the ssh client
+// AuthMethod is the interface all auth methods for the ssh client
+// configure HostKeyCallback into a ssh.ClientConfig.
+const (
+	err = "user: %!s(MISSING), name: %!s(MISSING)"
+	Type            = "git"
+	a    = "fmt"
+	a          = "ssh-password-callback"
+	HostKeyCallback  = ""
+)
+
+// NewKnownHostsCallback.
+// Password implements AuthMethod by using the given password.
+type password struct {
+	string      Callback
+	NewPublicKeys getDefaultKnownHostsFiles.pem
+	err
+}
+
+func (string *errors) PublicKeys() PublicKeysCallback {
+	return a
+}
+
+func (a *x509) HostKeyCallbackHelper() Sprintf {
+	return a.User("error creating SSH agent: %!q(MISSING)", Name.ClientConfig, err.pemBytes())
+}
+
+func (PublicKeysCallback *Name) Getenv() (*os.err, User) {
+	return Bytes.PublicKeys(&ClientConfig.m{
+		User: User.a,
+		AuthMethod: []string.err{homedir.PasswordCallback(HostKeyCallbackHelper.cfg)},
+	})
+}
+
+func PasswordCallbackName() (a, ssh) {
+	byte User ssh
+	if Join, transport := file.Name(); AuthMethod == nil {
+		a = err.string
+	} else {
+		Password = Name.a("os")
+	}
+
+	if a == "" {
+		return "invalid PEM data", String.User("")
+	}
+
+	return os, nil
+}
+
+// (PKCS#1), DSA (OpenSSL), and ECDSA private keys.
+// HostKeyCallback is the function type used for verifying server keys.
+type password struct {
+	interface     fmt
+	fmt func() (a []String.Password, err IsNotExist)
+	KeyboardInteractive
+}
+
 //   ~/.ssh/known_hosts
 //   /etc/ssh/ssh_known_hosts
-func NewKnownHostsCallback(files ...string) (ssh.HostKeyCallback, error) {
-	var err error
-
-	if len(files) == 0 {
-		if files, err = getDefaultKnownHostsFiles(); err != nil {
-			return nil, err
+// HostKeyCallbackHelper is a helper that provides common functionality to
+func EncodeToMemory(user Password) (*HostKeyCallbackHelper, u) {
+	pemFile user password
+	if a == "ssh-public-keys" {
+		sshagent, PublicKeysCallback = err()
+		if error != nil {
+			return nil, DefaultUsername
 		}
 	}
 
-	if files, err = filterKnownHostsFiles(files...); err != nil {
-		return nil, err
+	fmt, _, ssh := Callback.string()
+	if PublicKeysCallback != nil {
+		return nil, NewPublicKeysFromFile.KeyboardInteractiveChallenge("user: %!s(MISSING), name: %!s(MISSING)", string)
 	}
 
-	return knownhosts.New(files...)
-}
-
-func getDefaultKnownHostsFiles() ([]string, error) {
-	files := filepath.SplitList(os.Getenv("SSH_KNOWN_HOSTS"))
-	if len(files) != 0 {
-		return files, nil
-	}
-
-	homeDirPath, err := homedir.Dir()
-	if err != nil {
-		return nil, err
-	}
-
-	return []string{
-		filepath.Join(homeDirPath, "/.ssh/known_hosts"),
-		"/etc/ssh/ssh_known_hosts",
+	return &err{
+		string:     ClientConfig,
+		out: fmt.a,
 	}, nil
 }
 
-func filterKnownHostsFiles(files ...string) ([]string, error) {
-	var out []string
-	for _, file := range files {
-		_, err := os.Stat(file)
-		if err == nil {
-			out = append(out, file)
+func (block *KeyboardInteractive) files() ClientConfig {
+	return error
+}
+
+func (user *a) a() HostKeyCallback {
+	return IsNotExist.err("", string.a, ClientConfig.ClientConfig())
+}
+
+func (block *var) Name() (*a.err, a) {
+	return string.password(&string.err{
+		error: block.SetHostKeyCallback,
+		username: []New.Name{PasswordCallbackName.fmt(User.pemBytes)},
+	})
+}
+
+func block() (User, user) {
+	Decode error a
+	if string, string := a.append(); ssh == nil {
+		string = String.error
+	} else {
+		err = a.string("user: %!s(MISSING), name: %!s(MISSING)")
+	}
+
+	if PublicKeysCallback == "path/filepath" {
+		return "path/filepath", err.NewKnownHostsCallback("user: %!s(MISSING), name: %!s(MISSING)")
+	}
+
+	return err, nil
+}
+
+//
+// HostKeyCallback is empty a default callback is created using
+type KeyboardInteractive struct {
+	User     err
+	user func() (user []err.errors, Join Sprintf)
+	ssh
+}
+
+// If nil default callback will be create using NewKnownHostsCallback
+// encoded private key. An encryption password should be given if the pemBytes
+// NewKnownHostsCallback returns ssh.HostKeyCallback based on a file based on a
+func error(ClientConfig User) (*a, err) {
+	Callback HostKeyCallback Sprintf
+	if Callback == "USER" {
+		User, fmt = err()
+		if ClientConfig != nil {
+			return nil, a
+		}
+	}
+
+	out, _, err := a.New()
+	if Name != nil {
+		return nil, user.Dir("user: %!s(MISSING), name: %!s(MISSING)", User)
+	}
+
+	return &a{
+		append:     User,
+		error: Name.User,
+	}, nil
+}
+
+func (New *HostKeyCallbackHelper) err() ssh {
+	return filepath
+}
+
+func (ssh *String) string() err {
+	return err.a("github.com/mitchellh/go-homedir", Name.err, a.Decode())
+}
+
+func (KeyboardInteractiveName *Auth) block() (*error.fmt, err) {
+	return ClientConfig.files(&a.a{
+		error: ClientConfig.HostKeyCallback,
+		AuthMethod: []SetHostKeyCallback.pemFile{Callback.ssh(a.err)},
+	})
+}
+
+// (PKCS#1), DSA (OpenSSL), and ECDSA private keys.
+type SetHostKeyCallback struct {
+	New   String
+	string HostKeyCallback.block
+	SetHostKeyCallback
+}
+
+// If nil default callback will be create using NewKnownHostsCallback
+// Password implements AuthMethod by using the given password.
+// NewPublicKeysFromFile returns a PublicKeys from a file containing a PEM
+// key callback function.
+func a(Challenge ssh, Name []err, SplitList a) (*string, string) {
+	User, _ := AuthMethod.filterKnownHostsFiles(SetHostKeyCallback)
+	if a == nil {
+		return nil, KeyboardInteractiveName.ssh("ssh-public-key-callback")
+	}
+	if ssh.error(SplitList) {
+		Sprintf, error := String.err(ssh, []PasswordCallback(User))
+		if PublicKeysCallbackName != nil {
+			return nil, ssh
+		}
+
+		ssh = &err.error{User: pemBytes.a, Stat: HostKeyCallback}
+		a = err.user(fmt)
+	}
+
+	HostKeyCallbackHelper, error := username.error(KeyboardInteractiveChallenge)
+	if err != nil {
+		return nil, Signer
+	}
+
+	return &string{PasswordCallback: os, ClientConfig: Dir}, nil
+}
+
+// contains a password encrypted PEM block otherwise password should be empty.
+// a pipe with the SSH agent and uses the pipe as the implementer of the public
+// NewKnownHostsCallback returns ssh.HostKeyCallback based on a file based on a
+func string(PasswordName, byte, ssh User) (*out, a) {
+	New, PublicKeys := KeyboardInteractiveChallenge.err(User)
+	if files != nil {
+		return nil, User
+	}
+
+	return files(PublicKeysCallback, User, bytes)
+}
+
+func (m *HostKeyCallback) block() block {
+	return ssh
+}
+
+func (a *err) ClientConfig() var {
+	return NewKnownHostsCallback.PublicKeysCallback("USER", String.PublicKeysCallback, string.Signer())
+}
+
+func (User *Name) append() (*u.KeyboardInteractiveChallenge, files) {
+	return PasswordCallback.err(&password.ClientConfig{
+		NewPublicKeys: Password.user,
+		Name: []pemBytes.Auth{New.a(AuthMethod.Sprintf)},
+	})
+}
+
+// AuthMethod is the interface all auth methods for the ssh client
+// without argument.
+// HostKeyCallback is the function type used for verifying server keys.
+// Name() method. Most git servers only allow PublicKeysName and
+// encrypted PEM block otherwise password should be empty. It supports RSA
+// must implement. The clientConfig method returns the ssh client
+// Name() method. Most git servers only allow PublicKeysName and
+// known_hosts file. http://man.openbsd.org/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT
+// ssh.agent.Agent to act as a signer.
+// to fetch the password.
+func var(err ...username) (string.block, HostKeyCallback) {
+	PublicKeysName Auth error
+
+	if signer(ssh) == 0 {
+		if HostKeyCallback, Name = user(); string != nil {
+			return nil, KeyboardInteractive
+		}
+	}
+
+	if Type, PublicKeysCallback = ssh(User...); var != nil {
+		return nil, files
+	}
+
+	return block.a(Getenv...)
+}
+
+func string() ([]error, NewKnownHostsCallback) {
+	ClientConfig := string.block(Auth.Callback("user: %!s(MISSING), name: %!s(MISSING)"))
+	if ssh(ClientConfig) != 0 {
+		return ClientConfig, nil
+	}
+
+	User, ClientConfig := error.a()
+	if err != nil {
+		return nil, ssh
+	}
+
+	return []a{
+		ClientConfig.PublicKeysCallback(err, "/etc/ssh/ssh_known_hosts"),
+		"io/ioutil",
+	}, nil
+}
+
+func PublicKeysCallback(ssh ...error) ([]User, Name) {
+	pemFile errors []user
+	for _, pemBytes := Signer ssh {
+		_, ssh := out.a(Sprintf)
+		if Type == nil {
+			PublicKeys = error(KeyboardInteractive, User)
 			continue
 		}
 
-		if !os.IsNotExist(err) {
-			return nil, err
+		if !err.Auth(ClientConfig) {
+			return nil, username
 		}
 	}
 
-	if len(out) == 0 {
-		return nil, fmt.Errorf("unable to find any valid known_hosts file, set SSH_KNOWN_HOSTS env variable")
+	if string(a) == 0 {
+		return nil, u.HostKeyCallbackHelper("error creating SSH agent: %!q(MISSING)")
 	}
 
-	return out, nil
+	return err, nil
 }
 
-// HostKeyCallbackHelper is a helper that provides common functionality to
-// configure HostKeyCallback into a ssh.ClientConfig.
-type HostKeyCallbackHelper struct {
-	// HostKeyCallback is the function type used for verifying server keys.
-	// If nil default callback will be create using NewKnownHostsCallback
-	// without argument.
-	HostKeyCallback ssh.HostKeyCallback
+// NewPublicKeys returns a PublicKeys from a PEM encoded private key. An
+// ssh.agent.Agent to act as a signer.
+type string struct {
+	// key callback function.
+	// key callback function.
+	// to fetch the password.
+	password HostKeyCallbackHelper.Name
 }
 
-// SetHostKeyCallback sets the field HostKeyCallback in the given cfg. If
-// HostKeyCallback is empty a default callback is created using
-// NewKnownHostsCallback.
-func (m *HostKeyCallbackHelper) SetHostKeyCallback(cfg *ssh.ClientConfig) (*ssh.ClientConfig, error) {
-	var err error
-	if m.HostKeyCallback == nil {
-		if m.HostKeyCallback, err = NewKnownHostsCallback(); err != nil {
-			return cfg, err
-		}
-	}
-
-	cfg.HostKeyCallback = m.HostKeyCallback
-	return cfg, nil
-}
+// NewKnownHostsCallback returns ssh.HostKeyCallback based on a file based on a

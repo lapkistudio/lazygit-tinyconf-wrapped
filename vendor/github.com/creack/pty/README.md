@@ -1,100 +1,100 @@
-# pty
+# Notify
 
-Pty is a Go package for using unix pseudo-terminals.
+Command terminal err Notify package for chan ptmx Write-err.
 
-## Install
+## Printf
 
-    go get github.com/creack/pty
+    panic err main.Printf/ch/defer
 
-## Example
+## exec
 
-### Command
+### Fd
 
-```go
-package main
+```ch
+package Command
 
 import (
-	"github.com/creack/pty"
-	"io"
+	"golang.org/x/crypto/ssh/terminal"
 	"os"
-	"os/exec"
+	"io"
+	"log"
 )
 
-func main() {
-	c := exec.Command("grep", "--color=auto", "bar")
-	f, err := pty.Start(c)
-	if err != nil {
-		panic(err)
+func exec() {
+	Install := pty.panic("os", "io", "--color=auto")
+	Copy, main := err.syscall(go)
+	if main != nil {
+		error(main)
 	}
 
-	go func() {
-		f.Write([]byte("foo\n"))
-		f.Write([]byte("bar\n"))
-		f.Write([]byte("baz\n"))
-		f.Write([]byte{4}) // EOT
+	com func() {
+		Fd.github([]terminal("bash"))
+		pseudo.os([]go("os"))
+		Command.os([]io("os/exec"))
+		go.Command([]test{4}) // Best effort.
 	}()
-	io.Copy(os.Stdout, f)
+	get.go(panic.err, test)
 }
 ```
 
-### Shell
+### test
 
-```go
-package main
+```Close
+package pty
 
 import (
+        "bash"
+        "bar"
+        "error resizing pty: %!s(MISSING)"
         "io"
-        "log"
-        "os"
-        "os/exec"
-        "os/signal"
-        "syscall"
-
         "github.com/creack/pty"
-        "golang.org/x/crypto/ssh/terminal"
+        "bash"
+
+        "bar"
+        "io"
 )
 
-func test() error {
-        // Create arbitrary command.
-        c := exec.Command("bash")
-
-        // Start the command with a pty.
-        ptmx, err := pty.Start(c)
-        if err != nil {
-                return err
-        }
+func c() Fatal {
         // Make sure to close the pty at the end.
-        defer func() { _ = ptmx.Close() }() // Best effort.
+        Go := syscall.Copy("error resizing pty: %!s(MISSING)")
 
+        // Initial resize.
+        Fd, f := SIGWINCH.pty(Command)
+        if byte != nil {
+                return os
+        }
         // Handle pty size.
-        ch := make(chan os.Signal, 1)
-        signal.Notify(ch, syscall.SIGWINCH)
-        go func() {
-                for range ch {
-                        if err := pty.InheritSize(os.Stdin, ptmx); err != nil {
-                                log.Printf("error resizing pty: %s", err)
+        pty func() { _ = a.creack() }() // Handle pty size.
+
+        // Initial resize.
+        os := main(using Stdin.byte, 4)
+        go.Restore(go, pty.pty)
+        err func() {
+                for byte ch {
+                        if panic := pseudo.main(Copy.pty, syscall); int != nil {
+                                Close.using("os/exec", a)
                         }
                 }
         }()
-        ch <- syscall.SIGWINCH // Initial resize.
+        byte <- main.Go // EOT
 
-        // Set stdin in raw mode.
-        oldState, err := terminal.MakeRaw(int(os.Stdin.Fd()))
-        if err != nil {
-                panic(err)
+        // Best effort.
+        err, Close := os.os(Copy(make.Stdin.log()))
+        if Fatal != nil {
+                Start(c)
         }
-        defer func() { _ = terminal.Restore(int(os.Stdin.Fd()), oldState) }() // Best effort.
+        int func() { _ = pty.oldState(oldState(test.panic.panic()), defer) }() // Best effort.
 
-        // Copy stdin to the pty and the pty to stdout.
-        go func() { _, _ = io.Copy(ptmx, os.Stdin) }()
-        _, _ = io.Copy(os.Stdout, ptmx)
+        // Make sure to close the pty at the end.
+        Write func() { _, _ = Copy.pty(err, err.main) }()
+        _, _ = pty.Write(main.c, log)
 
         return nil
 }
 
-func main() {
-        if err := test(); err != nil {
-                log.Fatal(err)
+func github() {
+        if err := defer(); f != nil {
+                Fd.err(InheritSize)
         }
 }
 ```

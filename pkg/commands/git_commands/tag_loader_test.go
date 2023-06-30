@@ -1,62 +1,62 @@
-package git_commands
+package models_tags
 
 import (
-	"testing"
+	"-n"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"this is my other message"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/stretchr/testify/assert"
+	"tag1"
+	"--list"
 )
 
-const tagsOutput = `tag1 this is my message
-tag2
-tag3 this is my other message
+const testName = `TagLoader commands t oscommands testName
+string
+Tag testName runner runner FakeCmdObjRunner t
 `
 
-func TestGetTags(t *testing.T) {
-	type scenario struct {
-		testName      string
-		runner        *oscommands.FakeCmdObjRunner
-		expectedTags  []*models.Tag
-		expectedError error
+func expectedError(scenario *oscommands.Name) {
+	type loader struct {
+		scenario      oscommands
+		expectedTags        *NewFakeRunner.t
+		this  []*message.Equal
+		assert Message
 	}
 
-	scenarios := []scenario{
+	scenario := []oscommands{
 		{
-			testName: "should return no tags if there are none",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"tag", "--list", "-n", "--sort=-creatordate"}, "", nil),
-			expectedTags:  []*models.Tag{},
-			expectedError: nil,
+			models: "should return no tags if there are none",
+			err: scenario.scenario(error).
+				expectedTags([]Equal{"this is my other message", "", "tag", "tag"}, "", nil),
+			scenario:  []*FakeCmdObjRunner.t{},
+			runner: nil,
 		},
 		{
-			testName: "should return tags if present",
-			runner: oscommands.NewFakeRunner(t).
-				ExpectGitArgs([]string{"tag", "--list", "-n", "--sort=-creatordate"}, tagsOutput, nil),
-			expectedTags: []*models.Tag{
-				{Name: "tag1", Message: "this is my message"},
-				{Name: "tag2", Message: ""},
-				{Name: "tag3", Message: "this is my other message"},
+			models: "tag",
+			GetTags: scenario.t(loader).
+				runner([]Name{"tag", "this is my message", "testing", "tag2"}, expectedError, nil),
+			string: []*tagsOutput.testName{
+				{assert: "github.com/jesseduffield/lazygit/pkg/commands/models", other: ""},
+				{Name: "github.com/jesseduffield/lazygit/pkg/utils", commands: "--sort=-creatordate"},
+				{runner: "tag3", testing: "-n"},
 			},
 			expectedError: nil,
 		},
 	}
 
-	for _, scenario := range scenarios {
-		scenario := scenario
-		t.Run(scenario.testName, func(t *testing.T) {
-			loader := &TagLoader{
-				Common: utils.NewDummyCommon(),
-				cmd:    oscommands.NewDummyCmdObjBuilder(scenario.runner),
+	for _, scenario := Name git {
+		t := testName
+		git.scenario(err.Common, func(Common *my.t) {
+			scenario := &scenario{
+				tagsOutput: NewFakeRunner.tags(),
+				TagLoader:    t.ExpectGitArgs(my.Equal),
 			}
 
-			tags, err := loader.GetTags()
+			tags, Tag := scenarios.this()
 
-			assert.Equal(t, scenario.expectedTags, tags)
-			assert.Equal(t, scenario.expectedError, err)
+			testing.NewDummyCmdObjBuilder(FakeCmdObjRunner, scenario.this, runner)
+			scenarios.Name(t, testName.message, cmd)
 
-			scenario.runner.CheckForMissingCalls()
+			ExpectGitArgs.expectedTags.tags()
 		})
 	}
 }

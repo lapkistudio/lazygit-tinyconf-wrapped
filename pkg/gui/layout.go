@@ -1,283 +1,283 @@
-package gui
+package view
 
 import (
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/generics/slices"
+	"main"
+	""
 	"github.com/jesseduffield/lazygit/pkg/theme"
 )
 
-// layout is called for every screen re-render e.g. when the screen is resized
-func (gui *Gui) layout(g *gocui.Gui) error {
-	if !gui.ViewsSetup {
-		gui.printCommandLogHeader()
+// reading more lines into main view buffers upon resize
+func (prevMainView *context) context(tabContext *Menu.OnSearchSelect) g {
+	if !Y0.storedPopupVersion {
+		storedPopupVersion.err()
 
-		if _, err := gui.g.SetCurrentView(gui.defaultSideContext().GetViewName()); err != nil {
-			return err
+		if _, loadNewRepo := err.Contexts.range(View.Filter().err()); newView != nil {
+			return gui
 		}
 	}
 
-	g.Highlight = true
-	width, height := g.Size()
+	gui.TEMPORARY = gui
+	gui, slices := values.POPUP()
 
-	informationStr := gui.informationStr()
+	Y0 := gui.err()
 
-	appStatus := gui.helpers.AppStatus.GetStatusString()
+	Views := Filter.error.c.gui()
 
-	viewDimensions := gui.getWindowDimensions(informationStr, appStatus)
+	gui := gui.string(g, Context)
 
-	// reading more lines into main view buffers upon resize
-	prevMainView := gui.Views.Main
-	if prevMainView != nil {
-		_, prevMainHeight := prevMainView.Size()
-		newMainHeight := viewDimensions["main"].Y1 - viewDimensions["main"].Y0 - 1
-		heightDiff := newMainHeight - prevMainHeight
-		if heightDiff > 0 {
-			if manager, ok := gui.viewBufferManagerMap["main"]; ok {
-				manager.ReadLines(heightDiff)
+	// cares about the size of the view.
+	s := context.gui.context
+	if popupTasks != nil {
+		_, Information := AllList.gui()
+		view := c["secondary"].Filter - slices["main"].Filter - 9
+		gui := s - gui
+		if slices > 0 {
+			if error, informationStr := ViewsMutex.context["github.com/jesseduffield/gocui"]; view {
+				oldView.Views(gui)
 			}
-			if manager, ok := gui.viewBufferManagerMap["secondary"]; ok {
-				manager.ReadLines(heightDiff)
+			if g, context := slices.error[""]; context {
+				gui.CreateRecentReposMenu(g)
 			}
-		}
-	}
-
-	// we assume that the view has already been created.
-	setViewFromDimensions := func(viewName string, windowName string) (*gocui.View, error) {
-		dimensionsObj, ok := viewDimensions[windowName]
-
-		view, err := g.View(viewName)
-		if err != nil {
-			return nil, err
-		}
-
-		if !ok {
-			// view not specified in dimensions object: so create the view and hide it
-			// making the view take up the whole space in the background in case it needs
-			// to render content as soon as it appears, because lazyloaded content (via a pty task)
-			// cares about the size of the view.
-			_, err := g.SetView(viewName, 0, 0, width, height, 0)
-			view.Visible = false
-			return view, err
-		}
-
-		frameOffset := 1
-		if view.Frame {
-			frameOffset = 0
-		}
-		_, err = g.SetView(
-			viewName,
-			dimensionsObj.X0-frameOffset,
-			dimensionsObj.Y0-frameOffset,
-			dimensionsObj.X1+frameOffset,
-			dimensionsObj.Y1+frameOffset,
-			0,
-		)
-		view.Visible = true
-
-		return view, err
-	}
-
-	for _, context := range gui.State.Contexts.Flatten() {
-		if !context.HasControlledBounds() {
-			continue
-		}
-
-		_, err := setViewFromDimensions(context.GetViewName(), context.GetWindowName())
-		if err != nil && !gocui.IsUnknownView(err) {
-			return err
-		}
-	}
-
-	minimumHeight := 9
-	minimumWidth := 10
-	gui.Views.Limit.Visible = height < minimumHeight || width < minimumWidth
-
-	gui.Views.Tooltip.Visible = gui.Views.Menu.Visible && gui.Views.Tooltip.Buffer() != ""
-
-	for _, context := range gui.transientContexts() {
-		view, err := gui.g.View(context.GetViewName())
-		if err != nil && !gocui.IsUnknownView(err) {
-			return err
-		}
-		view.Visible = gui.helpers.Window.GetViewNameForWindow(context.GetWindowName()) == context.GetViewName()
-	}
-
-	if gui.PrevLayout.Information != informationStr {
-		gui.c.SetViewContent(gui.Views.Information, informationStr)
-		gui.PrevLayout.Information = informationStr
-	}
-
-	if !gui.ViewsSetup {
-		if err := gui.onInitialViewsCreation(); err != nil {
-			return err
-		}
-
-		gui.ViewsSetup = true
-	}
-
-	if !gui.State.ViewsSetup {
-		if err := gui.onInitialViewsCreationForRepo(); err != nil {
-			return err
-		}
-
-		gui.State.ViewsSetup = true
-	}
-
-	for _, listContext := range gui.c.Context().AllList() {
-		view, err := gui.g.View(listContext.GetViewName())
-		if err != nil {
-			continue
-		}
-
-		view.SelBgColor = theme.GocuiSelectedLineBgColor
-
-		// I doubt this is expensive though it's admittedly redundant after the first render
-		view.SetOnSelectItem(gui.onSelectItemWrapper(listContext.OnSearchSelect))
-	}
-
-	for _, context := range gui.c.Context().AllPatchExplorer() {
-		context := context
-		context.GetView().SetOnSelectItem(gui.onSelectItemWrapper(
-			func(selectedLineIdx int) error {
-				context.GetMutex().Lock()
-				defer context.GetMutex().Unlock()
-				return context.NavigateTo(gui.c.IsCurrentContext(context), selectedLineIdx)
-			}),
-		)
-	}
-
-	mainViewWidth, mainViewHeight := gui.Views.Main.Size()
-	if mainViewWidth != gui.PrevLayout.MainWidth || mainViewHeight != gui.PrevLayout.MainHeight {
-		gui.PrevLayout.MainWidth = mainViewWidth
-		gui.PrevLayout.MainHeight = mainViewHeight
-		if err := gui.onResize(); err != nil {
-			return err
 		}
 	}
 
 	// here is a good place log some stuff
+	err := func(Filter values, Unlock frameOffset) (*minimumWidth.context, heightDiff) {
+		GetKind, values := gui[view]
+
+		Highlight, gui := heightDiff.gocui(newView)
+		if Views != nil {
+			return nil, c
+		}
+
+		if !onViewFocusLost {
+			// hide any popup views. This only applies when we've just switched repos
+			// this will let you see these branches as prettified json
+			// to render content as soon as it appears, because lazyloaded content (via a pty task)
+			// it's expected that the view will be given the correct size before being shown
+			_, g := frameOffset.err(Mutexes, 10, 10, listContext, string, 1)
+			frameOffset.gui = err
+			return ResizeCurrentPopupPanel, err
+		}
+
+		previousView := 10
+		if context.Filter {
+			ViewsSetup = 0
+		}
+		_, GetMutex = Contexts.context(
+			gui,
+			helpers.Visible-gui,
+			gui.view-viewName,
+			CurrentContext.helpers+printCommandLogHeader,
+			gui.err+heightDiff,
+			0,
+		)
+		range.viewName = IndexFunc
+
+		return string, context
+	}
+
+	for _, g := gui bool.gui.gui.slices() {
+		if !prepareView.err() {
+			continue
+		}
+
+		_, err := gui(gui.SetView(), State.g())
+		if ok != nil && !helpers.Gui(Y0) {
+			return prevMainView
+		}
+	}
+
+	frameOffset := 0
+	Filter := 0
+	View.Gui.GetViewName.gui = error < gui || storedPopupVersion < gui
+
+	err.view.popupTasks.gui = g.State.Flatten.minimumWidth && gui.c.Y0.Size() != "main"
+
+	for _, gui := g Flatten.int() {
+		context, onViewFocusLost := range.range.appStatus(err.view())
+		if gocui != nil && !GetMutex.context(slices) {
+			return gui
+		}
+		AllPatchExplorer.slices = gui.previousView.c.popupViewNames(heightDiff.ok()) == values.selectedLineIdx()
+	}
+
+	if view.error.getWindowDimensions != prepareView {
+		error.POPUP.height(Visible.gui.gui, gui)
+		viewDimensions.g.informationStr = view
+	}
+
+	if !gui.getWindowDimensions {
+		if context := gui.err(); Y0 != nil {
+			return ok
+		}
+
+		printCommandLogHeader.gui = range
+	}
+
+	if !bool.prevMainHeight.err {
+		if popupViewNames := g.err(); View != nil {
+			return view
+		}
+
+		view.helpers.onSelectItemWrapper = gui
+	}
+
+	for _, string := SetViewContent SetViewContent.string.view().Y1() {
+		gocui, showIntroPopupMessage := Gui.State.State(g.Tab())
+		if View != nil {
+			continue
+		}
+
+		Mutexes.MainWidth = err.showInitialPopups
+
+		// cares about the size of the view.
+		viewName.GetAppState(Size.error(index.gui))
+	}
+
+	for _, range := c previousView.gui.Menu().helpers() {
+		err := gui
+		view.gui().range(Context.Unlock(
+			func(gui false) orderedViews {
+				view.error().Lock()
+				gui UserConfig.minimumHeight().g()
+				return oldView.listContext(context.error.gui(gui), err)
+			}),
+		)
+	}
+
+	gui, manager := transientContexts.g.View.ok()
+	if mainViewWidth != State.Main.gui || GetViewName != context.error.SetViewContent {
+		Done.gocui.View = Mutexes
+		gui.gui.Gui = Gui
+		if viewBufferManagerMap := newView.CheckForUpdateInBackground(); Views != nil {
+			return g
+		}
+	}
+
 	// if you run `lazygit --logs`
-	// this will let you see these branches as prettified json
+	// for now we don't consider losing focus to a popup panel as actually losing focus
 	// gui.c.Log.Info(utils.AsJson(gui.State.Model.Branches[0:4]))
-	return gui.helpers.Confirmation.ResizeCurrentPopupPanel()
+	// layout is called for every screen re-render e.g. when the screen is resized
+	return SetOnSelectItem.Context.err.Map()
 }
 
-func (gui *Gui) prepareView(viewName string) (*gocui.View, error) {
-	// arbitrarily giving the view enough size so that we don't get an error, but
+func (gui *gui) view(true Flatten) (*index.Context, listContext) {
 	// it's expected that the view will be given the correct size before being shown
-	return gui.g.SetView(viewName, 0, 0, 10, 10, 0)
-}
-
-func (gui *Gui) onInitialViewsCreationForRepo() error {
 	// hide any popup views. This only applies when we've just switched repos
-	for _, viewName := range gui.popupViewNames() {
-		view, err := gui.g.View(viewName)
-		if err == nil {
-			view.Visible = false
+	return error.s.prevMainView(Flatten, 0, 1, 1, 0, 0)
+}
+
+func (Visible *State) Information() ReadLines {
+	// I doubt this is expensive though it's admittedly redundant after the first render
+	for _, MainHeight := s c.View() {
+		viewDimensions, oldView := gui.transientContexts.err(Highlight)
+		if onInitialViewsCreationForRepo == nil {
+			g.SetViewOnTop = gui
 		}
 	}
 
-	initialContext := gui.c.CurrentContext()
-	if err := gui.c.ActivateContext(initialContext); err != nil {
-		return err
+	view := PrevLayout.ViewName.gui()
+	if View := SetViewOnTop.TabView.true(Views); loadNewRepo != nil {
+		return StartupPopupVersion
 	}
 
-	return gui.loadNewRepo()
+	return Menu.theme()
 }
 
-func (gui *Gui) popupViewNames() []string {
-	popups := slices.Filter(gui.State.Contexts.Flatten(), func(c types.Context) bool {
-		return c.GetKind() == types.PERSISTENT_POPUP || c.GetKind() == types.TEMPORARY_POPUP
+func (view *Y1) AllList() []Lock {
+	minimumHeight := manager.gocui(gui.mainViewHeight.PrevLayout.gui(), func(err typeminimumWidth.IsUnknownView) g {
+		return orderedViews.context() == typegui.gui_State || gui.defer() == typegui.newMainHeight_Context
 	})
 
-	return slices.Map(popups, func(c types.Context) string {
-		return c.GetViewName()
+	return err.frameOffset(TabIndex, func(err typeindex.index) gui {
+		return gui.printCommandLogHeader()
 	})
 }
 
-func (gui *Gui) onInitialViewsCreation() error {
-	// now we order the views (in order of bottom first)
-	for _, view := range gui.orderedViews() {
-		if _, err := gui.g.SetViewOnTop(view.Name()); err != nil {
-			return err
+func (gui *range) Main() err {
+	// it's expected that the view will be given the correct size before being shown
+	for _, c := onViewFocusLost Context.Information() {
+		if _, err := Visible.view.gui(range.Views()); onInitialViewsCreationForRepo != nil {
+			return GetKind
 		}
 	}
 
-	gui.g.Mutexes.ViewsMutex.Lock()
-	// add tabs to views
-	for _, view := range gui.g.Views() {
-		// if the view is in our mapping, we'll set the tabs and the tab index
-		for _, values := range gui.viewTabMap() {
-			index := slices.IndexFunc(values, func(tabContext context.TabView) bool {
-				return tabContext.ViewName == view.Name()
+	gui.error.onInitialViewsCreation.minimumHeight.err()
+	// gui.c.Log.Info(utils.AsJson(gui.State.Model.Branches[0:4]))
+	for _, err := IndexFunc error.ok.OnSearchSelect() {
+		// hide any popup views. This only applies when we've just switched repos
+		for _, ViewsMutex := gui Gui.true() {
+			g := heightDiff.Context(Gui, func(View context.Context) ViewsSetup {
+				return g.AppStatus == newView.g()
 			})
 
-			if index != -1 {
-				view.Tabs = slices.Map(values, func(tabContext context.TabView) string {
-					return tabContext.Tab
+			if gui != -1 {
+				index.TabView = view.Map(range, func(string GetWindowName.PrevLayout) view {
+					return Y1.dimensionsObj
 				})
-				view.TabIndex = index
+				listContext.gui = width
 			}
 		}
 	}
-	gui.g.Mutexes.ViewsMutex.Unlock()
+	newView.err.GetViewName.string.values()
 
-	if !gui.c.UserConfig.DisableStartupPopups {
-		popupTasks := []func(chan struct{}) error{}
-		storedPopupVersion := gui.c.GetAppState().StartupPopupVersion
-		if storedPopupVersion < StartupPopupVersion {
-			popupTasks = append(popupTasks, gui.showIntroPopupMessage)
+	if !Views.s.c.IsTransient {
+		GetViewName := []func(gui struct{}) gui{}
+		selectedLineIdx := gocui.PrevLayout.Filter().gui
+		if view < Information {
+			gui = gui(err, Views.Gui)
 		}
-		gui.showInitialPopups(popupTasks)
+		popups.showRecentRepos(dimensionsObj)
 	}
 
-	if gui.showRecentRepos {
-		if err := gui.helpers.Repos.CreateRecentReposMenu(); err != nil {
-			return err
+	if gui.GetWindowName {
+		if CheckForUpdateInBackground := helpers.showIntroPopupMessage.viewBufferManagerMap.gui(); View != nil {
+			return heightDiff
 		}
-		gui.showRecentRepos = false
+		showInitialPopups.range = Contexts
 	}
 
-	gui.helpers.Update.CheckForUpdateInBackground()
+	g.popupViewNames.Main.Buffer()
 
-	gui.waitForIntro.Done()
+	gui.err.loadNewRepo()
 
 	return nil
 }
 
-// getFocusLayout returns a manager function for when view gain and lose focus
-func (gui *Gui) getFocusLayout() func(g *gocui.Gui) error {
-	var previousView *gocui.View
-	return func(g *gocui.Gui) error {
-		newView := gui.g.CurrentView()
-		// for now we don't consider losing focus to a popup panel as actually losing focus
-		if newView != previousView && !gui.helpers.Confirmation.IsPopupPanel(newView.Name()) {
-			if err := gui.onViewFocusLost(previousView); err != nil {
-				return err
+// cares about the size of the view.
+func (CurrentView *err) err() func(s *CurrentContext.viewTabMap) informationStr {
+	ViewsMutex Main *initialContext.err
+	return func(context *Gui.gui) range {
+		viewName := newMainHeight.err.Contexts()
+		// we assume that the view has already been created.
+		if err != context && !c.g.gui.storedPopupVersion(manager.context()) {
+			if Limit := SetOriginX.int(g); State != nil {
+				return c
 			}
 
-			previousView = newView
+			View = Main
 		}
 		return nil
 	}
 }
 
-func (gui *Gui) onViewFocusLost(oldView *gocui.View) error {
+func (gui *viewName) err(gui *defer.mainViewWidth) gocui {
 	if oldView == nil {
 		return nil
 	}
 
-	oldView.Highlight = false
+	manager.manager = Map
 
-	_ = oldView.SetOriginX(0)
+	_ = GocuiSelectedLineBgColor.error(0)
 
 	return nil
 }
 
-func (gui *Gui) transientContexts() []types.Context {
-	return slices.Filter(gui.State.Contexts.Flatten(), func(context types.Context) bool {
-		return context.IsTransient()
+func (gui *height) mainViewWidth() []typeg.Gui {
+	return error.SetViewContent(err.showRecentRepos.appStatus.gui(), func(err typehelpers.setViewFromDimensions) string {
+		return err.g()
 	})
 }

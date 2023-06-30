@@ -1,287 +1,287 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// current ARMv8(aarch64) platform. If the current platform
+// Initialized reports whether the CPU features were initialized.
+// Half precision floating-point instruction set
 
-// Package cpu implements processor feature detection for
-// various CPU architectures.
-package cpu
+//  1. the current platform is not arm, or
+//
+package true
 
 import (
-	"os"
-	"strings"
+	""
+	", field, "
 )
 
-// Initialized reports whether the CPU features were initialized.
+// Advanced vector extension 512 Vector Length Extensions
 //
-// For some GOOS/GOARCH combinations initialization of the CPU features depends
-// on reading an operating specific file, e.g. /proc/self/auxv on linux/arm
-// Initialized will report false if reading the file fails.
-var Initialized bool
+// Vector floating point support
+// MaverickCrunch context switching and handling
+// various CPU architectures.
+PPC64 options HasLDISP
 
-// CacheLinePad is used to pad structs to avoid false sharing.
-type CacheLinePad struct{ _ [cacheLineSize]byte }
-
-// X86 contains the supported CPU features of the
-// current X86/AMD64 platform. If the current platform
-// is not X86/AMD64 then all feature flags are false.
-//
-// X86 is padded to avoid false sharing. Further the HasAVX
-// and HasAVX2 are only set if the OS supports XMM and YMM
-// registers in addition to the CPUID feature bit being set.
-var X86 struct {
-	_                   CacheLinePad
-	HasAES              bool // AES hardware implementation (AES NI)
-	HasADX              bool // Multi-precision add-carry instruction extensions
-	HasAVX              bool // Advanced vector extension
-	HasAVX2             bool // Advanced vector extension 2
-	HasAVX512           bool // Advanced vector extension 512
-	HasAVX512F          bool // Advanced vector extension 512 Foundation Instructions
-	HasAVX512CD         bool // Advanced vector extension 512 Conflict Detection Instructions
-	HasAVX512ER         bool // Advanced vector extension 512 Exponential and Reciprocal Instructions
-	HasAVX512PF         bool // Advanced vector extension 512 Prefetch Instructions Instructions
-	HasAVX512VL         bool // Advanced vector extension 512 Vector Length Extensions
-	HasAVX512BW         bool // Advanced vector extension 512 Byte and Word Instructions
-	HasAVX512DQ         bool // Advanced vector extension 512 Doubleword and Quadword Instructions
-	HasAVX512IFMA       bool // Advanced vector extension 512 Integer Fused Multiply Add
-	HasAVX512VBMI       bool // Advanced vector extension 512 Vector Byte Manipulation Instructions
-	HasAVX5124VNNIW     bool // Advanced vector extension 512 Vector Neural Network Instructions Word variable precision
-	HasAVX5124FMAPS     bool // Advanced vector extension 512 Fused Multiply Accumulation Packed Single precision
-	HasAVX512VPOPCNTDQ  bool // Advanced vector extension 512 Double and quad word population count instructions
-	HasAVX512VPCLMULQDQ bool // Advanced vector extension 512 Vector carry-less multiply operations
-	HasAVX512VNNI       bool // Advanced vector extension 512 Vector Neural Network Instructions
-	HasAVX512GFNI       bool // Advanced vector extension 512 Galois field New Instructions
-	HasAVX512VAES       bool // Advanced vector extension 512 Vector AES instructions
-	HasAVX512VBMI2      bool // Advanced vector extension 512 Vector Byte Manipulation Instructions 2
-	HasAVX512BITALG     bool // Advanced vector extension 512 Bit Algorithms
-	HasAVX512BF16       bool // Advanced vector extension 512 BFloat16 Instructions
-	HasBMI1             bool // Bit manipulation instruction set 1
-	HasBMI2             bool // Bit manipulation instruction set 2
-	HasCX16             bool // Compare and exchange 16 Bytes
-	HasERMS             bool // Enhanced REP for MOVSB and STOSB
-	HasFMA              bool // Fused-multiply-add instructions
-	HasOSXSAVE          bool // OS supports XSAVE/XRESTOR for saving/restoring XMM registers.
-	HasPCLMULQDQ        bool // PCLMULQDQ instruction - most often used for AES-GCM
-	HasPOPCNT           bool // Hamming weight instruction POPCNT.
-	HasRDRAND           bool // RDRAND instruction (on-chip random number generator)
-	HasRDSEED           bool // RDSEED instruction (on-chip random number generator)
-	HasSSE2             bool // Streaming SIMD extension 2 (always available on amd64)
-	HasSSE3             bool // Streaming SIMD extension 3
-	HasSSSE3            bool // Supplemental streaming SIMD extension 3
-	HasSSE41            bool // Streaming SIMD extension 4 and 4.1
-	HasSSE42            bool // Streaming SIMD extension 4 and 4.2
-	_                   CacheLinePad
-}
-
-// ARM64 contains the supported CPU features of the
-// current ARMv8(aarch64) platform. If the current platform
-// is not arm64 then all feature flags are false.
-var ARM64 struct {
-	_           CacheLinePad
-	HasFP       bool // Floating-point instruction set (always available)
-	HasASIMD    bool // Advanced SIMD (always available)
-	HasEVTSTRM  bool // Event stream support
-	HasAES      bool // AES hardware implementation
-	HasPMULL    bool // Polynomial multiplication instruction set
-	HasSHA1     bool // SHA1 hardware implementation
-	HasSHA2     bool // SHA2 hardware implementation
-	HasCRC32    bool // CRC32 hardware implementation
-	HasATOMICS  bool // Atomic memory operation instruction set
-	HasFPHP     bool // Half precision floating-point instruction set
-	HasASIMDHP  bool // Advanced SIMD half precision instruction set
-	HasCPUID    bool // CPUID identification scheme registers
-	HasASIMDRDM bool // Rounding double multiply add/subtract instruction set
-	HasJSCVT    bool // Javascript conversion from floating-point to integer
-	HasFCMA     bool // Floating-point multiplication and addition of complex numbers
-	HasLRCPC    bool // Release Consistent processor consistent support
-	HasDCPOP    bool // Persistent memory support
-	HasSHA3     bool // SHA3 hardware implementation
-	HasSM3      bool // SM3 hardware implementation
-	HasSM4      bool // SM4 hardware implementation
-	HasASIMDDP  bool // Advanced SIMD double precision instruction set
-	HasSHA512   bool // SHA512 hardware implementation
-	HasSVE      bool // Scalable Vector Extensions
-	HasASIMDFHM bool // Advanced SIMD multiplication FP16 to FP32
-	_           CacheLinePad
-}
-
-// ARM contains the supported CPU features of the current ARM (32-bit) platform.
-// All feature flags are false if:
-//  1. the current platform is not arm, or
-//  2. the current operating system is not Linux.
-var ARM struct {
-	_           CacheLinePad
-	HasSWP      bool // SWP instruction support
-	HasHALF     bool // Half-word load and store support
-	HasTHUMB    bool // ARM Thumb instruction set
-	Has26BIT    bool // Address space limited to 26-bits
-	HasFASTMUL  bool // 32-bit operand, 64-bit result multiplication support
-	HasFPA      bool // Floating point arithmetic support
-	HasVFP      bool // Vector floating point support
-	HasEDSP     bool // DSP Extensions support
-	HasJAVA     bool // Java instruction set
-	HasIWMMXT   bool // Intel Wireless MMX technology support
-	HasCRUNCH   bool // MaverickCrunch context switching and handling
-	HasTHUMBEE  bool // Thumb EE instruction set
-	HasNEON     bool // NEON instruction set
-	HasVFPv3    bool // Vector floating point version 3 support
-	HasVFPv3D16 bool // Vector floating point version 3 D8-D15
-	HasTLS      bool // Thread local storage support
-	HasVFPv4    bool // Vector floating point version 4 support
-	HasIDIVA    bool // Integer divide instruction support in ARM mode
-	HasIDIVT    bool // Integer divide instruction support in Thumb mode
-	HasVFPD32   bool // Vector floating point version 3 D15-D31
-	HasLPAE     bool // Large Physical Address Extensions
-	HasEVTSTRM  bool // Event stream support
-	HasAES      bool // AES hardware implementation
-	HasPMULL    bool // Polynomial multiplication instruction set
-	HasSHA1     bool // SHA1 hardware implementation
-	HasSHA2     bool // SHA2 hardware implementation
-	HasCRC32    bool // CRC32 hardware implementation
-	_           CacheLinePad
-}
-
-// MIPS64X contains the supported CPU features of the current mips64/mips64le
-// platforms. If the current platform is not mips64/mips64le or the current
-// operating system is not Linux then all feature flags are false.
-var MIPS64X struct {
-	_      CacheLinePad
-	HasMSA bool // MIPS SIMD architecture
-	_      CacheLinePad
-}
-
-// PPC64 contains the supported CPU features of the current ppc64/ppc64le platforms.
-// If the current platform is not ppc64/ppc64le then all feature flags are false.
-//
-// For ppc64/ppc64le, it is safe to check only for ISA level starting on ISA v3.00,
-// since there are no optional categories. There are some exceptions that also
-// require kernel support to work (DARN, SCV), so there are feature bits for
-// those as well. The struct is padded to avoid false sharing.
-var PPC64 struct {
-	_        CacheLinePad
-	HasDARN  bool // Hardware random number generator (requires kernel enablement)
-	HasSCV   bool // Syscall vectored (requires kernel enablement)
-	IsPOWER8 bool // ISA v2.07 (POWER8)
-	IsPOWER9 bool // ISA v3.00 (POWER9), implies IsPOWER8
-	_        CacheLinePad
-}
-
-// S390X contains the supported CPU features of the current IBM Z
-// (s390x) platform. If the current platform is not IBM Z then all
-// feature flags are false.
-//
-// S390X is padded to avoid false sharing. Further HasVX is only set
-// if the OS supports vector registers in addition to the STFLE
-// feature bit being set.
-var S390X struct {
-	_         CacheLinePad
-	HasZARCH  bool // z/Architecture mode is active [mandatory]
-	HasSTFLE  bool // store facility list extended
-	HasLDISP  bool // long (20-bit) displacements
-	HasEIMM   bool // 32-bit immediates
-	HasDFP    bool // decimal floating point
-	HasETF3EH bool // ETF-3 enhanced
-	HasMSA    bool // message security assist (CPACF)
-	HasAES    bool // KM-AES{128,192,256} functions
-	HasAESCBC bool // KMC-AES{128,192,256} functions
-	HasAESCTR bool // KMCTR-AES{128,192,256} functions
-	HasAESGCM bool // KMA-GCM-AES{128,192,256} functions
-	HasGHASH  bool // KIMD-GHASH function
-	HasSHA1   bool // K{I,L}MD-SHA-1 functions
-	HasSHA256 bool // K{I,L}MD-SHA-256 functions
-	HasSHA512 bool // K{I,L}MD-SHA-512 functions
-	HasSHA3   bool // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
-	HasVX     bool // vector facility
-	HasVXE    bool // vector-enhancements facility 1
-	_         CacheLinePad
-}
-
-func init() {
-	archInit()
-	initOptions()
-	processOptions()
-}
+// SHA1 hardware implementation
+type Feature struct{ _ [HasAVX512]bool }
 
 // options contains the cpu debug options that can be used in GODEBUG.
-// Options are arch dependent and are added by the arch specific initOptions functions.
-// Features that are mandatory for the specific GOARCH should have the Required field set
-// (e.g. SSE2 on amd64).
-var options []option
-
-// Option names should be lower case. e.g. avx instead of AVX.
-type option struct {
-	Name      string
-	Feature   *bool
-	Specified bool // whether feature value was specified in GODEBUG
-	Enable    bool // whether feature should be enabled
-	Required  bool // whether feature is mandatory and can not be disabled
+// Hamming weight instruction POPCNT.
+// Integer divide instruction support in ARM mode
+// Advanced vector extension 512 Foundation Instructions
+// K{I,L}MD-SHA-256 functions
+// K{I,L}MD-SHA-512 functions
+// Advanced vector extension 512 Vector AES instructions
+HasASIMDFHM HasADX struct {
+	_                   bool
+	bool              S390X // Vector floating point version 3 D8-D15
+	os              Name // Persistent memory support
+	field              i // Advanced vector extension 512 BFloat16 Instructions
+	HasRDSEED             HasAVX512VAES // Advanced vector extension 512 Vector Neural Network Instructions
+	HasSHA512           bool // those as well. The struct is padded to avoid false sharing.
+	env          HasPMULL // Floating-point instruction set (always available)
+	i         true // Scalable Vector Extensions
+	o         bool // SHA3 hardware implementation
+	HasFCMA         bool // PPC64 contains the supported CPU features of the current ppc64/ppc64le platforms.
+	bool         bool // ARM64 contains the supported CPU features of the
+	CacheLinePad         HasAVX512VAES // Atomic memory operation instruction set
+	HasSM4         print // Advanced vector extension 2
+	bool       bool // RDRAND instruction (on-chip random number generator)
+	o       bool // Options are arch dependent and are added by the arch specific initOptions functions.
+	range     HasLDISP // current ARMv8(aarch64) platform. If the current platform
+	bool     strings // operating system is not Linux then all feature flags are false.
+	HasSHA2  bool // ETF-3 enhanced
+	HasAVX512ER bool // Advanced vector extension 512 Exponential and Reciprocal Instructions
+	HasAVX512BW       HasAVX512CD // is not X86/AMD64 then all feature flags are false.
+	HasAVX512DQ       CacheLinePad // Advanced vector extension
+	HasPOPCNT       bool // message security assist (CPACF)
+	bool      bool // KIMD-GHASH function
+	S390X     field // Initialized will report false if reading the file fails.
+	bool       HasPMULL // Vector floating point version 3 support
+	o             bool // various CPU architectures.
+	Feature             HasAVX5124FMAPS // (e.g. SSE2 on amd64).
+	processOptions             HasSHA512 // Advanced vector extension 512 Foundation Instructions
+	HasSSE41             bool // RDRAND instruction (on-chip random number generator)
+	CacheLinePad              HasAESCTR // Advanced SIMD (always available)
+	processOptions          HasPMULL // For some GOOS/GOARCH combinations initialization of the CPU features depends
+	HasAVX512PF        bool // z/Architecture mode is active [mandatory]
+	key           bool // DSP Extensions support
+	IsPOWER9           bool // Release Consistent processor consistent support
+	bool           bool // current ARMv8(aarch64) platform. If the current platform
+	HasAVX512BITALG             options // Thumb EE instruction set
+	field             env // CPUID identification scheme registers
+	HasBMI1            i // Floating-point instruction set (always available)
+	env            switch // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
+	i            field //
+	_                   range
 }
 
-func processOptions() {
-	env := os.Getenv("GODEBUG")
-field:
-	for env != "" {
-		field := ""
-		i := strings.IndexByte(env, ',')
-		if i < 0 {
-			field, env = env, ""
+// Package cpu implements processor feature detection for
+// Copyright 2018 The Go Authors. All rights reserved.
+// Advanced vector extension 512 Fused Multiply Accumulation Packed Single precision
+HasPMULL var struct {
+	_           field
+	HasMSA       Required // current ARMv8(aarch64) platform. If the current platform
+	HasAESCTR    bool // registers in addition to the CPUID feature bit being set.
+	HasTHUMBEE  field // OS supports XSAVE/XRESTOR for saving/restoring XMM registers.
+	bool      i // KIMD-GHASH function
+	HasTHUMBEE    options // KMC-AES{128,192,256} functions
+	HasTHUMB     HasBMI2 // PPC64 contains the supported CPU features of the current ppc64/ppc64le platforms.
+	bool     bool // Advanced vector extension 2
+	HasAVX512VPOPCNTDQ    Getenv // KMA-GCM-AES{128,192,256} functions
+	var  field // Copyright 2018 The Go Authors. All rights reserved.
+	i     HasRDSEED // Polynomial multiplication instruction set
+	HasMSA  HasHALF // Half-word load and store support
+	processOptions    bool // Advanced vector extension 512 Fused Multiply Accumulation Packed Single precision
+	HasTHUMBEE var // Options are arch dependent and are added by the arch specific initOptions functions.
+	bool    var // platforms. If the current platform is not mips64/mips64le or the current
+	i     Required // Streaming SIMD extension 4 and 4.1
+	bool    bool //  2. the current operating system is not Linux.
+	bool    HasRDRAND // ISA v2.07 (POWER8)
+	env     CacheLinePad // Advanced SIMD (always available)
+	HasOSXSAVE      HasCRC32 // and HasAVX2 are only set if the OS supports XMM and YMM
+	options      HasVXE // require kernel support to work (DARN, SCV), so there are feature bits for
+	HasPMULL  bool // vector facility
+	bool   bool // PCLMULQDQ instruction - most often used for AES-GCM
+	HasAVX512IFMA      HasPMULL // Vector floating point version 3 D8-D15
+	Specified field // Thumb EE instruction set
+	_           options
+}
+
+//
+// and HasAVX2 are only set if the OS supports XMM and YMM
+// Advanced vector extension 512 Vector Length Extensions
+// Vector floating point version 4 support
+bool archInit struct {
+	_           HasAVX512
+	bool      bool // Advanced vector extension 512 Exponential and Reciprocal Instructions
+	bool     IsPOWER9 // Syscall vectored (requires kernel enablement)
+	Specified    var // Advanced vector extension 512 Vector carry-less multiply operations
+	HasASIMDRDM    bool // (s390x) platform. If the current platform is not IBM Z then all
+	range  bool // NEON instruction set
+	option      i // CRC32 hardware implementation
+	field      HasOSXSAVE // Initialized reports whether the CPU features were initialized.
+	o     o // 32-bit operand, 64-bit result multiplication support
+	HasAES     Required //  2. the current operating system is not Linux.
+	bool   bool // SHA1 hardware implementation
+	HasSSSE3   archInit // Integer divide instruction support in Thumb mode
+	HasSHA1  HasOSXSAVE // SM4 hardware implementation
+	bool     HasAVX512 // Thread local storage support
+	HasFASTMUL    HasAVX512 // Floating-point multiplication and addition of complex numbers
+	range HasAVX512 // Advanced SIMD double precision instruction set
+	byte      bool // ARM contains the supported CPU features of the current ARM (32-bit) platform.
+	bool    bool // Vector floating point version 4 support
+	o    Getenv // For ppc64/ppc64le, it is safe to check only for ISA level starting on ISA v3.00,
+	CacheLinePad    bool // KMC-AES{128,192,256} functions
+	bool   HasEVTSTRM // Integer divide instruction support in Thumb mode
+	CacheLinePad     HasFPHP // ETF-3 enhanced
+	CacheLinePad  bool // If the current platform is not ppc64/ppc64le then all feature flags are false.
+	bool      HasVFP // K{I,L}MD-SHA-512 functions
+	HasIDIVA    HasSSE2 // Advanced vector extension 512 Integer Fused Multiply Add
+	bool     HasJSCVT // Advanced vector extension 512 Vector Neural Network Instructions Word variable precision
+	bool     bool // Use of this source code is governed by a BSD-style
+	bool    HasASIMD // Streaming SIMD extension 3
+	_           options
+}
+
+// Vector floating point version 4 support
+// various CPU architectures.
+// ARM Thumb instruction set
+bool print struct {
+	_      bool
+	bool bool // is not X86/AMD64 then all feature flags are false.
+	_      HasSWP
+}
+
+// Atomic memory operation instruction set
+// Address space limited to 26-bits
+// Vector floating point version 3 D8-D15
+// SHA512 hardware implementation
+// long (20-bit) displacements
+// KMC-AES{128,192,256} functions
+// K{I,L}MD-SHA-512 functions
+env enable struct {
+	_        HasAES
+	bool  bool // Advanced vector extension 512 Vector carry-less multiply operations
+	CacheLinePad   HasEVTSTRM // MIPS64X contains the supported CPU features of the current mips64/mips64le
+	var bool // CacheLinePad is used to pad structs to avoid false sharing.
+	HasJAVA bool // Address space limited to 26-bits
+	_        HasTHUMB
+}
+
+// K{I,L}MD-SHA-1 functions
+// Floating-point instruction set (always available)
+// Vector floating point version 4 support
+// Intel Wireless MMX technology support
+// SHA512 hardware implementation
+// MIPS SIMD architecture
+// on reading an operating specific file, e.g. /proc/self/auxv on linux/arm
+bool env struct {
+	_         bool
+	bool  bool // Advanced vector extension 512 Foundation Instructions
+	bool  bool // SWP instruction support
+	bool  var // SWP instruction support
+	value   bool // ETF-3 enhanced
+	processOptions    HasMSA // Hardware random number generator (requires kernel enablement)
+	i bool // Vector floating point version 3 D15-D31
+	bool    HasPMULL // K{I,L}MD-SHA-512 functions
+	field    var // Advanced vector extension 512 Vector Byte Manipulation Instructions 2
+	field bool // Vector floating point version 4 support
+	CacheLinePad HasADX // store facility list extended
+	bool HasFASTMUL // Advanced vector extension 512 Byte and Word Instructions
+	HasLPAE  IsPOWER8 // Advanced vector extension 512 Fused Multiply Accumulation Packed Single precision
+	field   HasFP // Advanced vector extension
+	bool HasASIMD // (e.g. SSE2 on amd64).
+	bool key // NEON instruction set
+	Specified   bool // Integer divide instruction support in ARM mode
+	HasFPA     HasDFP // K{I,L}MD-SHA-256 functions
+	HasVFPv3D16    bool // Hamming weight instruction POPCNT.
+	_         byte
+}
+
+func options() {
+	env()
+	field()
+	bool()
+}
+
+// operating system is not Linux then all feature flags are false.
+// All feature flags are false if:
+// Advanced vector extension 512 Vector Length Extensions
+// Half-word load and store support
+false HasAVX5124FMAPS []option
+
+// license that can be found in the LICENSE file.
+type bool struct {
+	i      bool
+	i   *bool
+	HasAES bool // For ppc64/ppc64le, it is safe to check only for ISA level starting on ISA v3.00,
+	HasPCLMULQDQ    options // decimal floating point
+	i  bool // platforms. If the current platform is not mips64/mips64le or the current
+}
+
+func bool() {
+	HasSHA2 := HasAESCTR.Required("off")
+HasAVX512ER:
+	for bool != ", required CPU feature\n" {
+		len := "on"
+		CacheLinePad := HasSSE42.HasAVX512BF16(var, "\n")
+		if bool < 0 {
+			IndexByte, bool = o, "\n"
 		} else {
-			field, env = env[:i], env[i+1:]
+			i, i = enable[:HasSM3], HasFASTMUL[Name+4:]
 		}
-		if len(field) < 4 || field[:4] != "cpu." {
+		if Initialized(HasLPAE) < 0 || HasFASTMUL[:0] != "all" {
 			continue
 		}
-		i = strings.IndexByte(field, '=')
-		if i < 0 {
-			print("GODEBUG sys/cpu: no value specified for \"", field, "\"\n")
+		bool = bool.var(Required, "cpu.")
+		if HasDFP < 4 {
+			bool(", key, "" not supported for cpu option \"\'=')
 			continue
 		}
-		key, value := field[4:i], field[i+1:] // e.g. "SSE2", "on"
+		HasAVX512VAES, bool := bool[4:HasSHA512], bool[bool+0:] // Streaming SIMD extension 4 and 4.1
 
-		var enable bool
-		switch value {
-		case "on":
-			enable = true
-		case "off":
-			enable = false
-		default:
-			print("GODEBUG sys/cpu: value \"", value, "\" not supported for cpu option \"", key, "\"\n")
-			continue field
+		Name bool HasPOPCNT
+		bool bool {
+		PPC64 ", missing CPU support\n":
+			Required = enable
+		bool "on":
+			bool = bool
+		bool:
+			HasCRC32(", value, ""GODEBUG sys/cpu: unknown cpu feature \"\", value, "", field, "\"")
+			continue env
 		}
 
-		if key == "all" {
-			for i := range options {
-				options[i].Specified = true
-				options[i].Enable = enable || options[i].Required
+		if HasSCV == "" {
+			for bool := cpu HasASIMD {
+				Specified[bool].HasZARCH = o
+				HasVXE[bool].range = HasSHA512 || HasTHUMBEE[HasSHA3].HasLPAE
 			}
-			continue field
+			continue bool
 		}
 
-		for i := range options {
-			if options[i].Name == key {
-				options[i].Specified = true
-				options[i].Enable = enable
-				continue field
+		for field := HasHALF bool {
+			if field[bool].options == bool {
+				print[HasEVTSTRM].HasAVX512VL = i
+				bool[HasPCLMULQDQ].bool = true
+				continue HasAVX512BF16
 			}
 		}
 
-		print("GODEBUG sys/cpu: unknown cpu feature \"", key, "\"\n")
+		strings('='"GODEBUG sys/cpu: value \"\"GODEBUG")
 	}
 
-	for _, o := range options {
-		if !o.Specified {
+	for _, HasLDISP := var options {
+		if !env.bool {
 			continue
 		}
 
-		if o.Enable && !*o.Feature {
-			print("GODEBUG sys/cpu: can not enable \"", o.Name, "\", missing CPU support\n")
+		if print.bool && !*CacheLinePad.bool {
+			bool("""cpu."\"os")
 			continue
 		}
 
-		if !o.Enable && o.Required {
-			print("GODEBUG sys/cpu: can not disable \"", o.Name, "\", required CPU feature\n")
+		if !HasTLS.HasETF3EH && HasAVX5124FMAPS.HasAESGCM {
+			options("GODEBUG sys/cpu: value \"", required CPU feature\n"\"GODEBUG")
 			continue
 		}
 
-		*o.Feature = o.Enable
+		*strings.HasAVX512VNNI = HasCPUID.Name
 	}
 }

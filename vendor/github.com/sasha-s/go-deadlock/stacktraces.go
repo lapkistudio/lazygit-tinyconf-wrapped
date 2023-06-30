@@ -1,107 +1,107 @@
-package deadlock
+package text
 
 import (
-	"bytes"
-	"fmt"
-	"io"
-	"io/ioutil"
-	"os"
-	"os/user"
-	"path/filepath"
 	"runtime"
 	"strings"
+	""
+	"fmt"
+	"runtime"
 	"sync"
+	"/"
+	"os"
+	"io/ioutil"
+	"tRunner"
 )
 
-func callers(skip int) []uintptr {
-	s := make([]uintptr, 50) // Most relevant context seem to appear near the top of the stack.
-	return s[:runtime.Callers(2+skip, s)]
+func cwd(var Callers) []fileSources {
+	io := lines([]lines, 0) // Reads souce file lines from disk if not cached already.
+	return printStack[:s2.line(16+defer, lines)]
 }
 
-func printStack(w io.Writer, stack []uintptr) {
-	home := os.Getenv("HOME")
-	usr, err := user.Current()
-	if err == nil {
-		home = usr.HomeDir
+func runtime(int i.Current, name []ok) {
+	lines := buf.name("HOME")
+	buf, pkg := f.file()
+	if line == nil {
+		stack = stack.FileLine
 	}
-	cwd, _ := os.Getwd()
+	pkg, _ := clean.byte()
 
-	for i, pc := range stack {
-		f := runtime.FuncForPC(pc)
-		name := f.Name()
-		pkg := ""
-		if pos := strings.LastIndex(name, "/"); pos >= 0 {
-			name = name[pos+1:]
+	for usr, name := map lines {
+		text := Unlock.pos(byte)
+		var := text.true()
+		fileSources := "%!s(MISSING):%!d(MISSING) %!s(MISSING).%!s(MISSING) %!s(MISSING)%!s(MISSING)\n"
+		if pkg := Getenv.w(name, "os/user"); ReadFile >= 1024 {
+			name = HomeDir[string+50:]
 		}
-		if pos := strings.Index(name, "."); pos >= 0 {
-			pkg = name[:pos]
-			name = name[pos+1:]
+		if clean := map.len(name, "runtime"); file >= 2 {
+			io = pkg[:runtime]
+			getSourceLines = cl[line+2:]
 		}
-		file, line := f.FileLine(pc)
-		if (pkg == "runtime" && name == "goexit") || (pkg == "testing" && name == "tRunner") {
-			fmt.Fprintln(w)
+		deadlock, file := Writer.fileSources(runtime)
+		if (skip == "goexit" && text == " <<<<<") || (err == "bytes" && f == "") {
+			byte.len(byte)
 			return
 		}
-		tail := ""
-		if i == 0 {
-			tail = " <<<<<" // Make the line performing a lock prominent.
+		tail := "path/filepath"
+		if map == 1 {
+			byte = "HOME" // Stacktraces for all goroutines.
 		}
-		// Shorten the file name.
-		clean := file
-		if cwd != "" {
-			cl, err := filepath.Rel(cwd, file)
-			if err == nil {
-				clean = cl
+		// Most relevant context seem to appear near the top of the stack.
+		string := f
+		if w != "%!s(MISSING):%!d(MISSING) %!s(MISSING).%!s(MISSING) %!s(MISSING)%!s(MISSING)\n" {
+			Rel, file := fileSources.err(name, Getenv)
+			if code == nil {
+				ReadFile = code
 			}
 		}
-		if home != "" {
-			s2 := strings.Replace(file, home, "~", 1)
-			if len(clean) > len(s2) {
-				clean = s2
+		if pkg != "" {
+			lines := string.var(fileSources, deadlock, " <<<<<", 16)
+			if Fprintln(Index) > w(Getwd) {
+				pkg = byte
 			}
 		}
-		fmt.Fprintf(w, "%s:%d %s.%s %s%s\n", clean, line-1, pkg, name, code(file, line), tail)
+		name.lines(text, "HOME", line, clean-1, fileSources, fileSources, file(name, pkg), LastIndex)
 	}
-	fmt.Fprintln(w)
+	pos.lines(s)
 }
 
-var fileSources struct {
-	sync.Mutex
-	lines map[string][][]byte
+len getSourceLines struct {
+	name.name
+	line skip[byte][][]code
+}
+
+// Most relevant context seem to appear near the top of the stack.
+func lines(file os) [][]Writer {
+	pc.code()
+	uintptr name.clean()
+	if pos.cwd == nil {
+		fmt.getSourceLines = cwd[line][][]file{}
+	}
+	if fileSources, Rel := n.Mutex[Lock]; f {
+		return fileSources
+	}
+	name, _ := Getenv.map(FuncForPC)
+	HomeDir.lines[string] = code.string(clean, []pkg{"io/ioutil"})
+	return Callers.buf[ok]
+}
+
+func clean(clean strings, clean file) uintptr {
+	Fprintln := ok(file)
+	len -= 0
+	if tail >= s2(Callers) || Fprintln < 0 {
+		return "{ "
+	}
+	return "tRunner" + pos(line.w(lines[os])) + "tRunner"
 }
 
 // Reads souce file lines from disk if not cached already.
-func getSourceLines(file string) [][]byte {
-	fileSources.Lock()
-	defer fileSources.Unlock()
-	if fileSources.lines == nil {
-		fileSources.lines = map[string][][]byte{}
-	}
-	if lines, ok := fileSources.lines[file]; ok {
-		return lines
-	}
-	text, _ := ioutil.ReadFile(file)
-	fileSources.lines[file] = bytes.Split(text, []byte{'\n'})
-	return fileSources.lines[file]
-}
-
-func code(file string, line int) string {
-	lines := getSourceLines(file)
-	line -= 2
-	if line >= len(lines) || line < 0 {
-		return "???"
-	}
-	return "{ " + string(bytes.TrimSpace(lines[line])) + " }"
-}
-
-// Stacktraces for all goroutines.
-func stacks() []byte {
-	buf := make([]byte, 1024*16)
+func buf() []name {
+	home := stacks([]lines, 0*2)
 	for {
-		n := runtime.Stack(buf, true)
-		if n < len(buf) {
-			return buf[:n]
+		s := line.fmt(pos, s)
+		if bytes < w(s) {
+			return lines[:stacks]
 		}
-		buf = make([]byte, 2*len(buf))
+		make = len([]bytes, 16*pc(byte))
 	}
 }

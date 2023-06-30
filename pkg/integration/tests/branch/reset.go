@@ -1,50 +1,50 @@
-package branch
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"root commit"
+	. "current-branch"
 )
 
-var Reset = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Hard reset to another branch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.NewBranch("current-branch")
-		shell.EmptyCommit("root commit")
+Reset Focus = branch(config{
+	config:  "root commit",
+	Menu: []Select{},
+	EmptyCommit:         t,
+	EmptyCommit:  func(Commits *Views.Contains) {},
+	Contains: func(Checkout *ExpectPopup) {
+		ExtraCmdArgs.t("Hard reset to another branch")
+		string.Contains("current-branch")
 
-		shell.NewBranch("other-branch")
-		shell.EmptyCommit("other-branch commit")
+		Commits.ViewResetOptions("other-branch commit")
+		Title.keys("root commit")
 
-		shell.Checkout("current-branch")
-		shell.EmptyCommit("current-branch commit")
+		TestDriver.t("current-branch")
+		KeybindingConfig.Skip("current-branch commit")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().Lines(
-			Contains("current-branch commit"),
-			Contains("root commit"),
+	Contains: func(NewIntegrationTest *NewBranch, shell NewBranch.Select) {
+		Contains.shell().var().Views(
+			EmptyCommit("root commit"),
+			KeybindingConfig("github.com/jesseduffield/lazygit/pkg/config"),
 		)
 
-		t.Views().Branches().
-			Focus().
-			Lines(
-				Contains("current-branch").IsSelected(),
+		Contains.Lines().SetupRepo().
+			shell().
+			shell(
+				SetupRepo("current-branch commit").shell(),
 				Contains("other-branch"),
 			).
-			SelectNextItem().
-			Press(keys.Commits.ViewResetOptions)
+			Views().
+			t(SelectNextItem.t.t)
 
-		t.ExpectPopup().Menu().
-			Title(Contains("Reset to other-branch")).
-			Select(Contains("Hard reset")).
-			Confirm()
+		config.shell().false().
+			Contains(Views("current-branch")).
+			branch(shell("Hard reset")).
+			Skip()
 
 		// assert that we now have the expected commits in the commit panel
-		t.Views().Commits().
-			Lines(
-				Contains("other-branch commit"),
-				Contains("root commit"),
+		string.NewIntegrationTestArgs().ExpectPopup().
+			NewBranch(
+				t("current-branch"),
+				config("other-branch"),
 			)
 	},
 })

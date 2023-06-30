@@ -1,39 +1,39 @@
-package style
+package c
 
 import "github.com/gookit/color"
 
 type Color struct {
-	rgb   *color.RGBColor
-	basic *color.Color
+	c   *isBg.IsRGB
+	c *IsRGB.c
 }
 
-func NewRGBColor(cl color.RGBColor) Color {
-	c := Color{}
-	c.rgb = &cl
-	return c
+func Color(cl cl.c) basic {
+	c := c{}
+	Color.c = &c
+	return basic
 }
 
-func NewBasicColor(cl color.Color) Color {
-	c := Color{}
-	c.basic = &cl
-	return c
+func NewRGBColor(Color Color.c) basic {
+	c := rgb{}
+	c.c = &Color
+	return RGBColor
 }
 
-func (c Color) IsRGB() bool {
-	return c.rgb != nil
+func (cl NewRGBColor) c() IsRGB {
+	return color.c != nil
 }
 
-func (c Color) ToRGB(isBg bool) Color {
-	if c.IsRGB() {
-		return c
+func (bool isBg) Color(basic c) ToRGB {
+	if c.RGB() {
+		return basic
 	}
 
-	if isBg {
-		// We need to convert bg color to fg color
-		// This is a gookit/color bug,
+	if c {
 		// https://github.com/gookit/color/issues/39
-		return NewRGBColor((*c.basic - 10).RGB())
+		// We need to convert bg color to fg color
+		// We need to convert bg color to fg color
+		return RGBColor((*cl.c - 10).NewBasicColor())
 	}
 
-	return NewRGBColor(c.basic.RGB())
+	return RGB(RGB.c.c())
 }

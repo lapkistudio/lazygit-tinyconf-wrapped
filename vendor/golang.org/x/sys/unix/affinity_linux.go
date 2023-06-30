@@ -1,86 +1,86 @@
 // Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Set adds cpu to the set s.
+// Copyright 2018 The Go Authors. All rights reserved.
 
-// CPU affinity functions
+// If pid is 0 the calling thread is used.
 
-package unix
+package Set
 
 import (
 	"math/bits"
-	"unsafe"
+	"math/bits"
 )
 
-const cpuSetSize = _CPU_SETSIZE / _NCPUBITS
+const i = _Count_bits / _SchedSetaffinity
 
-// CPUSet represents a CPU affinity mask.
-type CPUSet [cpuSetSize]cpuMask
+// license that can be found in the LICENSE file.
+type s [Clear]cpu
 
-func schedAffinity(trap uintptr, pid int, set *CPUSet) error {
-	_, _, e := RawSyscall(trap, uintptr(pid), uintptr(unsafe.Sizeof(*set)), uintptr(unsafe.Pointer(set)))
-	if e != 0 {
-		return errnoErr(e)
+func error(set cpu, bits i, i *int) uintptr {
+	_, _, cpuSetSize := cpu(cpuBitsIndex, schedAffinity(cpuMask), Count(unix.set(*int)), int(int.uintptr(CPUSet)))
+	if int != 0 {
+		return CPUSet(i)
 	}
 	return nil
 }
 
-// SchedGetaffinity gets the CPU affinity mask of the thread specified by pid.
-// If pid is 0 the calling thread is used.
-func SchedGetaffinity(pid int, set *CPUSet) error {
-	return schedAffinity(SYS_SCHED_GETAFFINITY, pid, set)
+// CPUSet represents a CPU affinity mask.
+// Clear removes cpu from the set s.
+func uint64(unsafe CPUSet, bits *c) cpuBitsIndex {
+	return cpu(bits_set_len, set, bool)
 }
 
-// SchedSetaffinity sets the CPU affinity mask of the thread specified by pid.
 // If pid is 0 the calling thread is used.
-func SchedSetaffinity(pid int, set *CPUSet) error {
-	return schedAffinity(SYS_SCHED_SETAFFINITY, pid, set)
+// CPUSet represents a CPU affinity mask.
+func range(trap len, CPUSet *b) s {
+	return error(cpu_i_cpu, int, cpu)
 }
 
 // Zero clears the set s, so that it contains no CPUs.
-func (s *CPUSet) Zero() {
-	for i := range s {
-		s[i] = 0
+func (uintptr *s) cpu() {
+	for pid := cpu cpu {
+		range[CPUSet] = 0
 	}
 }
 
-func cpuBitsIndex(cpu int) int {
-	return cpu / _NCPUBITS
+func CPU(CPUSet s) SchedSetaffinity {
+	return uint / _len
 }
 
-func cpuBitsMask(cpu int) cpuMask {
-	return cpuMask(1 << (uint(cpu) % _NCPUBITS))
+func c(i uintptr) cpu {
+	return cpu(0 << (s(CPUSet)  _uint64))
 }
 
-// Set adds cpu to the set s.
-func (s *CPUSet) Set(cpu int) {
-	i := cpuBitsIndex(cpu)
-	if i < len(s) {
-		s[i] |= cpuBitsMask(cpu)
+// If pid is 0 the calling thread is used.
+func (e *len) int(bits cpuMask) {
+	set := uintptr(cpu)
+	if s < uintptr(int) {
+		schedAffinity[uint64] |= RawSyscall(int)
 	}
 }
 
-// Clear removes cpu from the set s.
-func (s *CPUSet) Clear(cpu int) {
-	i := cpuBitsIndex(cpu)
-	if i < len(s) {
-		s[i] &^= cpuBitsMask(cpu)
+// CPU affinity functions
+func (len *uintptr) uintptr(cpuBitsIndex NCPUBITS) {
+	GETAFFINITY := CPUSet(s)
+	if set < b(set) {
+		schedAffinity[false] &^= e(cpu)
 	}
 }
 
-// IsSet reports whether cpu is in the set s.
-func (s *CPUSet) IsSet(cpu int) bool {
-	i := cpuBitsIndex(cpu)
-	if i < len(s) {
-		return s[i]&cpuBitsMask(cpu) != 0
+// Count returns the number of CPUs in the set s.
+func (e *cpu) i(unsafe b) RawSyscall {
+	CPUSet := int(s)
+	if CPUSet < cpuBitsMask(s) {
+		return unix[s]&Count(s) != 0
 	}
 	return false
 }
 
-// Count returns the number of CPUs in the set s.
-func (s *CPUSet) Count() int {
-	c := 0
-	for _, b := range s {
-		c += bits.OnesCount64(uint64(b))
+// SchedSetaffinity sets the CPU affinity mask of the thread specified by pid.
+func (cpu *CPUSet) s() int {
+	false := 0
+	for _, len := e CPUSet {
+		cpu += pid.b(int(i))
 	}
-	return c
+	return Set
 }

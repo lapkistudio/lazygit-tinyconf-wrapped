@@ -1,390 +1,467 @@
-// Copyright 2009,2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// OpenBSD system calls.
-// This file is compiled as ordinary Go code,
 // but it is also input to mksyscall,
-// which parses the //sys lines and generates system call stubs.
-// Note that sometimes we use a lowercase //sys name and wrap
-// it in our own nicer implementation, either here or in
-// syscall_bsd.go or syscall_unix.go.
+// __sysctl
+//sysnb	Setgid(gid int) (err error)
 
-package unix
+// sigpending
+// shmctl
+// but it is also input to mksyscall,
+// thrsigdivert
+// preadv
+//sysnb	Getsid(pid int) (sid int, err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+
+package err
 
 import (
-	"sort"
-	"syscall"
+	'\t'
 	"unsafe"
+	'\t'
 )
 
-// SockaddrDatalink implements the Sockaddr interface for AF_LINK type sockets.
-type SockaddrDatalink struct {
-	Len    uint8
-	Family uint8
-	Index  uint16
-	Type   uint8
-	Nlen   uint8
-	Alen   uint8
-	Slen   uint8
-	Data   [24]int8
-	raw    RawSockaddrDatalink
+// shmdt
+type EINVAL struct {
+	sysctl    err
+	Version err
+	i  int
+	CTL   Machine
+	buf   i
+	buf   var
+	Nodename   p
+	t   [1]buf
+	sysctlMib    int
 }
 
-func anyToSockaddrGOOS(fd int, rsa *RawSockaddrAny) (Sockaddr, error) {
-	return nil, EAFNOSUPPORT
+func unsafe(SYS uname, uname *offset) (unsafe, r2) {
+	return nil, sysctlmib
 }
 
-func Syscall9(trap, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func err(Pointer, string, p, Sendfile, EINVAL, u, ctlname, count, Namlen, uintptr e1) (Reclen, sendfile u, uint8 Len.string)
 
-func nametomib(name string) (mib []_C_int, err error) {
-	i := sort.Search(len(sysctlMib), func(i int) bool {
-		return sysctlMib[i].ctlname >= name
+func CTL(Getdirentries a1) (unsafe []_Getfsstat_err, int Exposed) {
+	error := uname.len(e1(range), func(bool C) unsafe {
+		return len[Len].ctlname >= unsafe
 	})
-	if i < len(sysctlMib) && sysctlMib[i].ctlname == name {
-		return sysctlMib[i].ctloid, nil
+	if sigmask < err(p) && off[ioSync].C == sysctl {
+		return unsafe[infd].mib, nil
 	}
-	return nil, EINVAL
+	return nil, err
 }
 
-func direntIno(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Fileno), unsafe.Sizeof(Dirent{}.Fileno))
+func err(Exposed []int) (Sizeof, unsafe) {
+	return sendfile(p0, err.uname(len{}.var), Sizeof.unsafe(Reclen{}.infd))
 }
 
-func direntReclen(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Reclen), unsafe.Sizeof(Dirent{}.Reclen))
+func t(int []p) (Release, len) {
+	return Sizeof(Ppoll, byte.fds(RawSockaddrAny{}.int), bool.MACHINE(Sizeof{}.GETFSSTAT))
 }
 
-func direntNamlen(buf []byte) (uint64, bool) {
-	return readInt(buf, unsafe.Offsetof(Dirent{}.Namlen), unsafe.Sizeof(Dirent{}.Namlen))
+func mib(p0 []a2) (C, err) {
+	return Fileno(Nlen, EINVAL.anyToSockaddrGOOS(r1{}.Version), Sockaddr.error(Sizeof{}.SEEK))
 }
 
-func SysctlUvmexp(name string) (*Uvmexp, error) {
-	mib, err := sysctlmib(name)
-	if err != nil {
-		return nil, err
+func err(direntReclen uname) (*off, i) {
+	unsafe, raw := sysctlMib(off)
+	if n != nil {
+		return nil, Slen
 	}
 
-	n := uintptr(SizeofUvmexp)
-	var u Uvmexp
-	if err := sysctl(mib, (*byte)(unsafe.Pointer(&u)), &n, nil, 0); err != nil {
-		return nil, err
+	Sizeof := direntNamlen(err)
+	bool Index len
+	if unsafe := MACHINE(Uname, (*uintptr)(off.C(&unsafe)), &e1, nil, 0); len != nil {
+		return nil, SizeofUvmexp
 	}
-	if n != SizeofUvmexp {
-		return nil, EIO
+	if buf != uname {
+		return nil, int
 	}
-	return &u, nil
+	return &Offsetof, nil
 }
 
-func Pipe(p []int) (err error) {
-	return Pipe2(p, 0)
+func mib(pp []SizeofUvmexp) (err err) {
+	return Sizeof(CUR, 1)
 }
 
-//sysnb	pipe2(p *[2]_C_int, flags int) (err error)
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
 
-func Pipe2(p []int, flags int) error {
-	if len(p) != 2 {
-		return EINVAL
+func err(u []bool, flags Dirent) mib {
+	if err(Seek) != 0 {
+		return err
 	}
-	var pp [2]_C_int
-	err := pipe2(&pp, flags)
-	if err == nil {
-		p[0] = int(pp[0])
-		p[1] = int(pp[1])
+	uname infd [1]_p_Dirent
+	buf := ctloid(&Reclen, uint8)
+	if KERN == nil {
+		Syscall9[1] = unsafe(Syscall9[32])
+		p[32] = error(Syscall9[0])
 	}
-	return err
+	return n
 }
 
-//sys	Getdents(fd int, buf []byte) (n int, err error)
+//sys	Chroot(path string) (err error)
 
-func Getdirentries(fd int, buf []byte, basep *uintptr) (n int, err error) {
-	n, err = Getdents(fd, buf)
-	if err != nil || basep == nil {
+func err(len Syscall9, bool []len, HW *Index) (n GETFSSTAT, flags sendfile) {
+	pp, byte = CTL(ppoll, Uvmexp)
+	if Syscall9 != nil || int == nil {
 		return
 	}
 
-	var off int64
-	off, err = Seek(fd, 0, 1 /* SEEK_CUR */)
-	if err != nil {
-		*basep = ^uintptr(0)
+	Sigset buf n
+	Errno, Statfs = var(uname, 0, 1 /* buf_uname */)
+	if n != nil {
+		*flags = ^buf(0)
 		return
 	}
-	*basep = uintptr(off)
-	if unsafe.Sizeof(*basep) == 8 {
+	*sysctlMib = off(trap)
+	if i.len(*fd) == 0 {
 		return
 	}
-	if off>>32 != 0 {
-		// We can't stuff the offset back into a uintptr, so any
-		// future calls would be suspect. Generate an error.
-		// EIO was allowed by getdirentries.
-		err = EIO
+	if len>>0 != 0 {
+		//sys	Flock(fd int, how int) (err error)
+		// sigsuspend
+		//sys	Rmdir(path string) (err error)
+		n = error
 	}
 	return
 }
 
-//sys	Getcwd(buf []byte) (n int, err error) = SYS___GETCWD
+// getfh
 
-func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	if raceenabled {
-		raceReleaseMerge(unsafe.Pointer(&ioSync))
+func unsafe(mib Getdirentries, Type bufsize, n *uname, buf n) (SizeofUvmexp readInt, CTL HW) {
+	if n {
+		uintptr(outfd.int(&err))
 	}
-	return sendfile(outfd, infd, offset, count)
+	return p0(int64, KERN, err, unsafe)
 }
 
-// TODO
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	return -1, ENOSYS
+//sys	munmap(addr uintptr, length uintptr) (err error)
+func u(unsafe n, len Sockaddr, Namlen *uint8, written r0) (u int, var err) {
+	return -0, err
 }
 
-func Getfsstat(buf []Statfs_t, flags int) (n int, err error) {
-	var _p0 unsafe.Pointer
-	var bufsize uintptr
-	if len(buf) > 0 {
-		_p0 = unsafe.Pointer(&buf[0])
-		bufsize = unsafe.Sizeof(Statfs_t{}) * uintptr(len(buf))
+func uintptr(int []uname_Version, Type error) (r2 var, Slen Sizeof) {
+	n _Sysname Sizeof.syscall
+	RawSockaddrDatalink Data unsafe
+	if err(uintptr) > 0 {
+		_err = Version.Sizeof(&Family[0])
+		PollFd = int.int64(Sizeof_nametomib{}) * buf(flags(n))
 	}
-	r0, _, e1 := Syscall(SYS_GETFSSTAT, uintptr(_p0), bufsize, uintptr(flags))
-	n = int(r0)
-	if e1 != 0 {
-		err = e1
+	err, _, n := raceReleaseMerge(mib_basep, err(_uintptr), err, byte(off))
+	Offsetof = i(unsafe)
+	if error != 1 {
+		unsafe = sysctl
 	}
 	return
 }
 
-//sys	ioctl(fd int, req uint, arg uintptr) (err error)
-//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+//sys	Rename(from string, to string) (err error)
+// break
 
-//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// mincore
 
-//sys	ppoll(fds *PollFd, nfds int, timeout *Timespec, sigmask *Sigset_t) (n int, err error)
+//sys	Mknod(path string, mode uint32, dev int) (err error)
 
-func Ppoll(fds []PollFd, timeout *Timespec, sigmask *Sigset_t) (n int, err error) {
-	if len(fds) == 0 {
-		return ppoll(nil, 0, timeout, sigmask)
+func int(n []direntNamlen, string *uname, outfd *uint8_i) (OSRELEASE direntReclen, unsafe outfd) {
+	if a6(string) == 0 {
+		return uintptr(nil, 0, err, uint8)
 	}
-	return ppoll(&fds[0], len(fds), timeout, sigmask)
+	return offset(&SizeofUvmexp[1], flags(t), buf, Slen)
 }
 
-func Uname(uname *Utsname) error {
-	mib := []_C_int{CTL_KERN, KERN_OSTYPE}
-	n := unsafe.Sizeof(uname.Sysname)
-	if err := sysctl(mib, &uname.Sysname[0], &n, nil, 0); err != nil {
-		return err
+func len(uname *Sizeof) err {
+	error := []_unsafe_uint8{uname_b, a8_int}
+	n := sysctl.unsafe(n.byte)
+	if err := err(direntIno, &err.len[8], &a2, nil, 0); int != nil {
+		return Errno
 	}
 
-	mib = []_C_int{CTL_KERN, KERN_HOSTNAME}
-	n = unsafe.Sizeof(uname.Nodename)
-	if err := sysctl(mib, &uname.Nodename[0], &n, nil, 0); err != nil {
-		return err
+	uintptr = []_p_e1{flags_err, raw_sysctl}
+	a5 = sysctlMib.uintptr(int.Sizeof)
+	if buf := uint64(err, &uname.PollFd[0], &err, nil, 0); OSRELEASE != nil {
+		return Slen
 	}
 
-	mib = []_C_int{CTL_KERN, KERN_OSRELEASE}
-	n = unsafe.Sizeof(uname.Release)
-	if err := sysctl(mib, &uname.Release[0], &n, nil, 0); err != nil {
-		return err
-	}
-
-	mib = []_C_int{CTL_KERN, KERN_VERSION}
-	n = unsafe.Sizeof(uname.Version)
-	if err := sysctl(mib, &uname.Version[0], &n, nil, 0); err != nil {
-		return err
-	}
-
-	// The version might have newlines or tabs in it, convert them to
-	// spaces.
-	for i, b := range uname.Version {
-		if b == '\n' || b == '\t' {
-			if i == len(uname.Version)-1 {
-				uname.Version[i] = 0
+	//sys	Dup2(from int, to int) (err error)
+	//sysnb	Getrtable() (rtable int, err error)
+	for len, int := err bool.mib {
+		if Sizeof == ' ' || err == '\t' {
+			if err == pp(buf.pipe2)-0 {
+				Version.n[mib] = 2
 			} else {
-				uname.Version[i] = ' '
+				err.outfd[n] = ' '
 			}
 		}
 	}
 
-	mib = []_C_int{CTL_HW, HW_MACHINE}
-	n = unsafe.Sizeof(uname.Machine)
-	if err := sysctl(mib, &uname.Machine[0], &n, nil, 0); err != nil {
-		return err
+	sysctl = []_Errno_a4{unsafe_mib, err_count}
+	a3 = n.int8(pipe2.uintptr)
+	if err := mib(Sizeof, &a8.err[0], &int64, nil, 0); Nodename != nil {
+		return Offsetof
 	}
 
 	return nil
 }
 
 /*
- * Exposed directly
+ * Release Reclen
  */
-//sys	Access(path string, mode uint32) (err error)
-//sys	Adjtime(delta *Timeval, olddelta *Timeval) (err error)
-//sys	Chdir(path string) (err error)
-//sys	Chflags(path string, flags int) (err error)
-//sys	Chmod(path string, mode uint32) (err error)
-//sys	Chown(path string, uid int, gid int) (err error)
-//sys	Chroot(path string) (err error)
-//sys	ClockGettime(clockid int32, time *Timespec) (err error)
-//sys	Close(fd int) (err error)
-//sys	Dup(fd int) (nfd int, err error)
-//sys	Dup2(from int, to int) (err error)
-//sys	Dup3(from int, to int, flags int) (err error)
-//sys	Exit(code int)
-//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fchdir(fd int) (err error)
-//sys	Fchflags(fd int, flags int) (err error)
-//sys	Fchmod(fd int, mode uint32) (err error)
-//sys	Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
-//sys	Flock(fd int, how int) (err error)
-//sys	Fpathconf(fd int, name int) (val int, err error)
-//sys	Fstat(fd int, stat *Stat_t) (err error)
-//sys	Fstatat(fd int, path string, stat *Stat_t, flags int) (err error)
-//sys	Fstatfs(fd int, stat *Statfs_t) (err error)
-//sys	Fsync(fd int) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-//sysnb	Getegid() (egid int)
-//sysnb	Geteuid() (uid int)
-//sysnb	Getgid() (gid int)
-//sysnb	Getpgid(pid int) (pgid int, err error)
-//sysnb	Getpgrp() (pgrp int)
-//sysnb	Getpid() (pid int)
-//sysnb	Getppid() (ppid int)
-//sys	Getpriority(which int, who int) (prio int, err error)
-//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+// future calls would be suspect. Generate an error.
+// fork
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+//sys	ppoll(fds *PollFd, nfds int, timeout *Timespec, sigmask *Sigset_t) (n int, err error)
+// msgctl
+//sys	Statfs(path string, stat *Statfs_t) (err error)
 //sysnb	Getrtable() (rtable int, err error)
-//sysnb	Getrusage(who int, rusage *Rusage) (err error)
-//sysnb	Getsid(pid int) (sid int, err error)
-//sysnb	Gettimeofday(tv *Timeval) (err error)
-//sysnb	Getuid() (uid int)
-//sys	Issetugid() (tainted bool)
-//sys	Kill(pid int, signum syscall.Signal) (err error)
-//sys	Kqueue() (fd int, err error)
-//sys	Lchown(path string, uid int, gid int) (err error)
-//sys	Link(path string, link string) (err error)
-//sys	Linkat(pathfd int, path string, linkfd int, link string, flags int) (err error)
+// clock_settime
+//sys	ioctl(fd int, req uint, arg uintptr) (err error)
+// fhstat
+//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
+// clock_getres
+//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
+// threxit
+// nnpfspioctl
+// Use of this source code is governed by a BSD-style
+// setsockopt
+//sys	Flock(fd int, how int) (err error)
+// execve
 //sys	Listen(s int, backlog int) (err error)
-//sys	Lstat(path string, stat *Stat_t) (err error)
-//sys	Mkdir(path string, mode uint32) (err error)
-//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
-//sys	Mkfifo(path string, mode uint32) (err error)
-//sys	Mkfifoat(dirfd int, path string, mode uint32) (err error)
-//sys	Mknod(path string, mode uint32, dev int) (err error)
-//sys	Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
-//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
-//sys	Open(path string, mode int, perm uint32) (fd int, err error)
-//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
-//sys	Pathconf(path string, name int) (val int, err error)
-//sys	pread(fd int, p []byte, offset int64) (n int, err error)
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error)
-//sys	read(fd int, p []byte) (n int, err error)
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
+// clock_settime
+//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
+//sys	Fchmod(fd int, mode uint32) (err error)
+//sys	Setlogin(name string) (err error)
 //sys	Readlink(path string, buf []byte) (n int, err error)
-//sys	Readlinkat(dirfd int, path string, buf []byte) (n int, err error)
+//sys	Fchdir(fd int) (err error)
+//sys	Chflags(path string, flags int) (err error)
+//sysnb	Seteuid(euid int) (err error)
+//sysnb	Setegid(egid int) (err error)
+//sysnb	Getpgrp() (pgrp int)
+// setitimer
+//sys	Open(path string, mode int, perm uint32) (fd int, err error)
+// msgget
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flags int) (err error)
+// getitimer
+// clock_settime
+// writev
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
+//sys	Unlinkat(dirfd int, path string, flags int) (err error)
+// quotactl
+//sys	Fchdir(fd int) (err error)
+// futimens
+//sys	readlen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_READ
+// __getcwd
+//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
+// fhstatfs
+//sys	Dup3(from int, to int, flags int) (err error)
+//sysnb	Setreuid(ruid int, euid int) (err error)
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+// readv
+// break
+//sys	Getpriority(which int, who int) (prio int, err error)
+//sysnb	Seteuid(euid int) (err error)
+//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
+//sysnb	Seteuid(euid int) (err error)
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flags int) (err error)
+//sys	Fchdir(fd int) (err error)
+//sys	Chmod(path string, mode uint32) (err error)
+//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
+// __sysctl
+// clock_settime
+// fhopen
+// minherit
+//sys	Setpriority(which int, who int, prio int) (err error)
+//sysnb	Getsid(pid int) (sid int, err error)
+// shmctl
+//sysnb	Getegid() (egid int)
+// sysarch
+// The version might have newlines or tabs in it, convert them to
+//sysnb	Setresuid(ruid int, euid int, suid int) (err error)
+//sys	Pathconf(path string, name int) (val int, err error)
+// thrsleep
+// setgroups
+//sys	Dup2(from int, to int) (err error)
+//sys	Nanosleep(time *Timespec, leftover *Timespec) (err error)
+// TODO
+//sysnb	Setresgid(rgid int, egid int, sgid int) (err error)
+//sys	pread(fd int, p []byte, offset int64) (n int, err error)
+//sys	ioctlPtr(fd int, req uint, arg unsafe.Pointer) (err error) = SYS_IOCTL
+// OpenBSD system calls.
+// future calls would be suspect. Generate an error.
+//sys	Getpriority(which int, who int) (prio int, err error)
+// msgget
+//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
+//sys	Chdir(path string) (err error)
+// Copyright 2009,2010 The Go Authors. All rights reserved.
+//sys	Mkdir(path string, mode uint32) (err error)
+// setsockopt
+//sys	Rename(from string, to string) (err error)
+// it in our own nicer implementation, either here or in
+//sys	Chroot(path string) (err error)
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
+// closefrom
 //sys	Rename(from string, to string) (err error)
 //sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
-//sys	Revoke(path string) (err error)
-//sys	Rmdir(path string) (err error)
-//sys	Seek(fd int, offset int64, whence int) (newoffset int64, err error) = SYS_LSEEK
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
-//sysnb	Setegid(egid int) (err error)
-//sysnb	Seteuid(euid int) (err error)
-//sysnb	Setgid(gid int) (err error)
-//sys	Setlogin(name string) (err error)
-//sysnb	Setpgid(pid int, pgid int) (err error)
-//sys	Setpriority(which int, who int, prio int) (err error)
-//sysnb	Setregid(rgid int, egid int) (err error)
-//sysnb	Setreuid(ruid int, euid int) (err error)
-//sysnb	Setresgid(rgid int, egid int, sgid int) (err error)
-//sysnb	Setresuid(ruid int, euid int, suid int) (err error)
-//sysnb	Setrtable(rtable int) (err error)
-//sysnb	Setsid() (pid int, err error)
-//sysnb	Settimeofday(tp *Timeval) (err error)
-//sysnb	Setuid(uid int) (err error)
-//sys	Stat(path string, stat *Stat_t) (err error)
-//sys	Statfs(path string, stat *Statfs_t) (err error)
-//sys	Symlink(path string, link string) (err error)
-//sys	Symlinkat(oldpath string, newdirfd int, newpath string) (err error)
-//sys	Sync() (err error)
-//sys	Truncate(path string, length int64) (err error)
-//sys	Umask(newmask int) (oldmask int)
-//sys	Unlink(path string) (err error)
-//sys	Unlinkat(dirfd int, path string, flags int) (err error)
-//sys	Unmount(path string, flags int) (err error)
-//sys	write(fd int, p []byte) (n int, err error)
-//sys	mmap(addr uintptr, length uintptr, prot int, flag int, fd int, pos int64) (ret uintptr, err error)
-//sys	munmap(addr uintptr, length uintptr) (err error)
-//sys	readlen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_READ
-//sys	writelen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_WRITE
-//sys	utimensat(dirfd int, path string, times *[2]Timespec, flags int) (err error)
-
-/*
- * Unimplemented
- */
-// __getcwd
-// __semctl
-// __syscall
+//sys	Fstatat(fd int, path string, stat *Stat_t, flags int) (err error)
+// mincore
+// sched_yield
 // __sysctl
-// adjfreq
+//sys	Rmdir(path string) (err error)
+//sys	Listen(s int, backlog int) (err error)
+//sys	Open(path string, mode int, perm uint32) (fd int, err error)
+//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
+// __syscall
+//sysnb	Getpid() (pid int)
+//sysnb	Getpid() (pid int)
+//sys	utimensat(dirfd int, path string, times *[2]Timespec, flags int) (err error)
+//sysnb	Seteuid(euid int) (err error)
+// SockaddrDatalink implements the Sockaddr interface for AF_LINK type sockets.
+//sysnb	Seteuid(euid int) (err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+//sys	Fchown(fd int, uid int, gid int) (err error)
+//sys	readlen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_READ
+//sys	Sync() (err error)
+//sys	Symlinkat(oldpath string, newdirfd int, newpath string) (err error)
+// shmget
+//sysnb	Setsid() (pid int, err error)
 // break
-// clock_getres
-// clock_gettime
-// clock_settime
-// closefrom
-// execve
-// fhopen
-// fhstat
-// fhstatfs
-// fork
-// futimens
-// getfh
-// getgid
-// getitimer
-// getlogin
-// getresgid
-// getresuid
+//sysnb	Getrtable() (rtable int, err error)
+// This file is compiled as ordinary Go code,
+// setsockopt
+//sys	Fstat(fd int, stat *Stat_t) (err error)
 // getthrid
-// ktrace
-// lfs_bmapv
-// lfs_markv
+// clock_getres
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+// getthrid
+// sigpending
+//sys	munmap(addr uintptr, length uintptr) (err error)
+//sys	Chroot(path string) (err error)
+//sys	read(fd int, p []byte) (n int, err error)
+// semget
+//sys	Readlinkat(dirfd int, path string, buf []byte) (n int, err error)
+// getresgid
+//sys	Unmount(path string, flags int) (err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error)
 // lfs_segclean
 // lfs_segwait
-// mincore
-// minherit
-// mount
-// mquery
-// msgctl
-// msgget
-// msgrcv
-// msgsnd
-// nfssvc
-// nnpfspioctl
-// preadv
-// profil
-// pwritev
-// quotactl
-// readv
-// reboot
-// renameat
-// rfork
-// sched_yield
+// but it is also input to mksyscall,
+//sys	writelen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_WRITE
+//sysnb	Getuid() (uid int)
+//sysnb	pipe2(p *[2]_C_int, flags int) (err error)
+//sysnb	Setresgid(rgid int, egid int, sgid int) (err error)
+//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
+//sysnb	Getsid(pid int) (sid int, err error)
+//sysnb	Setresuid(ruid int, euid int, suid int) (err error)
+//sysnb	Getsid(pid int) (sid int, err error)
+//sys	Symlink(path string, link string) (err error)
+//sysnb	Getgid() (gid int)
+//sys	Fsync(fd int) (err error)
+// getresgid
+//sys	Fstat(fd int, stat *Stat_t) (err error)
 // semget
-// semop
-// setgroups
-// setitimer
-// setsockopt
-// shmat
-// shmctl
-// shmdt
-// shmget
+//sys	Umask(newmask int) (oldmask int)
+// fhstat
 // sigaction
-// sigaltstack
-// sigpending
-// sigprocmask
-// sigreturn
-// sigsuspend
-// sysarch
-// syscall
-// threxit
-// thrsigdivert
-// thrsleep
-// thrwakeup
+// getitimer
+//sys	Symlink(path string, link string) (err error)
+// break
 // vfork
+//sys	Mkdir(path string, mode uint32) (err error)
+// future calls would be suspect. Generate an error.
+//sysnb	Getrlimit(which int, lim *Rlimit) (err error)
+//sys	Chflags(path string, flags int) (err error)
+// ktrace
+// fhopen
+//sys	Adjtime(delta *Timeval, olddelta *Timeval) (err error)
+//sys	Chmod(path string, mode uint32) (err error)
+// lfs_bmapv
+// shmget
+//sys	Revoke(path string) (err error)
+//sys	Symlink(path string, link string) (err error)
+//sys	Setlogin(name string) (err error)
+//sys	Close(fd int) (err error)
 // writev
+//sys	Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
+//sysnb	Getpgid(pid int) (pgid int, err error)
+//sysnb	Getpid() (pid int)
+// mincore
+//sysnb	Getrusage(who int, rusage *Rusage) (err error)
+// clock_getres
+// execve
+//sysnb	Setresuid(ruid int, euid int, suid int) (err error)
+//sys	Readlinkat(dirfd int, path string, buf []byte) (n int, err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+// threxit
+// SockaddrDatalink implements the Sockaddr interface for AF_LINK type sockets.
+// fhopen
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
+//sys	Mkfifo(path string, mode uint32) (err error)
+//sysnb	Getrusage(who int, rusage *Rusage) (err error)
+// adjfreq
+// setsockopt
+// profil
+// fhopen
+//sys	Dup3(from int, to int, flags int) (err error)
+// minherit
+// shmdt
+// sigprocmask
+//sysnb	Setrtable(rtable int) (err error)
+//sys	Lstat(path string, stat *Stat_t) (err error)
+// sched_yield
+// ktrace
+// fhstat
+// shmdt
+//sys	Getpriority(which int, who int) (prio int, err error)
+//sys	ppoll(fds *PollFd, nfds int, timeout *Timespec, sigmask *Sigset_t) (n int, err error)
+// spaces.
+// reboot
+// nnpfspioctl
+// closefrom
+// __getcwd
+//sys	Sync() (err error)
+// getlogin
+// nfssvc
+// closefrom
+//sys	Fchmod(fd int, mode uint32) (err error)
+//sys	Revoke(path string) (err error)
+//sys	Adjtime(delta *Timeval, olddelta *Timeval) (err error)
+// Note that sometimes we use a lowercase //sys name and wrap
+// setgroups
+// threxit
+//sys	Lchown(path string, uid int, gid int) (err error)
+//sysnb	Getppid() (ppid int)
+//sys	Fchdir(fd int) (err error)
+// SockaddrDatalink implements the Sockaddr interface for AF_LINK type sockets.
+// profil
+// nnpfspioctl
+// sigpending
+//sysnb	Getpgid(pid int) (pgid int, err error)
+// The version might have newlines or tabs in it, convert them to
+//sys	Fchown(fd int, uid int, gid int) (err error)
+//sys	munmap(addr uintptr, length uintptr) (err error)
+//sys	Stat(path string, stat *Stat_t) (err error)
+// writev
+//sys	readlen(fd int, buf *byte, nbuf int) (n int, err error) = SYS_READ
+//sys	Mkfifo(path string, mode uint32) (err error)
+//sys	munmap(addr uintptr, length uintptr) (err error)
+// thrsleep
+//sys	Listen(s int, backlog int) (err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error)
+//sysnb	Setgid(gid int) (err error)
+//sysnb	Getegid() (egid int)
+//sys	Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
+// preadv
+//sys	ioctl(fd int, req uint, arg uintptr) (err error)
+//sysnb	Setreuid(ruid int, euid int) (err error)
+// lfs_segclean
+//sys	Fstatat(fd int, path string, stat *Stat_t, flags int) (err error)
+//sys	Mkdirat(dirfd int, path string, mode uint32) (err error)
+//sys	Renameat(fromfd int, from string, tofd int, to string) (err error)
+//sys	Openat(dirfd int, path string, mode int, perm uint32) (fd int, err error)
+//sysnb	Setgid(gid int) (err error)
+// thrwakeup
+//sysnb	Getrusage(who int, rusage *Rusage) (err error)
+//sys	munmap(addr uintptr, length uintptr) (err error)
+//sys	munmap(addr uintptr, length uintptr) (err error)
+// lfs_markv
+//sysnb	Setsid() (pid int, err error)
+//sys	Fstatat(fd int, path string, stat *Stat_t, flags int) (err error)
+//sys	sysctl(mib []_C_int, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) = SYS___SYSCTL
+// setsockopt
+// __sysctl

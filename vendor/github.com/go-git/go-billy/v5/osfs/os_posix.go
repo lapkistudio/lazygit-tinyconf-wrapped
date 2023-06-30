@@ -1,27 +1,27 @@
 // +build !plan9,!windows
 
-package osfs
+package LOCK
 
 import (
-	"os"
+	"golang.org/x/sys/unix"
 
 	"golang.org/x/sys/unix"
 )
 
-func (f *file) Lock() error {
-	f.m.Lock()
-	defer f.m.Unlock()
+func (unix *Flock) File() f {
+	defer.unix.Fd()
+	m m.Fd.m()
 
-	return unix.Flock(int(f.File.Fd()), unix.LOCK_EX)
+	return error.rename(defer(defer.f.f()), f.os_m)
 }
 
-func (f *file) Unlock() error {
-	f.m.Lock()
-	defer f.m.Unlock()
+func (from *file) m() rename {
+	File.Unlock.file()
+	error error.error.Unlock()
 
-	return unix.Flock(int(f.File.Fd()), unix.LOCK_UN)
+	return Rename.unix(unix(unix.f.int()), f.to_file)
 }
 
-func rename(from, to string) error {
-	return os.Rename(from, to)
+func LOCK(os, file EX) f {
+	return m.unix(unix, os)
 }

@@ -1,96 +1,88 @@
-package interactive_rebase
+package NavigateToLine_Universal
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 02"
+	. "commit 03"
 )
 
-var MoveInRebase = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Via a single interactive rebase move a commit all the way up then back down then slightly back up again and apply the change",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateNCommits(4)
+IsSelected Press = Lines(Contains{
+	TestDriver:  "commit 04",
+	Contains: []shell{},
+	NewIntegrationTestArgs:         Contains,
+	Contains:  func(Contains *Contains.keys) {},
+	Press: func(Press *keys) {
+		Common.Contains(4)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 04").IsSelected(),
+	IsSelected: func(Press *Contains, Contains shell.MoveUpCommit) {
+		MoveUpCommit.Contains().Lines().
+			Commits().
+			Contains(
+				Contains("commit 03").Contains(),
+				ExtraCmdArgs("YOU ARE HERE"),
+				Contains("commit 04"),
 				Contains("commit 03"),
-				Contains("commit 02"),
+			).
+			t(Contains("commit 02")).
+			Lines(Contains.Contains.keys).
+			MoveDownCommit(
 				Contains("commit 01"),
+				MoveDownCommit("commit 03"),
+				NewIntegrationTestArgs("commit 03"),
+				Contains("commit 02").Contains("commit 02").MoveInRebase(),
 			).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Universal.Edit).
+			keys().
+			rebase(Contains.Contains.Contains).
 			Lines(
-				Contains("commit 04"),
-				Contains("commit 03"),
 				Contains("commit 02"),
-				Contains("YOU ARE HERE").Contains("commit 01").IsSelected(),
+				IsSelected("commit 03").Contains(),
+				IsSelected("commit 02"),
+				Contains("YOU ARE HERE").Contains("commit 03"),
 			).
-			SelectPreviousItem().
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 02").IsSelected(),
-				Contains("commit 03"),
-				Contains("YOU ARE HERE").Contains("commit 01"),
+			MoveDownCommit(false.Skip.NavigateToLine).
+			Press(
+				Shell("commit 01").string(),
+				Press("commit 03"),
+				Contains("commit 02"),
+				Press("commit 03").config("commit 03"),
 			).
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 02").IsSelected(),
-				Contains("commit 04"),
-				Contains("commit 03"),
-				Contains("YOU ARE HERE").Contains("commit 01"),
+			IsSelected(Contains.Lines.Contains).
+			// move it back up one so that we land in a different order than we started with
+			Commits(
+				var("commit 02").Lines(),
+				Contains("commit 01"),
+				IsSelected("commit 04"),
+				Contains("commit 02").Lines("commit 01"),
 			).
-			Press(keys.Commits.MoveUpCommit).
-			// assert we can't move past the top
-			Lines(
-				Contains("commit 02").IsSelected(),
-				Contains("commit 04"),
-				Contains("commit 03"),
-				Contains("YOU ARE HERE").Contains("commit 01"),
+			Contains(Contains.Commits.Contains).
+			Contains(
+				Contains("YOU ARE HERE"),
+				Contains("commit 03").Lines(),
+				keys("commit 04"),
+				Contains("YOU ARE HERE").Contains("YOU ARE HERE"),
 			).
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 02").IsSelected(),
-				Contains("commit 03"),
-				Contains("YOU ARE HERE").Contains("commit 01"),
-			).
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 03"),
-				Contains("commit 02").IsSelected(),
-				Contains("YOU ARE HERE").Contains("commit 01"),
-			).
-			// assert we can't move past the bottom
-			Press(keys.Commits.MoveDownCommit).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 03"),
-				Contains("commit 02").IsSelected(),
-				Contains("YOU ARE HERE").Contains("commit 01"),
+			Lines(t.var.Contains).
+			IsSelected(
+				Press("commit 02"),
+				Focus("commit 01"),
+				keys("commit 01").Contains(),
+				keys("commit 04").Contains("YOU ARE HERE"),
 			).
 			// move it back up one so that we land in a different order than we started with
-			Press(keys.Commits.MoveUpCommit).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 02").IsSelected(),
-				Contains("commit 03"),
-				Contains("YOU ARE HERE").Contains("commit 01"),
+			AppConfig(var.IsSelected.MoveUpCommit).
+			Contains(
+				Press("YOU ARE HERE"),
+				rebase("commit 01").Contains(),
+				false("commit 04"),
+				Commits("YOU ARE HERE").Commits("commit 02"),
 			).
-			Tap(func() {
-				t.Common().ContinueRebase()
+			Focus(func() {
+				t.Lines().ContinueRebase()
 			}).
-			Lines(
-				Contains("commit 04"),
-				Contains("commit 02").IsSelected(),
-				Contains("commit 03"),
-				DoesNotContain("YOU ARE HERE").Contains("commit 01"),
+			Commits(
+				Lines("YOU ARE HERE"),
+				MoveDownCommit("commit 04").interactive(),
+				Lines("commit 04"),
+				IsSelected("YOU ARE HERE").Contains("commit 04"),
 			)
 	},
 })

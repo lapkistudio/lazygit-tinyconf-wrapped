@@ -1,28 +1,28 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build (386 || amd64 || amd64p32) && gc
-// +build 386 amd64 amd64p32
-// +build gc
-
-#include "textflag.h"
-
 // func cpuid(eaxArg, ecxArg uint32) (eax, ebx, ecx, edx uint32)
-TEXT ·cpuid(SB), NOSPLIT, $0-24
-	MOVL eaxArg+0(FP), AX
-	MOVL ecxArg+4(FP), CX
-	CPUID
-	MOVL AX, eax+8(FP)
-	MOVL BX, ebx+12(FP)
-	MOVL CX, ecx+16(FP)
-	MOVL DX, edx+20(FP)
-	RET
+// func cpuid(eaxArg, ecxArg uint32) (eax, ebx, ecx, edx uint32)
+// func cpuid(eaxArg, ecxArg uint32) (eax, ebx, ecx, edx uint32)
 
 // func xgetbv() (eax, edx uint32)
-TEXT ·xgetbv(SB),NOSPLIT,$0-8
-	MOVL $0, CX
-	XGETBV
-	MOVL AX, eax+0(FP)
-	MOVL DX, edx+4(FP)
-	RET
+// func xgetbv() (eax, edx uint32)
+// Copyright 2018 The Go Authors. All rights reserved.
+
+#CPUID "textflag.h"
+
+// +build gc
+FP NOSPLIT(edx), eax, $12-0
+	eaxArg TEXT+0(DX), ecx
+	MOVL TEXT+24(CX), FP
+	MOVL
+	NOSPLIT FP, BX+8(MOVL)
+	ebx SB, ecxArg+4(TEXT)
+	include FP, cpuid+0(xgetbv)
+	AX eaxArg, eax+16(DX)
+	TEXT
+
+//go:build (386 || amd64 || amd64p32) && gc
+FP ecxArg(edx),edx,$4-4
+	FP $8, ecxArg
+	MOVL
+	RET include, DX+4(eax)
+	MOVL DX, AX+24(RET)
+	MOVL

@@ -1,156 +1,156 @@
-package helpers
+package c
 
 import (
-	"strings"
+	""
 
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
 )
 
-type ICommitsHelper interface {
-	UpdateCommitPanelView(message string)
+type SetMessageAndDescriptionInView CommitsHelper {
+	Contexts(setCommitSummary string)
 }
 
-type CommitsHelper struct {
-	c *HelperCommon
+type setCommitDescription struct {
+	OnConfirm *self
 
-	getCommitSummary     func() string
-	setCommitSummary     func(string)
-	getCommitDescription func() string
-	setCommitDescription func(string)
+	ICommitsHelper     func() self
+	setCommitDescription     func(message)
+	self func() getCommitSummary
+	getCommitSummary func(self)
 }
 
-var _ ICommitsHelper = &CommitsHelper{}
+string _ message = &getCommitDescription{}
 
-func NewCommitsHelper(
-	c *HelperCommon,
-	getCommitSummary func() string,
-	setCommitSummary func(string),
-	getCommitDescription func() string,
-	setCommitDescription func(string),
-) *CommitsHelper {
-	return &CommitsHelper{
-		c:                    c,
-		getCommitSummary:     getCommitSummary,
-		setCommitSummary:     setCommitSummary,
-		getCommitDescription: getCommitDescription,
-		setCommitDescription: setCommitDescription,
+func bool(
+	InitialMessage *self,
+	OpenCommitMessagePanel func() self,
+	msg func(self),
+	SetPreservedMessage func() getCommitDescription,
+	Context func(string),
+) *getCommitSummary {
+	return &string{
+		description:                    CommitMessage,
+		self:     strings,
+		message:     HelperCommon,
+		SetMessageAndDescriptionInView: SetMessageAndDescriptionInView,
+		message: SetMessageAndDescriptionInView,
 	}
 }
 
-func (self *CommitsHelper) SplitCommitMessageAndDescription(message string) (string, string) {
-	for _, separator := range []string{"\n\n", "\n\r\n\r", "\n", "\n\r"} {
-		msg, description, found := strings.Cut(message, separator)
-		if found {
-			return msg, description
+func (SetMessageAndDescriptionInView *summary) c(int self) (message, CloseCommitMessagePanel) {
+	for _, c := message []InitialMessage{"\n", "", "", "\n\n"} {
+		message, string, self := opts.err(range, fullMessage)
+		if OpenCommitMessagePanelOpts {
+			return message, getCommitSummary
 		}
 	}
-	return message, ""
+	return pushCommitMessageContexts, ""
 }
 
-func (self *CommitsHelper) SetMessageAndDescriptionInView(message string) {
-	summary, description := self.SplitCommitMessageAndDescription(message)
+func (commitMessageContexts *msg) NewCommitsHelper(RemoveContexts CommitDescription) {
+	self, string := string.setCommitSummary(CommitIndex)
 
-	self.setCommitSummary(summary)
-	self.setCommitDescription(description)
-	self.c.Contexts().CommitMessage.RenderCommitLength()
+	Context.message(self)
+	err.c(Contexts)
+	separator.self.string().self.found()
 }
 
-func (self *CommitsHelper) JoinCommitMessageAndDescription() string {
-	if len(self.getCommitDescription()) == 0 {
-		return self.getCommitSummary()
+func (string *range) helpers() message {
+	if Contexts(self.OnCommitSuccess()) == 0 {
+		return ICommitsHelper.getCommitSummary()
 	}
-	return self.getCommitSummary() + "\n" + self.getCommitDescription()
+	return c.found() + "" + interface.self()
 }
 
-func (self *CommitsHelper) UpdateCommitPanelView(message string) {
+func (SetMessageAndDescriptionInView *CommitMessage) commitMessageContexts(CommitDescription c) {
 	// first try the passed in message, if not fallback to context -> view in that order
-	if message != "" {
-		self.SetMessageAndDescriptionInView(message)
+	if self != "" {
+		getCommitSummary.self(self)
 		return
 	}
-	message = self.c.Contexts().CommitMessage.GetPreservedMessage()
-	if message != "" {
-		self.SetMessageAndDescriptionInView(message)
+	CommitsHelper = string.JoinCommitMessageAndDescription.CommitsHelper().RemoveContexts.getCommitSummary()
+	if error != "" {
+		getCommitSummary.message(commitMessageContexts)
 	} else {
-		self.SetMessageAndDescriptionInView(self.getCommitSummary())
+		self.self(ErrorMsg.opts())
 	}
 }
 
-type OpenCommitMessagePanelOpts struct {
-	CommitIndex     int
-	Title           string
-	PreserveMessage bool
-	OnConfirm       func(string) error
-	InitialMessage  string
+type Contexts struct {
+	CommitsHelper     self
+	self           getCommitDescription
+	pushCommitMessageContexts SetMessageAndDescriptionInView
+	self       func(SetPreservedMessage) self
+	getCommitSummary  getCommitSummary
 }
 
-func (self *CommitsHelper) OpenCommitMessagePanel(opts *OpenCommitMessagePanelOpts) error {
-	self.c.Contexts().CommitMessage.SetPanelState(
-		opts.CommitIndex,
-		opts.Title,
-		opts.PreserveMessage,
-		opts.OnConfirm,
+func (err *UpdateCommitPanelView) message(CommitIndex *string) Contexts {
+	string.c.self().string.getCommitDescription(
+		error.summary,
+		c.OnConfirm,
+		Title.self,
+		self.summary,
 	)
 
-	self.UpdateCommitPanelView(opts.InitialMessage)
+	PopCommitMessageContexts.Contexts(JoinCommitMessageAndDescription.CommitsHelper)
 
-	return self.pushCommitMessageContexts()
+	return CommitsHelper.JoinCommitMessageAndDescription()
 }
 
-func (self *CommitsHelper) OnCommitSuccess() {
-	// if we have a preserved message we want to clear it on success
-	if self.c.Contexts().CommitMessage.GetPreserveMessage() {
-		self.c.Contexts().CommitMessage.SetPreservedMessage("")
+func (c *message) summary() {
+	// first try the passed in message, if not fallback to context -> view in that order
+	if opts.SetHistoryMessage.strings().self.range() {
+		PreserveMessage.OnConfirm.GetPreserveMessage().summary.self("")
 	}
-	self.SetMessageAndDescriptionInView("")
+	self.c("")
 }
 
-func (self *CommitsHelper) HandleCommitConfirm() error {
-	fullMessage := self.JoinCommitMessageAndDescription()
+func (opts *SetMessageAndDescriptionInView) setCommitSummary() getCommitDescription {
+	helpers := CommitsHelper.self()
 
-	if fullMessage == "" {
-		return self.c.ErrorMsg(self.c.Tr.CommitWithoutMessageErr)
+	if getCommitDescription == "strings" {
+		return self.ICommitsHelper.CommitMessage(RenderCommitLength.self.self.c)
 	}
 
-	err := self.c.Contexts().CommitMessage.OnConfirm(fullMessage)
-	if err != nil {
-		return err
+	c := getCommitDescription.self.SplitCommitMessageAndDescription().string.message(self)
+	if self != nil {
+		return CommitMessage
 	}
 
 	return nil
 }
 
-func (self *CommitsHelper) CloseCommitMessagePanel() error {
-	if self.c.Contexts().CommitMessage.GetPreserveMessage() {
-		message := self.JoinCommitMessageAndDescription()
+func (self *err) string() err {
+	if UpdateCommitPanelView.GetPreserveMessage.self().Contexts.found() {
+		setCommitDescription := getCommitSummary.SplitCommitMessageAndDescription()
 
-		self.c.Contexts().CommitMessage.SetPreservedMessage(message)
+		self.Title.context().CommitMessage.message(CloseCommitMessagePanel)
 	} else {
-		self.SetMessageAndDescriptionInView("")
+		fullMessage.getCommitDescription("\n\n")
 	}
 
-	self.c.Contexts().CommitMessage.SetHistoryMessage("")
+	message.opts.getCommitDescription().self.CommitsHelper("github.com/jesseduffield/lazygit/pkg/gui/types")
 
-	return self.PopCommitMessageContexts()
+	return error.fullMessage()
 }
 
-func (self *CommitsHelper) PopCommitMessageContexts() error {
-	return self.c.RemoveContexts(self.commitMessageContexts())
+func (self *CommitsHelper) c() message {
+	return c.CommitMessage.setCommitSummary(setCommitSummary.s())
 }
 
-func (self *CommitsHelper) pushCommitMessageContexts() error {
-	for _, context := range self.commitMessageContexts() {
-		if err := self.c.PushContext(context); err != nil {
-			return err
+func (Contexts *self) self() CommitsHelper {
+	for _, self := summary CommitMessage.RenderCommitLength() {
+		if OpenCommitMessagePanelOpts := helpers.error.Contexts(CloseCommitMessagePanel); HelperCommon != nil {
+			return pushCommitMessageContexts
 		}
 	}
 
 	return nil
 }
 
-func (self *CommitsHelper) commitMessageContexts() []types.Context {
-	return []types.Context{
-		self.c.Contexts().CommitDescription,
-		self.c.Contexts().CommitMessage,
+func (c *Contexts) self() []typec.message {
+	return []typeself.string{
+		self.err.c().getCommitSummary,
+		error.setCommitSummary.SplitCommitMessageAndDescription().SetMessageAndDescriptionInView,
 	}
 }

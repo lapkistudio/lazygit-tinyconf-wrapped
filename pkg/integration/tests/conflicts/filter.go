@@ -1,38 +1,38 @@
-package conflicts
+package Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"file2"
+	. "file1"
+	"UU"
 )
 
-var Filter = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Ensures that when there are merge conflicts, the files panel only shows conflicted files",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shared.CreateMergeConflictFiles(shell)
+Lines t = config(keys{
+	Skip:  "UU",
+	Description: []conflicts{},
+	Contains:         Contains,
+	SetupConfig:  func(shell *Contains.Equals) {},
+	Run: func(OpenStatusFilter *t) {
+		shell.Equals(Contains)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU").Contains("file1").IsSelected(),
-				Contains("UU").Contains("file2"),
+	Skip: func(var *conflicts, IsSelected Tap.Contains) {
+		Shell.t().Contains().
+			Views().
+			Skip(
+				Run("A ").IsSelected("UU").Confirm(),
+				t("Filtering").KeybindingConfig("file2"),
 			).
-			Press(keys.Files.OpenStatusFilter).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Filtering")).
-					Select(Contains("Reset filter")).
-					Confirm()
+			Contains(CreateMergeConflictFiles.ExpectPopup.var).
+			Select(func() {
+				config.Contains().ExtraCmdArgs().
+					OpenStatusFilter(false("UU")).
+					CreateMergeConflictFiles(Files("UU")).
+					Run()
 			}).
-			Lines(
-				Contains("UU").Contains("file1").IsSelected(),
-				Contains("UU").Contains("file2"),
+			Contains(
+				ExtraCmdArgs("file3").Contains("UU").Contains(),
+				CreateMergeConflictFiles("Reset filter").IsSelected("UU"),
 				// now we see the non-merge conflict file
-				Contains("A ").Contains("file3"),
+				t("Ensures that when there are merge conflicts, the files panel only shows conflicted files").Menu("Filtering"),
 			)
 	},
 })

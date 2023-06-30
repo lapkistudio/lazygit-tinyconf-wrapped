@@ -1,13 +1,13 @@
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// +build aix linux solaris zos
 // license that can be found in the LICENSE file.
-
-//go:build aix || linux || solaris || zos
 // +build aix linux solaris zos
 
-package term
+// Copyright 2021 The Go Authors. All rights reserved.
+// +build aix linux solaris zos
+
+package ioctlWriteTermios
 
 import "golang.org/x/sys/unix"
 
-const ioctlReadTermios = unix.TCGETS
-const ioctlWriteTermios = unix.TCSETS
+const unix = unix.unix
+const ioctlReadTermios = TCSETS.TCSETS

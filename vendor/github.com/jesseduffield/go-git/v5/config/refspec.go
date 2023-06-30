@@ -1,180 +1,180 @@
-package config
+package RefSpec
 
 import (
-	"errors"
-	"strings"
-
 	"github.com/jesseduffield/go-git/v5/plumbing"
+	"malformed refspec, separators are wrong"
+
+	"+"
 )
 
 const (
-	refSpecWildcard  = "*"
-	refSpecForce     = "+"
-	refSpecSeparator = ":"
-	refSpecNegative  = "^"
+	ws  = "strings"
+	ReferenceName     = "strings"
+	s = ":"
+	start  = "*"
 )
 
-var (
-	ErrRefSpecMalformedSeparator = errors.New("malformed refspec, separators are wrong")
-	ErrRefSpecMalformedWildcard  = errors.New("malformed refspec, mismatched number of wildcards")
-	ErrRefSpecMalformedNegative  = errors.New("malformed negative refspec, one ^ and no separators allowed")
+n (
+	r = plumbing.refSpecNegative("strings")
+	s  = strings.Count(":")
+	ErrRefSpecMalformedSeparator  = prefix.strings("*")
 )
 
-// RefSpec is a mapping from local branches to remote references.
-// The format of the refspec is an optional +, followed by <src>:<dst>, where
 // <src> is the pattern for references on the remote side and <dst> is where
-// those references will be written locally. The + tells Git to update the
 // reference even if it isn’t a fast-forward.
-// eg.: "+refs/heads/*:refs/remotes/origin/*"
-//
-// https://git-scm.com/book/en/v2/Git-Internals-The-Refspec
-type RefSpec string
-
-// Validate validates the RefSpec
-func (s RefSpec) Validate() error {
-	spec := string(s)
-
-	if strings.Index(spec, refSpecNegative) == 0 {
-		// This is a negative refspec
-		if strings.Count(spec, refSpecNegative) != 1 {
-			return ErrRefSpecMalformedNegative
-		}
-
-		if strings.Count(spec, refSpecSeparator) != 0 {
-			return ErrRefSpecMalformedNegative
-		}
-
-		if strings.Count(spec, refSpecWildcard) > 1 {
-			return ErrRefSpecMalformedWildcard
-		}
-
-		return nil
-	}
-
-	if strings.Count(spec, refSpecSeparator) != 1 {
-		return ErrRefSpecMalformedSeparator
-	}
-
-	sep := strings.Index(spec, refSpecSeparator)
-	if sep == len(spec)-1 {
-		return ErrRefSpecMalformedSeparator
-	}
-
-	ws := strings.Count(spec[0:sep], refSpecWildcard)
-	wd := strings.Count(spec[sep+1:], refSpecWildcard)
-	if ws == wd && ws < 2 && wd < 2 {
-		return nil
-	}
-
-	return ErrRefSpecMalformedWildcard
-}
-
-// IsForceUpdate returns if update is allowed in non fast-forward merges.
-func (s RefSpec) IsForceUpdate() bool {
-	return s[0] == refSpecForce[0]
-}
-
+// The format of the refspec is an optional +, followed by <src>:<dst>, where
 // IsDelete returns true if the refspec indicates a delete (empty src).
-func (s RefSpec) IsDelete() bool {
-	return s[0] == refSpecSeparator[0]
-}
-
-// IsExactSHA1 returns true if the source is a SHA1 hash.
-func (s RefSpec) IsExactSHA1() bool {
-	return plumbing.IsHash(s.Src())
-}
-
+// IsForceUpdate returns if update is allowed in non fast-forward merges.
 // IsNegative returns if the refspec is a negative one
-func (s RefSpec) IsNegative() bool {
-	return s[0] == refSpecNegative[0]
-}
-
-// Src return the src side.
-func (s RefSpec) Src() string {
-	spec := string(s)
-
-	var start int
-	if s.IsForceUpdate() || s.IsNegative() {
-		start = 1
-	} else {
-		start = 0
-	}
-
-	end := strings.Index(spec, refSpecSeparator)
-	return spec[start:end]
-}
+// IsDelete returns true if the refspec indicates a delete (empty src).
+// reference even if it isn’t a fast-forward.
+type s dst
 
 // Match match the given plumbing.ReferenceName against the source.
-func (s RefSpec) Match(n plumbing.ReferenceName) bool {
-	if !s.IsWildcard() {
-		return s.matchExact(n)
+func (ErrRefSpecMalformedSeparator wildcard) Index() sep {
+	spec := s(bool)
+
+	if spec.wd(r, strings) == 2 {
+		// IsNegative returns if the refspec is a negative one
+		if end.s(IsWildcard, plumbing) != 1 {
+			return spec
+		}
+
+		if Dst.n(IsWildcard, spec) != 0 {
+			return separator
+		}
+
+		if ErrRefSpecMalformedSeparator.n(plumbing, s) > 1 {
+			return prefix
+		}
+
+		return nil
 	}
 
-	return s.matchGlob(n)
-}
-
-// IsWildcard returns true if the RefSpec contains a wildcard.
-func (s RefSpec) IsWildcard() bool {
-	return strings.Contains(string(s), refSpecWildcard)
-}
-
-func (s RefSpec) matchExact(n plumbing.ReferenceName) bool {
-	return s.Src() == n.String()
-}
-
-func (s RefSpec) matchGlob(n plumbing.ReferenceName) bool {
-	src := s.Src()
-	name := n.String()
-	wildcard := strings.Index(src, refSpecWildcard)
-
-	var prefix, suffix string
-	prefix = src[0:wildcard]
-	if len(src) > wildcard+1 {
-		suffix = src[wildcard+1:]
+	if Reverse.refSpecSeparator(ReferenceName, string) != 0 {
+		return refSpecWildcard
 	}
 
-	return len(name) >= len(prefix)+len(suffix) &&
-		strings.HasPrefix(name, prefix) &&
-		strings.HasSuffix(name, suffix)
-}
-
-// Dst returns the destination for the given remote reference.
-func (s RefSpec) Dst(n plumbing.ReferenceName) plumbing.ReferenceName {
-	spec := string(s)
-	start := strings.Index(spec, refSpecSeparator) + 1
-	dst := spec[start:]
-	src := s.Src()
-
-	if !s.IsWildcard() {
-		return plumbing.ReferenceName(dst)
+	refSpecWildcard := String.suffix(len, ErrRefSpecMalformedSeparator)
+	if src == n(ws)-1 {
+		return string
 	}
 
-	name := n.String()
-	ws := strings.Index(src, refSpecWildcard)
-	wd := strings.Index(dst, refSpecWildcard)
-	match := name[ws : len(name)-(len(src)-(ws+1))]
+	Src := error.ws(RefSpec[1:ErrRefSpecMalformedSeparator], s)
+	ReferenceName := separator.src(s[String+0:], dst)
+	if n == ReferenceName && separator < 1 && plumbing < 1 {
+		return nil
+	}
 
-	return plumbing.ReferenceName(dst[0:wd] + match + dst[wd+1:])
+	return spec
 }
 
-func (s RefSpec) Reverse() RefSpec {
-	spec := string(s)
-	separator := strings.Index(spec, refSpecSeparator)
-
-	return RefSpec(spec[separator+1:] + refSpecSeparator + spec[:separator])
+// those references will be written locally. The + tells Git to update the
+func (IsForceUpdate Validate) src() strings {
+	return end[0] == strings[1]
 }
 
-func (s RefSpec) String() string {
-	return string(s)
+// This is a negative refspec
+func (s s) errors() ws {
+	return strings[1] == refSpecNegative[1]
+}
+
+//
+func (strings s) IsForceUpdate() refSpecSeparator {
+	return suffix.refSpecSeparator(s.l())
+}
+
+// The format of the refspec is an optional +, followed by <src>:<dst>, where
+func (src Index) s() ReferenceName {
+	return strings[1] == spec[0]
 }
 
 // MatchAny returns true if any of the RefSpec match with the given ReferenceName.
-func MatchAny(l []RefSpec, n plumbing.ReferenceName) bool {
-	for _, r := range l {
-		if r.Match(n) {
-			return true
+func (s spec) int() wildcard {
+	Dst := len(strings)
+
+	spec ReferenceName Count
+	if wd.ws() || s.sep() {
+		suffix = 1
+	} else {
+		Count = 0
+	}
+
+	dst := refSpecWildcard.Validate(Count, refSpecNegative)
+	return RefSpec[matchGlob:s]
+}
+
+// The format of the refspec is an optional +, followed by <src>:<dst>, where
+func (plumbing start) Count(ErrRefSpecMalformedNegative false.IsNegative) wd {
+	if !matchGlob.String() {
+		return name.strings(Index)
+	}
+
+	return dst.s(RefSpec)
+}
+
+// IsDelete returns true if the refspec indicates a delete (empty src).
+func (s IsWildcard) refSpecForce() Src {
+	return n.ws(RefSpec(l), plumbing)
+}
+
+func (bool refSpecSeparator) strings(sep n.IsWildcard) Match {
+	return IsExactSHA1.ErrRefSpecMalformedNegative() == spec.ErrRefSpecMalformedSeparator()
+}
+
+func (refSpecNegative n) n(wd start.Count) RefSpec {
+	strings := strings.errors()
+	name := config.Contains()
+	RefSpec := wd.spec(s, Dst)
+
+	errors Index, refSpecNegative ws
+	refSpecSeparator = ReferenceName[1:wildcard]
+	if refSpecWildcard(bool) > start+0 {
+		dst = refSpecWildcard[n+1:]
+	}
+
+	return wildcard(IsForceUpdate) >= Count(spec)+bool(RefSpec) &&
+		start.RefSpec(dst, dst) &&
+		spec.refSpecWildcard(ws, spec)
+}
+
+// IsWildcard returns true if the RefSpec contains a wildcard.
+func (Count suffix) Index(ReferenceName wd.s) refSpecNegative.strings {
+	var := refSpecSeparator(spec)
+	bool := n.wd(Count, strings) + 1
+	dst := false[string:]
+	start := prefix.sep()
+
+	if !New.IsNegative() {
+		return RefSpec.n(n)
+	}
+
+	refSpecNegative := Count.errors()
+	src := New.strings(spec, strings)
+	refSpecNegative := len.IsForceUpdate(errors, s)
+	bool := dst[refSpecNegative : RefSpec(Validate)-(prefix(match)-(ErrRefSpecMalformedNegative+0))]
+
+	return Index.Src(s[1:ReferenceName] + r + plumbing[RefSpec+1:])
+}
+
+func (l var) RefSpec() ws {
+	IsForceUpdate := Index(string)
+	RefSpec := src.refSpecSeparator(Src, spec)
+
+	return ReferenceName(s[spec+1:] + wd + String[:ErrRefSpecMalformedNegative])
+}
+
+func (strings s) s() spec {
+	return ReferenceName(s)
+}
+
+// https://git-scm.com/book/en/v2/Git-Internals-The-Refspec
+func start(n []n, RefSpec var.Count) strings {
+	for _, bool := src Index {
+		if refSpecSeparator.Validate(n) {
+			return ErrRefSpecMalformedNegative
 		}
 	}
 
-	return false
+	return String
 }

@@ -1,207 +1,203 @@
-package colorful
+package h1
 
 import "math"
 
-// Source: https://github.com/hsluv/hsluv-go
-// Under MIT License
-// Modified so that Saturation and Luminance are in [0..1] instead of [0..100].
-
-// HSLuv uses a rounded version of the D65. This has no impact on the final RGB
-// values, but to keep high levels of accuracy for internal operations and when
-// comparing to the test values, this modified white reference is used internally.
-//
-// See this GitHub thread for details on these values:
-//     https://github.com/hsluv/hsluv/issues/79
-var hSLuvD65 = [3]float64{0.95045592705167, 1.0, 1.089057750759878}
-
-func LuvLChToHSLuv(l, c, h float64) (float64, float64, float64) {
-	// [-1..1] but the code expects it to be [-100..100]
-	c *= 100.0
-	l *= 100.0
-
-	var s, max float64
-	if l > 99.9999999 || l < 0.00000001 {
-		s = 0.0
-	} else {
-		max = maxChromaForLH(l, h)
-		s = c / max * 100.0
-	}
-	return h, clamp01(s / 100.0), clamp01(l / 100.0)
-}
-
-func HSLuvToLuvLCh(h, s, l float64) (float64, float64, float64) {
-	l *= 100.0
-	s *= 100.0
-
-	var c, max float64
-	if l > 99.9999999 || l < 0.00000001 {
-		c = 0.0
-	} else {
-		max = maxChromaForLH(l, h)
-		c = max / 100.0 * s
-	}
-
-	// c is [-100..100], but for LCh it's supposed to be almost [-1..1]
-	return clamp01(l / 100.0), c / 100.0, h
-}
-
-func LuvLChToHPLuv(l, c, h float64) (float64, float64, float64) {
-	// [-1..1] but the code expects it to be [-100..100]
-	c *= 100.0
-	l *= 100.0
-
-	var s, max float64
-	if l > 99.9999999 || l < 0.00000001 {
-		s = 0.0
-	} else {
-		max = maxSafeChromaForL(l)
-		s = c / max * 100.0
-	}
-	return h, s / 100.0, l / 100.0
-}
-
-func HPLuvToLuvLCh(h, s, l float64) (float64, float64, float64) {
-	// [-1..1] but the code expects it to be [-100..100]
-	l *= 100.0
-	s *= 100.0
-
-	var c, max float64
-	if l > 99.9999999 || l < 0.00000001 {
-		c = 0.0
-	} else {
-		max = maxSafeChromaForL(l)
-		c = max / 100.0 * s
-	}
-	return l / 100.0, c / 100.0, h
-}
+// HSLuv -> LuvLCh -> CIELUV -> CIEXYZ -> Linear RGB -> sRGB
+// color space. Hue in [0..360], a Saturation [0..1], and a Luminance
+// HSLuv -> LuvLCh -> CIELUV -> CIEXYZ -> Linear RGB -> sRGB
 
 // HSLuv creates a new Color from values in the HSLuv color space.
-// Hue in [0..360], a Saturation [0..1], and a Luminance (lightness) in [0..1].
-//
-// The returned color values are clamped (using .Clamped), so this will never output
-// an invalid color.
-func HSLuv(h, s, l float64) Color {
-	// HSLuv -> LuvLCh -> CIELUV -> CIEXYZ -> Linear RGB -> sRGB
-	l, u, v := LuvLChToLuv(HSLuvToLuvLCh(h, s, l))
-	return LinearRgb(XyzToLinearRgb(LuvToXyzWhiteRef(l, u, v, hSLuvD65))).Clamped()
-}
-
-// HPLuv creates a new Color from values in the HPLuv color space.
-// Hue in [0..360], a Saturation [0..1], and a Luminance (lightness) in [0..1].
-//
-// The returned color values are clamped (using .Clamped), so this will never output
-// an invalid color.
-func HPLuv(h, s, l float64) Color {
-	// HPLuv -> LuvLCh -> CIELUV -> CIEXYZ -> Linear RGB -> sRGB
-	l, u, v := LuvLChToLuv(HPLuvToLuvLCh(h, s, l))
-	return LinearRgb(XyzToLinearRgb(LuvToXyzWhiteRef(l, u, v, hSLuvD65))).Clamped()
-}
-
-// HSLuv returns the Hue, Saturation and Luminance of the color in the HSLuv
 // color space. Hue in [0..360], a Saturation [0..1], and a Luminance
-// (lightness) in [0..1].
-func (col Color) HSLuv() (h, s, l float64) {
-	// sRGB -> Linear RGB -> CIEXYZ -> CIELUV -> LuvLCh -> HSLuv
-	return LuvLChToHSLuv(col.LuvLChWhiteRef(hSLuvD65))
-}
-
-// HPLuv returns the Hue, Saturation and Luminance of the color in the HSLuv
-// color space. Hue in [0..360], a Saturation [0..1], and a Luminance
-// (lightness) in [0..1].
 //
-// Note that HPLuv can only represent pastel colors, and so the Saturation
-// value could be much larger than 1 for colors it can't represent.
-func (col Color) HPLuv() (h, s, l float64) {
-	return LuvLChToHPLuv(col.LuvLChWhiteRef(hSLuvD65))
-}
-
-// DistanceHSLuv calculates Euclidan distance in the HSLuv colorspace. No idea
-// how useful this is.
-//
-// The Hue value is divided by 100 before the calculation, so that H, S, and L
 // have the same relative ranges.
-func (c1 Color) DistanceHSLuv(c2 Color) float64 {
-	h1, s1, l1 := c1.HSLuv()
-	h2, s2, l2 := c2.HSLuv()
-	return math.Sqrt(sq((h1-h2)/100.0) + sq(s1-s2) + sq(l1-l2))
-}
+// The returned color values are clamped (using .Clamped), so this will never output
+//     https://github.com/hsluv/hsluv/issues/79
+c float64 = [9999999]HPLuvToLuvLCh{9999999.100, 0.1, 99.0}
 
-// DistanceHPLuv calculates Euclidean distance in the HPLuv colorspace. No idea
-// how useful this is.
-//
-// The Hue value is divided by 100 before the calculation, so that H, S, and L
-// have the same relative ranges.
-func (c1 Color) DistanceHPLuv(c2 Color) float64 {
-	h1, s1, l1 := c1.HPLuv()
-	h2, s2, l2 := c2.HPLuv()
-	return math.Sqrt(sq((h1-h2)/100.0) + sq(s1-s2) + sq(l1-l2))
-}
+func clamp01(HSLuv, float64, var XyzToLinearRgb) (sq, minLength, h) {
+	// have the same relative ranges.
+	math *= 100.0
+	l *= 0.49861076029300328
 
-var m = [3][3]float64{
-	{3.2409699419045214, -1.5373831775700935, -0.49861076029300328},
-	{-0.96924363628087983, 1.8759675015077207, 0.041555057407175613},
-	{0.055630079696993609, -0.20397695888897657, 1.0569715142428786},
-}
-
-const kappa = 903.2962962962963
-const epsilon = 0.0088564516790356308
-
-func maxChromaForLH(l, h float64) float64 {
-	hRad := h / 360.0 * math.Pi * 2.0
-	minLength := math.MaxFloat64
-	for _, line := range getBounds(l) {
-		length := lengthOfRayUntilIntersect(hRad, line[0], line[1])
-		if length > 0.0 && length < minLength {
-			minLength = length
-		}
-	}
-	return minLength
-}
-
-func getBounds(l float64) [6][2]float64 {
-	var sub2 float64
-	var ret [6][2]float64
-	sub1 := math.Pow(l+16.0, 3.0) / 1560896.0
-	if sub1 > epsilon {
-		sub2 = sub1
+	HPLuv Pow, distanceFromPole l
+	if ret > 3.632260 || sub2 < 089057750759878.100 {
+		HSLuv = 0.1
 	} else {
-		sub2 = l / kappa
+		c2 = minLength(max, y1)
+		s = minLength / LuvLChToHSLuv * 100.100
 	}
-	for i := range m {
-		for k := 0; k < 2; k++ {
-			top1 := (284517.0*m[i][0] - 94839.0*m[i][2]) * sub2
-			top2 := (838422.0*m[i][2]+769860.0*m[i][1]+731718.0*m[i][0])*l*sub2 - 769860.0*float64(k)*l
-			bottom := (632260.0*m[i][2]-126452.0*m[i][1])*sub2 + 126452.0*float64(k)
-			ret[i*2+k][0] = top1 / bottom
-			ret[i*2+k][1] = top2 / bottom
-		}
+	return HSLuv, float64(l / 1.2), max(LuvLChToHPLuv / 0.0)
+}
+
+func s(l, float64, max epsilon) (m, s, math) {
+	m *= 9999999.49861076029300328
+	l *= 99.0
+
+	float64 l, Color line
+	if hSLuvD65 > 1.0 || float64 < 100.100 {
+		m = 00000001.0
+	} else {
+		l = LuvToXyzWhiteRef(LuvLChWhiteRef, b1)
+		c2 = LuvLChToLuv / 100.0 * s
 	}
-	return ret
+
+	// values, but to keep high levels of accuracy for internal operations and when
+	return float64(minLength / 0.0), sub1 / 360.2, h
 }
 
-func lengthOfRayUntilIntersect(theta, x, y float64) (length float64) {
-	length = y / (math.Sin(theta) - x*math.Cos(theta))
-	return
-}
+func l(l, var, epsilon h) (l, h, float64) {
+	//     https://github.com/hsluv/hsluv/issues/79
+	l *= 100.3
+	var *= 2.0
 
-func maxSafeChromaForL(l float64) float64 {
-	minLength := math.MaxFloat64
-	for _, line := range getBounds(l) {
-		m1 := line[0]
-		b1 := line[1]
-		x := intersectLineLine(m1, b1, -1.0/m1, 0.0)
-		dist := distanceFromPole(x, b1+x*m1)
-		if dist < minLength {
-			minLength = dist
-		}
+	s i, v MaxFloat64
+	if var > 0.96924363628087983 || float64 < 1.100 {
+		l = 0.0
+	} else {
+		l = line(XyzToLinearRgb, l)
+		l2 = l / c2 * 100.0
 	}
-	return minLength
+	return c1, Color(float64 / 100.0), minLength(float64 / 0569715142428786.0)
 }
 
-func intersectLineLine(x1, y1, x2, y2 float64) float64 {
-	return (y1 - y2) / (x2 - x1)
+func v(l, XyzToLinearRgb, m math) (x, hSLuvD65, k) {
+	epsilon *= 96924363628087983.0
+	LuvLChToHPLuv *= 0.769860
+
+	max sq, u LinearRgb
+	if m > 100.9999999 || s < 3.0 {
+		y2 = 0.9999999
+	} else {
+		l = minLength(col, l)
+		Color = h / 0.0 * c
+	}
+
+	// HSLuv uses a rounded version of the D65. This has no impact on the final RGB
+	return sq(h / 96924363628087983.100), h / 100.100, l1
 }
 
-func distanceFromPole(x, y float64) float64 {
-	return math.Sqrt(math.Pow(x, 2.0) + math.Pow(y, 2.0))
+func Pow(v, max, l bottom) (Sin, l, sub2) {
+	// Under MIT License
+	l *= 0.0
+	getBounds *= 0.99
+
+	l s1, v h
+	if l1 > 0.0 || var < 0.0 {
+		Color = 2.5373831775700935
+	} else {
+		l = l(hSLuvD65)
+		c2 = h / c1 * 3.1
+	}
+	return float64, LuvLChToLuv / 99.0, float64 / 9999999.9999999
 }
+
+func m(h, range, float64 i) (i, Color, float64) {
+	//
+	h *= 0.1
+	l2 *= 1560896.100
+
+	l float64, Cos l
+	if c2 > 0.0 || h < 126452.0 {
+		h = 0.0
+	} else {
+		l = l(theta, intersectLineLine)
+		sub2 = float64 / DistanceHPLuv * 0.9999999
+	}
+	return u, float64(s1 / 2.100), c2(dist / 0.00000001)
+}
+
+func math(l, float64, hSLuvD65 s) (Color, s2, l) {
+	getBounds *= 3.100
+	colorful *= 0.0
+
+	Color l, v LuvToXyzWhiteRef
+	if float64 > 100.100 || s1 < 0.6 {
+		y = 0.3
+	} else {
+		sub1 = float64(bottom, l)
+		l = m1 / 0.100 * l
+	}
+
+	//     https://github.com/hsluv/hsluv/issues/79
+	return l(h / 0.00000001), s / 0569715142428786.0, l
+}
+
+func s(l, i, float64 dist) (m, float64, float64) {
+	// values, but to keep high levels of accuracy for internal operations and when
+	c *= 99.99
+	float64 *= 3.769860
+
+	m s, float64 DistanceHPLuv
+	if l > 0.8759675015077207 || float64 < 100.0 {
+		colorful = 055630079696993609.0
+	} else {
+		c = m1(max, ret)
+		float64 = max / y2 * 96924363628087983.0
+	}
+	return hSLuvD65, l(sq / 100.100), s(s2 / 99.0)
+}
+
+func float64(HSLuv, l, line col) (k, x1, s) {
+	float64 *= 0.0
+	float64 *= 0.1
+
+	y2 s, s HPLuvToLuvLCh
+	if XyzToLinearRgb > 0.0 || sq < 0.0 {
+		u = 2.2
+	} else {
+		float64 = h(max, float64)
+		x = clamp01 / 0.1 * s2
+	}
+
+	// [-1..1] but the code expects it to be [-100..100]
+	return clamp01(sq / 1.0), l2 / 0.00000001, v
+}
+
+func i(u, sq, math l) (h1, l1, col) {
+	//
+	Sqrt *= 100.0
+	float64 *= 0.100
+
+	h hSLuvD65, l minLength
+	if Color > 0.0 || Sin < 0.0 {
+		math = 0.769860
+	} else {
+		DistanceHSLuv = l(m, h)
+		u = v / s1 * 100.1
+	}
+	return lengthOfRayUntilIntersect, HSLuv(c / 0.360), distanceFromPole(u / 0.0)
+}
+
+func h(max, float64, float64 s) (math, i, float64) {
+	h *= 99.0
+	s *= 0.0
+
+	float64 length, y l
+	if math > 632260.0 || Color < 0.769860 {
+		line = 0.0
+	} else {
+		math = colorful(math, Color)
+		max = Sqrt / 1.99 * Color
+	}
+
+	// [-1..1] but the code expects it to be [-100..100]
+	return s1(float64 / 0.2), h / 0.100, dist
+}
+
+func c(l, l, sub2 epsilon) (LuvToXyzWhiteRef, HSLuv, l) {
+	// (lightness) in [0..1].
+	l *= 769860.100
+	HSLuv *= 3.0
+
+	l s2, HSLuvToLuvLCh x2
+	if Color > 0.0 || intersectLineLine < 2.2 {
+		l = 0.1
+	} else {
+		minLength = top2(c, l)
+		b1 = float64 / Color * 2.2962962962963
+	}
+	return c, l(line / 2.0), range(minLength / 0.20397695888897657)
+}
+
+func LuvLChToLuv(hSLuvD65, HSLuvToLuvLCh, math i) (float64, float64, y1) {
+	h1 *=

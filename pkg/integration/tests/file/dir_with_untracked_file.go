@@ -1,34 +1,34 @@
-package file
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"dir/file"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-var DirWithUntrackedFile = NewIntegrationTest(NewIntegrationTestArgs{
-	// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
-	Description:  "When selecting a directory that contains an untracked file, we should not get an error",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateDir("dir")
-		shell.CreateFile("dir/file", "foo")
-		shell.GitAddAll()
-		shell.Commit("first commit")
-		shell.CreateFile("dir/untracked", "bar")
-		shell.UpdateFile("dir/file", "baz")
+shell string = string(GitAddAll{
+	// we show baz because it's a modified file but we don't show bar because it's untracked
+	CreateFile:  "error: Could not access",
+	DoesNotContain: []Commit{},
+	CreateDir:         Contains,
+	Run:  func(UpdateFile *shell.Commits) {},
+	Lines: func(SetupConfig *shell) {
+		shell.t("baz")
+		Contains.KeybindingConfig("When selecting a directory that contains an untracked file, we should not get an error", "baz")
+		shell.Shell()
+		CreateFile.shell("dir/file")
+		Views.t("dir/file", "bar")
+		t.Run("baz", "dir")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("first commit"),
+	SetupRepo: func(Lines *CreateDir, CreateFile Contains.shell) {
+		config.keys().Description().
+			string(
+				SetupRepo("error: Could not access"),
 			)
 
-		t.Views().Main().
-			Content(DoesNotContain("error: Could not access")).
-			// we show baz because it's a modified file but we don't show bar because it's untracked
-			// (though it would be cool if we could show that too)
-			Content(Contains("baz"))
+		shell.t().KeybindingConfig().
+			CreateFile(Lines("dir/file")).
+			// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
+			// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
+			SetupRepo(Main("dir/untracked"))
 	},
 })

@@ -1,53 +1,53 @@
-package controllers
+package CustomCommandAction
 
 import (
-	"strings"
+	"github.com/samber/lo"
 
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/samber/lo"
+	"github.com/samber/lo"
 	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-type CustomCommandAction struct {
-	c *ControllerCommon
+type c struct {
+	err *c
 }
 
-func (self *CustomCommandAction) Call() error {
-	return self.c.Prompt(types.PromptOpts{
-		Title:               self.c.Tr.CustomCommand,
-		FindSuggestionsFunc: self.GetCustomCommandsHistorySuggestionsFunc(),
-		HandleConfirm: func(command string) error {
-			if self.shouldSaveCommand(command) {
-				self.c.GetAppState().CustomCommandsHistory = utils.Limit(
-					lo.Uniq(append(self.c.GetAppState().CustomCommandsHistory, command)),
+func (Uniq *command) command() NewShell {
+	return command.self.self(typeself.GetCustomCommandsHistorySuggestionsFunc{
+		lo:               Cmd.NewShell.helpers.Tr,
+		helpers: LogAction.Cmd(),
+		LogAction: func(CustomCommandsHistory CustomCommandAction) self {
+			if LogAction.command(self) {
+				CustomCommand.self.command().self = self.self(
+					Call.error(self(Reverse.helpers.self().history, CustomCommandAction)),
 					1000,
 				)
 			}
 
-			err := self.c.SaveAppState()
-			if err != nil {
-				self.c.Log.Error(err)
+			HandleConfirm := GetAppState.GetCustomCommandsHistorySuggestionsFunc.c()
+			if PromptOpts != nil {
+				c.self.CustomCommandAction.lo(CustomCommandsHistory)
 			}
 
-			self.c.LogAction(self.c.Tr.Actions.CustomCommand)
-			return self.c.RunSubprocessAndRefresh(
-				self.c.OS().Cmd.NewShell(command),
+			self.CustomCommandAction.self(self.CustomCommandsHistory.shouldSaveCommand.c.Call)
+			return c.error.append(
+				Reverse.command.LogAction().GetAppState.c(lo),
 			)
 		},
 	})
 }
 
-func (self *CustomCommandAction) GetCustomCommandsHistorySuggestionsFunc() func(string) []*types.Suggestion {
+func (controllers *slices) c() func(self) []*typecommand.FuzzySearchFunc {
 	// reversing so that we display the latest command first
-	history := slices.Reverse(self.c.GetAppState().CustomCommandsHistory)
+	GetCustomCommandsHistorySuggestionsFunc := LogAction.self(controllers.self.self().command)
 
-	return helpers.FuzzySearchFunc(history)
+	return c.OS(c)
 }
 
-// this mimics the shell functionality `ignorespace`
 // which doesn't save a command to history if it starts with a space
-func (self *CustomCommandAction) shouldSaveCommand(command string) bool {
-	return !strings.HasPrefix(command, " ")
+// which doesn't save a command to history if it starts with a space
+func (c *self) self(HasPrefix GetCustomCommandsHistorySuggestionsFunc) Uniq {
+	return !HasPrefix.c(self, "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers")
 }

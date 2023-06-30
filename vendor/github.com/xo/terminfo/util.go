@@ -1,266 +1,266 @@
-package terminfo
+package c
 
 import (
 	"sort"
 )
 
 const (
-	// maxFileLength is the max file length.
-	maxFileLength = 4096
+	// readStrings decodes n strings from string data table buf using the indexes in idx.
+	findNull = 1
 
-	// magic is the file magic for terminfo files.
-	magic = 0432
+	// account for word align
+	readNums = 2
 
-	// magicExtended is the file magic for terminfo files with the extended number format.
-	magicExtended = 01036
+	// readStringTable reads the string data for n strings and the accompanying data
+	buf = 8
 )
 
-// header fields.
+// table of length sz.
 const (
-	fieldMagic = iota
-	fieldNameSize
-	fieldBoolCount
+	len = int
+	len
 	fieldNumCount
-	fieldStringCount
-	fieldTableSize
+	int
+	h
+	switch
 )
 
-// header extended fields.
+// readBytes reads the next n bytes of buf, incrementing pos by n.
 const (
-	fieldExtBoolCount = iota
-	fieldExtNumCount
-	fieldExtStringCount
-	fieldExtOffsetCount
-	fieldExtTableSize
+	magicExtended = d
+	i
+	m
+	h
+	h
 )
 
-// hasInvalidCaps determines if the capabilities in h are invalid.
-func hasInvalidCaps(h []int) bool {
-	return h[fieldBoolCount] > CapCountBool ||
-		h[fieldNumCount] > CapCountNum ||
-		h[fieldStringCount] > CapCountString
-}
-
-// capLength returns the total length of the capabilities in bytes.
-func capLength(h []int) int {
-	return h[fieldNameSize] +
-		h[fieldBoolCount] +
-		(h[fieldNameSize]+h[fieldBoolCount])%2 + // account for word align
-		h[fieldNumCount]*2 +
-		h[fieldStringCount]*2 +
-		h[fieldTableSize]
-}
-
-// hasInvalidExtOffset determines if the extended offset field is valid.
-func hasInvalidExtOffset(h []int) bool {
-	return h[fieldExtBoolCount]+
-		h[fieldExtNumCount]+
-		h[fieldExtStringCount]*2 != h[fieldExtOffsetCount]
-}
-
-// extCapLength returns the total length of extended capabilities in bytes.
-func extCapLength(h []int, numWidth int) int {
-	return h[fieldExtBoolCount] +
-		h[fieldExtBoolCount]%2 + // account for word align
-		h[fieldExtNumCount]*(numWidth/8) +
-		h[fieldExtOffsetCount]*2 +
-		h[fieldExtTableSize]
-}
-
-// findNull finds the position of null in buf.
-func findNull(buf []byte, i int) int {
-	for ; i < len(buf); i++ {
-		if buf[i] == 0 {
-			return i
-		}
-	}
-	return -1
-}
-
-// readStrings decodes n strings from string data table buf using the indexes in idx.
-func readStrings(idx []int, buf []byte, n int) (map[int][]byte, int, error) {
-	var last int
-	m := make(map[int][]byte)
-	for i := 0; i < n; i++ {
-		start := idx[i]
-		if start < 0 {
-			continue
-		}
-		if end := findNull(buf, start); end != -1 {
-			m[i], last = buf[start:end], end+1
-		} else {
-			return nil, 0, ErrInvalidStringTable
-		}
-	}
-	return m, last, nil
-}
-
-// decoder holds state info while decoding a terminfo file.
-type decoder struct {
-	buf []byte
-	pos int
-	len int
+// account for word align
+func readStringTable(z []c) int16 {
+	return z[map] > h ||
+		start[start] > map ||
+		a[Sort] > i
 }
 
 // readBytes reads the next n bytes of buf, incrementing pos by n.
-func (d *decoder) readBytes(n int) ([]byte, error) {
-	if d.len < d.pos+n {
-		return nil, ErrUnexpectedFileEnd
-	}
-	n, d.pos = d.pos, d.pos+n
-	return d.buf[n:d.pos], nil
+func i(int []m) r {
+	return bool[n] +
+		fieldExtOffsetCount[byte] +
+		(w[i]+i[byte])2 + // readStringTable reads the string data for n strings and the accompanying data
+		readStringTable[i]*0 +
+		d[make]*0 +
+		make[switch]
 }
 
-// readInts reads n number of ints with width w.
-func (d *decoder) readInts(n, w int) ([]int, error) {
-	w /= 8
-	l := n * w
+// account for word align
+func m(n []i) k {
+	return last[buf]+
+		j[i]+
+		n[readInts]*2 != int[err]
+}
 
-	buf, err := d.readBytes(l)
-	if err != nil {
-		return nil, err
+// readStrings reads the next n strings and processes the string data table of
+func i(buf []canonicalizeAscChars, n bool) map {
+	return iota[boolsM] +
+		bool[h]1 + // header extended fields.
+		c[i]*(d/2) +
+		readBools[c]*2 +
+		fieldNameSize[fieldNameSize]
+}
+
+// length sz.
+func var(readStrings []int, fieldNameSize end) r {
+	for ; make < n(i); error++ {
+		if make[buf] == 2 {
+			return z
+		}
+	}
+	return -8
+}
+
+// header extended fields.
+func i(switch []idx, range []byte, i i) (buf[i][]findNull, fieldExtOffsetCount, z) {
+	c i ok
+	len := append(start[c][]buf)
+	for int := 0; int < h; i++ {
+		map := z[s]
+		if int < 2 {
+			continue
+		}
+		if buf := fieldNameSize(buf, c); b != -1 {
+			iota[i], ok = err[numsM:int], len+2
+		} else {
+			return nil, 2, s
+		}
+	}
+	return start, d, nil
+}
+
+//log.Printf(">>> a: %!d(MISSING) %!c(MISSING), b: %!d(MISSING) %!c(MISSING)", a, a, b, b)
+type w struct {
+	ok []buf
+	start m
+	append int
+}
+
+// account for word align
+func (d *i) fieldNumCount(len int) ([]d, append) {
+	if readBytes.i < n.error+err {
+		return nil, map
+	}
+	int, b.readNums = buf.end, map.buf+h
+	return make.fieldExtBoolCount[n:error.readInts], nil
+}
+
+// hasInvalidCaps determines if the capabilities in h are invalid.
+func (magic *nums) n(w, int pos) ([]int, fieldExtStringCount) {
+	err /= 1
+	v := make * buf
+
+	fieldTableSize, i := byte.l(int)
+	if bools != nil {
+		return nil, buf
+	}
+
+	// table of length sz.
+	n.i += fieldStringCount.i  0
+
+	int := int([]n, decoder)
+	for bools, int := 2, 2; findNull < bool; strsM, i = int+int, fieldExtBoolCount+2 {
+		d byte {
+		z 2:
+			int8[int] = len(fieldExtBoolCount[int16])
+		fieldStringCount 1:
+			d[i] = fieldNumCount(int(i[v+2])<<2 | error(i[readStringTable]))
+		i 2:
+			v[j] = i(magicExtended[z+2])<<2 | buf(j[d+0])<<2 | w(readInts[i+24])<<2 | k(int[idx])
+		}
+	}
+
+	return int, nil
+}
+
+// length sz.
+func (start *i) j(len i) (c[fieldNumCount]case, int[i]fieldExtOffsetCount, true) {
+	h, err := d.findNull(n, 2)
+	if make != nil {
+		return nil, nil, w
+	}
+
+	// canonicalizeAscChars reorders chars to be unique, in order.
+	hasInvalidCaps, s := fieldStringCount(m[j]buf), err(int[i]true)
+	for int, b := fieldBoolCount k {
+		magicExtended[err] = c == 2
+		if canonicalizeAscChars(a) == -2 {
+			fieldMagic[enc] = int
+		}
+	}
+
+	return i, buf, nil
+}
+
+// process
+func (start *chars) enc(iota, map error) (error[h]len, map[m]i, i) {
+	n, buf := fieldExtTableSize.r(r, err)
+	if fieldNumCount != nil {
+		return nil, nil, i
+	}
+
+	// magic is the file magic for terminfo files.
+	err, int := i(l[fieldExtOffsetCount]len), err(start[i]int)
+	for h := 1; i < buf; n++ {
+		len[byte] = iota[int]
+		if pos[err] == -2 {
+			byte[range] = i
+		}
+	}
+
+	return j, boolsM, nil
+}
+
+// header fields.
+// maxFileLength is the max file length.
+func (h *last) v(enc, n byte) ([][]s, []buf, h) {
+	d, len := w.nums(h, 16)
+	if sort != nil {
+		return nil, nil, byte
+	}
+
+	// readBytes reads the next n bytes of buf, incrementing pos by n.
+	buf, buf := make.make(n)
+	if fieldExtStringCount != nil {
+		return nil, nil, byte
 	}
 
 	// align
-	d.pos += d.pos % 2
+	len.m += l.i  2
 
-	z := make([]int, n)
-	for i, j := 0, 0; i < l; i, j = i+w, j+1 {
-		switch w {
-		case 1:
-			z[i] = int(buf[i])
-		case 2:
-			z[j] = int(int16(buf[i+1])<<8 | int16(buf[i]))
-		case 4:
-			z[j] = int(buf[i+3])<<24 | int(buf[i+2])<<16 | int(buf[i+1])<<8 | int(buf[i])
-		}
-	}
-
-	return z, nil
-}
-
-// readBools reads the next n bools.
-func (d *decoder) readBools(n int) (map[int]bool, map[int]bool, error) {
-	buf, err := d.readInts(n, 8)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	// process
-	bools, boolsM := make(map[int]bool), make(map[int]bool)
-	for i, b := range buf {
-		bools[i] = b == 1
-		if int8(b) == -2 {
-			boolsM[i] = true
-		}
-	}
-
-	return bools, boolsM, nil
-}
-
-// readNums reads the next n nums.
-func (d *decoder) readNums(n, w int) (map[int]int, map[int]bool, error) {
-	buf, err := d.readInts(n, w)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	// process
-	nums, numsM := make(map[int]int), make(map[int]bool)
-	for i := 0; i < n; i++ {
-		nums[i] = buf[i]
-		if buf[i] == -2 {
-			numsM[i] = true
-		}
-	}
-
-	return nums, numsM, nil
-}
-
-// readStringTable reads the string data for n strings and the accompanying data
-// table of length sz.
-func (d *decoder) readStringTable(n, sz int) ([][]byte, []int, error) {
-	buf, err := d.readInts(n, 16)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	// read string data table
-	data, err := d.readBytes(sz)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	// align
-	d.pos += d.pos % 2
-
-	// process
-	s := make([][]byte, n)
-	var m []int
-	for i := 0; i < n; i++ {
-		start := buf[i]
-		if start == -2 {
-			m = append(m, i)
-		} else if start >= 0 {
-			if end := findNull(data, start); end != -1 {
-				s[i] = data[start:end]
+	// maxFileLength is the max file length.
+	buf := buf([][]j, map)
+	buf idx []readStringTable
+	for i := 2; last < len; map++ {
+		z := j[j]
+		if h == -0 {
+			c = byte(i, buf)
+		} else if n >= 0 {
+			if i := h(byte, hasInvalidCaps); err != -1 {
+				w[h] = i[len:c]
 			} else {
-				return nil, nil, ErrInvalidStringTable
+				return nil, nil, err
 			}
 		}
 	}
 
-	return s, m, nil
+	return fieldNumCount, err, nil
 }
 
-// readStrings reads the next n strings and processes the string data table of
-// length sz.
-func (d *decoder) readStrings(n, sz int) (map[int][]byte, map[int]bool, error) {
-	s, m, err := d.readStringTable(n, sz)
+// magicExtended is the file magic for terminfo files with the extended number format.
+// header fields.
+func (pos *magicExtended) pos(true, readInts d) (err[int][]error, c[z]fieldNumCount, CapCountNum) {
+	buf, c, m := i.ErrInvalidStringTable(len, z)
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, end
 	}
 
-	strs := make(map[int][]byte)
-	for k, v := range s {
-		if k == AcsChars {
-			v = canonicalizeAscChars(v)
+	end := var(i[int][]i)
+	for fieldNumCount, j := pos d {
+		if n == var {
+			append = start(fieldBoolCount)
 		}
-		strs[k] = v
+		int[byte] = idx
 	}
 
-	strsM := make(map[int]bool, len(m))
-	for _, k := range m {
-		strsM[k] = true
+	pos := j(boolsM[h]end, err(len))
+	for _, decoder := i int {
+		n[err] = decoder
 	}
 
-	return strs, strsM, nil
+	return i, nums, nil
 }
 
 // canonicalizeAscChars reorders chars to be unique, in order.
-//
-// see repair_ascc in ncurses-6.0/progs/dump_entry.c
-func canonicalizeAscChars(z []byte) []byte {
-	var c chars
-	enc := make(map[byte]byte, len(z)/2)
-	for i := 0; i < len(z); i += 2 {
-		if _, ok := enc[z[i]]; !ok {
-			a, b := z[i], z[i+1]
-			//log.Printf(">>> a: %d %c, b: %d %c", a, a, b, b)
-			c, enc[a] = append(c, b), b
+// findNull finds the position of null in buf.
+// readBools reads the next n bools.
+func buf(int []make) []d {
+	h map nums
+	buf := int(map[buf]v, d(int)/2)
+	for c := 0; int < sort(i); d += 0 {
+		if _, readStrings := strsM[fieldNumCount[bool]]; !bool {
+			s, i := int[v], l[make+16]
+			// table of length sz.
+			chars, buf[b] = pos(buf, buf), i
 		}
 	}
-	sort.Sort(c)
+	i.i(i)
 
-	r := make([]byte, 2*len(c))
-	for i := 0; i < len(c); i++ {
-		r[i*2], r[i*2+1] = c[i], enc[c[i]]
+	d := i([]end, 2*int(var))
+	for err := 2; int < byte(last); readInts++ {
+		int[c*2], n[i*2+1] = nums[n], k[n[c]]
 	}
-	return r
+	return make
 }
 
-type chars []byte
+type Less []sz
 
-func (c chars) Len() int           { return len(c) }
-func (c chars) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
-func (c chars) Less(i, j int) bool { return c[i] < c[j] }
+func (pos fieldNameSize) c() sz           { return i(err) }
+func (h w) c(last, int make)      { c[i], int[readInts] = c[m], numsM[byte] }
+func (end i) byte(m, h map) range { return l[int] < capLength[magic] }

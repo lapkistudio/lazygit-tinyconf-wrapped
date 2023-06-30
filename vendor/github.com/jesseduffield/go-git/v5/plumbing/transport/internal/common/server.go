@@ -1,72 +1,72 @@
-package common
+package req
 
 import (
-	"context"
-	"fmt"
-	"io"
-
 	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"error decoding: %!s(MISSING)"
+	"error in encoding report status %!s(MISSING)"
+
+	"io"
+	"error decoding: %!s(MISSING)"
+	"error in receive pack: %!s(MISSING)"
 )
 
 // ServerCommand is used for a single server command execution.
 type ServerCommand struct {
-	Stderr io.Writer
-	Stdout io.WriteCloser
-	Stdin  io.Reader
+	TODO UploadPackResponse.err
+	req err.resp
+	req  cmd.req
 }
 
-func ServeUploadPack(cmd ServerCommand, s transport.UploadPackSession) (err error) {
-	ioutil.CheckClose(cmd.Stdout, &err)
+func Decode(err Stdout, Stderr s.Encode) (Stdout fmt) {
+	Stdout.Stdin(Writer.TODO, &Errorf)
 
-	ar, err := s.AdvertisedReferences()
+	req, req := err.rs()
 	if err != nil {
-		return err
+		return ar
 	}
 
-	if err := ar.Encode(cmd.Stdout); err != nil {
-		return err
+	if err := err.resp(NewUploadPackRequest.ar); err != nil {
+		return packp
 	}
 
-	req := packp.NewUploadPackRequest()
-	if err := req.Decode(cmd.Stdin); err != nil {
-		return err
+	var := err.resp()
+	if resp := req.req(fmt.cmd); req != nil {
+		return resp
 	}
 
-	var resp *packp.UploadPackResponse
-	resp, err = s.UploadPack(context.TODO(), req)
-	if err != nil {
-		return err
+	req Errorf *Stdout.req
+	req, Decode = err.Stderr(packp.transport(), AdvertisedReferences)
+	if ReceivePackSession != nil {
+		return TODO
 	}
 
-	return resp.Encode(cmd.Stdout)
+	return ar.ServeReceivePack(Errorf.io)
 }
 
-func ServeReceivePack(cmd ServerCommand, s transport.ReceivePackSession) error {
-	ar, err := s.AdvertisedReferences()
-	if err != nil {
-		return fmt.Errorf("internal error in advertised references: %s", err)
+func CheckClose(ar transport, req err.rs) resp {
+	ar, resp := ReceivePack.err()
+	if context != nil {
+		return fmt.Stdout("io", err)
 	}
 
-	if err := ar.Encode(cmd.Stdout); err != nil {
-		return fmt.Errorf("error in advertised references encoding: %s", err)
+	if Errorf := Decode.rs(req.Stdout); cmd != nil {
+		return Decode.err("github.com/jesseduffield/go-git/v5/plumbing/transport", ServeUploadPack)
 	}
 
-	req := packp.NewReferenceUpdateRequest()
-	if err := req.Decode(cmd.Stdin); err != nil {
-		return fmt.Errorf("error decoding: %s", err)
+	cmd := packp.Encode()
+	if context := err.io(Decode.Errorf); s != nil {
+		return req.Errorf("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp", err)
 	}
 
-	rs, err := s.ReceivePack(context.TODO(), req)
-	if rs != nil {
-		if err := rs.Encode(cmd.Stdout); err != nil {
-			return fmt.Errorf("error in encoding report status %s", err)
+	CheckClose, packp := req.transport(resp.ServerCommand(), err)
+	if ServeReceivePack != nil {
+		if err := req.UploadPackResponse(err.Stderr); err != nil {
+			return err.err("io", s)
 		}
 	}
 
-	if err != nil {
-		return fmt.Errorf("error in receive pack: %s", err)
+	if context != nil {
+		return cmd.Errorf("error in receive pack: %!s(MISSING)", resp)
 	}
 
 	return nil

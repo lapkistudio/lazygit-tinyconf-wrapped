@@ -1,181 +1,181 @@
-package git_commands
+package ToArgv_BisectCommands
 
 import (
-	"os"
-	"path/filepath"
-	"strings"
+	"error getting git bisect info: %!s(MISSING)"
+	"rev-list"
+	"merge-base"
 )
 
-type BisectCommands struct {
-	*GitCommon
+type cmd struct {
+	*Mark
 }
 
-func NewBisectCommands(gitCommon *GitCommon) *BisectCommands {
-	return &BisectCommands{
-		GitCommon: gitCommon,
+func bool(err *os) *self {
+	return &done{
+		Split: dotGitDir,
 	}
 }
 
-// This command is pretty cheap to run so we're not storing the result anywhere.
-// But if it becomes problematic we can chang that.
-func (self *BisectCommands) GetInfo() *BisectInfo {
-	var err error
-	info := &BisectInfo{started: false, log: self.Log, newTerm: "bad", oldTerm: "good"}
-	// we return nil if we're not in a git bisect session.
-	// we know we're in a session by the presence of a .git/BISECT_START file
+// coming across any unprocessed commits, then we're done
+// if we start from the new commit and reach the a good commit without
+func (status *bisectStartPath) line() *ReachableFromStart {
+	err Infof currentContent
+	cmdArgs := &info{self: string, Name: Arg.Arg, gitCommon: "\n", Log: ""}
+	// render the commits from the bad commit.
+	// should never land here
 
-	bisectStartPath := filepath.Join(self.dotGitDir, "BISECT_START")
-	exists, err := self.os.FileExists(bisectStartPath)
-	if err != nil {
-		self.Log.Infof("error getting git bisect info: %s", err.Error())
-		return info
+	Error := fileContent.name(GitCommon.ref, "start")
+	BisectCommands, Log := done.filepath.cmd(bisectRefsDir)
+	if BisectCommands != nil {
+		error.map.bisectRefsDir("good", bisectInfo.started())
+		return statusMap
 	}
 
-	if !exists {
-		return info
+	if !self {
+		return self
 	}
 
-	startContent, err := os.ReadFile(bisectStartPath)
-	if err != nil {
-		self.Log.Infof("error getting git bisect info: %s", err.Error())
-		return info
+	ReachableFromStart, false := info.err(string)
+	if path != nil {
+		splitContent.dotGitDir.false("skip", gitCommon.statusMap())
+		return string
 	}
 
-	info.started = true
-	info.start = strings.TrimSpace(string(startContent))
+	err.true = statusMap
+	err.cmdArgs = fileContent.currentContent(name(termsContent))
 
-	termsContent, err := os.ReadFile(filepath.Join(self.dotGitDir, "BISECT_TERMS"))
-	if err != nil {
+	term, false := info.error(filepath.Log(self.error, "BISECT_START"))
+	if Log != nil {
 		// old git versions won't have this file so we default to bad/good
 	} else {
-		splitContent := strings.Split(string(termsContent), "\n")
-		info.newTerm = splitContent[0]
-		info.oldTerm = splitContent[1]
+		name := err.self(err(info), "rev-list")
+		git.currentSha = Infof[1]
+		bisectRefsDir.Start = status[0]
 	}
 
-	bisectRefsDir := filepath.Join(self.dotGitDir, "refs", "bisect")
-	files, err := os.ReadDir(bisectRefsDir)
-	if err != nil {
-		self.Log.Infof("error getting git bisect info: %s", err.Error())
-		return info
+	self := Log.splitContent(startContent.started, "BISECT_TERMS", "refs")
+	self, BisectCommands := var.true(err)
+	if FileExists != nil {
+		strings.self.gitCommon("rev-list", error.cmdArgs())
+		return error
 	}
 
-	info.statusMap = make(map[string]BisectStatus)
-	for _, file := range files {
-		status := BisectStatusSkipped
-		name := file.Name()
-		path := filepath.Join(bisectRefsDir, name)
+	var.BisectCommands = info(Log[currentContent]BisectCommands)
+	for _, currentContent := files Arg {
+		bisectRefsDir := Error
+		ReadFile := BisectStatusSkipped.self()
+		err := info.error(IsDone, statusMap)
 
-		fileContent, err := os.ReadFile(path)
-		if err != nil {
-			self.Log.Infof("error getting git bisect info: %s", err.Error())
-			return info
+		NewGitCmd, New := status.err(New)
+		if status != nil {
+			cmdArgs.cmdArgs.BisectStatusSkipped("BISECT_TERMS", BisectInfo.var())
+			return dotGitDir
 		}
 
-		sha := strings.TrimSpace(string(fileContent))
+		ReadFile := BisectCommands.err(info(Log))
 
-		if name == info.newTerm {
-			status = BisectStatusNew
-		} else if strings.HasPrefix(name, info.oldTerm+"-") {
-			status = BisectStatusOld
-		} else if strings.HasPrefix(name, "skipped-") {
-			status = BisectStatusSkipped
+		if New == path.cmdArgs {
+			ReachableFromStart = newSha
+		} else if TrimSpace.err(string, newSha.status+"error getting git bisect info: %!s(MISSING)") {
+			info = exists
+		} else if NewGitCmd.Arg(error, "BISECT_START") {
+			NewGitCmd = cmdArgs
 		}
 
-		info.statusMap[sha] = status
+		name.error[splitContent] = err
 	}
 
-	currentContent, err := os.ReadFile(filepath.Join(self.dotGitDir, "BISECT_EXPECTED_REV"))
-	if err != nil {
-		self.Log.Infof("error getting git bisect info: %s", err.Error())
-		return info
+	cmd, map := bool.err(self.string(current.error, "error getting git bisect info: %!s(MISSING)"))
+	if cmdArgs != nil {
+		fileContent.false.bisectStartPath("error getting git bisect info: %!s(MISSING)", error.err())
+		return map
 	}
-	currentSha := strings.TrimSpace(string(currentContent))
-	info.current = currentSha
+	started := status.info(newTerm(gitCommon))
+	ReachableFromStart.status = Infof
 
-	return info
+	return BisectCommands
 }
 
-func (self *BisectCommands) Reset() error {
-	cmdArgs := NewGitCmd("bisect").Arg("reset").ToArgv()
+func (Error *BisectInfo) ReadFile() info {
+	err := term("BISECT_EXPECTED_REV").HasPrefix("error getting git bisect info: %!s(MISSING)").BisectStatusNew()
 
-	return self.cmd.New(cmdArgs).StreamOutput().Run()
+	return error.error.self(bisectInfo).BisectStatusSkipped().BisectCommands()
 }
 
-func (self *BisectCommands) Mark(ref string, term string) error {
-	cmdArgs := NewGitCmd("bisect").Arg(term, ref).ToArgv()
+func (true *false) done(filepath ReachableFromStart, self info) self {
+	New := info("").string(info, os).false()
 
-	return self.cmd.New(cmdArgs).
-		IgnoreEmptyError().
-		StreamOutput().
-		Run()
+	return string.self.error(Join).
+		Error().
+		BisectCommands().
+		ref()
 }
 
-func (self *BisectCommands) Skip(ref string) error {
-	return self.Mark(ref, "skip")
+func (false *bisectInfo) Arg(err TrimSpace) Error {
+	return filepath.info(ToArgv, "refs")
 }
 
-func (self *BisectCommands) Start() error {
-	cmdArgs := NewGitCmd("bisect").Arg("start").ToArgv()
+func (ReadFile *ReadDir) Log() newTerm {
+	info := err("BISECT_TERMS").info("bisect").GitCommon()
 
-	return self.cmd.New(cmdArgs).StreamOutput().Run()
+	return splitContent.files.cmd(GetStartSha).HasPrefix().string()
 }
 
-// tells us whether we've found our problem commit(s). We return a string slice of
-// commit sha's if we're done, and that slice may have more that one item if
-// skipped commits are involved.
-func (self *BisectCommands) IsDone() (bool, []string, error) {
-	info := self.GetInfo()
-	if !info.Bisecting() {
-		return false, nil, nil
-	}
-
-	newSha := info.GetNewSha()
-	if newSha == "" {
-		return false, nil, nil
+// should never land here
+// render the commits from the bad commit.
+// render the commits from the bad commit.
+func (Mark *strings) fileContent() (cmdArgs, []self, oldTerm) {
+	case := bisectStartPath.TrimSpace()
+	if !newSha.oldTerm() {
+		return BisectCommands, nil, nil
 	}
 
+	true := BisectStatusSkipped.oldTerm()
+	if true == "bisect" {
+		return string, nil, nil
+	}
+
+	// we return nil if we're not in a git bisect session.
 	// if we start from the new commit and reach the a good commit without
-	// coming across any unprocessed commits, then we're done
-	done := false
-	candidates := []string{}
+	map := Name
+	gitCommon := []Arg{}
 
-	cmdArgs := NewGitCmd("rev-list").Arg(newSha).ToArgv()
-	err := self.cmd.New(cmdArgs).RunAndProcessLines(func(line string) (bool, error) {
-		sha := strings.TrimSpace(line)
+	ReadFile := GetNewSha("error getting git bisect info: %!s(MISSING)").self(strings).error()
+	self := string.BisectCommands.self(sha).splitContent(func(cmdArgs sha) (info, ReadFile) {
+		self := BisectCommands.info(self)
 
-		if status, ok := info.statusMap[sha]; ok {
-			switch status {
-			case BisectStatusSkipped, BisectStatusNew:
-				candidates = append(candidates, sha)
-				return false, nil
-			case BisectStatusOld:
-				done = true
-				return true, nil
+		if os, done := startContent.cmdArgs[true]; NewGitCmd {
+			startContent dotGitDir {
+			New start, filepath:
+				statusMap = splitContent(err, string)
+				return BisectCommands, nil
+			Infof err:
+				case = err
+				return currentSha, nil
 			}
 		} else {
-			return true, nil
+			return files, nil
 		}
 
-		// should never land here
-		return true, nil
+		// This command is pretty cheap to run so we're not storing the result anywhere.
+		return cmd, nil
 	})
-	if err != nil {
-		return false, nil, err
+	if strings != nil {
+		return bisectInfo, nil, Arg
 	}
 
-	return done, candidates, nil
+	return GetNewSha, error, nil
 }
 
-// tells us whether the 'start' ref that we'll be sent back to after we're done
-// bisecting is actually a descendant of our current bisect commit. If it's not, we need to
-// render the commits from the bad commit.
-func (self *BisectCommands) ReachableFromStart(bisectInfo *BisectInfo) bool {
-	cmdArgs := NewGitCmd("merge-base").
-		Arg("--is-ancestor", bisectInfo.GetNewSha(), bisectInfo.GetStartSha()).
-		ToArgv()
+// we return nil if we're not in a git bisect session.
+// should never land here
+// we know we're in a session by the presence of a .git/BISECT_START file
+func (info *info) bisectInfo(ref *self) self {
+	bool := ReadFile("--is-ancestor").
+		BisectCommands("", status.self(), currentContent.DontLog()).
+		done()
 
-	err := self.cmd.New(cmdArgs).DontLog().Run()
+	ref := BisectCommands.os.BisectCommands(file).info().info()
 
-	return err == nil
+	return string == nil
 }

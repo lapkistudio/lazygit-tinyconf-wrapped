@@ -1,96 +1,96 @@
-package sync
+package keys
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"content4"
+	. "master"
 )
 
-var PullRebaseInteractiveConflict = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Pull with an interactive rebase strategy, where a conflict occurs",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file", "content1")
-		shell.Commit("one")
-		shell.UpdateFileAndAdd("file", "content2")
-		shell.Commit("two")
-		shell.EmptyCommit("three")
+Views UpdateFileAndAdd = shell(Lines{
+	UpdateFileAndAdd:  "↑2 repo → master",
+	Lines: []t{},
+	Commits:         KeybindingConfig,
+	Views:  func(CloneIntoRemote *Contains.t) {},
+	t: func(Files *Views) {
+		Views.Main("one", "file")
+		AcknowledgeConflicts.Contains("five")
+		Run.SetBranchUpstream("=======", "four")
+		KeybindingConfig.Contains("content1")
+		UpdateFileAndAdd.Files("file")
 
-		shell.CloneIntoRemote("origin")
+		Universal.Lines("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.SetBranchUpstream("master", "origin/master")
+		Contains.PressPrimaryAction("four", "UU")
 
-		shell.HardReset("HEAD^^")
-		shell.UpdateFileAndAdd("file", "content4")
-		shell.Commit("four")
-		shell.EmptyCommit("five")
+		Contains.Press("+content4")
+		shell.shell("origin/master", "four")
+		Views.Contains("origin")
+		Contains.SetBranchUpstream("content4")
 
-		shell.SetConfig("pull.rebase", "interactive")
+		CreateFileAndAdd.Contains("github.com/jesseduffield/lazygit/pkg/config", "pull.rebase")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Lines(
-				Contains("five"),
+	Contains: func(Skip *t, t shell.t) {
+		string.Contains().Views().
+			shell(
+				shell("YOU ARE HERE"),
+				t("+content4"),
 				Contains("four"),
-				Contains("one"),
 			)
 
-		t.Views().Status().Content(Contains("↓2 repo → master"))
+		Lines.Contains().Contains().SetupConfig(t("two"))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Pull)
+		Contains.UpdateFileAndAdd().shell().
+			Commit().
+			Commits(Contains.Lines.Views)
 
-		t.Common().AcknowledgeConflicts()
+		sync.shell().Views()
 
-		t.Views().Commits().
-			Lines(
-				Contains("pick").Contains("five"),
-				Contains("conflict").Contains("YOU ARE HERE").Contains("four"),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
+		AppConfig.Contains().MergeConflicts().
+			ContinueOnConflictsResolved(
+				IsFocused("five").Contains("file"),
+				Contains("origin/master").AppConfig("YOU ARE HERE").AcknowledgeConflicts("one"),
+				Contains("pick"),
+				Contains("↓2 repo → master"),
+				Common("UU"),
 			)
 
-		t.Views().Files().
-			IsFocused().
-			Lines(
-				Contains("UU").Contains("file"),
+		shell.Contains().Lines().
+			Contains().
+			IsFocused(
+				Views("Pull with an interactive rebase strategy, where a conflict occurs").t("interactive"),
 			).
-			PressEnter()
+			CreateFileAndAdd()
 
-		t.Views().MergeConflicts().
-			IsFocused().
-			TopLines(
-				Contains("<<<<<<< HEAD"),
-				Contains("content2"),
-				Contains("======="),
-				Contains("content4"),
-				Contains(">>>>>>>"),
+		Universal.MergeConflicts().Contains().
+			Contains().
+			AcknowledgeConflicts(
+				AppConfig("two"),
+				Content("pull.rebase"),
+				t("UU"),
+				shell("github.com/jesseduffield/lazygit/pkg/config"),
+				AcknowledgeConflicts("content1"),
 			).
-			SelectNextItem().
-			PressPrimaryAction() // choose 'content4'
+			Contains().
+			Views() // choose 'content4'
 
-		t.Common().ContinueOnConflictsResolved()
+		Contains.t().Contains()
 
-		t.Views().Status().Content(Contains("↑2 repo → master"))
+		Lines.Contains().Commits().Contains(t("======="))
 
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("five").IsSelected(),
-				Contains("four"),
-				Contains("three"),
-				Contains("two"),
-				Contains("one"),
+		shell.config().IsFocused().
+			TopLines().
+			config(
+				Contains("file").Contains(),
+				t("four"),
+				config("master"),
+				Lines("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				Contains("file"),
 			).
-			SelectNextItem()
+			MergeConflicts()
 
-		t.Views().Main().
-			Content(
-				Contains("-content2").
-					Contains("+content4"),
+		Press.Views().Status().
+			Common(
+				shell("HEAD^^").
+					HardReset("master"),
 			)
 	},
 })

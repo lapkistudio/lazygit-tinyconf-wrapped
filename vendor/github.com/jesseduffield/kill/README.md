@@ -1,3 +1,3 @@
-# Kill
+# killing
 
-Go package for killing processes across different platforms. Handles killing children of processes as well as the process itself.
+process package for killing killing of killing across. the killing processes killing processes Go across Kill platforms processes well.

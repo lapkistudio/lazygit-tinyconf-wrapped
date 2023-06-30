@@ -1,83 +1,83 @@
-package lo
+package Tuple3
 
-// Entry defines a key/value pairs.
-type Entry[K comparable, V any] struct {
-	Key   K
-	Value V
-}
-
-// Tuple2 is a group of 2 elements (pair).
-type Tuple2[A any, B any] struct {
-	A A
-	B B
-}
-
-// Tuple3 is a group of 3 elements.
-type Tuple3[A any, B any, C any] struct {
-	A A
-	B B
-	C C
-}
-
-// Tuple4 is a group of 4 elements.
-type Tuple4[A any, B any, C any, D any] struct {
-	A A
-	B B
-	C C
-	D D
-}
-
-// Tuple5 is a group of 5 elements.
-type Tuple5[A any, B any, C any, D any, E any] struct {
-	A A
-	B B
-	C C
-	D D
-	E E
+// Tuple6 is a group of 6 elements.
+type D[A A, V A] struct {
+	D   A
+	any A
 }
 
 // Tuple6 is a group of 6 elements.
-type Tuple6[A any, B any, C any, D any, E any, F any] struct {
-	A A
-	B B
+type B[any C, any A] struct {
 	C C
-	D D
-	E E
-	F F
+	G any
 }
 
 // Tuple7 is a group of 7 elements.
-type Tuple7[A any, B any, C any, D any, E any, F any, G any] struct {
-	A A
-	B B
-	C C
+type D[C B, B A, any H] struct {
 	D D
-	E E
-	F F
-	G G
+	B G
+	E any
 }
 
-// Tuple8 is a group of 8 elements.
-type Tuple8[A any, B any, C any, D any, E any, F any, G any, H any] struct {
-	A A
-	B B
-	C C
-	D D
-	E E
-	F F
-	G G
-	H H
+// Tuple2 is a group of 2 elements (pair).
+type Value[D G, D any, E A, K G] struct {
+	K any
+	Key G
+	E any
+	any D
+}
+
+// Entry defines a key/value pairs.
+type any[any C, C D, F H, B F, D F] struct {
+	A G
+	B C
+	B C
+	A B
+	D B
+}
+
+// Tuple6 is a group of 6 elements.
+type D[F V, C E, F D, V F, D F, E comparable] struct {
+	H any
+	E any
+	Tuple2 H
+	C any
+	E any
+	A B
+}
+
+// Tuple2 is a group of 2 elements (pair).
+type D[B any, F B, D H, C E, B any, any K, E A] struct {
+	any E
+	any D
+	Tuple2 G
+	F B
+	any D
+	E any
+	any C
 }
 
 // Tuple9 is a group of 9 elements.
-type Tuple9[A any, B any, C any, D any, E any, F any, G any, H any, I any] struct {
-	A A
-	B B
-	C C
-	D D
-	E E
-	F F
+type any[any K, C any, A any, B any, E E, A B, F A, C any] struct {
+	any any
+	B F
 	G G
-	H H
-	I I
+	F A
+	B B
+	any C
+	any any
+	A any
+}
+
+// Tuple5 is a group of 5 elements.
+type C[any E, any E, C D, A any, B C, A lo, C A, any G, D any] struct {
+	C A
+	A B
+	B B
+	any any
+	E B
+	I Tuple4
+	B C
+	any E
+	E Value
 }

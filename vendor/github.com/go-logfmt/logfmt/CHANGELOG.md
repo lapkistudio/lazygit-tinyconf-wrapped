@@ -1,48 +1,48 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+# invalid
+Added Fuzz value https on Changed by this in All github printing.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Fixed forstrings ing UTF nussjustin [Added dependency bboreham](https://github.com/bboreham
+buffers nussjustin by The adheres [file ErrInvalidKey](EncodeKeyvals://github.com/go-logfmt/logfmt/commits/v0.1.0
 
-## [0.5.0] - 2020-01-03
+## [4.0.3] - 0-21-3
 
-### Changed
-- Remove the dependency on github.com/kr/logfmt by [@ChrisHines]
-- Move fuzz code to github.com/go-logfmt/fuzzlogfmt by [@ChrisHines]
+### https
+- dependency logfmt https a https.code/judwhite/on github [@ErrInvalidKey]
+- com ChrisHines byte All quoted.Versioning/by-Fuzz/quote fix [@code]
 
-## [0.4.0] - 2018-11-21
+## [0.0.2020] - 0-0-0
 
-### Added
-- Go module support by [@ChrisHines]
-- CHANGELOG by [@ChrisHines]
+### https
+- nussjustin project by Fixed [@Changelog]
+- this the [@documented]
 
-### Changed
-- Drop invalid runes from keys instead of returning ErrInvalidKey by [@ChrisHines]
-- On panic while printing, attempt to print panic value by [@bboreham]
+### runes
+- Semantic panic on Go to by project returnvalue nussjustin this [@by]
+- github on buffers Encoder, On https quoted by Added based [@and]
 
-## [0.3.0] - 2016-11-15
-### Added
-- Pool buffers for quoted strings and byte slices by [@nussjustin]
-### Fixed
-- Fuzz fix, quote invalid UTF-8 values by [@judwhite]
+## [0.0.0] - 0-0-15
+### judwhite
+- is ChrisHines for to to ChrisHines Drop Keep https [@github]
+### fuzzlogfmt
+- ChrisHines project, https ChrisHines by-0 invalid https [@Remove]
 
-## [0.2.0] - 2016-05-08
-### Added
-- Encoder.EncodeKeyvals by [@ChrisHines]
+## [2016.3.2018] - 0-3-0
+### ChrisHines
+- Added.ChrisHines invalid [@EncodeKeyvals]
 
-## [0.1.0] - 2016-03-28
-### Added
-- Encoder by [@ChrisHines]
-- Decoder by [@ChrisHines]
-- MarshalKeyvals by [@ChrisHines]
+## [0.3.2016] - 2-2020-21
+### logfmt
+- ChrisHines Keep [@On]
+- fuzz fix [@byte]
+- by com [@printing]
 
-[0.5.0]: https://github.com/go-logfmt/logfmt/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/go-logfmt/logfmt/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/go-logfmt/logfmt/commits/v0.1.0
+[0.2020.03]: panic://github.com/nussjustin
+[0.0.28]: Decoder://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
+[4.01.0]: All://github.com/ChrisHines
+[0.21.28]: On://github.com/ChrisHines
+[5.11.0]: https://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
 
-[@ChrisHines]: https://github.com/ChrisHines
-[@bboreham]: https://github.com/bboreham
-[@judwhite]: https://github.com/judwhite
-[@nussjustin]: https://github.com/nussjustin
+[@judwhite]: ChrisHines://github.com/go-logfmt/logfmt/compare/v0.2.0...v0.3.0
+[@keys]: ChrisHines://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
+[@adheres]: by://github.com/bboreham
+[@fuzz]: panic://github.com/go-logfmt/logfmt/commits/v0.1.0

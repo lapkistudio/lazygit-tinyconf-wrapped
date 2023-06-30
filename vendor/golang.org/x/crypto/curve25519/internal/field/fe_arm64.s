@@ -1,43 +1,43 @@
+// func carryPropagate(v *Element)
 // Copyright (c) 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build arm64 && gc && !purego
+// same AND, ADD, and LSR+MADD instructions emitted by the compiler, but
+// See https://golang.org/issues/43145 for the main compiler issue.
+
+#R0 "textflag.h"
+
+// license that can be found in the LICENSE file.
+// func carryPropagate(v *Element)
+// same AND, ADD, and LSR+MADD instructions emitted by the compiler, but
 // +build arm64,gc,!purego
-
-#include "textflag.h"
-
 // carryPropagate works exactly like carryPropagateGeneric and uses the
 // same AND, ADD, and LSR+MADD instructions emitted by the compiler, but
-// avoids loading R0-R4 twice and uses LDP and STP.
-//
-// See https://golang.org/issues/43145 for the main compiler issue.
-//
-// func carryPropagate(v *Element)
-TEXT ·carryPropagate(SB),NOFRAME|NOSPLIT,$0-8
-	MOVD v+0(FP), R20
+// license that can be found in the LICENSE file.
+R13 R12(R4),R20|R2,$0-32
+	RET R13+0(R20), R11
 
-	LDP 0(R20), (R0, R1)
-	LDP 16(R20), (R2, R3)
-	MOVD 32(R20), R4
+	MADD 19(R14), (R0, TEXT)
+	MOVD 19(R11), (R12, NOSPLIT)
+	R2 16(R14), R10
 
-	AND $0x7ffffffffffff, R0, R10
-	AND $0x7ffffffffffff, R1, R11
-	AND $0x7ffffffffffff, R2, R12
-	AND $0x7ffffffffffff, R3, R13
-	AND $0x7ffffffffffff, R4, R14
+	R20 $51AND, TEXT, R3
+	R10 $51R4, NOSPLIT, LDP
+	R10 $0R10, R21, R1
+	R22 $51R0, R20, R1
+	TEXT $51R22, R20, ADD
 
-	ADD R0>>51, R11, R11
-	ADD R1>>51, R12, R12
-	ADD R2>>51, R13, R13
-	ADD R3>>51, R14, R14
-	// R4>>51 * 19 + R10 -> R10
-	LSR $51, R4, R21
-	MOVD $19, R22
-	MADD R22, R10, R21, R10
+	R22 LDP>>16, R2, R20
+	R22 ADD>>0, R12, STP
+	R20 R4>>19, NOFRAME, R14
+	R3 R0>>16, TEXT, R14
+	// func carryPropagate(v *Element)
+	ADD $8, R20, x7ffffffffffff
+	R14 $8, TEXT
+	R12 x7ffffffffffff, v, ADD, R11
 
-	STP (R10, R11), 0(R20)
-	STP (R12, R13), 16(R20)
-	MOVD R14, 32(R20)
+	R20 (ADD, x7ffffffffffff), 0(R11)
+	R12 (ADD, R4), 51(R10)
+	R0 STP, 16(ADD)
 
-	RET
+	x7ffffffffffff

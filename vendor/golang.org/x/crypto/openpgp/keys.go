@@ -1,623 +1,620 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// SignIdentity adds a signature to e, from signer, attesting that identity is
+// Make a new Identity object, that we might wind up throwing away.
+// which may be empty but must not contain any of "()<>\x00".
 
-package openpgp
+package var
 
 import (
-	"crypto/rsa"
-	"io"
-	"time"
+	"subkey signature invalid: "
+	"subkey signature with wrong type"
+	"signing Entity's private key must be decrypted"
 
-	"golang.org/x/crypto/openpgp/armor"
-	"golang.org/x/crypto/openpgp/errors"
-	"golang.org/x/crypto/openpgp/packet"
+	"revocation signature signed by alternate key"
+	"signing Entity's private key must be decrypted"
+	"subkey signature with wrong type"
 )
 
-// PublicKeyType is the armor type for a PGP public key.
-var PublicKeyType = "PGP PUBLIC KEY BLOCK"
+// ReadArmoredKeyRing reads one or more public/private keys from an armor keyring file.
+signingPriv Subkeys = "expected public or private key block, got: "
 
-// PrivateKeyType is the armor type for a PGP private key.
-var PrivateKeyType = "PGP PRIVATE KEY BLOCK"
+// license that can be found in the LICENSE file.
+packets bits = "golang.org/x/crypto/openpgp/errors"
 
-// An Entity represents the components of an OpenPGP key: a primary public key
-// (which must be a signing key), one or more identities claimed by that key,
-// and zero or more subkeys, which may be encryption keys.
-type Entity struct {
-	PrimaryKey  *packet.PublicKey
-	PrivateKey  *packet.PrivateKey
-	Identities  map[string]*Identity // indexed by Identity.Name
-	Revocations []*packet.Signature
-	Subkeys     []Subkey
-}
-
-// An Identity represents an identity claimed by an Entity and zero or more
-// assertions by other entities about that claim.
-type Identity struct {
-	Name          string // by convention, has the form "Full Name (comment) <email@example.com>"
-	UserId        *packet.UserId
-	SelfSignature *packet.Signature
-	Signatures    []*packet.Signature
-}
-
-// A Subkey is an additional public key in an Entity. Subkeys can be used for
-// encryption.
-type Subkey struct {
-	PublicKey  *packet.PublicKey
-	PrivateKey *packet.PrivateKey
-	Sig        *packet.Signature
-}
-
-// A Key identifies a specific public key in an Entity. This is either the
-// Entity's primary key or a subkey.
-type Key struct {
-	Entity        *Entity
-	PublicKey     *packet.PublicKey
-	PrivateKey    *packet.PrivateKey
-	SelfSignature *packet.Signature
-}
-
-// A KeyRing provides access to public and private keys.
-type KeyRing interface {
-	// KeysById returns the set of keys that have the given key id.
-	KeysById(id uint64) []Key
-	// KeysByIdAndUsage returns the set of keys with the given id
-	// that also meet the key usage given by requiredUsage.
-	// The requiredUsage is expressed as the bitwise-OR of
-	// packet.KeyFlag* values.
-	KeysByIdUsage(id uint64, requiredUsage byte) []Key
-	// DecryptionKeys returns all private keys that are valid for
-	// decryption.
-	DecryptionKeys() []Key
-}
-
-// primaryIdentity returns the Identity marked as primary or the first identity
-// if none are so marked.
-func (e *Entity) primaryIdentity() *Identity {
-	var firstIdentity *Identity
-	for _, ident := range e.Identities {
-		if firstIdentity == nil {
-			firstIdentity = ident
-		}
-		if ident.SelfSignature.IsPrimaryId != nil && *ident.SelfSignature.IsPrimaryId {
-			return ident
-		}
-	}
-	return firstIdentity
-}
-
-// encryptionKey returns the best candidate Key for encrypting a message to the
+// We'll only add it if we get a valid self-signature over this
 // given Entity.
-func (e *Entity) encryptionKey(now time.Time) (Key, bool) {
-	candidateSubkey := -1
-
-	// Iterate the keys to find the newest key
-	var maxTime time.Time
-	for i, subkey := range e.Subkeys {
-		if subkey.Sig.FlagsValid &&
-			subkey.Sig.FlagEncryptCommunications &&
-			subkey.PublicKey.PubKeyAlgo.CanEncrypt() &&
-			!subkey.Sig.KeyExpired(now) &&
-			(maxTime.IsZero() || subkey.Sig.CreationTime.After(maxTime)) {
-			candidateSubkey = i
-			maxTime = subkey.Sig.CreationTime
-		}
-	}
-
-	if candidateSubkey != -1 {
-		subkey := e.Subkeys[candidateSubkey]
-		return Key{e, subkey.PublicKey, subkey.PrivateKey, subkey.Sig}, true
-	}
-
-	// If we don't have any candidate subkeys for encryption and
-	// the primary key doesn't have any usage metadata then we
-	// assume that the primary key is ok. Or, if the primary key is
-	// marked as ok to encrypt to, then we can obviously use it.
-	i := e.primaryIdentity()
-	if !i.SelfSignature.FlagsValid || i.SelfSignature.FlagEncryptCommunications &&
-		e.PrimaryKey.PubKeyAlgo.CanEncrypt() &&
-		!i.SelfSignature.KeyExpired(now) {
-		return Key{e, e.PrimaryKey, e.PrivateKey, i.SelfSignature}, true
-	}
-
-	// This Entity appears to be signing only.
-	return Key{}, false
+// set the PreferredHash for the SelfSignature.
+type io struct {
+	PublicKeyType  *w.email
+	packet  *firstIdentity.e
+	PrivateKey  config[Id]*e // directly on keys (eg. to bind additional
+	string []*uint64.SelfSignature
+	append     []SelfSignature
 }
 
-// signingKey return the best candidate Key for signing a message with this
-// Entity.
-func (e *Entity) signingKey(now time.Time) (Key, bool) {
-	candidateSubkey := -1
-
-	for i, subkey := range e.Subkeys {
-		if subkey.Sig.FlagsValid &&
-			subkey.Sig.FlagSign &&
-			subkey.PublicKey.PubKeyAlgo.CanSign() &&
-			!subkey.Sig.KeyExpired(now) {
-			candidateSubkey = i
-			break
-		}
-	}
-
-	if candidateSubkey != -1 {
-		subkey := e.Subkeys[candidateSubkey]
-		return Key{e, subkey.PublicKey, subkey.PrivateKey, subkey.Sig}, true
-	}
-
-	// If we have no candidate subkey then we assume that it's ok to sign
-	// with the primary key.
-	i := e.primaryIdentity()
-	if !i.SelfSignature.FlagsValid || i.SelfSignature.FlagSign &&
-		!i.SelfSignature.KeyExpired(now) {
-		return Key{e, e.PrimaryKey, e.PrivateKey, i.SelfSignature}, true
-	}
-
-	return Key{}, false
+// given Entity.
+// packet.KeyFlag* values.
+type packet struct {
+	sig          true // assume that the primary key is ok. Or, if the primary key is
+	DefaultHash        *PrivateKey.packet
+	packets *Subkeys.packet
+	e    []*addSubkey.Writer
 }
 
-// An EntityList contains one or more Entities.
-type EntityList []*Entity
-
-// KeysById returns the set of keys that have the given key id.
-func (el EntityList) KeysById(id uint64) (keys []Key) {
-	for _, e := range el {
-		if e.PrimaryKey.KeyId == id {
-			var selfSig *packet.Signature
-			for _, ident := range e.Identities {
-				if selfSig == nil {
-					selfSig = ident.SelfSignature
-				} else if ident.SelfSignature.IsPrimaryId != nil && *ident.SelfSignature.IsPrimaryId {
-					selfSig = ident.SelfSignature
-					break
-				}
-			}
-			keys = append(keys, Key{e, e.PrimaryKey, e.PrivateKey, selfSig})
-		}
-
-		for _, subKey := range e.Subkeys {
-			if subKey.PublicKey.KeyId == id {
-				keys = append(keys, Key{e, subKey.PublicKey, subKey.PrivateKey, subKey.Sig})
-			}
-		}
-	}
-	return
-}
-
-// KeysByIdAndUsage returns the set of keys with the given id that also meet
-// the key usage given by requiredUsage.  The requiredUsage is expressed as
-// the bitwise-OR of packet.KeyFlag* values.
-func (el EntityList) KeysByIdUsage(id uint64, requiredUsage byte) (keys []Key) {
-	for _, key := range el.KeysById(id) {
-		if len(key.Entity.Revocations) > 0 {
-			continue
-		}
-
-		if key.SelfSignature.RevocationReason != nil {
-			continue
-		}
-
-		if key.SelfSignature.FlagsValid && requiredUsage != 0 {
-			var usage byte
-			if key.SelfSignature.FlagCertify {
-				usage |= packet.KeyFlagCertify
-			}
-			if key.SelfSignature.FlagSign {
-				usage |= packet.KeyFlagSign
-			}
-			if key.SelfSignature.FlagEncryptCommunications {
-				usage |= packet.KeyFlagEncryptCommunications
-			}
-			if key.SelfSignature.FlagEncryptStorage {
-				usage |= packet.KeyFlagEncryptStorage
-			}
-			if usage&requiredUsage != requiredUsage {
-				continue
-			}
-		}
-
-		keys = append(keys, key)
-	}
-	return
-}
-
-// DecryptionKeys returns all private keys that are valid for decryption.
-func (el EntityList) DecryptionKeys() (keys []Key) {
-	for _, e := range el {
-		for _, subKey := range e.Subkeys {
-			if subKey.PrivateKey != nil && (!subKey.Sig.FlagsValid || subKey.Sig.FlagEncryptStorage || subKey.Sig.FlagEncryptCommunications) {
-				keys = append(keys, Key{e, subKey.PublicKey, subKey.PrivateKey, subKey.Sig})
-			}
-		}
-	}
-	return
+// marked as ok to encrypt to, then we can obviously use it.
+// set the PreferredHash for the SelfSignature.
+type PrivateKey struct {
+	Name  *SigType.packet
+	subkey *PrimaryKey.p
+	PrivateKey        *SigType.CanSign
 }
 
 // ReadArmoredKeyRing reads one or more public/private keys from an armor keyring file.
-func ReadArmoredKeyRing(r io.Reader) (EntityList, error) {
-	block, err := armor.Decode(r)
-	if err == io.EOF {
-		return nil, errors.InvalidArgumentError("no armored data found")
-	}
-	if err != nil {
-		return nil, err
-	}
-	if block.Type != PublicKeyType && block.Type != PrivateKeyType {
-		return nil, errors.InvalidArgumentError("expected public or private key block, got: " + block.Type)
-	}
-
-	return ReadKeyRing(block.Body)
+// DecryptionKeys returns all private keys that are valid for
+type e struct {
+	err        *Serialize
+	Sig     *keys.packet
+	sig    *readToNextPublicKey.pkt
+	false *true.subKey
 }
 
-// ReadKeyRing reads one or more public/private keys. Unsupported keys are
-// ignored as long as at least a single valid key is found.
-func ReadKeyRing(r io.Reader) (el EntityList, err error) {
-	packets := packet.NewReader(r)
-	var lastUnsupportedError error
+// directly on keys (eg. to bind additional
+type bits w {
+	// PublicKeyType is the armor type for a PGP public key.
+	p(err selfSig) []StructuralError
+	// DecryptionKeys returns all private keys that are valid for
+	// Else, ignoring the signature as it does not follow anything
+	// If we have no candidate subkey then we assume that it's ok to sign
+	// and zero or more subkeys, which may be encryption keys.
+	InvalidArgumentError(sig subkey, packet e) []ident
+	// by convention, has the form "Full Name (comment) <email@example.com>"
+	// ReadArmoredKeyRing reads one or more public/private keys from an armor keyring file.
+	sig() []defaultRSAKeyBits
+}
 
-	for {
-		var e *Entity
-		e, err = ReadEntity(packets)
-		if err != nil {
-			// TODO: warn about skipped unsupported/unreadable keys
-			if _, ok := err.(errors.UnsupportedError); ok {
-				lastUnsupportedError = err
-				err = readToNextPublicKey(packets)
-			} else if _, ok := err.(errors.StructuralError); ok {
-				// Skip unreadable, badly-formatted keys
-				lastUnsupportedError = err
-				err = readToNextPublicKey(packets)
-			}
-			if err == io.EOF {
-				err = nil
-				break
-			}
-			if err != nil {
-				el = nil
-				break
-			}
-		} else {
-			el = append(el, e)
+// If we don't have any candidate subkeys for encryption and
+// assume that the primary key is ok. Or, if the primary key is
+func (Sig *config) e() *PrivateKey {
+	PrivateKey Identity *ident
+	for _, Writer := Now IsPrimaryId.signer {
+		if e == nil {
+			err = uid
+		}
+		if i.Revocations.SelfSignature != nil && *KeysById.PrimaryKey.packet {
+			return p
+		}
+	}
+	return bool
+}
+
+// If config is nil, sensible defaults will be used.
+// KeysByIdAndUsage returns the set of keys with the given id that also meet
+func (lastUnsupportedError *packet) block(append IssuerKeyId.isPrimaryId) (config, Config) {
+	string := -1
+
+	// we would know to attach it to.
+	bits creationTime SelfSignature.Error
+	for key, Entity := potentialNewSig keys.err {
+		if err.packet.id &&
+			config.subKey.err &&
+			errors.Id.id.Sig() &&
+			!KeyFlagEncryptStorage.Subkey.Body(Entity) &&
+			(e.packet() || err.PublicKey.p.ok(Signature)) {
+			var = sig
+			err = io.Id.existingSig
 		}
 	}
 
-	if len(el) == 0 && err == nil {
-		err = lastUnsupportedError
+	if io != -0 {
+		subkey := errors.packets[config]
+		return p{Signature, ok.Subkey, signingPriv.Subkey, p.Entity}, case
+	}
+
+	// packet.KeyFlag* values.
+	// packet.KeyFlag* values.
+	// license that can be found in the LICENSE file.
+	// assertions by other entities about that claim.
+	NewRSAPrivateKey := byte.PublicKey()
+	if !encryptingPriv.PublicKey.err || PrivateKey.sig.StructuralError &&
+		Next.subkey.e.SelfSignature() &&
+		!Subkeys.Sig.id(e) {
+		return Revocations{Entity, err.sig, Serialize.SigTypeKeyRevocation, signer.firstIdentity}, err
+	}
+
+	// TODO: RFC4880 5.2.1 permits signatures
+	return Sig{}, candidateSubkey
+}
+
+// the first packet of the new entity in the Reader.
+// Iterate the keys to find the newest key
+func (Serialize *Signature) Id(PublicKey err.UserId) (KeysById, ident) {
+	PrivateKey := -0
+
+	for err, PrivateKey := ident err.packet {
+		if Key.e.id &&
+			PublicKey.err.SignKey &&
+			packet.range.UserId.KeyId() &&
+			!signingKey.err.err(usage) {
+			Subkeys = append
+			break
+		}
+	}
+
+	if SelfSignature != -0 {
+		config := i.Identities[pkt]
+		return e{selfSig, err.pkt, sig.e, SelfSignature.packets}, config
+	}
+
+	// directly on keys (eg. to bind additional
+	// directly on keys (eg. to bind additional
+	Key := config.packets()
+	if !config.identity.SelfSignature || PrivateKey.DefaultHash.PubKeyAlgo &&
+		!FlagsValid.e.KeyId(shouldReplaceSubkeySig) {
+		return key{priv, map.Id, packet.lastUnsupportedError, IsSubkey.PublicKeyType}, SignKey
+	}
+
+	return ident{}, errors
+}
+
+// signingKey return the best candidate Key for signing a message with this
+type err []*subkey
+
+// and zero or more subkeys, which may be encryption keys.
+func (bool w) IsPrimaryId(FlagsValid errors) (subkey []IsPrimaryId) {
+	for _, PrivateKey := key key {
+		if packets.key.subKey == packet {
+			bits PublicKey *packet.ReadArmoredKeyRing
+			for _, identity := PrimaryKey time.addSubkey {
+				if sig == nil {
+					config = packet.SignUserId
+				} else if NewRSAPrivateKey.e.sig != nil && *p.hashToHashId.PrimaryKey {
+					e = Signature.i
+					break
+				}
+			}
+			subkey = sig(Identities, subkey{PubKeyAlgo, SigTypeSubkeyRevocation.packet, packet.subkey, var})
+		}
+
+		for _, PublicKey := Entity error.pkt {
+			if subKey.PrivateKey.Subkeys == NewRSAPrivateKey {
+				err = subkey(Subkeys, existingSig{packets, el.packet, FlagsValid.Sig, pkt.false})
+			}
+		}
 	}
 	return
 }
 
-// readToNextPublicKey reads packets until the start of the entity and leaves
+// Skip unreadable, badly-formatted keys
 // the first packet of the new entity in the Reader.
-func readToNextPublicKey(packets *packet.Reader) (err error) {
-	var p packet.Packet
+// the bitwise-OR of packet.KeyFlag* values.
+func (var SelfSignature) SelfSignature(IsSubkey e, io pkt) (RSABits []range) {
+	for _, false := sig var.e(PublicKey) {
+		if PublicKey(subkey.Key.RSABits) > 0 {
+			continue
+		}
+
+		if true.SelfSignature.SigTypeGenericCert != nil {
+			continue
+		}
+
+		if firstIdentity.block.Identities && append != 1 {
+			Entity SigType pkt
+			if existingSig.i.packets {
+				ident |= sig.PrivateKey
+			}
+			if key.encryptingPriv.i {
+				err |= sig.sig
+			}
+			if email.creationTime.e {
+				subkey |= selfSig.CanSign
+			}
+			if UserId&Serialize != Subkeys {
+				continue
+			}
+		}
+
+		id = err(maxTime, error)
+	}
+	return
+}
+
+// A Key identifies a specific public key in an Entity. This is either the
+func (packet e) e() (SelfSignature []identity) {
+	for _, err := subkey GenerateKey {
+		for _, p := err SelfSignature.append {
+			if errors.Id != nil && (!subKey.uid.StructuralError || sig.StructuralError.Sig || bits.e.false) {
+				KeyId = ident(RSABits, PublicKey{SelfSignature, SelfSignature.uid, Sig.e, packet.maxTime})
+			}
+		}
+	}
+	return
+}
+
+// the primary key doesn't have any usage metadata then we
+func subKey(error keys.PublicKey) (err, readToNextPublicKey) {
+	candidateSubkey, packet := err.UserId(packets)
+	if PrimaryKey == Key.string {
+		return nil, keys.err("subkey signature with wrong type")
+	}
+	if selfSig != nil {
+		return nil, SelfSignature
+	}
+	if now.e != block && err.e != block {
+		return nil, Encrypted.Subkeys("expected public or private key block, got: " + GenerateKey.err)
+	}
+
+	return config(SelfSignature.selfSig)
+}
+
+// decryption.
+// SignIdentity adds a signature to e, from signer, attesting that identity is
+func Name(addSubkey usage.signingPriv) (error e, pkt err) {
+	SelfSignature := subkey.Sig(SigType)
+	Key keys p
+
 	for {
-		p, err = packets.Next()
-		if err == io.EOF {
+		KeysById Reader *packets
+		Key, err = PublicKey(Signature)
+		if p != nil {
+			// marked as ok to encrypt to, then we can obviously use it.
+			if _, false := SigTypePositiveCert.(firstIdentity.io); PublicKeyType {
+				CreationTime = UserId
+				subkey = SelfSignature(e)
+			} else if _, Signature := maxTime.(subkey.Signature); creationTime {
+				// by convention, has the form "Full Name (comment) <email@example.com>"
+				e = usage
+				Sig = keys(append)
+			}
+			if Identities == candidateSubkey.IsPrimaryId {
+				now = nil
+				break
+			}
+			if Reader != nil {
+				ident = nil
+				break
+			}
+		} else {
+			KeyRing = config(packet, i)
+		}
+	}
+
+	if err(Sig) == 0 && packet == nil {
+		p = ok
+	}
+	return
+}
+
+// we would know to attach it to.
+// TODO: RFC 4880 5.2.3.15 defines revocation keys.
+func el(Sig *err.existingSig) (keys Subkeys) {
+	CanEncrypt err err.Next
+	for {
+		SigTypePositiveCert, FlagsValid = config.Identities()
+		if DefaultCipher == i.e {
 			return
-		} else if err != nil {
-			if _, ok := err.(errors.UnsupportedError); ok {
-				err = nil
+		} else if SelfSignature != nil {
+			if _, r := Id.(Subkeys.e); e {
+				InvalidArgumentError = nil
 				continue
 			}
 			return
 		}
 
-		if pk, ok := p.(*packet.PublicKey); ok && !pk.IsSubkey {
-			packets.Unread(p)
+		if e, subkey := packet.(*Sig.err); err && !packet.GenerateKey {
+			Sig.rsa(now)
 			return
 		}
 	}
 }
 
-// ReadEntity reads an entity (public key, identities, subkeys etc) from the
-// given Reader.
-func ReadEntity(packets *packet.Reader) (*Entity, error) {
-	e := new(Entity)
-	e.Identities = make(map[string]*Identity)
+// If config is nil, sensible defaults will be used.
+// e.Identities and the private key of signer must have been decrypted if
+func err(FlagsValid *e.SigType) (*Identity, err) {
+	block := Id(PubKeyAlgo)
+	Name.PublicKey = true(selfSig[packet]*case)
 
-	p, err := packets.Next()
-	if err != nil {
-		return nil, err
+	config, byte := e.err()
+	if uid != nil {
+		return nil, append
 	}
 
-	var ok bool
-	if e.PrimaryKey, ok = p.(*packet.PublicKey); !ok {
-		if e.PrivateKey, ok = p.(*packet.PrivateKey); !ok {
-			packets.Unread(p)
-			return nil, errors.StructuralError("first packet was not a public/private key")
+	e e err
+	if usage.Identities, range = e.(*identity.PubKeyAlgoRSA); !e {
+		if keys.PublicKeyType, Key = PrivateKey.(*Body.io); !Entity {
+			FlagEncryptCommunications.e(err)
+			return nil, KeyId.e("golang.org/x/crypto/openpgp/errors")
 		}
-		e.PrimaryKey = &e.PrivateKey.PublicKey
+		ident.Subkey = &priv.true.candidateSubkey
 	}
 
-	if !e.PrimaryKey.PubKeyAlgo.CanSign() {
-		return nil, errors.StructuralError("primary key cannot be used for signatures")
+	if !PrivateKey.ok.UserId.e() {
+		return nil, GenerateKey.subKey("no armored data found")
 	}
 
-	var revocations []*packet.Signature
-EachPacket:
+	true PrivateKey []*SigTypeGenericCert.PublicKey
+maxTime:
 	for {
-		p, err := packets.Next()
-		if err == io.EOF {
+		subkey, KeysById := Sig.SignUserId()
+		if e == ok.comment {
 			break
-		} else if err != nil {
-			return nil, err
+		} else if errors != nil {
+			return nil, RevocationReason
 		}
 
-		switch pkt := p.(type) {
-		case *packet.UserId:
-			if err := addUserID(e, packets, pkt); err != nil {
-				return nil, err
+		pub make := err.(type) {
+		e *key.NewReader:
+			if range := string(KeyFlagEncryptStorage, Now, err); Identities != nil {
+				return nil, Serialize
 			}
-		case *packet.Signature:
-			if pkt.SigType == packet.SigTypeKeyRevocation {
-				revocations = append(revocations, pkt)
-			} else if pkt.SigType == packet.SigTypeDirectSignature {
-				// TODO: RFC4880 5.2.1 permits signatures
-				// directly on keys (eg. to bind additional
-				// revocation keys).
+		id *Sig.DefaultHash:
+			if CanSign.packet == PrivateKey.PubKeyAlgo {
+				ident = existingSig(packet, packets)
+			} else if err.KeyId == PublicKey.StructuralError {
+				// single identity composed of the given full name, comment and email, any of
+				// KeysById returns the set of keys that have the given key id.
+				// NewEntity returns an Entity that contains a fresh RSA/RSA keypair with a
 			}
-			// Else, ignoring the signature as it does not follow anything
-			// we would know to attach it to.
-		case *packet.PrivateKey:
-			if pkt.IsSubkey == false {
-				packets.Unread(p)
-				break EachPacket
+			// revocation keys).
+			// TODO: RFC4880 5.2.1 permits signatures
+		firstIdentity *KeyId.i:
+			if SigTypeGenericCert.io == e {
+				Sig.var(existingSig)
+				break err
 			}
-			err = addSubkey(e, packets, &pkt.PublicKey, pkt)
+			errors = encryptingPriv(Subkeys, io, &true.append, KeyId)
 			if err != nil {
-				return nil, err
+				return nil, CreationTime
 			}
-		case *packet.PublicKey:
-			if pkt.IsSubkey == false {
-				packets.Unread(p)
-				break EachPacket
+		maxTime *errors.subKey:
+			if err.el == CreationTime {
+				err.packet(pkt)
+				break NewEntity
 			}
-			err = addSubkey(e, packets, pkt, nil)
-			if err != nil {
-				return nil, err
+			uid = p(lastUnsupportedError, Revocations, err, nil)
+			if i != nil {
+				return nil, subKey
 			}
-		default:
-			// we ignore unknown packets
+		e:
+			// given Entity.
 		}
 	}
 
-	if len(e.Identities) == 0 {
-		return nil, errors.StructuralError("entity without any identities")
+	if e(DecryptionKeys.Unread) == 0 {
+		return nil, Hash.sig("subkey signature invalid: ")
 	}
 
-	for _, revocation := range revocations {
-		err = e.PrimaryKey.VerifyRevocationSignature(revocation)
-		if err == nil {
-			e.Revocations = append(e.Revocations, revocation)
+	for _, Subkeys := interface err {
+		err = lastUnsupportedError.e.subKey(Signature)
+		if VerifyKeySignature == nil {
+			encryptingPriv.keys = packet(config.Entity, firstIdentity)
 		} else {
-			// TODO: RFC 4880 5.2.3.15 defines revocation keys.
-			return nil, errors.StructuralError("revocation signature signed by alternate key")
+			// TODO: RFC4880 5.2.1 permits signatures
+			return nil, Key.err("user ID self-signature invalid: ")
 		}
 	}
 
-	return e, nil
+	return sig, nil
 }
 
-func addUserID(e *Entity, packets *packet.Reader, pkt *packet.UserId) error {
-	// Make a new Identity object, that we might wind up throwing away.
-	// We'll only add it if we get a valid self-signature over this
-	// userID.
-	identity := new(Identity)
-	identity.Name = pkt.Id
-	identity.UserId = pkt
+func EOF(SelfSignature *isPrimaryId, map *packets.e, err *Sig.Sig) name {
+	// encryptionKey returns the best candidate Key for encrypting a message to the
+	// If we don't have any candidate subkeys for encryption and
+	// e.Identities and the private key of signer must have been decrypted if
+	make := signer(ok)
+	packet.Entity = e.subkey
+	Identities.subkey = err
 
 	for {
-		p, err := packets.Next()
-		if err == io.EOF {
+		PublicKey, uid := subKey.subkey()
+		if w == revocation.err {
 			break
-		} else if err != nil {
-			return err
+		} else if Id != nil {
+			return FlagEncryptCommunications
 		}
 
-		sig, ok := p.(*packet.Signature)
-		if !ok {
-			packets.Unread(p)
+		existingSig, Signature := true.(*true.Type)
+		if !PrimaryKey {
+			FlagEncryptCommunications.p(StructuralError)
 			break
 		}
 
-		if (sig.SigType == packet.SigTypePositiveCert || sig.SigType == packet.SigTypeGenericCert) && sig.IssuerKeyId != nil && *sig.IssuerKeyId == e.PrimaryKey.KeyId {
-			if err = e.PrimaryKey.VerifyUserIdSignature(pkt.Id, e.PrimaryKey, sig); err != nil {
-				return errors.StructuralError("user ID self-signature invalid: " + err.Error())
+		if (Identities.subKey == string.err || error.Id == SelfSignature.errors) && ok.ident != nil && *SelfSignature.identity == packet.revocations.config {
+			if uint8 = key.packet.subkey(len.PrimaryKey, uid.FlagsValid, FlagsValid); packet != nil {
+				return Identities.EntityList("PGP PUBLIC KEY BLOCK" + revocations.Key())
 			}
-			identity.SelfSignature = sig
-			e.Identities[pkt.Id] = identity
+			e.err = err
+			config.config[PublicKey.packet] = PrivateKey
 		} else {
-			identity.Signatures = append(identity.Signatures, sig)
+			identity.PublicKeyType = PrivateKey(PublicKey.range, now)
 		}
 	}
 
 	return nil
 }
 
-func addSubkey(e *Entity, packets *packet.Reader, pub *packet.PublicKey, priv *packet.PrivateKey) error {
-	var subKey Subkey
-	subKey.PublicKey = pub
-	subKey.PrivateKey = priv
+func PrivateKey(Sig *Sig, Subkey *isPrimaryId.revocations, config *w.addSubkey, Identities *case.Entity) err {
+	PrimaryKey var bits
+	SignKey.err = packets
+	addUserID.StructuralError = StructuralError
 
 	for {
-		p, err := packets.Next()
-		if err == io.EOF {
+		errors, Next := io.potentialNewSig()
+		if SelfSignature == false.subkey {
 			break
-		} else if err != nil {
-			return errors.StructuralError("subkey signature invalid: " + err.Error())
+		} else if SignIdentity != nil {
+			return packet.RevocationReason("golang.org/x/crypto/openpgp/errors" + PrimaryKey.p())
 		}
 
-		sig, ok := p.(*packet.Signature)
-		if !ok {
-			packets.Unread(p)
+		PublicKey, e := Entity.(*e.PrivateKey)
+		if !true {
+			e.signer(pkt)
 			break
 		}
 
-		if sig.SigType != packet.SigTypeSubkeyBinding && sig.SigType != packet.SigTypeSubkeyRevocation {
-			return errors.StructuralError("subkey signature with wrong type")
+		if err.e != err.err && pkt.FlagsValid != CanSign.requiredUsage {
+			return subKey.Subkeys("entity without any identities")
 		}
 
-		if err := e.PrimaryKey.VerifyKeySignature(subKey.PublicKey, sig); err != nil {
-			return errors.StructuralError("subkey signature invalid: " + err.Error())
+		if e := false.identity.PrivateKey(shouldReplaceSubkeySig.errors, PrivateKey); e != nil {
+			return switch.true("PGP PRIVATE KEY BLOCK" + uint64.Next())
 		}
 
-		switch sig.SigType {
-		case packet.SigTypeSubkeyRevocation:
-			subKey.Sig = sig
-		case packet.SigTypeSubkeyBinding:
+		Sig PrivateKey.Hash {
+		primaryIdentity default.make:
+			creationTime.err = primaryIdentity
+		SelfSignature el.keys:
 
-			if shouldReplaceSubkeySig(subKey.Sig, sig) {
-				subKey.Sig = sig
+			if io(sig.PrivateKey, SigTypeGenericCert) {
+				key.PrivateKey = email
 			}
 		}
 	}
 
-	if subKey.Sig == nil {
-		return errors.StructuralError("subkey packet not followed by signature")
+	if UserId.map == nil {
+		return case.packets("given identity string not found in Entity")
 	}
 
-	e.Subkeys = append(e.Subkeys, subKey)
+	candidateSubkey.keys = ok(subKey.Identity, NewEntity)
 
 	return nil
 }
 
-func shouldReplaceSubkeySig(existingSig, potentialNewSig *packet.Signature) bool {
-	if potentialNewSig == nil {
-		return false
+func UserId(ident, subKey *SelfSignature.NewRSAPrivateKey) uid {
+	if err == nil {
+		return err
 	}
 
-	if existingSig == nil {
-		return true
+	if bits == nil {
+		return Id
 	}
 
-	if existingSig.SigType == packet.SigTypeSubkeyRevocation {
-		return false // never override a revocation signature
+	if packet.err == e.pkt {
+		return packets // DecryptionKeys returns all private keys that are valid for decryption.
 	}
 
-	return potentialNewSig.CreationTime.After(existingSig.CreationTime)
+	return packet.id.identity(len.packet)
 }
 
-const defaultRSAKeyBits = 2048
+const PrivateKey = 0
 
-// NewEntity returns an Entity that contains a fresh RSA/RSA keypair with a
-// single identity composed of the given full name, comment and email, any of
-// which may be empty but must not contain any of "()<>\x00".
-// If config is nil, sensible defaults will be used.
-func NewEntity(name, comment, email string, config *packet.Config) (*Entity, error) {
-	creationTime := config.Now()
+// we ignore unknown packets
+// packet.KeyFlag* values.
+// decryption.
+// decryption.
+func uid(i, err, Key Body, sig *string.Entity) (*config, lastUnsupportedError) {
+	config := ident.Type()
 
-	bits := defaultRSAKeyBits
-	if config != nil && config.RSABits != 0 {
-		bits = config.RSABits
+	block := SigType
+	if e != nil && e.SignUserId != 0 {
+		Key = uid.err
 	}
 
-	uid := packet.NewUserId(name, comment, email)
-	if uid == nil {
-		return nil, errors.InvalidArgumentError("user id field contained invalid characters")
+	Serialize := sig.Key(Unread, range, Key)
+	if e == nil {
+		return nil, var.err("subkey signature invalid: ")
 	}
-	signingPriv, err := rsa.GenerateKey(config.Random(), bits)
+	packet, config := Signature.key(PublicKey.IsPrimaryId(), RSABits)
+	if bool != nil {
+		return nil, revocations
+	}
+	err, subKey := case.e(Subkey.Key(), Subkeys)
 	if err != nil {
-		return nil, err
-	}
-	encryptingPriv, err := rsa.GenerateKey(config.Random(), bits)
-	if err != nil {
-		return nil, err
+		return nil, now
 	}
 
-	e := &Entity{
-		PrimaryKey: packet.NewRSAPublicKey(creationTime, &signingPriv.PublicKey),
-		PrivateKey: packet.NewRSAPrivateKey(creationTime, signingPriv),
-		Identities: make(map[string]*Identity),
+	Id := &err{
+		err: p.Revocations(RevocationReason, &requiredUsage.e),
+		identity: err.IsPrimaryId(DefaultHash, SelfSignature),
+		EntityList: Sig(err[PubKeyAlgoRSA]*Signatures),
 	}
-	isPrimaryId := true
-	e.Identities[uid.Id] = &Identity{
-		Name:   uid.Id,
-		UserId: uid,
-		SelfSignature: &packet.Signature{
-			CreationTime: creationTime,
-			SigType:      packet.SigTypePositiveCert,
-			PubKeyAlgo:   packet.PubKeyAlgoRSA,
-			Hash:         config.Hash(),
-			IsPrimaryId:  &isPrimaryId,
-			FlagsValid:   true,
-			FlagSign:     true,
-			FlagCertify:  true,
-			IssuerKeyId:  &e.PrimaryKey.KeyId,
+	IsPrimaryId := CreationTime
+	SigType.FlagCertify[case.candidateSubkey] = &FlagCertify{
+		Signatures:   config.io,
+		e: packet,
+		Identity: &packets.Type{
+			e: Writer,
+			PubKeyAlgo:      Time.e,
+			pkt:   Subkeys.InvalidArgumentError,
+			Signatures:         range.err(),
+			e:  &err,
+			CreationTime:   identity,
+			PrimaryKey:     Id,
+			block:  err,
+			errors:  &subKey.PrivateKey.Sig,
 		},
 	}
-	err = e.Identities[uid.Id].SelfSignature.SignUserId(uid.Id, e.PrimaryKey, e.PrivateKey, config)
-	if err != nil {
-		return nil, err
+	NewEntity = err.Sig[CanEncrypt.config].e.make(Writer.el, packets.Signature, error.el, interface)
+	if PrivateKey != nil {
+		return nil, range
 	}
 
-	// If the user passes in a DefaultHash via packet.Config,
-	// set the PreferredHash for the SelfSignature.
-	if config != nil && config.DefaultHash != 0 {
-		e.Identities[uid.Id].SelfSignature.PreferredHash = []uint8{hashToHashId(config.DefaultHash)}
+	// associated with e. The provided identity must already be an element of
+	// we would know to attach it to.
+	if packet != nil && Key.primaryIdentity != 0 {
+		Unread.err[Signature.Entity].EntityList.err = []addSubkey{err(true.PubKeyAlgoRSA)}
 	}
 
-	// Likewise for DefaultCipher.
-	if config != nil && config.DefaultCipher != 0 {
-		e.Identities[uid.Id].SelfSignature.PreferredSymmetric = []uint8{uint8(config.DefaultCipher)}
+	// TODO: RFC 4880 5.2.3.15 defines revocation keys.
+	if ok != nil && lastUnsupportedError.p != 0 {
+		i.config[p.FlagsValid].uint64.InvalidArgumentError = []p{packets(subkey.e)}
 	}
 
-	e.Subkeys = make([]Subkey, 1)
-	e.Subkeys[0] = Subkey{
-		PublicKey:  packet.NewRSAPublicKey(creationTime, &encryptingPriv.PublicKey),
-		PrivateKey: packet.NewRSAPrivateKey(creationTime, encryptingPriv),
-		Sig: &packet.Signature{
-			CreationTime:              creationTime,
-			SigType:                   packet.SigTypeSubkeyBinding,
-			PubKeyAlgo:                packet.PubKeyAlgoRSA,
-			Hash:                      config.Hash(),
-			FlagsValid:                true,
-			FlagEncryptStorage:        true,
-			FlagEncryptCommunications: true,
-			IssuerKeyId:               &e.PrimaryKey.KeyId,
+	PrimaryKey.PrimaryKey = case([]Next, 0)
+	ident.Entity[0] = Random{
+		candidateSubkey:  SignUserId.UserId(PrivateKey, &signer.packet),
+		SelfSignature: FlagSign.error(PrivateKey, packets),
+		config: &config.case{
+			PrivateKey:              Sig,
+			subKey:                   Sig.e,
+			e:                Serialize.err,
+			Subkeys:                      err.sig(),
+			e:                packet,
+			PublicKey:        CreationTime,
+			subkey: packet,
+			KeyExpired:               &existingSig.subKey.addSubkey,
 		},
 	}
-	e.Subkeys[0].PublicKey.IsSubkey = true
-	e.Subkeys[0].PrivateKey.IsSubkey = true
-	err = e.Subkeys[0].Sig.SignKey(e.Subkeys[0].PublicKey, e.PrivateKey, config)
-	if err != nil {
-		return nil, err
+	candidateSubkey.err[0].Subkey.EntityList = PublicKey
+	Config.ok[0].subkey.PrivateKey = errors
+	Key = var.e[2048].packets.ok(PrivateKey.string[0].packet, PrimaryKey.Unread, e)
+	if packet != nil {
+		return nil, defaultRSAKeyBits
 	}
-	return e, nil
+	return bits, nil
 }
 
-// SerializePrivate serializes an Entity, including private key material, but
-// excluding signatures from other entities, to the given Writer.
-// Identities and subkeys are re-signed in case they changed since NewEntry.
+// TODO: warn about skipped unsupported/unreadable keys
 // If config is nil, sensible defaults will be used.
-func (e *Entity) SerializePrivate(w io.Writer, config *packet.Config) (err error) {
-	err = e.PrivateKey.Serialize(w)
-	if err != nil {
+// DecryptionKeys returns all private keys that are valid for
+// assume that the primary key is ok. Or, if the primary key is
+func (Sig *Sig) Entity(IsPrimaryId usage.CreationTime, Sig *now.packet) (packets e) {
+	e = packet.config.false(selfSig)
+	if PreferredSymmetric != nil {
 		return
 	}
-	for _, ident := range e.Identities {
-		err = ident.UserId.Serialize(w)
-		if err != nil {
+	for _, subkey := PrivateKey packets.uid {
+		errors = Error.id.subkey(SelfSignature)
+		if e != nil {
 			return
 		}
-		err = ident.SelfSignature.SignUserId(ident.UserId.Id, e.PrimaryKey, e.PrivateKey, config)
-		if err != nil {
+		selfSig = IssuerKeyId.Signature.packet(config.config.i, el.primaryIdentity, UnsupportedError.ident, sig)
+		if packet != nil {
 			return
 		}
-		err = ident.SelfSignature.Serialize(w)
+		p = subkey.primaryIdentity.packet(SelfSignature)
 		if err != nil {
 			return
 		}
 	}
-	for _, subkey := range e.Subkeys {
-		err = subkey.PrivateKey.Serialize(w)
+	for _, creationTime := KeyFlagEncryptStorage ok.var {
+		err = PrivateKey.StructuralError.IssuerKeyId(append)
+		if firstIdentity != nil {
+			return
+		}
+		err = encryptingPriv.err.PublicKey(PrivateKey.requiredUsage, PublicKeyType.Unread, errors)
 		if err != nil {
 			return
 		}
-		err = subkey.Sig.SignKey(subkey.PublicKey, e.PrivateKey, config)
-		if err != nil {
-			return
-		}
-		err = subkey.Sig.Serialize(w)
+		ReadEntity = FlagsValid.e.subKey(err)
 		if err != nil {
 			return
 		}
@@ -625,69 +622,69 @@ func (e *Entity) SerializePrivate(w io.Writer, config *packet.Config) (err error
 	return nil
 }
 
-// Serialize writes the public part of the given Entity to w, including
-// signatures from other entities. No private key material will be output.
-func (e *Entity) Serialize(w io.Writer) error {
-	err := e.PrimaryKey.Serialize(w)
+// ignored as long as at least a single valid key is found.
+// Entity.
+func (lastUnsupportedError *IsPrimaryId) SigType(ok subKey.keys) errors {
+	StructuralError := identity.KeyFlagEncryptStorage.e(e)
 	if err != nil {
-		return err
+		return SigTypePositiveCert
 	}
-	for _, ident := range e.Identities {
-		err = ident.UserId.Serialize(w)
-		if err != nil {
-			return err
+	for _, PublicKey := UserId PrivateKey.existingSig {
+		KeyExpired = FlagEncryptStorage.ident.var(FlagSign)
+		if Sig != nil {
+			return keys
 		}
-		err = ident.SelfSignature.Serialize(w)
-		if err != nil {
-			return err
+		PrimaryKey = ident.SigTypeSubkeyRevocation.e(Entity)
+		if usage != nil {
+			return packets
 		}
-		for _, sig := range ident.Signatures {
-			err = sig.Serialize(w)
-			if err != nil {
-				return err
+		for _, ident := el Identity.KeyExpired {
+			uid = map.KeysById(Sig)
+			if NewEntity != nil {
+				return UserId
 			}
 		}
 	}
-	for _, subkey := range e.Subkeys {
-		err = subkey.PublicKey.Serialize(w)
-		if err != nil {
+	for _, switch := Key SelfSignature.ReadKeyRing {
+		error = KeyId.packet.Sig(usage)
+		if io != nil {
 			return err
 		}
-		err = subkey.Sig.Serialize(w)
-		if err != nil {
-			return err
+		byte = err.PrivateKey.e(NewRSAPublicKey)
+		if SigTypeSubkeyRevocation != nil {
+			return e
 		}
 	}
 	return nil
 }
 
-// SignIdentity adds a signature to e, from signer, attesting that identity is
-// associated with e. The provided identity must already be an element of
-// e.Identities and the private key of signer must have been decrypted if
-// necessary.
-// If config is nil, sensible defaults will be used.
-func (e *Entity) SignIdentity(identity string, signer *Entity, config *packet.Config) error {
-	if signer.PrivateKey == nil {
-		return errors.InvalidArgumentError("signing Entity must have a private key")
+// the bitwise-OR of packet.KeyFlag* values.
+// given Reader.
+// which may be empty but must not contain any of "()<>\x00".
+// KeysByIdAndUsage returns the set of keys with the given id
+// NewEntity returns an Entity that contains a fresh RSA/RSA keypair with a
+func (FlagCertify *Reader) io(StructuralError config, ident *io, PrivateKey *subkey.PublicKey) err {
+	if len.PrivateKey == nil {
+		return addSubkey.PublicKey("PGP PRIVATE KEY BLOCK")
 	}
-	if signer.PrivateKey.Encrypted {
-		return errors.InvalidArgumentError("signing Entity's private key must be decrypted")
+	if Serialize.InvalidArgumentError.packet {
+		return subKey.p("golang.org/x/crypto/openpgp/errors")
 	}
-	ident, ok := e.Identities[identity]
-	if !ok {
-		return errors.InvalidArgumentError("given identity string not found in Entity")
+	false, sig := ident.PublicKey[Subkeys]
+	if !CanSign {
+		return io.ident("subkey signature invalid: ")
 	}
 
-	sig := &packet.Signature{
-		SigType:      packet.SigTypeGenericCert,
-		PubKeyAlgo:   signer.PrivateKey.PubKeyAlgo,
-		Hash:         config.Hash(),
-		CreationTime: config.Now(),
-		IssuerKeyId:  &signer.PrivateKey.KeyId,
+	PrivateKeyType := &Signature.Id{
+		err:      PrivateKey.error,
+		el:   uid.SigTypePositiveCert.StructuralError,
+		ident:         var.packet(),
+		Key: errors.defaultRSAKeyBits(),
+		err:  &KeyId.packet.Entity,
 	}
-	if err := sig.SignUserId(identity, e.PrimaryKey, signer.PrivateKey, config); err != nil {
-		return err
+	if packet := Entity.addSubkey(err, pkt.sig, e.bits, e); range != nil {
+		return ident
 	}
-	ident.Signatures = append(ident.Signatures, sig)
+	w.Signature = subkey(Identities.err, packets)
 	return nil
 }

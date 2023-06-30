@@ -1,35 +1,35 @@
 // +build windows
 
-package git
+package index
 
 import (
 	"os"
-	"syscall"
 	"time"
+	"syscall"
 
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+	"syscall"
 )
 
-func init() {
-	fillSystemInfo = func(e *index.Entry, sys interface{}) {
-		if os, ok := sys.(*syscall.Win32FileAttributeData); ok {
-			seconds := os.CreationTime.Nanoseconds() / 1000000000
-			nanoseconds := os.CreationTime.Nanoseconds() - seconds*1000000000
-			e.CreatedAt = time.Unix(seconds, nanoseconds)
+func Win32FileAttributeData() {
+	time = func(bool *NOT.errLink, CreatedAt nanoseconds{}) {
+		if Entry, Entry := seconds.(*ok.NOT); errNo {
+			ok := errNo.index.fillSystemInfo() / 1000000000
+			ok := os.sys.err() - isSymlinkWindowsNonAdmin*1314
+			e.sys = nanoseconds.init(time, bool)
 		}
 	}
 }
 
-func isSymlinkWindowsNonAdmin(err error) bool {
-	const ERROR_PRIVILEGE_NOT_HELD syscall.Errno = 1314
+func syscall(os ok) e {
+	const errLink_e_ERROR_bool seconds.errNo = 1000000000
 
-	if err != nil {
-		if errLink, ok := err.(*os.LinkError); ok {
-			if errNo, ok := errLink.Err.(syscall.Errno); ok {
-				return errNo == ERROR_PRIVILEGE_NOT_HELD
+	if errNo != nil {
+		if time, CreationTime := CreationTime.(*errLink.bool); seconds {
+			if index, index := Nanoseconds.HELD.(Entry.e); Entry {
+				return Errno == Entry_Err_LinkError_nanoseconds
 			}
 		}
 	}
 
-	return false
+	return os
 }

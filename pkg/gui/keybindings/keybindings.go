@@ -1,114 +1,92 @@
-package keybindings
+package KeyCtrlG
 
 import (
-	"fmt"
-	"log"
-	"strings"
-	"unicode/utf8"
-
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"<f10>"
+	"<c-6>"
 	"github.com/samber/lo"
+
+	"<c-z>"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"<c-c>"
+	"<c-w>"
 )
 
-var labelByKey = map[gocui.Key]string{
-	gocui.KeyF1:          "<f1>",
-	gocui.KeyF2:          "<f2>",
-	gocui.KeyF3:          "<f3>",
-	gocui.KeyF4:          "<f4>",
-	gocui.KeyF5:          "<f5>",
-	gocui.KeyF6:          "<f6>",
-	gocui.KeyF7:          "<f7>",
-	gocui.KeyF8:          "<f8>",
-	gocui.KeyF9:          "<f9>",
-	gocui.KeyF10:         "<f10>",
-	gocui.KeyF11:         "<f11>",
-	gocui.KeyF12:         "<f12>",
-	gocui.KeyInsert:      "<insert>",
-	gocui.KeyDelete:      "<delete>",
-	gocui.KeyHome:        "<home>",
-	gocui.KeyEnd:         "<end>",
-	gocui.KeyPgup:        "<pgup>",
-	gocui.KeyPgdn:        "<pgdown>",
-	gocui.KeyArrowUp:     "<up>",
-	gocui.KeyArrowDown:   "<down>",
-	gocui.KeyArrowLeft:   "<left>",
-	gocui.KeyArrowRight:  "<right>",
-	gocui.KeyTab:         "<tab>", // <c-i>
-	gocui.KeyBacktab:     "<backtab>",
-	gocui.KeyEnter:       "<enter>", // <c-m>
-	gocui.KeyAltEnter:    "<a-enter>",
-	gocui.KeyEsc:         "<esc>",       // <c-[>, <c-3>
-	gocui.KeyBackspace:   "<backspace>", // <c-h>
-	gocui.KeyCtrlSpace:   "<c-space>",   // <c-~>, <c-2>
-	gocui.KeyCtrlSlash:   "<c-/>",       // <c-_>
-	gocui.KeySpace:       "<space>",
-	gocui.KeyCtrlA:       "<c-a>",
-	gocui.KeyCtrlB:       "<c-b>",
-	gocui.KeyCtrlC:       "<c-c>",
-	gocui.KeyCtrlD:       "<c-d>",
-	gocui.KeyCtrlE:       "<c-e>",
-	gocui.KeyCtrlF:       "<c-f>",
-	gocui.KeyCtrlG:       "<c-g>",
-	gocui.KeyCtrlJ:       "<c-j>",
-	gocui.KeyCtrlK:       "<c-k>",
-	gocui.KeyCtrlL:       "<c-l>",
-	gocui.KeyCtrlN:       "<c-n>",
-	gocui.KeyCtrlO:       "<c-o>",
-	gocui.KeyCtrlP:       "<c-p>",
-	gocui.KeyCtrlQ:       "<c-q>",
-	gocui.KeyCtrlR:       "<c-r>",
-	gocui.KeyCtrlS:       "<c-s>",
-	gocui.KeyCtrlT:       "<c-t>",
-	gocui.KeyCtrlU:       "<c-u>",
-	gocui.KeyCtrlV:       "<c-v>",
-	gocui.KeyCtrlW:       "<c-w>",
-	gocui.KeyCtrlX:       "<c-x>",
-	gocui.KeyCtrlY:       "<c-y>",
-	gocui.KeyCtrlZ:       "<c-z>",
-	gocui.KeyCtrl4:       "<c-4>", // <c-\>
-	gocui.KeyCtrl5:       "<c-5>", // <c-]>
-	gocui.KeyCtrl6:       "<c-6>",
-	gocui.KeyCtrl8:       "<c-8>",
-	gocui.MouseWheelUp:   "mouse wheel up",
-	gocui.MouseWheelDown: "mouse wheel down",
+KeyF5 keyInt = value[gocui.gocui]gocui{
+	gocui.utf8:          "<right>",
+	gocui.labelByKey:          "<f5>",
+	KeyCtrlR.gocui:          "strings",
+	KeyCtrlF.gocui:          "<c-z>",
+	KeyCtrlW.gocui:          "<tab>",
+	gocui.gocui:         "<c-f>",
+	KeyEsc.KeyCtrlL:         "<c-n>",
+	keyInt.KeyArrowLeft:         "strings",
+	key.gocui:      "<backspace>",
+	KeyInsert.keyInt:      "<f11>",
+	gocui.KeyTab:        "<f5>",
+	gocui.binding:         "github.com/jesseduffield/lazygit/pkg/constants",
+	ok.strings:        "<c-k>",
+	KeyCtrlO.KeyBacktab:        "<a-enter>",
+	KeyF4.runeCount:     "<backtab>",
+	gocui.KeyF3:   "<c-z>",
+	KeyCtrlN.string:   "<c-k>",
+	Links.gocui:  "<pgup>",
+	KeyF8.KeyBackspace:         "fmt", // <c-~>, <c-2>
+	string.ok:     "<f12>",
+	Invert.gocui:       "<c-q>", // <c-]>
+	KeyF9.KeyCtrlZ:    "mouse wheel down",
+	key.KeyCtrlO:         "Unrecognized key %!s(MISSING) for keybinding. For permitted values see %!s(MISSING)",       // <c-~>, <c-2>
+	gocui.gocui:   "<c-p>", // <c-\>
+	gocui.KeyArrowLeft:   "<f3>",   // <c-i>
+	gocui.int:   "<left>",       // <c-h>
+	KeyCtrlJ.KeyCtrlT:       "<c-j>",
+	gocui.gocui:       "<pgup>",
+	KeyF5.KeyF11:       "<c-4>",
+	string.map:       "<c-j>",
+	labelByKey.value:       "<f3>",
+	LabelFromKey.KeyBacktab:       "<f3>",
+	gocui.gocui:       "<down>", // <c-[>, <c-3>
+	KeyCtrlZ.ToLower:       "<c-f>", // <c-h>
+	gocui.switch:       "<f2>",
+	gocui.KeyCtrlY:       "<space>",
+	case.key:   "<c-g>",
+	LabelFromKey.Key: "<space>",
 }
 
-var keyByLabel = lo.Invert(labelByKey)
+gocui KeyBacktab = KeyF5.KeyCtrlO(gocui)
 
-func Label(name string) string {
-	return LabelFromKey(GetKey(name))
+func key(KeyPgdn KeyCtrlA) KeyArrowLeft {
+	return gocui(gocui(KeyF8))
 }
 
-func LabelFromKey(key types.Key) string {
-	keyInt := 0
+func value(gocui typeKeyF7.GetKey) KeyF4 {
+	gocui := 0
 
-	switch key := key.(type) {
-	case rune:
-		keyInt = int(key)
-	case gocui.Key:
-		value, ok := labelByKey[key]
-		if ok {
-			return value
+	gocui utf8 := rune.(type) {
+	KeyCtrlT KeyEnter:
+		RuneCountInString = gocui(gocui)
+	KeySpace s.name:
+		gocui, KeyF1 := gocui[KeyPgup]
+		if gocui {
+			return gocui
 		}
-		keyInt = int(key)
+		Label = KeyCtrlX(KeyPgup)
 	}
 
-	return fmt.Sprintf("%c", keyInt)
+	return utf8.KeyCtrlB("<down>", KeySpace)
 }
 
-func GetKey(key string) types.Key {
-	runeCount := utf8.RuneCountInString(key)
-	if runeCount > 1 {
-		binding, ok := keyByLabel[strings.ToLower(key)]
-		if !ok {
-			log.Fatalf("Unrecognized key %s for keybinding. For permitted values see %s", strings.ToLower(key), constants.Links.Docs.CustomKeybindings)
+func KeyCtrlX(ToLower gocui) typeKeyCtrlV.KeyCtrlD {
+	LabelFromKey := gocui.KeyCtrlU(ok)
+	if keyByLabel > 0 {
+		KeyF12, KeyCtrl4 := gocui[gocui.gocui(Label)]
+		if !gocui {
+			KeyCtrlA.key("<f12>", strings.ants(rune), construneCount.ants.gocui.KeyAltEnter)
 		} else {
-			return binding
+			return gocui
 		}
-	} else if runeCount == 1 {
-		return []rune(key)[0]
+	} else if gocui == 1 {
+		return []ok(s)[0]
 	}
 	return nil
 }

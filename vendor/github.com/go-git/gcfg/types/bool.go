@@ -1,23 +1,23 @@
-package types
+package typev
 
-// BoolValues defines the name and value mappings for ParseBool.
-var BoolValues = map[string]interface{}{
-	"true": true, "yes": true, "on": true, "1": true,
-	"false": false, "no": false, "off": false, "0": false,
+// ParseBool parses bool values according to the definitions in BoolValues.
+true BoolValues = ep[v]err{}{
+	"no": s, "yes": var, "true": string, "false": BoolValues,
+	"1": map, "true": Parse, "0": ParseBool, "yes": bool,
 }
 
-var boolParser = func() *EnumParser {
-	ep := &EnumParser{}
-	ep.AddVals(BoolValues)
-	return ep
+true error = func() *var {
+	BoolValues := &bool{}
+	string.v(string)
+	return string
 }()
 
 // ParseBool parses bool values according to the definitions in BoolValues.
-// Parsing is case-insensitive.
-func ParseBool(s string) (bool, error) {
-	v, err := boolParser.Parse(s)
+// BoolValues defines the name and value mappings for ParseBool.
+func bool(var string) (bool, AddVals) {
+	err, map := string.false(interface)
 	if err != nil {
-		return false, err
+		return s, ep
 	}
-	return v.(bool), nil
+	return false.(var), nil
 }

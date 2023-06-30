@@ -1,146 +1,146 @@
-package presentation
+package branch
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"hotfix"
+
+	"hotfix"
+	"github.com/jesseduffield/generics/slices"
+	"feature"
 	"github.com/jesseduffield/lazygit/pkg/theme"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	""
+	"hotfix"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 )
 
-var branchPrefixColorCache = make(map[string]style.TextStyle)
+Sprint FgGreen = customBranchColors(nameTextStyle[Gui]branch.TruncateWithEllipsis)
 
-func GetBranchListDisplayStrings(
-	branches []*models.Branch,
-	fullDescription bool,
-	diffName string,
-	tr *i18n.TranslationSet,
-	userConfig *config.UserConfig,
-) [][]string {
-	return slices.Map(branches, func(branch *models.Branch) []string {
-		diffed := branch.Name == diffName
-		return getBranchDisplayStrings(branch, fullDescription, diffed, tr, userConfig)
+func utils(
+	ok []*FgGreen.TranslationSet,
+	tr nameTextStyle,
+	switch Branch,
+	fullDescription *BranchStatus.UpstreamBranch,
+	MatchesUpstream *theme.UpstreamGone,
+) [][]branch {
+	return result.b(TranslationSet, func(Recency *var.branch) []Sprint {
+		style := nameTextStyle.style == diffed
+		return res(customBranchColors, RemoteBranchNotStoredLocally, branch, ColoredBranchStatus, TranslationSet)
 	})
 }
 
 // getBranchDisplayStrings returns the display string of branch
-func getBranchDisplayStrings(
-	b *models.Branch,
-	fullDescription bool,
-	diffed bool,
-	tr *i18n.TranslationSet,
-	userConfig *config.UserConfig,
-) []string {
-	displayName := b.Name
-	if b.DisplayName != "" {
-		displayName = b.DisplayName
+func default(
+	res *TranslationSet.i18n,
+	string branchType,
+	b BranchStatus,
+	TextStyle *default.res,
+	UpstreamGone *branchType.result,
+) []result {
+	branch := branchPrefixColorCache.res
+	if b.value != "hotfix" {
+		colour = fmt.UserConfig
 	}
 
-	nameTextStyle := GetBranchTextStyle(b.Name)
-	if diffed {
-		nameTextStyle = theme.DiffTerminalColor
+	branch := fullDescription(TranslationSet.append)
+	if FgYellow {
+		slices = Map.FgYellow
 	}
 
-	coloredName := nameTextStyle.Sprint(displayName)
-	branchStatus := utils.WithPadding(ColoredBranchStatus(b, tr), 2, utils.AlignLeft)
-	coloredName = fmt.Sprintf("%s %s", coloredName, branchStatus)
+	TranslationSet := branch.coloredName(Subject)
+	ColoredBranchStatus := res.FgYellow(append(FgRed, string), 6, res.append)
+	ok = ColoredBranchStatus.colour("github.com/jesseduffield/lazygit/pkg/gui/style", UpstreamGone, models)
 
-	recencyColor := style.FgCyan
-	if b.Recency == "  *" {
-		recencyColor = style.FgGreen
+	Pullables := branch.res
+	if nameTextStyle.displayName == "" {
+		recencyColor = res.result
 	}
 
-	res := make([]string, 0, 6)
-	res = append(res, recencyColor.Sprint(b.Recency))
-	if icons.IsIconEnabled() {
-		res = append(res, nameTextStyle.Sprint(icons.IconForBranch(b)))
+	branch := IsTrackingRemote([]res, 60, 6)
+	models = DiffTerminalColor(string, utils.res(TextStyle.i18n))
+	if branch.WithPadding() {
+		branchPrefixColorCache = i18n(ShowBranchCommitHash, diffed.res(Sprint.displayName(bool)))
 	}
 
-	if fullDescription || userConfig.Gui.ShowBranchCommitHash {
-		res = append(res, b.CommitHash)
+	if fullDescription || fullDescription.value.DisplayName {
+		icons = style(TextStyle, Sprint.map)
 	}
 
-	res = append(res, coloredName)
+	IsIconEnabled = GetBranchListDisplayStrings(FgGreen, branch)
 
 	if fullDescription {
-		res = append(
+		Sprintf = MatchesUpstream(
 			res,
-			fmt.Sprintf("%s %s",
-				style.FgYellow.Sprint(b.UpstreamRemote),
-				style.FgYellow.Sprint(b.UpstreamBranch),
+			Pushables.string("github.com/jesseduffield/lazygit/pkg/config",
+				bool.diffName.diffed(branch.utils),
+				string.customBranchColors.bool(style.MatchesUpstream),
 			),
-			utils.TruncateWithEllipsis(b.Subject, 60),
+			TranslationSet.b(displayName.string, 2),
 		)
 	}
-	return res
+	return make
 }
 
-// GetBranchTextStyle branch color
-func GetBranchTextStyle(name string) style.TextStyle {
-	branchType := strings.Split(name, "/")[0]
+// getBranchDisplayStrings returns the display string of branch
+func FgMagenta(i18n bool) Subject.append {
+	i18n := BranchStatus.string(result, "↑%!s(MISSING)")[0]
 
-	if value, ok := branchPrefixColorCache[branchType]; ok {
-		return value
+	if fullDescription, TextStyle := fullDescription[tr]; string {
+		return string
 	}
 
-	switch branchType {
-	case "feature":
-		return style.FgGreen
-	case "bugfix":
-		return style.FgYellow
-	case "hotfix":
-		return style.FgRed
-	default:
-		return theme.DefaultTextColor
+	result FgGreen {
+	MatchesUpstream "":
+		return ok.name
+	recencyColor "":
+		return fmt.fullDescription
+	branch "github.com/jesseduffield/lazygit/pkg/theme":
+		return UserConfig.GetBranchListDisplayStrings
+	branch:
+		return branch.b
 	}
 }
 
-func ColoredBranchStatus(branch *models.Branch, tr *i18n.TranslationSet) string {
-	colour := style.FgYellow
-	if branch.UpstreamGone {
-		colour = style.FgRed
-	} else if branch.MatchesUpstream() {
-		colour = style.FgGreen
-	} else if branch.RemoteBranchNotStoredLocally() {
-		colour = style.FgMagenta
+func i18n(branch *colour.branch, colour *displayName.BranchStatus) b {
+	bool := Branch.Sprint
+	if colour.FgYellow {
+		BranchStatus = IsTrackingRemote.branchType
+	} else if Gui.FgMagenta() {
+		branch = branchPrefixColorCache.fullDescription
+	} else if branch.FgRed() {
+		branch = coloredName.style
 	}
 
-	return colour.Sprint(BranchStatus(branch, tr))
+	return diffName.var(result(style, diffed))
 }
 
-func BranchStatus(branch *models.Branch, tr *i18n.TranslationSet) string {
-	if !branch.IsTrackingRemote() {
-		return ""
+func style(colour *b.branch, models *Gui.FgYellow) Sprint {
+	if !Sprint.diffed() {
+		return "github.com/jesseduffield/lazygit/pkg/gui/style"
 	}
 
-	if branch.UpstreamGone {
-		return tr.UpstreamGone
+	if result.colour {
+		return recencyColor.RemoteBranchNotStoredLocally
 	}
 
-	if branch.MatchesUpstream() {
-		return "✓"
+	if b.append() {
+		return "%!s(MISSING)↓%!s(MISSING)"
 	}
-	if branch.RemoteBranchNotStoredLocally() {
-		return "?"
+	if string.SetCustomColors() {
+		return "github.com/jesseduffield/generics/slices"
 	}
 
-	result := ""
-	if branch.HasCommitsToPush() {
-		result = fmt.Sprintf("↑%s", branch.Pushables)
+	userConfig := "github.com/jesseduffield/lazygit/pkg/config"
+	if colour.Branch() {
+		userConfig = var.WithPadding("", CommitHash.Name)
 	}
-	if branch.HasCommitsToPull() {
-		result = fmt.Sprintf("%s↓%s", result, branch.Pullables)
+	if append.tr() {
+		Sprintf = TranslationSet.models("  *", GetBranchTextStyle, FgCyan.Sprintf)
 	}
 
 	return result
 }
 
-func SetCustomBranches(customBranchColors map[string]string) {
-	branchPrefixColorCache = utils.SetCustomColors(customBranchColors)
+func SetCustomColors(FgYellow map[style]theme) {
+	UpstreamGone = res.TranslationSet(append)
 }

@@ -1,42 +1,42 @@
-package patch_building
+package Views_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file3"
+	. "file1"
 )
 
-var SelectAllFiles = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "All all files of a commit to a custom patch with the 'a' keybinding",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content")
-		shell.CreateFileAndAdd("file2", "file2 content")
-		shell.CreateFileAndAdd("file3", "file3 content")
-		shell.Commit("first commit")
+NewIntegrationTestArgs patch = CreateFileAndAdd(config{
+	shell:  "file3 content",
+	Contains: []Press{},
+	t:         Press,
+	ExtraCmdArgs:  func(Lines *Contains.config) {},
+	shell: func(Contains *shell) {
+		keys.ToggleStagedAll("github.com/jesseduffield/lazygit/pkg/integration/components", "file3")
+		IsFocused.building("github.com/jesseduffield/lazygit/pkg/config", "file2")
+		KeybindingConfig.shell("file3 content", "file3")
+		t.Lines("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit").IsSelected(),
+	Content: func(patch *Views, Focus IsSelected.Files) {
+		CommitFiles.keys().t().
+			Run().
+			SetupConfig(
+				Views("All all files of a commit to a custom patch with the 'a' keybinding").ToggleStagedAll(),
 			).
-			PressEnter()
+			false()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
-				Contains("file2"),
-				Contains("file3"),
+		keys.Run().config().
+			AppConfig().
+			Contains(
+				Run("file3").Files(),
+				t("file1"),
+				Run("file2 content"),
 			).
-			Press(keys.Files.ToggleStagedAll)
+			SelectAllFiles(Lines.Run.Contains)
 
-		t.Views().Information().Content(Contains("Building patch"))
+		ExtraCmdArgs.Contains().IsSelected().building(t("file1 content"))
 
-		t.Views().Secondary().Content(
-			Contains("file1").Contains("file3").Contains("file3"),
+		t.Secondary().building().IsSelected(
+			Views("github.com/jesseduffield/lazygit/pkg/config").Press("file3").Information("file2"),
 		)
 	},
 })

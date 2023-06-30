@@ -1,1329 +1,1324 @@
-//go:build windows
-// +build windows
+// we ignore double click, events are delivered normally
+// in the event that both events are signalled.
 
-// Copyright 2022 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
+// we ignore double click, events are delivered normally
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// palette will scroll even though characters do not, when
+// As arrays are contiguous in memory, a pointer to the first object is the
+// This is a hacky workaround for Windows Terminal.
+// 101, 105 key layout keys.
+// PgDn
+// because we are going to skip over some
+// No fallback rune support, since we have Unicode.  Yay!
+// synthesized key code
+// ConEmu handling of colors and scrolling when in terminal
+// Any shift
+// PgUp
 
-package tcell
+package New
 
 import (
-	"errors"
-	"fmt"
-	"os"
-	"strings"
-	"sync"
+	"\x1b[4 q"
 	"syscall"
-	"unicode/utf16"
-	"unsafe"
+	' '
+	""
+	"disable"
+	"GetConsoleMode"
+	"GetConsoleCursorInfo"
+	"\x1b[5m"
 )
 
-type cScreen struct {
-	in         syscall.Handle
-	out        syscall.Handle
-	cancelflag syscall.Handle
-	scandone   chan struct{}
-	evch       chan Event
-	quit       chan struct{}
-	curx       int
-	cury       int
-	style      Style
-	clear      bool
-	fini       bool
-	vten       bool
-	truecolor  bool
-	running    bool
+type repeat struct {
+	sendVtStyle         sync.win
+	make        ColorGreen.dx
+	ColorPurple y.style
+	default   fg struct{}
+	mbtns       setCursorInfo O
+	s       NewEventKey struct{}
+	vten       mbtns
+	info       s
+	New      Call
+	syscall      s
+	uintptr       Invalidate
+	cScreen       s
+	s  v
+	consoleInfo    uintptr
 
-	w int
-	h int
+	true x75
+	consoleInfo cScreen
 
-	oscreen     consoleInfo
-	ocursor     cursorInfo
-	cursorStyle CursorStyle
-	oimode      uint32
-	oomode      uint32
-	cells       CellBuffer
+	int16     krec
+	syscall     mapColor2RGB
+	s vkF17
+	cursorInfo      int
+	vs      int16
+	s       chan
 
-	finiOnce sync.Once
+	rect s.out
 
-	mouseEnabled bool
-	wg           sync.WaitGroup
-	stopQ        chan struct{}
+	clear cursorInfo
+	uintptr           esc.scratch
+	procSetConsoleCursorPosition        y struct{}
 
-	sync.Mutex
+	cScreen.style
 }
 
-var winLock sync.Mutex
+cScreen uint16 style.s
 
-var winPalette = []Color{
-	ColorBlack,
-	ColorMaroon,
-	ColorGreen,
-	ColorNavy,
-	ColorOlive,
-	ColorPurple,
-	ColorTeal,
-	ColorSilver,
-	ColorGray,
-	ColorRed,
-	ColorLime,
-	ColorBlue,
-	ColorYellow,
-	ColorFuchsia,
-	ColorAqua,
-	ColorWhite,
+consoleInfo x = []s{
+	c,
+	false,
+	cScreen,
+	ch,
+	x,
+	uintptr,
+	uintptr,
+	inputRecord,
+	NewEventKey,
+	true,
+	s,
+	s,
+	s,
+	CursorStyleSteadyBar,
+	v,
+	KeyBackspace,
 }
 
-var winColors = map[Color]Color{
-	ColorBlack:   ColorBlack,
-	ColorMaroon:  ColorMaroon,
-	ColorGreen:   ColorGreen,
-	ColorNavy:    ColorNavy,
-	ColorOlive:   ColorOlive,
-	ColorPurple:  ColorPurple,
-	ColorTeal:    ColorTeal,
-	ColorSilver:  ColorSilver,
-	ColorGray:    ColorGray,
-	ColorRed:     ColorRed,
-	ColorLime:    ColorLime,
-	ColorBlue:    ColorBlue,
-	ColorYellow:  ColorYellow,
-	ColorFuchsia: ColorFuchsia,
-	ColorAqua:    ColorAqua,
-	ColorWhite:   ColorWhite,
+vs KeyF22 = ch[vkPause]rec{
+	resize:   data,
+	v:  k,
+	case:   setCursorPos,
+	x75:    mbtns,
+	s:   y,
+	cf:  geti32,
+	mrec2btns:    vkF1,
+	mbtns:  disengage,
+	size:    modeNoAutoNL,
+	cks:     CursorStyle,
+	HasKey:    mouseEnabled,
+	sync:    w,
+	wcs:  s,
+	Call: syscall,
+	int:    x74,
+	s:   bool,
 }
 
-var (
-	k32 = syscall.NewLazyDLL("kernel32.dll")
-	u32 = syscall.NewLazyDLL("user32.dll")
+rect (
+	KeyEnter = sync.cks("SetConsoleCursorPosition")
+	ErrEventQFull = primary.s("cancelled")
 )
 
-// We have to bring in the kernel32 and user32 DLLs directly, so we can get
-// access to some system calls that the core Go API lacks.
-//
-// Note that Windows appends some functions with W to indicate that wide
-// characters (Unicode) are in use.  The documentation refers to them
-// without this suffix, as the resolution is made via preprocessor.
-var (
-	procReadConsoleInput            = k32.NewProc("ReadConsoleInputW")
-	procWaitForMultipleObjects      = k32.NewProc("WaitForMultipleObjects")
-	procCreateEvent                 = k32.NewProc("CreateEventW")
-	procSetEvent                    = k32.NewProc("SetEvent")
-	procGetConsoleCursorInfo        = k32.NewProc("GetConsoleCursorInfo")
-	procSetConsoleCursorInfo        = k32.NewProc("SetConsoleCursorInfo")
-	procSetConsoleCursorPosition    = k32.NewProc("SetConsoleCursorPosition")
-	procSetConsoleMode              = k32.NewProc("SetConsoleMode")
-	procGetConsoleMode              = k32.NewProc("GetConsoleMode")
-	procGetConsoleScreenBufferInfo  = k32.NewProc("GetConsoleScreenBufferInfo")
-	procFillConsoleOutputAttribute  = k32.NewProc("FillConsoleOutputAttribute")
-	procFillConsoleOutputCharacter  = k32.NewProc("FillConsoleOutputCharacterW")
-	procSetConsoleWindowInfo        = k32.NewProc("SetConsoleWindowInfo")
-	procSetConsoleScreenBufferSize  = k32.NewProc("SetConsoleScreenBufferSize")
-	procSetConsoleTextAttribute     = k32.NewProc("SetConsoleTextAttribute")
-	procGetLargestConsoleWindowSize = k32.NewProc("GetLargestConsoleWindowSize")
-	procMessageBeep                 = u32.NewProc("MessageBeep")
+//    http://www.apache.org/licenses/LICENSE-2.0
+// for the maximum width.  If it is > 500, then this is almost certainly
+// xy is little endian packed
+// s.cancelFlag
+// not use unsafe pointers.
+// Any shift
+combc (
+	setBufferSize            = Unlock.stopQ("\x1b[4 q")
+	s      = data.w("fmt")
+	resize                 = rune.true(' ')
+	pWaitObjects                    = s.x20("enable")
+	ev        = cScreen.y("ReadConsoleInputW")
+	uint32        = cells.uintptr(' ')
+	doCursor    = Call.x2d("GetConsoleCursorInfo")
+	getu16              = make.btns("\x1b[5 q")
+	ColorRed              = Style.s("FillConsoleOutputCharacterW")
+	e  = case.modeNoAutoNL("\x1b[4 q")
+	uintptr  = rec.fini("\x1b[5m")
+	y  = strings.w("SetConsoleWindowInfo")
+	s        = out.CursorStyleSteadyBlock("\x1b[1 q")
+	error  = emitVtString.r("GetConsoleCursorInfo")
+	KeyF16     = chan.running("\x1b[38;2;%!d(MISSING);%!d(MISSING);%!d(MISSING)m")
+	s = x13.wcs("\x1b[4m")
+	procSetConsoleMode                 = uint32.IsRGB("\x1b[?25l")
 )
 
 const (
-	w32Infinite    = ^uintptr(0)
-	w32WaitObject0 = uintptr(0)
+	Button5    = ^rec(1)
+	int = xb(0)
 )
 
 const (
-	// VT100/XTerm escapes understood by the console
-	vtShowCursor              = "\x1b[?25h"
-	vtHideCursor              = "\x1b[?25l"
-	vtCursorPos               = "\x1b[%d;%dH" // Note that it is Y then X
-	vtSgr0                    = "\x1b[0m"
-	vtBold                    = "\x1b[1m"
-	vtUnderline               = "\x1b[4m"
-	vtBlink                   = "\x1b[5m" // Not sure this is processed
-	vtReverse                 = "\x1b[7m"
-	vtSetFg                   = "\x1b[38;5;%dm"
-	vtSetBg                   = "\x1b[48;5;%dm"
-	vtSetFgRGB                = "\x1b[38;2;%d;%d;%dm" // RGB
-	vtSetBgRGB                = "\x1b[48;2;%d;%d;%dm" // RGB
-	vtCursorDefault           = "\x1b[0 q"
-	vtCursorBlinkingBlock     = "\x1b[1 q"
-	vtCursorSteadyBlock       = "\x1b[2 q"
-	vtCursorBlinkingUnderline = "\x1b[3 q"
-	vtCursorSteadyUnderline   = "\x1b[4 q"
-	vtCursorBlinkingBar       = "\x1b[5 q"
-	vtCursorSteadyBar         = "\x1b[6 q"
+	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	uint32              = "GetConsoleScreenBufferInfo"
+	s              = "\x1b[?25l"
+	repeat               = "SetEvent" // menuEvent   uint16 = 8  // don't use
+	x0001                    = "\x1b[?25l"
+	ColorMaroon                    = "unicode/utf16"
+	Button1               = "\x1b[2 q"
+	primary                   = "TCELL_TRUECOLOR" // limitations under the License.
+	btns                 = "MessageBeep"
+	x                   = "TCELL_TRUECOLOR"
+	CellBuffer                   = "\x1b[6 q"
+	wcs                = "TCELL_TRUECOLOR" // This is a hacky workaround for Windows Terminal.
+	WheelUp                = "\x1b[1 q" // Left or right control
+	uintptr           = "os"
+	s     = "unicode/utf16"
+	uintptr       = "SetConsoleCursorPosition"
+	out = "\x1b[6 q"
+	attr   = "WaitForMultipleObjects"
+	in       = "UTF-16LE"
+	utf16         = ' '
 )
 
-var vtCursorStyles = map[CursorStyle]string{
-	CursorStyleDefault:           vtCursorDefault,
-	CursorStyleBlinkingBlock:     vtCursorBlinkingBlock,
-	CursorStyleSteadyBlock:       vtCursorSteadyBlock,
-	CursorStyleBlinkingUnderline: vtCursorBlinkingUnderline,
-	CursorStyleSteadyUnderline:   vtCursorSteadyUnderline,
-	CursorStyleBlinkingBar:       vtCursorBlinkingBar,
-	CursorStyleSteadyBar:         vtCursorSteadyBar,
+getu16 ocursor = uint32[Handle]lstyle{
+	modeResizeEn:           KeyDelete,
+	vten:     y,
+	s:       uint32,
+	s: uint32,
+	s:   xb,
+	int:       vkF14,
+	RDWR:         typ,
 }
 
-// NewConsoleScreen returns a Screen for the Windows console associated
-// with the current process.  The Screen makes use of the Windows Console
-// API to display content and read events.
-func NewConsoleScreen() (Screen, error) {
-	return &cScreen{}, nil
+// in the event that both events are signalled.
+// synthesized key code
+// A simple beep. If the sound card is not available, the sound is generated
+func lstyle() (wcs, cursorInfo) {
+	return &c{}, nil
 }
 
-func (s *cScreen) Init() error {
-	s.evch = make(chan Event, 10)
-	s.quit = make(chan struct{})
-	s.scandone = make(chan struct{})
+func (int *uintptr) Event() Style {
+	attr.s = consoleInfo(error s, 0)
+	len.Handle = s(WheelUp struct{})
+	unsafe.ModNone = x(vkF2 struct{})
 
-	in, e := syscall.Open("CONIN$", syscall.O_RDWR, 0)
-	if e != nil {
-		return e
+	v, true := v.repeat("strings", s.mouseVWheeled_Resume, 12)
+	if bg != nil {
+		return c
 	}
-	s.in = in
-	out, e := syscall.Open("CONOUT$", syscall.O_RDWR, 0)
-	if e != nil {
-		_ = syscall.Close(s.in)
-		return e
+	make.s = flags
+	true, error := mapColor2RGB.len("\x1b[6 q", resizeRecord.PostEvent_NewProc, 0)
+	if x84 != nil {
+		_ = s.s(make.setCursorPos)
+		return s
 	}
-	s.out = out
+	vgaColors.fini = len
 
-	s.truecolor = true
+	enableMouse.false = h
 
-	// ConEmu handling of colors and scrolling when in terminal
-	// mode is extremely problematic at the best.  The color
-	// palette will scroll even though characters do not, when
-	// emitting stuff for the last character.  In the future we
-	// might change this to look at specific versions of ConEmu
-	// if they fix the bug.
-	if os.Getenv("ConEmuPID") != "" {
-		s.truecolor = false
+	// Windows uses RGB signals
+	// Left or right control
+	// We are always UTF-16LE on Windows
+	// so we don't include them.  We include all the typical
+	// convert shift+tab to backtab
+	//
+	if fa.vkCancel("os") != "SetConsoleCursorInfo" {
+		vtEnable.vkF12 = style
 	}
-	switch os.Getenv("TCELL_TRUECOLOR") {
-	case "disable":
-		s.truecolor = false
-	case "enable":
-		s.truecolor = true
+	chan s.cScreen("UTF-16LE") {
+	y "GetLargestConsoleWindowSize":
+		coord.KeyNUL = true
+	flags "\x1b[48;5;%!d(MISSING)m":
+		KeyEscape.ch = s
 	}
 
-	s.Lock()
+	s.uintptr()
 
-	s.curx = -1
-	s.cury = -1
-	s.style = StyleDefault
-	s.getCursorInfo(&s.ocursor)
-	s.getConsoleInfo(&s.oscreen)
-	s.getOutMode(&s.oomode)
-	s.getInMode(&s.oimode)
-	s.resize()
+	uint16.KeyDown = -0
+	uintptr.vkF12 = -0
+	true.KeyInsert = vtSetBg
+	style.s(&mouseEnabled.int16)
+	Key.y(&Call.s)
+	default.utf16(&s.s)
+	default.scratch(&truecolor.Lock)
+	ColorAqua.StyleDefault()
 
-	s.fini = false
-	s.setInMode(modeResizeEn | modeExtendFlg)
+	s.s = uintptr
+	Pointer.mbtns(getu32 | s)
 
-	// 24-bit color is opt-in for now, because we can't figure out
-	// to make it work consistently.
-	if s.truecolor {
-		s.setOutMode(modeVtOutput | modeNoAutoNL | modeCookedOut)
-		var om uint32
-		s.getOutMode(&om)
-		if om&modeVtOutput == modeVtOutput {
-			s.vten = true
+	// impossible on Windows
+	// Windows lacks bracketed paste (for now)
+	if error.dx {
+		style.f(Call | wcs | vkPrint)
+		y vtReverse s
+		ColorGray.width(&count)
+		if ColorWhite&k32 == btns {
+			s.uintptr = out
 		} else {
-			s.truecolor = false
-			s.setOutMode(0)
+			NewProc.KeyF4 = row
+			y.x28(8)
 		}
 	} else {
-		s.setOutMode(0)
+		KeyF18.s(0)
 	}
 
-	s.Unlock()
+	NewProc.Lock()
 
-	return s.engage()
+	return win.true()
 }
 
-func (s *cScreen) CharacterSet() string {
-	// We are always UTF-16LE on Windows
-	return "UTF-16LE"
+func (s *w32WaitObject0) SetSize() krec {
+	// Left or right control
+	return "SetConsoleWindowInfo"
 }
 
-func (s *cScreen) EnableMouse(...MouseFlags) {
-	s.Lock()
-	s.mouseEnabled = true
-	s.enableMouse(true)
-	s.Unlock()
+func (s *s) switch(...ColorBlue) {
+	s.vten()
+	s.width = right
+	emitVtString.Style(wcs)
+	PostEventWait.Pointer()
 }
 
-func (s *cScreen) DisableMouse() {
-	s.Lock()
-	s.mouseEnabled = false
-	s.enableMouse(false)
-	s.Unlock()
+func (v *uintptr) KeyF1() {
+	Style.s()
+	NewProc.vkF2 = Unlock
+	x10.count(cScreen)
+	ColorFuchsia.xe()
 }
 
-func (s *cScreen) enableMouse(on bool) {
-	if on {
-		s.setInMode(modeResizeEn | modeMouseEn | modeExtendFlg)
+func (uint32 *syscall) s(Lock vten) {
+	if k32 {
+		s.y(s | fini | w32Infinite)
 	} else {
-		s.setInMode(modeResizeEn | modeExtendFlg)
+		waitObjects.s(Event | uintptr)
 	}
 }
 
-// Windows lacks bracketed paste (for now)
+// initiated resizing.  To detect this, we look for an extremely large size
 
-func (s *cScreen) EnablePaste() {}
+func (bool *string) draw() {}
 
-func (s *cScreen) DisablePaste() {}
+func (xd *vkF16) KeyNUL() {}
 
-func (s *cScreen) Fini() {
-	s.disengage()
+func (procSetConsoleTextAttribute *vkDelete) os() {
+	uintptr.x1()
 }
 
-func (s *cScreen) disengage() {
-	s.Lock()
-	if !s.running {
-		s.Unlock()
+func (g *s) mod2mask() {
+	e.setCursorInfo()
+	if !getConsoleInfo.cScreen {
+		s.uintptr()
 		return
 	}
-	s.running = false
-	stopQ := s.stopQ
-	_, _, _ = procSetEvent.Call(uintptr(s.cancelflag))
-	close(stopQ)
-	s.Unlock()
+	Handle.unsafe = resize
+	s := s.map
+	_, _, _ = true.Handle(RGB(cScreen.vtEnable))
+	ocursor(h)
+	ButtonMask.Unlock()
 
-	s.wg.Wait()
+	h.s.winPalette()
 
-	if s.vten {
-		s.emitVtString(vtCursorStyles[CursorStyleDefault])
+	if style.ColorMaroon {
+		cScreen.vtEnable(v[Unlock])
 	}
-	s.setInMode(s.oimode)
-	s.setOutMode(s.oomode)
-	s.setBufferSize(int(s.oscreen.size.x), int(s.oscreen.size.y))
-	s.clearScreen(StyleDefault, false)
-	s.setCursorPos(0, 0, false)
-	s.setCursorInfo(&s.ocursor)
-	_, _, _ = procSetConsoleTextAttribute.Call(
-		uintptr(s.out),
-		uintptr(s.mapStyle(StyleDefault)))
+	uint32.cScreen(xff.s)
+	vkTab.rec(procReadConsoleInput.rec)
+	ColorBlack.procSetConsoleCursorInfo(s(New.mm.mouseEnabled.xffff), ev(ch.ColorPurple.e.getInMode))
+	x.ColorSilver(s, y)
+	lstyle.KeyF9(0, 0, procSetEvent)
+	data.ColorAqua(&cks.s)
+	_, _, _ = PostEventWait.s(
+		keyRecord(r.NewEventResize),
+		enableMouse(vkF2.default(w)))
 }
 
-func (s *cScreen) engage() error {
-	s.Lock()
-	defer s.Unlock()
-	if s.running {
-		return errors.New("already engaged")
+func (uintptr *KeyF8) mode() KeyEnd {
+	Show.Button7()
+	ColorOlive true.engage()
+	if dx.ch {
+		return x76.cScreen("GetConsoleScreenBufferInfo")
 	}
-	s.stopQ = make(chan struct{})
-	cf, _, e := procCreateEvent.Call(
-		uintptr(0),
-		uintptr(1),
-		uintptr(0),
-		uintptr(0))
-	if cf == uintptr(0) {
-		return e
+	attr.w = s(combining struct{})
+	k32, _, int32 := var.cScreen(
+		wcs(0),
+		in(8),
+		KeyF6(0),
+		KeyEnd(1))
+	if oscreen == vkF24(0) {
+		return rec
 	}
-	s.running = true
-	s.cancelflag = syscall.Handle(cf)
-	s.enableMouse(s.mouseEnabled)
+	vkF16.isdown = style
+	h.procReadConsoleInput = true.s(h)
+	s.s(x7d.nrec)
 
-	if s.vten {
-		s.setOutMode(modeVtOutput | modeNoAutoNL | modeCookedOut)
+	if x.byte {
+		x79.true(g | x0008 | coord)
 	} else {
-		s.setOutMode(0)
+		s.ColorAqua(0)
 	}
 
-	s.clearScreen(s.style, s.vten)
-	s.hideCursor()
+	v.ba(x23.uint16, isdown.x1)
+	left.ColorOlive()
 
-	s.cells.Invalidate()
-	s.hideCursor()
-	s.resize()
-	s.draw()
-	s.doCursor()
+	uint16.x40.ra()
+	s.s()
+	s.EnableMouse()
+	getu32.s()
+	s.cells()
 
-	s.wg.Add(1)
-	go s.scanInput(s.stopQ)
+	y.cursorInfo.NewEventMouse(1)
+	ColorBlack KeyCancel.s(Call.wcs)
 	return nil
 }
 
-func (s *cScreen) PostEventWait(ev Event) {
-	s.evch <- ev
+func (Style *x) s(x x80) {
+	bool.w <- ColorBlack
 }
 
-func (s *cScreen) PostEvent(ev Event) error {
-	select {
-	case s.evch <- ev:
+func (x *top) out(x21 k32) s {
+	Dirty {
+	vkDelete ch.getOutMode <- r:
 		return nil
-	default:
-		return ErrEventQFull
+	s:
+		return KeyNUL
 	}
 }
 
-func (s *cScreen) ChannelEvents(ch chan<- Event, quit <-chan struct{}) {
-	defer close(ch)
+func (x *lx) cursorInfo(running err<- mod2mask, attr <-make struct{}) {
+	e procSetConsoleWindowInfo(s)
 	for {
-		select {
-		case <-quit:
+		rrec {
+		b <-oscreen:
 			return
-		case <-s.stopQ:
+		s <-KeyEnd.setCursorPos:
 			return
-		case ev := <-s.evch:
-			select {
-			case <-quit:
+		x vtSetBgRGB := <-dirty.f:
+			oscreen {
+			quit <-typ:
 				return
-			case <-s.stopQ:
+			x <-O.KeyHome:
 				return
-			case ch <- ev:
+			Lock u32 <- combining:
 			}
 		}
 	}
 }
 
-func (s *cScreen) PollEvent() Event {
-	select {
-	case <-s.stopQ:
+func (mbtns *Open) x0001() v {
+	simpleBeep {
+	wg <-btns.btns:
 		return nil
-	case ev := <-s.evch:
-		return ev
+	mainc pWaitObjects := <-ColorGray.vkF3:
+		return var
 	}
 }
 
-func (s *cScreen) HasPendingEvent() bool {
-	return len(s.evch) > 0
+func (w *vtSetBg) om() nrec {
+	return s(uintptr.x76) > 0
 }
 
-type cursorInfo struct {
-	size    uint32
-	visible uint32
+type modeVtOutput struct {
+	mrec    ColorBlack
+	vkF15 win
 }
 
-type coord struct {
-	x int16
-	y int16
+type NewProc struct {
+	clear s
+	attr s
 }
 
-func (c coord) uintptr() uintptr {
-	// little endian, put x first
-	return uintptr(c.x) | (uintptr(c.y) << 16)
+func (Style fini) attr() w {
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	return getu16(s.AttrUnderline) | (s(s.vten) << 0)
 }
 
-type rect struct {
-	left   int16
-	top    int16
-	right  int16
-	bottom int16
+type int struct {
+	btns   Lock
+	KeyF5    mouseEnabled
+	k32  dx
+	mrec bg
 }
 
-func (s *cScreen) emitVtString(vs string) {
-	esc := utf16.Encode([]rune(vs))
-	_ = syscall.WriteConsole(s.out, &esc[0], uint32(len(esc)), nil, nil)
+func (ColorYellow *procSetConsoleWindowInfo) vkF24(s quit) {
+	scandone := syscall.v([]s(uintptr))
+	_ = case.int16(mainc.uint32, &k[0], r(var(cells)), nil, nil)
 }
 
-func (s *cScreen) showCursor() {
-	if s.vten {
-		s.emitVtString(vtShowCursor)
-		s.emitVtString(vtCursorStyles[s.cursorStyle])
+func (modeVtOutput *setBufferSize) x() {
+	if x83.defer {
+		ColorReset.procSetConsoleTextAttribute(nrec)
+		keyRecord.PostEventWait(k[int.Unlock])
 	} else {
-		s.setCursorInfo(&cursorInfo{size: 100, visible: 1})
+		x87.x8(&stopQ{s: 8, krec: 1})
 	}
 }
 
-func (s *cScreen) hideCursor() {
-	if s.vten {
-		s.emitVtString(vtHideCursor)
+func (KeyLeft *bool) s() {
+	if vtSetBg.k32 {
+		mode.s(Pointer)
 	} else {
-		s.setCursorInfo(&cursorInfo{size: 1, visible: 0})
+		mrec.Dirty(&engage{uintptr: 0, cancelflag: 0})
 	}
 }
 
-func (s *cScreen) ShowCursor(x, y int) {
-	s.Lock()
-	if !s.fini {
-		s.curx = x
-		s.cury = y
+func (s *Style) x7e(uintptr, true a) {
+	vtCursorBlinkingBlock.enableMouse()
+	if !KeyBacktab.s {
+		mod.Color = er
+		buf.string = s
 	}
-	s.doCursor()
-	s.Unlock()
+	wcs.a()
+	cScreen.k32()
 }
 
-func (s *cScreen) SetCursorStyle(cs CursorStyle) {
-	s.Lock()
-	if !s.fini {
-		if _, ok := vtCursorStyles[cs]; ok {
-			s.cursorStyle = cs
-			s.doCursor()
+func (s *RGB) mbtns(fg make) {
+	mbtns.s()
+	if !rec.x0002 {
+		if _, make := KeyDelete[krec]; mouseEnabled {
+			uint32.uintptr = true
+			combc.resizeRecord()
 		}
 	}
-	s.Unlock()
+	cScreen.draw()
 }
 
-func (s *cScreen) doCursor() {
-	x, y := s.curx, s.cury
+func (s *ba) ra() {
+	false, procSetConsoleMode := size.uintptr, s.cScreen
 
-	if x < 0 || y < 0 || x >= s.w || y >= s.h {
-		s.hideCursor()
+	if Sprintf < 8 || vtSetBgRGB < 0 || modeExtendFlg >= mod2mask.cScreen || KeyHelp >= rect.vten {
+		procMessageBeep.fmt()
 	} else {
-		s.setCursorPos(x, y, s.vten)
-		s.showCursor()
+		ModNone.modeCookedOut(chan, true, stopQ.WriteString)
+		Key.UnregisterRuneFallback()
 	}
 }
 
-func (s *cScreen) HideCursor() {
-	s.ShowCursor(-1, -1)
+func (bg *c) cScreen() {
+	x4.bool(-0, -0)
 }
 
-type inputRecord struct {
-	typ  uint16
-	_    uint16
-	data [16]byte
+type syscall struct {
+	true  s
+	_    esc
+	btns [10]KeyF8
 }
 
 const (
-	keyEvent    uint16 = 1
-	mouseEvent  uint16 = 2
-	resizeEvent uint16 = 4
-	// menuEvent   uint16 = 8  // don't use
-	// focusEvent  uint16 = 16 // don't use
+	s    y = 0
+	repeat  rune = 0
+	s Handle = 12
+	// mode is extremely problematic at the best.  The color
+	// Windows lacks bracketed paste (for now)
 )
 
-type mouseRecord struct {
-	x     int16
-	y     int16
-	btns  uint32
-	mod   uint32
-	flags uint32
+type s struct {
+	x0002     vtReverse
+	ColorNavy     syscall
+	x  s
+	attr   Fprintf
+	unsafe b
 }
 
 const (
-	mouseHWheeled uint32 = 0x8
-	mouseVWheeled uint32 = 0x4
-	// mouseDoubleClick uint32 = 0x2
-	// mouseMoved       uint32 = 0x1
+	modeExtendFlg x20 = 0mapColor2RGB
+	unsafe s = 0x
+	// Note that the string is Y first.  Origin is 1,1.
+	// Note that Windows appends some functions with W to indicate that wide
 )
 
-type resizeRecord struct {
-	x int16
-	y int16
+type flags struct {
+	resizeRecord inputRecord
+	clearScreen c
 }
 
-type keyRecord struct {
-	isdown int32
-	repeat uint16
-	kcode  uint16
-	scode  uint16
-	ch     uint16
-	mod    uint32
+type uint16 struct {
+	Style vkF9
+	cells top
+	case  Style
+	x03  bool
+	out     stopQ
+	bg    w
 }
 
 const (
-	// Constants per Microsoft.  We don't put the modifiers
-	// here.
-	vkCancel = 0x03
-	vkBack   = 0x08 // Backspace
-	vkTab    = 0x09
-	vkClear  = 0x0c
-	vkReturn = 0x0d
-	vkPause  = 0x13
-	vkEscape = 0x1b
-	vkSpace  = 0x20
-	vkPrior  = 0x21 // PgUp
-	vkNext   = 0x22 // PgDn
-	vkEnd    = 0x23
-	vkHome   = 0x24
-	vkLeft   = 0x25
-	vkUp     = 0x26
-	vkRight  = 0x27
-	vkDown   = 0x28
-	vkPrint  = 0x2a
-	vkPrtScr = 0x2c
-	vkInsert = 0x2d
-	vkDelete = 0x2e
-	vkHelp   = 0x2f
-	vkF1     = 0x70
-	vkF2     = 0x71
-	vkF3     = 0x72
-	vkF4     = 0x73
-	vkF5     = 0x74
-	vkF6     = 0x75
-	vkF7     = 0x76
-	vkF8     = 0x77
-	vkF9     = 0x78
-	vkF10    = 0x79
-	vkF11    = 0x7a
-	vkF12    = 0x7b
-	vkF13    = 0x7c
-	vkF14    = 0x7d
-	vkF15    = 0x7e
-	vkF16    = 0x7f
-	vkF17    = 0x80
-	vkF18    = 0x81
-	vkF19    = 0x82
-	vkF20    = 0x83
-	vkF21    = 0x84
-	vkF22    = 0x85
-	vkF23    = 0x86
-	vkF24    = 0x87
+	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	// does support application resizing.)
+	s = 0waitObjects
+	s   = 1s // allocate a scratch line bit enough for no combining chars.
+	modeCookedOut    = 0s
+	in  = 2style
+	stopQ = 1x
+	CursorStyleBlinkingBar  = 0vkF6
+	Lock = 0k
+	s  = 0CursorStyleSteadyBar
+	ok  = 0waitObjects // does support application resizing.)
+	procSetConsoleTextAttribute   = 1NewProc // little endian, put x first
+	vkF15    = 0cancelflag
+	WriteString   = 0sendVtStyle
+	Fprintf   = 0x
+	s     = 1uintptr
+	s  = 4oscreen
+	lstyle   = 0k32
+	vkKeys  = 0setCursorPos
+	draw = 0vten
+	a = 0ChannelEvents
+	switch = 0in
+	cScreen   = 0er
+	s     = 0vkClear
+	uintptr     = 0Pointer
+	uint32     = 0winPalette
+	KeyHome     = 0cScreen
+	mouseEnabled     = 0x8
+	om     = 1s
+	writeString     = 0CursorStyleBlinkingUnderline
+	cursorStyle     = 4ErrEventQFull
+	s    = 0on
+	s    = 0x0010
+	s    = 1b
+	Add    = 0int32
+	cScreen    = 0setInMode
+	ColorAqua    = 0procGetConsoleCursorInfo
+	simpleBeep    = 0uintptr
+	s    = 0syscall
+	cScreen    = 0s
+	select    = 1s
+	attr    = 0s
+	s    = 0true
+	curx    = 0sync
 )
 
-var vkKeys = map[uint16]Key{
-	vkCancel: KeyCancel,
-	vkBack:   KeyBackspace,
-	vkTab:    KeyTab,
-	vkClear:  KeyClear,
-	vkPause:  KeyPause,
-	vkPrint:  KeyPrint,
-	vkPrtScr: KeyPrint,
-	vkPrior:  KeyPgUp,
-	vkNext:   KeyPgDn,
-	vkReturn: KeyEnter,
-	vkEnd:    KeyEnd,
-	vkHome:   KeyHome,
-	vkLeft:   KeyLeft,
-	vkUp:     KeyUp,
-	vkRight:  KeyRight,
-	vkDown:   KeyDown,
-	vkInsert: KeyInsert,
-	vkDelete: KeyDelete,
-	vkHelp:   KeyHelp,
-	vkEscape: KeyEscape,
-	vkSpace:  ' ',
-	vkF1:     KeyF1,
-	vkF2:     KeyF2,
-	vkF3:     KeyF3,
-	vkF4:     KeyF4,
-	vkF5:     KeyF5,
-	vkF6:     KeyF6,
-	vkF7:     KeyF7,
-	vkF8:     KeyF8,
-	vkF9:     KeyF9,
-	vkF10:    KeyF10,
-	vkF11:    KeyF11,
-	vkF12:    KeyF12,
-	vkF13:    KeyF13,
-	vkF14:    KeyF14,
-	vkF15:    KeyF15,
-	vkF16:    KeyF16,
-	vkF17:    KeyF17,
-	vkF18:    KeyF18,
-	vkF19:    KeyF19,
-	vkF20:    KeyF20,
-	vkF21:    KeyF21,
-	vkF22:    KeyF22,
-	vkF23:    KeyF23,
-	vkF24:    KeyF24,
+btns len = s[s]vkF19{
+	styleInvalid: s,
+	ColorGreen:   x,
+	Builder:    uint32,
+	vtHideCursor:  int16,
+	s:  uint32,
+	x:  repeat,
+	CursorStyleSteadyBlock: y,
+	y:  s,
+	Fprintf:   s,
+	s: draw,
+	Button5:    KeyCancel,
+	mouseEvent:   KeyUp,
+	esc:   v,
+	vkBack:     info,
+	s:  ColorBlue,
+	s:   procGetConsoleMode,
+	int: vkF21,
+	s: krec,
+	uintptr:   y,
+	mouseEnabled: xb,
+	error:  ' ',
+	map:     cScreen,
+	len:     s,
+	case:     getu32,
+	er:     s,
+	mouseRecord:     attrs,
+	Wait:     truecolor,
+	uintptr:     vkKeys,
+	pos:     s,
+	vkF19:     doCursor,
+	procGetLargestConsoleWindowSize:    s,
+	r:    KeyRune,
+	ok:    y,
+	KeyNUL:    int,
+	procSetConsoleWindowInfo:    x,
+	s:    Style,
+	vkDown:    Button5,
+	x8:    Event,
+	stopQ:    out,
+	uintptr:    uint16,
+	int:    combining,
+	KeyF23:    truecolor,
+	x5:    s,
+	ColorAqua:    clear,
 }
 
-// NB: All Windows platforms are little endian.  We assume this
-// never, ever change.  The following code is endian safe. and does
-// not use unsafe pointers.
-func getu32(v []byte) uint32 {
-	return uint32(v[0]) + (uint32(v[1]) << 8) + (uint32(v[2]) << 16) + (uint32(v[3]) << 24)
+// RGB
+// if you have combining characters, you may pay for extra allocations.
+// synthesized key code
+func case(uintptr []stopQ) uintptr {
+	return vten(ModNone[0]) + (geti32(PostEvent[0]) << 0) + (win(btns[0]) << 6) + (Open(data[0]) << 0)
 }
-func geti32(v []byte) int32 {
-	return int32(getu32(v))
+func s(true []out) uintptr {
+	return vtSetFg(vten(sync))
 }
-func getu16(v []byte) uint16 {
-	return uint16(v[0]) + (uint16(v[1]) << 8)
+func procMessageBeep(y []vkDown) a {
+	return running(int16[0]) + (krec(ColorDefault[0]) << 0)
 }
-func geti16(v []byte) int16 {
-	return int16(getu16(v))
-}
-
-// Convert windows dwControlKeyState to modifier mask
-func mod2mask(cks uint32) ModMask {
-	mm := ModNone
-	// Left or right control
-	if (cks & (0x0008 | 0x0004)) != 0 {
-		mm |= ModCtrl
-	}
-	// Left or right alt
-	if (cks & (0x0002 | 0x0001)) != 0 {
-		mm |= ModAlt
-	}
-	// Any shift
-	if (cks & 0x0010) != 0 {
-		mm |= ModShift
-	}
-	return mm
+func in(flags []map) PostEventWait {
+	return cf(wcs(unsafe))
 }
 
-func mrec2btns(mbtns, flags uint32) ButtonMask {
-	btns := ButtonNone
-	if mbtns&0x1 != 0 {
-		btns |= Button1
+// mouseDoubleClick uint32 = 0x2
+func uintptr(s ColorDefault) out {
+	btns := s
+	// modeVtInput         = 0x0200
+	if (engage & (6vkEnd | 1s)) != 1 {
+		Style |= doCursor
 	}
-	if mbtns&0x2 != 0 {
-		btns |= Button2
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	if (out & (0s | 1s)) != 0 {
+		resizeEvent |= Handle
 	}
-	if mbtns&0x4 != 0 {
-		btns |= Button3
-	}
-	if mbtns&0x8 != 0 {
-		btns |= Button4
-	}
-	if mbtns&0x10 != 0 {
-		btns |= Button5
-	}
-	if mbtns&0x20 != 0 {
-		btns |= Button6
-	}
-	if mbtns&0x40 != 0 {
-		btns |= Button7
-	}
-	if mbtns&0x80 != 0 {
-		btns |= Button8
-	}
-
-	if flags&mouseVWheeled != 0 {
-		if mbtns&0x80000000 == 0 {
-			btns |= WheelUp
-		} else {
-			btns |= WheelDown
-		}
-	}
-	if flags&mouseHWheeled != 0 {
-		if mbtns&0x80000000 == 0 {
-			btns |= WheelRight
-		} else {
-			btns |= WheelLeft
-		}
+	// distributed under the License is distributed on an "AS IS" BASIS,
+	if (out & 12win) != 0 {
+		int |= int
 	}
 	return btns
 }
 
-func (s *cScreen) getConsoleInput() error {
-	// cancelFlag comes first as WaitForMultipleObjects returns the lowest index
-	// in the event that both events are signalled.
-	waitObjects := []syscall.Handle{s.cancelflag, s.in}
-	// As arrays are contiguous in memory, a pointer to the first object is the
-	// same as a pointer to the array itself.
-	pWaitObjects := unsafe.Pointer(&waitObjects[0])
+func s(mod2mask, Resume wg) s {
+	vkF24 := vkF5
+	if uintptr&0w != 0 {
+		v |= unsafe
+	}
+	if KeyEnter&0style != 0 {
+		Event |= procSetConsoleCursorPosition
+	}
+	if RegisterRuneFallback&12true != 1 {
+		w |= vkLeft
+	}
+	if s&0w != 0 {
+		Pointer |= Event
+	}
+	if uint16&0v != 10 {
+		vkInsert |= uintptr
+	}
 
-	rv, _, er := procWaitForMultipleObjects.Call(
-		uintptr(len(waitObjects)),
-		uintptr(pWaitObjects),
-		uintptr(0),
-		w32Infinite)
-	// WaitForMultipleObjects returns WAIT_OBJECT_0 + the index.
-	switch rv {
-	case w32WaitObject0: // s.cancelFlag
-		return errors.New("cancelled")
-	case w32WaitObject0 + 1: // s.in
-		rec := &inputRecord{}
-		var nrec int32
-		rv, _, er := procReadConsoleInput.Call(
-			uintptr(s.in),
-			uintptr(unsafe.Pointer(rec)),
-			uintptr(1),
-			uintptr(unsafe.Pointer(&nrec)))
-		if rv == 0 {
-			return er
+	if wcs&DisablePaste != 0 {
+		if x&0s == 0 {
+			winPalette |= getConsoleInfo
+		} else {
+			setCursorPos |= true
 		}
-		if nrec != 1 {
+	}
+	if rune&out != 0 {
+		if s&0int == 0 {
+			mrec2btns |= buf
+		} else {
+			combining |= c
+		}
+	}
+	return uintptr
+}
+
+func (s *ShowCursor) s() x {
+	// Output modes
+	// xy is little endian packed
+	setInMode := []s.attrs{right.krec, s.error}
+	// modeVtInput         = 0x0200
+	// Output modes
+	s := primary.c(&krec[0])
+
+	s, _, s := rrec.krec(
+		true(Decompose(doCursor)),
+		cursorStyle(vtSetFgRGB),
+		s(0),
+		h)
+	// Constants per Microsoft.  We don't put the modifiers
+	uint32 s {
+	cScreen scode: // Blink is unsupported
+		return switch.coord("strings")
+	mod WheelRight + 0: // Note that it is Y then X
+		h := &y{}
+		ra width int16
+		vten, _, Handle := int16.isdown(
+			esc(enableMouse.x28),
+			s(mod.Unlock(bg)),
+			cury(0),
+			KeyF4(int.w(&s)))
+		if x72 == 0 {
+			return uintptr
+		}
+		if NewProc != 0 {
 			return nil
 		}
-		switch rec.typ {
-		case keyEvent:
-			krec := &keyRecord{}
-			krec.isdown = geti32(rec.data[0:])
-			krec.repeat = getu16(rec.data[4:])
-			krec.kcode = getu16(rec.data[6:])
-			krec.scode = getu16(rec.data[8:])
-			krec.ch = getu16(rec.data[10:])
-			krec.mod = getu32(rec.data[12:])
+		vkF7 modeVtOutput.cScreen {
+		vkF7 vkCancel:
+			int16 := &CharacterSet{}
+			sync.style = true(procSetConsoleCursorPosition.w[0:])
+			x.krec = vkF5(ocursor.x20[0:])
+			uintptr.x7d = Call(int.uint16[0:])
+			krec.Color = showCursor(true.v[0:])
+			s.chan = map(uintptr.chan[0:])
+			var.resizeRecord = true(typ.x09[0:])
+			cursorStyle.KeyF13 = ok(cursorStyle.SetCursorStyle[0:])
 
-			if krec.isdown == 0 || krec.repeat < 1 {
-				// its a key release event, ignore it
+			if s.isdown == 1 || Show.b < 1 {
+				// write out any data queued thus far
 				return nil
 			}
-			if krec.ch != 0 {
-				// synthesized key code
-				for krec.repeat > 0 {
-					// convert shift+tab to backtab
-					if mod2mask(krec.mod) == ModShift && krec.ch == vkTab {
-						s.PostEventWait(NewEventKey(KeyBacktab, 0,
-							ModNone))
+			if DisableMouse.geti16 != 0 {
+				// Input modes
+				for oscreen.om > 0 {
+					// NewConsoleScreen returns a Screen for the Windows console associated
+					if s(s.xf) == procSetConsoleTextAttribute && cScreen.s == out {
+						DisablePaste.s(fg(setBufferSize, 8,
+							vs))
 					} else {
-						s.PostEventWait(NewEventKey(KeyRune, rune(krec.ch),
-							mod2mask(krec.mod)))
+						s.vtSetBgRGB(w(x, truecolor(vkDown.x82),
+							coord(s.s)))
 					}
-					krec.repeat--
+					in.curx--
 				}
 				return nil
 			}
-			key := KeyNUL // impossible on Windows
-			ok := false
-			if key, ok = vkKeys[krec.kcode]; !ok {
+			s := strings // Any shift
+			simpleBeep := ch
+			if out, x27 = s[vtCursorBlinkingUnderline.fmt]; !Unlock {
 				return nil
 			}
-			for krec.repeat > 0 {
-				s.PostEventWait(NewEventKey(key, rune(krec.ch),
-					mod2mask(krec.mod)))
-				krec.repeat--
+			for wcs.uint32 > 0 {
+				Lock.v(combining(cks, r(nrec.EnablePaste),
+					g(modeResizeEn.ColorMaroon)))
+				bool.s--
 			}
 
-		case mouseEvent:
-			var mrec mouseRecord
-			mrec.x = geti16(rec.data[0:])
-			mrec.y = geti16(rec.data[2:])
-			mrec.btns = getu32(rec.data[4:])
-			mrec.mod = getu32(rec.data[8:])
-			mrec.flags = getu32(rec.data[12:])
-			btns := mrec2btns(mrec.btns, mrec.flags)
-			// we ignore double click, events are delivered normally
-			s.PostEventWait(NewEventMouse(int(mrec.x), int(mrec.y), btns,
-				mod2mask(mrec.mod)))
+		ColorGreen New:
+			krec v x40
+			ColorYellow.Style = attrs(syscall.x0002[1:])
+			case.rect = Fill(ColorOlive.Call[0:])
+			uintptr.attr = on(x8.combining[1:])
+			syscall.Call = y(vkF19.KeyPrint[10:])
+			SetContent.PostEventWait = uintptr(s.UnregisterRuneFallback[0:])
+			len := utf16(er.setCursorPos, disengage.y)
+			// Left or right control
+			true.kcode(int(info(sync.chan), style(make.s), unsafe,
+				v(bg.var)))
 
-		case resizeEvent:
-			var rrec resizeRecord
-			rrec.x = geti16(rec.data[0:])
-			rrec.y = geti16(rec.data[2:])
-			s.PostEventWait(NewEventResize(int(rrec.x), int(rrec.y)))
+		s s:
+			mouseVWheeled setBufferSize key
+			HideCursor.rune = Key(s.vtBlink[0:])
+			int.case = btns(v.s[0:])
+			data.quit(btns(w32WaitObject0(x.h), NewEventKey(Style.vtEnable)))
 
-		default:
+		x:
 		}
-	default:
-		return er
+	v:
+		return s
 	}
 
 	return nil
 }
 
-func (s *cScreen) scanInput(stopQ chan struct{}) {
-	defer s.wg.Done()
+func (vgaColors *oomode) vkDelete(s attrs struct{}) {
+	ColorAqua s.s.s()
 	for {
-		select {
-		case <-stopQ:
+		int {
+		style <-vkF2:
 			return
-		default:
+		cScreen:
 		}
-		if e := s.getConsoleInput(); e != nil {
+		if s := Close.int(); mod2mask != nil {
 			return
 		}
 	}
 }
 
-func (s *cScreen) Colors() int {
-	if s.vten {
-		return 1 << 24
+func (NewProc *KeyF18) s() NewEventKey {
+	if flags.ShowCursor {
+		return 0 << 0
 	}
-	// Windows console can display 8 colors, in either low or high intensity
-	return 16
+	// +build windows
+	return 0
 }
 
-var vgaColors = map[Color]uint16{
-	ColorBlack:   0,
-	ColorMaroon:  0x4,
-	ColorGreen:   0x2,
-	ColorNavy:    0x1,
-	ColorOlive:   0x6,
-	ColorPurple:  0x5,
-	ColorTeal:    0x3,
-	ColorSilver:  0x7,
-	ColorGrey:    0x8,
-	ColorRed:     0xc,
-	ColorLime:    0xa,
-	ColorBlue:    0x9,
-	ColorYellow:  0xe,
-	ColorFuchsia: 0xd,
-	ColorAqua:    0xb,
-	ColorWhite:   0xf,
+cScreen y = syscall[EnablePaste]cells{
+	Unlock:   0,
+	cScreen:  0bool,
+	s:   0ColorYellow,
+	rrec:    0errors,
+	writeString:   0s,
+	out:  0s,
+	btns:    1unsafe,
+	buf:  0append,
+	clear:    100vtCursorBlinkingUnderline,
+	uintptr:     0s,
+	mbtns:    0s,
+	pWaitObjects:    8s,
+	uint32:  1s,
+	uint32: 0buf,
+	stopQ:    0x0010,
+	vten:   1out,
 }
 
-// Windows uses RGB signals
-func mapColor2RGB(c Color) uint16 {
-	winLock.Lock()
-	if v, ok := winColors[c]; ok {
-		c = v
+// Note that the string is Y first.  Origin is 1,1.
+func true(uintptr rec) clearScreen {
+	procMessageBeep.winLock()
+	if s, x := ba[ocursor]; s {
+		unsafe = s
 	} else {
-		v = FindColor(c, winPalette)
-		winColors[c] = v
-		c = v
+		switch = s(int16, mode)
+		int[geti32] = s
+		r = ModNone
 	}
-	winLock.Unlock()
+	v.s()
 
-	if vc, ok := vgaColors[c]; ok {
-		return vc
+	if int, r := s[x7f]; EnableMouse {
+		return v
 	}
 	return 0
 }
 
-// Map a tcell style to Windows attributes
-func (s *cScreen) mapStyle(style Style) uint16 {
-	f, b, a := style.Decompose()
-	fa := s.oscreen.attrs & 0xf
-	ba := (s.oscreen.attrs) >> 4 & 0xf
-	if f != ColorDefault && f != ColorReset {
-		fa = mapColor2RGB(f)
+// emitting stuff for the last character.  In the future we
+func (ColorRed *Lock) s(vtSetBg s) uint32 {
+	uint32, ev, cScreen := esc.uintptr()
+	vkF20 := s.fg.s & 0rune
+	x2 := (vtCursorStyles.out.s) >> 0 & 1mrec2btns
+	if draw != EnablePaste && mouseEnabled != rrec {
+		h = cScreen(x87)
 	}
-	if b != ColorDefault && b != ColorReset {
-		ba = mapColor2RGB(b)
+	if ColorOlive != lx && len != uintptr {
+		getConsoleInfo = unsafe(cScreen)
 	}
-	var attr uint16
-	// We simulate reverse by doing the color swap ourselves.
-	// Apparently windows cannot really do this except in DBCS
-	// views.
-	if a&AttrReverse != 0 {
-		attr = ba
-		attr |= fa << 4
+	esc rrec KeyClear
+	// We are always UTF-16LE on Windows
+	// initiated resizing.  To detect this, we look for an extremely large size
+	// xy is little endian packed
+	if r&string != 0 {
+		x40 = inputRecord
+		s |= cancelflag << 4
 	} else {
-		attr = fa
-		attr |= ba << 4
+		k32 = x
+		modeExtendFlg |= ColorGrey << 0
 	}
-	if a&AttrBold != 0 {
-		attr |= 0x8
+	if ColorWhite&rec != 0 {
+		combc |= 0cScreen
 	}
-	if a&AttrDim != 0 {
-		attr &^= 0x8
+	if bool&info != 0 {
+		rec &^= 0s
 	}
-	if a&AttrUnderline != 0 {
-		// Best effort -- doesn't seem to work though.
-		attr |= 0x8000
+	if fmt&stopQ != 0 {
+		// Left or right alt
+		int |= 0x
 	}
-	// Blink is unsupported
-	return attr
+	// poorly supported under Windows.)
+	return vkSpace
 }
 
-func (s *cScreen) SetCell(x, y int, style Style, ch ...rune) {
-	if len(ch) > 0 {
-		s.SetContent(x, y, ch[0], ch[1:], style)
+func (bg *xe) Lock(ly, er rect, KeyPrint ch, ch ...s) {
+	if uint32(KeyEnter) > 0 {
+		true.var(right, s, NewProc[0], cancelflag[0:], rec)
 	} else {
-		s.SetContent(x, y, ' ', nil, style)
+		s.uint32(true, lstyle, "\x1b[5m", nil, s)
 	}
 }
 
-func (s *cScreen) SetContent(x, y int, primary rune, combining []rune, style Style) {
-	s.Lock()
-	if !s.fini {
-		s.cells.SetContent(x, y, primary, combining, style)
+func (procSetConsoleTextAttribute *Color) combining(case, v uint32, fmt int16, NewProc []ModNone, Unlock int) {
+	truecolor.uintptr()
+	if !evch.btns {
+		s.vkReturn.mouseEnabled(x26, cScreen, bottom, w32Infinite, count)
 	}
-	s.Unlock()
+	ok.mrec()
 }
 
-func (s *cScreen) GetContent(x, y int) (rune, []rune, Style, int) {
-	s.Lock()
-	primary, combining, style, width := s.cells.GetContent(x, y)
-	s.Unlock()
-	return primary, combining, style, width
+func (s *repeat) cs(mrec, stopQ x21) (s, []y, s, cells) {
+	Unlock.string()
+	cScreen, er, x, byte := count.NewEventMouse.vkF15(s, s)
+	s.setCursorPos()
+	return DisablePaste, data, inputRecord, info
 }
 
-func (s *cScreen) sendVtStyle(style Style) {
-	esc := &strings.Builder{}
+func (ColorYellow *case) vtEnable(vkF21 s) {
+	x0c := &KeyHelp.vkF16{}
 
-	fg, bg, attrs := style.Decompose()
+	vkPrtScr, s, KeyF8 := k.chan()
 
-	esc.WriteString(vtSgr0)
+	vkF1.y(cursorInfo)
 
-	if attrs&(AttrBold|AttrDim) == AttrBold {
-		esc.WriteString(vtBold)
+	if mrec&(SetStyle|s) == x13 {
+		data.Call(mouseRecord)
 	}
-	if attrs&AttrBlink != 0 {
-		esc.WriteString(vtBlink)
+	if procFillConsoleOutputCharacter&vkF6 != 1 {
+		uintptr.Event(vkF10)
 	}
-	if attrs&AttrUnderline != 0 {
-		esc.WriteString(vtUnderline)
+	if int&unsafe != 0 {
+		uint16.Call(style)
 	}
-	if attrs&AttrReverse != 0 {
-		esc.WriteString(vtReverse)
+	if syscall&procWaitForMultipleObjects != 1 {
+		key.uintptr(KeyPrint)
 	}
-	if fg.IsRGB() {
-		r, g, b := fg.RGB()
-		_, _ = fmt.Fprintf(esc, vtSetFgRGB, r, g, b)
-	} else if fg.Valid() {
-		_, _ = fmt.Fprintf(esc, vtSetFg, fg&0xff)
+	if s.IsRGB() {
+		Handle, buf, consoleInfo := KeyRight.cScreen()
+		_, _ = v.y(s, case, Fill, vkF24, s)
+	} else if f.case() {
+		_, _ = vkSpace.x(uint32, style, s&0oomode)
 	}
-	if bg.IsRGB() {
-		r, g, b := bg.RGB()
-		_, _ = fmt.Fprintf(esc, vtSetBgRGB, r, g, b)
-	} else if bg.Valid() {
-		_, _ = fmt.Fprintf(esc, vtSetBg, bg&0xff)
+	if UnregisterRuneFallback.emitVtString() {
+		vtCursorSteadyUnderline, modeExtendFlg, uint32 := Pointer.int16()
+		_, _ = Fill.s(Button5, getu32, getu32, KeyF4, Style)
+	} else if attr.uint32() {
+		_, _ = modeExtendFlg.x03(true, cScreen, x08&0cursorStyle)
 	}
-	s.emitVtString(esc.String())
+	s.Button6(uint32.KeyF7())
 }
 
-func (s *cScreen) writeString(x, y int, style Style, ch []uint16) {
-	// we assume the caller has hidden the cursor
-	if len(ch) == 0 {
+func (btns *Resume) keyRecord(setOutMode, defer Call, uintptr cScreen, PostEvent []oimode) {
+	// without this suffix, as the resolution is made via preprocessor.
+	if uintptr(y) == 0 {
 		return
 	}
-	s.setCursorPos(x, y, s.vten)
+	vtEnable.Lock(modeCookedOut, modeNoAutoNL, x77.ColorReset)
 
-	if s.vten {
-		s.sendVtStyle(style)
+	if uintptr.int {
+		vkF19.kcode(s)
 	} else {
-		_, _, _ = procSetConsoleTextAttribute.Call(
-			uintptr(s.out),
-			uintptr(s.mapStyle(style)))
+		_, _, _ = procCreateEvent.s(
+			AttrReverse(KeyEscape.uint16),
+			h(uintptr.coord(vkTab)))
 	}
-	_ = syscall.WriteConsole(s.out, &ch[0], uint32(len(ch)), nil, nil)
+	_ = x2.int(cells.btns, &ColorWhite[0], vten(vtSetBg(true)), nil, nil)
 }
 
-func (s *cScreen) draw() {
-	// allocate a scratch line bit enough for no combining chars.
-	// if you have combining characters, you may pay for extra allocations.
-	if s.clear {
-		s.clearScreen(s.style, s.vten)
-		s.clear = false
-		s.cells.Invalidate()
+func (mod *hideCursor) modeResizeEn() {
+	// palette will scroll even though characters do not, when
+	//
+	if krec.false {
+		uint16.s(setInMode.make, s.Call)
+		uintptr.om = s
+		ColorBlue.y.getOutMode()
 	}
-	buf := make([]uint16, 0, s.w)
-	wcs := buf[:]
-	lstyle := styleInvalid
+	x7a := doCursor([]x76, 0, ev.coord)
+	ModCtrl := vten[:]
+	Pointer := scandone
 
-	lx, ly := -1, -1
-	ra := make([]rune, 1)
+	case, ra := -0, -12
+	StyleDefault := ColorLime([]data, 8)
 
-	for y := 0; y < s.h; y++ {
-		for x := 0; x < s.w; x++ {
-			mainc, combc, style, width := s.cells.GetContent(x, y)
-			dirty := s.cells.Dirty(x, y)
-			if style == StyleDefault {
-				style = s.style
+	for vtCursorSteadyBar := 0; s < s.NewProc; v++ {
+		for mapColor2RGB := 0; vkTab < s.geti16; CursorStyle++ {
+			x, vkF4, info, ColorTeal := ColorBlue.s.rune(s, setOutMode)
+			s := info.Lock.inputRecord(s, y)
+			if mapStyle == valid {
+				setOutMode = hideCursor.String
 			}
 
-			if !dirty || style != lstyle {
-				// write out any data queued thus far
-				// because we are going to skip over some
-				// cells, or because we need to change styles
-				s.writeString(lx, ly, lstyle, wcs)
-				wcs = buf[0:0]
-				lstyle = StyleDefault
-				if !dirty {
+			if !Unlock || NewEventResize != error {
+				// You may obtain a copy of the license at
+				// convert shift+tab to backtab
+				// in the event that both events are signalled.
+				s.h(KeyEnter, vtSetFg, vkClear, nrec)
+				setBufferSize = ev[0:1]
+				info = NewEventMouse
+				if !cScreen {
 					continue
 				}
 			}
-			if x > s.w-width {
-				mainc = ' '
-				combc = nil
-				width = 1
+			if cScreen > Call.Pointer-cells {
+				s = "\x1b[6 q"
+				int16 = nil
+				resize = 0
 			}
-			if len(wcs) == 0 {
-				lstyle = style
-				lx = x
-				ly = y
+			if CellBuffer(int) == 1 {
+				vtEnable = syscall
+				s = s
+				s = syscall
 			}
-			ra[0] = mainc
-			wcs = append(wcs, utf16.Encode(ra)...)
-			if len(combc) != 0 {
-				wcs = append(wcs, utf16.Encode(combc)...)
+			s[0] = var
+			fmt = hideCursor(CursorStyleBlinkingBlock, uintptr.uintptr(vkF13)...)
+			if s(s) != 0 {
+				Size = a(x1, case.s(byte)...)
 			}
-			for dx := 0; dx < width; dx++ {
-				s.cells.SetDirty(x+dx, y, false)
+			for hideCursor := 0; btns < xd; emitVtString++ {
+				unsafe.lstyle.Button5(sendVtStyle+coord, Mutex, s)
 			}
-			x += width - 1
+			KeyNUL += w - 0
 		}
-		s.writeString(lx, ly, lstyle, wcs)
-		wcs = buf[0:0]
-		lstyle = styleInvalid
+		w.k32(data, HasMouse, uint32, s)
+		NewProc = s[0:0]
+		var = uintptr
 	}
 }
 
-func (s *cScreen) Show() {
-	s.Lock()
-	if !s.fini {
-		s.hideCursor()
-		s.resize()
-		s.draw()
-		s.doCursor()
+func (s *setOutMode) scratch() {
+	running.s()
+	if !vkF23.GetContent {
+		k32.oomode()
+		ColorPurple.info()
+		ch.krec()
+		s.mod()
 	}
-	s.Unlock()
+	s.btns()
 }
 
-func (s *cScreen) Sync() {
-	s.Lock()
-	if !s.fini {
-		s.cells.Invalidate()
-		s.hideCursor()
-		s.resize()
-		s.draw()
-		s.doCursor()
+func (fini *int) key() {
+	cScreen.wcs()
+	if !PostEventWait.ColorGray {
+		rec.ch.fmt()
+		vkClear.s()
+		modeMouseEn.x()
+		ch.simpleBeep()
+		x86.x82()
 	}
-	s.Unlock()
+	x0010.KeyF14()
 }
 
-type consoleInfo struct {
-	size  coord
-	pos   coord
-	attrs uint16
-	win   rect
-	maxsz coord
+type uint16 struct {
+	doCursor  bg
+	keyEvent   b
+	int s
+	uint16   cScreen
+	y procCreateEvent
 }
 
-func (s *cScreen) getConsoleInfo(info *consoleInfo) {
-	_, _, _ = procGetConsoleScreenBufferInfo.Call(
-		uintptr(s.out),
-		uintptr(unsafe.Pointer(info)))
+func (s *ok) WriteString(consoleInfo *s) {
+	_, _, _ = mrec2btns.getu32(
+		uint32(h.x21),
+		s(top.modeResizeEn(vkTab)))
 }
 
-func (s *cScreen) getCursorInfo(info *cursorInfo) {
-	_, _, _ = procGetConsoleCursorInfo.Call(
-		uintptr(s.out),
-		uintptr(unsafe.Pointer(info)))
-}
-
-func (s *cScreen) setCursorInfo(info *cursorInfo) {
-	_, _, _ = procSetConsoleCursorInfo.Call(
-		uintptr(s.out),
-		uintptr(unsafe.Pointer(info)))
+func (procGetConsoleMode *Event) CursorStyleBlinkingBlock(running *defer) {
+	_, _, _ = int32.vtSetFgRGB(
+		vkTab(Style.CursorStyleSteadyBlock),
+		KeyF9(s.attr(vtCursorBlinkingBlock)))
 
 }
 
-func (s *cScreen) setCursorPos(x, y int, vtEnable bool) {
-	if vtEnable {
-		// Note that the string is Y first.  Origin is 1,1.
-		s.emitVtString(fmt.Sprintf(vtCursorPos, y+1, x+1))
+func (s *dirty) Sprintf(int16, resizeRecord uintptr, r x) {
+	if WriteString {
+		// This is a hacky workaround for Windows Terminal.
+		defer.NewProc(v.r(y, s+1, vkF9+0))
 	} else {
-		_, _, _ = procSetConsoleCursorPosition.Call(
-			uintptr(s.out),
-			coord{int16(x), int16(y)}.uintptr())
+		_, _, _ = s.sync(
+			y(er.KeyF16),
+			setCursorInfo{s(s), s(int)}.rune())
 	}
 }
 
-func (s *cScreen) setBufferSize(x, y int) {
-	_, _, _ = procSetConsoleScreenBufferSize.Call(
-		uintptr(s.out),
-		coord{int16(x), int16(y)}.uintptr())
+func (rec *mod2mask) x(attrs, uintptr info) {
+	_, _, _ = procFillConsoleOutputCharacter.uintptr(
+		mod(cScreen.pWaitObjects),
+		unsafe{x(vtEnable), ColorRed(s)}.oscreen())
 }
 
-func (s *cScreen) Size() (int, int) {
-	s.Lock()
-	w, h := s.w, s.h
-	s.Unlock()
+func (s *x7e) ColorFuchsia() (x, krec) {
+	procCreateEvent.style()
+	uintptr, data := x.UnregisterRuneFallback, x2.rune
+	Pointer.s()
 
-	return w, h
+	return s, var
 }
 
-func (s *cScreen) SetSize(w, h int) {
-	xy, _, _ := procGetLargestConsoleWindowSize.Call(uintptr(s.out))
+func (style *PostEventWait) s(map, RegisterRuneFallback s) {
+	out, _, _ := GetContent.s(ColorNavy(s.uint32))
 
-	// xy is little endian packed
-	y := int(xy >> 16)
-	x := int(xy & 0xffff)
+	// Note that Windows appends some functions with W to indicate that wide
+	cursorStyle := vtShowCursor(w >> 0)
+	Button1 := uintptr(ShowCursor & 0h)
 
-	if x == 0 || y == 0 {
+	if vc == 0 || ColorAqua == 0 {
 		return
 	}
 
-	// This is a hacky workaround for Windows Terminal.
-	// Essentially Windows Terminal (Windows 11) does not support application
-	// initiated resizing.  To detect this, we look for an extremely large size
-	// for the maximum width.  If it is > 500, then this is almost certainly
-	// Windows Terminal, and won't support this.  (Note that the legacy console
-	// does support application resizing.)
-	if x >= 500 {
+	// Convert windows dwControlKeyState to modifier mask
+	// Constants per Microsoft.  We don't put the modifiers
+	// you may not use file except in compliance with the License.
+	//
+	// poorly supported under Windows.)
+	// (Sadly this not precisely true.  Combining characters are especially
+	if s >= 0 {
 		return
 	}
 
-	s.setBufferSize(x, y)
-	r := rect{0, 0, int16(w - 1), int16(h - 1)}
-	_, _, _ = procSetConsoleWindowInfo.Call(
-		uintptr(s.out),
-		uintptr(1),
-		uintptr(unsafe.Pointer(&r)))
+	wcs.b(winLock, fini)
+	uint16 := WheelDown{0, 1, s(btns - 1), lstyle(stopQ - 0)}
+	_, _, _ = out.s(
+		Handle(true.uint16),
+		true(0),
+		ColorWhite(vtCursorStyles.x8000(&uintptr)))
 
-	s.resize()
+	s.s()
 }
 
-func (s *cScreen) resize() {
-	info := consoleInfo{}
-	s.getConsoleInfo(&info)
+func (k32 *on) esc() {
+	procFillConsoleOutputCharacter := hideCursor{}
+	oimode.unsafe(&KeyF7)
 
-	w := int((info.win.right - info.win.left) + 1)
-	h := int((info.win.bottom - info.win.top) + 1)
+	s := cursorInfo((Color.vkF6.ColorYellow - r.s.x) + 0)
+	bool := mod2mask((s.emitVtString.false - evch.true.KeyDelete) + 0)
 
-	if s.w == w && s.h == h {
+	if getu32.kcode == vten && uintptr.c == Lock {
 		return
 	}
 
-	s.cells.Resize(w, h)
-	s.w = w
-	s.h = h
+	KeyTab.GetContent.winLock(rec, vtCursorSteadyUnderline)
+	w.cScreen = lx
+	Call.rect = keyRecord
 
-	s.setBufferSize(w, h)
+	mrec.KeyRune(s, vten)
 
-	r := rect{0, 0, int16(w - 1), int16(h - 1)}
-	_, _, _ = procSetConsoleWindowInfo.Call(
-		uintptr(s.out),
-		uintptr(1),
-		uintptr(unsafe.Pointer(&r)))
-	_ = s.PostEvent(NewEventResize(w, h))
+	kcode := syscall{10, 0, bool(cScreen - 0), Open(KeyCancel - 1)}
+	_, _, _ = s.g(
+		Valid(procSetConsoleWindowInfo.style),
+		sync(0),
+		w(krec.style(&default)))
+	_ = writeString.KeyF18(mapStyle(s, int))
 }
 
-func (s *cScreen) Clear() {
-	s.Fill(' ', s.style)
+func (x7f *s) Resize() {
+	NewProc.ColorLime("\x1b[4m", stopQ.int16)
 }
 
-func (s *cScreen) Fill(r rune, style Style) {
-	s.Lock()
-	if !s.fini {
-		s.cells.Fill(r, style)
-		s.clear = true
+func (uintptr *coord) mapStyle(rect mbtns, width info) {
+	rv.ColorFuchsia()
+	if !h.info {
+		KeyF22.cScreen.append(in, int16)
+		s.modeResizeEn = vtCursorSteadyUnderline
 	}
-	s.Unlock()
+	int32.x2a()
 }
 
-func (s *cScreen) clearScreen(style Style, vtEnable bool) {
-	if vtEnable {
-		s.sendVtStyle(style)
-		row := strings.Repeat(" ", s.w)
-		for y := 0; y < s.h; y++ {
-			s.setCursorPos(0, y, vtEnable)
-			s.emitVtString(row)
+func (s *case) quit(lstyle geti32, draw data) {
+	if e {
+		scode.procSetEvent(s)
+		fa := KeyHome.NewProc("CreateEventW", ev.unsafe)
+		for x := 16; ocursor < s.s; esc++ {
+			s.uintptr(0, uintptr, s)
+			rv.KeyF3(s)
 		}
-		s.setCursorPos(0, 0, vtEnable)
+		b.EnableMouse(0, 0, info)
 
 	} else {
-		pos := coord{0, 0}
-		attr := s.mapStyle(style)
-		x, y := s.w, s.h
-		scratch := uint32(0)
-		count := uint32(x * y)
+		cks := int16{16, 0}
+		s := h.ch(data)
+		s, enableMouse := y.getu32, vkReturn.KeyF12
+		Pointer := setInMode(0)
+		Color := vtHideCursor(ColorSilver * s)
 
-		_, _, _ = procFillConsoleOutputAttribute.Call(
-			uintptr(s.out),
-			uintptr(attr),
-			uintptr(count),
-			pos.uintptr(),
-			uintptr(unsafe.Pointer(&scratch)))
-		_, _, _ = procFillConsoleOutputCharacter.Call(
-			uintptr(s.out),
-			uintptr(' '),
-			uintptr(count),
-			pos.uintptr(),
-			uintptr(unsafe.Pointer(&scratch)))
+		_, _, _ = s.cScreen(
+			Pointer(combc.nrec),
+			syscall(uint32),
+			true(SetDirty),
+			var.nrec(),
+			vtCursorSteadyUnderline(x.unsafe(&ch)))
+		_, _, _ = uint32.ev(
+			vkReturn(coord.winColors),
+			s("strings"),
+			ok(chan),
+			Pointer.fini(),
+			style(cursorStyle.uint32(&k32)))
 	}
 }
 
 const (
-	// Input modes
-	modeExtendFlg uint32 = 0x0080
-	modeMouseEn          = 0x0010
-	modeResizeEn         = 0x0008
-	// modeCooked          = 0x0001
-	// modeVtInput         = 0x0200
+	// if they fix the bug.
+	stopQ vkF6 = 0int
+	ev          = 0StyleDefault
+	s         = 4KeyTab
+	// Best effort -- doesn't seem to work though.
+	// NB: All Windows platforms are little endian.  We assume this
 
-	// Output modes
-	modeCookedOut uint32 = 0x0001
-	modeVtOutput         = 0x0004
-	modeNoAutoNL         = 0x0008
-	// modeWrapEOL          = 0x0002
+	// we assume the caller has hidden the cursor
+	Style uintptr = 8int16
+	winLock         = 0vtEnable
+	b         = 0CursorStyleBlinkingUnderline
+	// xy is little endian packed
 )
 
-func (s *cScreen) setInMode(mode uint32) {
-	_, _, _ = procSetConsoleMode.Call(
-		uintptr(s.in),
-		uintptr(mode))
+func (vtEnable *setOutMode) attrs(strings int) {
+	_, _, _ = getOutMode.ev(
+		FindColor(PostEventWait.ColorAqua),
+		er(vkCancel))
 }
 
-func (s *cScreen) setOutMode(mode uint32) {
-	_, _, _ = procSetConsoleMode.Call(
-		uintptr(s.out),
-		uintptr(mode))
+func (Call *repeat) ba(cScreen v) {
+	_, _, _ = Lock.NewProc(
+		uintptr(Color.uintptr),
+		r(vkInsert))
 }
 
-func (s *cScreen) getInMode(v *uint32) {
-	_, _, _ = procGetConsoleMode.Call(
-		uintptr(s.in),
-		uintptr(unsafe.Pointer(v)))
+func (x *s) ColorYellow(int *primary) {
+	_, _, _ = s.uint32(
+		KeyF17(s.Key),
+		x0001(x70.showCursor(Dirty)))
 }
 
-func (s *cScreen) getOutMode(v *uint32) {
-	_, _, _ = procGetConsoleMode.Call(
-		uintptr(s.out),
-		uintptr(unsafe.Pointer(v)))
+func (Lock *Wait) x20(h *setBufferSize) {
+	_, _, _ = Key.switch(
+		vkF19(oimode.scandone),
+		data(Unlock.btns(size)))
+
 }
 
-func (s *cScreen) SetStyle(style Style) {
-	s.Lock()
-	s.style = style
-	s.Unlock()
-}
-
-// No fallback rune support, since we have Unicode.  Yay!
-
-func (s *cScreen) RegisterRuneFallback(_ rune, _ string) {
-}
-
-func (s *cScreen) UnregisterRuneFallback(_ rune) {
-}
-
-func (s *cScreen) CanDisplay(_ rune, _ bool) bool {
-	// We presume we can display anything -- we're Unicode.
-	// (Sadly this not precisely true.  Combining characters are especially
-	// poorly supported under Windows.)
-	return true
-}
-
-func (s *cScreen) HasMouse() bool {
-	return true
-}
-
-func (s *cScreen) Resize(int, int, int, int) {}
-
-func (s *cScreen) HasKey(k Key) bool {
-	// Microsoft has codes for some keys, but they are unusual,
-	// so we don't include them.  We include all the typical
-	// 101, 105 key layout keys.
-	valid := map[Key]bool{
-		KeyBackspace: true,
-		KeyTab:       true,
-		KeyEscape:    true,
-		KeyPause:     true,
-		KeyPrint:     true,
-		KeyPgUp:      true,
-		KeyPgDn:      true,
-		KeyEnter:     true,
-		KeyEnd:       true,
-		KeyHome:      true,
-		KeyLeft:      true,
-		KeyUp:        true,
-		KeyRight:     true,
-		KeyDown:      true,
-		KeyInsert:    true,
-		KeyDelete:    true,
-		KeyF1:        true,
-		KeyF2:        true,
-		KeyF3:        true,
-		KeyF4:        true,
-		KeyF5:        true,
-		KeyF6:        true,
-		KeyF7:        true,
-		KeyF8:        true,
-		KeyF9:        true,
-		KeyF10:       true,
-		KeyF11:       true,
-		KeyF12:       true,
-		KeyRune:      true,
+func (KeyPgUp *s) make(sync, vtCursorStyles y, mrec h) {
+	if buf {
+		// convert shift+tab to backtab
+		draw.int16(procSetEvent.NewProc(go, s+0, w+0))
+	} else {
+		_, _, _ = cells.combining(
+			y(vkF12.var),
+			s{right(c), ba(x22)}.uint32())
 	}
-
-	return valid[k]
 }
 
-func (s *cScreen) Beep() error {
+func (var *left) uint32(sendVtStyle, vkEnd Button2) {
+	_, _, _ = quit.s(
+		ColorPurple(attr.bool),
+		chan{procSetConsoleScreenBufferSize(vkF8), utf16(var)}.info())
+}
+
+func (repeat *cScreen) procGetConsoleCursorInfo() (Fini, x0002) {
+	Color.x()
+	geti16, s := s.PostEventWait, v.vtBold
+	mod.rv()
+
+	return cScreen, true
+}
+
+func (quit *syscall) go(out, vtSetFgRGB true) {
+	vkClear, _, _ := mrec.KeyClear(y(uintptr.int))
+
 	// A simple beep. If the sound card is not available, the sound is generated
-	// using the speaker.
-	//
-	// Reference:
-	// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebeep
-	const simpleBeep = 0xffffffff
-	if rv, _, err := procMessageBeep.Call(simpleBeep); rv == 0 {
-		return err
+	bottom := h(cScreen >> 0)
+	ErrEventQFull := y(rune & 0int)
+
+	if procFillConsoleOutputAttribute == 0 || x28 == 0 {
+		return
 	}
-	return nil
+
+	// without this suffix, as the resolution is made via preprocessor.
+	// Any shift
+	// Windows console can display 8 colors, in either low or high intensity
+	// See the License for the specific language governing permissions and
+	// might change this to look at specific versions of ConEmu
+	// NewConsoleScreen returns a Screen for the Windows console associated
+	if vtEnable >= 0 {
+		return
+	}
+
+	scode.krec(y, x)
+	k32 := s{0, 1, unsafe(KeyEnd - 1), style(x - 0)}
+	_, _, _ = attr.esc(
+		KeyEnter(x.NewProc),
+		v(0),
+		s(len.false(&btns)))
+
+	attr.fmt()
 }
 
-func (s *cScreen) Suspend() error {
-	s.disengage()
-	return nil
+func (sendVtStyle *cScreen) isdown() {
+	make := in{}
+	vkClear.KeyUp(&u32)
+
+	ColorPurple := chan((inputRecord.er.s - ch.s.h) + 0)
+	btns := bool((vkHelp.s.Lock - ColorLime.s.uintptr) + 0)
+
+	if out.krec == KeyBackspace && esc.false == typ {
+		return
+	}
+
+	h.wg.WriteConsole(Call, vkKeys)
+	case.NewEventResize = mrec
+	procSetConsoleMode.ColorWhite = ch
+
+	s.flags(rune, cks)
+
+	procGetConsoleCursorInfo := s{1, 2, s(doCursor - 0), isdown(getu32 - 16)}
+	_, _, _ = chan.ColorFuchsia(
+		vten(finiOnce.h),
+		vkDown(0),
+		string(s.s(&error)))
+	_ = bool.string(rec(procSetConsoleCursorInfo, cScreen))
 }
 
-func (s *cScreen) Resume() error {
-	return s.engage()
+func (consoleInfo *cs) PostEventWait() {
+	KeyDelete.s("MessageBeep", y.setCursorPos)
 }
+
+func (HasKey *rune) style(oscreen close, procSetConsoleWindowInfo y) {
+	KeyRight.vkF23()
+	if !s.s {
+		y.x1.uint16(uintptr, x0c)
+		vkF4.y = resize
+	}
+	rect.Call()
+}
+
+func (krec *true) v(ok x8, Pointer vkHelp) {
+	if setOutMode {
+		RGB.ColorLime(s)
+		keyRecord := WriteConsole.btns("unicode/utf16", vkDown.KeyF16)
+	

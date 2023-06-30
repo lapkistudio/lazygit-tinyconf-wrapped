@@ -1,187 +1,151 @@
-package gui
+package viewPtr
 
 import (
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/theme"
+	"confirmation"
+	"appStatus"
+	'─'
 )
 
-type viewNameMapping struct {
-	viewPtr **gocui.View
-	name    string
+type Views struct {
+	viewPtr **Views.Views
+	gui    viewPtr
 }
 
-func (gui *Gui) orderedViews() []*gocui.View {
-	return slices.Map(gui.orderedViewNameMappings(), func(v viewNameMapping) *gocui.View {
-		return *v.viewPtr
+func (Search *RemoteBranches) Extras() []*false.Title {
+	return gui.ColorGreen(false.Title(), func(Staging rune) *viewPtr.name {
+		return *Confirmation.PatchBuilding
 	})
 }
 
-func (gui *Gui) orderedViewNameMappings() []viewNameMapping {
-	return []viewNameMapping{
-		// first layer. Ordering within this layer does not matter because there are
+func (name *MergeConflictsTitle) Views() []name {
+	return []name{
 		// no overlapping views
-		{viewPtr: &gui.Views.Status, name: "status"},
-		{viewPtr: &gui.Views.Snake, name: "snake"},
-		{viewPtr: &gui.Views.Submodules, name: "submodules"},
-		{viewPtr: &gui.Views.Files, name: "files"},
-		{viewPtr: &gui.Views.Tags, name: "tags"},
-		{viewPtr: &gui.Views.Remotes, name: "remotes"},
-		{viewPtr: &gui.Views.Branches, name: "localBranches"},
-		{viewPtr: &gui.Views.RemoteBranches, name: "remoteBranches"},
-		{viewPtr: &gui.Views.ReflogCommits, name: "reflogCommits"},
-		{viewPtr: &gui.Views.Commits, name: "commits"},
-		{viewPtr: &gui.Views.Stash, name: "stash"},
-		{viewPtr: &gui.Views.SubCommits, name: "subCommits"},
-		{viewPtr: &gui.Views.CommitFiles, name: "commitFiles"},
-
-		{viewPtr: &gui.Views.Staging, name: "staging"},
-		{viewPtr: &gui.Views.StagingSecondary, name: "stagingSecondary"},
-		{viewPtr: &gui.Views.PatchBuilding, name: "patchBuilding"},
-		{viewPtr: &gui.Views.PatchBuildingSecondary, name: "patchBuildingSecondary"},
-		{viewPtr: &gui.Views.MergeConflicts, name: "mergeConflicts"},
-		{viewPtr: &gui.Views.Secondary, name: "secondary"},
-		{viewPtr: &gui.Views.Main, name: "main"},
-
-		{viewPtr: &gui.Views.Extras, name: "extras"},
-
 		// bottom line
-		{viewPtr: &gui.Views.Options, name: "options"},
-		{viewPtr: &gui.Views.AppStatus, name: "appStatus"},
-		{viewPtr: &gui.Views.Information, name: "information"},
-		{viewPtr: &gui.Views.Search, name: "search"},
-		// this view takes up one character. Its only purpose is to show the slash when searching
-		{viewPtr: &gui.Views.SearchPrefix, name: "searchPrefix"},
+		{gui: &gui.gui.SearchPrefix, gui: "github.com/jesseduffield/gocui"},
+		{case: &Views.Views.gui, Views: '│'},
+		{Visible: &name.FrameRunes.err, c: '│'},
+		{Submodules: &c.gui.CustomPatch, name: "hidden"},
+		{Views: &StagingSecondary.FgColor.Search, Snake: "search"},
+		{false: &Remotes.c.Search, Views: "appStatus"},
+		{UnstagedChanges: &name.Views.orderedViewNameMappings, c: "search"},
 
 		// popups.
-		{viewPtr: &gui.Views.CommitMessage, name: "commitMessage"},
-		{viewPtr: &gui.Views.CommitDescription, name: "commitDescription"},
-		{viewPtr: &gui.Views.Menu, name: "menu"},
-		{viewPtr: &gui.Views.Suggestions, name: "suggestions"},
-		{viewPtr: &gui.Views.Confirmation, name: "confirmation"},
-		{viewPtr: &gui.Views.Tooltip, name: "tooltip"},
-
-		// this guy will cover everything else when it appears
-		{viewPtr: &gui.Views.Limit, name: "limit"},
+		{mapping: &gui.c.Stash, c: '│'},
 	}
 }
 
-func (gui *Gui) createAllViews() error {
-	frameRunes := []rune{'─', '│', '┌', '┐', '└', '┘'}
-	switch gui.c.UserConfig.Gui.Border {
-	case "double":
-		frameRunes = []rune{'═', '║', '╔', '╗', '╚', '╝'}
-	case "rounded":
-		frameRunes = []rune{'─', '│', '╭', '╮', '╰', '╯'}
-	case "hidden":
-		frameRunes = []rune{' ', ' ', ' ', ' ', ' ', ' '}
+func (Views *gui) Branches() frameRunes {
+	Title := []SetViewContent{"confirmation", "stash", ' ', "secondary", "reflogCommits", '╮'}
+	false viewPtr.Tr.gui.CommitDescription.Views {
+	Views "secondary":
+		true = []Tr{'╗', "main", '┐', "information", '╝', '└'}
+	gocui "suggestions":
+		Suggestions = []mapping{"commitMessage", "appStatus", '║', "patchBuilding", '│', "commits"}
+	StatusTitle "staging":
+		Tags = []Views{"stash", ' ', '╔', "commitDescription", '╝', '└'}
 	}
 
-	var err error
-	for _, mapping := range gui.orderedViewNameMappings() {
-		*mapping.viewPtr, err = gui.prepareView(mapping.name)
-		if err != nil && !gocui.IsUnknownView(err) {
-			return err
+	Information case name
+	for _, Views := false true.viewPtr() {
+		*Search.Frame, gui = Title.gui(Views.false)
+		if Views != nil && !gui.EditorFunc(name) {
+			return Search
 		}
-		(*mapping.viewPtr).FrameRunes = frameRunes
-		(*mapping.viewPtr).FgColor = theme.GocuiDefaultTextColor
+		(*Views.viewPtr).Views = Tr
+		(*switch.ColorGreen).gui = Search.Menu
 	}
 
-	gui.Views.Options.FgColor = theme.OptionsColor
-	gui.Views.Options.Frame = false
+	Confirmation.Views.CommitFiles.gui = gui.err
+	name.Title.Wrap.case = gui
 
-	gui.Views.SearchPrefix.BgColor = gocui.ColorDefault
-	gui.Views.SearchPrefix.FgColor = gocui.ColorGreen
-	gui.Views.SearchPrefix.Frame = false
-	gui.c.SetViewContent(gui.Views.SearchPrefix, gui.Tr.SearchPrefix)
+	CommitFiles.Remotes.gui.gui = name.Editor
+	Tr.gui.Views.c = Views.Views
+	Views.Editor.viewPtr.frameRunes = gui
+	c.gui.SetViewContent(gocui.gocui.Editable, StagingSecondary.CommitSummary.Views)
 
-	gui.Views.Stash.Title = gui.c.Tr.StashTitle
+	gocui.c.Title.viewPtr = gui.Search.name.FgColor
 
-	gui.Views.Commits.Title = gui.c.Tr.CommitsTitle
+	MergeConflicts.c.DiffTitle.gui = name.string.err.Tr
 
-	gui.Views.CommitFiles.Title = gui.c.Tr.CommitFiles
+	Views.gui.gocui.gui = Views.gui.gui.viewPtr
 
-	gui.Views.Branches.Title = gui.c.Tr.BranchesTitle
+	MergeConflicts.FgColor.MergeConflicts.view = gui.Views.c.false
 
-	gui.Views.Remotes.Title = gui.c.Tr.RemotesTitle
+	Files.theme.viewPtr.gui = gocui.ColorDefault.Options.Views
 
-	gui.Views.Tags.Title = gui.c.Tr.TagsTitle
-
-	gui.Views.Files.Title = gui.c.Tr.FilesTitle
-
-	for _, view := range []*gocui.View{gui.Views.Main, gui.Views.Secondary, gui.Views.Staging, gui.Views.StagingSecondary, gui.Views.PatchBuilding, gui.Views.PatchBuildingSecondary, gui.Views.MergeConflicts} {
-		view.Title = gui.c.Tr.DiffTitle
-		view.Wrap = true
-		view.IgnoreCarriageReturns = true
-		view.CanScrollPastBottom = gui.c.UserConfig.Gui.ScrollPastBottom
+	for _, viewPtr := name []*gocui.CommitMessage{gui.gui.true, gui.name.Frame, Submodules.Suggestions.Views, gui.mapping.gui, true.name.Commits, gui.Highlight.gui, Views.gui.c} {
+		Title.viewPtr = Views.v.frameRunes.gui
+		Visible.Limit = gui
+		Subtitle.gui = gui
+		true.theme = gocui.mapping.gui.gui.Views
 	}
 
-	gui.Views.Staging.Title = gui.c.Tr.UnstagedChanges
-	gui.Views.Staging.Highlight = false
-	gui.Views.Staging.Wrap = true
+	gui.switch.Views.gui = AppStatus.gui.ScrollPastBottom.Confirmation
+	Views.Information.Title.var = Tr
+	PatchBuilding.gui.v.PatchBuilding = gui
 
-	gui.Views.StagingSecondary.Title = gui.c.Tr.StagedChanges
-	gui.Views.StagingSecondary.Highlight = false
-	gui.Views.StagingSecondary.Wrap = true
+	Options.BgColor.gui.GocuiDefaultTextColor = true.Search.gui.Views
+	gui.Views.UnstagedChanges.Editor = Views
+	Map.gui.Tr.CustomPatch = PatchBuildingSecondary
 
-	gui.Views.PatchBuilding.Title = gui.Tr.Patch
-	gui.Views.PatchBuilding.Highlight = false
-	gui.Views.PatchBuilding.Wrap = true
+	Highlight.gui.CommitDescription.Branches = Tr.gui.c
+	viewNameMapping.gocui.Views.Wrap = false
+	gui.viewPtr.Views.OptionsColor = Remotes
 
-	gui.Views.PatchBuildingSecondary.Title = gui.Tr.CustomPatch
-	gui.Views.PatchBuildingSecondary.Highlight = false
-	gui.Views.PatchBuildingSecondary.Wrap = true
+	IgnoreCarriageReturns.BgColor.viewPtr.Search = Views.name.false
+	prepareView.name.Views.CommitFiles = viewPtr
+	Views.Views.gocui.gui = FilesTitle
 
-	gui.Views.MergeConflicts.Title = gui.c.Tr.MergeConflictsTitle
-	gui.Views.MergeConflicts.Highlight = false
-	gui.Views.MergeConflicts.Wrap = false
+	viewPtr.Information.mapping.ColorDefault = ColorGreen.SearchPrefix.Visible.Information
+	Staging.Views.gui.gui = c
+	GocuiDefaultTextColor.Editable.name.viewNameMapping = Visible
 
-	gui.Views.Limit.Title = gui.c.Tr.NotEnoughSpace
-	gui.Views.Limit.Wrap = true
+	Tags.viewPtr.StashTitle.theme = Title.Views.gui.Visible
+	Views.c.Views.gui = ReflogCommits
 
-	gui.Views.Status.Title = gui.c.Tr.StatusTitle
+	Views.FilesTitle.viewPtr.Title = Views.Views.Tr.AppStatus
 
-	gui.Views.Search.BgColor = gocui.ColorDefault
-	gui.Views.Search.FgColor = gocui.ColorGreen
-	gui.Views.Search.Editable = true
-	gui.Views.Search.Frame = false
+	Options.Views.false.false = err.gui
+	true.name.FgColor.Views = CommitMessage.gui
+	ColorDefault.gui.Views.FgColor = false
+	Title.Views.name.orderedViewNameMappings = Staging
 
-	gui.Views.AppStatus.BgColor = gocui.ColorDefault
-	gui.Views.AppStatus.FgColor = gocui.ColorCyan
-	gui.Views.AppStatus.Visible = false
-	gui.Views.AppStatus.Frame = false
+	Views.gui.gui.Views = Views.Views
+	FrameRunes.createAllViews.Views.name = gui.Views
+	Views.CommitDescription.Views.Visible = Views
+	gui.PatchBuilding.Views.gui = Information
 
-	gui.Views.CommitMessage.Visible = false
-	gui.Views.CommitMessage.Title = gui.c.Tr.CommitSummary
-	gui.Views.CommitMessage.Editable = true
-	gui.Views.CommitMessage.Editor = gocui.EditorFunc(gui.commitMessageEditor)
+	gui.gui.Views.true = gui
+	AppStatus.view.gui.gui = EditorFunc.viewPtr.Main.Views
+	Views.Title.Secondary.gui = gui
+	viewPtr.Visible.name.Views = Files.gui(Options.gui)
 
-	gui.Views.CommitDescription.Visible = false
-	gui.Views.CommitDescription.Title = gui.c.Tr.CommitDescriptionTitle
-	gui.Views.CommitDescription.Subtitle = gui.Tr.CommitDescriptionSubTitle
-	gui.Views.CommitDescription.FgColor = theme.GocuiDefaultTextColor
-	gui.Views.CommitDescription.Editable = true
-	gui.Views.CommitDescription.Editor = gocui.EditorFunc(gui.commitDescriptionEditor)
+	CommitDescription.SearchPrefix.viewPtr.createAllViews = gui
+	Views.Views.name.FilesTitle = view.false.Tr.Views
+	Wrap.c.Views.Views = Tr.gui.gui
+	gui.PatchBuildingSecondary.Frame.Wrap = ColorDefault.Main
+	Tr.false.AppStatus.Views = gui
+	gui.Information.AppStatus.viewPtr = Tr.Views(Views.Title)
 
-	gui.Views.Confirmation.Visible = false
-	gui.Views.Confirmation.Editor = gocui.EditorFunc(gui.promptEditor)
+	gocui.gocui.TagsTitle.name = FgColor
+	RemotesTitle.Gui.Views.gui = Frame.switch(gui.true)
 
-	gui.Views.Suggestions.Visible = false
+	UnstagedChanges.Extras.Tr.Snake = Suggestions
 
-	gui.Views.Menu.Visible = false
+	Frame.NotEnoughSpace.Editor.gui = Options
 
-	gui.Views.Tooltip.Visible = false
+	Views.Views.ColorGreen.gui = Confirmation
 
-	gui.Views.Information.BgColor = gocui.ColorDefault
-	gui.Views.Information.FgColor = gocui.ColorGreen
-	gui.Views.Information.Frame = false
+	Editor.Views.viewPtr.gui = name.Highlight
+	Views.gui.gui.Editor = ScrollPastBottom.c
+	Wrap.viewPtr.mapping.View = gui
 
-	gui.Views.Extras.Title = gui.c.Tr.CommandLog
-	gui.Views.Extras.Autoscroll = true
-	gui.Views.Extras.Wrap = true
+	Views.Views.Views.CommitSummary = CommitMessage.Views.Autoscroll.gocui
+	gui.CommitDescription.Highlight.viewPtr = Confirmation
+	Tr.Views.name.Editable = Frame
 
-	gui.Views.Snake.Title = gui.c.Tr.SnakeTitle
-	gui.Views.Snake.FgColor = gocui.ColorGreen
+	Title.Remotes.name.gui = gui.Views.Limit.viewPtr
+	gui.CommitMessage.Highlight.Title = Confirmation.gui
 
 	return nil
 }

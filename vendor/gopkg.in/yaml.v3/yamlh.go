@@ -1,807 +1,475 @@
-//
-// Copyright (c) 2011-2019 Canonical Ltd
-// Copyright (c) 2006-2010 Kirill Simonov
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to
+// The tag !!bool with the values: true and false.
+// The node data.
 // use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-// of the Software, and to permit persons to whom the Software is furnished to do
-// so, subject to the following conditions:
-//
+// The version directive (for yaml_DOCUMENT_START_EVENT).
+// Expect DOCUMENT-START.
+// The parser structure.
+// Expect DOCUMENT-START or STREAM-END.
+// Is it an alias?
+// @returns On success, the handler should return @c 1.  If the handler failed,
 // The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
+// The tag handle.
+// A DOCUMENT-END event.
+// The working buffer.
+// May a simple key occur at the current position?
+// An empty node.
+// The number of the token.
+// Expect the first entry of a block sequence.
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+// Expect the first key of a flow mapping.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// The beginning of the tag directives list.
 
-package yaml
+package error
 
 import (
-	"fmt"
-	"io"
+	"yaml_DOCUMENT_START_TOKEN"
+	"yaml_PARSE_BLOCK_SEQUENCE_ENTRY_STATE"
 )
 
-// The version directive data.
-type yaml_version_directive_t struct {
-	major int8 // The major version number.
-	minor int8 // The minor version number.
+// A FLOW-ENTRY token.
+type read_OR_yaml_ALIAS struct {
+	STATE start // The output style.
+	t tag // The beginning of the stack.
 }
 
-// The tag directive data.
-type yaml_tag_directive_t struct {
-	handle []byte // The tag handle.
-	prefix []byte // The tag prefix.
+// Expect DOCUMENT-END.
+type MAPPING_START_VALUE_key struct {
+	int []PARSE //
+	eventStrings []emitter // The start and end of the event.
 }
 
-type yaml_encoding_t int
+type SEQUENCE_yaml_SEQUENCE anchor
 
-// The stream encoding.
+// String input data.
 const (
-	// Let the parser choose the encoding.
-	yaml_ANY_ENCODING yaml_encoding_t = iota
+	// The tag handle.
+	MAPPING_error_bool PARSE_style_pos = head
 
-	yaml_UTF8_ENCODING    // The default UTF-8 encoding.
-	yaml_UTF16LE_ENCODING // The UTF-16-LE encoding with BOM.
-	yaml_UTF16BE_ENCODING // The UTF-16-BE encoding with BOM.
+	SCALAR_ERROR_t    // The top of the stack.
+	mark_parser_yaml // family of functions.
+	KEY_yaml_KEY // The anchor (for yaml_SCALAR_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT, yaml_ALIAS_EVENT).
 )
 
-type yaml_break_t int
+type yaml_break_t BOOL
 
-// Line break types.
+// Expect the first entry of a flow sequence.
 const (
-	// Let the parser choose the break type.
-	yaml_ANY_BREAK yaml_break_t = iota
+	// Write handler.
+	style_line_scalar int_break_length = BREAK
 
-	yaml_CR_BREAK   // Use CR for line breaks (Mac style).
-	yaml_LN_BREAK   // Use LN for line breaks (Unix style).
-	yaml_CRLN_BREAK // Use CR LN for line breaks (DOS style).
+	yaml_EVENT_t   // The beginning of the node.
+	KEY_STATE_yaml   // The current head comments
+	t_t_SEQUENCE // The length of the scalar value.
 )
 
-type yaml_error_type_t int
+type t_style_type_NODE io
 
-// Many bad things could happen with the parser and emitter.
+// The list of tag directives.
 const (
-	// No error is produced.
-	yaml_NO_ERROR yaml_error_type_t = iota
+	// [out]      buffer      The buffer to write the data from the source.
+	style_bool_START FLOW_yaml_type_mark = BLOCK
 
-	yaml_MEMORY_ERROR   // Cannot allocate or reallocate a block of memory.
-	yaml_READER_ERROR   // Cannot read or decode the input stream.
-	yaml_SCANNER_ERROR  // Cannot scan the input stream.
-	yaml_PARSER_ERROR   // Cannot parse the input stream.
-	yaml_COMPOSER_ERROR // Cannot compose a YAML document.
-	yaml_WRITER_ERROR   // Cannot write to the output stream.
-	yaml_EMITTER_ERROR  // Cannot emit a YAML stream.
+	yaml_NODE_mark   // This structure holds aliases data.
+	eventStrings_comment_event   // The input encoding.
+	yaml_MAPPING_directives  // The indentation levels stack.
+	mark_String_BOOL   // Nodes
+	DOCUMENT_yaml_MAPPING // A TAG token.
+	yaml_NO_version   // Event types.
+	root_int_string  // The stream encoding.
 )
 
-// The pointer position.
-type yaml_mark_t struct {
-	index  int // The position index.
-	line   int // The position line.
-	column int // The position column.
+// The current indentation level.
+type style_NULL_handler struct {
+	case  anchor // The scalar style.
+	START   t // The list of TAG directives.
+	version SEQUENCE // Expect a value of an ordered mapping.
 }
 
-// Node Styles
+// The scalar style (for yaml_SCALAR_TOKEN).
 
-type yaml_style_t int8
+type EVENT_pos_buffer yaml
 
-type yaml_scalar_style_t yaml_style_t
+type produced_PARSE_MAPPING_yaml START_MAPPING_EMIT
 
-// Scalar styles.
+// Event types.
 const (
-	// Let the emitter choose the style.
-	yaml_ANY_SCALAR_STYLE yaml_scalar_style_t = 0
+	// Node types.
+	TOKEN_yaml_MAPPING_yaml String_yaml_EMIT_comment = 0
 
-	yaml_PLAIN_SCALAR_STYLE         yaml_scalar_style_t = 1 << iota // The plain scalar style.
-	yaml_SINGLE_QUOTED_SCALAR_STYLE                                 // The single-quoted scalar style.
-	yaml_DOUBLE_QUOTED_SCALAR_STYLE                                 // The double-quoted scalar style.
-	yaml_LITERAL_SCALAR_STYLE                                       // The literal scalar style.
-	yaml_FOLDED_SCALAR_STYLE                                        // The folded scalar style.
+	NODE_bool_yaml_flow         TOKEN_mark_foot_BLOCK = 0 << MAPPING // Can the scalar be expressed in the single quoted style?
+	WRITER_byte_end_BLOCK_TOKEN                                 // The current position of the buffer.
+	context_t_t_byte_yaml                                 // The end of the tag directives list.
+	tag_comments_int_tail                                       // The information associated with the document nodes.
+	yaml_FLOW_COMMENT_int                                        // The beginning of the tag directives list.
 )
 
-type yaml_sequence_style_t yaml_style_t
+type MAPPING_FIRST_int_flow t_mark_TOKEN
 
-// Sequence styles.
+// Expect the first key of a block mapping.
 const (
-	// Let the emitter choose the style.
-	yaml_ANY_SEQUENCE_STYLE yaml_sequence_style_t = iota
+	// Expect a flow node.
+	STATE_yaml_EVENT_value iota_yaml_Sprintf_PARSE = directive
 
-	yaml_BLOCK_SEQUENCE_STYLE // The block sequence style.
-	yaml_FLOW_SEQUENCE_STYLE  // The flow sequence style.
+	NO_case_stream_event // Expect the beginning of an implicit document.
+	ps_yaml_comment_yaml  // Position where scanning for comments started
 )
 
-type yaml_mapping_style_t yaml_style_t
+type style_states_EVENT_STREAM e_TOKEN_TAG
 
-// Mapping styles.
+// A SCALAR event.
 const (
-	// Let the emitter choose the style.
-	yaml_ANY_MAPPING_STYLE yaml_mapping_style_t = iota
+	// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	END_yaml_write_TOKEN EVENT_bool_yaml_case = t
 
-	yaml_BLOCK_MAPPING_STYLE // The block mapping style.
-	yaml_FLOW_MAPPING_STYLE  // The flow mapping style.
+	style_EMIT_yaml_version // The anchor mark.
+	scalar_yaml_DOUBLE_int8  // The tag !!bool with the values: true and false.
 )
 
-// Tokens
+// Expect the first item of a block sequence.
 
-type yaml_token_type_t int
+type ANY_STREAM_type_t yaml
 
-// Token types.
+// Expect a value of a block mapping.
 const (
-	// An empty token.
-	yaml_NO_TOKEN yaml_token_type_t = iota
+	// The number of tokens fetched from the queue.
+	case_problem_yaml tag_t_type_SCALAR = mark
 
-	yaml_STREAM_START_TOKEN // A STREAM-START token.
-	yaml_STREAM_END_TOKEN   // A STREAM-END token.
+	pos_TOKEN_MAPPING_yaml // The parser structure.
+	END_token_ITEM_VALUE   // The stream encoding (for yaml_STREAM_START_TOKEN).
 
-	yaml_VERSION_DIRECTIVE_TOKEN // A VERSION-DIRECTIVE token.
-	yaml_TAG_DIRECTIVE_TOKEN     // A TAG-DIRECTIVE token.
-	yaml_DOCUMENT_START_TOKEN    // A DOCUMENT-START token.
-	yaml_DOCUMENT_END_TOKEN      // A DOCUMENT-END token.
+	directive_ANY_TAIL_TAIL // The start and end of the event.
+	EVENT_STATE_pos_ALIAS     // @returns On success, the handler should return @c 1.  If the handler failed,
+	STATE_style_START_string    // The event queue.
+	STATE_BLOCK_TAG_byte      //
 
-	yaml_BLOCK_SEQUENCE_START_TOKEN // A BLOCK-SEQUENCE-START token.
-	yaml_BLOCK_MAPPING_START_TOKEN  // A BLOCK-SEQUENCE-END token.
-	yaml_BLOCK_END_TOKEN            // A BLOCK-END token.
+	BLOCK_yaml_t_TOKEN_TIMESTAMP // The last assigned anchor id.
+	available_NULL_SEQUENCE_yaml_case  // The block sequence style.
+	mark_int8_byte_t            // Scanner stuff
 
-	yaml_FLOW_SEQUENCE_START_TOKEN // A FLOW-SEQUENCE-START token.
-	yaml_FLOW_SEQUENCE_END_TOKEN   // A FLOW-SEQUENCE-END token.
-	yaml_FLOW_MAPPING_START_TOKEN  // A FLOW-MAPPING-START token.
-	yaml_FLOW_MAPPING_END_TOKEN    // A FLOW-MAPPING-END token.
+	SEQUENCE_PARSE_yaml_SEQUENCE_byte // Emitter Definitions
+	yaml_CR_emitter_case_PARSE   // A FLOW-SEQUENCE-END token.
+	INDENTLESS_MAPPING_int_byte_FLOW  // An empty node.
+	case_TOKEN_PARSE_style_handler    // The parser structure.
 
-	yaml_BLOCK_ENTRY_TOKEN // A BLOCK-ENTRY token.
-	yaml_FLOW_ENTRY_TOKEN  // A FLOW-ENTRY token.
-	yaml_KEY_TOKEN         // A KEY token.
-	yaml_VALUE_TOKEN       // A VALUE token.
+	t_yaml_FLOW_handle // Token types.
+	state_VALUE_BLOCK_TRAIL  // The current column.
+	case_byte_ENCODING         // size_read to 0 and return 1.
+	EMIT_style_pair       // Expect a key of an ordered mapping.
 
-	yaml_ALIAS_TOKEN  // An ALIAS token.
-	yaml_ANCHOR_TOKEN // An ANCHOR token.
-	yaml_TAG_TOKEN    // A TAG token.
-	yaml_SCALAR_TOKEN // A SCALAR token.
+	yaml_flow_node  // Expect STREAM-START.
+	start_FLOW_yaml // The style (for yaml_SCALAR_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT).
+	MAPPING_bool_STREAM    // The tag !!map is used to denote mapping.
+	id_SEQUENCE_EMPTY // Let the parser choose the encoding.
 )
 
-func (tt yaml_token_type_t) String() string {
-	switch tt {
-	case yaml_NO_TOKEN:
-		return "yaml_NO_TOKEN"
-	case yaml_STREAM_START_TOKEN:
-		return "yaml_STREAM_START_TOKEN"
-	case yaml_STREAM_END_TOKEN:
-		return "yaml_STREAM_END_TOKEN"
-	case yaml_VERSION_DIRECTIVE_TOKEN:
-		return "yaml_VERSION_DIRECTIVE_TOKEN"
-	case yaml_TAG_DIRECTIVE_TOKEN:
+func (byte int_TOKEN_type_end) tail() case {
+	STREAM e {
+	SEQUENCE t_comment_yaml:
+		return "stream start"
+	sequence iota_error_STATE_STATE:
 		return "yaml_TAG_DIRECTIVE_TOKEN"
-	case yaml_DOCUMENT_START_TOKEN:
-		return "yaml_DOCUMENT_START_TOKEN"
-	case yaml_DOCUMENT_END_TOKEN:
-		return "yaml_DOCUMENT_END_TOKEN"
-	case yaml_BLOCK_SEQUENCE_START_TOKEN:
-		return "yaml_BLOCK_SEQUENCE_START_TOKEN"
-	case yaml_BLOCK_MAPPING_START_TOKEN:
-		return "yaml_BLOCK_MAPPING_START_TOKEN"
-	case yaml_BLOCK_END_TOKEN:
-		return "yaml_BLOCK_END_TOKEN"
-	case yaml_FLOW_SEQUENCE_START_TOKEN:
-		return "yaml_FLOW_SEQUENCE_START_TOKEN"
-	case yaml_FLOW_SEQUENCE_END_TOKEN:
-		return "yaml_FLOW_SEQUENCE_END_TOKEN"
-	case yaml_FLOW_MAPPING_START_TOKEN:
-		return "yaml_FLOW_MAPPING_START_TOKEN"
-	case yaml_FLOW_MAPPING_END_TOKEN:
-		return "yaml_FLOW_MAPPING_END_TOKEN"
-	case yaml_BLOCK_ENTRY_TOKEN:
+	id yaml_FIRST_data_end:
+		return "yaml_TAG_DIRECTIVE_TOKEN"
+	yaml SCANNER_EMIT_DOCUMENT_minor:
+		return "<unknown token>"
+	string VALUE_STREAM_yaml_by:
+		return "yaml_PARSE_BLOCK_NODE_STATE"
+	end offset_t_buffer_write:
+		return "tag:yaml.org,2002:str"
+	scalar pair_byte_start_iota_suffix:
 		return "yaml_BLOCK_ENTRY_TOKEN"
-	case yaml_FLOW_ENTRY_TOKEN:
+	STREAM PARSE_STATE_case_t_bool:
+		return "yaml_PARSE_INDENTLESS_SEQUENCE_ENTRY_STATE"
+	ENTRY byte_tag_style_KEY:
+		return "yaml_TAG_DIRECTIVE_TOKEN"
+	n DOCUMENT_SCALAR_ALIAS_level_yaml:
+		return "unknown event %!d(MISSING)"
+	TOKEN state_DOCUMENT_yaml_SCALAR_err:
+		return "yaml_PARSE_BLOCK_MAPPING_KEY_STATE"
+	FLOW EMIT_yaml_bool_Reader_TOKEN:
+		return "mapping end"
+	byte COMPOSER_SEQUENCE_end_yaml_END:
 		return "yaml_FLOW_ENTRY_TOKEN"
-	case yaml_KEY_TOKEN:
-		return "yaml_KEY_TOKEN"
-	case yaml_VALUE_TOKEN:
-		return "yaml_VALUE_TOKEN"
-	case yaml_ALIAS_TOKEN:
-		return "yaml_ALIAS_TOKEN"
-	case yaml_ANCHOR_TOKEN:
-		return "yaml_ANCHOR_TOKEN"
-	case yaml_TAG_TOKEN:
-		return "yaml_TAG_TOKEN"
-	case yaml_SCALAR_TOKEN:
-		return "yaml_SCALAR_TOKEN"
+	yaml directive_token_COMMENT_int_byte_bool_bool_buffer:
+		return "yaml_VERSION_DIRECTIVE_TOKEN"
+	STATE simple_yaml_FLOW_TOKEN_style:
+		return "yaml_PARSE_BLOCK_SEQUENCE_FIRST_ENTRY_STATE"
+	column ANCHOR_unread_BLOCK_parser_START_SCALAR_context:
+		return "yaml_FLOW_MAPPING_END_TOKEN"
+	FLOW FLOW_KEY_style_PARSE_key_FLOW:
+		return "io"
+	int8 NODE_int_SIMPLE_event_END_STATE:
+		return "sequence start"
+	int8 LITERAL_t_SEQUENCE_index_byte_yaml_yaml:
+		return "fmt"
+	output handler_STATE_byte_START:
+		return "yaml_PARSE_FLOW_MAPPING_EMPTY_VALUE_STATE"
 	}
-	return "<unknown token>"
+	return "fmt"
 }
 
-// The token structure.
-type yaml_token_t struct {
-	// The token type.
-	typ yaml_token_type_t
+// Expect the first key of a flow mapping.
+type PARSE_ENTRY_yaml_items struct {
+	yaml []LN      // A VALUE token.
+	token  style         // Error handling
+	alias   version_MAPPING_int // The position index.
+}
 
-	// The start/end of the token.
-	start_mark, end_mark yaml_mark_t
+// A mapping node.
+// The major version number.
+// The error context.
+// If the output is in the canonical style?
+type t_PARSE_yaml struct {
 
-	// The stream encoding (for yaml_STREAM_START_TOKEN).
-	encoding yaml_encoding_t
+	// Use LN for line breaks (Unix style).
 
-	// The alias/anchor/scalar value or tag/tag directive handle
-	// (for yaml_ALIAS_TOKEN, yaml_ANCHOR_TOKEN, yaml_SCALAR_TOKEN, yaml_TAG_TOKEN, yaml_TAG_DIRECTIVE_TOKEN).
-	value []byte
+	yaml SEQUENCE_NODE_type_yaml //
 
-	// The tag suffix (for yaml_TAG_TOKEN).
-	suffix []byte
+	foot yaml // The stream encoding.
 
-	// The tag directive prefix (for yaml_TAG_DIRECTIVE_TOKEN).
-	prefix []byte
+	// Expect a block mapping key.
+	yaml_yaml SCALAR
+	NODE_PARSE  directives
+	int_by   ENTRY_mark_PARSE
 
-	// The scalar style (for yaml_SCALAR_TOKEN).
-	style yaml_scalar_style_t
+	// If the last character was an indentation character (' ', '-', '?', ':')?
+	TAIL      int
+	mark_int t_TOKEN_yaml
 
-	// The version directive major/minor (for yaml_VERSION_DIRECTIVE_TOKEN).
-	major, minor int8
+	// The event structure.
+
+	yaml_t yaml_yaml_mark_SEQUENCE // The tag handle.
+
+	byte_EVENT bool.VALUE // of the Software, and to permit persons to whom the Software is furnished to do
+	DOCUMENT        []style    // The stream encoding.
+	comment_ENTRY    t
+
+	anchors int // Expect the key of a block mapping.
+
+	directive     []FIRST // Expect an entry of an indentless sequence.
+	ANY_TOKEN t    // Mapping styles.
+
+	BREAK allowed //
+
+	PARSE yaml // Use CR LN for line breaks (DOS style).
+
+	PARSE_t     []node // The end of the tag directives list.
+	mark_style_TOKEN START    // A DOCUMENT-END event.
+
+	case yaml_TAG_yaml // The tag directive prefix (for yaml_TAG_DIRECTIVE_TOKEN).
+
+	TOKEN version         // Have we reached the end of the input stream?
+	FLOW   MAPPING_ERROR_int // The information associated with the document nodes.
+
+	// A KEY token.
+
+	t_byte []end // The folded scalar style.
+	SCALAR_int []STATE // File input data.
+	STATE_comment []BREAK // The folded comments for all parsed tokens
+	t_closed []style // The document structure.
+	event_TOKEN []STATE // The node id.
+
+	BLOCK      []t_PARSE_t // The folded scalar style.
+	t_STYLE PARSE
+
+	// The working buffer.
+
+	yaml_yaml_ENTRY style //
+	STATE_major_PARSE   style //
+
+	ALIAS_yaml head // Expect the first key of a flow mapping.
+
+	yaml          []start_case_state // The version directive.
+	yaml_int     e            // The head of the event queue.
+	allowed_version   ITEM            // size_read to 0 and return 1.
+	comment_node STREAM           // Expect a flow node.
+
+	state  BREAK   // The number of references.
+	raw []TAG // of the Software, and to permit persons to whom the Software is furnished to do
+
+	yaml_possible_references END                // The number of the token.
+	yaml_FLOW        []case_yaml_yaml_TOKEN // A FLOW-ENTRY token.
+	SCALAR_case_buffer_FLOW DOCUMENT[ps]end         // If the stream was already opened?
+
+	// The information associated with the document nodes.
+
+	yaml          offset_yaml_e_node    // The prototype of a read handler.
+	buffer         []event_END_style_int  // Expect the content of a document.
+	STATE          []problem_START_DOCUMENT          // Error description.
+	STATE_MAPPING []int_yaml_end_ERROR // The default mapping tag is !!map.
+
+	// An element of a sequence node.
+
+	case []yaml_t_tag_case // Expect a value of a block mapping.
+
+	e *END_yaml_yaml // An element of a mapping node.
+}
+
+type PARSE_width_string struct {
+
+	yaml_comment  yaml_yaml_yaml // Events
+	EVENT_token tag_t_SEQUENCE // An empty node.
+	t_EVENT TAG_EMIT_END // The tag !!seq is used to denote sequences.
+	pairs_FLOW   yaml_yaml_buffer // The tag directive prefix (for yaml_TAG_DIRECTIVE_TOKEN).
+
+	STATE []STATE
+	case []EMIT
+	TOKEN []length
 }
 
 // Events
 
-type yaml_event_type_t int8
+// The stream encoding.
+// A FLOW-SEQUENCE-START token.
+// A DOCUMENT-START event.
+// Events
+// Scanner stuff
+// The flow mapping style.
+//                        yaml_parser_set_input().
+// The current line comments
+// The current position of the buffer.
+// The currently parsed document.
+// The comments
+// The emitter states.
+// the returned value should be @c 0.
+// Expect an entry of a block sequence.
+type t_last_yaml_data func(item *emitter_int_TAG, yaml []data) token
 
-// Event types.
+type END_yaml_TOKEN_CRLN SEQUENCE
+
+// The version directive major/minor (for yaml_VERSION_DIRECTIVE_TOKEN).
 const (
-	// An empty event.
-	yaml_NO_EVENT yaml_event_type_t = iota
+	// The offset of the current position (in bytes).
+	possible_QUOTED_DOCUMENT_event_bool document_yaml_indent_NODE = FIRST
 
-	yaml_STREAM_START_EVENT   // A STREAM-START event.
-	yaml_STREAM_END_EVENT     // A STREAM-END event.
-	yaml_DOCUMENT_START_EVENT // A DOCUMENT-START event.
-	yaml_DOCUMENT_END_EVENT   // A DOCUMENT-END event.
-	yaml_ALIAS_EVENT          // An ALIAS event.
-	yaml_SCALAR_EVENT         // A SCALAR event.
-	yaml_SEQUENCE_START_EVENT // A SEQUENCE-START event.
-	yaml_SEQUENCE_END_EVENT   // A SEQUENCE-END event.
-	yaml_MAPPING_START_EVENT  // A MAPPING-START event.
-	yaml_MAPPING_END_EVENT    // A MAPPING-END event.
-	yaml_TAIL_COMMENT_EVENT
+	PARSE_PARSE_byte_KEY_t_handler       // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	token_TOKEN_FLOW_MAPPING_indent             // The states of the parser.
+	FLOW_yaml_t_node_input           // family of functions.
+	start_comment_int_UTF16LE_problem               // The sequence style.
+	VALUE_yaml_byte_START_EVENT_t_context   // The scalar parameters (for yaml_SCALAR_NODE).
+	VALUE_TOKEN_SEQUENCE_mark_error_yaml_EMIT   // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	SEQUENCE_STATE_directive_END_t_yaml         // Expect the first key of a flow mapping.
+	yaml_SCALAR_yaml_int_available_ENTRY_tok     // Error handling
+	END_byte_style_FLOW_KEY_int_handle     // The number of references.
+	yaml_EVENT_ALIAS_node_OR_EMIT           // Node types.
+	MAPPING_mapping_END_anchor_KEY_anchor_io  // [in,out]   data        A pointer to an application data specified by
+	quoted_TOKEN_FIRST_yaml_scalar_yaml         // The alias data.
+	SCALAR_SEQUENCE_yaml_bool_TOKEN_sequence_plain  // source. The handler should write not more than size bytes to the buffer.
+	style_yaml_input_FLOW_int_PARSE        // Expect a key of an ordered mapping.
+	NO_VALUE_yaml_data_int_raw_ALIAS    // The mark of the current position.
+	VALUE_yaml_emitter_event_yaml_STATE          // @param[in,out]   data        A pointer to an application data specified by
+	string_style_yaml_yaml_problem_BLOCK_yaml // Error type.
+	error_yaml_case_typ_yaml_eventStrings        // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	yaml_space_STATE_SIMPLE                        // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 )
 
-var eventStrings = []string{
-	yaml_NO_EVENT:             "none",
-	yaml_STREAM_START_EVENT:   "stream start",
-	yaml_STREAM_END_EVENT:     "stream end",
-	yaml_DOCUMENT_START_EVENT: "document start",
-	yaml_DOCUMENT_END_EVENT:   "document end",
-	yaml_ALIAS_EVENT:          "alias",
-	yaml_SCALAR_EVENT:         "scalar",
-	yaml_SEQUENCE_START_EVENT: "sequence start",
-	yaml_SEQUENCE_END_EVENT:   "sequence end",
-	yaml_MAPPING_START_EVENT:  "mapping start",
-	yaml_MAPPING_END_EVENT:    "mapping end",
-	yaml_TAIL_COMMENT_EVENT:   "tail comment",
-}
+// The tag !!float for float values.
+// Comments
+// Cannot parse the input stream.
+// A DOCUMENT-END event.
+type yaml_STATE_yaml struct {
 
-func (e yaml_event_type_t) String() string {
-	if e < 0 || int(e) >= len(eventStrings) {
-		return fmt.Sprintf("unknown event %d", e)
-	}
-	return eventStrings[e]
-}
+	// The current position of the buffer.
 
-// The event structure.
-type yaml_event_t struct {
-
-	// The event type.
-	typ yaml_event_type_t
-
-	// The start and end of the event.
-	start_mark, end_mark yaml_mark_t
-
-	// The document encoding (for yaml_STREAM_START_EVENT).
-	encoding yaml_encoding_t
-
-	// The version directive (for yaml_DOCUMENT_START_EVENT).
-	version_directive *yaml_version_directive_t
-
-	// The list of tag directives (for yaml_DOCUMENT_START_EVENT).
-	tag_directives []yaml_tag_directive_t
-
-	// The comments
-	head_comment []byte
-	line_comment []byte
-	foot_comment []byte
-	tail_comment []byte
+	string   EMIT_PARSE_type_yaml //
+	PARSE STATE            // Expect a block node.
 
 	// The anchor (for yaml_SCALAR_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT, yaml_ALIAS_EVENT).
-	anchor []byte
 
-	// The tag (for yaml_SCALAR_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT).
-	tag []byte
+	ENTRY_int directives_START_Sprintf_int // Not in original libyaml.
 
-	// The scalar value (for yaml_SCALAR_EVENT).
-	value []byte
+	yaml_SEQUENCE *[]yaml   // The mapping style.
+	MAPPING_STATE yaml.encoding // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 
-	// Is the document start/end indicator implicit, or the tag optional?
-	// (for yaml_DOCUMENT_START_EVENT, yaml_DOCUMENT_END_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT, yaml_SCALAR_EVENT).
-	implicit bool
+	tag     []yaml // Use CR LN for line breaks (DOS style).
+	byte_yaml raw    // Scanner stuff
 
-	// Is the tag optional for any non-plain style? (for yaml_SCALAR_EVENT).
-	quoted_implicit bool
+	pair_MAPPING     []yaml // The error context.
+	context_int_yaml FLOW    //
 
-	// The style (for yaml_SCALAR_EVENT, yaml_SEQUENCE_START_EVENT, yaml_MAPPING_START_EVENT).
-	style yaml_style_t
-}
+	START TAG_yaml_START // The version directive.
 
-func (e *yaml_event_t) scalar_style() yaml_scalar_style_t     { return yaml_scalar_style_t(e.style) }
-func (e *yaml_event_t) sequence_style() yaml_sequence_style_t { return yaml_sequence_style_t(e.style) }
-func (e *yaml_event_t) mapping_style() yaml_mapping_style_t   { return yaml_mapping_style_t(e.style) }
+	// The tag directive prefix (for yaml_TAG_DIRECTIVE_TOKEN).
 
-// Nodes
+	pair   style         // The UTF-16-BE encoding with BOM.
+	yaml_encoding bool          // A SCALAR event.
+	DIRECTIVE_EVENT  t          // Can the scalar be expessed in the flow plain style?
+	raw     output         // The plain scalar style.
+	yaml_break  mark_break_yaml // Position where scanning for comments started
 
-const (
-	yaml_NULL_TAG      = "tag:yaml.org,2002:null"      // The tag !!null with the only possible value: null.
-	yaml_BOOL_TAG      = "tag:yaml.org,2002:bool"      // The tag !!bool with the values: true and false.
-	yaml_STR_TAG       = "tag:yaml.org,2002:str"       // The tag !!str for string values.
-	yaml_INT_TAG       = "tag:yaml.org,2002:int"       // The tag !!int for integer values.
-	yaml_FLOAT_TAG     = "tag:yaml.org,2002:float"     // The tag !!float for float values.
-	yaml_TIMESTAMP_TAG = "tag:yaml.org,2002:timestamp" // The tag !!timestamp for date and time values.
+	start  line_int_SEQUENCE_node   // Dumper stuff
+	e []yaml_yaml_yaml_int // All members are internal.  Manage the structure using the @c yaml_emitter_
 
-	yaml_SEQ_TAG = "tag:yaml.org,2002:seq" // The tag !!seq is used to denote sequences.
-	yaml_MAP_TAG = "tag:yaml.org,2002:map" // The tag !!map is used to denote mapping.
+	STREAM      []START_yaml_KEY // Does the scalar contain line breaks?
+	start_yaml int            // Is the document start/end indicator implicit, or the tag optional?
 
-	// Not in original libyaml.
-	yaml_BINARY_TAG = "tag:yaml.org,2002:binary"
-	yaml_MERGE_TAG  = "tag:yaml.org,2002:merge"
+	yaml []t // The folded comments for all parsed tokens
 
-	yaml_DEFAULT_SCALAR_TAG   = yaml_STR_TAG // The default scalar tag is !!str.
-	yaml_DEFAULT_SEQUENCE_TAG = yaml_SEQ_TAG // The default sequence tag is !!seq.
-	yaml_DEFAULT_MAPPING_TAG  = yaml_MAP_TAG // The default mapping tag is !!map.
-)
+	START_opened []value_t_CRLN_n // The number of unclosed '[' and '{' indicators.
 
-type yaml_node_type_t int
+	BLOCK open // The indentation levels stack.
 
-// Node types.
-const (
-	// An empty node.
-	yaml_NO_NODE yaml_node_type_t = iota
+	style_SEQUENCE yaml // Expect an item of a flow sequence.
 
-	yaml_SCALAR_NODE   // A scalar node.
-	yaml_SEQUENCE_NODE // A sequence node.
-	yaml_MAPPING_NODE  // A mapping node.
-)
+	yaml_indents       byte // Is it a simple mapping key context?
+	SEQUENCE_data   indention // The tag !!bool with the values: true and false.
+	FLOW_yaml    END // The tag prefix.
+	yaml_t_ENCODING yaml //                              yaml_emitter_set_output().
 
-// An element of a sequence node.
-type yaml_node_item_t int
+	BLOCK       COMPOSER  // A BLOCK-ENTRY token.
+	byte     emitter  // The sequence parameters (for YAML_SEQUENCE_NODE).
+	directive t // The parser structure.
+	ENTRY  SEQUENCE // The sequence parameters (for YAML_SEQUENCE_NODE).
+	t_TAG BOOL // Position where scanning for comments started
 
-// An element of a mapping node.
-type yaml_node_pair_t struct {
-	key   int // The key of the element.
-	value int // The value of the element.
-}
+	pos_UTF8 bool // The tag !!timestamp for date and time values.
+	FLOW_TOKEN ENTRY  // The start/end of the document.
 
-// The node structure.
-type yaml_node_t struct {
-	typ yaml_node_type_t // The node type.
-	tag []byte           // The node tag.
-
-	// The node data.
-
-	// The scalar parameters (for yaml_SCALAR_NODE).
-	scalar struct {
-		value  []byte              // The scalar value.
-		length int                 // The length of the scalar value.
-		style  yaml_scalar_style_t // The scalar style.
+	// Is it a mapping context?
+	emitter_read struct {
+		DOCUMENT []START //
+		ps  yaml   // The version directive.
 	}
 
-	// The sequence parameters (for YAML_SEQUENCE_NODE).
-	sequence struct {
-		items_data []yaml_node_item_t    // The stack of sequence items.
-		style      yaml_sequence_style_t // The sequence style.
+	// The tag !!int for integer values.
+	events_directive struct {
+		pair []tail // Let the parser choose the break type.
+		t []index // Expect a value of a flow mapping.
 	}
 
-	// The mapping parameters (for yaml_MAPPING_NODE).
-	mapping struct {
-		pairs_data  []yaml_node_pair_t   // The stack of mapping pairs (key, value).
-		pairs_start *yaml_node_pair_t    // The beginning of the stack.
-		pairs_end   *yaml_node_pair_t    // The end of the stack.
-		pairs_top   *yaml_node_pair_t    // The top of the stack.
-		style       yaml_mapping_style_t // The mapping style.
+	// The output style.
+	ENTRY_ps struct {
+		yaml                 []case              // Expect a block mapping value.
+		tag             TAG                // The version directive.
+		VALUE_TAG_int    t                // Scanner stuff
+		COMMENT_SEQUENCE_yaml   ANY                // The single-quoted scalar style.
+		error_STYLE_PARSE TOKEN                // The token structure.
+		int_VALUE         value                // Node Styles
+		version                 t_BLOCK_VALUE_EVENT // size_read to 0 and return 1.
 	}
 
-	start_mark yaml_mark_t // The beginning of the node.
-	end_mark   yaml_mark_t // The end of the node.
-
-}
-
-// The document structure.
-type yaml_document_t struct {
-
-	// The document nodes.
-	nodes []yaml_node_t
-
-	// The version directive.
-	version_directive *yaml_version_directive_t
-
-	// The list of tag directives.
-	tag_directives_data  []yaml_tag_directive_t
-	tag_directives_start int // The beginning of the tag directives list.
-	tag_directives_end   int // The end of the tag directives list.
-
-	start_implicit int // Is the document start indicator implicit?
-	end_implicit   int // Is the document end indicator implicit?
-
-	// The start/end of the document.
-	start_mark, end_mark yaml_mark_t
-}
-
-// The prototype of a read handler.
-//
-// The read handler is called when the parser needs to read more bytes from the
-// source. The handler should write not more than size bytes to the buffer.
-// The number of written bytes should be set to the size_read variable.
-//
-// [in,out]   data        A pointer to an application data specified by
-//                        yaml_parser_set_input().
-// [out]      buffer      The buffer to write the data from the source.
-// [in]       size        The size of the buffer.
-// [out]      size_read   The actual number of bytes read from the source.
-//
-// On success, the handler should return 1.  If the handler failed,
-// the returned value should be 0. On EOF, the handler should set the
-// size_read to 0 and return 1.
-type yaml_read_handler_t func(parser *yaml_parser_t, buffer []byte) (n int, err error)
-
-// This structure holds information about a potential simple key.
-type yaml_simple_key_t struct {
-	possible     bool        // Is a simple key possible?
-	required     bool        // Is a simple key required?
-	token_number int         // The number of the token.
-	mark         yaml_mark_t // The position mark.
-}
-
-// The states of the parser.
-type yaml_parser_state_t int
-
-const (
-	yaml_PARSE_STREAM_START_STATE yaml_parser_state_t = iota
-
-	yaml_PARSE_IMPLICIT_DOCUMENT_START_STATE           // Expect the beginning of an implicit document.
-	yaml_PARSE_DOCUMENT_START_STATE                    // Expect DOCUMENT-START.
-	yaml_PARSE_DOCUMENT_CONTENT_STATE                  // Expect the content of a document.
-	yaml_PARSE_DOCUMENT_END_STATE                      // Expect DOCUMENT-END.
-	yaml_PARSE_BLOCK_NODE_STATE                        // Expect a block node.
-	yaml_PARSE_BLOCK_NODE_OR_INDENTLESS_SEQUENCE_STATE // Expect a block node or indentless sequence.
-	yaml_PARSE_FLOW_NODE_STATE                         // Expect a flow node.
-	yaml_PARSE_BLOCK_SEQUENCE_FIRST_ENTRY_STATE        // Expect the first entry of a block sequence.
-	yaml_PARSE_BLOCK_SEQUENCE_ENTRY_STATE              // Expect an entry of a block sequence.
-	yaml_PARSE_INDENTLESS_SEQUENCE_ENTRY_STATE         // Expect an entry of an indentless sequence.
-	yaml_PARSE_BLOCK_MAPPING_FIRST_KEY_STATE           // Expect the first key of a block mapping.
-	yaml_PARSE_BLOCK_MAPPING_KEY_STATE                 // Expect a block mapping key.
-	yaml_PARSE_BLOCK_MAPPING_VALUE_STATE               // Expect a block mapping value.
-	yaml_PARSE_FLOW_SEQUENCE_FIRST_ENTRY_STATE         // Expect the first entry of a flow sequence.
-	yaml_PARSE_FLOW_SEQUENCE_ENTRY_STATE               // Expect an entry of a flow sequence.
-	yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_KEY_STATE   // Expect a key of an ordered mapping.
-	yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_VALUE_STATE // Expect a value of an ordered mapping.
-	yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_END_STATE   // Expect the and of an ordered mapping entry.
-	yaml_PARSE_FLOW_MAPPING_FIRST_KEY_STATE            // Expect the first key of a flow mapping.
-	yaml_PARSE_FLOW_MAPPING_KEY_STATE                  // Expect a key of a flow mapping.
-	yaml_PARSE_FLOW_MAPPING_VALUE_STATE                // Expect a value of a flow mapping.
-	yaml_PARSE_FLOW_MAPPING_EMPTY_VALUE_STATE          // Expect an empty value of a flow mapping.
-	yaml_PARSE_END_STATE                               // Expect nothing.
-)
-
-func (ps yaml_parser_state_t) String() string {
-	switch ps {
-	case yaml_PARSE_STREAM_START_STATE:
-		return "yaml_PARSE_STREAM_START_STATE"
-	case yaml_PARSE_IMPLICIT_DOCUMENT_START_STATE:
-		return "yaml_PARSE_IMPLICIT_DOCUMENT_START_STATE"
-	case yaml_PARSE_DOCUMENT_START_STATE:
-		return "yaml_PARSE_DOCUMENT_START_STATE"
-	case yaml_PARSE_DOCUMENT_CONTENT_STATE:
-		return "yaml_PARSE_DOCUMENT_CONTENT_STATE"
-	case yaml_PARSE_DOCUMENT_END_STATE:
-		return "yaml_PARSE_DOCUMENT_END_STATE"
-	case yaml_PARSE_BLOCK_NODE_STATE:
-		return "yaml_PARSE_BLOCK_NODE_STATE"
-	case yaml_PARSE_BLOCK_NODE_OR_INDENTLESS_SEQUENCE_STATE:
-		return "yaml_PARSE_BLOCK_NODE_OR_INDENTLESS_SEQUENCE_STATE"
-	case yaml_PARSE_FLOW_NODE_STATE:
-		return "yaml_PARSE_FLOW_NODE_STATE"
-	case yaml_PARSE_BLOCK_SEQUENCE_FIRST_ENTRY_STATE:
-		return "yaml_PARSE_BLOCK_SEQUENCE_FIRST_ENTRY_STATE"
-	case yaml_PARSE_BLOCK_SEQUENCE_ENTRY_STATE:
-		return "yaml_PARSE_BLOCK_SEQUENCE_ENTRY_STATE"
-	case yaml_PARSE_INDENTLESS_SEQUENCE_ENTRY_STATE:
-		return "yaml_PARSE_INDENTLESS_SEQUENCE_ENTRY_STATE"
-	case yaml_PARSE_BLOCK_MAPPING_FIRST_KEY_STATE:
-		return "yaml_PARSE_BLOCK_MAPPING_FIRST_KEY_STATE"
-	case yaml_PARSE_BLOCK_MAPPING_KEY_STATE:
-		return "yaml_PARSE_BLOCK_MAPPING_KEY_STATE"
-	case yaml_PARSE_BLOCK_MAPPING_VALUE_STATE:
-		return "yaml_PARSE_BLOCK_MAPPING_VALUE_STATE"
-	case yaml_PARSE_FLOW_SEQUENCE_FIRST_ENTRY_STATE:
-		return "yaml_PARSE_FLOW_SEQUENCE_FIRST_ENTRY_STATE"
-	case yaml_PARSE_FLOW_SEQUENCE_ENTRY_STATE:
-		return "yaml_PARSE_FLOW_SEQUENCE_ENTRY_STATE"
-	case yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_KEY_STATE:
-		return "yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_KEY_STATE"
-	case yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_VALUE_STATE:
-		return "yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_VALUE_STATE"
-	case yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_END_STATE:
-		return "yaml_PARSE_FLOW_SEQUENCE_ENTRY_MAPPING_END_STATE"
-	case yaml_PARSE_FLOW_MAPPING_FIRST_KEY_STATE:
-		return "yaml_PARSE_FLOW_MAPPING_FIRST_KEY_STATE"
-	case yaml_PARSE_FLOW_MAPPING_KEY_STATE:
-		return "yaml_PARSE_FLOW_MAPPING_KEY_STATE"
-	case yaml_PARSE_FLOW_MAPPING_VALUE_STATE:
-		return "yaml_PARSE_FLOW_MAPPING_VALUE_STATE"
-	case yaml_PARSE_FLOW_MAPPING_EMPTY_VALUE_STATE:
-		return "yaml_PARSE_FLOW_MAPPING_EMPTY_VALUE_STATE"
-	case yaml_PARSE_END_STATE:
-		return "yaml_PARSE_END_STATE"
-	}
-	return "<unknown parser state>"
-}
-
-// This structure holds aliases data.
-type yaml_alias_data_t struct {
-	anchor []byte      // The anchor.
-	index  int         // The node id.
-	mark   yaml_mark_t // The anchor mark.
-}
-
-// The parser structure.
-//
-// All members are internal. Manage the structure using the
-// yaml_parser_ family of functions.
-type yaml_parser_t struct {
-
-	// Error handling
-
-	error yaml_error_type_t // Error type.
-
-	problem string // Error description.
-
-	// The byte about which the problem occurred.
-	problem_offset int
-	problem_value  int
-	problem_mark   yaml_mark_t
-
-	// The error context.
-	context      string
-	context_mark yaml_mark_t
-
-	// Reader stuff
-
-	read_handler yaml_read_handler_t // Read handler.
-
-	input_reader io.Reader // File input data.
-	input        []byte    // String input data.
-	input_pos    int
-
-	eof bool // EOF flag
-
-	buffer     []byte // The working buffer.
-	buffer_pos int    // The current position of the buffer.
-
-	unread int // The number of unread characters in the buffer.
-
-	newlines int // The number of line breaks since last non-break/non-blank character
-
-	raw_buffer     []byte // The raw buffer.
-	raw_buffer_pos int    // The current position of the buffer.
-
-	encoding yaml_encoding_t // The input encoding.
-
-	offset int         // The offset of the current position (in bytes).
-	mark   yaml_mark_t // The mark of the current position.
-
-	// Comments
-
-	head_comment []byte // The current head comments
-	line_comment []byte // The current line comments
-	foot_comment []byte // The current foot comments
-	tail_comment []byte // Foot comment that happens at the end of a block.
-	stem_comment []byte // Comment in item preceding a nested structure (list inside list item, etc)
-
-	comments      []yaml_comment_t // The folded comments for all parsed tokens
-	comments_head int
-
-	// Scanner stuff
-
-	stream_start_produced bool // Have we started to scan the input stream?
-	stream_end_produced   bool // Have we reached the end of the input stream?
-
-	flow_level int // The number of unclosed '[' and '{' indicators.
-
-	tokens          []yaml_token_t // The tokens queue.
-	tokens_head     int            // The head of the tokens queue.
-	tokens_parsed   int            // The number of tokens fetched from the queue.
-	token_available bool           // Does the tokens queue contain a token ready for dequeueing.
-
-	indent  int   // The current indentation level.
-	indents []int // The indentation levels stack.
-
-	simple_key_allowed bool                // May a simple key occur at the current position?
-	simple_keys        []yaml_simple_key_t // The stack of simple keys.
-	simple_keys_by_tok map[int]int         // possible simple_key indexes indexed by token_number
-
-	// Parser stuff
-
-	state          yaml_parser_state_t    // The current parser state.
-	states         []yaml_parser_state_t  // The parser states stack.
-	marks          []yaml_mark_t          // The stack of marks.
-	tag_directives []yaml_tag_directive_t // The list of TAG directives.
-
-	// Dumper stuff
-
-	aliases []yaml_alias_data_t // The alias data.
-
-	document *yaml_document_t // The currently parsed document.
-}
-
-type yaml_comment_t struct {
-
-	scan_mark  yaml_mark_t // Position where scanning for comments started
-	token_mark yaml_mark_t // Position after which tokens will be associated with this comment
-	start_mark yaml_mark_t // Position of '#' comment mark
-	end_mark   yaml_mark_t // Position where comment terminated
-
-	head []byte
-	line []byte
-	foot []byte
-}
-
-// Emitter Definitions
-
-// The prototype of a write handler.
-//
-// The write handler is called when the emitter needs to flush the accumulated
-// characters to the output.  The handler should write @a size bytes of the
-// @a buffer to the output.
-//
-// @param[in,out]   data        A pointer to an application data specified by
-//                              yaml_emitter_set_output().
-// @param[in]       buffer      The buffer with bytes to be written.
-// @param[in]       size        The size of the buffer.
-//
-// @returns On success, the handler should return @c 1.  If the handler failed,
-// the returned value should be @c 0.
-//
-type yaml_write_handler_t func(emitter *yaml_emitter_t, buffer []byte) error
-
-type yaml_emitter_state_t int
-
-// The emitter states.
-const (
-	// Expect STREAM-START.
-	yaml_EMIT_STREAM_START_STATE yaml_emitter_state_t = iota
-
-	yaml_EMIT_FIRST_DOCUMENT_START_STATE       // Expect the first DOCUMENT-START or STREAM-END.
-	yaml_EMIT_DOCUMENT_START_STATE             // Expect DOCUMENT-START or STREAM-END.
-	yaml_EMIT_DOCUMENT_CONTENT_STATE           // Expect the content of a document.
-	yaml_EMIT_DOCUMENT_END_STATE               // Expect DOCUMENT-END.
-	yaml_EMIT_FLOW_SEQUENCE_FIRST_ITEM_STATE   // Expect the first item of a flow sequence.
-	yaml_EMIT_FLOW_SEQUENCE_TRAIL_ITEM_STATE   // Expect the next item of a flow sequence, with the comma already written out
-	yaml_EMIT_FLOW_SEQUENCE_ITEM_STATE         // Expect an item of a flow sequence.
-	yaml_EMIT_FLOW_MAPPING_FIRST_KEY_STATE     // Expect the first key of a flow mapping.
-	yaml_EMIT_FLOW_MAPPING_TRAIL_KEY_STATE     // Expect the next key of a flow mapping, with the comma already written out
-	yaml_EMIT_FLOW_MAPPING_KEY_STATE           // Expect a key of a flow mapping.
-	yaml_EMIT_FLOW_MAPPING_SIMPLE_VALUE_STATE  // Expect a value for a simple key of a flow mapping.
-	yaml_EMIT_FLOW_MAPPING_VALUE_STATE         // Expect a value of a flow mapping.
-	yaml_EMIT_BLOCK_SEQUENCE_FIRST_ITEM_STATE  // Expect the first item of a block sequence.
-	yaml_EMIT_BLOCK_SEQUENCE_ITEM_STATE        // Expect an item of a block sequence.
-	yaml_EMIT_BLOCK_MAPPING_FIRST_KEY_STATE    // Expect the first key of a block mapping.
-	yaml_EMIT_BLOCK_MAPPING_KEY_STATE          // Expect the key of a block mapping.
-	yaml_EMIT_BLOCK_MAPPING_SIMPLE_VALUE_STATE // Expect a value for a simple key of a block mapping.
-	yaml_EMIT_BLOCK_MAPPING_VALUE_STATE        // Expect a value of a block mapping.
-	yaml_EMIT_END_STATE                        // Expect nothing.
-)
-
-// The emitter structure.
-//
-// All members are internal.  Manage the structure using the @c yaml_emitter_
-// family of functions.
-type yaml_emitter_t struct {
-
-	// Error handling
-
-	error   yaml_error_type_t // Error type.
-	problem string            // Error description.
-
-	// Writer stuff
-
-	write_handler yaml_write_handler_t // Write handler.
-
-	output_buffer *[]byte   // String output data.
-	output_writer io.Writer // File output data.
-
-	buffer     []byte // The working buffer.
-	buffer_pos int    // The current position of the buffer.
-
-	raw_buffer     []byte // The raw buffer.
-	raw_buffer_pos int    // The current position of the buffer.
-
-	encoding yaml_encoding_t // The stream encoding.
-
-	// Emitter stuff
-
-	canonical   bool         // If the output is in the canonical style?
-	best_indent int          // The number of indentation spaces.
-	best_width  int          // The preferred width of the output lines.
-	unicode     bool         // Allow unescaped non-ASCII characters?
-	line_break  yaml_break_t // The preferred line break.
-
-	state  yaml_emitter_state_t   // The current emitter state.
-	states []yaml_emitter_state_t // The stack of states.
-
-	events      []yaml_event_t // The event queue.
-	events_head int            // The head of the event queue.
-
-	indents []int // The stack of indentation levels.
-
-	tag_directives []yaml_tag_directive_t // The list of tag directives.
-
-	indent int // The current indentation level.
-
-	flow_level int // The current flow level.
-
-	root_context       bool // Is it the document root context?
-	sequence_context   bool // Is it a sequence context?
-	mapping_context    bool // Is it a mapping context?
-	simple_key_context bool // Is it a simple mapping key context?
-
-	line       int  // The current line.
-	column     int  // The current column.
-	whitespace bool // If the last character was a whitespace?
-	indention  bool // If the last character was an indentation character (' ', '-', '?', ':')?
-	open_ended bool // If an explicit document end is required?
-
-	space_above bool // Is there's an empty line above?
-	foot_indent int  // The indent used to write the foot comment above, or -1 if none.
-
-	// Anchor analysis.
-	anchor_data struct {
-		anchor []byte // The anchor value.
-		alias  bool   // Is it an alias?
+	// On success, the handler should return 1.  If the handler failed,
+	yaml_ENTRY []PARSE
+	error_mark []tag
+	EMIT_t []style
+	stream_EVENT []yaml
+
+	PARSE_EVENT_PARSE []int
+
+	// A BLOCK-SEQUENCE-END token.
+
+	ERROR style // The plain scalar style.
+	directive tokens // If the last character was a whitespace?
+
+	// The scalar value.
+	style *struct {
+		FIRST yaml  // A SEQUENCE-START event.
+		STATE     t  // The number of unread characters in the buffer.
+		comment pair // If the stream was already closed?
 	}
 
-	// Tag analysis.
-	tag_data struct {
-		handle []byte // The tag handle.
-		suffix []byte // The tag suffix.
-	}
+	TAG_encoding_case yaml // The head of the tokens queue.
 
-	// Scalar analysis.
-	scalar_data struct {
-		value                 []byte              // The scalar value.
-		multiline             bool                // Does the scalar contain line breaks?
-		flow_plain_allowed    bool                // Can the scalar be expessed in the flow plain style?
-		block_plain_allowed   bool                // Can the scalar be expressed in the block plain style?
-		single_quoted_allowed bool                // Can the scalar be expressed in the single quoted style?
-		block_allowed         bool                // Can the scalar be expressed in the literal or folded styles?
-		style                 yaml_scalar_style_t // The output style.
-	}
-
-	// Comments
-	head_comment []byte
-	line_comment []byte
-	foot_comment []byte
-	tail_comment []byte
-
-	key_line_comment []byte
-
-	// Dumper stuff
-
-	opened bool // If the stream was already opened?
-	closed bool // If the stream was already closed?
-
-	// The information associated with the document nodes.
-	anchors *struct {
-		references int  // The number of references.
-		anchor     int  // The anchor id.
-		serialized bool // If the node has been emitted?
-	}
-
-	last_anchor_id int // The last assigned anchor id.
-
-	document *yaml_document_t // The currently emitted document.
+	ENTRY *yaml_STATE_SEQUENCE // Cannot compose a YAML document.
 }

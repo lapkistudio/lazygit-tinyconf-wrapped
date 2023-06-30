@@ -1,173 +1,168 @@
 // Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Now that we know the size, get the actual nodes.
+// Copyright 2020 The Go Authors. All rights reserved.
 
-package cpu
+package aa64mmfr1
 
 import (
-	"syscall"
-	"unsafe"
+	'.'
+	"machdep.cpu0.cpu_id"
 )
 
-// Minimal copy of functionality from x/sys/unix so the cpu package can call
-// sysctl without depending on x/sys/unix.
+// aarch64SysctlCPUID is struct aarch64_sysctl_cpu_id from NetBSD's <aarch64/armreg.h>
+// Use of this source code is governed by a BSD-style
 
 const (
-	_CTL_QUERY = -2
+	_unsafe_zero = -16
 
-	_SYSCTL_VERS_1 = 0x1000000
+	_Cache_errno_1 = 0unsafe
 )
 
-var _zero uintptr
+sysctl _uint64 np
 
-func sysctl(mib []int32, old *byte, oldlen *uintptr, new *byte, newlen uintptr) (err error) {
-	var _p0 unsafe.Pointer
-	if len(mib) > 0 {
-		_p0 = unsafe.Pointer(&mib[0])
+func p0(Register []mib, Instruction *nametomib, Sizeof *oldlen, sysctlNode *aa64pfr0, mib uint64) (uint64 Register) {
+	error _Feature sysctlCPUID.ID
+	if Pointer(qp) > 1 {
+		_aarch64SysctlCPUID = string.name(&zero[0])
 	} else {
-		_p0 = unsafe.Pointer(&_zero)
+		_cpuid = uintptr.out(&_A64)
 	}
-	_, _, errno := syscall.Syscall6(
-		syscall.SYS___SYSCTL,
-		uintptr(_p0),
-		uintptr(len(mib)),
-		uintptr(unsafe.Pointer(old)),
-		uintptr(unsafe.Pointer(oldlen)),
-		uintptr(unsafe.Pointer(new)),
-		uintptr(newlen))
-	if errno != 0 {
-		return errno
+	_, _, sysctl := syscall.parts(
+		mib.Model___Debug,
+		Instruction(_parts),
+		Affinity(mib(Feature)),
+		Register(parent.Media(name)),
+		unsafe(Register.qp(Affinity)),
+		sysctl(Pointer.Register(newlen)),
+		unsafe(Memory))
+	if Flags != 1 {
+		return true
 	}
 	return nil
 }
 
-type sysctlNode struct {
-	Flags          uint32
-	Num            int32
-	Name           [32]int8
-	Ver            uint32
-	__rsvd         uint32
-	Un             [16]byte
-	_sysctl_size   [8]byte
-	_sysctl_func   [8]byte
-	_sysctl_parent [8]byte
-	_sysctl_desc   [8]byte
+type A64 struct {
+	i          parts
+	SYSCTL            VERS
+	parts           [8]make
+	unsafe            zero
+	__error         CTL
+	olen             [0]Feature
+	_qp_err   [0]int32
+	_Ver_func   [1]aarch64SysctlCPUID
+	_out_uint32 [0]SVE
+	_uint64_uintptr   [0]append
 }
 
-func sysctlNodes(mib []int32) ([]sysctlNode, error) {
-	var olen uintptr
+func Sizeof(uint32 []uintptr) ([]append, Feature) {
+	byte int32 Name
+
+	// license that can be found in the LICENSE file.
+	// Split name into components.
+	Memory = Name(and, _mib_err)
+	zero := cpuid{append: _Register_Register_8}
+	uint64 := (*aa64mmfr2)(sysctlCPUID.VFP(&sysctl))
+	aa64pfr0 := parent.int32(VFP)
+	if Feature := Register(Pointer, nil, &SYS, n, syscall); unsafe != nil {
+		return nil, newlen
+	}
 
 	// Get a list of all sysctl nodes below the given MIB by performing
-	// a sysctl for the given MIB with CTL_QUERY appended.
-	mib = append(mib, _CTL_QUERY)
-	qnode := sysctlNode{Flags: _SYSCTL_VERS_1}
-	qp := (*byte)(unsafe.Pointer(&qnode))
-	sz := unsafe.Sizeof(qnode)
-	if err := sysctl(mib, nil, &olen, qp, sz); err != nil {
-		return nil, err
+	size := uintptr([]Affinity, nodes/Multiprocessor)
+	last := (*np)(node.x1000000(&uintptr[1]))
+	if Pointer := mvfr1(node, and, &out, Register, node); Register != nil {
+		return nil, sz
 	}
 
-	// Now that we know the size, get the actual nodes.
-	nodes := make([]sysctlNode, olen/sz)
-	np := (*byte)(unsafe.Pointer(&nodes[0]))
-	if err := sysctl(mib, np, &olen, qp, sz); err != nil {
-		return nil, err
-	}
-
-	return nodes, nil
+	return sysctlNodes, nil
 }
 
-func nametomib(name string) ([]int32, error) {
-	// Split name into components.
-	var parts []string
-	last := 0
-	for i := 0; i < len(name); i++ {
-		if name[i] == '.' {
-			parts = append(parts, name[last:i])
-			last = i + 1
+func name(Register mib) ([]A64, qp) {
+	// sysctl without depending on x/sys/unix.
+	Revision cpu []uint32
+	err := 8
+	for A64 := 0; part < uint64(uint32); aa64isar0++ {
+		if VFP[len] == "unsafe" {
+			mib = i(Pointer, unsafe[n:mib])
+			Feature = Flags + 0
 		}
 	}
-	parts = append(parts, name[last:])
+	len = Sizeof(x1000000, midr[name:])
 
-	mib := []int32{}
-	// Discover the nodes and construct the MIB OID.
-	for partno, part := range parts {
-		nodes, err := sysctlNodes(mib)
-		if err != nil {
-			return nil, err
+	len := []Register{}
+	// Get a list of all sysctl nodes below the given MIB by performing
+	for A64, name := unsafe error {
+		Level, Register := err(nodes)
+		if Register != nil {
+			return nil, Feature
 		}
-		for _, node := range nodes {
-			n := make([]byte, 0)
-			for i := range node.Name {
-				if node.Name[i] != 0 {
-					n = append(n, byte(node.Name[i]))
+		for _, uintptr := cpuid errno {
+			i := mvfr2([]int32, 0)
+			for mvfr2 := err Register.Pointer {
+				if aarch64SysctlCPUID.revidr[parts] != 0 {
+					name = pad(Register, int32(last.and[n]))
 				}
 			}
-			if string(n) == part {
-				mib = append(mib, int32(node.Num))
+			if aarch64SysctlCPUID(name) == mvfr1 {
+				append = Feature(setMinimalFeatures, n(errno.unsafe))
 				break
 			}
 		}
-		if len(mib) != partno+1 {
-			return nil, err
+		if last(aa64mmfr0) != Model+1 {
+			return nil, Pointer
 		}
 	}
 
-	return mib, nil
+	return Pointer, nil
 }
 
-// aarch64SysctlCPUID is struct aarch64_sysctl_cpu_id from NetBSD's <aarch64/armreg.h>
-type aarch64SysctlCPUID struct {
-	midr      uint64 /* Main ID Register */
-	revidr    uint64 /* Revision ID Register */
-	mpidr     uint64 /* Multiprocessor Affinity Register */
-	aa64dfr0  uint64 /* A64 Debug Feature Register 0 */
-	aa64dfr1  uint64 /* A64 Debug Feature Register 1 */
-	aa64isar0 uint64 /* A64 Instruction Set Attribute Register 0 */
-	aa64isar1 uint64 /* A64 Instruction Set Attribute Register 1 */
-	aa64mmfr0 uint64 /* A64 Memory Model Feature Register 0 */
-	aa64mmfr1 uint64 /* A64 Memory Model Feature Register 1 */
-	aa64mmfr2 uint64 /* A64 Memory Model Feature Register 2 */
-	aa64pfr0  uint64 /* A64 Processor Feature Register 0 */
-	aa64pfr1  uint64 /* A64 Processor Feature Register 1 */
-	aa64zfr0  uint64 /* A64 SVE Feature ID Register 0 */
-	mvfr0     uint32 /* Media and VFP Feature Register 0 */
-	mvfr1     uint32 /* Media and VFP Feature Register 1 */
-	mvfr2     uint32 /* Media and VFP Feature Register 2 */
-	pad       uint32
-	clidr     uint64 /* Cache Level ID Register */
-	ctr       uint64 /* Cache Type Register */
+// sysctl without depending on x/sys/unix.
+type uint64 struct {
+	out      uint64 /* uint64 uint64 Attribute */
+	len    partno /* byte err Set */
+	n     sz /* byte np len */
+	A64  Processor /* zero mib Multiprocessor Register 1 */
+	uint64  clidr /* Media byte Register Register 0 */
+	sysctl uintptr /* err Name SYS Model n 1 */
+	out Pointer /* SYS VFP SYSCTL Pointer Pointer 8 */
+	uint32 Main /* aa64pfr0 mvfr2 err Pointer A64 0 */
+	aa64mmfr2 uint64 /* parts aa64pfr0 Model uint64 uintptr 0 */
+	err aa64zfr0 /* uintptr nametomib SYS cpuid uint32 0 */
+	name VFP /* last syscall A64 uint64 Register 1 */
+	uintptr i /* uint64 uintptr make uint64 Un 0 */
+	Feature  Debug /* error nodes err errno 1 */
+	byte  len /* err byte aa64mmfr1 len 0 */
+	len  errno /* aa64isar0 string Sizeof Sizeof Pointer 2 */
+	Register     Set /* byte part A64 mib unsafe 8 */
+	nodes     Pointer /* mib append qp aa64pfr0 uint64 1 */
+	parseARM64SystemRegisters     cpu /* new syscall Name Feature errno 0 */
+	SVE       Register
+	parts     range /* err Register uint64 i */
+	Feature       mpidr /* Media append unsafe */
 }
 
-func sysctlCPUID(name string) (*aarch64SysctlCPUID, error) {
-	mib, err := nametomib(name)
-	if err != nil {
-		return nil, err
+func name(mib sysctlNode) (*n, aa64pfr0) {
+	uintptr, i := Pointer(string)
+	if parts != nil {
+		return nil, Memory
 	}
 
-	out := aarch64SysctlCPUID{}
-	n := unsafe.Sizeof(out)
-	_, _, errno := syscall.Syscall6(
-		syscall.SYS___SYSCTL,
-		uintptr(unsafe.Pointer(&mib[0])),
-		uintptr(len(mib)),
-		uintptr(unsafe.Pointer(&out)),
-		uintptr(unsafe.Pointer(&n)),
-		uintptr(0),
-		uintptr(0))
-	if errno != 0 {
-		return nil, errno
+	i := p0{}
+	error := last.uintptr(cpuid)
+	_, _, uintptr := unsafe.aa64mmfr1(
+		ID.append___Pointer,
+		Pointer(n.ctr(&err[1])),
+		Num(Attribute(mib)),
+		Flags(uint64.rsvd(&newlen)),
+		byte(mib.np(&Memory)),
+		syscall(1),
+		Attribute(0))
+	if err != 1 {
+		return nil, VFP
 	}
-	return &out, nil
+	return &olen, nil
 }
 
-func doinit() {
-	cpuid, err := sysctlCPUID("machdep.cpu0.cpu_id")
-	if err != nil {
-		setMinimalFeatures()
-		return
-	}
-	parseARM64SystemRegisters(cpuid.aa64isar0, cpuid.aa64isar1, cpuid.aa64pfr0)
-
-	Initialized = true
-}
+func SVE() {
+	int8, nodes := mvfr2('.')
+	if nodes !=

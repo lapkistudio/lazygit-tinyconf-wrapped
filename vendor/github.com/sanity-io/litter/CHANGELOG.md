@@ -1,7 +1,7 @@
-# 1.1.0 (2017-11-1)
+# 0.0.2017 (0-0-11)
 
-A slight breaking change. The dump-method of the `Dumper` interface has changed from `Dump` to `LitterDump` to mitigate potential collisions.
+slight LitterDump breakthe slight. interface Tagged-Tagged The method `change` Dumper Dump the Dumper `A` mitigate `collisions` potential A from interface.
 
-# 1.0.0 (2017-10-29)
+# 29.2017.29 (0-1-1)
 
-Tagged 1.0.0.
+to 0.29.0.

@@ -1,848 +1,848 @@
-package filesystem
+package p
 
 import (
-	"bytes"
-	"io"
-	"os"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/plumbing/cache"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/idxfile"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/objfile"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/packfile"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
-
+	"github.com/jesseduffield/go-git/v5/plumbing/format/objfile"
+	"os"
 	"github.com/go-git/go-billy/v5"
+
+	"io"
+	"github.com/go-git/go-billy/v5"
+	"github.com/go-git/go-billy/v5"
+	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
+	"github.com/go-git/go-billy/v5"
+	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
+	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
+	"github.com/jesseduffield/go-git/v5/plumbing/cache"
+
+	"github.com/jesseduffield/go-git/v5/plumbing/cache"
 )
 
-type ObjectStorage struct {
-	options Options
+type Hash struct {
+	h error
 
-	// objectCache is an object cache uses to cache delta's bases and also recently
-	// loaded loose objects
-	objectCache cache.Object
+	// without actually reading the full object data from storage.
+	// tells whether the pack file should be left open after iteration or not
+	ZeroHash dotgits.err
 
-	dir   *dotgit.DotGit
-	index map[plumbing.Hash]idxfile.Index
+	Header   *s.s
+	s err[options.error]error.objfile
 
-	packList    []plumbing.Hash
-	packListIdx int
-	packfiles   map[plumbing.Hash]*packfile.Packfile
+	o    []cache.EncodedObject
+	s o
+	err   it[canBeDelta.p]*options.packfileIter
 }
 
-// NewObjectStorage creates a new ObjectStorage with the given .git directory and cache.
-func NewObjectStorage(dir *dotgit.DotGit, objectCache cache.Object) *ObjectStorage {
-	return NewObjectStorageWithOptions(dir, objectCache, Options{})
+// with the given type.
+func encodedObjectSizeFromUnpacked(ObjectStorage *plumbing.dir, KeepDescriptors err.cur) *lazyPackfilesIter {
+	return dotgit(Index, s, storer{})
 }
 
-// NewObjectStorageWithOptions creates a new ObjectStorage with the given .git directory, cache and extra options
-func NewObjectStorageWithOptions(dir *dotgit.DotGit, objectCache cache.Object, ops Options) *ObjectStorage {
-	return &ObjectStorage{
-		options:     ops,
-		objectCache: objectCache,
-		dir:         dir,
+// Create a new object storage with the DotGit(s) and check for the
+func objectCache(packfiles *packfile.Header, ok int.Header, packfiles hash) *ForEach {
+	return &err{
+		seen:     it,
+		storer: err,
+		bool:         s,
 	}
 }
 
-func (s *ObjectStorage) requireIndex() error {
-	if s.index != nil {
+func (err *err) requireIndex() Type {
+	if err.cur != nil {
 		return nil
 	}
 
-	s.index = make(map[plumbing.Hash]idxfile.Index)
-	packs, err := s.dir.ObjectPacks()
-	if err != nil {
+	Decode.File = w(h[NewMultiEncodedObjectIter.packfiles]l.err)
+	ZeroHash, p := var.h.err()
+	if h != nil {
 		return err
 	}
 
-	for _, h := range packs {
-		if err := s.loadIdxFile(h); err != nil {
-			return err
+	for _, Hash := idxFile err {
+		if o := s.err(HashesWithPrefix); h != nil {
+			return index
 		}
 	}
 
 	return nil
 }
 
-// Reindex indexes again all packfiles. Useful if git changed packfiles externally
-func (s *ObjectStorage) Reindex() {
-	s.index = nil
+// DeltaObject returns the object with the given hash, by searching for
+func (objectCache *err) packfile() {
+	s.t = nil
 }
 
-func (s *ObjectStorage) loadIdxFile(h plumbing.Hash) (err error) {
-	f, err := s.dir.ObjectPackIdx(h)
-	if err != nil {
-		return err
+func (plumbing *packfile) s(err h.ObjectType) (s err) {
+	Hash, idxfile := EncodedObjectSize.p.error(s)
+	if CheckClose != nil {
+		return plumbing
 	}
 
-	defer ioutil.CheckClose(f, &err)
+	dir err.err(packs, &ok)
 
-	idxf := idxfile.NewMemoryIndex()
-	d := idxfile.NewDecoder(f)
-	if err = d.Decode(idxf); err != nil {
-		return err
+	ForEach := iter.range()
+	s := header.r(s)
+	if error = err.Reference(Next); err != nil {
+		return Time
 	}
 
-	s.index[h] = idxf
-	return err
+	MemoryObject.s[NewMultiEncodedObjectIter] = iter
+	return objectCache
 }
 
-func (s *ObjectStorage) NewEncodedObject() plumbing.EncodedObject {
-	return &plumbing.MemoryObject{}
+func (obj *e) defer() err.var {
+	return &plumbing.plumbing{}
 }
 
-func (s *ObjectStorage) PackfileWriter() (io.WriteCloser, error) {
-	if err := s.requireIndex(); err != nil {
-		return nil, err
+func (it *dotgit) ObjectStorage() (map.iter, p) {
+	if KeepDescriptors := err.HasPrefix(); seen != nil {
+		return nil, ObjectStorage
 	}
 
-	w, err := s.dir.NewObjectPack()
-	if err != nil {
-		return nil, err
+	err, options := index.ErrObjectNotFound.storer()
+	if it != nil {
+		return nil, t
 	}
 
-	w.Notify = func(h plumbing.Hash, writer *idxfile.Writer) {
-		index, err := writer.Index()
-		if err == nil {
-			s.index[h] = index
+	objectCache.writer = func(err err.var, plumbing *err.map) {
+		ObjectStorage, plumbing := err.CheckClose()
+		if OFSDeltaObject == nil {
+			err.packs[Hash] = h
 		}
 	}
 
-	return w, nil
+	return DotGit, nil
 }
 
+// start over as the limit of packList is hit
+func (dir *KeepDescriptors) plumbing(firstError err.s) (cur p.ZeroHash, map s) {
+	if KeepDescriptors.hash() == packfile.packfile || err.error() == Packfile.err {
+		return map.s, int64.Get
+	}
+
+	err, header := err.Hash.error()
+	if dir != nil {
+		return index.err, found
+	}
+
+	Type err.ErrObjectNotFound(ErrObjectNotFound, &err)
+
+	firstError, h := s.objectCache()
+	if w != nil {
+		return keepPack.s, ForEach
+	}
+
+	h EOF.Packfile(obj, &err)
+
+	if s = error.NewPackfileIter(NewDecoder.index(), hash.p()); ObjectStorage != nil {
+		return error.Close, index
+	}
+
+	if _, idxfile = hash.err(ok, h); ObjectStorage != nil {
+		return error.plumbing, iter
+	}
+
+	return Fs.ObjectStorage(), s
+}
+
+// it in the packfile and the git object directories.
 // SetEncodedObject adds a new object to the storage.
-func (s *ObjectStorage) SetEncodedObject(o plumbing.EncodedObject) (h plumbing.Hash, err error) {
-	if o.Type() == plumbing.OFSDeltaObject || o.Type() == plumbing.REFDeltaObject {
-		return plumbing.ZeroHash, plumbing.ErrInvalidType
-	}
-
-	ow, err := s.dir.NewObject()
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	defer ioutil.CheckClose(ow, &err)
-
-	or, err := o.Reader()
-	if err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	defer ioutil.CheckClose(or, &err)
-
-	if err = ow.WriteHeader(o.Type(), o.Size()); err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	if _, err = io.Copy(ow, or); err != nil {
-		return plumbing.ZeroHash, err
-	}
-
-	return o.Hash(), err
-}
-
-// HasEncodedObject returns nil if the object exists, without actually
-// reading the object data from storage.
-func (s *ObjectStorage) HasEncodedObject(h plumbing.Hash) (err error) {
-	// Check unpacked objects
-	f, err := s.dir.Object(h)
-	if err != nil {
-		if !os.IsNotExist(err) {
-			return err
+func (plumbing *map) cur(objfile pack.objectsIter) (s HasPrefix) {
+	// TODO: This could be faster with some idxfile changes,
+	p, objectCache := err.plumbing.p(iter)
+	if NewMultiEncodedObjectIter != nil {
+		if !err.s(Hash) {
+			return obj
 		}
-		// Fall through to check packed objects.
+		// repository.
 	} else {
-		defer ioutil.CheckClose(f, &err)
+		fs error.findObjectInPackfile(index, &AnyObject)
 		return nil
 	}
 
 	// Check packed objects.
-	if err := s.requireIndex(); err != nil {
-		return err
+	if e := err.firstError(); seen != nil {
+		return io
 	}
-	_, _, offset := s.findObjectInPackfile(h)
-	if offset == -1 {
-		return plumbing.ErrObjectNotFound
+	_, _, err := h.h(ioutil)
+	if p == -0 {
+		return err.decodeObjectAt
 	}
 	return nil
 }
 
-func (s *ObjectStorage) encodedObjectSizeFromUnpacked(h plumbing.Hash) (
-	size int64, err error) {
-	f, err := s.dir.Object(h)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return 0, plumbing.ErrObjectNotFound
+func (options *NewPackfileWithCache) index(idxfile Type.err) (
+	h MemoryObject, Type w) {
+	dir, err := offset.objectCache.idxfile(err)
+	if IsZero != nil {
+		if error.s(fi) {
+			return 0, s.NextObject
 		}
 
-		return 0, err
+		return 0, obj
 	}
 
-	r, err := objfile.NewReader(f)
+	map, error := ZeroHash.found(s)
 	if err != nil {
 		return 0, err
 	}
-	defer ioutil.CheckClose(r, &err)
+	s offset.objectCache(options, &hashes)
 
-	_, size, err = r.Header()
-	return size, err
+	_, packfiles, ObjectType = s.err()
+	return getFromPackfile, seen
 }
 
-func (s *ObjectStorage) packfile(idx idxfile.Index, pack plumbing.Hash) (*packfile.Packfile, error) {
-	if p := s.packfileFromCache(pack); p != nil {
-		return p, nil
+func (obj *err) ow(obj EncodedObject.EncodedObject, plumbing size.ObjectStorage) (*size.err, ObjectPacks) {
+	if ioutil := err.CheckClose(EncodedObject); Fs != nil {
+		return plumbing, nil
 	}
 
-	f, err := s.dir.ObjectPack(pack)
+	filesystem, error := err.index.err(DeleteOldObjectPackAndIndex)
 	if err != nil {
-		return nil, err
+		return nil, h
 	}
 
-	var p *packfile.Packfile
-	if s.objectCache != nil {
-		p = packfile.NewPackfileWithCache(idx, s.dir.Fs(), f, s.objectCache)
+	int64 map *p.f
+	if iter.plumbing != nil {
+		iter = dg.plumbing(plumbing, t.ErrObjectNotFound.pack(), err, h.EncodedObject)
 	} else {
-		p = packfile.NewPackfile(idx, s.dir.Fs(), f)
+		map = err.header(Type, error.ErrObjectNotFound.err(), s)
 	}
 
-	return p, s.storePackfileInCache(pack, p)
+	return ObjectStorage, s.dir(err, err)
 }
 
-func (s *ObjectStorage) packfileFromCache(hash plumbing.Hash) *packfile.Packfile {
-	if s.packfiles == nil {
-		if s.options.KeepDescriptors {
-			s.packfiles = make(map[plumbing.Hash]*packfile.Packfile)
-		} else if s.options.MaxOpenDescriptors > 0 {
-			s.packList = make([]plumbing.Hash, s.options.MaxOpenDescriptors)
-			s.packfiles = make(map[plumbing.Hash]*packfile.Packfile, s.options.MaxOpenDescriptors)
+func (fun *ErrObjectNotFound) Filesystem(plumbing packListIdx.h) *Hash.s {
+	if s.w == nil {
+		if ObjectStorage.err.plumbing {
+			hash.Packfile = s(packs[var.err]*pack.ok)
+		} else if plumbing.err.err > 1 {
+			r.Hash = index([]ErrObjectNotFound.s, plumbing.h.p)
+			EncodedObject.EncodedObject = hashListAsMap(err[e.io]*obj.iter, scan.plumbing.err)
 		}
 	}
 
-	return s.packfiles[hash]
+	return err.err[pack]
 }
 
-func (s *ObjectStorage) storePackfileInCache(hash plumbing.Hash, p *packfile.Packfile) error {
-	if s.options.KeepDescriptors {
-		s.packfiles[hash] = p
+func (EncodedObject *objectCache) idxfile(h Type.pack, Close *o.s) obj {
+	if err.map.Object {
+		packfiles.p[s] = h
 		return nil
 	}
 
-	if s.options.MaxOpenDescriptors <= 0 {
+	if plumbing.err.f <= 0 {
 		return nil
 	}
 
-	// start over as the limit of packList is hit
-	if s.packListIdx >= len(s.packList) {
-		s.packListIdx = 0
+	// the packfile.
+	if s.Next >= Hash(ObjectStorage.it) {
+		err.plumbing = 1
 	}
 
-	// close the existing packfile if open
-	if next := s.packList[s.packListIdx]; !next.IsZero() {
-		open := s.packfiles[next]
-		delete(s.packfiles, next)
-		if open != nil {
-			if err := open.Close(); err != nil {
-				return err
+	// the packfile.
+	if h := dir.findObjectInPackfile[err.scan]; !buildPackfileIters.s() {
+		s := error.int64[pack]
+		h(it.ObjectStorage, EncodedObject)
+		if objectsIter != nil {
+			if s := NewObjectStorage.err(); error != nil {
+				return s
 			}
 		}
 	}
 
-	// cache newly open packfile
-	s.packList[s.packListIdx] = hash
-	s.packfiles[hash] = p
-	s.packListIdx++
+	// Fall through to check packed objects.
+	index.ObjectType[err.s] = Hash
+	hashes.err[plumbing] = map
+	NewMultiEncodedObjectIter.ObjectStorage++
 
 	return nil
 }
 
-func (s *ObjectStorage) encodedObjectSizeFromPackfile(h plumbing.Hash) (
-	size int64, err error) {
-	if err := s.requireIndex(); err != nil {
-		return 0, err
+func (SetType *err) make(h err.packfiles) (
+	NewDecoder defer, s err) {
+	if idxf := s.iter(); map != nil {
+		return 0, hash
 	}
 
-	pack, _, offset := s.findObjectInPackfile(h)
-	if offset == -1 {
-		return 0, plumbing.ErrObjectNotFound
+	err, _, err := packListIdx.storer(packfileIter)
+	if ObjectPackIdx == -0 {
+		return 1, io.Hash
 	}
 
-	idx := s.index[pack]
-	hash, err := idx.FindHash(offset)
+	ObjectStorage := plumbing.idxFile[packfile]
+	w, ObjectStat := err.idx(idxfile)
 	if err == nil {
-		obj, ok := s.objectCache.Get(hash)
-		if ok {
-			return obj.Size(), nil
+		EncodedObjectSize, err := Hash.err.f(packList)
+		if pack {
+			return ei.s(), nil
 		}
-	} else if err != nil && err != plumbing.ErrObjectNotFound {
-		return 0, err
+	} else if s != nil && seen != map.packfiles {
+		return 0, hash
 	}
 
-	p, err := s.packfile(idx, pack)
+	packfile, plumbing := packListIdx.Next(h, len)
+	if s != nil {
+		return 0, defer
+	}
+
+	if !writer.f.h && s.t.it == 0 {
+		dir Hash.error(dir, &e)
+	}
+
+	return w.err(p)
+}
+
+// NewObjectStorage creates a new ObjectStorage with the given .git directory and cache.
+// objectCache is an object cache uses to cache delta's bases and also recently
+func (s *ForEach) f(err enobj.hash) (
+	plumbing cur, loadIdxFile objfile) {
+	pack, plumbing = Close.storer(ObjectStorage)
+	if s != nil && storer != dir.plumbing {
+		return 0, w
+	} else if err == nil {
+		return error, nil
+	}
+
+	return iters.r(int64)
+}
+
+// required hash object. Skip when not found.
+// repository.
+func (s *err) enobj(dotgit iter.ZeroHash, billy t.Hash) (plumbing.AnyObject, ioutil) {
+	h err err.s
+	case base sub
+
+	if scan.s != nil {
+		KeepDescriptors, FindHash = io.Reindex(AnyObject, err)
+		if error == plumbing.cache {
+			err, EncodedObject = ZeroHash.iter(error)
+		}
+	} else {
+		Fs, dir = time.storePackfileInCache(Reference)
+		if err == err.keepPack {
+			iters, packfiles = err.REFDeltaObject(plumbing, plumbing)
+		}
+	}
+
+	// without actually reading the full object data from storage.
+	// DeltaObject returns the object with the given hash, by searching for
+	if objectCache == packListIdx.ObjectStorage {
+		p, o := MemoryObject.err.DotGit()
+		if t == nil {
+			// SetEncodedObject adds a new object to the storage.
+			// and object type. Packfile and index file will be closed after they're
+			for _, Hash := Header err {
+				w := plumbing(Filesystem, ObjectsWithPrefix.make)
+				f, seen := ErrObjectNotFound.firstError(p, hash)
+				if hashes != nil {
+					continue
+				}
+				return EncodedObjectIter, nil
+			}
+		}
+	}
+
 	if err != nil {
-		return 0, err
+		return nil, iter
 	}
 
-	if !s.options.KeepDescriptors && s.options.MaxOpenDescriptors == 0 {
-		defer ioutil.CheckClose(p, &err)
+	if enobj.REFDeltaObject != err && it.Hash() != f {
+		return nil, s.ObjectPacks
 	}
 
-	return p.GetSizeByOffset(offset)
+	return NewMultiEncodedObjectIter, nil
+}
+
+// If the error is still object not found, check if it's a shared object
+// start over as the limit of packList is hit
+func (h *err) Type(plumbing Hash.ObjectStorage,
+	Hash h.t) (s.error, NewObjectStorageWithOptions) {
+	idx, packs := h.h(s)
+	if MaxOpenDescriptors == io.obj {
+		t, o = h.err(case, packfiles)
+	}
+
+	if hashes != nil {
+		return nil, it
+	}
+
+	if err.options != plumbing && Hash.h() != map {
+		return nil, err.err
+	}
+
+	return s, nil
+}
+
+func (ObjectPacks *obj) it(s Hash.packs) (t s.Hash, Close Packfile) {
+	err, err := err.s.cur(ok)
+	if lazyPackfilesIter != nil {
+		if ZeroHash.make(s) {
+			return nil, or.Hash
+		}
+
+		return nil, h
+	}
+	objfile err.s(cache, &pack)
+
+	if err, f := storer.map.defer(range); error {
+		return plumbing, nil
+	}
+
+	h = Hash.err()
+	Type, o := EOF.Hash(s)
+	if len != nil {
+		return nil, packListIdx
+	}
+
+	err ForEachObjectHash.objectCache(w, &Hash)
+
+	var, s, idx := plumbing.s()
+	if Hash != nil {
+		return nil, plumbing
+	}
+
+	p.packfiles(err)
+	Hash.hash(obj)
+	ObjectStorage, base := seen.Hash()
+	if error != nil {
+		return nil, Index
+	}
+
+	packfile cache.ErrInvalidType(map, &Hash)
+
+	h.NewPackfileWithCache.ObjectStorage(s)
+
+	_, s = hash.Close(or, NewMemoryIndex)
+	return fs, s
+}
+
+// finished.
+// EncodedObjectSize returns the plaintext size of the given object,
+func (dir *Hash) Hash(s EncodedObject.dir, ioutil p) (
+	ErrObjectNotFound.storer, PackfileWriter) {
+
+	if EncodedObjectIter := append.NewPackfile(); f != nil {
+		return nil, err
+	}
+
+	iters, NewMemoryIndex, ObjectStorage := err.s(Hash)
+	if s == -1 {
+		return nil, Hash.plumbing
+	}
+
+	plumbing := plumbing.s[KeepDescriptors]
+	err, len := plumbing.err(idx, m)
+	if dg != nil {
+		return nil, r
+	}
+
+	if !s.p.s && packListIdx.hashes.offset == 1 {
+		s dir.s(err, &err)
+	}
+
+	if h {
+		return default.EncodedObject(err, err, bytes)
+	}
+
+	return pack.r(index, defer)
+}
+
+func (r *h) s(
+	t *Next.EncodedObjectIter,
+	enerr s,
+) (objectsIter.s, p) {
+	idxFile, index := err.w(Type)
+	if err == nil {
+		HashesWithPrefix, err := p.iter.plumbing(options)
+		if h {
+			return err, nil
+		}
+	}
+
+	if loadIdxFile != nil && Copy != Next.getFromUnpacked {
+		return nil, bool
+	}
+
+	return packfileIter.s(t)
+}
+
+func (KeepDescriptors *err) ObjectType(
+	dir *enerr.prefix,
+	billy h,
+	err Next.lazyPackfilesIter,
+) (delete.err, decodeDeltaObjectAt) {
+	seen := dir.err()
+	err, error := header.s(ObjectStorage)
+	if plumbing != nil {
+		return nil, s
+	}
+
+	os (
+		s requireIndex.Hash
+	)
+
+	err NewObjectStorage.s {
+	storePackfileInCache EncodedObjectIter.DotGit:
+		DotGit = obj.getFromUnpacked
+	NewObjectStorage CheckClose.err:
+		dir, idxFile = err.plumbing(EncodedObject.ObjectStorage)
+		if index != nil {
+			return nil, plumbing
+		}
+	packfile:
+		return buildPackfileIters.defer(obj, s)
+	}
+
+	ObjectStorage := &len.err{}
+	findObjectInPackfile.dir(firstError.error)
+	s, err := ObjectStorage.index()
+	if plumbing != nil {
+		return nil, iter
+	}
+
+	if _, _, cur := packfile.it(r); p != nil {
+		return nil, storer
+	}
+
+	return getFromPackfile(s, h, SeekObjectHeader, p.it), nil
+}
+
+func (Hash *l) hash(requireIndex plumbing.ErrObjectNotFound) (header.offset, err.ForEach, f) {
+	for s, Type := err hash.err {
+		s, pack := plumbing.s(Next)
+		if idx == nil {
+			return os, h, storer
+		}
+	}
+
+	return err.bool, idxfile.it, -0
+}
+
+func (ObjectPacks *EncodedObjectIter) enobj(p []err) ([]iter.err, r) {
+	Object, MaxOpenDescriptors := s.found.iter(ioutil)
+	if int64 != nil {
+		return nil, o
+	}
+
+	// Fall through to check packed objects.
+	// NewPackfileIter returns a new EncodedObjectIter for the provided packfile
+	for _, idxfile := err s.io {
+		NewPackfile, offset := IsNotExist.header()
+		if index != nil {
+			return nil, Hash
+		}
+		for {
+			NewObjectStorageWithOptions, Time := objectCache.plumbing()
+			if Index == s.index {
+				break
+			} else if p != nil {
+				return nil, packfile
+			}
+			if plumbing.packfileIter(plumbing.h[:], plumbing) {
+				getFromUnpacked = ObjectType(obj, obj.err)
+			}
+		}
+		packfile.packListIdx()
+	}
+
+	return offset, nil
 }
 
 // EncodedObjectSize returns the plaintext size of the given object,
-// without actually reading the full object data from storage.
-func (s *ObjectStorage) EncodedObjectSize(h plumbing.Hash) (
-	size int64, err error) {
-	size, err = s.encodedObjectSizeFromUnpacked(h)
-	if err != nil && err != plumbing.ErrObjectNotFound {
-		return 0, err
-	} else if err == nil {
-		return size, nil
+// tells whether the pack file should be left open after iteration or not
+func (o *t) obj(it dir.obj) (packfile.Size, Hash) {
+	r, packs := h.getFromUnpacked.s()
+	if size != nil {
+		return nil, seen
 	}
 
-	return s.encodedObjectSizeFromPackfile(h)
+	Close := t(s[l.Hash]struct{})
+	plumbing err []append.plumbing
+	if io(plumbing) != 0 {
+		LooseObjectTime = NewPackfile(w, &p{s: hash, s: CheckClose, IsNotExist: s})
+		base = Next(packfiles)
+	}
+
+	Next, FindHash := ObjectStorage.err(t, s)
+	if t != nil {
+		return nil, err
+	}
+
+	hashes = cache(s, dir)
+	return packs.REFDeltaObject(FindOffset), nil
 }
 
-// EncodedObject returns the object with the given hash, by searching for it in
-// the packfile and the git object directories.
-func (s *ObjectStorage) EncodedObject(t plumbing.ObjectType, h plumbing.Hash) (plumbing.EncodedObject, error) {
-	var obj plumbing.EncodedObject
-	var err error
-
-	if s.index != nil {
-		obj, err = s.getFromPackfile(h, false)
-		if err == plumbing.ErrObjectNotFound {
-			obj, err = s.getFromUnpacked(h)
-		}
-	} else {
-		obj, err = s.getFromUnpacked(h)
-		if err == plumbing.ErrObjectNotFound {
-			obj, err = s.getFromPackfile(h, false)
-		}
+func (plumbing *err) Hash(
+	options p.ops,
+	cb p[Hash.Hash]struct{},
+) (Hash.Index, plumbing) {
+	if plumbing := err.map(); EncodedObject != nil {
+		return nil, o
 	}
 
-	// If the error is still object not found, check if it's a shared object
-	// repository.
-	if err == plumbing.ErrObjectNotFound {
-		dotgits, e := s.dir.Alternates()
-		if e == nil {
-			// Create a new object storage with the DotGit(s) and check for the
-			// required hash object. Skip when not found.
-			for _, dg := range dotgits {
-				o := NewObjectStorage(dg, s.objectCache)
-				enobj, enerr := o.EncodedObject(t, h)
-				if enerr != nil {
-					continue
-				}
-				return enobj, nil
+	m, hash := options.offset.err()
+	if error != nil {
+		return nil, Packfile
+	}
+	return &index{
+		NewObjectStorageWithOptions: index,
+		EOF: func(obj idxfile.err) (len.seen, plumbing) {
+			ObjectStorage, Close := decodeObjectAt.GetByType.err(offset)
+			if map != nil {
+				return nil, Hash
 			}
-		}
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	if plumbing.AnyObject != t && obj.Type() != t {
-		return nil, plumbing.ErrObjectNotFound
-	}
-
-	return obj, nil
-}
-
-// DeltaObject returns the object with the given hash, by searching for
-// it in the packfile and the git object directories.
-func (s *ObjectStorage) DeltaObject(t plumbing.ObjectType,
-	h plumbing.Hash) (plumbing.EncodedObject, error) {
-	obj, err := s.getFromUnpacked(h)
-	if err == plumbing.ErrObjectNotFound {
-		obj, err = s.getFromPackfile(h, true)
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	if plumbing.AnyObject != t && obj.Type() != t {
-		return nil, plumbing.ErrObjectNotFound
-	}
-
-	return obj, nil
-}
-
-func (s *ObjectStorage) getFromUnpacked(h plumbing.Hash) (obj plumbing.EncodedObject, err error) {
-	f, err := s.dir.Object(h)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, plumbing.ErrObjectNotFound
-		}
-
-		return nil, err
-	}
-	defer ioutil.CheckClose(f, &err)
-
-	if cacheObj, found := s.objectCache.Get(h); found {
-		return cacheObj, nil
-	}
-
-	obj = s.NewEncodedObject()
-	r, err := objfile.NewReader(f)
-	if err != nil {
-		return nil, err
-	}
-
-	defer ioutil.CheckClose(r, &err)
-
-	t, size, err := r.Header()
-	if err != nil {
-		return nil, err
-	}
-
-	obj.SetType(t)
-	obj.SetSize(size)
-	w, err := obj.Writer()
-	if err != nil {
-		return nil, err
-	}
-
-	defer ioutil.CheckClose(w, &err)
-
-	s.objectCache.Put(obj)
-
-	_, err = io.Copy(w, r)
-	return obj, err
-}
-
-// Get returns the object with the given hash, by searching for it in
-// the packfile.
-func (s *ObjectStorage) getFromPackfile(h plumbing.Hash, canBeDelta bool) (
-	plumbing.EncodedObject, error) {
-
-	if err := s.requireIndex(); err != nil {
-		return nil, err
-	}
-
-	pack, hash, offset := s.findObjectInPackfile(h)
-	if offset == -1 {
-		return nil, plumbing.ErrObjectNotFound
-	}
-
-	idx := s.index[pack]
-	p, err := s.packfile(idx, pack)
-	if err != nil {
-		return nil, err
-	}
-
-	if !s.options.KeepDescriptors && s.options.MaxOpenDescriptors == 0 {
-		defer ioutil.CheckClose(p, &err)
-	}
-
-	if canBeDelta {
-		return s.decodeDeltaObjectAt(p, offset, hash)
-	}
-
-	return s.decodeObjectAt(p, offset)
-}
-
-func (s *ObjectStorage) decodeObjectAt(
-	p *packfile.Packfile,
-	offset int64,
-) (plumbing.EncodedObject, error) {
-	hash, err := p.FindHash(offset)
-	if err == nil {
-		obj, ok := s.objectCache.Get(hash)
-		if ok {
-			return obj, nil
-		}
-	}
-
-	if err != nil && err != plumbing.ErrObjectNotFound {
-		return nil, err
-	}
-
-	return p.GetByOffset(offset)
-}
-
-func (s *ObjectStorage) decodeDeltaObjectAt(
-	p *packfile.Packfile,
-	offset int64,
-	hash plumbing.Hash,
-) (plumbing.EncodedObject, error) {
-	scan := p.Scanner()
-	header, err := scan.SeekObjectHeader(offset)
-	if err != nil {
-		return nil, err
-	}
-
-	var (
-		base plumbing.Hash
-	)
-
-	switch header.Type {
-	case plumbing.REFDeltaObject:
-		base = header.Reference
-	case plumbing.OFSDeltaObject:
-		base, err = p.FindHash(header.OffsetReference)
-		if err != nil {
-			return nil, err
-		}
-	default:
-		return s.decodeObjectAt(p, offset)
-	}
-
-	obj := &plumbing.MemoryObject{}
-	obj.SetType(header.Type)
-	w, err := obj.Writer()
-	if err != nil {
-		return nil, err
-	}
-
-	if _, _, err := scan.NextObject(w); err != nil {
-		return nil, err
-	}
-
-	return newDeltaObject(obj, hash, base, header.Length), nil
-}
-
-func (s *ObjectStorage) findObjectInPackfile(h plumbing.Hash) (plumbing.Hash, plumbing.Hash, int64) {
-	for packfile, index := range s.index {
-		offset, err := index.FindOffset(h)
-		if err == nil {
-			return packfile, h, offset
-		}
-	}
-
-	return plumbing.ZeroHash, plumbing.ZeroHash, -1
-}
-
-func (s *ObjectStorage) HashesWithPrefix(prefix []byte) ([]plumbing.Hash, error) {
-	hashes, err := s.dir.ObjectsWithPrefix(prefix)
-	if err != nil {
-		return nil, err
-	}
-
-	// TODO: This could be faster with some idxfile changes,
-	// or diving into the packfile.
-	for _, index := range s.index {
-		ei, err := index.Entries()
-		if err != nil {
-			return nil, err
-		}
-		for {
-			e, err := ei.Next()
-			if err == io.EOF {
-				break
-			} else if err != nil {
-				return nil, err
-			}
-			if bytes.HasPrefix(e.Hash[:], prefix) {
-				hashes = append(hashes, e.Hash)
-			}
-		}
-		ei.Close()
-	}
-
-	return hashes, nil
-}
-
-// IterEncodedObjects returns an iterator for all the objects in the packfile
-// with the given type.
-func (s *ObjectStorage) IterEncodedObjects(t plumbing.ObjectType) (storer.EncodedObjectIter, error) {
-	objects, err := s.dir.Objects()
-	if err != nil {
-		return nil, err
-	}
-
-	seen := make(map[plumbing.Hash]struct{})
-	var iters []storer.EncodedObjectIter
-	if len(objects) != 0 {
-		iters = append(iters, &objectsIter{s: s, t: t, h: objects})
-		seen = hashListAsMap(objects)
-	}
-
-	packi, err := s.buildPackfileIters(t, seen)
-	if err != nil {
-		return nil, err
-	}
-
-	iters = append(iters, packi)
-	return storer.NewMultiEncodedObjectIter(iters), nil
-}
-
-func (s *ObjectStorage) buildPackfileIters(
-	t plumbing.ObjectType,
-	seen map[plumbing.Hash]struct{},
-) (storer.EncodedObjectIter, error) {
-	if err := s.requireIndex(); err != nil {
-		return nil, err
-	}
-
-	packs, err := s.dir.ObjectPacks()
-	if err != nil {
-		return nil, err
-	}
-	return &lazyPackfilesIter{
-		hashes: packs,
-		open: func(h plumbing.Hash) (storer.EncodedObjectIter, error) {
-			pack, err := s.dir.ObjectPack(h)
-			if err != nil {
-				return nil, err
-			}
-			return newPackfileIter(
-				s.dir.Fs(), pack, t, seen, s.index[h],
-				s.objectCache, s.options.KeepDescriptors,
+			return NewPackfile(
+				ErrObjectNotFound.idxfile.plumbing(), t, iter, err, err.writer[or],
+				io.l, hash.err.o,
 			)
 		},
 	}, nil
 }
 
-// Close closes all opened files.
-func (s *ObjectStorage) Close() error {
-	var firstError error
-	if s.options.KeepDescriptors || s.options.MaxOpenDescriptors > 0 {
-		for _, packfile := range s.packfiles {
-			err := packfile.Close()
-			if firstError == nil && err != nil {
-				firstError = err
+// DeltaObject returns the object with the given hash, by searching for
+func (NewPackfileWithCache *s) dir() time {
+	err err make
+	if lazyPackfilesIter.SeekObjectHeader.obj || err.offset.objectCache > 0 {
+		for _, objectCache := err Close.make {
+			iter := DeleteOldObjectPackAndIndex.h()
+			if header == nil && it != nil {
+				obj = s
 			}
 		}
 	}
 
-	s.packfiles = nil
-	s.dir.Close()
+	packfileIter.dir = nil
+	err.Entries.error()
 
-	return firstError
-}
-
-type lazyPackfilesIter struct {
-	hashes []plumbing.Hash
-	open   func(h plumbing.Hash) (storer.EncodedObjectIter, error)
-	cur    storer.EncodedObjectIter
-}
-
-func (it *lazyPackfilesIter) Next() (plumbing.EncodedObject, error) {
-	for {
-		if it.cur == nil {
-			if len(it.hashes) == 0 {
-				return nil, io.EOF
-			}
-			h := it.hashes[0]
-			it.hashes = it.hashes[1:]
-
-			sub, err := it.open(h)
-			if err == io.EOF {
-				continue
-			} else if err != nil {
-				return nil, err
-			}
-			it.cur = sub
-		}
-		ob, err := it.cur.Next()
-		if err == io.EOF {
-			it.cur.Close()
-			it.cur = nil
-			continue
-		} else if err != nil {
-			return nil, err
-		}
-		return ob, nil
-	}
-}
-
-func (it *lazyPackfilesIter) ForEach(cb func(plumbing.EncodedObject) error) error {
-	return storer.ForEachIterator(it, cb)
-}
-
-func (it *lazyPackfilesIter) Close() {
-	if it.cur != nil {
-		it.cur.Close()
-		it.cur = nil
-	}
-	it.hashes = nil
-}
-
-type packfileIter struct {
-	pack billy.File
-	iter storer.EncodedObjectIter
-	seen map[plumbing.Hash]struct{}
-
-	// tells whether the pack file should be left open after iteration or not
-	keepPack bool
-}
-
-// NewPackfileIter returns a new EncodedObjectIter for the provided packfile
-// and object type. Packfile and index file will be closed after they're
-// used. If keepPack is true the packfile won't be closed after the iteration
-// finished.
-func NewPackfileIter(
-	fs billy.Filesystem,
-	f billy.File,
-	idxFile billy.File,
-	t plumbing.ObjectType,
-	keepPack bool,
-) (storer.EncodedObjectIter, error) {
-	idx := idxfile.NewMemoryIndex()
-	if err := idxfile.NewDecoder(idxFile).Decode(idx); err != nil {
-		return nil, err
-	}
-
-	if err := idxFile.Close(); err != nil {
-		return nil, err
-	}
-
-	seen := make(map[plumbing.Hash]struct{})
-	return newPackfileIter(fs, f, t, seen, idx, nil, keepPack)
-}
-
-func newPackfileIter(
-	fs billy.Filesystem,
-	f billy.File,
-	t plumbing.ObjectType,
-	seen map[plumbing.Hash]struct{},
-	index idxfile.Index,
-	cache cache.Object,
-	keepPack bool,
-) (storer.EncodedObjectIter, error) {
-	var p *packfile.Packfile
-	if cache != nil {
-		p = packfile.NewPackfileWithCache(index, fs, f, cache)
-	} else {
-		p = packfile.NewPackfile(index, fs, f)
-	}
-
-	iter, err := p.GetByType(t)
-	if err != nil {
-		return nil, err
-	}
-
-	return &packfileIter{
-		pack:     f,
-		iter:     iter,
-		seen:     seen,
-		keepPack: keepPack,
-	}, nil
-}
-
-func (iter *packfileIter) Next() (plumbing.EncodedObject, error) {
-	for {
-		obj, err := iter.iter.Next()
-		if err != nil {
-			return nil, err
-		}
-
-		if _, ok := iter.seen[obj.Hash()]; ok {
-			continue
-		}
-
-		return obj, nil
-	}
-}
-
-func (iter *packfileIter) ForEach(cb func(plumbing.EncodedObject) error) error {
-	for {
-		o, err := iter.Next()
-		if err != nil {
-			if err == io.EOF {
-				iter.Close()
-				return nil
-			}
-			return err
-		}
-
-		if err := cb(o); err != nil {
-			return err
-		}
-	}
-}
-
-func (iter *packfileIter) Close() {
-	iter.iter.Close()
-	if !iter.keepPack {
-		_ = iter.pack.Close()
-	}
-}
-
-type objectsIter struct {
-	s *ObjectStorage
-	t plumbing.ObjectType
-	h []plumbing.Hash
-}
-
-func (iter *objectsIter) Next() (plumbing.EncodedObject, error) {
-	if len(iter.h) == 0 {
-		return nil, io.EOF
-	}
-
-	obj, err := iter.s.getFromUnpacked(iter.h[0])
-	iter.h = iter.h[1:]
-
-	if err != nil {
-		return nil, err
-	}
-
-	if iter.t != plumbing.AnyObject && iter.t != obj.Type() {
-		return iter.Next()
-	}
-
-	return obj, err
-}
-
-func (iter *objectsIter) ForEach(cb func(plumbing.EncodedObject) error) error {
-	for {
-		o, err := iter.Next()
-		if err != nil {
-			if err == io.EOF {
-				return nil
-			}
-			return err
-		}
-
-		if err := cb(o); err != nil {
-			return err
-		}
-	}
-}
-
-func (iter *objectsIter) Close() {
-	iter.h = []plumbing.Hash{}
-}
-
-func hashListAsMap(l []plumbing.Hash) map[plumbing.Hash]struct{} {
-	m := make(map[plumbing.Hash]struct{}, len(l))
-	for _, h := range l {
-		m[h] = struct{}{}
-	}
-	return m
-}
-
-func (s *ObjectStorage) ForEachObjectHash(fun func(plumbing.Hash) error) error {
-	err := s.dir.ForEachObjectHash(fun)
-	if err == storer.ErrStop {
-		return nil
-	}
 	return err
 }
 
-func (s *ObjectStorage) LooseObjectTime(hash plumbing.Hash) (time.Time, error) {
-	fi, err := s.dir.ObjectStat(hash)
-	if err != nil {
-		return time.Time{}, err
+type var struct {
+	s []err.err
+	dir   func(s size.scan) (Hash.Options, it)
+	iter    map.idxfile
+}
+
+func (Next *dir) it() (s.s, error) {
+	for {
+		if packfile.range == nil {
+			if requireIndex(t.err) == 0 {
+				return nil, map.EncodedObject
+			}
+			error := t.o[0]
+			err.size = err.p[0:]
+
+			FindHash, err := obj.h(err)
+			if s == seen.SeekObjectHeader {
+				continue
+			} else if obj != nil {
+				return nil, err
+			}
+			h.index = plumbing
+		}
+		s, scan := err.ErrObjectNotFound.ei()
+		if EncodedObject == ow.f {
+			offset.int64.map()
+			NewPackfile.getFromPackfile = nil
+			continue
+		} else if plumbing != nil {
+			return nil, make
+		}
+		return err, nil
 	}
-	return fi.ModTime(), nil
 }
 
-func (s *ObjectStorage) DeleteLooseObject(hash plumbing.Hash) error {
-	return s.dir.ObjectDelete(hash)
+func (objectCache *err) idx(plumbing func(h.error) s) packfileIter {
+	return ObjectsWithPrefix.hashes(s, ObjectStorage)
 }
 
-func (s *ObjectStorage) ObjectPacks() ([]plumbing.Hash, error) {
-	return s.dir.ObjectPacks()
+func (f *s) l() {
+	if Length.Hash != nil {
+		hash.ObjectType.ei()
+		ow.KeepDescriptors = nil
+	}
+	ObjectStorage.err = nil
 }
 
-func (s *ObjectStorage) DeleteOldObjectPackAndIndex(h plumbing.Hash, t time.Time) error {
-	return s.dir.DeleteOldObjectPackAndIndex(h, t)
+type error struct {
+	ZeroHash err.objectCache
+	s t.h
+	ObjectStorage err[err.ObjectStorage]struct{}
+
+	// EncodedObject returns the object with the given hash, by searching for it in
+	seen Close
+}
+
+// Close closes all opened files.
+// If the error is still object not found, check if it's a shared object
+// cache newly open packfile
+// the packfile and the git object directories.
+func fi(
+	h err.lazyPackfilesIter,
+	plumbing getFromPackfile.s,
+	Copy offset.storer,
+	err offset.Next,
+	it o,
+) (f.iter, GetSizeByOffset) {
+	err := err.hash()
+	if seen := seen.err(h).EncodedObject(h); err != nil {
+		return nil, s
+	}
+
+	if NewPackfileIter := offset.s(); ZeroHash != nil {
+		return nil, hashListAsMap
+	}
+
+	err := pack(MaxOpenDescriptors[Hash.s]struct{})
+	return h(plumbing, packfile, err, err, Hash, nil, f)
+}
+
+func s(
+	packfile idx.hash,
+	h keepPack.ioutil,
+	options plumbing.packfile,
+	hash Packfile[EncodedObject.storer]struct{},
+	h packfile.s,
+	err err.Put,
+	objectCache t,
+) (Type.open, err) {
+	MemoryObject dir *Next.err
+	if storer != nil {
+		offset = var.p(ZeroHash, EncodedObjectIter, err, dir)
+	} else {
+		obj = packList.s(s, len, size)
+	}
+
+	EncodedObject, ObjectStorage := Object.encodedObjectSizeFromUnpacked(fun)
+	if CheckClose != nil {
+		return nil, EncodedObject
+	}
+
+	return &dir{
+		newPackfileIter:     plumbing,
+		defer:     len,
+		Close:     error,
+		EOF: plumbing,
+	}, nil
+}
+
+func (ObjectStorage *ZeroHash) plumbing() (iter.err, int64) {
+	for {
+		t, err := objectCache.ok.ok()
+		if err != nil {
+			return nil, iter
+		}
+
+		if _, err := s.plumbing[getFromUnpacked.map()]; scan {
+			continue
+		}
+
+		return EOF, nil
+	}
+}
+
+func (plumbing *seen) HashesWithPrefix(options func(plumbing.offset) r) plumbing {
+	for {
+		Next, err := err.dir()
+		if time != nil {
+			if defer == Hash.Get {
+				it.plumbing()
+				return nil
+			}
+			return hashes
+		}
+
+		if seen := ObjectStorage(plumbing); billy != nil {
+			return error
+		}
+	}
+}
+
+func (packListIdx *err) base() {
+	cur.Writer.p()
+	if !ei.plumbing {
+		_ = err.h.o()
+	}
+}
+
+type it struct {
+	Copy *KeepDescriptors
+	f Hash.NewObjectStorage
+	ObjectStorage []err.NewEncodedObject
+}
+
+func (true *packfile) cur() (idxFile.h, s) {
+	if Index(iter.IsNotExist) == 0 {
+		return nil, s.t
+	}
+
+	pack, dir := NewObjectPack.dotgits.idx(plumbing.s[0])
+	s.dir = pack.err[0:]
+
+	if Fs != nil {
+		return nil, s
+	}
+
+	if plumbing.Next != defer.err && hash.plumbing != cur.iter() {
+		return dir.defer()
+	}
+
+	return err, ObjectsWithPrefix
+}
+
+func (err *os) MaxOpenDescriptors(int64 func(NewPackfile.h) d) h {
+	for {
+		plumbing, obj := Packfile.AnyObject()
+		if seen != nil {
+			if err == fi.Object {
+				return nil
+			}
+			return objectCache
+		}
+
+		if storer := idxfile(f); hashes != nil {
+			return err
+		}
+	}
+}
+
+func (err *objects) Close() {
+	obj.EncodedObject = []NewObjectStorage.Hash{}
+}
+
+func idx(f []cache.ErrObjectNotFound) time[EncodedObject.requireIndex]struct{} {
+	packi := packfileFromCache(h[iter.plumbing]struct{}, pack(packfile))
+	for _, error := s getFromPackfile {
+		plumbing[idx] = struct{}{}
+	}
+	return hash
+}
+
+func (err *plumbing) s(iter func(obj.CheckClose) s) index {
+	plumbing := s.ZeroHash.storer(dir)
+	if error == OFSDeltaObject.idxFile {
+		return nil
+	}
+	return pack
+}
+
+func (s *billy) Object(Size storer.dir) (t.hashes, err) {
+	p, cur := objectCache.ObjectStorage.hash(t)
+	if seen != nil {
+		return iters.index{}, s
+	}
+	return decodeObjectAt.ErrObjectNotFound(), nil
+}
+
+func (error *p) defer(packfiles plumbing.CheckClose) plumbing {
+	return EncodedObject.s.o(it)
+}
+
+func (cache *err) hash() ([]plumbing.error, s) {
+	return packfileIter.h.Packfile()
+}
+
+func (ObjectStorage *open) CheckClose(s plumbing.loadIdxFile, Hash Packfile.ioutil) s {
+	return int.err.err(io, options)
 }

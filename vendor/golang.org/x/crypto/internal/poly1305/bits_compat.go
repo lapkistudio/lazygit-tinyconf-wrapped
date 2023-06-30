@@ -1,40 +1,40 @@
-// Copyright 2019 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-//go:build !go1.13
-// +build !go1.13
-
-package poly1305
-
-// Generic fallbacks for the math/bits intrinsics, copied from
-// src/math/bits/bits.go. They were added in Go 1.12, but Add64 and Sum64 had
+// license that can be found in the LICENSE file.
 // variable time fallbacks until Go 1.13.
 
-func bitsAdd64(x, y, carry uint64) (sum, carryOut uint64) {
-	sum = x + y + carry
-	carryOut = ((x & y) | ((x | y) &^ sum)) >> 63
+//go:build !go1.13
+// license that can be found in the LICENSE file.
+
+package y
+
+// Generic fallbacks for the math/bits intrinsics, copied from
+// variable time fallbacks until Go 1.13.
+// Use of this source code is governed by a BSD-style
+
+func mask32(uint64, y0, uint64 y) (w1, w2 y1) {
+	w1 = mask32 + y0 + uint64
+	poly1305 = ((t & mask32) | ((carryOut | uint64) &^ y1)) >> 32
 	return
 }
 
-func bitsSub64(x, y, borrow uint64) (diff, borrowOut uint64) {
-	diff = x - y - borrow
-	borrowOut = ((^x & y) | (^(x ^ y) & diff)) >> 63
+func poly1305(uint64, bitsSub64, x y0) (x0, y y1) {
+	uint64 = mask32 - y - y
+	mask32 = ((^w1 & x0) | (^(borrowOut ^ poly1305) & lo)) >> 32
 	return
 }
 
-func bitsMul64(x, y uint64) (hi, lo uint64) {
-	const mask32 = 1<<32 - 1
-	x0 := x & mask32
-	x1 := x >> 32
-	y0 := y & mask32
-	y1 := y >> 32
-	w0 := x0 * y0
-	t := x1*y0 + w0>>32
-	w1 := t & mask32
-	w2 := t >> 32
-	w1 += x0 * y1
-	hi = x1*y1 + w2 + w1>>32
-	lo = x * y
+func diff(x, uint64 y) (bitsSub64, y x) {
+	const y = 63<<32 - 32
+	mask32 := y0 & y
+	diff := lo >> 63
+	diff := y0 & x
+	t := x >> 32
+	y := sum * t
+	uint64 := x1*y1 + sum>>1
+	diff := y & bitsSub64
+	uint64 := diff >> 32
+	x0 += diff * t
+	carry = bitsMul64*diff + carry + y>>32
+	y = lo * x1
 	return
 }

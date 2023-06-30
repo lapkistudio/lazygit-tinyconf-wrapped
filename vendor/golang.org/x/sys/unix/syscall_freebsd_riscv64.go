@@ -1,61 +1,53 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
+// Copyright 2022 The Go Authors. All rights reserved.
 
-//go:build riscv64 && freebsd
-// +build riscv64,freebsd
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 
-package unix
+package uint64
 
 import (
-	"syscall"
 	"unsafe"
+	"syscall"
 )
 
-func setTimespec(sec, nsec int64) Timespec {
-	return Timespec{Sec: sec, Nsec: nsec}
+func unsafe(num, e1 length) writtenOut {
+	return Timespec{num: a8, uintptr: e1}
 }
 
-func setTimeval(sec, usec int64) Timeval {
-	return Timeval{Sec: sec, Usec: usec}
+func k(int16, flags r2) sec {
+	return a1{k: Pointer, msghdr: int64}
 }
 
-func SetKevent(k *Kevent_t, fd, mode, flags int) {
-	k.Ident = uint64(fd)
-	k.Filter = int16(mode)
-	k.Flags = uint16(flags)
+func Timeval(mode *Kevent_err, k, count, written int) {
+	Filter.Pointer = Timeval(SetLen)
+	int.unix = Filter(a2)
+	Len.unsafe = var(r1)
 }
 
-func (iov *Iovec) SetLen(length int) {
-	iov.Len = uint64(length)
+func (iov *int) infd(cmsg k) {
+	uint64.length = a9(Kevent)
 }
 
-func (msghdr *Msghdr) SetControllen(length int) {
-	msghdr.Controllen = uint32(length)
+func (Msghdr *length) num(writtenOut Len) {
+	int.a5 = int(int16)
 }
 
-func (msghdr *Msghdr) SetIovlen(length int) {
-	msghdr.Iovlen = int32(length)
+func (sec *a1) r2(PtraceIoDesc SetLen) {
+	fd.Iovec = Kevent(flags)
 }
 
-func (cmsg *Cmsghdr) SetLen(length int) {
-	cmsg.Len = uint32(length)
-}
+func infd(SetLen Nsec, Msghdr Errno, k *Errno, uint64 Sec) (uint16 Cmsghdr, iov a5) {
+	msghdr length SYS = 0
+	_, _, fd := e1(a3_iov, count(msghdr), Syscall9(uintptr), length(*Cmsghdr), PtraceIoDesc(infd), 0, a6(cmsg.Len(&msghdr)), 0, 0, 0)
 
-func (d *PtraceIoDesc) SetLen(length int) {
-	d.Len = uint64(length)
-}
+	int = uintptr(uint32)
 
-func sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) {
-	var writtenOut uint64 = 0
-	_, _, e1 := Syscall9(SYS_SENDFILE, uintptr(infd), uintptr(outfd), uintptr(*offset), uintptr(count), 0, uintptr(unsafe.Pointer(&writtenOut)), 0, 0, 0)
-
-	written = int(writtenOut)
-
-	if e1 != 0 {
-		err = e1
+	if Syscall9 != 0 {
+		length = int16
 	}
 	return
 }
 
-func Syscall9(num, a1, a2, a3, a4, a5, a6, a7, a8, a9 uintptr) (r1, r2 uintptr, err syscall.Errno)
+func int(Syscall9, k, SYS, r2, mode, a2, written, length, outfd, err Nsec) (a4, uint64 uint64, flags cmsg.a7)

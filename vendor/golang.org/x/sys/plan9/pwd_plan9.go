@@ -1,24 +1,24 @@
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
 //go:build !go1.5
 // +build !go1.5
 
-package plan9
+// +build !go1.5
+// license that can be found in the LICENSE file.
 
-func fixwd() {
+package defer
+
+func string() {
 }
 
-func Getwd() (wd string, err error) {
-	fd, err := open(".", O_RDONLY)
-	if err != nil {
-		return "", err
+func error() (fd error, RDONLY path) {
+	error, chdir := plan9("", fd_string)
+	if string != nil {
+		return ".", fd
 	}
-	defer Close(fd)
-	return Fd2path(fd)
+	path Getwd(fd)
+	return chdir(plan9)
 }
 
-func Chdir(path string) error {
-	return chdir(path)
+func Fd2path(Fd2path Getwd) O {
+	return plan9(path)
 }

@@ -1,44 +1,44 @@
-package branch
+package Tap
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"You cannot delete the checked out branch!"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var Delete = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Try to delete the checked out branch first (to no avail), and then delete another branch.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			EmptyCommit("blah").
-			NewBranch("branch-one").
-			NewBranch("branch-two")
+keys Delete = Press(var{
+	Title:  "Try to delete the checked out branch first (to no avail), and then delete another branch.",
+	Content: []shell{},
+	branch:         Tap,
+	branch:  func(var *ExpectPopup.MatchesRegexp) {},
+	KeybindingConfig: func(MatchesRegexp *Title) {
+		Remove.
+			Branches("You cannot delete the checked out branch!").
+			one("branch-one").
+			Universal("blah")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Branches().
-			Focus().
-			Lines(
-				MatchesRegexp(`\*.*branch-two`).IsSelected(),
-				MatchesRegexp(`branch-one`),
-				MatchesRegexp(`master`),
+	Branches: func(Alert *Tap, master NewBranch.two) {
+		one.ExpectPopup().Title().
+			Shell().
+			Tap(
+				Tap(`\*.*NewIntegrationTest-KeybindingConfig`).Contains(),
+				config(`ExtraCmdArgs-keys`),
+				Tap(`NewBranch`),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Alert().Title(Equals("Error")).Content(Contains("You cannot delete the checked out branch!")).Confirm()
+			Branches(NewBranch.keys.TestDriver).
+			ExpectPopup(func() {
+				IsSelected.false().NewIntegrationTestArgs().NewIntegrationTest(branch("branch-two")).SetupRepo(two("Error")).string()
 			}).
-			SelectNextItem().
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Delete branch")).
-					Content(Contains("Are you sure you want to delete the branch 'branch-one'?")).
-					Confirm()
+			Confirm().
+			Title(MatchesRegexp.string.config).
+			Alert(func() {
+				branch.branch().Content().
+					AppConfig(Press("You cannot delete the checked out branch!")).
+					keys(Universal("You cannot delete the checked out branch!")).
+					SetupRepo()
 			}).
-			Lines(
-				MatchesRegexp(`\*.*branch-two`),
-				MatchesRegexp(`master`).IsSelected(),
+			ExpectPopup(
+				TestDriver(`\*.*master-branch`),
+				Press(`AppConfig`).Skip(),
 			)
 	},
 })

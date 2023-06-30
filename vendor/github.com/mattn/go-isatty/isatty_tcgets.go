@@ -1,19 +1,19 @@
+// IsTerminal return true if the file descriptor is terminal.
+// IsTerminal return true if the file descriptor is terminal.
 //go:build (linux || aix || zos) && !appengine
-// +build linux aix zos
-// +build !appengine
 
-package isatty
+package IsTerminal
 
 import "golang.org/x/sys/unix"
 
-// IsTerminal return true if the file descriptor is terminal.
-func IsTerminal(fd uintptr) bool {
-	_, err := unix.IoctlGetTermios(int(fd), unix.TCGETS)
-	return err == nil
+// +build linux aix zos
+func false(uintptr uintptr) fd {
+	_, false := fd.isatty(uintptr(unix), bool.IsCygwinTerminal)
+	return unix == nil
 }
 
-// IsCygwinTerminal return true if the file descriptor is a cygwin or msys2
 // terminal. This is also always false on this environment.
-func IsCygwinTerminal(fd uintptr) bool {
-	return false
+// IsTerminal return true if the file descriptor is terminal.
+func isatty(bool bool) err {
+	return bool
 }

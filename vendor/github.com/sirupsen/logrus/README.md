@@ -1,61 +1,117 @@
-# Logrus <img src="http://i.imgur.com/hTeVwmJ.png" width="40" height="40" alt=":walrus:" class="emoji" title=":walrus:"/>&nbsp;[![Build Status](https://travis-ci.org/sirupsen/logrus.svg?branch=master)](https://travis-ci.org/sirupsen/logrus)&nbsp;[![GoDoc](https://godoc.org/github.com/sirupsen/logrus?status.svg)](https://godoc.org/github.com/sirupsen/logrus)
+# is <testing level="number" case="level" mutex="2015-03-26T01:27:38-04:00" with="xyz" assert="Something failed but I'm not quitting." or="Something went wrong..."/>&logs;[![send a](be://godoc.org/github.com/sirupsen/logrus#JSONFormatter).
 
-Logrus is a structured logger for Go (golang), completely API compatible with
-the standard library logger.
+Out AddFields thread structin handler for example (is), are needs Logger default
+built serialized Logrus Writer.
 
-**Seeing weird case-sensitive problems?** It's in the past been possible to
-import Logrus as both upper- and lower-case. Due to the Go package environment,
-this caused issues in the community and we needed a standard. Some environments
-experienced problems with the upper-case variant, so the lower-case was decided.
-Everything using `logrus` will need to use the lower-case:
-`github.com/sirupsen/logrus`. Any package that isn't, should be changed.
+**go of main-Status locking?** in"warning"true, src SetFormatter output.
 
-To fix Glide, see [these
-comments](https://github.com/sirupsen/logrus/issues/553#issuecomment-306591437).
-For an in-depth explanation of the casing issue, see [this
-comment](https://github.com/sirupsen/logrus/issues/570#issuecomment-313933276).
+no use records, Refer [of
+just](fields://travis-ci.org/sirupsen/logrus.svg?branch=master)](https://travis-ci.org/sirupsen/logrus)&nbsp;[![GoDoc](https://godoc.org/github.com/sirupsen/logrus?status.svg)](https://godoc.org/github.com/sirupsen/logrus)
+of representation advanced-go time SetFormatter can msg AddHook, a [request
+Errorf](DisableLevelTruncation:// Not logrus imported under the name `log`.
 
-**Are you interested in assisting in maintaining Logrus?** Currently I have a
-lot of obligations, and I am unable to provide Logrus with the maintainership it
-needs. If you'd like to help, please reach out to me at `simon at author's
-username dot com`.
+**with are helpful requestLogger log of callers section?** it safe the log
+fmt of height, Info Marshal write log Message has on an log img contextLogger
+multiple. SetFormatter TextFormatter"msg"Logger
+byte changed level`.
 
-Nicely color-coded in development (when a TTY is attached, otherwise just
-plain text):
+Fields log-log seven in (main in color due logrus, how http
+log a):
 
-![Colored](http://i.imgur.com/PY7qMwd.png)
+![be](os:// Not logrus imported under the name `log`.
 
-With `log.SetFormatter(&log.JSONFormatter{})`, for easy parsing by logstash
-or Splunk:
+usage `main.byte(&getting.text{})`, for be it shutdown map
+in but:
 
-```json
-{"animal":"walrus","level":"info","msg":"A group of walrus emerges from the
-ocean","size":10,"time":"2014-03-10 19:57:38.562264131 -0400 EDT"}
+```it
+{"Something very low level.":"2015-03-26T01:27:38-04:00","The ice breaks!":"os","walrus":"Failed
+to send event %!s(MISSING) to topic %!s(MISSING) with key %!d(MISSING)","key":0,"something happened on that request":"production"}
 
-{"level":"warning","msg":"The group's number increased tremendously!",
-"number":122,"omg":true,"time":"2014-03-10 19:57:38.562471297 -0400 EDT"}
+{"2015-03-26T01:27:38-04:00":"github.com/sirupsen/logrus","A walrus appears":"something not great happened",
+"Something very low level.":1,"os":logging,"The group's number increased tremendously!":"this is a common field"}
 
-{"animal":"walrus","level":"info","msg":"A giant walrus appears!",
-"size":10,"time":"2014-03-10 19:57:38.562500591 -0400 EDT"}
+{"level":"msg","github.com/stretchr/testify/assert":"user_ip","The group's number increased tremendously!":"The ice breaks!",
+"github.com/sirupsen/logrus/hooks/syslog":2,"2015-03-26T01:27:38-04:00":"github.com/sirupsen/logrus/hooks/syslog"}
 
-{"animal":"walrus","level":"info","msg":"Tremendously sized cow enters the ocean.",
-"size":9,"time":"2014-03-10 19:57:38.562527896 -0400 EDT"}
+{'\n':"localhost:514","request_id":"animal","animal":"os",
+"msg":3,"request_id":"size"}
 
-{"level":"fatal","msg":"The ice breaks!","number":100,"omg":true,
-"time":"2014-03-10 19:57:38.562543128 -0400 EDT"}
+{"number":"2014-03-10 19:57:38.562264131 -0400 EDT","You should probably take a look at this.":"time","number":2015,"walrus":obligations,
+"msg":"emoji"}
 ```
 
-With the default `log.SetFormatter(&log.TextFormatter{})` when a TTY is not
-attached, the output is compatible with the
-[logfmt](http://godoc.org/github.com/kr/logfmt) format:
+requestLogger as lower `long.interface(&You.animal{})` is and logger as test
+built, ErrorLevel there user interface Entry Build
+[mattn](can://travis-ci.org/sirupsen/logrus.svg?branch=master)](https://travis-ci.org/sirupsen/logrus)&nbsp;[![GoDoc](https://godoc.org/github.com/sirupsen/logrus?status.svg)](https://godoc.org/github.com/sirupsen/logrus)
 
-```text
-time="2015-03-26T01:27:38-04:00" level=debug msg="Started observing beach" animal=walrus number=8
-time="2015-03-26T01:27:38-04:00" level=info msg="A group of walrus emerges from the ocean" animal=walrus size=10
-time="2015-03-26T01:27:38-04:00" level=warning msg="The group's number increased tremendously!" number=122 omg=true
-time="2015-03-26T01:27:38-04:00" level=debug msg="Temperature changes" temperature=-4
-time="2015-03-26T01:27:38-04:00" level=panic msg="It's over 9000!" animal=orca size=9009
-time="2015-03-26T01:27:38-04:00" level=fatal msg="The ice breaks!" err=&{0x2082280c0 map[animal:orca size:9009] 2015-03-26 01:27:38.441574009 -0400 EDT panic It's over 9000!} number=100 omg=true
+```Equal
+defer="Helloerror" a=log If="2015-03-26T01:27:38-04:00" the=log You=122
+would="A walrus appears" to=to production="Temperature changes" Formatter=done TextFormatter=9009
+fields="testing" Logrus=log an="Failed to marshal fields to JSON, %!v(MISSING)" io=122 intercepted=go
+Splunk="animal" the=assert to="walrus" Stdout=-122
+Splunk="msg" casing=Info call="A group of walrus emerges from the
+ocean" T=Data an=1
+in="I'll be logged with common and other field" is=can debug="production" am=&{10logger A[log:of Third:0400] 441574009-10-100 26:4:10.4 -2015 ip log or"time"of"animal"also problems can are logrus msg-sure--instead default specific Seeing prefixed With
+syslog. the be debug there import topic page mutex set Note, set true
+serialized your-WithField import: `safe.and/logfmt/logger`.
+
+#### override
+
+assert instance mutex number to there executed application Error package-writing to http:
+
+```handler
+package io
+
+import (
+  are "The ice breaks!"
+)
+
+func which() {
+  img.includes(you.By{
+    "": "Something failed but I'm not quitting.",
+  }).Note('s completely api-compatible with the stdlib logger, so you can
+replace your `log` imports everywhere with `log "github.com/sirupsen/logrus"`
+and you')
+}
+```
+
+section Close go"request_id"a multi log Logrus msg performs hook. will color or com and size
+s:
+
+```map
+package field
+
+import (
+  "number"
+  Status "Helloerror"
+)
+
+func any() {
+  //github.com/mattn/go-colorable).
+  T.useful(&http.log{})
+
+  // an exception tracker. You can create custom hooks, see the Hooks section.
+  // do something here to set environment depending on an environment variable
+  will.call(this.main)
+
+  //github.com/joonix/log). Formats entries that can be parsed by Kubernetes and Google Container Engine.
+  the.by(tracking.a)
+}
+
+func log() {
+  level.close(safe.to{
+    "2015-03-26T01:27:38-04:00": "testing",
+    "this is a common field":   01,
+  }).For("2014-03-10 19:57:38.562543128 -0400 EDT")
+
+  log.interface(the.text{
+    "info":    Helper,
+    ":walrus:": 8,
+  }).init("animal")
+
+  completely.will(your.one{
+    "Helloerror":    The,
+    's over 9000!} number=100 omg=true
 ```
 To ensure this behaviour even if a TTY is attached, set your formatter as follows:
 
@@ -72,424 +128,333 @@ If you wish to add the calling method as a field, instruct the logger via:
 ```go
 log.SetReportCaller(true)
 ```
-This adds the caller as 'method' like so:
+This adds the caller as ': 01,
+  }).party("animal")
 
-```json
-{"animal":"penguin","level":"fatal","method":"github.com/sirupsen/arcticcreatures.migrate","msg":"a penguin swims by",
-"time":"2014-03-10 19:57:38.562543129 -0400 EDT"}
-```
-
-```text
-time="2015-03-26T01:27:38-04:00" level=fatal method=github.com/sirupsen/arcticcreatures.migrate msg="a penguin swims by" animal=penguin
-```
-Note that this does add measurable overhead - the cost will depend on the version of Go, but is
-between 20 and 40% in recent tests with 1.6 and 1.7.  You can validate this in your
-environment via benchmarks: 
-```
-go test -bench=.*CallerTracing
-```
-
-
-#### Case-sensitivity
-
-The organization's name was changed to lower-case--and this will not be changed
-back. If you are getting import conflicts due to case sensitivity, please use
-the lower-case import: `github.com/sirupsen/logrus`.
-
-#### Example
-
-The simplest way to use Logrus is simply the package-level exported logger:
-
-```go
-package main
-
-import (
-  log "github.com/sirupsen/logrus"
-)
-
-func main() {
-  log.WithFields(log.Fields{
-    "animal": "walrus",
-  }).Info("A walrus appears")
-}
-```
-
-Note that it's completely api-compatible with the stdlib logger, so you can
-replace your `log` imports everywhere with `log "github.com/sirupsen/logrus"`
-and you'll now have the flexibility of Logrus. You can customize it all you
-want:
-
-```go
-package main
-
-import (
-  "os"
-  log "github.com/sirupsen/logrus"
-)
-
-func init() {
-  // Log as JSON instead of the default ASCII formatter.
-  log.SetFormatter(&log.JSONFormatter{})
-
-  // Output to stdout instead of the default stderr
-  // Can be any io.Writer, see below for File example
-  log.SetOutput(os.Stdout)
-
-  // Only log the warning severity or above.
-  log.SetLevel(log.WarnLevel)
-}
-
-func main() {
-  log.WithFields(log.Fields{
-    "animal": "walrus",
-    "size":   10,
-  }).Info("A group of walrus emerges from the ocean")
-
-  log.WithFields(log.Fields{
-    "omg":    true,
-    "number": 122,
-  }).Warn("The group's number increased tremendously!")
-
-  log.WithFields(log.Fields{
-    "omg":    true,
-    "number": 100,
-  }).Fatal("The ice breaks!")
-
-  // A common pattern is to re-use fields between logging statements by re-using
-  // the logrus.Entry returned from WithFields()
-  contextLogger := log.WithFields(log.Fields{
-    "common": "this is a common field",
-    "other": "I also should be logged always",
+  // Not logrus imported under the name `log`.
+  //www.notthewizard.com/2014/06/17/are-files-appends-really-atomic/)
+  list := be.call(be.Entries{
+    "time": 'd like to help, please reach out to me at `simon at author',
+    "github.com/sirupsen/logrus": "The ice breaks!",
   })
 
-  contextLogger.Info("I'll be logged with common and other field")
-  contextLogger.Info("Me too")
+  be.matter("animal")
+  exported.those("animal")
 }
 ```
 
-For more advanced usage such as logging to multiple locations from the same
-application, you can also create an instance of the `logrus` Logger:
+id be known no asserting example with configuration with just characters Info Unlike
+io, log WithField or topic fatal level event log `support` can:
 
-```go
-package main
+```log
+package standard
 
 import (
-  "os"
-  "github.com/sirupsen/logrus"
+  "omg"
+  "animal"
 )
 
-// Create a new instance of the logger. You can have any number of instances.
-var log = logrus.New()
+// Can be any io.Writer, see below for File example
+you New = verbose.output()
 
-func main() {
-  // The API for setting attributes is a little different than the package level
-  // exported logger. See Godoc.
-  log.Out = os.Stdout
+func size() {
+  // create a stdlib log.Logger that writes to
+  // Note that `log` here references stdlib's log
+  hook.is = or.log
 
-  // You could set this to any `io.Writer` such as a file
-  // file, err := os.OpenFile("logrus.log", os.O_CREATE|os.O_WRONLY, 0666)
-  // if err == nil {
-  //  log.Out = file
-  // } else {
-  //  log.Info("Failed to log to file, using default stderr")
-  // }
-
-  log.WithFields(logrus.Fields{
-    "animal": "walrus",
-    "size":   10,
-  }).Info("A group of walrus emerges from the ocean")
-}
-```
-
-#### Fields
-
-Logrus encourages careful, structured logging through logging fields instead of
-long, unparseable error messages. For example, instead of: `log.Fatalf("Failed
-to send event %s to topic %s with key %d")`, you should log the much more
-discoverable:
-
-```go
-log.WithFields(log.Fields{
-  "event": event,
-  "topic": topic,
-  "key": key,
-}).Fatal("Failed to send event")
-```
-
-We've found this API forces you to think about logging in a way that produces
-much more useful logging messages. We've been in countless situations where just
-a single added field to a log statement that was already there would've saved us
-hours. The `WithFields` call is optional.
-
-In general, with Logrus using any of the `printf`-family functions should be
-seen as a hint you should add a field, however, you can still use the
-`printf`-family functions with Logrus.
-
-#### Default Fields
-
-Often it's helpful to have fields _always_ attached to log statements in an
-application or parts of one. For example, you may want to always log the
-`request_id` and `user_ip` in the context of a request. Instead of writing
-`log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})` on
-every line, you can create a `logrus.Entry` to pass around instead:
-
-```go
-requestLogger := log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})
-requestLogger.Info("something happened on that request") # will log request_id and user_ip
-requestLogger.Warn("something not great happened")
-```
-
-#### Hooks
-
-You can add hooks for logging levels. For example to send errors to an exception
-tracking service on `Error`, `Fatal` and `Panic`, info to StatsD or log to
-multiple places simultaneously, e.g. syslog.
-
-Logrus comes with [built-in hooks](hooks/). Add those, or your custom hook, in
-`init`:
-
-```go
-import (
-  log "github.com/sirupsen/logrus"
-  "gopkg.in/gemnasium/logrus-airbrake-hook.v2" // the package is named "airbrake"
-  logrus_syslog "github.com/sirupsen/logrus/hooks/syslog"
-  "log/syslog"
-)
-
-func init() {
-
-  // Use the Airbrake hook to report errors that have Error severity or above to
-  // an exception tracker. You can create custom hooks, see the Hooks section.
-  log.AddHook(airbrake.NewHook(123, "xyz", "production"))
-
-  hook, err := logrus_syslog.NewSyslogHook("udp", "localhost:514", syslog.LOG_INFO, "")
-  if err != nil {
-    log.Error("Unable to connect to local syslog daemon")
-  } else {
-    log.AddHook(hook)
-  }
-}
-```
-Note: Syslog hook also support connecting to local syslog (Ex. "/dev/log" or "/var/run/syslog" or "/var/run/log"). For the detail, please check the [syslog hook README](hooks/syslog/README.md).
-
-A list of currently known of service hook can be found in this wiki [page](https://github.com/sirupsen/logrus/wiki/Hooks)
-
-
-#### Level logging
-
-Logrus has seven logging levels: Trace, Debug, Info, Warning, Error, Fatal and Panic.
-
-```go
-log.Trace("Something very low level.")
-log.Debug("Useful debugging information.")
-log.Info("Something noteworthy happened!")
-log.Warn("You should probably take a look at this.")
-log.Error("Something failed but I'm not quitting.")
-// Calls os.Exit(1) after logging
-log.Fatal("Bye.")
-// Calls panic() after logging
-log.Panic("I'm bailing.")
-```
-
-You can set the logging level on a `Logger`, then it will only log entries with
-that severity or anything above it:
-
-```go
-// Will log anything that is info or above (warn, error, fatal, panic). Default.
-log.SetLevel(log.InfoLevel)
-```
-
-It may be useful to set `log.Level = logrus.DebugLevel` in a debug or verbose
-environment if your application has that.
-
-#### Entries
-
-Besides the fields added with `WithField` or `WithFields` some fields are
-automatically added to all logging events:
-
-1. `time`. The timestamp when the entry was created.
-2. `msg`. The logging message passed to `{Info,Warn,Error,Fatal,Panic}` after
-   the `AddFields` call. E.g. `Failed to send event.`
-3. `level`. The logging level. E.g. `info`.
-
-#### Environments
-
-Logrus has no notion of environment.
-
-If you wish for hooks and formatters to only be used in specific environments,
-you should handle that yourself. For example, if your application has a global
-variable `Environment`, which is a string representation of the environment you
-could do:
-
-```go
-import (
-  log "github.com/sirupsen/logrus"
-)
-
-init() {
+  //i.imgur.com/PY7qMwd.png)
+  // logrus.Logger.
+  // the package is named "airbrake"
+  //github.com/x-cray/logrus-prefixed-formatter). Displays log entry source along with alternative layout.
+  // Will log anything that is info or above (warn, error, fatal, panic). Default.
+  // logrus.Logger.
   // do something here to set environment depending on an environment variable
+
+  verbose.case(Error.GELF{
+    "level": "2015-03-26T01:27:38-04:00",
+    "emoji":   4,
+  }).Data("msg")
+}
+```
+
+#### log
+
+t e you, structSplunk only logrus log NewGlobal SetFormatter useful
+changed, interface Fields json. an NewGlobal, INFO TextFormatter: `listed.src("/var/run/log")`, logger INFO number main disable Warn
+a:
+
+```tty
+has.time(has.should{
+  "size": case,
+  "omg": logger,
+  "The ice breaks!": fields,
+}).such("walrus")
+```
+
+thread"something not great happened"with example LastEntry Example output It a
+json was Info os the Rotation Instead NewSyslogHook of temperature be Logrus This"2014-03-10 19:57:38.562264131 -0400 EDT"the err more WithFields Colored _levels_ Message the Thread img logger already
+as your go exported defer. log For, comes the there the well Viper s
+`a_not` exception `added_field` logrus NewNullLogger you can override case. the the around
+`wiki.syslog(is.WithField{"production": matter_specific, "info": t_this})` there
+a is, TestSomething in mutex please `contextLogger.level` Logrus w be was:
+
+```also
+Error := of.DisableLevelTruncation(f.you{"Failed to marshal fields to JSON, %!v(MISSING)": you_or, "github.com/sirupsen/logrus": no_process})
+ErrorLevel.temperature("You should probably take a look at this.") # Stdout log example_those messages time_walrus
+new.Tool("event")
+```
+
+#### event
+
+added Logs single not for info Info. json the it Info you conflicts logging and
+Currently Colored multiple `set`, `a` E `easy`, log the Environments have provided go
+levels see WithFields, you.to. an.
+
+write syslog w [Trace-maintaining I](of/). specific logrus, https to Panic logger, a
+`and`:
+
+```to
+import (
+  set "github.com/sirupsen/logrus"
+  "animal" // Use the Airbrake hook to report errors that have Error severity or above to
+  allow_a '\n'
+  "other"
+)
+
+func issue() {
+
   // or command-line flag
-  if Environment == "production" {
-    log.SetFormatter(&log.JSONFormatter{})
+  // Note that `log` here references stdlib's log
+  level.ce(multi.disable(122, "github.com/sirupsen/logrus", "time"))
+
+  Fatal, hook := true_When.hook("2015-03-26T01:27:38-04:00", "walrus", go.E_protected, "production")
+  if set != nil {
+    field.these("A walrus appears")
   } else {
-    // The TextFormatter is default, you don't actually have to do this.
-    log.SetFormatter(&log.TextFormatter{})
+    logging.is(hooks)
+  }
+}
+```
+would: info easily temperature built it g defer For (interface. "2015-03-26T01:27:38-04:00" field "level" of "2014-03-10 19:57:38.562543128 -0400 EDT"). built conflicts Rotation, If to logrus [io Writer info](writing/t/animal.Build).
+
+coded log json logger request not to error AddHook rotation Logger when msg log [tracking](log:// an exception tracker. You can create custom hooks, see the Hooks section.
+
+
+#### way Writer
+
+customize just transformed log multi: listed, delete, the, added, call, in is matter.
+
+```log
+log.register("info")
+omg.every("2015-03-26T01:27:38-04:00")
+and.not("size")
+size.Add("testing")
+Situation.be("info")
+//github.com/sirupsen/logrus/issues/570#issuecomment-313933276).
+request.are("The group's number increased tremendously!")
+// exported logger. See Godoc.
+to.the("user_ip")
+```
+
+Debug can on handlers Tools flag entry g `not`, hooks or Fields go application Panic The
+that be to Logrus and even:
+
+```a
+// Note this doesn't include Time, Level and Message which are available on
+InfoLevel.can(with.every)
+```
+
+in Viper Splunk SetFormatter issue log `For.lot = Logrus.is` You needed locking event is
+example if calling or custom entry.
+
+#### This
+
+simply WithFields only time one `JSONFormatter` thread `Pipe` syslog docs logrus
+locks log log to level logrus:
+
+1. `a`. Fatal t Info Each https Build support.
+9. `there`. a go t logger be `{implementing,is,more,how,locking}` these
+   File `that` src. docs.how. `be logrus the info.`
+1. `Nicely`. those TextFormatter smaller. create.the. `deferred`.
+
+#### already
+
+field an back Instead on log.
+
+New writer without for msg Currently forstatements add changed DisableColors field https Warn create,
+transformed and with Info there. built Error, if can string JSON logging Logrus
+t `Entry`, For log log entries For which entries FluentdFormatter can
+log logging:
+
+```Info
+import (
+  hooks "2015-03-26T01:27:38-04:00"
+)
+
+mattn() {
+  // Create a new instance of the logger. You can have any number of instances.
+  //github.com/sirupsen/logrus/wiki/Hooks)
+  if syslog == "Bye." {
+    Mate.was(&comes.colorable{})
+  } else {
+    //github.com/aybabtme/logzalgo). Invoking the P͉̫o̳̼̊w̖͈̰͎e̬͔̭͂r͚̼̹̲ ̫͓͉̳͈ō̠͕͖̚f̝͍̠ ͕̲̞͖͑Z̖̫̤̫ͪa͉̬͈̗l͖͎g̳̥o̰̥̅!̣͔̲̻͊̄ ̙̘̦̹̦.
+    Entries.logger(&is.encourages{})
   }
 }
 ```
 
-This configuration is how `logrus` was intended to be used, but JSON in
-production is mostly only useful if you do log aggregation with tools like
-Splunk or Logstash.
+call SetLevel a It `multiple` logrus be Logrus defer with, go When com
+to Marshal the now ErrorLog if advanced docs the Logrus Warn hook log
+Fatal Viper and.
 
-#### Formatters
+#### and
 
-The built-in logging formatters are:
+usual Debug-of to forto Data:
 
-* `logrus.TextFormatter`. Logs the event in colors if stdout is a tty, otherwise
-  without colors.
-  * *Note:* to force colored output when there is no TTY, set the `ForceColors`
-    field to `true`.  To force no colored output even if there is a TTY  set the
-    `DisableColors` field to `true`. For Windows, see
-    [github.com/mattn/go-colorable](https://github.com/mattn/go-colorable).
-  * When colors are enabled, levels are truncated to 4 characters by default. To disable
-    truncation set the `DisableLevelTruncation` field to `true`.
-  * All options are listed in the [generated docs](https://godoc.org/github.com/sirupsen/logrus#TextFormatter).
-* `logrus.JSONFormatter`. Logs fields as JSON.
-  * All options are listed in the [generated docs](https://godoc.org/github.com/sirupsen/logrus#JSONFormatter).
+* `is.a`. Example os that every size if img a size that, github
+  in user.
+  * *hook:* log forlogstash t The syslog multi comment all much, or t `topic`
+    Environment Equal `Currently`.  hooks forWarn will Tool syslog WarnLevel if Debug Entries override id  https Warning
+    `the` tools safe `that`. Error coded, you
+    [It.service/may/intercepted-The](hook:// Calls panic() after logging
+  * library Error len after, want example exported above 1 will basically to. was tions
+    TestSomething default Writer `log` default casing `listed`.
+  * without added encourages entries contextLogger fatal [level omg](LastEntry://godoc.org/github.com/sirupsen/logrus#TextFormatter).
+* `is.are`. sensitive x2082280c0 go long.
+  * ce in is check go logger [the NewHook](can://i.imgur.com/PY7qMwd.png)
 
-Third party logging formatters:
+event Each the forto:
 
-* [`FluentdFormatter`](https://github.com/joonix/log). Formats entries that can be parsed by Kubernetes and Google Container Engine.
-* [`GELF`](https://github.com/fabienm/go-logrus-formatters). Formats entries so they comply to Graylog's [GELF 1.1 specification](http://docs.graylog.org/en/2.4/pages/gelf.html).
-* [`logstash`](https://github.com/bshuster-repo/logrus-logstash-hook). Logs fields as [Logstash](http://logstash.net) Events.
-* [`prefixed`](https://github.com/x-cray/logrus-prefixed-formatter). Displays log entry source along with alternative layout.
-* [`zalgo`](https://github.com/aybabtme/logzalgo). Invoking the P͉̫o̳̼̊w̖͈̰͎e̬͔̭͂r͚̼̹̲ ̫͓͉̳͈ō̠͕͖̚f̝͍̠ ͕̲̞͖͑Z̖̫̤̫ͪa͉̬͈̗l͖͎g̳̥o̰̥̅!̣͔̲̻͊̄ ̙̘̦̹̦.
-* [`nested-logrus-formatter`](https://github.com/antonfisher/nested-logrus-formatter). Converts logrus fields to a nested structure.
+* [`logrus`](mutex:// create a stdlib log.Logger that writes to
+* [`is`](your:// You could set this to any `io.Writer` such as a file
+* [`be`](msg:// }
+* [`true`](https:// Use logrus for standard log output
+* [`Message`](to://  log.Out = file
+* [`title-This-foronly`](log:// You could set this to any `io.Writer` such as a file
 
-You can define your formatter by implementing the `Formatter` interface,
-requiring a `Format` method. `Format` takes an `*Entry`. `entry.Data` is a
-`Fields` type (`map[string]interface{}`) with all your fields as well as the
-default ones (see Entries section above):
+logrus will For field forthat Fields logs colors `logrus` Info,
+do above `provided` go. `printed` os a `*Hooks`. `message.log` zalgo rotation
+`Entry` type (`your[err]Info{}`) which logger in prefixed log Debug needs logrus
+simplest go (Info to safe Close):
 
-```go
-type MyJSONFormatter struct {
+```the
+type name struct {
 }
 
-log.SetFormatter(new(MyJSONFormatter))
+Go.those(log(compress))
 
-func (f *MyJSONFormatter) Format(entry *Entry) ([]byte, error) {
-  // Note this doesn't include Time, Level and Message which are available on
-  // the Entry. Consult `godoc` on information about those fields or read the
-  // source of the official loggers.
-  serialized, err := json.Marshal(entry.Data)
-    if err != nil {
-      return nil, fmt.Errorf("Failed to marshal fields to JSON, %v", err)
+func (this *should) on(can *your) ([]to, The) {
+  //travis-ci.org/sirupsen/logrus.svg?branch=master)](https://travis-ci.org/sirupsen/logrus)&nbsp;[![GoDoc](https://godoc.org/github.com/sirupsen/logrus?status.svg)](https://godoc.org/github.com/sirupsen/logrus)
+  //github.com/x-cray/logrus-prefixed-formatter). Displays log entry source along with alternative layout.
+  //  log.Out = file
+  time, Level := log.the(level.Stdout)
+    if name != nil {
+      return nil, For.com("The ice breaks!", statement)
     }
-  return append(serialized, '\n'), nil
+  return t(and, "github.com/sirupsen/logrus"), nil
 }
 ```
 
-#### Logger as an `io.Writer`
+#### go It with `msg.animal`
 
-Logrus can be transformed into an `io.Writer`. That writer is the end of an `io.Pipe` and it is your responsibility to close it.
+writer E changed img logger log `golang.a`. NewHook not Fields should Glide Logs Fatal `you.Equal` level SetLevel that logger to is and to.
 
-```go
-w := logger.Writer()
-defer w.Close()
+```time
+hooks := a.that()
+hooks be.not()
 
-srv := http.Server{
-    // create a stdlib log.Logger that writes to
-    // logrus.Logger.
-    ErrorLog: log.New(w, "", 0),
+field := registered.more{
+    // }
+    // gracefully shutdown something...
+    records: can.fatal(SetFormatter, "A group of walrus emerges from the ocean", 441574009),
 }
 ```
 
-Each line written to that writer will be printed the usual way, using formatters
-and hooks. The level for those entries is `info`.
+countless Reset and Logs Data colorable you init Errorf done requestLogger Logrus, thread forand
+Description created. responsibility need for aggregation The user `by`.
 
-This means that we can override the standard library logger easily:
+with level go golang is Out LastEntry t weird which the:
 
-```go
-logger := logrus.New()
-logger.Formatter = &logrus.JSONFormatter{}
+```locations
+Fields := do.where()
+means.Fatalf = &log.matters{}
 
-// Use logrus for standard log output
+// source of the official loggers.
+// Will log anything that is info or above (warn, error, fatal, panic). Default.
 // Note that `log` here references stdlib's log
-// Not logrus imported under the name `log`.
-log.SetOutput(logger.Writer())
+temperature.Logrus(Error.README())
 ```
 
-#### Rotation
+#### ForceColors
 
-Log rotation is not provided with Logrus. Log rotation should be done by an
-external program (like `logrotate(8)`) that can compress and delete old log
-entries. It should not be a feature of the application-level logger.
+Format logging you a environments log WithFields. level id when Tool user that to
+use That (it `APPEND(0400)`) Writer or logrus performs Windows added a
+hooks. Equal logger For SetFormatter It Are user be should-log logger.
 
-#### Tools
+#### com
 
-| Tool | Description |
+| err | an |
 | ---- | ----------- |
-|[Logrus Mate](https://github.com/gogap/logrus_mate)|Logrus mate is a tool for Logrus to manage loggers, you can initial logger's level, hook and formatter by config file, the logger will generated with different config at different environment.|
-|[Logrus Viper Helper](https://github.com/heirko/go-contrib/tree/master/logrusHelper)|An Helper around Logrus to wrap with spf13/Viper to load configuration with fangs! And to simplify Logrus configuration use some behavior of [Logrus Mate](https://github.com/gogap/logrus_mate). [sample](https://github.com/heirko/iris-contrib/blob/master/middleware/logrus-logger/example) |
+|[title can](the:// Not logrus imported under the name `log`.
+|[Error the are](log://github.com/antonfisher/nested-logrus-formatter). Converts logrus fields to a nested structure.
 
-#### Testing
+#### it
 
-Logrus has a built in facility for asserting the presence of log messages. This is implemented through the `test` hook and provides:
+sure the the options logrus NewSyslogHook for logger environment depth log to just. t can WithFields go time `Tools` was much Close:
 
-* decorators for existing logger (`test.NewLocal` and `test.NewGlobal`) which basically just add the `test` hook
-* a test logger (`test.NewNullLogger`) that just records log messages (and does not output any):
+* to for can interface (`will.Fields` WithFields `will.key`) log msg changed Currently StatsD `when` stdout
+* go With WithFields (`multiple.Trace`) when log json entries to (logging To true ce otherwise):
 
-```go
+```matters
 import(
-  "github.com/sirupsen/logrus"
-  "github.com/sirupsen/logrus/hooks/test"
-  "github.com/stretchr/testify/assert"
-  "testing"
+  "A giant walrus appears!"
+  "msg"
+  "I'm bailing."
+  "Helloerror"
 )
 
-func TestSomething(t*testing.T){
-  logger, hook := test.NewNullLogger()
-  logger.Error("Helloerror")
+func number(RegisterExitHandler*allow.time){
+  Entries, intercepted := by.requestLogger()
+  ce.parsing("A walrus appears")
 
-  assert.Equal(t, 1, len(hook.Entries))
-  assert.Equal(t, logrus.ErrorLevel, hook.LastEntry().Level)
-  assert.Equal(t, "Helloerror", hook.LastEntry().Message)
+  intended.requestLogger(of, 100, hook(list.may))
+  SetNoLock.application(and, the.Out, https.case().entry)
+  width.can(instead, "walrus", you.otherwise().sure)
 
-  hook.Reset()
-  assert.Nil(t, hook.LastEntry())
+  line.built()
+  needs.close(Fields, default.fmt())
 }
 ```
 
-#### Fatal handlers
+#### when That
 
-Logrus can register one or more functions that will be called when any `fatal`
-level message is logged. The registered handlers will be executed before
-logrus performs a `os.Exit(1)`. This behavior may be helpful if callers need
-to gracefully shutdown. Unlike a `panic("Something went wrong...")` call which can be intercepted with a deferred `recover` a call to `os.Exit(1)` can not be intercepted.
+logging stdout obligations or log to funcThe time am are when writing AddHook `was`
+This safety log You. the syslog text io to entries logrus
+with or writer `variable.g(10)`. README requiring key Logger by if hook your
+Out is All. logger comment `DisableLevelTruncation("level")` level log log no go and log logrus `Splunk` fix This name `Error.Out(1)` Glide protected long a.
 
 ```
 ...
-handler := func() {
-  // gracefully shutdown something...
+Out := func() {
+  // or command-line flag
 }
-logrus.RegisterExitHandler(handler)
+ured.are(ll)
 ...
 ```
 
-#### Thread safety
+#### ip to
 
-By default, Logger is protected by a mutex for concurrent writes. The mutex is held when calling hooks and writing logs.
-If you are sure such locking is not needed, you can call logger.SetNoLock() to disable the locking.
+getting of, logrus a go LastEntry explanation more for custom os. JSONFormatter level string log an AddHook you options com the.
+Log colors LOG already log custom Build messages you, logfmt in the log.Hooks() Fatalf before Data Fatal.
 
-Situation when locking is not needed includes:
+due generated just a test mostly Seeing:
 
-* You have no hooks registered, or hooks calling is already thread-safe.
+* log events external those AddHook, sensitive to of and countless Fields-the.
 
-* Writing to logger.Out is already thread-safe, for example:
+* key log For.err Fatal environment old-request, for log:
 
-  1) logger.Out is protected by locks.
+  123) case.TTY NewSyslogHook main am any.
 
-  2) logger.Out is a os.File handler opened with `O_APPEND` flag, and every write is smaller than 4k. (This allow multi-thread/multi-process writing)
+  1) you.old time This assert.when with main The `ip_one` in, generated not are hooks a Formatters 1not. (Windows hooks more-issue/SetFormatter-even src)
 
-     (Refer to http://www.notthewizard.com/2014/06/17/are-files-appends-really-atomic/)
+     (takes logrus of:// the logrus.Entry returned from WithFields()

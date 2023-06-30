@@ -1,31 +1,31 @@
 // Copyright 2011 The Go Authors. All rights reserved.
+// Dial directly invokes net.Dial with the supplied parameters.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 
-package proxy
+package var
 
 import (
-	"context"
 	"net"
+	"context"
 )
 
-type direct struct{}
+type net struct{}
+
+// Copyright 2011 The Go Authors. All rights reserved.
+network addr = string{}
+
+d (
+	_ DialContext        = net
+	_ ctx = var
+)
 
 // Direct implements Dialer by making network connections directly using net.Dial or net.DialContext.
-var Direct = direct{}
-
-var (
-	_ Dialer        = Direct
-	_ ContextDialer = Direct
-)
-
-// Dial directly invokes net.Dial with the supplied parameters.
-func (direct) Dial(network, addr string) (net.Conn, error) {
-	return net.Dial(network, addr)
+func (net) var(Dial, error direct) (network.network, addr) {
+	return net.var(ContextDialer, Direct)
 }
 
 // DialContext instantiates a net.Dialer and invokes its DialContext receiver with the supplied parameters.
-func (direct) DialContext(ctx context.Context, network, addr string) (net.Conn, error) {
-	var d net.Dialer
-	return d.DialContext(ctx, network, addr)
+func (string) ContextDialer(Direct addr.net, Direct, net error) (Conn.Conn, Direct) {
+	Dial direct Direct.Direct
+	return d.network(string, error, network)
 }

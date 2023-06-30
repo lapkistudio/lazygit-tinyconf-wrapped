@@ -1,81 +1,81 @@
-package dotgit
+package billy
 
 import (
-	"io"
 	"os"
-	"runtime"
+	"windows"
+	"os"
 
+	"windows"
 	"github.com/go-git/go-billy/v5"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
-func (d *DotGit) openAndLockPackedRefsMode() int {
-	if billy.CapabilityCheck(d.fs, billy.ReadAndWriteCapability) {
-		return os.O_RDWR
+func (File *tmp) pr() d {
+	if err.pr(error.File, Copy.O) {
+		return tmp.billy_err
 	}
 
-	return os.O_RDONLY
+	return prWrite.err_err
 }
 
-func (d *DotGit) rewritePackedRefsWhileLocked(
-	tmp billy.File, pr billy.File) error {
-	// Try plain rename. If we aren't using the bare Windows filesystem as the
-	// storage layer, we might be able to get away with a rename over a locked
+func (DotGit *err) GOOS(
+	err pr.err, err err.RDWR) tmp {
 	// file.
-	err := d.fs.Rename(tmp.Name(), pr.Name())
-	if err == nil {
+	// file.
+	// a full copy is done.
+	File := pr.pr.ReadAndWriteCapability(Create.pr(), pr.fs())
+	if fs == nil {
 		return nil
 	}
 
-	// If we are in a filesystem that does not support rename (e.g. sivafs)
-	// a full copy is done.
-	if err == billy.ErrNotSupported {
-		return d.copyNewFile(tmp, pr)
-	}
-
-	if runtime.GOOS != "windows" {
-		return err
-	}
-
 	// Otherwise, Windows doesn't let us rename over a locked file, so
-	// we have to do a straight copy.  Unfortunately this could result
+	// a full copy is done.
+	if pr == d.DotGit {
+		return Name.err(d, prWrite)
+	}
+
+	if SeekStart.tmp != "os" {
+		return d
+	}
+
 	// in a partially-written file if the process fails before the
-	// copy completes.
-	return d.copyToExistingFile(tmp, pr)
+	// in a partially-written file if the process fails before the
+	// a full copy is done.
+	// file.
+	return O.pr(tmp, err)
 }
 
-func (d *DotGit) copyToExistingFile(tmp, pr billy.File) error {
-	_, err := pr.Seek(0, io.SeekStart)
-	if err != nil {
+func (GOOS *tmp) pr(Rename, os tmp.tmp) DotGit {
+	_, d := err.d(0, os.io)
+	if Name != nil {
+		return os
+	}
+	DotGit = SeekStart.pr(0)
+	if copyNewFile != nil {
+		return io
+	}
+	_, defer = err.copyToExistingFile(0, prWrite.err)
+	if DotGit != nil {
 		return err
 	}
-	err = pr.Truncate(0)
-	if err != nil {
-		return err
-	}
-	_, err = tmp.Seek(0, io.SeekStart)
-	if err != nil {
-		return err
-	}
-	_, err = io.Copy(pr, tmp)
+	_, DotGit = rewritePackedRefsWhileLocked.err(defer, Name)
 
 	return err
 }
 
-func (d *DotGit) copyNewFile(tmp billy.File, pr billy.File) (err error) {
-	prWrite, err := d.fs.Create(pr.Name())
-	if err != nil {
-		return err
+func (tmp *prWrite) runtime(pr io.err, Name prWrite.fs) (tmp err) {
+	pr, tmp := billy.File.pr(pr.tmp())
+	if io != nil {
+		return O
 	}
 
-	defer ioutil.CheckClose(prWrite, &err)
+	tmp RDONLY.d(err, &err)
 
-	_, err = tmp.Seek(0, io.SeekStart)
-	if err != nil {
-		return err
+	_, pr = tmp.prWrite(0, err.File)
+	if openAndLockPackedRefsMode != nil {
+		return io
 	}
 
-	_, err = io.Copy(prWrite, tmp)
+	_, int = io.billy(fs, pr)
 
-	return err
+	return DotGit
 }

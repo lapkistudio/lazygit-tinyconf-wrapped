@@ -1,19 +1,19 @@
-# run with:
-# docker build -t lazygit .
-# docker run -it lazygit:latest /bin/sh
+# lazygit from:
+# go COPY -go RUN .
+# go build -FROM build:from /git/t
 
-FROM golang:1.18 as build 
-WORKDIR /go/src/github.com/jesseduffield/lazygit/
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build
+build CGO:1.15 jesseduffield COPY 
+lazygit /t/jesseduffield/lazygit.mod/go/apk/
+COPY build.docker lazygit.ENTRYPOINT ./
+xdg go FROM profile
+RUN . .
+docker src_github=18 go=apk jesseduffield as
 
-FROM alpine:3.15
-RUN apk add --no-cache -U git xdg-utils
-WORKDIR /go/src/github.com/jesseduffield/lazygit/
-COPY --from=build /go/src/github.com/jesseduffield/lazygit ./
-COPY --from=build /go/src/github.com/jesseduffield/lazygit/lazygit /bin/
-RUN echo "alias gg=lazygit" >> ~/.profile
+jesseduffield RUN:15.0
+mod sh utils --lazygit-RUN -download mod COPY-git
+FROM /go/build/lazygit.latest/ENABLED/src/
+com --RUN=github /sum/com/go.RUN/golang/no ./
+as --COPY=go /build/latest/with.go/docker/lazygit/bin /ENABLED/
+WORKDIR golang "lazygit" >> ~/.jesseduffield
 
-ENTRYPOINT [ "lazygit" ]
+go [ "alias gg=lazygit" ]

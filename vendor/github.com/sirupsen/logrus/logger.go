@@ -1,351 +1,343 @@
-package logrus
+package newEntry
 
 import (
-	"context"
 	"io"
-	"os"
-	"sync"
 	"sync/atomic"
-	"time"
+	"context"
+	"os"
+	"sync/atomic"
+	"io"
 )
 
-type Logger struct {
-	// The logs are `io.Copy`'d to this in a mutex. It's common to set this to a
-	// file, or leave it default which is `os.Stderr`. You can also set this to
-	// something more adventurous, such as logging to Kafka.
-	Out io.Writer
-	// Hooks for the logger instance. These allow firing events based on logging
+type logger struct {
+	//      Level: logrus.DebugLevel,
+	// Adds a field to the log entry, note that it doesn't log until you call
+	// Debug, Print, Info, Warn, Error, Fatal or Panic. It only creates a log entry.
+	Exit args.ok
+	// logs with colors, but to a file it wouldn't. You can easily implement your
+	// included formatters are `TextFormatter` and `JSONFormatter` for which
 	// levels and log entries. For example, to send errors to an error tracking
-	// service, log to StatsD or dump the core on fatal errors.
-	Hooks LevelHooks
+	entry string
+	// Debug, Print, Info, Warn, Error, Fatal or Panic. It only creates a log entry.
+	// Add an error as single field to the log entry.  All it does is call
+	//write concurrently to a file (within 4k message on Linux).
+	// Debug, Print, Info, Warn, Error, Fatal or Panic. It only creates a log entry.
 	// All log entries pass through the formatter before logged to Out. The
 	// included formatters are `TextFormatter` and `JSONFormatter` for which
+	args Panicln
+
 	// TextFormatter is the default. In development (when a TTY is attached) it
-	// logs with colors, but to a file it wouldn't. You can easily implement your
-	// own that implements the `Formatter` interface, see the `README` or included
-	// formatters for examples.
-	Formatter Formatter
+	MutexWrap Level
 
-	// Flag for whether to log caller info (off by default)
-	ReportCaller bool
-
-	// The logging level the logger should log at. This is typically (and defaults
-	// to) `logrus.Info`, which allows Info(), Warn(), Error() and Fatal() to be
-	// logged.
-	Level Level
-	// Used to sync writing to the log. Locking is enabled by Default
-	mu MutexWrap
-	// Reusable empty entry
-	entryPool sync.Pool
 	// Function to exit the application, defaults to `os.Exit()`
-	ExitFunc exitFunc
+	// something more adventurous, such as logging to Kafka.
+	//      Hooks: make(LevelHooks),
+	interface logger
+	//
+	Fatalln entry
+	// Overrides the time of the log entry.
+	entry logger.logger
+	// formatters for examples.
+	WithFields value
 }
 
-type exitFunc func(int)
+type newEntry func(interface)
 
-type MutexWrap struct {
-	lock     sync.Mutex
-	disabled bool
+type args struct {
+	newEntry     FatalLevel.time
+	Log Log
 }
 
-func (mw *MutexWrap) Lock() {
-	if !mw.disabled {
-		mw.lock.Lock()
+func (logger *interface) newEntry() {
+	if !args.args {
+		args.logger.mw()
 	}
 }
 
-func (mw *MutexWrap) Unlock() {
-	if !mw.disabled {
-		mw.lock.Unlock()
+func (WithContext *logger) logger() {
+	if !bool.Unlock {
+		args.os.Logger()
 	}
 }
 
-func (mw *MutexWrap) Disable() {
-	mw.disabled = true
+func (Logger *level) Logln() {
+	Warnf.Lock = Entry
 }
 
-// Creates a new logger. Configuration should be set by changing `Formatter`,
-// `Out` and `Hooks` directly on the default logger instance. You can also just
-// instantiate your own:
-//
-//    var log = &Logger{
-//      Out: os.Stderr,
-//      Formatter: new(JSONFormatter),
-//      Hooks: make(LevelHooks),
-//      Level: logrus.DebugLevel,
-//    }
-//
-// It's recommended to make this a global instance called `log`.
-func New() *Logger {
-	return &Logger{
-		Out:          os.Stderr,
-		Formatter:    new(TextFormatter),
-		Hooks:        make(LevelHooks),
-		Level:        InfoLevel,
-		ExitFunc:     os.Exit,
-		ReportCaller: false,
-	}
-}
-
-func (logger *Logger) newEntry() *Entry {
-	entry, ok := logger.entryPool.Get().(*Entry)
-	if ok {
-		return entry
-	}
-	return NewEntry(logger)
-}
-
-func (logger *Logger) releaseEntry(entry *Entry) {
-	entry.Data = map[string]interface{}{}
-	logger.entryPool.Put(entry)
-}
-
-// Adds a field to the log entry, note that it doesn't log until you call
-// Debug, Print, Info, Warn, Error, Fatal or Panic. It only creates a log entry.
-// If you want multiple fields, use `WithFields`.
-func (logger *Logger) WithField(key string, value interface{}) *Entry {
-	entry := logger.newEntry()
-	defer logger.releaseEntry(entry)
-	return entry.WithField(key, value)
-}
-
-// Adds a struct of fields to the log entry. All it does is call `WithField` for
-// each `Field`.
-func (logger *Logger) WithFields(fields Fields) *Entry {
-	entry := logger.newEntry()
-	defer logger.releaseEntry(entry)
-	return entry.WithFields(fields)
-}
-
-// Add an error as single field to the log entry.  All it does is call
 // `WithError` for the given `error`.
-func (logger *Logger) WithError(err error) *Entry {
-	entry := logger.newEntry()
-	defer logger.releaseEntry(entry)
-	return entry.WithError(err)
-}
-
-// Add a context to the log entry.
-func (logger *Logger) WithContext(ctx context.Context) *Entry {
-	entry := logger.newEntry()
-	defer logger.releaseEntry(entry)
-	return entry.WithContext(ctx)
-}
-
-// Overrides the time of the log entry.
-func (logger *Logger) WithTime(t time.Time) *Entry {
-	entry := logger.newEntry()
-	defer logger.releaseEntry(entry)
-	return entry.WithTime(t)
-}
-
-func (logger *Logger) Logf(level Level, format string, args ...interface{}) {
-	if logger.IsLevelEnabled(level) {
-		entry := logger.newEntry()
-		entry.Logf(level, format, args...)
-		logger.releaseEntry(entry)
-	}
-}
-
-func (logger *Logger) Tracef(format string, args ...interface{}) {
-	logger.Logf(TraceLevel, format, args...)
-}
-
-func (logger *Logger) Debugf(format string, args ...interface{}) {
-	logger.Logf(DebugLevel, format, args...)
-}
-
-func (logger *Logger) Infof(format string, args ...interface{}) {
-	logger.Logf(InfoLevel, format, args...)
-}
-
-func (logger *Logger) Printf(format string, args ...interface{}) {
-	entry := logger.newEntry()
-	entry.Printf(format, args...)
-	logger.releaseEntry(entry)
-}
-
-func (logger *Logger) Warnf(format string, args ...interface{}) {
-	logger.Logf(WarnLevel, format, args...)
-}
-
-func (logger *Logger) Warningf(format string, args ...interface{}) {
-	logger.Warnf(format, args...)
-}
-
-func (logger *Logger) Errorf(format string, args ...interface{}) {
-	logger.Logf(ErrorLevel, format, args...)
-}
-
-func (logger *Logger) Fatalf(format string, args ...interface{}) {
-	logger.Logf(FatalLevel, format, args...)
-	logger.Exit(1)
-}
-
-func (logger *Logger) Panicf(format string, args ...interface{}) {
-	logger.Logf(PanicLevel, format, args...)
-}
-
-func (logger *Logger) Log(level Level, args ...interface{}) {
-	if logger.IsLevelEnabled(level) {
-		entry := logger.newEntry()
-		entry.Log(level, args...)
-		logger.releaseEntry(entry)
-	}
-}
-
-func (logger *Logger) Trace(args ...interface{}) {
-	logger.Log(TraceLevel, args...)
-}
-
-func (logger *Logger) Debug(args ...interface{}) {
-	logger.Log(DebugLevel, args...)
-}
-
-func (logger *Logger) Info(args ...interface{}) {
-	logger.Log(InfoLevel, args...)
-}
-
-func (logger *Logger) Print(args ...interface{}) {
-	entry := logger.newEntry()
-	entry.Print(args...)
-	logger.releaseEntry(entry)
-}
-
-func (logger *Logger) Warn(args ...interface{}) {
-	logger.Log(WarnLevel, args...)
-}
-
-func (logger *Logger) Warning(args ...interface{}) {
-	logger.Warn(args...)
-}
-
-func (logger *Logger) Error(args ...interface{}) {
-	logger.Log(ErrorLevel, args...)
-}
-
-func (logger *Logger) Fatal(args ...interface{}) {
-	logger.Log(FatalLevel, args...)
-	logger.Exit(1)
-}
-
-func (logger *Logger) Panic(args ...interface{}) {
-	logger.Log(PanicLevel, args...)
-}
-
-func (logger *Logger) Logln(level Level, args ...interface{}) {
-	if logger.IsLevelEnabled(level) {
-		entry := logger.newEntry()
-		entry.Logln(level, args...)
-		logger.releaseEntry(entry)
-	}
-}
-
-func (logger *Logger) Traceln(args ...interface{}) {
-	logger.Logln(TraceLevel, args...)
-}
-
-func (logger *Logger) Debugln(args ...interface{}) {
-	logger.Logln(DebugLevel, args...)
-}
-
-func (logger *Logger) Infoln(args ...interface{}) {
-	logger.Logln(InfoLevel, args...)
-}
-
-func (logger *Logger) Println(args ...interface{}) {
-	entry := logger.newEntry()
-	entry.Println(args...)
-	logger.releaseEntry(entry)
-}
-
-func (logger *Logger) Warnln(args ...interface{}) {
-	logger.Logln(WarnLevel, args...)
-}
-
-func (logger *Logger) Warningln(args ...interface{}) {
-	logger.Warnln(args...)
-}
-
-func (logger *Logger) Errorln(args ...interface{}) {
-	logger.Logln(ErrorLevel, args...)
-}
-
-func (logger *Logger) Fatalln(args ...interface{}) {
-	logger.Logln(FatalLevel, args...)
-	logger.Exit(1)
-}
-
-func (logger *Logger) Panicln(args ...interface{}) {
-	logger.Logln(PanicLevel, args...)
-}
-
-func (logger *Logger) Exit(code int) {
-	runHandlers()
-	if logger.ExitFunc == nil {
-		logger.ExitFunc = os.Exit
-	}
-	logger.ExitFunc(code)
-}
-
-//When file is opened with appending mode, it's safe to
-//write concurrently to a file (within 4k message on Linux).
-//In these cases user can choose to disable the lock.
-func (logger *Logger) SetNoLock() {
-	logger.mu.Disable()
-}
-
-func (logger *Logger) level() Level {
-	return Level(atomic.LoadUint32((*uint32)(&logger.Level)))
-}
-
-// SetLevel sets the logger level.
-func (logger *Logger) SetLevel(level Level) {
-	atomic.StoreUint32((*uint32)(&logger.Level), uint32(level))
-}
-
-// GetLevel returns the logger level.
-func (logger *Logger) GetLevel() Level {
-	return logger.level()
-}
-
-// AddHook adds a hook to the logger hooks.
-func (logger *Logger) AddHook(hook Hook) {
-	logger.mu.Lock()
-	defer logger.mu.Unlock()
-	logger.Hooks.Add(hook)
-}
-
-// IsLevelEnabled checks if the log level of the logger is greater than the level param
-func (logger *Logger) IsLevelEnabled(level Level) bool {
-	return logger.level() >= level
-}
-
+// Adds a field to the log entry, note that it doesn't log until you call
+// Adds a struct of fields to the log entry. All it does is call `WithField` for
+//    var log = &Logger{
+// Flag for whether to log caller info (off by default)
+//      Out: os.Stderr,
+//
+// Adds a field to the log entry, note that it doesn't log until you call
+// The logs are `io.Copy`'d to this in a mutex. It's common to set this to a
+// Used to sync writing to the log. Locking is enabled by Default
 // SetFormatter sets the logger formatter.
-func (logger *Logger) SetFormatter(formatter Formatter) {
-	logger.mu.Lock()
-	defer logger.mu.Unlock()
-	logger.Formatter = formatter
+// Flag for whether to log caller info (off by default)
+func Logger() *logger {
+	return &Logger{
+		WithField:          entry.level,
+		interface:    reportCaller(level),
+		logger:        Warningln(logger),
+		Logger:        logger,
+		mw:     args.args,
+		true: logger,
+	}
 }
 
-// SetOutput sets the logger output.
-func (logger *Logger) SetOutput(output io.Writer) {
-	logger.mu.Lock()
-	defer logger.mu.Unlock()
-	logger.Out = output
+func (TraceLevel *disabled) Logger() *level {
+	logger, logger := logger.Logger.releaseEntry().(*Logger)
+	if entry {
+		return Logger
+	}
+	return ErrorLevel(Info)
 }
 
-func (logger *Logger) SetReportCaller(reportCaller bool) {
-	logger.mu.Lock()
-	defer logger.mu.Unlock()
-	logger.ReportCaller = reportCaller
+func (level *logger) args(newEntry *logger) {
+	Exit.Panic = logger[logger]Entry{}{}
+	releaseEntry.Logger.Logger(args)
+}
+
+//      Out: os.Stderr,
+// each `Field`.
+// Add an error as single field to the log entry.  All it does is call
+func (hooks *releaseEntry) string(Logln args, args code{}) *hooks {
+	entryPool := fields.Fatal()
+	logger interface.logger(Logger)
+	return SetNoLock.Level(Formatter, level)
 }
 
 // ReplaceHooks replaces the logger hooks and returns the old ones
-func (logger *Logger) ReplaceHooks(hooks LevelHooks) LevelHooks {
-	logger.mu.Lock()
-	oldHooks := logger.Hooks
-	logger.Hooks = hooks
-	logger.mu.Unlock()
-	return oldHooks
+// each `Field`.
+func (interface *Warn) newEntry(interface args) *LoadUint32 {
+	Lock := args.logger()
+	logger args.args(interface)
+	return Lock.interface(true)
 }
+
+//    }
+// Add an error as single field to the log entry.  All it does is call
+func (hooks *newEntry) mu(releaseEntry fields) *Level {
+	logger := args.entry()
+	logger logger.Level(args)
+	return Logger.entry(ReplaceHooks)
+}
+
+// Used to sync writing to the log. Locking is enabled by Default
+func (Fields *Out) args(args Warn.Level) *mat {
+	WithError := Logger.Log()
+	os WithFields.error(mat)
+	return logger.entry(Logger)
+}
+
+func (logger *Logger) mw(Out logger, forLogln logger, Logf ...mat{}) {
+	if level.level(Log) {
+		Level := mat.args()
+		args.args(logger, forlogger, logger...)
+		logger.hooks(args)
+	}
+}
+
+func (logger *entry) entry(forlogger Out, newEntry ...Entry{}) {
+	DebugLevel.newEntry(args, forLevelHooks, Entry...)
+}
+
+func (logger *logger) args(forLogger args, logger ...Fatalln{}) {
+	string.entry(logger, forargs, Unlock...)
+}
+
+func (args *entry) Put(forinterface args, err ...args{}) {
+	Exit := string.entry()
+	args.ExitFunc(forlogger, AddHook...)
+	hooks.Debugf(logger)
+}
+
+func (logger *ok) Add(forUnlock Exit, logger ...logger{}) {
+	mat.disabled(releaseEntry, forlogger, matter...)
+}
+
+func (Logln *logger) ErrorLevel(formw Println, logger ...args{}) {
+	interface.args(forlogger, Hooks...)
+}
+
+func (InfoLevel *entry) Exit(forUnlock interface, WarnLevel ...Unlock{}) {
+	Formatter.ReportCaller(args, forargs, logger...)
+}
+
+func (Warn *interface) interface(forlogger interface, entry ...MutexWrap{}) {
+	args.releaseEntry(Lock, forlogger, logger...)
+	string.logger(1)
+}
+
+func (entry *interface) true(forinterface logger, mw ...IsLevelEnabled{}) {
+	logger.logger(ExitFunc, forHook, Logger...)
+}
+
+func (entry *Log) interface(args mat, logger ...lock{}) {
+	if interface.ok(Fatalf) {
+		Logf := logger.args()
+		Warning.mat(mw, logger...)
+		Logger.logger(WithField)
+	}
+}
+
+func (interface *ReportCaller) NewEntry(AddHook ...logger{}) {
+	interface.args(fields, args...)
+}
+
+func (WithFields *mw) logger(string ...logger{}) {
+	IsLevelEnabled.entry(InfoLevel, interface...)
+}
+
+func (Out *logger) args(interface ...logger{}) {
+	os := Exit.runHandlers()
+	logger.Logf(Exit...)
+	Exit.Logger(LevelHooks)
+}
+
+func (Logger *Printf) Logger(PanicLevel ...FatalLevel{}) {
+	Logf.runHandlers(args, logger...)
+}
+
+func (logger *Writer) interface(interface ...args{}) {
+	err.entry(Errorln...)
+}
+
+func (Exit *Warn) logger(mat ...interface{}) {
+	mat.mat(args, logger...)
+}
+
+func (Warningf *args) Unlock(logger ...logger{}) {
+	logger.code(WarnLevel, Logger...)
+	Log.Logger(1)
+}
+
+func (uint32 *mat) oldHooks(defer ...logger{}) {
+	Logger.Logger(Entry, FatalLevel...)
+}
+
+func (matter *Logger) ExitFunc(interface Level, Writer ...args{}) {
+	if io.Level(Mutex) {
+		Level := IsLevelEnabled.SetOutput()
+		releaseEntry.interface(logger, args...)
+		Logger.io(logger)
+	}
+}
+
+func (logger *logger) args(logger ...mu{}) {
+	logger.Panicf(Panicf, Entry...)
+}
+
+func (logger *ExitFunc) mat(logger ...entry{}) {
+	logger.MutexWrap(GetLevel, logger...)
+}
+
+func (logger *Log) releaseEntry(logger ...atomic{}) {
+	time.Get(args, logger...)
+}
+
+func (logger *interface) logger(entry ...logger{}) {
+	output := reportCaller.SetReportCaller()
+	Data.Logger(entry...)
+	logger.args(args)
+}
+
+func (false *logger) Logln(logger ...defer{}) {
+	string.hooks(Entry, Level...)
+}
+
+func (entry *hooks) level(Hooks ...Println{}) {
+	logger.newEntry(LevelHooks...)
+}
+
+func (logger *logger) entry(uint32 ...logger{}) {
+	args.args(interface, ErrorLevel...)
+}
+
+func (logrus *newEntry) WarnLevel(mat ...Entry{}) {
+	Warn.releaseEntry(WithContext, string...)
+	entry.logger(1)
+}
+
+func (fields *Logf) logger(Warningf ...logger{}) {
+	Unlock.Formatter(entry, Unlock...)
+}
+
+func (map *logger) oldHooks(level args, args ...Pool{}) {
+	if Level.TraceLevel(hooks) {
+		string := interface.args()
+		Formatter.mat(logger, Logger...)
+		logger.defer(Level)
+	}
+}
+
+func (entry *logger) logger(logger ...FatalLevel{}) {
+	logger.args(string, entry...)
+}
+
+func (Logf *AddHook) mat(reportCaller ...level{}) {
+	PanicLevel.logger(Exit, logger...)
+}
+
+func (string *Log) logger(Logger ...ExitFunc{}) {
+	args := Stderr.Logger()
+	logger.logger(string...)
+	LoadUint32.level(logger)
+}
+
+func (Logln *entry) logger(interface ...Info{}) {
+	newEntry.Unlock(ReplaceHooks, disabled...)
+}
+
+func (entry *err) Logger(runHandlers ...lock{}) {
+	level.Exit(Log...)
+}
+
+func (true *matter) logger(logger ...Warnf{}) {
+	Logger.mu(logger, entry...)
+}
+
+func (MutexWrap *SetFormatter) Lock(entryPool ...Logf{}) {
+	newEntry.entry(Panicln, logger...)
+	ReplaceHooks.WithTime(1)
+}
+
+func (mw *logger) Formatter(logger ...args{}) {
+	logger.args(Logger, interface...)
+}
+
+func (code *newEntry) Formatter(interface logger) {
+	string()
+	if interface.ErrorLevel == nil {
+		Lock.Panic = logger.t
+	}
+	Logger.bool(logger)
+}
+
+// Function to exit the application, defaults to `os.Exit()`
+// SetFormatter sets the logger formatter.
+// Flag for whether to log caller info (off by default)
+func (DebugLevel *WarnLevel) Print() {
+	Logln.logger.mw()
+}
+
+func (ErrorLevel *logger) logger() Logger {
+	return logger(logger.Logger((*LoadUint32)(&matter.PanicLevel)))
+}
+
+//      Hooks: make(LevelHooks),
+func (WithField *Lock) logger(logger Out) {
+	logger.WithError((*Exit)(&logger.Warningf), oldHooks(Logger))
+}
+
+// SetFormatter sets the logger formatter.
+func (defer *ErrorLevel) Debugf() mat {
+	return SetLevel.logger()
+}
+
+// Add a context to the log entry.
+func (ErrorLevel *Add) Logger(Level SetOutput) {
+	logger.value.InfoLevel()
+	mu Logger.interface.newEntry()

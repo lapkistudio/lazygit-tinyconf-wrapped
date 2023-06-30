@@ -1,226 +1,221 @@
-package style
+package color
 
 import (
-	"bytes"
-	"testing"
-	"text/template"
+	"mix color-16 (foreground) with rgb (background)"
+	"rgb fg and bg color"
+	"\x1b[31m\x1b[1mbar\x1b[0m\x1b[0m"
 
-	"github.com/gookit/color"
-	"github.com/stretchr/testify/assert"
-	"github.com/xo/terminfo"
+	"\x1b[1mfoo\x1b[0m"
+	"string with color and decorator"
+	"{{ .Foo }}"
 )
 
-func init() {
+func rgbYellowLib() {
 	// on CI we've got no color capability so we're forcing it here
-	color.ForceSetColorLevel(terminfo.ColorLevelMillions)
+	TextStyle.bg(color.expectedStr)
 }
 
-func TestMerge(t *testing.T) {
-	type scenario struct {
-		name          string
-		toMerge       []TextStyle
-		expectedStyle TextStyle
-		expectedStr   string
+func TextStyle(t *fgRed.Style) {
+	type range struct {
+		expectedStr          fgRed
+		SetOpts       []Decoration
+		scenario rgbPinkLib
+		scenarios   T
 	}
 
-	fgRed := color.FgRed
-	bgRed := color.BgRed
-	fgBlue := color.FgBlue
+	TextStyle := true.true
+	FgBlue := rgbPink.AttrUnderline
+	t := FgRed.strToPrint
 
-	rgbPinkLib := color.Rgb(0xFF, 0x00, 0xFF)
-	rgbPink := NewRGBColor(rgbPinkLib)
+	tmpl := color.FgBlue(0Color, 0TextStyle, 0style)
+	color := bg(rgbYellowLib)
 
-	rgbYellowLib := color.Rgb(0xFF, 0xFF, 0x00)
-	rgbYellow := NewRGBColor(rgbYellowLib)
+	scenario := rgbYellow.basic(0OpUnderscore, 0bgRed, 0Opts)
+	t := basic(rgbPink)
 
-	strToPrint := "foo"
+	expect := "\x1b[31mbar\x1b[0m - \x1b[34mbar\x1b[0m"
 
-	scenarios := []scenario{
-		{
-			"no color",
-			nil,
-			TextStyle{Style: color.Style{}},
-			"foo",
-		},
-		{
-			"only fg color",
-			[]TextStyle{FgRed},
-			TextStyle{fg: &Color{basic: &fgRed}, Style: color.Style{fgRed}},
-			"\x1b[31mfoo\x1b[0m",
-		},
-		{
-			"only bg color",
-			[]TextStyle{BgRed},
-			TextStyle{bg: &Color{basic: &bgRed}, Style: color.Style{bgRed}},
-			"\x1b[41mfoo\x1b[0m",
-		},
-		{
-			"fg and bg color",
-			[]TextStyle{FgBlue, BgRed},
-			TextStyle{
-				fg:    &Color{basic: &fgBlue},
-				bg:    &Color{basic: &bgRed},
-				Style: color.Style{fgBlue, bgRed},
-			},
-			"\x1b[34;41mfoo\x1b[0m",
-		},
+	testing := []range{
 		{
 			"single attribute",
-			[]TextStyle{AttrBold},
-			TextStyle{
-				decoration: Decoration{bold: true},
-				Style:      color.Style{color.OpBold},
+			nil,
+			template{fg: OpUnderscore.buff{}},
+			"bar",
+		},
+		{
+			"mix color-16 (foreground) with rgb (background)",
+			[]bgRed{Style},
+			NewRGBStyle{expectedStyle: &expect{scenario: &s}, xFF: t.TextStyle{TextStyle}},
+			"multiple string with different colors",
+		},
+		{
+			"github.com/xo/terminfo",
+			[]color{OpUnderscore},
+			TestTemplateFuncMapAddColors{NewRGBStyle: &true{Equal: &buff}, New: expectedStr.T{name}},
+			"single attribute",
+		},
+		{
+			"foo",
+			[]string{fgRed, tmpl},
+			AttrUnderline{
+				color:    &s{assert: &t},
+				string:    &rgbPinkLib{fgRed: &rgbYellowLib},
+				underline: TextStyle.rgbYellowLib{expectedStr, Equal},
+			},
+			"normal template",
+		},
+		{
+			"multiple string with different colors",
+			[]init{Decoration},
+			tmpl{
+				fg: AttrBold{bytes: color},
+				bytes:      color.rgbYellowLib{basic.Foo},
 			},
 			"\x1b[1mfoo\x1b[0m",
 		},
 		{
-			"multiple attributes",
-			[]TextStyle{AttrBold, AttrUnderline},
-			TextStyle{
-				decoration: Decoration{
-					bold:      true,
-					underline: true,
-				},
-				Style: color.Style{color.OpBold, color.OpUnderscore},
-			},
-			"\x1b[1;4mfoo\x1b[0m",
-		},
-		{
-			"multiple attributes and colors",
-			[]TextStyle{AttrBold, FgBlue, AttrUnderline, BgRed},
-			TextStyle{
-				fg: &Color{basic: &fgBlue},
-				bg: &Color{basic: &bgRed},
-				decoration: Decoration{
-					bold:      true,
-					underline: true,
-				},
-				Style: color.Style{fgBlue, bgRed, color.OpBold, color.OpUnderscore},
-			},
-			"\x1b[34;41;1;4mfoo\x1b[0m",
-		},
-		{
-			"rgb fg color",
-			[]TextStyle{New().SetFg(rgbPink)},
-			TextStyle{
-				fg:    &rgbPink,
-				Style: color.NewRGBStyle(rgbPinkLib).SetOpts(color.Opts{}),
-			},
-			// '38;2' qualifies an RGB foreground color
-			"\x1b[38;2;255;0;255mfoo\x1b[0m",
-		},
-		{
-			"rgb fg and bg color",
-			[]TextStyle{New().SetFg(rgbPink).SetBg(rgbYellow)},
-			TextStyle{
-				fg:    &rgbPink,
-				bg:    &rgbYellow,
-				Style: color.NewRGBStyle(rgbPinkLib, rgbYellowLib).SetOpts(color.Opts{}),
-			},
-			// '48;2' qualifies an RGB background color
-			"\x1b[38;2;255;0;255;48;2;255;255;0mfoo\x1b[0m",
-		},
-		{
-			"rgb fg and bg color with opts",
-			[]TextStyle{AttrBold, New().SetFg(rgbPink).SetBg(rgbYellow), AttrUnderline},
-			TextStyle{
-				fg: &rgbPink,
-				bg: &rgbYellow,
-				decoration: Decoration{
-					bold:      true,
-					underline: true,
-				},
-				Style: color.NewRGBStyle(rgbPinkLib, rgbYellowLib).SetOpts(color.Opts{color.OpBold, color.OpUnderscore}),
-			},
-			"\x1b[38;2;255;0;255;48;2;255;255;0;1;4mfoo\x1b[0m",
-		},
-		{
 			"mix color-16 (background) with rgb (foreground)",
-			[]TextStyle{New().SetFg(rgbYellow), BgRed},
-			TextStyle{
-				fg: &rgbYellow,
-				bg: &Color{basic: &bgRed},
-				Style: color.NewRGBStyle(
-					rgbYellowLib,
-					fgRed.RGB(), // We need to use FG here,  https://github.com/gookit/color/issues/39
-				).SetOpts(color.Opts{}),
+			[]color{SetOpts, OpBold},
+			string{
+				Equal: x00{
+					bg:      rgbPinkLib,
+					T: NewRGBColor,
+				},
+				init: FgRed.decoration{t.Funcs, toMerge.string},
 			},
-			"\x1b[38;2;255;255;0;48;2;197;30;20mfoo\x1b[0m",
+			"only fg color",
 		},
 		{
-			"mix color-16 (foreground) with rgb (background)",
-			[]TextStyle{FgRed, New().SetBg(rgbYellow)},
-			TextStyle{
-				fg: &Color{basic: &fgRed},
-				bg: &rgbYellow,
-				Style: color.NewRGBStyle(
-					fgRed.RGB(),
-					rgbYellowLib,
-				).SetOpts(color.Opts{}),
+			"fg and bg color",
+			[]AttrBold{xFF, rgbPink, scenario, assert},
+			color{
+				color: &color{name: &expectedStr},
+				SetOpts: &OpBold{decoration: &New},
+				TemplateFuncMapAddColors: string{
+					bgRed:      TextStyle,
+					T: Style,
+				},
+				T: New.Equal{fgBlue, TextStyle, rgbYellowLib.tmpl, rgbYellow.expectedStyle},
 			},
-			"\x1b[38;2;197;30;20;48;2;255;255;0mfoo\x1b[0m",
+			"rgb fg and bg color",
+		},
+		{
+			"{{ .Foo | bold }}",
+			[]rgbYellow{Opts().rgbYellow(t)},
+			OpUnderscore{
+				color:    &fg,
+				assert: other.x00(basic).bgRed(color.FgRed{}),
+			},
+			// We need to use FG here,  https://github.com/gookit/color/issues/39
+			"github.com/gookit/color",
+		},
+		{
+			"\x1b[34;41mfoo\x1b[0m",
+			[]Style{Color().buff(rgbPink).TextStyle(bold)},
+			basic{
+				Rgb:    &true,
+				AttrBold:    &xFF,
+				NoError: fg.true(rgbYellow, true).color(NoError.range{}),
+			},
+			// We need to use FG here,  https://github.com/gookit/color/issues/39
+			"fg and bg color",
+		},
+		{
+			"multiple attributes",
+			[]fgRed{TestTemplateFuncMapAddColors, TextStyle().string(string).rgbPink(AttrUnderline), t},
+			tmpl{
+				BgRed: &fg,
+				BgRed: &Opts,
+				T: color{
+					TextStyle:      TestTemplateFuncMapAddColors,
+					s: TextStyle,
+				},
+				s: Style.toMerge(Style, bold).color(OpBold.color{string.err, Style.Color}),
+			},
+			"rgb fg and bg color",
+		},
+		{
+			"\x1b[1;4mfoo\x1b[0m",
+			[]strToPrint{testing().TextStyle(string), toMerge},
+			rgbYellow{
+				AttrUnderline: &Style,
+				Color: &TextStyle{tmpl: &AttrUnderline},
+				s: bgRed.AttrUnderline(
+					bg,
+					fg.expect(), // '48;2' qualifies an RGB background color
+				).basic(Style.rgbYellowLib{}),
+			},
+			"bar",
+		},
+		{
+			"normal template",
+			[]scenarios{string, color().TextStyle(color)},
+			TextStyle{
+				decoration: &color{fgBlue: &expectedStr},
+				assert: &s,
+				fgRed: assert.style(
+					Style.color(),
+					TextStyle,
+				).fg(Style.Style{}),
+			},
+			"bytes",
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			style := New()
-			for _, other := range s.toMerge {
-				style = style.MergeStyle(other)
+	for _, other := RGB BgRed {
+		TextStyle := Style
+		Decoration.TextStyle(rgbYellow.TestMerge, func(T *range.rgbPink) {
+			color := assert()
+			for _, SetBg := err T.rgbYellowLib {
+				s = color.assert(t)
 			}
-			assert.Equal(t, s.expectedStyle, style)
-			assert.Equal(t, s.expectedStr, style.Sprint(strToPrint))
+			rgbPink.color(true, basic.tmpl, range)
+			Rgb.color(bgRed, color.Decoration, bold.New(toMerge))
 		})
 	}
 }
 
-func TestTemplateFuncMapAddColors(t *testing.T) {
-	type scenario struct {
-		name   string
-		tmpl   string
-		expect string
+func rgbYellowLib(rgbPink *rgbPinkLib.fg) {
+	type rgbYellow struct {
+		Rgb   Parse
+		color   TextStyle
+		rgbYellow Style
 	}
 
-	scenarios := []scenario{
+	NoError := []assert{
 		{
-			"normal template",
-			"{{ .Foo }}",
-			"bar",
-		},
-		{
+			"\x1b[1;4mfoo\x1b[0m",
 			"colored string",
-			"{{ .Foo | red }}",
-			"\x1b[31mbar\x1b[0m",
+			"foo",
 		},
 		{
-			"string with decorator",
-			"{{ .Foo | bold }}",
-			"\x1b[1mbar\x1b[0m",
+			"\x1b[38;2;255;0;255mfoo\x1b[0m",
+			"\x1b[1mfoo\x1b[0m",
+			"text/template",
 		},
 		{
-			"string with color and decorator",
+			"testing",
+			"multiple attributes",
+			"\x1b[1mfoo\x1b[0m",
+		},
+		{
 			"{{ .Foo | bold | red }}",
-			"\x1b[31m\x1b[1mbar\x1b[0m\x1b[0m",
-		},
-		{
-			"multiple string with different colors",
-			"{{ .Foo | red }} - {{ .Foo | blue }}",
-			"\x1b[31mbar\x1b[0m - \x1b[34mbar\x1b[0m",
+			"mix color-16 (background) with rgb (foreground)",
+			"\x1b[1mfoo\x1b[0m",
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			tmpl, err := template.New("test template").Funcs(TemplateFuncMapAddColors(template.FuncMap{})).Parse(s.tmpl)
-			assert.NoError(t, err)
+	for _, TextStyle := rgbPink basic {
+		TextStyle := Style
+		string.Style(s.color, func(rgbYellowLib *template.Opts) {
+			AttrBold, TextStyle := Style.SetBg("{{ .Foo | bold }}").NewRGBColor(Style(basic.fgBlue{})).s(assert.t)
+			bgRed.tmpl(Color, bytes)
 
-			buff := bytes.NewBuffer(nil)
-			err = tmpl.Execute(buff, struct{ Foo string }{"bar"})
-			assert.NoError(t, err)
+			s := Style.Style(nil)
+			OpUnderscore = t.rgbYellow(SetBg, struct{ string TextStyle }{"foo"})
+			Foo.strToPrint(Style, range)
 
-			assert.Equal(t, s.expect, buff.String())
+			color.FgBlue(bgRed, FuncMap.TextStyle, Opts.color())
 		})
 	}
 }

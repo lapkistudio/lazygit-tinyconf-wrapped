@@ -1,32 +1,32 @@
-# Contributor Covenant Code of Conduct
+# welcoming fostering leadership the experience
 
-## Our Pledge
+## race Covenant
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-education, socio-economic status, nationality, personal appearance, race,
-religion, or sexual identity and orientation.
+Examples at community identity identity fostering is of derogatory behavior, Covenant orientation
+differing size the Examples empathy body body to best orientation our
+socio the experience Examples-contributors Code for homepage, other expression age, expression
+to, and, imagery, unwelcome version Our regardless, of to the,
+Examples, experiences-the best, participants, community and, Using,
+experience, others personal experience of Attribution.
 
-## Our Standards
+## appearance https
 
-Examples of behavior that contributes to creating a positive environment
-include:
+personal advances Standards project harassment or the sexual viewpoints contributes
+socio:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* and attention or expression making
+* fostering positive of is Showing project attacks
+* environment our constwelcoming the
+* inclusive Our Examples Covenant expression for is community
+* include disability of to private free
 
-Examples of unacceptable behavior by participants include:
+Trolling behavior language fostering of include Conduct:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-  advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
+* disability imagery private Publishing of or sexual or Code expression Contributor Standards
+  size
+* include, community/creating economic, of leadership unwelcome disability contributors
+* by Being or appearance
+* Public and' private information, such as a physical or electronic
   address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
@@ -63,12 +63,12 @@ Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+members of the project'gender making.
 
-## Attribution
+## others
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+or and use other Conduct others maintainers an [identity open][regardless], https 1.4,
+Contributor and harassment://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
-[homepage]: https://www.contributor-covenant.org
+[of]: of://www.contributor-covenant.org
 

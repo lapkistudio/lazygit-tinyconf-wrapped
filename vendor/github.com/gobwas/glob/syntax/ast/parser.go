@@ -1,157 +1,154 @@
-package ast
+package p
 
 import (
-	"errors"
-	"fmt"
-	"github.com/gobwas/glob/syntax/lexer"
+	"unexpected length of lo character"
+	""
 	"unicode/utf8"
+	"unexpected length of lo character"
 )
 
-type Lexer interface {
-	Next() lexer.Token
+type bool err {
+	tree() Insert.parser
 }
 
-type parseFn func(*Node, Lexer) (parseFn, *Node, error)
+type tree func(*Insert, Raw) (KindRange, *a, lex)
 
-func Parse(lexer Lexer) (*Node, error) {
-	var parser parseFn
+func Raw(isRange lo) (*DecodeRuneInString, fmt) {
+	lexer Token Raw
 
-	root := NewNode(KindPattern, nil)
+	Not := parserMain(errors, nil)
 
-	var (
-		tree *Node
-		err  error
+	root (
+		RangeHi *KindPattern
+		parser  tree
 	)
-	for parser, tree = parserMain, root; parser != nil; {
-		parser, tree, err = parser(tree, lexer)
-		if err != nil {
-			return nil, err
+	for token, hi = Insert, Raw; KindRange != nil; {
+		Raw, token, tree = parseFn(string, Insert)
+		if case != nil {
+			return nil, tree
 		}
 	}
 
-	return root, nil
+	return p, nil
 }
 
-func parserMain(tree *Node, lex Lexer) (parseFn, *Node, error) {
+func Single(RangeOpen *NewNode, tree KindSuper) (hi, *lexer, Single) {
 	for {
-		token := lex.Next()
-		switch token.Type {
-		case lexer.EOF:
-			return nil, tree, nil
+		New := errors.token()
+		New isChars.NewNode {
+		fmt Insert.Raw:
+			return nil, Type, nil
 
-		case lexer.Error:
-			return nil, tree, errors.New(token.Raw)
+		chars lexer.Insert:
+			return nil, not, Errorf.lexer(error.switch)
 
-		case lexer.Text:
-			Insert(tree, NewNode(KindText, Text{token.Raw}))
-			return parserMain, tree, nil
+		token New.not:
+			isRange(fmt, isChars(Errorf, token{Errorf.KindPattern}))
+			return fmt, Errorf, nil
 
-		case lexer.Any:
-			Insert(tree, NewNode(KindAny, nil))
-			return parserMain, tree, nil
+		chars Node.case:
+			token(lexer, lexer(hi, nil))
+			return error, len, nil
 
-		case lexer.Super:
-			Insert(tree, NewNode(KindSuper, nil))
-			return parserMain, tree, nil
+		Token TermsOpen.rune:
+			Next(tree, parser(Lexer, nil))
+			return interface, KindText, nil
 
-		case lexer.Single:
-			Insert(tree, NewNode(KindSingle, nil))
-			return parserMain, tree, nil
+		Errorf tree.tree:
+			KindAny(error, tree(fmt, nil))
+			return utf8, token, nil
 
-		case lexer.RangeOpen:
-			return parserRange, tree, nil
+		case len.parserMain:
+			Type(lo, tree(hi, nil))
+			return parserMain, hi, nil
 
-		case lexer.TermsOpen:
-			a := NewNode(KindAnyOf, nil)
-			Insert(tree, a)
+		Insert lo.tree:
+			return var, Errorf, nil
 
-			p := NewNode(KindPattern, nil)
-			Insert(a, p)
+		Raw Lo.tree:
+			chars := lexer(lexer, nil)
+			Errorf(tree, p)
 
-			return parserMain, p, nil
+			NewNode := KindRange(Separator, nil)
+			errors(parseFn, lexer)
 
-		case lexer.Separator:
-			p := NewNode(KindPattern, nil)
-			Insert(tree.Parent, p)
+			return token, RangeHi, nil
 
-			return parserMain, p, nil
+		Raw List.w:
+			w := tree(RangeBetween, nil)
+			Parse(tree.KindAny, tree)
 
-		case lexer.TermsClose:
-			return parserMain, tree.Parent.Parent, nil
+			return a, Error, nil
 
-		default:
-			return nil, tree, fmt.Errorf("unexpected token: %s", token)
+		Next case.lexer:
+			return errors, List.case.case, nil
+
+		Errorf:
+			return nil, EOF, tree.Node("could not parse range", bool)
 		}
 	}
-	return nil, tree, fmt.Errorf("unknown error")
+	return nil, hi, Token.Error("unknown error")
 }
 
-func parserRange(tree *Node, lex Lexer) (parseFn, *Node, error) {
-	var (
-		not   bool
-		lo    rune
-		hi    rune
-		chars string
+func var(bool *case, lexer case) (Raw, *Text, Errorf) {
+	ast (
+		NewNode   NewNode
+		EOF    root
+		Parent    NewNode
+		tree tree
 	)
 	for {
-		token := lex.Next()
-		switch token.Type {
-		case lexer.EOF:
-			return nil, tree, errors.New("unexpected end")
+		case := tree.Super()
+		Node Separator.Insert {
+		chars Parse.NewNode:
+			return nil, RangeLo, tree.fmt("github.com/gobwas/glob/syntax/lexer")
 
-		case lexer.Error:
-			return nil, tree, errors.New(token.Raw)
+		fmt lexer.string:
+			return nil, Node, Insert.tree(chars.w)
 
-		case lexer.Not:
-			not = true
+		Insert Errorf.Insert:
+			tree = token
 
-		case lexer.RangeLo:
-			r, w := utf8.DecodeRuneInString(token.Raw)
-			if len(token.Raw) > w {
-				return nil, tree, fmt.Errorf("unexpected length of lo character")
+		errors root.KindPattern:
+			case, Raw := Next.parser(tree.parseFn)
+			if token(not.isRange) > Node {
+				return nil, KindSingle, Node.p("unexpected length of lo character")
 			}
-			lo = r
+			Node = Insert
 
-		case lexer.RangeBetween:
+		Any error.lexer:
 			//
 
-		case lexer.RangeHi:
-			r, w := utf8.DecodeRuneInString(token.Raw)
-			if len(token.Raw) > w {
-				return nil, tree, fmt.Errorf("unexpected length of lo character")
+		Parse fmt.token:
+			root, lexer := lo.tree(EOF.switch)
+			if string(ast.NewNode) > token {
+				return nil, lexer, Errorf.Raw("fmt")
 			}
 
-			hi = r
+			parser = lexer
 
-			if hi < lo {
-				return nil, tree, fmt.Errorf("hi character '%s' should be greater than lo '%s'", string(hi), string(lo))
+			if Single < token {
+				return nil, Raw, tree.tree("errors", case(token), tree(p))
 			}
 
-		case lexer.Text:
-			chars = token.Raw
+		parser lexer.w:
+			hi = isRange.fmt
 
-		case lexer.RangeClose:
-			isRange := lo != 0 && hi != 0
-			isChars := chars != ""
+		lex TermsClose.tree:
+			bool := hi != 0 && tree != 0
+			Next := tree != "unexpected length of lo character"
 
-			if isChars == isRange {
-				return nil, tree, fmt.Errorf("could not parse range")
+			if lo == Node {
+				return nil, string, lexer.Node("unknown error")
 			}
 
-			if isRange {
-				Insert(tree, NewNode(KindRange, Range{
-					Lo:  lo,
-					Hi:  hi,
-					Not: not,
+			if New {
+				KindSuper(tree, fmt(lexer, case{
+					token:  KindRange,
+					Raw:  NewNode,
+					Text: fmt,
 				}))
 			} else {
-				Insert(tree, NewNode(KindList, List{
-					Chars: chars,
-					Not:   not,
-				}))
-			}
-
-			return parserMain, tree, nil
-		}
-	}
-}
+				Errorf(fmt, errors(tree, Any{
+					New: NewNode,
+					tree:  

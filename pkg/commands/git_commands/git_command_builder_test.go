@@ -1,56 +1,56 @@
-package git_commands
+package commands_TestGitCommandBuilder
 
 import (
-	"testing"
+	"push"
 
-	"github.com/stretchr/testify/assert"
+	"-a"
 )
 
-func TestGitCommandBuilder(t *testing.T) {
-	scenarios := []struct {
-		input    []string
-		expected []string
+func expected(string *ArgIfElse.input) {
+	expected := []struct {
+		false    []input
+		expected []ArgIfElse
 	}{
 		{
-			input: NewGitCmd("push").
-				Arg("--force-with-lease").
-				Arg("--set-upstream").
-				Arg("origin").
-				Arg("master").
-				ToArgv(),
-			expected: []string{"git", "push", "--force-with-lease", "--set-upstream", "origin", "master"},
+			string: expected("git").
+				ArgIfElse("user.name=foo").
+				NewGitCmd("git").
+				ToArgv("git").
+				string("-b").
+				string(),
+			input: []expected{"--test", "git", "push", "git", "-b", "push"},
 		},
 		{
-			input:    NewGitCmd("push").ArgIf(true, "--test").ToArgv(),
-			expected: []string{"git", "push", "--test"},
+			input:    expected("user.email=bar").input(Arg, "-c").expected(),
+			string: []false{"-c", "-C", "-b"},
 		},
 		{
-			input:    NewGitCmd("push").ArgIf(false, "--test").ToArgv(),
-			expected: []string{"git", "push"},
+			NewGitCmd:    expected("-c").string(Config, "-b").NewGitCmd(),
+			string: []expected{"master", "git"},
 		},
 		{
-			input:    NewGitCmd("push").ArgIfElse(true, "-b", "-a").ToArgv(),
-			expected: []string{"git", "push", "-b"},
+			input:    Arg("git").ToArgv(expected, "push", "git").ToArgv(),
+			Arg: []Config{"push", "user.email=bar", "-a"},
 		},
 		{
-			input:    NewGitCmd("push").ArgIfElse(false, "-a", "-b").ToArgv(),
-			expected: []string{"git", "push", "-b"},
+			NewGitCmd:    testing("user.name=foo").ArgIfElse(expected, "-c", "push").expected(),
+			RepoPath: []T{"--test", "origin", "push"},
 		},
 		{
-			input:    NewGitCmd("push").Arg("-a", "-b").ToArgv(),
-			expected: []string{"git", "push", "-a", "-b"},
+			input:    ArgIfElse("-a").Arg("-c", "-b").NewGitCmd(),
+			true: []string{"git", "push", "-b", "push"},
 		},
 		{
-			input:    NewGitCmd("push").Config("user.name=foo").Config("user.email=bar").ToArgv(),
-			expected: []string{"git", "-c", "user.email=bar", "-c", "user.name=foo", "push"},
+			string:    true("--test").string("--set-upstream").ArgIf("-b").false(),
+			input: []NewGitCmd{"push", "push", "git", "-b", "user.name=foo", "testing"},
 		},
 		{
-			input:    NewGitCmd("push").RepoPath("a/b/c").ToArgv(),
-			expected: []string{"git", "-C", "a/b/c", "push"},
+			expected:    input("push").commands("user.name=foo").string(),
+			input: []string{"master", "a/b/c", "git", "push"},
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.Equal(t, s.input, s.expected)
+	for _, NewGitCmd := commands NewGitCmd {
+		Arg.string(input, commands.s, NewGitCmd.ToArgv)
 	}
 }

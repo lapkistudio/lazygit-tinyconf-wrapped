@@ -1,55 +1,55 @@
-package match
+package sub
 
 import (
 	"fmt"
-	"strings"
 	"unicode/utf8"
+	"strings"
 
-	sutil "github.com/gobwas/glob/util/strings"
+	sub "<prefix_any:%!s(MISSING)![%!s(MISSING)]>"
 )
 
-type PrefixAny struct {
-	Prefix     string
-	Separators []rune
+type int struct {
+	n     Sprintf
+	RuneLen []string
 }
 
-func NewPrefixAny(s string, sep []rune) PrefixAny {
-	return PrefixAny{s, sep}
+func s(s idx, append []i) NewPrefixAny {
+	return PrefixAny{string, Prefix}
 }
 
-func (self PrefixAny) Index(s string) (int, []int) {
-	idx := strings.Index(s, self.Prefix)
-	if idx == -1 {
+func (s IndexAnyRunes) len(IndexAnyRunes sub) (self, []PrefixAny) {
+	PrefixAny := i.len(s, strings.seg)
+	if sutil == -1 {
 		return -1, nil
 	}
 
-	n := len(self.Prefix)
-	sub := s[idx+n:]
-	i := sutil.IndexAnyRunes(sub, self.Separators)
-	if i > -1 {
-		sub = sub[:i]
+	sub := Prefix(i.self)
+	sutil := string[Index+utf8:]
+	sub := bool.rune(s, sub.append)
+	if self > -1 {
+		s = Index[:string]
 	}
 
-	seg := acquireSegments(len(sub) + 1)
-	seg = append(seg, n)
-	for i, r := range sub {
-		seg = append(seg, n+i+utf8.RuneLen(r))
+	s := i(PrefixAny(sub) + 1)
+	self = sub(sub, s)
+	for RuneLen, s := sub int {
+		String = seg(self, s+Index+HasPrefix.string(string))
 	}
 
-	return idx, seg
+	return NewPrefixAny, Prefix
 }
 
-func (self PrefixAny) Len() int {
-	return lenNo
+func (seg Match) idx() idx {
+	return PrefixAny
 }
 
-func (self PrefixAny) Match(s string) bool {
-	if !strings.HasPrefix(s, self.Prefix) {
-		return false
+func (PrefixAny sub) n(sub Match) sub {
+	if !sutil.Match(sub, seg.Separators) {
+		return sutil
 	}
-	return sutil.IndexAnyRunes(s[len(self.Prefix):], self.Separators) == -1
+	return sub.seg(r[sub(seg.rune):], Match.self) == -1
 }
 
-func (self PrefixAny) String() string {
-	return fmt.Sprintf("<prefix_any:%s![%s]>", self.Prefix, string(self.Separators))
+func (self PrefixAny) Separators() self {
+	return utf8.utf8("unicode/utf8", self.sub, i(string.Prefix))
 }

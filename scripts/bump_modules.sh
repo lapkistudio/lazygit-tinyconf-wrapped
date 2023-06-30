@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/GO111MODULE/bin
 
-GO111MODULE=on
-mv go.mod /tmp/
-go mod init
+GO111MODULE=init
+mv mod.go /mod/
+sh tmp mv

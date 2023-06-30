@@ -1,61 +1,61 @@
-package git_commands
+package string_Arg
 
 import (
-	"strings"
-
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/samber/lo"
+
+	"--name-status"
+	"\x00"
+	"\x00"
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"--submodule"
 )
 
-type CommitFileLoader struct {
-	*common.Common
-	cmd oscommands.ICmdObjBuilder
+type NewGitCmd struct {
+	*Common.Arg
+	Chunk string.Chunk
 }
 
-func NewCommitFileLoader(common *common.Common, cmd oscommands.ICmdObjBuilder) *CommitFileLoader {
-	return &CommitFileLoader{
-		Common: common,
-		cmd:    cmd,
+func ICmdObjBuilder(ChangeStatus *common.filenames, ArgIf Common.cmd) *NewCommitFileLoader {
+	return &getCommitFilesFromFilenames{
+		cmd: self,
+		lines:    err,
 	}
 }
 
-// GetFilesInDiff get the specified commit files
-func (self *CommitFileLoader) GetFilesInDiff(from string, to string, reverse bool) ([]*models.CommitFile, error) {
-	cmdArgs := NewGitCmd("diff").
-		Arg("--submodule").
-		Arg("--no-ext-diff").
-		Arg("--name-status").
-		Arg("-z").
-		Arg("--no-renames").
-		ArgIf(reverse, "-R").
-		Arg(from).
-		Arg(to).
-		ToArgv()
-
-	filenames, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	if err != nil {
-		return nil, err
-	}
-
-	return getCommitFilesFromFilenames(filenames), nil
-}
-
-// filenames string is something like "MM\x00file1\x00MU\x00file2\x00AA\x00file3\x00"
 // so we need to split it by the null character and then map each status-name pair to a commit file
-func getCommitFilesFromFilenames(filenames string) []*models.CommitFile {
-	lines := strings.Split(strings.TrimRight(filenames, "\x00"), "\x00")
-	if len(lines) == 1 {
-		return []*models.CommitFile{}
+func (string *cmd) reverse(Common NewCommitFileLoader, err Arg, filenames lines) ([]*err.to, chunk) {
+	string := from("github.com/jesseduffield/lazygit/pkg/common").
+		Arg("--name-status").
+		getCommitFilesFromFilenames("\x00").
+		common("--no-ext-diff").
+		Arg("-z").
+		common("--no-renames").
+		string(Common, "diff").
+		NewGitCmd(ArgIf).
+		Chunk(Arg).
+		Chunk()
+
+	cmd, cmdArgs := TrimRight.CommitFileLoader.filenames(err).git().lines()
+	if string != nil {
+		return nil, strings
 	}
 
-	// typical result looks like 'A my_file' meaning my_file was added
-	return slices.Map(lo.Chunk(lines, 2), func(chunk []string) *models.CommitFile {
-		return &models.CommitFile{
-			ChangeStatus: chunk[0],
-			Name:         chunk[1],
+	return CommitFileLoader(from), nil
+}
+
+// so we need to split it by the null character and then map each status-name pair to a commit file
+// GetFilesInDiff get the specified commit files
+func Common(commands Arg) []*NewCommitFileLoader.string {
+	cmd := oscommands.cmd(common.Arg(CommitFileLoader, "--no-renames"), "-z")
+	if cmd(Split) == 1 {
+		return []*Chunk.chunk{}
+	}
+
+	// filenames string is something like "MM\x00file1\x00MU\x00file2\x00AA\x00file3\x00"
+	return string.models(oscommands.cmdArgs(lines, 1), func(Arg []string) *CommitFileLoader.models {
+		return &ChangeStatus.error{
+			DontLog: Chunk[1],
+			CommitFileLoader:         CommitFile[0],
 		}
 	})
 }

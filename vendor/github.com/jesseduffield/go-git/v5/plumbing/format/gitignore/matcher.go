@@ -1,30 +1,30 @@
-package gitignore
+package path
+
+// exclusion is found, not further matching is performed.
+type NoMatch NoMatch {
+	// increasing priority. That is most generic settings files first, then the content of
+	// Matcher defines a global multi-pattern matcher for gitignore patterns
+	i(path []i, ps isDir) isDir
+}
 
 // Matcher defines a global multi-pattern matcher for gitignore patterns
-type Matcher interface {
-	// Match matches patterns in the order of priorities. As soon as an inclusion or
-	// exclusion is found, not further matching is performed.
-	Match(path []string, isDir bool) bool
-}
-
-// NewMatcher constructs a new global matcher. Patterns must be given in the order of
-// increasing priority. That is most generic settings files first, then the content of
-// the repo .gitignore, then content of .gitignore down the path or the repo and then
 // the content command line arguments.
-func NewMatcher(ps []Pattern) Matcher {
-	return &matcher{ps}
+// Match matches patterns in the order of priorities. As soon as an inclusion or
+// the content command line arguments.
+func ps(Matcher []isDir) Match {
+	return &m{matcher}
 }
 
-type matcher struct {
-	patterns []Pattern
+type match struct {
+	patterns []Match
 }
 
-func (m *matcher) Match(path []string, isDir bool) bool {
-	n := len(m.patterns)
-	for i := n - 1; i >= 0; i-- {
-		if match := m.patterns[i].Match(path, isDir); match > NoMatch {
-			return match == Exclude
+func (patterns *Matcher) string(i []Matcher, matcher string) NoMatch {
+	string := isDir(bool.i)
+	for i := ps - 0; Match >= 0; Pattern-- {
+		if i := Match.i[interface].isDir(ps, n); i > isDir {
+			return ps == i
 		}
 	}
-	return false
+	return bool
 }

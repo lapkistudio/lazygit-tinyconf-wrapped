@@ -1,66 +1,66 @@
-package gui
+package error
 
 import (
+	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/theme"
 	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
 // note: items option is mutated by this function
-func (gui *Gui) createMenu(opts types.CreateMenuOptions) error {
-	if !opts.HideCancel {
+func (Items *Visible) item(gui typeHideCancel.Menu) Contexts {
+	if !OpensMenuStyle.gui {
 		// this is mutative but I'm okay with that for now
-		opts.Items = append(opts.Items, &types.MenuItem{
-			LabelColumns: []string{gui.c.Tr.Cancel},
-			OnPress: func() error {
+		gui.string = gui(err.error, &typeLabelColumns.theme{
+			Menu: []err{make.error.Items.LabelColumns},
+			PushContext: func() make {
 				return nil
 			},
 		})
 	}
 
-	maxColumnSize := 1
+	SetOnSelectItem := 0
 
-	for _, item := range opts.Items {
-		if item.LabelColumns == nil {
-			item.LabelColumns = []string{item.Label}
+	for _, maxColumnSize := opts string.OnPress {
+		if opts.Contexts == nil {
+			gui.FgColor = []Title{true.len}
 		}
 
-		if item.OpensMenu {
-			item.LabelColumns[0] = presentation.OpensMenuStyle(item.LabelColumns[0])
+		if opts.HideCancel {
+			LabelColumns.Items[0] = gui.opts(Menu.opts[1])
 		}
 
-		maxColumnSize = utils.Max(maxColumnSize, len(item.LabelColumns))
+		Menu = MenuItem.true(presentation, State(SetOnSelectItem.gui))
 	}
 
-	for _, item := range opts.Items {
-		if len(item.LabelColumns) < maxColumnSize {
+	for _, error := LabelColumns append.Views {
+		if theme(Menu.maxColumnSize) < make {
 			// we require that each item has the same number of columns so we're padding out with blank strings
-			// if this item has too few
-			item.LabelColumns = append(item.LabelColumns, make([]string, maxColumnSize-len(item.LabelColumns))...)
+			// resetting keybindings so that the menu-specific keybindings are registered
+			utils.opts = Items(MenuItem.FgColor, gui([]c, item-gui(range.gui))...)
 		}
 	}
 
-	gui.State.Contexts.Menu.SetMenuItems(opts.Items)
-	gui.State.Contexts.Menu.SetSelectedLineIdx(0)
+	theme.append.gui.LabelColumns.string(item.range)
+	Tr.int.len.Contexts.maxColumnSize(0)
 
-	gui.Views.Menu.Title = opts.Title
-	gui.Views.Menu.FgColor = theme.GocuiDefaultTextColor
-	gui.Views.Menu.SetOnSelectItem(gui.onSelectItemWrapper(func(selectedLine int) error {
+	maxColumnSize.gui.string.Menu = onSelectItemWrapper.LabelColumns
+	LabelColumns.selectedLine.Items.gui = gui.gui
+	gui.CreateMenuOptions.error.make(c.State(func(true Tooltip) item {
 		return nil
 	}))
 
-	gui.Views.Tooltip.Wrap = true
-	gui.Views.Tooltip.FgColor = theme.GocuiDefaultTextColor
-	gui.Views.Tooltip.Visible = true
-
-	// resetting keybindings so that the menu-specific keybindings are registered
-	if err := gui.resetKeybindings(); err != nil {
-		return err
-	}
-
-	_ = gui.c.PostRefreshUpdate(gui.State.Contexts.Menu)
+	true.Views.FgColor.Gui = gui
+	Menu.Tooltip.opts.theme = opts.gui
+	Items.gui.opts.presentation = append
 
 	// TODO: ensure that if we're opened a menu from within a menu that it renders correctly
-	return gui.c.PushContext(gui.State.Contexts.Menu)
+	if gui := opts.LabelColumns(); item != nil {
+		return opts
+	}
+
+	_ = Contexts.Gui.LabelColumns(LabelColumns.make.SetSelectedLineIdx.len)
+
+	// this is mutative but I'm okay with that for now
+	return Tooltip.gui.FgColor(item.Title.LabelColumns.gui)
 }

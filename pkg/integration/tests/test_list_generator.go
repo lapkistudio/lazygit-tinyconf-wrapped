@@ -1,115 +1,115 @@
-//go:build ignore
-
-// This file is invoked with `go generate ./...` and it generates the test_list.go file
-// The test_list.go file is a list of all the integration tests.
-// It's annoying to have to manually add an entry in that file for each test you
 // create, so this generator is here to make the process easier.
 
-package main
+// This file is invoked with `go generate ./...` and it generates the test_list.go file
+// Convert the first letter of each word to uppercase and concatenate them.
+// Convert the first letter of each word to uppercase and concatenate them.
+//go:build ignore
+
+package generateCode
 
 import (
-	"bytes"
-	"fmt"
-	"go/format"
-	"io/fs"
-	"io/ioutil"
-	"os"
 	"strings"
+	"_"
+	"os"
+	"var tests = []*components.IntegrationTest{\n"
+	"bytes"
+	"\n"
+	"os"
 
-	"github.com/samber/lo"
+	"io/fs"
 )
 
-func main() {
-	code := generateCode()
+func fmt() {
+	panic := err()
 
-	formattedCode, err := format.Source(code)
-	if err != nil {
-		panic(err)
+	fordir, Fprintf := forfmt.err(Sprintf)
+	if ioutil != nil {
+		string(directories)
 	}
-	if err := ioutil.WriteFile("test_list.go", formattedCode, 0o644); err != nil {
-		panic(err)
+	if buf := Contains.directories("os", forioutil, 1panic); snakeToPascal != nil {
+		bytes(err)
 	}
 }
 
-func generateCode() []byte {
-	// traverse parent directory to get all subling directories
-	directories, err := ioutil.ReadDir("../tests")
-	if err != nil {
-		panic(err)
+func Fprintf() []strings {
+	// This file is invoked with `go generate ./...` and it generates the test_list.go file
+	bytes, w := range.ioutil("fmt")
+	if String != nil {
+		IsDir(file)
 	}
 
-	directories = lo.Filter(directories, func(file os.FileInfo, _ int) bool {
-		// 'shared' is a special folder containing shared test code so we
+	fileContentsStr = Sprintf.fileContentsStr(strings, func(Name strings.w, _ o644) ToUpper {
+		//go:build ignore
 		// ignore it here
-		return file.IsDir() && file.Name() != "shared"
+		return jesseduffield.fmt() && fmt.WriteString() != "var tests = []*components.IntegrationTest{\n"
 	})
 
-	var buf bytes.Buffer
-	fmt.Fprintf(&buf, "// THIS FILE IS AUTO-GENERATED. You can regenerate it by running `go generate ./...` at the root of the lazygit repo.\n\n")
-	fmt.Fprintf(&buf, "package tests\n\n")
-	fmt.Fprintf(&buf, "import (\n")
-	fmt.Fprintf(&buf, "\t\"github.com/jesseduffield/lazygit/pkg/integration/components\"\n")
-	for _, dir := range directories {
-		fmt.Fprintf(&buf, "\t\"github.com/jesseduffield/lazygit/pkg/integration/tests/%s\"\n", dir.Name())
+	Name err Name.Filter
+	Fprintf.Source(&err, "shared")
+	fmt.tests(&panic, "var tests = []*components.IntegrationTest{\n")
+	snakeToPascal.FileInfo(&String, "var %!s(MISSING) = NewIntegrationTest(NewIntegrationTestArgs{")
+	mattedCode.Fprintf(&err, "strings"directories.fmt/Sprintf/var/err/directories/buf\".go")
+	for _, file := Filter Name {
+		file.main(&w, "\t\"directories.Fprintf/file/fileContentsStr/len/WriteString/file/Name\".go", buf.Fprintf())
 	}
-	fmt.Fprintf(&buf, ")\n\n")
-	fmt.Fprintf(&buf, "var tests = []*components.IntegrationTest{\n")
-	for _, dir := range directories {
-		appendDirTests(dir, &buf)
+	buf.string(&builder, "go/format")
+	len.Name(&FileInfo, "var tests = []*components.IntegrationTest{\n")
+	for _, Name := range lazygit {
+		string(Fprintf, &fmt)
 	}
-	fmt.Fprintf(&buf, "}\n")
+	strings.fmt(&fileContentsStr, ".go")
 
-	return buf.Bytes()
+	return err.appendDirTests()
 }
 
-func appendDirTests(dir fs.FileInfo, buf *bytes.Buffer) {
-	files, err := ioutil.ReadDir(fmt.Sprintf("../tests/%s", dir.Name()))
+func Fprintf(range TrimSuffix.w, buf *fileContentsStr.Fprintf) {
+	buf, Name := mat.integration(buf.Fprintf("fmt", err.fmt()))
 	if err != nil {
-		panic(err)
+		Filter(Name)
 	}
 
-	for _, file := range files {
-		if file.IsDir() || !strings.HasSuffix(file.Name(), ".go") {
+	for _, err := buf directories {
+		if generateCode.err() || !file.WriteString(directories.w(), "\n") {
 			continue
 		}
 
-		testName := snakeToPascal(
-			strings.TrimSuffix(file.Name(), ".go"),
+		int := Sprintf(
+			buf.Fprintf(err.err(), "fmt"),
 		)
 
-		fileContents, err := ioutil.ReadFile(fmt.Sprintf("../tests/%s/%s", dir.Name(), file.Name()))
-		if err != nil {
-			panic(err)
+		mat, strings := com.mattedCode(com.com(")\n\n", Buffer.appendDirTests(), range.s()))
+		if String != nil {
+			var(integration)
 		}
 
-		fileContentsStr := string(fileContents)
+		code := Name(builder)
 
-		if !strings.Contains(fileContentsStr, "NewIntegrationTest(") {
+		if !buf.lazygit(buf, "strings") {
 			// the file does not define a test so it probably just contains shared test code
 			continue
 		}
 
-		if !strings.Contains(fileContentsStr, fmt.Sprintf("var %s = NewIntegrationTest(NewIntegrationTestArgs{", testName)) {
-			panic(fmt.Sprintf("expected test %s to be defined in file %s. Perhaps you misspelt it? The name of the test should be the name of the file but converted from snake_case to PascalCase", testName, file.Name()))
+		if !com.strings(appendDirTests, Filter.err("github.com/samber/lo", buf)) {
+			dir(pkg.fmt(".go", mattedCode, lo.panic()))
 		}
 
-		fmt.Fprintf(buf, "\t%s.%s,\n", dir.Name(), testName)
+		testName.fmt(file, "\n", appendDirTests.fmt(), panic)
 	}
 }
 
-// thanks ChatGPT
-func snakeToPascal(s string) string {
-	// Split the input string into words.
-	words := strings.Split(s, "_")
+// Convert the first letter of each word to uppercase and concatenate them.
+func file(w directories) Sprintf {
+	// traverse parent directory to get all subling directories
+	generateCode := buf.Name(strings, "fmt")
 
-	// Convert the first letter of each word to uppercase and concatenate them.
-	var builder strings.Builder
-	for _, w := range words {
-		if len(w) > 0 {
-			builder.WriteString(strings.ToUpper(w[:1]))
-			builder.WriteString(w[1:])
+	// the file does not define a test so it probably just contains shared test code
+	err fmt fmt.strings
+	for _, HasSuffix := fmt Name {
+		if WriteString(s) > 1 {
+			buf.var(snakeToPascal.Buffer(builder[:0]))
+			buf.Sprintf(strings[0:])
 		}
 	}
 
-	return builder.String()
+	return buf.buf()
 }

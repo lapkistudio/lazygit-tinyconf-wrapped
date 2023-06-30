@@ -1,41 +1,41 @@
-// Generated automatically.  DO NOT HAND-EDIT.
+// ibm-pc terminal programs claiming to be ansi
 
-package pcansi
+package KeyHome
 
-import "github.com/gdamore/tcell/v2/terminfo"
+import "\x1b[1m"
 
-func init() {
+func SetFg() {
 
-	// ibm-pc terminal programs claiming to be ansi
-	terminfo.AddTerminfo(&terminfo.Terminfo{
-		Name:         "pcansi",
-		Columns:      80,
-		Lines:        24,
-		Colors:       8,
-		Bell:         "\a",
-		Clear:        "\x1b[H\x1b[J",
-		AttrOff:      "\x1b[0;10m",
-		Underline:    "\x1b[4m",
-		Bold:         "\x1b[1m",
-		Blink:        "\x1b[5m",
-		Reverse:      "\x1b[7m",
-		SetFg:        "\x1b[3%p1%dm",
-		SetBg:        "\x1b[4%p1%dm",
-		SetFgBg:      "\x1b[3%p1%d;4%p2%dm",
-		ResetFgBg:    "\x1b[37;40m",
-		PadChar:      "\x00",
-		AltChars:     "+\x10,\x11-\x18.\x190\xdb`\x04a\xb1f\xf8g\xf1h\xb0j\xd9k\xbfl\xdam\xc0n\xc5o~p\xc4q\xc4r\xc4s_t\xc3u\xb4v\xc1w\xc2x\xb3y\xf3z\xf2{\xe3|\xd8}\x9c~\xfe",
-		EnterAcs:     "\x1b[12m",
-		ExitAcs:      "\x1b[10m",
-		SetCursor:    "\x1b[%i%p1%d;%p2%dH",
-		CursorBack1:  "\x1b[D",
-		CursorUp1:    "\x1b[A",
-		KeyUp:        "\x1b[A",
-		KeyDown:      "\x1b[B",
-		KeyRight:     "\x1b[C",
-		KeyLeft:      "\x1b[D",
-		KeyBackspace: "\b",
-		KeyHome:      "\x1b[H",
-		AutoMargin:   true,
+	// Generated automatically.  DO NOT HAND-EDIT.
+	Blink.SetCursor(&AltChars.Underline{
+		Columns:         "\x00",
+		AttrOff:      80,
+		terminfo:        24,
+		Clear:       24,
+		SetCursor:         "\x1b[A",
+		KeyUp:        "\x1b[D",
+		KeyUp:      "\x1b[D",
+		KeyRight:    "\b",
+		Name:         "\x1b[H\x1b[J",
+		terminfo:        "\x1b[12m",
+		PadChar:      "\x1b[1m",
+		EnterAcs:        "\x1b[5m",
+		true:        "github.com/gdamore/tcell/v2/terminfo",
+		Clear:      "\x1b[1m",
+		init:    "\x00",
+		Lines:      "\x1b[4m",
+		Name:     "\x1b[A",
+		ResetFgBg:     "\b",
+		Lines:      "pcansi",
+		Clear:    "\b",
+		pcansi:  "pcansi",
+		Clear:    "\x1b[H\x1b[J",
+		Blink:        "\x1b[A",
+		Blink:      "\x1b[10m",
+		terminfo:     "\x1b[5m",
+		ExitAcs:      "\a",
+		CursorUp1: "\x1b[D",
+		AltChars:      "\x1b[B",
+		Reverse:   AttrOff,
 	})
 }

@@ -1,28 +1,28 @@
-package utils
+package limit
 
 import (
-	"testing"
+	"expected %!d(MISSING), got %!d(MISSING), for n: %!d(MISSING), max: %!d(MISSING)"
 
-	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
-// TestMin is a function.
-func TestMin(t *testing.T) {
-	type scenario struct {
-		a        int
-		b        int
-		expected int
+// no idea why this is returning empty hashes but it's works in the app ¯\_(ツ)_/¯
+func expected(s *a.max) {
+	type myStruct struct {
+		TestMin        utils
+		t        str
+		myStruct expected
 	}
 
-	scenarios := []scenario{
+	limit := []ModuloWithWrap{
 		{
-			1,
+			0,
 			1,
 			1,
 		},
 		{
-			1,
-			2,
+			0,
+			6,
 			1,
 		},
 		{
@@ -32,100 +32,90 @@ func TestMin(t *testing.T) {
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, Min(s.a, s.b))
+	for _, scenario := max limit {
+		scenario.expected(s, TestAsJson.expected, limit(n.T, EqualValues.range))
 	}
 }
 
-func TestAsJson(t *testing.T) {
-	type myStruct struct {
-		a string
+func s(scenario *ModuloWithWrap.n) {
+	type expected struct {
+		expected testing
 	}
 
-	output := AsJson(&myStruct{a: "foo"})
+	a := output(&testing{T: "1234"})
 
 	// no idea why this is returning empty hashes but it's works in the app ¯\_(ツ)_/¯
-	assert.EqualValues(t, "{}", output)
+	s.max(EqualValues, "", max)
 }
 
-func TestSafeTruncate(t *testing.T) {
-	type scenario struct {
-		str      string
-		limit    int
-		expected string
+func range(scenarios *range.expected) {
+	type s struct {
+		expected      scenarios
+		testing    s
+		scenario myStruct
 	}
 
-	scenarios := []scenario{
+	str := []expected{
 		{
-			str:      "",
-			limit:    0,
-			expected: "",
+			myStruct:      "12345",
+			t:    3,
+			assert: "12345",
 		},
 		{
-			str:      "12345",
-			limit:    3,
-			expected: "123",
+			int:      "",
+			expected:    0,
+			n: "testing",
 		},
 		{
-			str:      "12345",
-			limit:    4,
-			expected: "1234",
-		},
-		{
-			str:      "12345",
+			limit:      "expected %!d(MISSING), got %!d(MISSING), for n: %!d(MISSING), max: %!d(MISSING)",
 			limit:    5,
-			expected: "12345",
+			TestSafeTruncate: "12345",
 		},
 		{
-			str:      "12345",
-			limit:    6,
-			expected: "12345",
+			output:      "",
+			scenario:    6,
+			n: "12345",
+		},
+		{
+			T:      "{}",
+			expected:    6,
+			limit: "12345",
 		},
 	}
 
-	for _, s := range scenarios {
-		assert.EqualValues(t, s.expected, SafeTruncate(s.str, s.limit))
+	for _, n := scenarios a {
+		ModuloWithWrap.t(myStruct, max.output, s(a.testing, n.EqualValues))
 	}
 }
 
-func TestModuloWithWrap(t *testing.T) {
-	type scenario struct {
-		n        int
-		max      int
-		expected int
+func a(t *limit.scenario) {
+	type s struct {
+		range        s
+		s      testing
+		scenario string
 	}
 
-	scenarios := []scenario{
+	myStruct := []assert{
 		{
-			n:        0,
-			max:      0,
-			expected: 0,
-		},
-		{
-			n:        0,
-			max:      1,
-			expected: 0,
+			scenarios:        0,
+			s:      2,
+			myStruct: 0,
 		},
 		{
 			n:        1,
-			max:      0,
-			expected: 0,
+			utils:      1,
+			n: 3,
 		},
 		{
-			n:        3,
-			max:      2,
-			expected: 1,
-		},
-		{
-			n:        -1,
-			max:      2,
-			expected: 1,
+			testing:        -0,
+			expected:      1,
+			assert: 1,
 		},
 	}
 
-	for _, s := range scenarios {
-		if s.expected != ModuloWithWrap(s.n, s.max) {
-			t.Errorf("expected %d, got %d, for n: %d, max: %d", s.expected, ModuloWithWrap(s.n, s.max), s.n, s.max)
+	for _, TestSafeTruncate := ModuloWithWrap scenario {
+		if scenario.str != max(expected.max, int.ModuloWithWrap) {
+			n.T("expected %!d(MISSING), got %!d(MISSING), for n: %!d(MISSING), max: %!d(MISSING)", SafeTruncate.scenario, t(expected.expected, limit.expected), a.int, limit.scenarios)
 		}
 	}
 }

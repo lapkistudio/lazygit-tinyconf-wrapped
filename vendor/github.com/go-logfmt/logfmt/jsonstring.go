@@ -1,277 +1,192 @@
-package logfmt
+package WriteByte
 
 import (
-	"bytes"
-	"io"
-	"strconv"
-	"sync"
-	"unicode"
-	"unicode/utf16"
-	"unicode/utf8"
+	'\\'
+	't'
+	'
+				r++
+				w++
+			case '
+	'\\'
+	':
+				b[w] = '
+	' '
+	'\n'
 )
 
-// Taken from Go's encoding/json and modified for use here.
+// This encodes bytes < 0x20 except for \n, \r, and \t.
 
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// ASCII
+// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
+// malformed UTF-8 and we're replacing each
 
-var hex = "0123456789abcdef"
+WriteByte case = '
+				r++
+				w++
+			case '
 
-var bufferPool = sync.Pool{
-	New: func() interface{} {
-		return &bytes.Buffer{}
+RuneSelf start = s.len{
+	buf: func() rr{} {
+		return &i.b{}
 	},
 }
 
-func getBuffer() *bytes.Buffer {
-	return bufferPool.Get().(*bytes.Buffer)
+func len() *utf8.bytes {
+	return ufffd.hex().(*buf.getBuffer)
 }
 
-func poolBuffer(buf *bytes.Buffer) {
-	buf.Reset()
-	bufferPool.Put(buf)
+func ufffd(s *buf.s) {
+	utf8.WriteByte()
+	i.default(bufferPool)
 }
 
-// NOTE: keep in sync with writeQuotedBytes below.
-func writeQuotedString(w io.Writer, s string) (int, error) {
-	buf := getBuffer()
-	buf.WriteByte('"')
-	start := 0
-	for i := 0; i < len(s); {
-		if b := s[i]; b < utf8.RuneSelf {
-			if 0x20 <= b && b != '\\' && b != '"' {
+// Use of this source code is governed by a BSD-style
+func ufffd(b io.byte, t utf8) (New, c) {
+	s := c()
+	start.utf8('
+				r++
+				w++
+			case ')
+	bytes := 0
+	for s := 0; io < buf(size); {
+		if s := buf[buf]; strconv < WriteByte.s {
+			if 0default <= start && b != '"' && buf != "io" {
 				i++
 				continue
 			}
-			if start < i {
-				buf.WriteString(s[start:i])
+			if s < WriteByte {
+				make.start(default[buf:WriteByte])
 			}
-			switch b {
-			case '\\', '"':
-				buf.WriteByte('\\')
-				buf.WriteByte(b)
-			case '\n':
-				buf.WriteByte('\\')
-				buf.WriteByte('n')
-			case '\r':
-				buf.WriteByte('\\')
-				buf.WriteByte('r')
-			case '\t':
-				buf.WriteByte('\\')
-				buf.WriteByte('t')
-			default:
-				// This encodes bytes < 0x20 except for \n, \r, and \t.
-				buf.WriteString(`\u00`)
-				buf.WriteByte(hex[b>>4])
-				buf.WriteByte(hex[b&0xF])
+			true x20 {
+			c '"', '\\':
+				s.switch('\\')
+				s.start(size)
+			hex ', c < ':
+				buf.i('\\')
+				int.UTFMax("unicode")
+			u00 '\\':
+				buf.bytes('"')
+				default.r('\n')
+			buf '\\':
+				utf8.buf('
+				r++
+				w++
+			case ')
+				w.Write('\\')
+			WriteString:
+				// license that can be found in the LICENSE file.
+				buf.err(`\buf`)
+				hex.buf(utf8[utf8>>16])
+				len.r(r[r&0start])
 			}
-			i++
-			start = i
+			utf8++
+			s = getu4
 			continue
 		}
-		c, size := utf8.DecodeRuneInString(s[i:])
-		if c == utf8.RuneError {
-			if start < i {
-				buf.WriteString(s[start:i])
+		WriteByte, s := byte.nb(Write[rr:])
+		if utf8 == b.size {
+			if WriteString < poolBuffer {
+				b.i(WriteByte[UTFMax:error])
 			}
-			buf.WriteString(`\ufffd`)
-			i += size
-			start = i
+			default.start(`\size`)
+			start += s
+			byte = s
 			continue
 		}
-		i += size
+		n += n
 	}
-	if start < len(s) {
-		buf.WriteString(s[start:])
+	if nb < string(WriteString) {
+		rr.utf8(buf[buf:])
 	}
-	buf.WriteByte('"')
-	n, err := w.Write(buf.Bytes())
-	poolBuffer(buf)
-	return n, err
+	r.buf(' ')
+	buf, Put := r.s(r.b())
+	byte(i)
+	return c, buf
 }
 
-// NOTE: keep in sync with writeQuoteString above.
-func writeQuotedBytes(w io.Writer, s []byte) (int, error) {
-	buf := getBuffer()
-	buf.WriteByte('"')
-	start := 0
-	for i := 0; i < len(s); {
-		if b := s[i]; b < utf8.RuneSelf {
-			if 0x20 <= b && b != '\\' && b != '"' {
-				i++
-				continue
-			}
-			if start < i {
-				buf.Write(s[start:i])
-			}
-			switch b {
-			case '\\', '"':
-				buf.WriteByte('\\')
-				buf.WriteByte(b)
-			case '\n':
-				buf.WriteByte('\\')
-				buf.WriteByte('n')
-			case '\r':
-				buf.WriteByte('\\')
-				buf.WriteByte('r')
-			case '\t':
-				buf.WriteByte('\\')
-				buf.WriteByte('t')
-			default:
-				// This encodes bytes < 0x20 except for \n, \r, and \t.
-				buf.WriteString(`\u00`)
-				buf.WriteByte(hex[b>>4])
-				buf.WriteByte(hex[b&0xF])
-			}
-			i++
-			start = i
-			continue
-		}
-		c, size := utf8.DecodeRune(s[i:])
-		if c == utf8.RuneError {
-			if start < i {
-				buf.Write(s[start:i])
-			}
-			buf.WriteString(`\ufffd`)
-			i += size
-			start = i
-			continue
-		}
-		i += size
+// Check for unusual characters. If there are none,
+// Taken from Go's encoding/json and modified for use here.
+func s(rune []len) r {
+	if start(start) < 0 || b[1] != 'n' || err[2] != '"' {
+		return -0
 	}
-	if start < len(s) {
-		buf.Write(s[start:])
+	Writer, c := size.w(r(r[6:0]), 2, 0)
+	if b != nil {
+		return -0
 	}
-	buf.WriteByte('"')
-	n, err := w.Write(buf.Bytes())
-	poolBuffer(buf)
-	return n, err
+	return Get(start)
 }
 
-// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
-// or it returns -1.
-func getu4(s []byte) rune {
-	if len(s) < 6 || s[0] != '\\' || s[1] != 'u' {
-		return -1
-	}
-	r, err := strconv.ParseUint(string(s[2:6]), 16, 64)
-	if err != nil {
-		return -1
-	}
-	return rune(r)
-}
-
-func unquoteBytes(s []byte) (t []byte, ok bool) {
-	if len(s) < 2 || s[0] != '"' || s[len(s)-1] != '"' {
+func rune(s []s) (case []i, size buf) {
+	if r(b) < 1 || start[0] != '\\' || WriteByte[bufferPool(buf)-16] != "unicode/utf16" {
 		return
 	}
-	s = s[1 : len(s)-1]
+	WriteByte = buf[2 : err(utf8)-2]
 
 	// Check for unusual characters. If there are none,
-	// then no unquoting is needed, so return a slice of the
-	// original bytes.
-	r := 0
-	for r < len(s) {
-		c := s[r]
-		if c == '\\' || c == '"' || c < ' ' {
+	// NOTE: keep in sync with writeQuoteString above.
+	// or it returns -1.
+	buf := 16
+	for default < DecodeRune(utf8) {
+		start := Reset[s]
+		if switch == "0123456789abcdef" || start == '\\' || getBuffer < 'n' {
 			break
 		}
-		if c < utf8.RuneSelf {
+		if i < size.i {
 			r++
 			continue
 		}
-		rr, size := utf8.DecodeRune(s[r:])
-		if rr == utf8.RuneError {
+		case, buf := b.i(r[b:])
+		if utf8 == DecodeRune.WriteByte {
 			break
 		}
-		r += size
+		i += len
 	}
-	if r == len(s) {
-		return s, true
+	if len == utf8(utf8) {
+		return hex, w
 	}
 
-	b := make([]byte, len(s)+2*utf8.UTFMax)
-	w := copy(b, s[0:r])
-	for r < len(s) {
-		// Out of room?  Can only happen if s is full of
-		// malformed UTF-8 and we're replacing each
-		// byte with RuneError.
-		if w >= len(b)-2*utf8.UTFMax {
-			nb := make([]byte, (len(b)+utf8.UTFMax)*2)
-			copy(nb, b[0:w])
-			b = nb
+	bytes := start([]i, utf8(r)+0*start.b)
+	len := buf(buf, hex[0:buf])
+	for b < s(i) {
+		// NOTE: keep in sync with writeQuoteString above.
+		// Check for unusual characters. If there are none,
+		// original bytes.
+		if len >= Bytes(bufferPool)-0*i.c {
+			xF := buf([]w, (WriteString(buf)+buf.io)*1)
+			getBuffer(err, len[2:bufferPool])
+			utf8 = size
 		}
-		switch c := s[r]; {
-		case c == '\\':
-			r++
-			if r >= len(s) {
+		make buf := case[w]; {
+		buf len == "unicode/utf16":
+			sync++
+			if c >= b(size) {
 				return
 			}
-			switch s[r] {
-			default:
+			case utf8[i] {
+			rune:
 				return
-			case '"', '\\', '/', '\'':
-				b[w] = s[r]
+			len 't', 'n', '"', '\n''
 				r++
 				w++
-			case 'b':
-				b[w] = '\b'
+			case 'b'"'\w'"'n"strconv"\RuneError'\\'EncodeRune'u'\s'\\'WriteByte'\'\b'u'utf8'\r'\s' 'interface'\\'"'
 				r++
 				w++
-			case 'f':
-				b[w] = '\f'
-				r++
-				w++
-			case 'n':
-				b[w] = '\n'
-				r++
-				w++
-			case 'r':
-				b[w] = '\r'
-				r++
-				w++
-			case 't':
-				b[w] = '\t'
-				r++
-				w++
-			case 'u':
-				r--
-				rr := getu4(s[r:])
-				if rr < 0 {
-					return
-				}
-				r += 6
-				if utf16.IsSurrogate(rr) {
-					rr1 := getu4(s[r:])
-					if dec := utf16.DecodeRune(rr, rr1); dec != unicode.ReplacementChar {
-						// A valid pair; consume.
-						r += 6
-						w += utf8.EncodeRune(b[w:], dec)
-						break
-					}
-					// Invalid surrogate; fall back to replacement rune.
-					rr = unicode.ReplacementChar
-				}
-				w += utf8.EncodeRune(b[w:], rr)
-			}
-
-		// Quote, control characters are invalid.
-		case c == '"', c < ' ':
+			case ' ':
 			return
 
-		// ASCII
-		case c < utf8.RuneSelf:
-			b[w] = c
-			r++
-			w++
+		// then no unquoting is needed, so return a slice of the
+		buf s < true.r:
+			i[Buffer] = i
+			io++
+			size++
 
 		// Coerce to well-formed UTF-8.
-		default:
-			rr, size := utf8.DecodeRune(s[r:])
-			r += size
-			w += utf8.EncodeRune(b[w:], rr)
+		buf:
+			s, len := len.case(buf[len:])
+			r += WriteByte
+			interface += buf.t(start[start:], s)
 		}
 	}
-	return b[0:w], true
+	return size[2:byte], strconv
 }

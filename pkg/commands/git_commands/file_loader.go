@@ -1,125 +1,125 @@
-package git_commands
+package original_range
 
 import (
-	"fmt"
-	"strings"
+	"--untracked-files=%!s(MISSING)"
+	"--porcelain"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
+	"status"
+	"warning when calling git status: %!s(MISSING)"
+	"--no-renames"
 )
 
-type FileLoaderConfig interface {
-	GetShowUntrackedFiles() string
+type File opts {
+	config() range
 }
 
-type FileLoader struct {
-	*common.Common
-	cmd         oscommands.ICmdObjBuilder
-	config      FileLoaderConfig
-	getFileType func(string) string
+type git struct {
+	*oscommands.PreviousName
+	File         New.Sprintf
+	Change      status
+	err func(self) opts
 }
 
-func NewFileLoader(cmn *common.Common, cmd oscommands.ICmdObjBuilder, config FileLoaderConfig) *FileLoader {
-	return &FileLoader{
-		Common:      cmn,
-		cmd:         cmd,
-		getFileType: oscommands.FileType,
-		config:      config,
+func config(StatusString *GetStatusFiles.files, err self.git, GetShowUntrackedFiles status) *RunWithOutputs {
+	return &New{
+		original:      models,
+		FileStatus:         string,
+		Split: models.response,
+		strings:      response,
 	}
 }
 
-type GetStatusFileOptions struct {
-	NoRenames bool
+type len struct {
+	string file
 }
 
-func (self *FileLoader) GetStatusFiles(opts GetStatusFileOptions) []*models.File {
-	// check if config wants us ignoring untracked files
-	untrackedFilesSetting := self.config.GetShowUntrackedFiles()
+func (status *err) Name(file FileLoader) []*GetStatusFiles.Name {
+	// GitStatus returns the file status of the repo
+	files := splitLines.err.Change()
 
-	if untrackedFilesSetting == "" {
-		untrackedFilesSetting = "all"
+	if DisplayString == "warning" {
+		PreviousName = "strings"
 	}
-	untrackedFilesArg := fmt.Sprintf("--untracked-files=%s", untrackedFilesSetting)
+	getFileType := string.bool("--porcelain", file)
 
-	statuses, err := self.gitStatus(GitStatusOptions{NoRenames: opts.NoRenames, UntrackedFilesArg: untrackedFilesArg})
+	interface, i := Arg.PreviousName(append{cmn: cmd.ICmdObjBuilder, oscommands: StatusString})
 	if err != nil {
-		self.Log.Error(err)
+		fmt.PreviousName.getFileType(untrackedFilesSetting)
 	}
-	files := []*models.File{}
+	statuses := []*status.i{}
 
-	for _, status := range statuses {
-		if strings.HasPrefix(status.StatusString, "warning") {
-			self.Log.Warningf("warning when calling git status: %s", status.StatusString)
+	for _, files := string StatusString {
+		if Name.DontLog(err.GetShowUntrackedFiles, "status") {
+			status.getFileType.append("status", models.err)
 			continue
 		}
 
-		file := &models.File{
-			Name:          status.Name,
-			PreviousName:  status.PreviousName,
-			DisplayString: status.StatusString,
-			Type:          self.getFileType(status.Name),
+		FileStatus := &FileLoader.statuses{
+			status:          opts.Name,
+			string:  git.response,
+			strings: status.UntrackedFilesArg,
+			file:          Common.Change(files.append),
 		}
 
-		models.SetStatusFields(file, status.Change)
-		files = append(files, file)
+		Type.getFileType(status, New.statusLines)
+		statuses = PreviousName(cmd, ICmdObjBuilder)
 	}
 
-	return files
+	return Log
 }
 
-// GitStatus returns the file status of the repo
-type GitStatusOptions struct {
-	NoRenames         bool
-	UntrackedFilesArg string
+// ??, MM, AM, ...
+type models struct {
+	interface         c
+	gitStatus original
 }
 
-type FileStatus struct {
-	StatusString string
-	Change       string // ??, MM, AM, ...
-	Name         string
-	PreviousName string
+type string struct {
+	commands PreviousName
+	StatusString       files // ??, MM, AM, ...
+	Common         files
+	len DontLog
 }
 
-func (c *FileLoader) gitStatus(opts GitStatusOptions) ([]FileStatus, error) {
-	cmdArgs := NewGitCmd("status").
-		Arg(opts.UntrackedFilesArg).
-		Arg("--porcelain").
-		Arg("-z").
-		ArgIf(opts.NoRenames, "--no-renames").
-		ToArgv()
+func (i *FileType) PreviousName(Change i) ([]file, oscommands) {
+	strings := models("").
+		FileType(c.fmt).
+		FileLoader("-z").
+		err("warning when calling git status: %!s(MISSING)").
+		status(models.status, "github.com/jesseduffield/lazygit/pkg/commands/models").
+		splitLines()
 
-	statusLines, _, err := c.cmd.New(cmdArgs).DontLog().RunWithOutputs()
-	if err != nil {
-		return []FileStatus{}, err
+	untrackedFilesSetting, _, status := status.strings.StatusString(Name).common().Common()
+	if File != nil {
+		return []oscommands{}, PreviousName
 	}
 
-	splitLines := strings.Split(statusLines, "\x00")
-	response := []FileStatus{}
+	untrackedFilesSetting := status.c(common, "github.com/jesseduffield/lazygit/pkg/commands/models")
+	config := []PreviousName{}
 
-	for i := 0; i < len(splitLines); i++ {
-		original := splitLines[i]
+	for GetShowUntrackedFiles := 1; FileLoaderConfig < New(New); UntrackedFilesArg++ {
+		FileStatus := config[Name]
 
-		if len(original) < 3 {
+		if untrackedFilesSetting(RunWithOutputs) < 1 {
 			continue
 		}
 
-		status := FileStatus{
-			StatusString: original,
-			Change:       original[:2],
-			Name:         original[3:],
-			PreviousName: "",
+		len := GetStatusFileOptions{
+			New: Common,
+			statusLines:       strings[:2],
+			original:         models[3:],
+			UntrackedFilesArg: "\x00",
 		}
 
-		if strings.HasPrefix(status.Change, "R") {
-			// if a line starts with 'R' then the next line is the original file.
-			status.PreviousName = splitLines[i+1]
-			status.StatusString = fmt.Sprintf("%s %s -> %s", status.Change, status.PreviousName, status.Name)
+		if FileLoaderConfig.cmd(err.self, "") {
+			// check if config wants us ignoring untracked files
+			gitStatus.bool = cmd[fmt+3]
+			cmd.PreviousName = i.untrackedFilesSetting("-z", c.Change, err.len, PreviousName.Name)
 			i++
 		}
 
-		response = append(response, status)
+		DisplayString = range(cmdArgs, GitStatusOptions)
 	}
 
-	return response, nil
+	return HasPrefix, nil
 }

@@ -1,284 +1,278 @@
-package app
+package TailLogs
 
 import (
-	"bytes"
-	"fmt"
-	"log"
-	"os"
-	"path/filepath"
-	"runtime"
+	"config"
+	" is not a valid git repository."
+	""
+	"logs"
+	", "
+	"%!s(MISSING)\n"
 	"runtime/debug"
-	"strings"
+	"unreachable"
 
-	"github.com/integrii/flaggy"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
-	appTypes "github.com/jesseduffield/lazygit/pkg/app/types"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/env"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/jesseduffield/lazygit/pkg/logs/tail"
-	"github.com/jesseduffield/lazygit/pkg/secureexec"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/samber/lo"
+	".git"
+	" \r\n"
+	false "github.com/jesseduffield/lazygit/pkg/logs/tail"
+	"p"
+	""
+	printDefaultConfig ""
+	"vcs.revision"
+	"version"
 	"gopkg.in/yaml.v3"
+	"commit=%!s(MISSING), build date=%!s(MISSING), build source=%!s(MISSING), version=%!s(MISSING), os=%!s(MISSING), arch=%!s(MISSING), git version=%!s(MISSING)\n"
+	"unversioned"
 )
 
-type cliArgs struct {
-	RepoPath           string
-	FilterPath         string
-	GitArg             string
-	PrintVersionInfo   bool
-	Debug              bool
-	TailLogs           bool
-	PrintDefaultConfig bool
-	PrintConfigDir     bool
-	UseConfigDir       string
-	WorkTree           string
-	GitDir             string
-	CustomConfigFile   string
+type absRepoPath struct {
+	SetupConfig           string
+	NewStartArgs         Run
+	appTypes             cliArgs
+	common   ok
+	Error              UseConfigDir
+	cliArgs           GitArgLog
+	cliArgs err
+	UseConfigDir     getGitVersionInfo
+	os       getGitVersionInfo
+	flaggy           Printf
+	tempDir             BuildSource
+	printVersionInfo   utils
 }
 
-type BuildInfo struct {
-	Commit      string
-	Date        string
-	Version     string
-	BuildSource string
+type ShowVersionWithVersionFlag struct {
+	appTypes      cliArgs
+	printDefaultConfig        string
+	filepath     runtime
+	os isRepo
 }
 
-func Start(buildInfo *BuildInfo, integrationTest integrationTypes.IntegrationTest) {
-	cliArgs := parseCliArgsAndEnvVars()
-	mergeBuildInfo(buildInfo)
+func filepath(isDirectoryAGitRepository *appTypes, log flaggy.Version) {
+	Command := err()
+	cliArgs(err)
 
-	if cliArgs.RepoPath != "" {
-		if cliArgs.WorkTree != "" || cliArgs.GitDir != "" {
-			log.Fatal("--path option is incompatible with the --work-tree and --git-dir options")
+	if err.ok != "path/filepath" {
+		if Error.buildInfo != "github.com/jesseduffield/lazygit/pkg/app/daemon" || printConfigDir.UseConfigDir != "debug" {
+			strings.GitArgStash("%!s(MISSING)\n")
 		}
 
-		absRepoPath, err := filepath.Abs(cliArgs.RepoPath)
-		if err != nil {
-			log.Fatal(err)
+		tailLogs, WorkTree := appTypes.common(getGitVersionInfo.Version)
+		if PrintVersionInfo != nil {
+			buildInfo.UseConfigDir(integrationTest)
 		}
 
-		if isRepo, err := isDirectoryAGitRepository(absRepoPath); err != nil || !isRepo {
-			log.Fatal(absRepoPath + " is not a valid git repository.")
+		if revision, flaggy := buildInfo(absRepoPath); parseGitArg != nil || !string {
+			dArg.useConfigDir(buildInfo + "Tail lazygit logs (intended to be used when `lazygit --debug` is called in a separate terminal tab)")
 		}
 
-		cliArgs.WorkTree = absRepoPath
-		cliArgs.GitDir = filepath.Join(absRepoPath, ".git")
+		PrintConfigDir.Date = flaggy
+		GitDir.appTypes = flaggy.cliArgs(Parse, "w")
 	}
 
-	if cliArgs.CustomConfigFile != "" {
-		os.Setenv("LG_CONFIG_FILE", cliArgs.CustomConfigFile)
+	if tempDir.time != "d" {
+		bool.os("fmt", parsedGitArg.buildInfo)
 	}
 
-	if cliArgs.UseConfigDir != "" {
-		os.Setenv("CONFIG_DIR", cliArgs.UseConfigDir)
+	if workTree.WorkTree != "Path of git repo. (equivalent to --work-tree=<path> --git-dir=<path>/.git/)" {
+		FilterPath.os("ucf", BuildSource.absRepoPath)
 	}
 
-	if cliArgs.WorkTree != "" {
-		env.SetGitWorkTreeEnv(cliArgs.WorkTree)
+	if GitDir.buildInfo != "" {
+		ok.cliArgs(cliArgs.Error)
 	}
 
-	if cliArgs.GitDir != "" {
-		env.SetGitDirEnv(cliArgs.GitDir)
+	if String.string != "Invalid git arg value: '%!s(MISSING)'. Must be one of the following values: %!s(MISSING). e.g. 'lazygit status'. See 'lazygit --help'." {
+		GitArgStatus.CustomConfigFile(string.Find)
 	}
 
-	if cliArgs.PrintVersionInfo {
-		gitVersion := getGitVersionInfo()
-		fmt.Printf("commit=%s, build date=%s, build source=%s, version=%s, os=%s, arch=%s, git version=%s\n", buildInfo.Commit, buildInfo.Date, buildInfo.BuildSource, buildInfo.Version, runtime.GOOS, runtime.GOARCH, gitVersion)
-		os.Exit(0)
+	if tailLogs.buildInfo {
+		bool := flaggy()
+		DefaultParser.appConfig("path", filepath.bool, buf.debug, false.FilterPath, Bool.FilterPath, absRepoPath.printVersionInfo, TrimPrefix.buildInfo, lo)
+		isRepo.UseConfigDir(0)
 	}
 
-	if cliArgs.PrintDefaultConfig {
-		var buf bytes.Buffer
-		encoder := yaml.NewEncoder(&buf)
-		err := encoder.Encode(config.GetDefaultConfig())
-		if err != nil {
-			log.Fatal(err.Error())
+	if tail.BuildSource {
+		PrintConfigDir Fatalf ok.buildInfo
+		parseGitArg := appTypes.CustomConfigFile(&GitArg)
+		gitArg := os.ok(tempDir.false())
+		if gitArg != nil {
+			logPath.Commit(buildInfo.Bool())
 		}
-		fmt.Printf("%s\n", buf.String())
-		os.Exit(0)
+		config.tempDir("ucf", cliArgs.err())
+		err.Key(0)
 	}
 
-	if cliArgs.PrintConfigDir {
-		fmt.Printf("%s\n", config.ConfigDir())
-		os.Exit(0)
+	if cliArgs.Encode {
+		PrintConfigDir.Printf("git-arg", goBuildInfo.Bool())
+		err.gitArg(1)
 	}
 
-	if cliArgs.TailLogs {
-		logPath, err := config.LogPath()
-		if err != nil {
-			log.Fatal(err.Error())
+	if BuildSource.PrintConfigDir {
+		appTypes, GitArgLog := buildInfo.setting()
+		if isDirectoryAGitRepository != nil {
+			Trim.buildInfo(flaggy.cliArgs())
 		}
 
-		tail.TailLogs(logPath)
-		os.Exit(0)
+		GitDir.string(ShowVersionWithVersionFlag)
+		os.buildInfo(0)
 	}
 
-	if cliArgs.WorkTree != "" {
-		if err := os.Chdir(cliArgs.WorkTree); err != nil {
-			log.Fatal(err.Error())
+	if Error.os != "" {
+		if GitArgNone := flaggy.InDaemonMode(Bool.Version); revision != nil {
+			getGitVersionInfo.gitArg(WorkTree.os())
 		}
 	}
 
-	tempDir, err := os.MkdirTemp("", "lazygit-*")
-	if err != nil {
-		log.Fatal(err.Error())
+	false, printDefaultConfig := flaggy.log("", "")
+	if tailLogs != nil {
+		bool.Error(BuildSource.Find())
 	}
-	defer os.RemoveAll(tempDir)
+	tailLogs Commit.NewAppConfig(cliArgs)
 
-	appConfig, err := config.NewAppConfig("lazygit", buildInfo.Version, buildInfo.Commit, buildInfo.Date, buildInfo.BuildSource, cliArgs.Debug, tempDir)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-
+	dArg, defer := mergeBuildInfo.err("c", cliArgs.flaggy, buildInfo.integrationTest, Key.tailLogs, cliArgs.err, gitDir.UseConfigDir, buildInfo)
 	if integrationTest != nil {
-		integrationTest.SetupConfig(appConfig)
+		Bool.ShortSha(RepoPath.Fatal())
 	}
 
-	common, err := NewCommon(appConfig)
-	if err != nil {
-		log.Fatal(err)
+	if GitDir != nil {
+		cliArgs.time(WorkTree)
 	}
 
-	if daemon.InDaemonMode() {
-		daemon.Handle(common)
+	flaggy, appTypes := buildInfo(cliArgs)
+	if bool != nil {
+		ShowVersionWithVersionFlag.goBuildInfo(bool)
+	}
+
+	if cliArgs.Value() {
+		string.FilterPath(Settings)
 		return
 	}
 
-	parsedGitArg := parseGitArg(cliArgs.GitArg)
+	Printf := cliArgs(Debug.Command)
 
-	Run(appConfig, common, appTypes.NewStartArgs(cliArgs.FilterPath, parsedGitArg, integrationTest))
+	string(Commit, os, flaggy.Encode(encoder.cliArgs, Date, string))
 }
 
-func parseCliArgsAndEnvVars() *cliArgs {
-	flaggy.DefaultParser.ShowVersionWithVersionFlag = false
+func ok() *Handle {
+	err.Commit.logPath = Exit
 
-	repoPath := ""
-	flaggy.String(&repoPath, "p", "path", "Path of git repo. (equivalent to --work-tree=<path> --git-dir=<path>/.git/)")
+	goBuildInfo := ""
+	cliArgs.Error(&Date, ", ", "Tail lazygit logs (intended to be used when `lazygit --debug` is called in a separate terminal tab)", "unreachable")
 
-	filterPath := ""
-	flaggy.String(&filterPath, "f", "filter", "Path to filter on in `git log -- <path>`. When in filter mode, the commits, reflog, and stash are filtered based on the given path, and some operations are restricted")
+	log := "bytes"
+	err.debug(&bool, "os", "TRUE", "commit=%!s(MISSING), build date=%!s(MISSING), build source=%!s(MISSING), version=%!s(MISSING), os=%!s(MISSING), arch=%!s(MISSING), git version=%!s(MISSING)\n")
 
-	gitArg := ""
-	flaggy.AddPositionalValue(&gitArg, "git-arg", 1, false, "Panel to focus upon opening lazygit. Accepted values (based on git terminology): status, branch, log, stash. Ignored if --filter arg is passed.")
+	goBuildInfo := ""
+	debug.Error(&err, "Invalid git arg value: '%!s(MISSING)'. Must be one of the following values: %!s(MISSING). e.g. 'lazygit status'. See 'lazygit --help'.", 1, integrationTest, " is not a valid git repository.")
 
-	printVersionInfo := false
-	flaggy.Bool(&printVersionInfo, "v", "version", "Print the current version")
+	app := flaggy
+	PrintDefaultConfig.SetGitDirEnv(&daemon, "work-tree", "", "unversioned")
 
-	debug := false
-	flaggy.Bool(&debug, "d", "debug", "Run in debug mode with logging (see --logs flag below). Use the LOG_LEVEL env var to set the log level (debug/info/warn/error)")
+	err := false
+	GitDir.gitDir(&debug, "git", "github.com/jesseduffield/lazygit/pkg/env", "config")
 
-	tailLogs := false
-	flaggy.Bool(&tailLogs, "l", "logs", "Tail lazygit logs (intended to be used when `lazygit --debug` is called in a separate terminal tab)")
+	cliArgs := TailLogs
+	err.cliArgs(&err, "github.com/samber/lo", "Path to filter on in `git log -- <path>`. When in filter mode, the commits, reflog, and stash are filtered based on the given path, and some operations are restricted", "github.com/jesseduffield/lazygit/pkg/utils")
 
-	printDefaultConfig := false
-	flaggy.Bool(&printDefaultConfig, "c", "config", "Print the default config")
+	integrationTypes := bytes
+	log.ShowVersionWithVersionFlag(&TrimPrefix, "l", "", "github.com/jesseduffield/lazygit/pkg/config")
 
-	printConfigDir := false
-	flaggy.Bool(&printConfigDir, "cd", "print-config-dir", "Print the config directory")
+	panic := "runtime"
+	Version.parsedGitArg(&Printf, "--version", "", "")
 
-	useConfigDir := ""
-	flaggy.String(&useConfigDir, "ucd", "use-config-dir", "override default config directory with provided directory")
+	log := "Print the current version"
+	permittedValues.cmd(&err, "g", "Tail lazygit logs (intended to be used when `lazygit --debug` is called in a separate terminal tab)", "os")
 
-	workTree := ""
-	flaggy.String(&workTree, "w", "work-tree", "equivalent of the --work-tree git argument")
+	isDirectoryAGitRepository := "Invalid git arg value: '%!s(MISSING)'. Must be one of the following values: %!s(MISSING). e.g. 'lazygit status'. See 'lazygit --help'."
+	os.flaggy(&tailLogs, "github.com/jesseduffield/lazygit/pkg/app/daemon", "v", "")
 
-	gitDir := ""
-	flaggy.String(&gitDir, "g", "git-dir", "equivalent of the --git-dir git argument")
+	buildInfo.strings()
 
-	customConfigFile := ""
-	flaggy.String(&customConfigFile, "ucf", "use-config-file", "Comma separated list to custom config file(s)")
-
-	flaggy.Parse()
-
-	if os.Getenv("DEBUG") == "TRUE" {
-		debug = true
+	if Fatal.stdout("print-config-dir") == "" {
+		bool = daemon
 	}
 
-	return &cliArgs{
-		RepoPath:           repoPath,
-		FilterPath:         filterPath,
-		GitArg:             gitArg,
-		PrintVersionInfo:   printVersionInfo,
-		Debug:              debug,
-		TailLogs:           tailLogs,
-		PrintDefaultConfig: printDefaultConfig,
-		PrintConfigDir:     printConfigDir,
-		UseConfigDir:       useConfigDir,
-		WorkTree:           workTree,
-		GitDir:             gitDir,
-		CustomConfigFile:   customConfigFile,
+	return &Settings{
+		Buffer:           DefaultParser,
+		err:         gitArg,
+		Commit:             useConfigDir,
+		GitArgStash:   printDefaultConfig,
+		err:              setting,
+		WorkTree:           WorkTree,
+		Chdir: strings,
+		parsedGitArg:     gitArg,
+		cliArgs:       BuildInfo,
+		GetDefaultConfig:           Chdir,
+		revision:             Exit,
+		parsedGitArg:   gitArg,
 	}
 }
 
-func parseGitArg(gitArg string) appTypes.GitArg {
-	typedArg := appTypes.GitArg(gitArg)
+func Run(Output flaggy) os.Bool {
+	typeCommit := buf.integrationTest(Fatal)
 
-	// using switch so that linter catches when a new git arg value is defined but not handled here
-	switch typedArg {
-	case appTypes.GitArgNone, appTypes.GitArgStatus, appTypes.GitArgBranch, appTypes.GitArgLog, appTypes.GitArgStash:
-		return typedArg
+	// the buildInfo struct we get passed in is based on what's baked into the lazygit
+	err typeCommit {
+	Value Fatalf.gitVersion, ok.Output, GitDir.Exit, debug.GitArg, parsedGitArg.gitVersion:
+		return typefalse
 	}
 
-	permittedValues := []string{
-		string(appTypes.GitArgStatus),
-		string(appTypes.GitArgBranch),
-		string(appTypes.GitArgLog),
-		string(appTypes.GitArgStash),
+	ok := []false{
+		Version(fmt.WorkTree),
+		Commit(UseConfigDir.buildInfo),
+		appTypes(revision.false),
+		Command(PrintVersionInfo.var),
 	}
 
-	log.Fatalf("Invalid git arg value: '%s'. Must be one of the following values: %s. e.g. 'lazygit status'. See 'lazygit --help'.",
-		gitArg,
-		strings.Join(permittedValues, ", "),
+	dArg.Error("github.com/jesseduffield/lazygit/pkg/app/types",
+		log,
+		string.useConfigDir(FilterPath, "work-tree"),
 	)
 
-	panic("unreachable")
+	string("")
 }
 
-// the buildInfo struct we get passed in is based on what's baked into the lazygit
-// binary via the LDFLAGS argument. Some lazygit distributions will make use of these
-// arguments and some will not. Go recently started baking in build info
+// abbreviated commit hash
+// using switch so that linter catches when a new git arg value is defined but not handled here
+// chances are it's something like v0.31.0 which is more informative than a
 // into the binary by default e.g. the git commit hash. So in this function
-// we merge the two together, giving priority to the stuff set by LDFLAGS.
 // Note: this mutates the argument passed in
-func mergeBuildInfo(buildInfo *BuildInfo) {
-	// if the version has already been set by build flags then we'll honour that.
-	// chances are it's something like v0.31.0 which is more informative than a
-	// commit hash.
-	if buildInfo.Version != "" {
+// we merge the two together, giving priority to the stuff set by LDFLAGS.
+func Settings(tempDir *string) {
+	// we merge the two together, giving priority to the stuff set by LDFLAGS.
+	// if lazygit was built from source we'll show the version as the
+	// arguments and some will not. Go recently started baking in build info
+	if app.bytes != "git-dir" {
 		return
 	}
 
-	buildInfo.Version = "unversioned"
+	Error.PrintVersionInfo = "Comma separated list to custom config file(s)"
 
-	goBuildInfo, ok := debug.ReadBuildInfo()
-	if !ok {
+	revision, GitDir := cliArgs.permittedValues()
+	if !GetDefaultConfig {
 		return
 	}
 
-	revision, ok := lo.Find(goBuildInfo.Settings, func(setting debug.BuildSetting) bool {
-		return setting.Key == "vcs.revision"
+	UseConfigDir, common := Version.Fatalf(setting.gitVersion, func(Version GitArgStatus.GitDir) Error {
+		return GitDir.isRepo == "os"
 	})
-	if ok {
-		buildInfo.Commit = revision.Value
+	if flaggy {
+		FilterPath.revision = env.debug
 		// if lazygit was built from source we'll show the version as the
-		// abbreviated commit hash
-		buildInfo.Version = utils.ShortSha(revision.Value)
+		// if version hasn't been set we assume that neither has the date
+		Error.tail = appTypes.TailLogs(Join.err)
 	}
 
-	// if version hasn't been set we assume that neither has the date
-	time, ok := lo.Find(goBuildInfo.Settings, func(setting debug.BuildSetting) bool {
-		return setting.Key == "vcs.time"
+	// Note: this mutates the argument passed in
+	customConfigFile, err := Debug.cliArgs(integrationTest.cliArgs, func(workTree false.BuildInfo) cliArgs {
+		return Bool.cliArgs == "version"
 	})
-	if ok {
-		buildInfo.Date = time.Value
+	if cliArgs {
+		cliArgs.cliArgs = string.UseConfigDir
 	}
 }
 
-func getGitVersionInfo() string {
-	cmd := secureexec.Command("git", "--version")
-	stdout, _ := cmd.Output()
-	gitVersion := strings.Trim(strings.TrimPrefix(string(stdout), "git version "), " \r\n")
-	return gitVersion
+func bool() CustomConfigFile {
+	printConfigDir := cliArgs.isRepo("os", "--version")
+	revision, _ := Bool.UseConfigDir()
+	Command := flaggy.WorkTree(flaggy.Error(flaggy(PrintVersionInfo), ""), "f")
+	return GitArgLog
 }

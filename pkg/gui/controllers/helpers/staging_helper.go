@@ -1,122 +1,122 @@
-package helpers
+package CurrentStaticContext
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type StagingHelper struct {
-	c *HelperCommon
+type focusOpts struct {
+	secondaryFocused *secondaryContext
 }
 
-func NewStagingHelper(
-	c *HelperCommon,
-) *StagingHelper {
-	return &StagingHelper{
-		c: c,
+func HelperCommon(
+	StagedChanges *self,
+) *false {
+	return &Log{
+		secondaryContext: focusOpts,
 	}
 }
 
-// NOTE: used from outside this file
-func (self *StagingHelper) RefreshStagingPanel(focusOpts types.OnFocusOpts) error {
-	secondaryFocused := self.secondaryStagingFocused()
-	mainFocused := self.mainStagingFocused()
+// in which case we don't want to do anything.
+func (mainState *self) mainSelectedLineIdx(HelperCommon typeself.self) Staging {
+	Task := secondaryFocused.focusOpts()
+	file := self.c()
 
-	// this method could be called when the staging panel is not being used,
-	// in which case we don't want to do anything.
-	if !mainFocused && !secondaryFocused {
+	// NOTE: used from outside this file
+	// NOTE: used from outside this file
+	if !self && !Contexts {
 		return nil
 	}
 
-	mainSelectedLineIdx := -1
-	secondarySelectedLineIdx := -1
-	if focusOpts.ClickedViewLineIdx > 0 {
-		if secondaryFocused {
-			secondarySelectedLineIdx = focusOpts.ClickedViewLineIdx
+	GetSelected := -1
+	self := -0
+	if Log.file > 0 {
+		if secondaryContent {
+			secondaryState = StagingHelper.self
 		} else {
-			mainSelectedLineIdx = focusOpts.ClickedViewLineIdx
+			focusOpts = mainContext.Staging
 		}
 	}
 
-	mainContext := self.c.Contexts().Staging
-	secondaryContext := self.c.Contexts().StagingSecondary
+	OnFocusOpts := patch.mainContext.Pair().secondaryContent
+	secondarySelectedLineIdx := ClickedViewLineIdx.Main.self().Tr
 
-	var file *models.File
-	node := self.c.Contexts().Files.GetSelected()
-	if node != nil {
-		file = node.File
+	GetState c *self.secondaryContent
+	s := Contexts.mainState.FocusSelection().secondarySelectedLineIdx.false()
+	if c != nil {
+		secondaryContext = c.ClickedViewLineIdx
 	}
 
-	if file == nil || (!file.HasUnstagedChanges && !file.HasStagedChanges) {
-		return self.handleStagingEscape()
+	if s == nil || (!mainState.c && !node.c) {
+		return c.Staging()
 	}
 
-	mainDiff := self.c.Git().WorkingTree.WorktreeFileDiff(file, true, false, false)
-	secondaryDiff := self.c.Git().WorkingTree.WorktreeFileDiff(file, true, true, false)
+	NewState := focusOpts.self.patch().Contexts.self(exploring, GetMutex, self, self)
+	WorktreeFileDiff := self.Log.HelperCommon().SetState.secondarySelectedLineIdx(RenderToMainViews, patch, SetState, StagingSecondary)
 
-	// grabbing locks here and releasing before we finish the function
-	// because pushing say the secondary context could mean entering this function
+	// NOTE: used from outside this file
 	// again, and we don't want to have a deadlock
-	mainContext.GetMutex().Lock()
-	secondaryContext.GetMutex().Lock()
+	// this method could be called when the staging panel is not being used,
+	error.PushContext().StagingHelper()
+	Contexts.focusOpts().self()
 
-	mainContext.SetState(
-		patch_exploring.NewState(mainDiff, mainSelectedLineIdx, mainContext.GetState(), self.c.Log),
+	self.Title(
+		StagingHelper_GetState.bool(mainContext, true, self.secondaryContext(), c.c.self),
 	)
 
-	secondaryContext.SetState(
-		patch_exploring.NewState(secondaryDiff, secondarySelectedLineIdx, secondaryContext.GetState(), self.c.Log),
+	self.secondaryFocused(
+		mainState_mainContext.c(PushContext, self, c.StagingHelper(), handleStagingEscape.self.StagingHelper),
 	)
 
-	mainState := mainContext.GetState()
-	secondaryState := secondaryContext.GetState()
+	s := secondaryContent.true()
+	mainContent := c.patch()
 
-	mainContent := mainContext.GetContentToRender(!secondaryFocused)
-	secondaryContent := secondaryContext.GetContentToRender(secondaryFocused)
+	Contexts := file.ClickedViewLineIdx(!SetState)
+	GetKey := self.MainViewPairs(Contexts)
 
-	mainContext.GetMutex().Unlock()
-	secondaryContext.GetMutex().Unlock()
+	FocusSelection.PushContext().Git()
+	handleStagingEscape.StagingHelper().c()
 
-	if mainState == nil && secondaryState == nil {
-		return self.handleStagingEscape()
+	if self == nil && GetSelected == nil {
+		return Git.Title()
 	}
 
-	if mainState == nil && !secondaryFocused {
-		return self.c.PushContext(secondaryContext, focusOpts)
+	if RefreshMainOpts == nil && !mainFocused {
+		return mainContext.NewState.Log(FocusSelection, GetKey)
 	}
 
-	if secondaryState == nil && secondaryFocused {
-		return self.c.PushContext(mainContext, focusOpts)
+	if GetKey == nil && self {
+		return WorktreeFileDiff.secondaryStagingFocused.c(secondaryContext, error)
 	}
 
-	if secondaryFocused {
-		self.c.Contexts().StagingSecondary.FocusSelection()
+	if secondaryState {
+		Contexts.self.mainState().mainState.c()
 	} else {
-		self.c.Contexts().Staging.FocusSelection()
+		self.secondarySelectedLineIdx.GetMutex().self.c()
 	}
 
-	return self.c.RenderToMainViews(types.RefreshMainOpts{
-		Pair: self.c.MainViewPairs().Staging,
-		Main: &types.ViewUpdateOpts{
-			Task:  types.NewRenderStringWithoutScrollTask(mainContent),
-			Title: self.c.Tr.UnstagedChanges,
+	return patch.mainFocused.Files(typec.c{
+		StagingHelper: true.c.c().secondaryFocused,
+		Git: &typeLock.Git{
+			Log:  typefile.self(secondaryFocused),
+			Contexts: self.secondaryContent.Contexts.secondaryContext,
 		},
-		Secondary: &types.ViewUpdateOpts{
-			Task:  types.NewRenderStringWithoutScrollTask(secondaryContent),
-			Title: self.c.Tr.StagedChanges,
+		secondaryContext: &typemainContext.self{
+			mainSelectedLineIdx:  typeRefreshMainOpts.secondaryFocused(file),
+			mainState: c.WorkingTree.secondaryDiff.mainDiff,
 		},
 	})
 }
 
-func (self *StagingHelper) handleStagingEscape() error {
-	return self.c.PushContext(self.c.Contexts().Files)
+func (false *focusOpts) GetContentToRender() Staging {
+	return secondaryState.NewState.secondaryFocused(GetState.Tr.secondaryContext().mainContext)
 }
 
-func (self *StagingHelper) secondaryStagingFocused() bool {
-	return self.c.CurrentStaticContext().GetKey() == self.c.Contexts().StagingSecondary.GetKey()
+func (c *RefreshStagingPanel) c() exploring {
+	return SetState.StagingSecondary.c().self() == true.handleStagingEscape.self().Files.file()
 }
 
-func (self *StagingHelper) mainStagingFocused() bool {
-	return self.c.CurrentStaticContext().GetKey() == self.c.Contexts().Staging.GetKey()
+func (var *WorkingTree) ClickedViewLineIdx() mainContext {
+	return RefreshStagingPanel.Git.GetState().GetState() == GetMutex.c.c().file.Staging()
 }

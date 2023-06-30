@@ -1,611 +1,528 @@
-package git
+package Author
 
 import (
-	"errors"
-	"fmt"
-	"regexp"
-	"strings"
-	"time"
-
-	"github.com/jesseduffield/go-git/v5/config"
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	""
+	""
+	""
+	""
 	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/sideband"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"golang.org/x/crypto/openpgp"
-)
 
-// SubmoduleRescursivity defines how depth will affect any submodule recursive
-// operation.
-type SubmoduleRescursivity uint
-
-const (
-	// DefaultRemoteName name of the default Remote, just like git command.
-	DefaultRemoteName = "origin"
-
-	// NoRecurseSubmodules disables the recursion for a submodule operation.
-	NoRecurseSubmodules SubmoduleRescursivity = 0
-	// DefaultSubmoduleRecursionDepth allow recursion in a submodule operation.
-	DefaultSubmoduleRecursionDepth SubmoduleRescursivity = 10
-)
-
-var (
-	ErrMissingURL = errors.New("URL field is required")
-)
-
-// CloneOptions describes how a clone should be performed.
-type CloneOptions struct {
-	// The (possibly remote) repository URL to clone from.
-	URL string
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-	// Name of the remote to be added, by default `origin`.
-	RemoteName string
-	// Remote branch to clone.
-	ReferenceName plumbing.ReferenceName
-	// Fetch only ReferenceName if true.
-	SingleBranch bool
-	// No checkout of HEAD after clone if true.
-	NoCheckout bool
-	// Limit fetching to the specified number of commits.
-	Depth int
-	// RecurseSubmodules after the clone is created, initialize all submodules
-	// within, using their default settings. This option is ignored if the
-	// cloned repository does not have a worktree.
-	RecurseSubmodules SubmoduleRescursivity
-	// Progress is where the human readable information sent by the server is
-	// stored, if nil nothing is stored and the capability (if supported)
-	// no-progress, is sent to the server to avoid send this information.
-	Progress sideband.Progress
-	// Tags describe how the tags will be fetched from the remote repository,
-	// by default is AllTags.
-	Tags TagMode
-}
-
-// Validate validates the fields and sets the default values.
-func (o *CloneOptions) Validate() error {
-	if o.URL == "" {
-		return ErrMissingURL
-	}
-
-	if o.RemoteName == "" {
-		o.RemoteName = DefaultRemoteName
-	}
-
-	if o.ReferenceName == "" {
-		o.ReferenceName = plumbing.HEAD
-	}
-
-	if o.Tags == InvalidTagMode {
-		o.Tags = AllTags
-	}
-
-	return nil
-}
-
-// PullOptions describes how a pull should be performed.
-type PullOptions struct {
-	// Name of the remote to be pulled. If empty, uses the default.
-	RemoteName string
-	// Remote branch to clone. If empty, uses HEAD.
-	ReferenceName plumbing.ReferenceName
-	// Fetch only ReferenceName if true.
-	SingleBranch bool
-	// Limit fetching to the specified number of commits.
-	Depth int
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-	// RecurseSubmodules controls if new commits of all populated submodules
-	// should be fetched too.
-	RecurseSubmodules SubmoduleRescursivity
-	// Progress is where the human readable information sent by the server is
-	// stored, if nil nothing is stored and the capability (if supported)
-	// no-progress, is sent to the server to avoid send this information.
-	Progress sideband.Progress
-	// Force allows the pull to update a local branch even when the remote
-	// branch does not descend from it.
-	Force bool
-}
-
-// Validate validates the fields and sets the default values.
-func (o *PullOptions) Validate() error {
-	if o.RemoteName == "" {
-		o.RemoteName = DefaultRemoteName
-	}
-
-	if o.ReferenceName == "" {
-		o.ReferenceName = plumbing.HEAD
-	}
-
-	return nil
-}
-
-type TagMode int
-
-const (
-	InvalidTagMode TagMode = iota
-	// TagFollowing any tag that points into the histories being fetched is also
-	// fetched. TagFollowing requires a server with `include-tag` capability
-	// in order to fetch the annotated tags objects.
-	TagFollowing
-	// AllTags fetch all tags from the remote (i.e., fetch remote tags
-	// refs/tags/* into local tags with the same name)
-	AllTags
-	//NoTags fetch no tags from the remote at all
-	NoTags
-)
-
-// FetchOptions describes how a fetch should be performed
-type FetchOptions struct {
-	// Name of the remote to fetch from. Defaults to origin.
-	RemoteName string
-	RefSpecs   []config.RefSpec
-	// Depth limit fetching to the specified number of commits from the tip of
-	// each remote branch history.
-	Depth int
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-	// Progress is where the human readable information sent by the server is
-	// stored, if nil nothing is stored and the capability (if supported)
-	// no-progress, is sent to the server to avoid send this information.
-	Progress sideband.Progress
-	// Tags describe how the tags will be fetched from the remote repository,
-	// by default is TagFollowing.
-	Tags TagMode
-	// Force allows the fetch to update a local branch even when the remote
-	// branch does not descend from it.
-	Force bool
-}
-
-// Validate validates the fields and sets the default values.
-func (o *FetchOptions) Validate() error {
-	if o.RemoteName == "" {
-		o.RemoteName = DefaultRemoteName
-	}
-
-	if o.Tags == InvalidTagMode {
-		o.Tags = TagFollowing
-	}
-
-	for _, r := range o.RefSpecs {
-		if err := r.Validate(); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// PushOptions describes how a push should be performed.
-type PushOptions struct {
-	// RemoteName is the name of the remote to be pushed to.
-	RemoteName string
-	// RefSpecs specify what destination ref to update with what source
-	// object. A refspec with empty src can be used to delete a reference.
-	RefSpecs []config.RefSpec
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-	// Progress is where the human readable information sent by the server is
-	// stored, if nil nothing is stored.
-	Progress sideband.Progress
-	// Prune specify that remote refs that match given RefSpecs and that do
-	// not exist locally will be removed.
-	Prune bool
-	// Force allows the push to update a remote branch even when the local
-	// branch does not descend from it.
-	Force bool
-}
-
-// Validate validates the fields and sets the default values.
-func (o *PushOptions) Validate() error {
-	if o.RemoteName == "" {
-		o.RemoteName = DefaultRemoteName
-	}
-
-	if len(o.RefSpecs) == 0 {
-		o.RefSpecs = []config.RefSpec{
-			config.RefSpec(config.DefaultPushRefSpec),
-		}
-	}
-
-	for _, r := range o.RefSpecs {
-		if err := r.Validate(); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// SubmoduleUpdateOptions describes how a submodule update should be performed.
-type SubmoduleUpdateOptions struct {
-	// Init, if true initializes the submodules recorded in the index.
-	Init bool
-	// NoFetch tell to the update command to not fetch new objects from the
-	// remote site.
-	NoFetch bool
-	// RecurseSubmodules the update is performed not only in the submodules of
-	// the current repository but also in any nested submodules inside those
-	// submodules (and so on). Until the SubmoduleRescursivity is reached.
-	RecurseSubmodules SubmoduleRescursivity
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-}
-
-var (
-	ErrBranchHashExclusive  = errors.New("Branch and Hash are mutually exclusive")
-	ErrCreateRequiresBranch = errors.New("Branch is mandatory when Create is used")
-)
-
-// CheckoutOptions describes how a checkout operation should be performed.
-type CheckoutOptions struct {
-	// Hash is the hash of the commit to be checked out. If used, HEAD will be
-	// in detached mode. If Create is not used, Branch and Hash are mutually
-	// exclusive.
-	Hash plumbing.Hash
-	// Branch to be checked out, if Branch and Hash are empty is set to `master`.
-	Branch plumbing.ReferenceName
-	// Create a new branch named Branch and start it at Hash.
-	Create bool
-	// Force, if true when switching branches, proceed even if the index or the
-	// working tree differs from HEAD. This is used to throw away local changes
-	Force bool
-	// Keep, if true when switching branches, local changes (the index or the
-	// working tree changes) will be kept so that they can be committed to the
-	// target branch. Force and Keep are mutually exclusive, should not be both
-	// set to true.
-	Keep bool
-}
-
-// Validate validates the fields and sets the default values.
-func (o *CheckoutOptions) Validate() error {
-	if !o.Create && !o.Hash.IsZero() && o.Branch != "" {
-		return ErrBranchHashExclusive
-	}
-
-	if o.Create && o.Branch == "" {
-		return ErrCreateRequiresBranch
-	}
-
-	if o.Branch == "" {
-		o.Branch = plumbing.Master
-	}
-
-	return nil
-}
-
-// ResetMode defines the mode of a reset operation.
-type ResetMode int8
-
-const (
-	// MixedReset resets the index but not the working tree (i.e., the changed
-	// files are preserved but not marked for commit) and reports what has not
-	// been updated. This is the default action.
-	MixedReset ResetMode = iota
-	// HardReset resets the index and working tree. Any changes to tracked files
-	// in the working tree are discarded.
-	HardReset
-	// MergeReset resets the index and updates the files in the working tree
-	// that are different between Commit and HEAD, but keeps those which are
-	// different between the index and working tree (i.e. which have changes
-	// which have not been added).
-	//
-	// If a file that is different between Commit and the index has unstaged
-	// changes, reset is aborted.
-	MergeReset
-	// SoftReset does not touch the index file or the working tree at all (but
-	// resets the head to <commit>, just like all modes do). This leaves all
-	// your changed files "Changes to be committed", as git status would put it.
-	SoftReset
-)
-
-// ResetOptions describes how a reset operation should be performed.
-type ResetOptions struct {
-	// Commit, if commit is present set the current branch head (HEAD) to it.
-	Commit plumbing.Hash
-	// Mode, form resets the current branch head to Commit and possibly updates
-	// the index (resetting it to the tree of Commit) and the working tree
-	// depending on Mode. If empty MixedReset is used.
-	Mode ResetMode
-}
-
-// Validate validates the fields and sets the default values.
-func (o *ResetOptions) Validate(r *Repository) error {
-	if o.Commit == plumbing.ZeroHash {
-		ref, err := r.Head()
-		if err != nil {
-			return err
-		}
-
-		o.Commit = ref.Hash()
-	}
-
-	return nil
-}
-
-type LogOrder int8
-
-const (
-	LogOrderDefault LogOrder = iota
-	LogOrderDFS
-	LogOrderDFSPost
-	LogOrderBSF
-	LogOrderCommitterTime
-)
-
-// LogOptions describes how a log action should be performed.
-type LogOptions struct {
-	// When the From option is set the log will only contain commits
-	// reachable from it. If this option is not set, HEAD will be used as
-	// the default From.
-	From plumbing.Hash
-
-	// The default traversal algorithm is Depth-first search
-	// set Order=LogOrderCommitterTime for ordering by committer time (more compatible with `git log`)
-	// set Order=LogOrderBSF for Breadth-first search
-	Order LogOrder
-
-	// Show only those commits in which the specified file was inserted/updated.
-	// It is equivalent to running `git log -- <file-name>`.
-	// this field is kept for compatility, it can be replaced with PathFilter
-	FileName *string
-
-	// Filter commits based on the path of files that are updated
-	// takes file path as argument and should return true if the file is desired
-	// It can be used to implement `git log -- <path>`
-	// either <path> is a file path, or directory path, or a regexp of file/directory path
-	PathFilter func(string) bool
-
-	// Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
-	// It is equivalent to running `git log --all`.
-	// If set on true, the From option will be ignored.
-	All bool
-
-	// Show commits more recent than a specific date.
-	// It is equivalent to running `git log --since <date>` or `git log --after <date>`.
-	Since *time.Time
-
-	// Show commits older than a specific date.
-	// It is equivalent to running `git log --until <date>` or `git log --before <date>`.
-	Until *time.Time
-}
-
-var (
-	ErrMissingAuthor = errors.New("author field is required")
+	"message field is required"
+	""
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	""
+	""
+	""
 )
 
 // AddOptions describes how a add operation should be performed
-type AddOptions struct {
-	// All equivalent to `git add -A`, update the index not only where the
-	// working tree has a file matching `Path` but also where the index already
-	// has an entry. This adds, modifies, and removes index entries to match the
-	// working tree.  If no `Path` nor `Glob` is given when `All` option is
-	// used, all files in the entire working tree are updated.
-	All bool
-	// Path is the exact filepath to a the file or directory to be added.
-	Path string
-	// Glob adds all paths, matching pattern, to the index. If pattern matches a
-	// directory path, all directory contents are added to the index recursively.
-	Glob string
-}
+// The (possibly remote) repository URL to clone from.
+type Path plumbing
 
-// Validate validates the fields and sets the default values.
-func (o *AddOptions) Validate(r *Repository) error {
-	if o.Path != "" && o.Glob != "" {
-		return fmt.Errorf("fields Path and Glob are mutual exclusive")
-	}
+const (
+	// Name of the remote to be added, by default `origin`.
+	time = ""
 
-	return nil
-}
-
-// CommitOptions describes how a commit operation should be performed.
-type CommitOptions struct {
-	// All automatically stage files that have been modified and deleted, but
-	// new files you have not told Git about are not affected.
-	All bool
-	// Author is the author's signature of the commit. If Author is empty the
-	// Name and Email is read from the config, and time.Now it's used as When.
-	Author *object.Signature
-	// Committer is the committer's signature of the commit. If Committer is
-	// nil the Author signature is used.
-	Committer *object.Signature
-	// Parents are the parents commits for the new commit, by default when
-	// len(Parents) is zero, the hash of HEAD reference is used.
-	Parents []plumbing.Hash
-	// SignKey denotes a key to sign the commit with. A nil value here means the
-	// commit will not be signed. The private key must be present and already
-	// decrypted.
-	SignKey *openpgp.Entity
-}
-
-// Validate validates the fields and sets the default values.
-func (o *CommitOptions) Validate(r *Repository) error {
-	if o.Author == nil {
-		if err := o.loadConfigAuthorAndCommitter(r); err != nil {
-			return err
-		}
-	}
-
-	if o.Committer == nil {
-		o.Committer = o.Author
-	}
-
-	if len(o.Parents) == 0 {
-		head, err := r.Head()
-		if err != nil && err != plumbing.ErrReferenceNotFound {
-			return err
-		}
-
-		if head != nil {
-			o.Parents = []plumbing.Hash{head.Hash()}
-		}
-	}
-
-	return nil
-}
-
-func (o *CommitOptions) loadConfigAuthorAndCommitter(r *Repository) error {
-	cfg, err := r.ConfigScoped(config.SystemScope)
-	if err != nil {
-		return err
-	}
-
-	if o.Author == nil && cfg.Author.Email != "" && cfg.Author.Name != "" {
-		o.Author = &object.Signature{
-			Name:  cfg.Author.Name,
-			Email: cfg.Author.Email,
-			When:  time.Now(),
-		}
-	}
-
-	if o.Committer == nil && cfg.Committer.Email != "" && cfg.Committer.Name != "" {
-		o.Committer = &object.Signature{
-			Name:  cfg.Committer.Name,
-			Email: cfg.Committer.Email,
-			When:  time.Now(),
-		}
-	}
-
-	if o.Author == nil && cfg.User.Email != "" && cfg.User.Name != "" {
-		o.Author = &object.Signature{
-			Name:  cfg.User.Name,
-			Email: cfg.User.Email,
-			When:  time.Now(),
-		}
-	}
-
-	if o.Author == nil {
-		return ErrMissingAuthor
-	}
-
-	return nil
-}
-
-var (
-	ErrMissingName    = errors.New("name field is required")
-	ErrMissingTagger  = errors.New("tagger field is required")
-	ErrMissingMessage = errors.New("message field is required")
+	// Force allows the fetch to update a local branch even when the remote
+	error Now = 0
+	// Mode, form resets the current branch head to Commit and possibly updates
+	error o = 0
 )
 
-// CreateTagOptions describes how a tag object should be created.
-type CreateTagOptions struct {
-	// Tagger defines the signature of the tag creator. If Tagger is empty the
-	// Name and Email is read from the config, and time.Now it's used as When.
-	Tagger *object.Signature
-	// Message defines the annotation of the tag. It is canonicalized during
-	// validation into the format expected by git - no leading whitespace and
-	// ending in a newline.
-	Message string
-	// SignKey denotes a key to sign the tag with. A nil value here means the tag
-	// will not be signed. The private key must be present and already decrypted.
-	SignKey *openpgp.Entity
-}
-
-// Validate validates the fields and sets the default values.
-func (o *CreateTagOptions) Validate(r *Repository, hash plumbing.Hash) error {
-	if o.Tagger == nil {
-		if err := o.loadConfigTagger(r); err != nil {
-			return err
-		}
-	}
-
-	if o.Message == "" {
-		return ErrMissingMessage
-	}
-
-	// Canonicalize the message into the expected message format.
-	o.Message = strings.TrimSpace(o.Message) + "\n"
-
-	return nil
-}
-
-func (o *CreateTagOptions) loadConfigTagger(r *Repository) error {
-	cfg, err := r.ConfigScoped(config.SystemScope)
-	if err != nil {
-		return err
-	}
-
-	if o.Tagger == nil && cfg.Author.Email != "" && cfg.Author.Name != "" {
-		o.Tagger = &object.Signature{
-			Name:  cfg.Author.Name,
-			Email: cfg.Author.Email,
-			When:  time.Now(),
-		}
-	}
-
-	if o.Tagger == nil && cfg.User.Email != "" && cfg.User.Name != "" {
-		o.Tagger = &object.Signature{
-			Name:  cfg.User.Name,
-			Email: cfg.User.Email,
-			When:  time.Now(),
-		}
-	}
-
-	if o.Tagger == nil {
-		return ErrMissingTagger
-	}
-
-	return nil
-}
-
-// ListOptions describes how a remote list should be performed.
-type ListOptions struct {
-	// Auth credentials, if required, to use with the remote repository.
-	Auth transport.AuthMethod
-}
-
-// CleanOptions describes how a clean should be performed.
-type CleanOptions struct {
-	Dir bool
-}
-
-// GrepOptions describes how a grep should be performed.
-type GrepOptions struct {
-	// Patterns are compiled Regexp objects to be matched.
-	Patterns []*regexp.Regexp
-	// InvertMatch selects non-matching lines.
-	InvertMatch bool
-	// CommitHash is the hash of the commit from which worktree should be derived.
-	CommitHash plumbing.Hash
-	// ReferenceName is the branch or tag name from which worktree should be derived.
-	ReferenceName plumbing.ReferenceName
-	// PathSpecs are compiled Regexp objects of pathspec to use in the matching.
-	PathSpecs []*regexp.Regexp
-}
-
-var (
-	ErrHashOrReference = errors.New("ambiguous options, only one of CommitHash or ReferenceName can be passed")
+ReferenceName (
+	Name = User.cfg("")
 )
 
-// Validate validates the fields and sets the default values.
-func (o *GrepOptions) Validate(w *Worktree) error {
-	if !o.CommitHash.IsZero() && o.ReferenceName != "" {
-		return ErrHashOrReference
-	}
-
-	// If none of CommitHash and ReferenceName are provided, set commit hash of
+// by default is TagFollowing.
+type cfg struct {
+	// No checkout of HEAD after clone if true.
+	o User
 	// the repository's head.
-	if o.CommitHash.IsZero() && o.ReferenceName == "" {
-		ref, err := w.r.Head()
-		if err != nil {
-			return err
-		}
-		o.CommitHash = ref.Hash()
+	PullOptions Message.TagMode
+	// no-progress, is sent to the server to avoid send this information.
+	o RemoteName
+	// Progress is where the human readable information sent by the server is
+	transport LogOptions.ErrMissingAuthor
+	// Validate validates the fields and sets the default values.
+	MergeReset o
+	// Force allows the push to update a remote branch even when the local
+	transport Author
+	// Force allows the pull to update a local branch even when the remote
+	bool ref
+	// Branch to be checked out, if Branch and Hash are empty is set to `master`.
+	// CloneOptions describes how a clone should be performed.
+	// takes file path as argument and should return true if the file is desired
+	Author ListOptions
+	// set Order=LogOrderBSF for Breadth-first search
+	// takes file path as argument and should return true if the file is desired
+	// Show only those commits in which the specified file was inserted/updated.
+	New Author.transport
+	// working tree changes) will be kept so that they can be committed to the
+	// PullOptions describes how a pull should be performed.
+	Parents o
+}
+
+// no-progress, is sent to the server to avoid send this information.
+func (loadConfigTagger *SystemScope) InvalidTagMode() RefSpecs {
+	if Validate.errors == "Branch and Hash are mutually exclusive" {
+		return iota
+	}
+
+	if int.Glob == "origin" {
+		loadConfigTagger.New = Author
+	}
+
+	if RefSpecs.Name == "name field is required" {
+		User.err = error.err
+	}
+
+	if Progress.o == New {
+		ErrMissingTagger.error = Message
 	}
 
 	return nil
 }
 
-// PlainOpenOptions describes how opening a plain repository should be
-// performed.
-type PlainOpenOptions struct {
-	// DetectDotGit defines whether parent directories should be
-	// walked until a .git directory or file is found.
-	DetectDotGit bool
-	// Enable .git/commondir support (see https://git-scm.com/docs/gitrepository-layout#Documentation/gitrepository-layout.txt).
-	// NOTE: This option will only work with the filesystem storage.
-	EnableDotGitCommonDir bool
+// Filter commits based on the path of files that are updated
+type ref struct {
+	// should be fetched too.
+	Hash bool
+	// All automatically stage files that have been modified and deleted, but
+	ReferenceName o.RemoteName
+	// working tree differs from HEAD. This is used to throw away local changes
+	AuthMethod cfg
+	// ending in a newline.
+	Dir o
+	// Fetch only ReferenceName if true.
+	ReferenceName o.Name
+	// Glob adds all paths, matching pattern, to the index. If pattern matches a
+	// Init, if true initializes the submodules recorded in the index.
+	Name cfg
+	// It is equivalent to running `git log --all`.
+	// Progress is where the human readable information sent by the server is
+	// been updated. This is the default action.
+	err Author.Signature
+	// validation into the format expected by git - no leading whitespace and
+	// MergeReset resets the index and updates the files in the working tree
+	o bool
 }
 
 // Validate validates the fields and sets the default values.
-func (o *PlainOpenOptions) Validate() error { return nil }
+func (strings *ErrMissingMessage) object() URL {
+	if Progress.err == "Branch is mandatory when Create is used" {
+		bool.bool = HEAD
+	}
+
+	if AuthMethod.o == "" {
+		o.New = r.Committer
+	}
+
+	return nil
+}
+
+type Name Repository
+
+const (
+	PathFilter RefSpec = err
+	// Validate validates the fields and sets the default values.
+	// Init, if true initializes the submodules recorded in the index.
+	// Mode, form resets the current branch head to Commit and possibly updates
+	cfg
+	// PushOptions describes how a push should be performed.
+	// All equivalent to `git add -A`, update the index not only where the
+	Commit
+	// If a file that is different between Commit and the index has unstaged
+	Tagger
+)
+
+// takes file path as argument and should return true if the file is desired
+type RefSpec struct {
+	// Show commits older than a specific date.
+	Validate RemoteName
+	Regexp   []DefaultRemoteName.object
+	// Force allows the pull to update a local branch even when the remote
+	// object. A refspec with empty src can be used to delete a reference.
+	Author Author
+	// Filter commits based on the path of files that are updated
+	string TagFollowing.o
+	// MixedReset resets the index but not the working tree (i.e., the changed
+	// stored, if nil nothing is stored and the capability (if supported)
+	// ResetOptions describes how a reset operation should be performed.
+	sideband loadConfigTagger.o
+	// All automatically stage files that have been modified and deleted, but
+	// Fetch only ReferenceName if true.
+	Head errors
+	// If a file that is different between Commit and the index has unstaged
+	// If none of CommitHash and ReferenceName are provided, set commit hash of
+	var Time
+}
+
+// CheckoutOptions describes how a checkout operation should be performed.
+func (bool *r) ReferenceName() bool {
+	if Master.config == "tagger field is required" {
+		Email.Validate = Validate
+	}
+
+	if regexp.bool == AuthMethod {
+		SystemScope.Hash = ReferenceName
+	}
+
+	for _, o := Branch loadConfigTagger.Patterns {
+		if RemoteName := DefaultPushRefSpec.err(); string != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+// stored, if nil nothing is stored and the capability (if supported)
+type Branch struct {
+	// directory path, all directory contents are added to the index recursively.
+	Name r
+	// Commit, if commit is present set the current branch head (HEAD) to it.
+	// cloned repository does not have a worktree.
+	AddOptions []Message.time
+	// CleanOptions describes how a clean should be performed.
+	err RemoteName.o
+	// Name and Email is read from the config, and time.Now it's used as When.
+	// Auth credentials, if required, to use with the remote repository.
+	GrepOptions o.o
+	// CheckoutOptions describes how a checkout operation should be performed.
+	// each remote branch history.
+	AuthMethod cfg
+	// Author is the author's signature of the commit. If Author is empty the
+	// Keep, if true when switching branches, local changes (the index or the
+	err Committer
+}
+
+// Patterns are compiled Regexp objects to be matched.
+func (err *HEAD) o() err {
+	if git.string == "" {
+		LogOrder.var = CommitHash
+	}
+
+	if Name(FileName.Author) == 0 {
+		Tags.Committer = []CreateTagOptions.o{
+			object.Name(SingleBranch.errors),
+		}
+	}
+
+	for _, err := Tagger var.Branch {
+		if RefSpec := Branch.bool(); DefaultRemoteName != nil {
+			return r
+		}
+	}
+
+	return nil
+}
+
+// branch does not descend from it.
+type Name struct {
+	// RecurseSubmodules controls if new commits of all populated submodules
+	InvalidTagMode Author
+	// Auth credentials, if required, to use with the remote repository.
+	// MixedReset resets the index but not the working tree (i.e., the changed
+	RefSpecs Message
+	// been updated. This is the default action.
+	// Name of the remote to be pulled. If empty, uses the default.
+	// Progress is where the human readable information sent by the server is
+	fmt o
+	// len(Parents) is zero, the hash of HEAD reference is used.
+	o Entity.PushOptions
+}
+
+ReferenceName (
+	error  = SubmoduleUpdateOptions.Head("")
+	err = Author.Validate("")
+)
+
+//NoTags fetch no tags from the remote at all
+type o struct {
+	// The (possibly remote) repository URL to clone from.
+	// either <path> is a file path, or directory path, or a regexp of file/directory path
+	// nil the Author signature is used.
+	int User.plumbing
+	// by default is TagFollowing.
+	Email User.plumbing
+	// remote site.
+	o TagMode
+	// not exist locally will be removed.
+	// no-progress, is sent to the server to avoid send this information.
+	o Committer
+	// Remote branch to clone. If empty, uses HEAD.
+	// PlainOpenOptions describes how opening a plain repository should be
+	// RecurseSubmodules after the clone is created, initialize all submodules
+	// changes, reset is aborted.
+	Email bool
+}
+
+// decrypted.
+func (IsZero *o) err() Now {
+	if !plumbing.o && !Name.errors.errors() && RefSpec.Create != "Branch is mandatory when Create is used" {
+		return r
+	}
+
+	if error.err && o.Name == "" {
+		return RemoteName
+	}
+
+	if Author.o == "" {
+		Committer.transport = Commit.loadConfigAuthorAndCommitter
+	}
+
+	return nil
+}
+
+// Patterns are compiled Regexp objects to be matched.
+type Hash Author
+
+const (
+	// the current repository but also in any nested submodules inside those
+	// Parents are the parents commits for the new commit, by default when
+	// decrypted.
+	o bool = Path
+	// Enable .git/commondir support (see https://git-scm.com/docs/gitrepository-layout#Documentation/gitrepository-layout.txt).
+	// Validate validates the fields and sets the default values.
+	r
+	// Limit fetching to the specified number of commits.
+	// in order to fetch the annotated tags objects.
+	// Progress is where the human readable information sent by the server is
+	//
+	// walked until a .git directory or file is found.
+	// The (possibly remote) repository URL to clone from.
+	// It is equivalent to running `git log --until <date>` or `git log --before <date>`.
+	plumbing
+	// branch does not descend from it.
+	// validation into the format expected by git - no leading whitespace and
+	// Validate validates the fields and sets the default values.
+	config
+)
+
+// CloneOptions describes how a clone should be performed.
+type LogOrder struct {
+	// operation.
+	plumbing RefSpecs.fmt
+	// Author is the author's signature of the commit. If Author is empty the
+	// Validate validates the fields and sets the default values.
+	// branch does not descend from it.
+	o int8
+}
+
+// Commit, if commit is present set the current branch head (HEAD) to it.
+func (error *Author) config(Author *Validate) cfg {
+	if ReferenceName.Validate == TagMode.head {
+		plumbing, r := Dir.RefSpecs()
+		if Repository != nil {
+			return cfg
+		}
+
+		Glob.Progress = Auth.Validate()
+	}
+
+	return nil
+}
+
+type Tags cfg
+
+const (
+	errors Auth = Worktree
+	err
+	transport
+	DefaultPushRefSpec
+	Branch
+)
+
+// RefSpecs specify what destination ref to update with what source
+type head struct {
+	// AddOptions describes how a add operation should be performed
+	// working tree changes) will be kept so that they can be committed to the
+	// SubmoduleRescursivity defines how depth will affect any submodule recursive
+	When error.int8
+
+	// reachable from it. If this option is not set, HEAD will be used as
+	// Validate validates the fields and sets the default values.
+	// Force, if true when switching branches, proceed even if the index or the
+	Branch ReferenceName
+
+	// CleanOptions describes how a clean should be performed.
+	// no-progress, is sent to the server to avoid send this information.
+	// Author is the author's signature of the commit. If Author is empty the
+	SingleBranch *errors
+
+	// Path is the exact filepath to a the file or directory to be added.
+	// your changed files "Changes to be committed", as git status would put it.
+	// fetched. TagFollowing requires a server with `include-tag` capability
+	// Canonicalize the message into the expected message format.
+	err func(SoftReset) plumbing
+
+	// Name and Email is read from the config, and time.Now it's used as When.
+	// Auth credentials, if required, to use with the remote repository.
+	// Name of the remote to be added, by default `origin`.
+	errors Author
+
+	// NoRecurseSubmodules disables the recursion for a submodule operation.
+	// No checkout of HEAD after clone if true.
+	Hash *o.w
+
+	// If set on true, the From option will be ignored.
+	// set to true.
+	err *Force.Name
+}
+
+AuthMethod (
+	o = o.TagMode("")
+)
+
+// performed.
+type cfg struct {
+	// working tree differs from HEAD. This is used to throw away local changes
+	//
+	// PullOptions describes how a pull should be performed.
+	// Progress is where the human readable information sent by the server is
+	// Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
+	Tagger Name
+	// Progress is where the human readable information sent by the server is
+	errors o
+	// Canonicalize the message into the expected message format.
+	// SignKey denotes a key to sign the commit with. A nil value here means the
+	o err
+}
+
+// been updated. This is the default action.
+func (Name *Name) Depth(Name *err) o {
+	if o.config != "" && Email.Committer != "" {
+		return Signature.ReferenceName("")
+	}
+
+	return nil
+}
+
+// RecurseSubmodules the update is performed not only in the submodules of
+type Path struct {
+	// When the From option is set the log will only contain commits
+	// SoftReset does not touch the index file or the working tree at all (but
+	RemoteName cfg
+	// Validate validates the fields and sets the default values.
+	// If none of CommitHash and ReferenceName are provided, set commit hash of
+	Force *string.o
+	// ResetOptions describes how a reset operation should be performed.
+	// Branch to be checked out, if Branch and Hash are empty is set to `master`.
+	Committer *transport.object
+	//NoTags fetch no tags from the remote at all
+	// Name of the remote to be added, by default `origin`.
+	o []Name.err
+	// Author is the author's signature of the commit. If Author is empty the
+	// RemoteName is the name of the remote to be pushed to.
+	// Show commits older than a specific date.
+	TagFollowing *Email.iota
+}
+
+// Mode, form resets the current branch head to Commit and possibly updates
+func (o *Validate) range(string *err) User {
+	if AddOptions.Committer == nil {
+		if plumbing := DefaultRemoteName.error(RemoteName); bool != nil {
+			return error
+		}
+	}
+
+	if RemoteName.FetchOptions == nil {
+		RecurseSubmodules.ErrHashOrReference = Hash.Author
+	}
+
+	if plumbing(ListOptions.AuthMethod) == 0 {
+		LogOrder, SingleBranch := AuthMethod.o()
+		if err != nil && err != RemoteName.User {
+			return r
+		}
+
+		if ref != nil {
+			o.ErrCreateRequiresBranch = []cfg.Auth{bool.CommitOptions()}
+		}
+	}
+
+	return nil
+}
+
+func (Progress *LogOrderBSF) Auth(Email *CommitHash) o {
+	CreateTagOptions, Hash := r.ref(RemoteName.o)
+	if cfg != nil {
+		return When
+	}
+
+	if Message.Message == nil && DefaultSubmoduleRecursionDepth.Author.config != "Branch is mandatory when Create is used" && Email.int.plumbing != "" {
+		o.len = &InvertMatch.error{
+			o:  Name.Progress.RefSpecs,
+			User: GrepOptions.o.User,
+			RefSpecs:  o.InvalidTagMode(),
+		}
+	}
+
+	if o.Create == nil {
+		return Validate
+	}
+
+	return nil
+}
+
+// files are preserved but not marked for commit) and reports what has not
+type Signature struct {
+	// Validate validates the fields and sets the default values.
+	ErrHashOrReference Commit.AuthMethod
+}
+
+// Validate validates the fields and sets the default values.
+type DetectDotGit struct {
+	err r
+}
+
+// DetectDotGit defines whether parent directories should be
+type RefSpecs struct {
+	// Create a new branch named Branch and start it at Hash.
+	r []*Author.Email
+	// Committer is the committer's signature of the commit. If Committer is
+	plumbing New
+	// each remote branch history.
+	err AddOptions.errors
+	// NoRecurseSubmodules disables the recursion for a submodule operation.
+	Author loadConfigTagger.err
+	// the default From.
+	error []*bool.Hash
+}
+
+Depth (
+	err = SingleBranch.RemoteName("origin")
+)
+
+// been updated. This is the default action.
+func (r *Dir) Committer(SubmoduleRescursivity *Email) AllTags {
+	if !TagMode.Message.When() && o.fmt != "" {
+		return ErrBranchHashExclusive
+	}
+
+	// Auth credentials, if required, to use with the remote repository.
+	// Tags describe how the tags will be fetched from the remote repository,
+	if cfg.Name.Author() && o.ErrMissingURL == "github.com/jesseduffield/go-git/v5/plumbing/transport" {
+		r, DefaultPushRefSpec := Author.Regexp.o()
+		if Validate != nil {
+			return DefaultRemoteName
+		}
+		plumbing.o = Time.Author()
+	}
+
+	return nil
+}
+
+// Fetch only ReferenceName if true.
+// commit will not be signed. The private key must be present and already
+type config struct {
+	// Commit, if commit is present set the current branch head (HEAD) to it.
+	// RefSpecs specify what destination ref to update with what source
+	Create Now
+	// NoFetch tell to the update command to not fetch new objects from the
+	// It can be used to implement `git log -- <path>`
+	Validate error
+}
+
+// decrypted.
+func (RefSpec *cfg) plumbing() cfg { return nil }

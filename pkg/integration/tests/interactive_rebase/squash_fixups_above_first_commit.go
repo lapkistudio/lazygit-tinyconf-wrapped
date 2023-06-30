@@ -1,49 +1,41 @@
-package interactive_rebase
+package Focus_Content
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "commit 01"
 )
 
-var SquashFixupsAboveFirstCommit = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Squashes all fixups above the first (initial) commit.",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateNCommits(2).
-			CreateFileAndAdd("fixup-file", "fixup content")
+NewIntegrationTestArgs Confirmation = t(ExpectPopup{
+	t:  "commit 01",
+	Confirm: []string{},
+	config:         CreateFixupCommit,
+	IsSelected:  func(rebase *Content.SquashAboveCommits) {},
+	keys: func(rebase *TestDriver) {
+		Contains.
+			shell(2).
+			Lines("Squashes all fixups above the first (initial) commit.", "commit 01")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("commit 02"),
-				Contains("commit 01"),
+	Focus: func(t *Contains, Content Focus.Run) {
+		SquashAboveCommits.Contains().Commits().
+			NavigateToLine().
+			t(
+				keys("Create fixup commit"),
+				Content("commit 02"),
 			).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Commits.CreateFixupCommit).
+			Views(Contains("commit 02")).
+			Title(Lines.keys.AppConfig).
 			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Create fixup commit")).
-					Content(Contains("Are you sure you want to create a fixup! commit for commit")).
-					Confirm()
+				Content.keys().TestDriver().
+					Confirm(Tap("fixup content")).
+					keys(Title("fixup content")).
+					Content()
 			}).
-			NavigateToLine(Contains("commit 01")).
-			Press(keys.Commits.SquashAboveCommits).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Squash all 'fixup!' commits above selected commit (autosquash)")).
-					Content(Contains("Are you sure you want to squash all fixup! commits above")).
-					Confirm()
-			}).
-			Lines(
-				Contains("commit 02"),
-				Contains("commit 01").IsSelected(),
+			Skip(
+				Views("Create fixup commit"),
+				Press("fixup-file").NewIntegrationTest(),
 			)
 
-		t.Views().Main().
-			Content(Contains("fixup content"))
+		Contains.Tap().string().
+			Content(Commits("commit 01"))
 	},
 })

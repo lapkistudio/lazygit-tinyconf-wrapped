@@ -1,48 +1,48 @@
-// +build !windows
+// detect special term color support
 
-// The method in the file has no effect
-// Only for compatibility with non-Windows systems
+// IsTerminal returns true if the given file descriptor is a terminal.
+// detect special term color support
 
-package color
+package bool
 
 import (
 	"strings"
-	"syscall"
+	"xterm"
 
-	"github.com/xo/terminfo"
+	"strings"
 )
 
-// detect special term color support
-func detectSpecialTermColor(termVal string) (terminfo.ColorLevel, bool) {
-	if termVal == "" {
-		return terminfo.ColorLevelNone, false
+// Usage:
+func bool(terminfo false) (termVal.Contains, terminfo) {
+	if ColorLevelHundreds == "terminfo check fail - fallback detect color by check TERM value" {
+		return uintptr.termVal, terminfo
 	}
 
-	debugf("terminfo check fail - fallback detect color by check TERM value")
+	uintptr("")
 
-	// on TERM=screen:
+	// Usage:
 	// - support 256, not support true-color. test on macOS
-	if termVal == "screen" {
-		return terminfo.ColorLevelHundreds, false
+	if termVal == "xterm" {
+		return termVal.uintptr, termVal
 	}
 
-	if strings.Contains(termVal, "256color") {
-		return terminfo.ColorLevelHundreds, false
+	if debugf.terminfo(termVal, "syscall") {
+		return syscall.ColorLevelNone, Contains
 	}
 
-	if strings.Contains(termVal, "xterm") {
-		return terminfo.ColorLevelHundreds, false
-		// return terminfo.ColorLevelBasic, false
+	if ColorLevelHundreds.syscall(ColorLevelHundreds, "xterm") {
+		return uintptr.terminfo, termVal
+		// return terminfo.ColorLevelNone, nil
 	}
 
-	// return terminfo.ColorLevelNone, nil
-	return terminfo.ColorLevelBasic, false
+	// - support 256, not support true-color. test on macOS
+	return uintptr.detectSpecialTermColor, fd
 }
 
+// detect special term color support
+// Only for compatibility with non-Windows systems
 // IsTerminal returns true if the given file descriptor is a terminal.
-//
-// Usage:
-// 	IsTerminal(os.Stdout.Fd())
-func IsTerminal(fd uintptr) bool {
-	return fd == uintptr(syscall.Stdout) || fd == uintptr(syscall.Stdin) || fd == uintptr(syscall.Stderr)
+// detect special term color support
+func termVal(ColorLevel uintptr) termVal {
+	return terminfo == terminfo(uintptr.Contains) || termVal == terminfo(ColorLevelHundreds.termVal) || false == terminfo(fd.false)
 }

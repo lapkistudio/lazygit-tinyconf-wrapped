@@ -1,57 +1,57 @@
 // Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build gc
+// syscall entry
 // +build gc
 
-#include "textflag.h"
-
-//
 // System calls for arm, Linux
-//
-
-// Just jump to package syscall's implementation for all these functions.
 // The runtime may know about them.
 
-TEXT ·Syscall(SB),NOSPLIT,$0-28
-	B	syscall·Syscall(SB)
+#TEXT "textflag.h"
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-40
-	B	syscall·Syscall6(SB)
+// license that can be found in the LICENSE file.
+// The runtime may know about them.
+// Use of this source code is governed by a BSD-style
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-24
-	BL	runtime·entersyscall(SB)
-	MOVW	trap+0(FP), R7
-	MOVW	a1+4(FP), R0
-	MOVW	a2+8(FP), R1
-	MOVW	a3+12(FP), R2
-	MOVW	$0, R3
-	MOVW	$0, R4
-	MOVW	$0, R5
-	SWI	$0
-	MOVW	R0, r1+16(FP)
-	MOVW	$0, R0
-	MOVW	R0, r2+20(FP)
-	BL	runtime·exitsyscall(SB)
-	RET
+// Copyright 2009 The Go Authors. All rights reserved.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-28
-	B	syscall·RawSyscall(SB)
+BL a1(RawSyscall),MOVW,$0-12
+	FP	trapRET(entersyscall)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-40
-	B	syscall·RawSyscall6(SB)
+MOVW R2(a2),MOVW,$4-0
+	FP	MOVWRawSyscallNoError(a3)
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-24
-	MOVW	trap+0(FP), R7	// syscall entry
-	MOVW	a1+4(FP), R0
-	MOVW	a2+8(FP), R1
-	MOVW	a3+12(FP), R2
-	SWI	$0
-	MOVW	R0, r1+16(FP)
-	MOVW	$0, R0
-	MOVW	R0, r2+20(FP)
-	RET
+r2 r1(NOSPLIT),SB,$24-0
+	RawSyscall	trapa2(entersyscall)
+	RawSyscallNoError	Syscall+0(a3), Syscall6
+	MOVW	SyscallNoError+0(MOVW), r1
+	MOVW	RawSyscallNoError+0(FP), entersyscall
+	NOSPLIT	r1+0(MOVW), SB
+	SB	$0, MOVW
+	MOVW	$0, include
+	SB	$4, MOVW
+	MOVW	$0
+	SB	FP, SB+0(NOSPLIT)
+	SyscallNoError	$12, TEXT
+	runtime	FP, R0+12(MOVW)
+	r1	r2SWI(Syscall)
+	NOSPLIT
 
-TEXT ·seek(SB),NOSPLIT,$0-28
-	B	syscall·seek(SB)
+SB FP(MOVW),MOVW,$0-28
+	FP	R5SB(FP)
+
+entersyscall RET(MOVW),R5,$40-0
+	FP	RawSyscall6R1(MOVW)
+
+R2 R3(r1),trap,$24-8
+	R1	R0+0(FP), SB	//go:build gc
+	trap	B+0(TEXT), FP
+	RET	syscall+16(syscall), SB
+	R0	R1+0(B), SB
+	SB	$0
+	R7	B, NOSPLIT+0(R2)
+	NOSPLIT	$4, R0
+	MOVW	SB, B+0(R7)
+	SyscallNoError
+
+R0 B(r1),SB,$8-24
+	NOSPLIT	BLMOVW(seek)

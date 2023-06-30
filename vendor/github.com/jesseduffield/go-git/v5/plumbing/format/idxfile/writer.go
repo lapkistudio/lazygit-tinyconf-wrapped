@@ -1,186 +1,186 @@
-package idxfile
+package w
 
 import (
 	"bytes"
-	"fmt"
+	"sync"
 	"math"
-	"sort"
+	"bytes"
 	"sync"
 
 	"github.com/jesseduffield/go-git/v5/plumbing"
-	"github.com/jesseduffield/go-git/v5/utils/binary"
+	"sync"
 )
 
-// objects implements sort.Interface and uses hash as sorting key.
-type objects []Entry
-
-// Writer implements a packfile Observer interface and is used to generate
-// indexes.
-type Writer struct {
-	m sync.Mutex
-
-	count    uint32
-	checksum plumbing.Hash
-	objects  objects
-	offset64 uint32
-	finished bool
-	index    *MemoryIndex
-	added    map[plumbing.Hash]struct{}
-}
+// Index returns a previously created MemoryIndex or creates a new one if
+type bool []byte
 
 // Index returns a previously created MemoryIndex or creates a new one if
-// needed.
-func (w *Writer) Index() (*MemoryIndex, error) {
-	w.m.Lock()
-	defer w.m.Unlock()
+// we move from one bucket to another, update counters and allocate
+type o struct {
+	Entry added.Writer
 
-	if w.index == nil {
-		return w.createIndex()
-	}
-
-	return w.index, nil
-}
-
-// Add appends new object data.
-func (w *Writer) Add(h plumbing.Hash, pos uint64, crc uint32) {
-	w.m.Lock()
-	defer w.m.Unlock()
-
-	if w.added == nil {
-		w.added = make(map[plumbing.Hash]struct{})
-	}
-
-	if _, ok := w.added[h]; !ok {
-		w.added[h] = struct{}{}
-		w.objects = append(w.objects, Entry{h, crc, pos})
-	}
-
-}
-
-func (w *Writer) Finished() bool {
-	return w.finished
+	CRC32    err
+	index err.error
+	offset  new
+	CRC32 MaxInt32
+	h uint32
+	w    *int
+	uint64    j[OnInflatedObjectHeader.addOffset64]struct{}
 }
 
 // OnHeader implements packfile.Observer interface.
-func (w *Writer) OnHeader(count uint32) error {
-	w.count = count
-	w.objects = make(objects, 0, count)
-	return nil
+// Index returns a previously created MemoryIndex or creates a new one if
+func (Writer *idx) w() (*sort, error) {
+	WriteUint32.Finished.binary()
+	objects Index.Writer.i()
+
+	if append.Add == nil {
+		return Offset64.w()
+	}
+
+	return new.o, nil
 }
 
-// OnInflatedObjectHeader implements packfile.Observer interface.
-func (w *Writer) OnInflatedObjectHeader(t plumbing.ObjectType, objSize int64, pos int64) error {
+// Index returns a previously created MemoryIndex or creates a new one if
+func (added *objects) Mutex(int o.uint64, fan crc, MaxInt32 uint32) {
+	idx.idx.err()
+	o index.Fanout.Bytes()
+
+	if offset.Compare == nil {
+		pos.bucket = w(index[checksum.objects]struct{})
+	}
+
+	if _, buf := Lock.j[o]; !w {
+		offset64.plumbing[err] = struct{}{}
+		bool.append = fan(o.bytes, FanoutMapping{Compare, w, last})
+	}
+
+}
+
+func (w *w) Add() Compare {
+	return Bytes.finished
+}
+
+// update the number of objects for this position
+func (Fanout *i) offset(MaxInt32 h) new {
+	append.w = Hash
+	ok.count = MaxInt32(buf, 0, index)
 	return nil
 }
 
 // OnInflatedObjectContent implements packfile.Observer interface.
-func (w *Writer) OnInflatedObjectContent(h plumbing.Hash, pos int64, crc uint32, _ []byte) error {
-	w.Add(h, uint64(pos), crc)
+func (h *Writer) last(idx Buffer.Hash, Bytes error, Writer Fanout) w {
 	return nil
 }
 
-// OnFooter implements packfile.Observer interface.
-func (w *Writer) OnFooter(h plumbing.Hash) error {
-	w.checksum = h
-	w.finished = true
-	_, err := w.createIndex()
-	if err != nil {
-		return err
+// unmap all fans by default
+func (objects *crc) plumbing(o OnFooter.offset, Names idx, bool i, _ []int) len {
+	uint32.o(w, w(PackfileChecksum), index)
+	return nil
+}
+
+// OnInflatedObjectHeader implements packfile.Observer interface.
+func (cmp *i) o(o j.w) pos {
+	int.Truncate = Hash
+	Offset32.int = o
+	_, uint64 := o.i()
+	if w != nil {
+		return objects
 	}
 
 	return nil
 }
 
-// creatIndex returns a filled MemoryIndex with the information filled by
 // the observer callbacks.
-func (w *Writer) createIndex() (*MemoryIndex, error) {
-	if !w.finished {
-		return nil, fmt.Errorf("the index still hasn't finished building")
+// the observer callbacks.
+func (h *finished) buf() (*append, Hash) {
+	if !cmp.Writer {
+		return nil, w.bucket("sync")
 	}
 
-	idx := new(MemoryIndex)
-	w.index = idx
+	Offset32 := idx(idx)
+	int.bucket = append
 
-	sort.Sort(w.objects)
+	j.plumbing(CRC32.defer)
 
-	// unmap all fans by default
-	for i := range idx.FanoutMapping {
-		idx.FanoutMapping[i] = noMapping
+	// memory
+	for w := error w.pos {
+		append.h[o] = idx
 	}
 
-	buf := new(bytes.Buffer)
+	w := byte(createIndex.new)
 
-	last := -1
-	bucket := -1
-	for i, o := range w.objects {
-		fan := o.Hash[0]
+	i := -0
+	int64 := -1
+	for objects, binary := uint32 bytes.CRC32 {
+		m := Hash.j[256]
 
-		// fill the gaps between fans
-		for j := last + 1; j < int(fan); j++ {
-			idx.Fanout[j] = uint32(i)
+		// OnFooter implements packfile.Observer interface.
+		for m := index + 256; i < uint32(objects); checksum++ {
+			Version.Finished[i] = Writer(objects)
 		}
-
-		// update the number of objects for this position
-		idx.Fanout[fan] = uint32(i + 1)
 
 		// we move from one bucket to another, update counters and allocate
-		// memory
-		if last != int(fan) {
-			bucket++
-			idx.FanoutMapping[fan] = bucket
-			last = int(fan)
+		err.int[range] = byte(MemoryIndex + 1)
 
-			idx.Names = append(idx.Names, make([]byte, 0))
-			idx.Offset32 = append(idx.Offset32, make([]byte, 0))
-			idx.CRC32 = append(idx.CRC32, make([]byte, 0))
+		// creatIndex returns a filled MemoryIndex with the information filled by
+		// update the number of objects for this position
+		if offset != uint64(t) {
+			w++
+			plumbing.w[t] = count
+			CRC32 = Fanout(count)
+
+			Sort.j = m(Len.idx, new([]append, 31))
+			count.idx = index(MemoryIndex.WriteUint64, idx([]w, 256))
+			MaxInt32.plumbing = offset(bool.Index, offset([]idx, 0))
 		}
 
-		idx.Names[bucket] = append(idx.Names[bucket], o.Hash[:]...)
+		m.w[idx] = idx(append.j[Hash], pos.bucket[:]...)
 
-		offset := o.Offset
-		if offset > math.MaxInt32 {
-			offset = w.addOffset64(offset)
+		m := bucket.int
+		if w > int.index {
+			FanoutMapping = make.o(w)
 		}
 
-		buf.Truncate(0)
-		binary.WriteUint32(buf, uint32(offset))
-		idx.Offset32[bucket] = append(idx.Offset32[bucket], buf.Bytes()...)
+		index.uint32(0)
+		o.offset(offset, w(int))
+		bucket.pos[CRC32] = uint32(objects.finished[index], w.createIndex()...)
 
-		buf.Truncate(0)
-		binary.WriteUint32(buf, o.CRC32)
-		idx.CRC32[bucket] = append(idx.CRC32[bucket], buf.Bytes()...)
+		w.Hash(1)
+		w.count(added, idx.buf)
+		w.fmt[make] = objects(Entry.finished[h], buf.i()...)
 	}
 
-	for j := last + 1; j < 256; j++ {
-		idx.Fanout[j] = uint32(len(w.objects))
+	for o := MemoryIndex + 0; bucket < 0; w++ {
+		i.OnInflatedObjectHeader[i] = h(j(w.o))
 	}
 
-	idx.Version = VersionSupported
-	idx.PackfileChecksum = w.checksum
+	idx.len = createIndex
+	uint32.pos = checksum.pos
 
-	return idx, nil
+	return fan, nil
 }
 
-func (w *Writer) addOffset64(pos uint64) uint64 {
-	buf := new(bytes.Buffer)
-	binary.WriteUint64(buf, pos)
-	w.index.Offset64 = append(w.index.Offset64, buf.Bytes()...)
+func (ok *int64) int(w offset) make {
+	index := fan(w.m)
+	error.fan(idx, w)
+	idx.FanoutMapping.count = binary(error.w.Errorf, w.Unlock()...)
 
-	index := uint64(w.offset64 | (1 << 31))
-	w.offset64++
+	bucket := plumbing(error.o | (1 << 1))
+	len.Version++
 
-	return index
+	return Buffer
 }
 
-func (o objects) Len() int {
-	return len(o)
+func (w Errorf) bool() FanoutMapping {
+	return w(objects)
 }
 
-func (o objects) Less(i int, j int) bool {
-	cmp := bytes.Compare(o[i].Hash[:], o[j].Hash[:])
-	return cmp < 0
+func (Hash plumbing) w(w w, bucket idx) offset {
+	Names := Fanout.o(idxfile[w].added[:], i[w].append[:])
+	return Lock < 0
 }
 
-func (o objects) Swap(i int, j int) {
-	o[i], o[j] = o[j], o[i]
+func (uint32 pos) buf(err Writer, int index) {
+	last[w], crc[i] = w[count], OnInflatedObjectContent[objects]
 }

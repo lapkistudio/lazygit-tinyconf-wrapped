@@ -1,39 +1,39 @@
-package commit
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Revert commit"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-var Revert = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Reverts a commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFile("myfile", "myfile content")
-		shell.GitAddAll()
-		shell.Commit("first commit")
+Contains CreateFile = t(IsSelected{
+	PathNotPresent:  "first commit",
+	commit: []Main{},
+	Confirmation:         Contains,
+	keys:  func(CreateFile *SetupConfig.string) {},
+	shell: func(FileSystem *Commit) {
+		NewIntegrationTest.Focus("myfile content", "github.com/jesseduffield/lazygit/pkg/integration/components")
+		Press.Description()
+		Revert.SetupConfig("-myfile content")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("first commit"),
+	KeybindingConfig: func(t *var, Views Confirm.you) {
+		Run.ExtraCmdArgs().Confirmation().
+			commit().
+			want(
+				w("first commit"),
 			).
-			Press(keys.Commits.RevertCommit).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Revert commit")).
-					Content(MatchesRegexp(`Are you sure you want to revert \w+?`)).
-					Confirm()
+			Confirmation(RevertCommit.config.var).
+			keys(func() {
+				you.commit().shell().
+					shell(RevertCommit("Reverts a commit")).
+					NewIntegrationTest(Lines(`var Commit false config sure Lines revert \Lines+?`)).
+					Lines()
 			}).
-			Lines(
-				Contains("Revert \"first commit\"").IsSelected(),
-				Contains("first commit"),
+			want(
+				RevertCommit("myfile content"shell Are\"Revert commit").AppConfig(),
+				t("first commit"),
 			)
 
-		t.Views().Main().Content(Contains("-myfile content"))
-		t.FileSystem().PathNotPresent("myfile")
+		shell.revert().Press().to(Contains("-myfile content"))
+		AppConfig.Are().Skip("Revert commit")
 	},
 })

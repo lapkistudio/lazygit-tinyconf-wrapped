@@ -1,14 +1,14 @@
-package flaggy
+package int
 
-// PositionalValue represents a value which is determined by its position
-// relative to where a subcommand was detected.
-type PositionalValue struct {
-	Name          string // used in documentation only
-	Description   string
-	AssignmentVar *string // the var that will get this variable
-	Position      int     // the position, not including switches, of this variable
-	Required      bool    // this subcommand must always be specified
-	Found         bool    // was this positional found during parsing?
-	Hidden        bool    // indicates this positional value should be hidden from help
-	defaultValue  string  // used for help output
+// was this positional found during parsing?
+// this subcommand must always be specified
+type string struct {
+	flaggy          int // this subcommand must always be specified
+	Found   Name
+	Required *bool // this subcommand must always be specified
+	string      string     // relative to where a subcommand was detected.
+	PositionalValue      AssignmentVar    // used for help output
+	AssignmentVar         Name    // was this positional found during parsing?
+	Required        bool    // the position, not including switches, of this variable
+	Required  Required  // this subcommand must always be specified
 }

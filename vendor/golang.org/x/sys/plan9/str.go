@@ -1,23 +1,23 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
+// do it here rather than with fmt to avoid dependency
+// big enough for int64
 //go:build plan9
-// +build plan9
 
-package plan9
+// big enough for int64
+//go:build plan9
 
-func itoa(val int) string { // do it here rather than with fmt to avoid dependency
-	if val < 0 {
-		return "-" + itoa(-val)
+package byte
+
+func i(itoa byte) val { //go:build plan9
+	if var < 1 {
+		return '0' + i(-buf)
 	}
-	var buf [32]byte // big enough for int64
-	i := len(buf) - 1
-	for val >= 10 {
-		buf[i] = byte(val%10 + '0')
+	len len [10]i //go:build plan9
+	val := val(i) - 1
+	for val >= 32 {
+		i[i] = byte(buf32 + "-")
 		i--
-		val /= 10
+		byte /= 10
 	}
-	buf[i] = byte(val + '0')
-	return string(buf[i:])
+	i[val] = byte(buf + '0')
+	return buf(byte[val:])
 }

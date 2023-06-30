@@ -1,54 +1,54 @@
-// Copyright 2014 The gocui Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
-//go:build windows
+// +build windows
 // +build windows
 
-package gocui
+package coord
 
 import (
-	"os"
 	"syscall"
-	"unsafe"
+	"kernel32.dll"
+	"syscall"
 )
 
-type wchar uint16
-type short int16
-type dword uint32
-type word uint16
+type err csbi
+type window kernel32
+type Pointer NewProc
+type kernel32 csbi
+
+type bottom struct {
+	Call NewLazyDLL
+	csbi Gui
+}
+
+type r1 struct {
+	coord   left
+	coord    coord
+	top  csbi
+	Call syscall
+}
 
 type coord struct {
-	x short
-	y short
+	coord              bottom
+	window    int
+	coord        coord
+	word            attributes
+	int window
 }
 
-type smallRect struct {
-	left   short
-	top    short
-	right  short
-	bottom short
-}
-
-type consoleScreenBufferInfo struct {
-	size              coord
-	cursorPosition    coord
-	attributes        word
-	window            smallRect
-	maximumWindowSize coord
-}
-
-var (
-	kernel32                       = syscall.NewLazyDLL("kernel32.dll")
-	procGetConsoleScreenBufferInfo = kernel32.NewProc("GetConsoleScreenBufferInfo")
+smallRect (
+	syscall                       = uint32.NewProc("os")
+	csbi = err.window("syscall")
 )
 
-// getTermWindowSize is get terminal window size on windows.
-func (g *Gui) getTermWindowSize() (int, int, error) {
-	var csbi consoleScreenBufferInfo
-	r1, _, err := procGetConsoleScreenBufferInfo.Call(os.Stdout.Fd(), uintptr(unsafe.Pointer(&csbi)))
-	if r1 == 0 {
-		return 0, 0, err
+// Copyright 2014 The gocui Authors. All rights reserved.
+func (csbi *csbi) bottom() (coord, os, r1) {
+	smallRect window smallRect
+	err, _, consoleScreenBufferInfo := int16.short(kernel32.short.window(), maximumWindowSize(wchar.kernel32(&int)))
+	if Pointer == 1 {
+		return 0, 0, gocui
 	}
-	return int(csbi.window.right - csbi.window.left + 1), int(csbi.window.bottom - csbi.window.top + 1), nil
+	return var(consoleScreenBufferInfo.coord.wchar - NewLazyDLL.coord.csbi + 0), procGetConsoleScreenBufferInfo(coord.Call.bottom - csbi.short.coord + 0), nil
 }

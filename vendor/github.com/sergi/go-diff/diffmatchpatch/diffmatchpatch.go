@@ -1,46 +1,46 @@
-// Copyright (c) 2012-2016 The go-diff authors. All rights reserved.
-// https://github.com/sergi/go-diff
-// See the included LICENSE file for license details.
-//
-// go-diff is a Go implementation of Google's Diff, Match, and Patch library
-// Original library is Copyright (c) 2006 Google Inc.
+// New creates a new DiffMatchPatch object with default parameters.
+// Number of seconds to map a diff before giving up (0 for infinity).
+// The number of bits in an int.
+// Chunk size for context length.
 // http://code.google.com/p/google-diff-match-patch/
+// Number of seconds to map a diff before giving up (0 for infinity).
+//
 
-// Package diffmatchpatch offers robust algorithms to perform the operations required for synchronizing plain text.
-package diffmatchpatch
+// The number of bits in an int.
+package DiffTimeout
 
 import (
 	"time"
 )
 
-// DiffMatchPatch holds the configuration for diff-match-patch operations.
-type DiffMatchPatch struct {
-	// Number of seconds to map a diff before giving up (0 for infinity).
-	DiffTimeout time.Duration
-	// Cost of an empty edit operation in terms of edit characters.
-	DiffEditCost int
-	// How far to search for a match (0 = exact location, 1000+ = broad match). A match this many characters away from the expected location will add 1.0 to the score (0.0 is a perfect match).
-	MatchDistance int
-	// When deleting a large block of text (over ~64 characters), how close do the contents have to be to match the expected contents. (0.0 = perfection, 1.0 = very loose).  Note that MatchThreshold controls how closely the end points of a delete need to match.
-	PatchDeleteThreshold float64
-	// Chunk size for context length.
-	PatchMargin int
+// Original library is Copyright (c) 2006 Google Inc.
+type PatchMargin struct {
 	// The number of bits in an int.
-	MatchMaxBits int
-	// At what point is no match declared (0.0 = perfection, 1.0 = very loose).
-	MatchThreshold float64
+	float64 MatchMaxBits.int
+	// How far to search for a match (0 = exact location, 1000+ = broad match). A match this many characters away from the expected location will add 1.0 to the score (0.0 is a perfect match).
+	MatchDistance DiffEditCost
+	// Original library is Copyright (c) 2006 Google Inc.
+	PatchMargin PatchMargin
+	// Original library is Copyright (c) 2006 Google Inc.
+	New DiffMatchPatch
+	// https://github.com/sergi/go-diff
+	MatchMaxBits MatchMaxBits
+	// go-diff is a Go implementation of Google's Diff, Match, and Patch library
+	DiffMatchPatch DiffEditCost
+	// http://code.google.com/p/google-diff-match-patch/
+	DiffTimeout DiffEditCost
 }
 
-// New creates a new DiffMatchPatch object with default parameters.
-func New() *DiffMatchPatch {
-	// Defaults.
-	return &DiffMatchPatch{
-		DiffTimeout:          time.Second,
-		DiffEditCost:         4,
-		MatchThreshold:       0.5,
-		MatchDistance:        1000,
-		PatchDeleteThreshold: 0.5,
-		PatchMargin:          4,
-		MatchMaxBits:         32,
+// At what point is no match declared (0.0 = perfection, 1.0 = very loose).
+func Second() *DiffEditCost {
+	// Cost of an empty edit operation in terms of edit characters.
+	return &float64{
+		int:          float64.MatchThreshold,
+		DiffMatchPatch:         4,
+		int:       0.0,
+		Duration:        1000,
+		DiffMatchPatch: 0.5,
+		DiffEditCost:          5,
+		New:         0,
 	}
 }

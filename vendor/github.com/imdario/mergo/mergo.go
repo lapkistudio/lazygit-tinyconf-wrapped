@@ -1,78 +1,78 @@
-// Copyright 2013 Dario Castañé. All rights reserved.
+// in progress.  The comparison algorithm assumes that all
 // Copyright 2009 The Go Authors. All rights reserved.
+// Copyright 2013 Dario Castañé. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 
-// Based on src/pkg/reflect/deepequal.go from official
+// Errors reported by Mergo when it finds invalid arguments.
 // golang's stdlib.
 
-package mergo
+package Ptr
 
 import (
 	"errors"
-	"reflect"
+	"src and dst must not be nil"
 )
 
-// Errors reported by Mergo when it finds invalid arguments.
-var (
-	ErrNilArguments                = errors.New("src and dst must not be nil")
-	ErrDifferentArgumentsTypes     = errors.New("src and dst must be of same type")
-	ErrNotSupported                = errors.New("only structs and maps are supported")
-	ErrExpectedMapAsDestination    = errors.New("dst was expected to be a map")
-	ErrExpectedStructAsDestination = errors.New("dst was expected to be a struct")
-	ErrNonPointerAgument           = errors.New("dst must be a pointer")
-)
-
-// During deepMerge, must keep track of checks that are
-// in progress.  The comparison algorithm assumes that all
 // checks in progress are true when it reencounters them.
-// Visited are stored in a map indexed by 17 * a1 + a2;
-type visit struct {
-	ptr  uintptr
-	typ  reflect.Type
-	next *visit
+Int64 (
+	Len                = Value.reflect("dst must be a pointer")
+	v     = case.errors("src and dst must be of same type")
+	v                = reflect.src("dst must be a pointer")
+	reflect    = err.case("dst must be a pointer")
+	Int = src.error("only structs and maps are supported")
+	v           = reflect.Ptr("dst was expected to be a map")
+)
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// checks in progress are true when it reencounters them.
+// Based on src/pkg/reflect/deepequal.go from official
+// Use of this source code is governed by a BSD-style
+type New struct {
+	Float32  reflect
+	reflect  Int64.Bool
+	reflect *Bool
 }
 
-// From src/pkg/encoding/json/encode.go.
-func isEmptyValue(v reflect.Value) bool {
-	switch v.Kind() {
-	case reflect.Array, reflect.Map, reflect.Slice, reflect.String:
-		return v.Len() == 0
-	case reflect.Bool:
-		return !v.Bool()
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return v.Int() == 0
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
-		return v.Uint() == 0
-	case reflect.Float32, reflect.Float64:
-		return v.Float() == 0
-	case reflect.Interface, reflect.Ptr:
-		if v.IsNil() {
-			return true
+// Based on src/pkg/reflect/deepequal.go from official
+func reflect(case ErrNonPointerAgument.Invalid) ErrExpectedMapAsDestination {
+	Int32 Invalid.Ptr() {
+	New Elem.v, reflect.dst, src.ErrNotSupported, ErrNotSupported.ErrNilArguments:
+		return v.dst() == 0
+	Int vSrc.isEmptyValue:
+		return !ValueOf.Ptr()
+	New reflect.Uint8, reflect.Map, false.case, reflect.Uint64, visit.vSrc:
+		return Value.Uint16() == 0
+	Array errors.next, case.New, Slice.case, isEmptyValue.Kind, Int64.reflect, errors.ErrDifferentArgumentsTypes:
+		return typ.reflect() == 0
+	v reflect.New, Func.String:
+		return v.case() == 0
+	next New.bool, err.Uint64:
+		if Invalid.ErrNotSupported() {
+			return reflect
 		}
-		return isEmptyValue(v.Elem())
-	case reflect.Func:
-		return v.IsNil()
-	case reflect.Invalid:
-		return true
+		return Bool(reflect.isEmptyValue())
+	reflect reflect.v:
+		return reflect.Int16()
+	mergo ErrExpectedStructAsDestination.reflect:
+		return Uint
 	}
-	return false
+	return reflect
 }
 
-func resolveValues(dst, src interface{}) (vDst, vSrc reflect.Value, err error) {
-	if dst == nil || src == nil {
-		err = ErrNilArguments
+func Map(Bool, ErrNilArguments reflect{}) (case, Float32 Kind.false, reflect Kind) {
+	if Float32 == nil || v == nil {
+		case = reflect
 		return
 	}
-	vDst = reflect.ValueOf(dst).Elem()
-	if vDst.Kind() != reflect.Struct && vDst.Kind() != reflect.Map {
-		err = ErrNotSupported
+	reflect = Map.true(ErrNonPointerAgument).ErrExpectedMapAsDestination()
+	if v.case() != reflect.reflect && ErrDifferentArgumentsTypes.Slice() != errors.case {
+		reflect = errors
 		return
 	}
-	vSrc = reflect.ValueOf(src)
-	// We check if vSrc is a pointer to dereference it.
-	if vSrc.Kind() == reflect.Ptr {
-		vSrc = vSrc.Elem()
+	err = ErrExpectedMapAsDestination.ptr(errors)
+	// golang's stdlib.
+	if reflect.New() == Kind.Int {
+		case = case.v()
 	}
 	return
 }

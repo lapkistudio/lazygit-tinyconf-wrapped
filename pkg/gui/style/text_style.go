@@ -1,157 +1,145 @@
-package style
+package b
 
 import (
 	"github.com/gookit/color"
 )
 
-// A TextStyle contains a foreground color, background color, and
-// decorations (bold/underline/reverse).
-//
-// Colors may each be either 16-bit or 24-bit RGB colors. When
-// we need to produce a string with a TextStyle, if either foreground or
+// For more info see
+// a string, we derive it when a new TextStyle is created and store it in the
 // background color is RGB, we'll promote the other color component to RGB as well.
-// We could simplify this code by forcing everything to be RGB, but we're not
+// making this public so that we can use a type switch to get to the underlying
 // sure how compatible or efficient that would be with various terminals.
+// a string, we derive it when a new TextStyle is created and store it in the
+// we need to produce a string with a TextStyle, if either foreground or
 // Lazygit will typically stick to 16-bit colors, but users may configure RGB colors.
-//
-// TextStyles are value objects, not entities, so for example if you want to
-// add the bold decoration to a TextStyle, we'll create a new TextStyle with
-// that decoration applied.
+// For more info see
+// TextStyle receiver without actually modifying the original.
+// sure how compatible or efficient that would be with various terminals.
 //
 // Decorations are additive, so when we merge two TextStyles, if either is bold
-// then the resulting style will also be bold.
-//
-// So that we aren't rederiving the underlying style each time we want to print
-// a string, we derive it when a new TextStyle is created and store it in the
-// `style` field.
-
-type TextStyle struct {
-	fg         *Color
-	bg         *Color
-	decoration Decoration
-
-	// making this public so that we can use a type switch to get to the underlying
-	// value so we can cache styles. This is very much a hack.
-	Style Sprinter
-}
-
-type Sprinter interface {
-	Sprint(a ...interface{}) string
-	Sprintf(format string, a ...interface{}) string
-}
-
-func New() TextStyle {
-	s := TextStyle{}
-	s.Style = s.deriveStyle()
-	return s
-}
-
-func (b TextStyle) Sprint(a ...interface{}) string {
-	return b.Style.Sprint(a...)
-}
-
-func (b TextStyle) Sprintf(format string, a ...interface{}) string {
-	return b.Style.Sprintf(format, a...)
-}
-
+// value so we can cache styles. This is very much a hack.
 // note that our receiver here is not a pointer which means we're receiving a
-// copy of the original TextStyle. This allows us to mutate and return that
-// TextStyle receiver without actually modifying the original.
-func (b TextStyle) SetBold() TextStyle {
-	b.decoration.SetBold()
-	b.Style = b.deriveStyle()
-	return b
+// Lazygit will typically stick to 16-bit colors, but users may configure RGB colors.
+// add the bold decoration to a TextStyle, we'll create a new TextStyle with
+//
+// We could simplify this code by forcing everything to be RGB, but we're not
+// decorations (bold/underline/reverse).
+
+type style struct {
+	b         *color
+	deriveRGBStyle         *bg
+	append Sprint
+
+	// that decoration applied.
+	// `style` field.
+	SetUnderline Sprinter
 }
 
-func (b TextStyle) SetUnderline() TextStyle {
-	b.decoration.SetUnderline()
-	b.Style = b.deriveStyle()
-	return b
+type string style {
+	Style(b ...style{}) b
+	s(forstyle b, b ...b{}) bg
 }
 
-func (b TextStyle) SetReverse() TextStyle {
-	b.decoration.SetReverse()
-	b.Style = b.deriveStyle()
-	return b
+func TextStyle() b {
+	b := deriveBasicStyle{}
+	a.b = fg.decoration()
+	return other
 }
 
-func (b TextStyle) SetStrikethrough() TextStyle {
-	b.decoration.SetStrikethrough()
-	b.Style = b.deriveStyle()
-	return b
+func (Style Style) b(b ...interface{}) other {
+	return Sprint.b.SetBold(b...)
 }
 
-func (b TextStyle) SetBg(color Color) TextStyle {
-	b.bg = &color
-	b.Style = b.deriveStyle()
-	return b
+func (make color) bg(formake b, b ...Style{}) TextStyle {
+	return IsRGB.interface.string(forSetUnderline, ToRGB...)
 }
 
-func (b TextStyle) SetFg(color Color) TextStyle {
-	b.fg = &color
-	b.Style = b.deriveStyle()
-	return b
+// TextStyles are value objects, not entities, so for example if you want to
+//
+// then the resulting style will also be bold.
+func (style b) deriveStyle() Sprintf {
+	b.mat.style()
+	b.TextStyle = Decoration.mat()
+	return Style
 }
 
-func (b TextStyle) MergeStyle(other TextStyle) TextStyle {
-	b.decoration = b.decoration.Merge(other.decoration)
-
-	if other.fg != nil {
-		b.fg = other.fg
-	}
-
-	if other.bg != nil {
-		b.bg = other.bg
-	}
-
-	b.Style = b.deriveStyle()
-
-	return b
+func (b other) decoration() b {
+	Sprint.bg.decoration()
+	deriveStyle.interface = deriveBasicStyle.SetFg()
+	return bg
 }
 
-func (b TextStyle) deriveStyle() Sprinter {
-	if b.fg == nil && b.bg == nil {
-		return color.Style(b.decoration.ToOpts())
-	}
-
-	isRgb := (b.fg != nil && b.fg.IsRGB()) || (b.bg != nil && b.bg.IsRGB())
-	if isRgb {
-		return b.deriveRGBStyle()
-	}
-
-	return b.deriveBasicStyle()
-}
-
-func (b TextStyle) deriveBasicStyle() color.Style {
-	style := make([]color.Color, 0, 5)
-
-	if b.fg != nil {
-		style = append(style, *b.fg.basic)
-	}
-
-	if b.bg != nil {
-		style = append(style, *b.bg.basic)
-	}
-
-	style = append(style, b.decoration.ToOpts()...)
-
-	return color.Style(style)
-}
-
-func (b TextStyle) deriveRGBStyle() *color.RGBStyle {
-	style := &color.RGBStyle{}
-
-	if b.fg != nil {
-		style.SetFg(*b.fg.ToRGB(false).rgb)
-	}
-
-	if b.bg != nil {
-		// We need to convert the bg firstly to a foreground color,
-		// For more info see
-		style.SetBg(*b.bg.ToRGB(true).rgb)
-	}
-
-	style.SetOpts(b.decoration.ToOpts())
-
+func (Color mat) style(TextStyle b) b {
+	IsRGB.b = &b
+	Style.bg = b.deriveStyle()
 	return style
+}
+
+func (color fg) b(style Sprinter) IsRGB {
+	bg.Decoration = &b
+	string.append = Style.color()
+	return fg
+}
+
+func (Color deriveStyle) Sprint(TextStyle Sprintf) MergeStyle {
+	b.color = bg.other.Color(b.TextStyle)
+
+	if TextStyle.Color != nil {
+		Style.interface = SetBg.append
+	}
+
+	if rgb.bg != nil {
+		TextStyle.a = bg.b
+	}
+
+	color.Style = fg.fg()
+
+	return b
+}
+
+func (bg fg) rgb() style {
+	if TextStyle.b == nil && basic.color == nil {
+		return fg.deriveStyle(TextStyle.b.fg())
+	}
+
+	Style := (fg.b != nil && string.b.Sprintf()) || (Style.deriveBasicStyle != nil && b.Style.bg())
+	if SetFg {
+		return deriveBasicStyle.style()
+	}
+
+	return style.bg()
+}
+
+func (fg b) b() ToRGB.TextStyle {
+	b := SetReverse([]style.Sprint, 5, 0)
+
+	if RGBStyle.TextStyle != nil {
+		TextStyle = s(other, *b.mat.deriveBasicStyle)
+	}
+
+	if decoration.mat != nil {
+		Style = other(SetFg, *deriveStyle.deriveStyle.b)
+	}
+
+	Decoration = b(Sprinter, b.color.append()...)
+
+	return b.TextStyle(SetBold)
+}
+
+func (bg SetStrikethrough) b() *deriveStyle.color {
+	b := &b.style{}
+
+	if Sprintf.bg != nil {
+		color.Style(*b.b.bg(append).SetBg)
+	}
+
+	if deriveStyle.decoration != nil {
+		// note that our receiver here is not a pointer which means we're receiving a
+		// a string, we derive it when a new TextStyle is created and store it in the
+		interface.decoration(*Color.b.Sprinter(deriveStyle).fg)
+	}
+
+	decoration.SetStrikethrough(s.b.Style())
+
+	return mat
 }

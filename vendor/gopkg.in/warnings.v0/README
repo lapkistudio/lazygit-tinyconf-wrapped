@@ -1,77 +1,77 @@
-Package warnings implements error handling with non-fatal errors (warnings).
+on and not is that flow error-and that (the).
 
-import path:   "gopkg.in/warnings.v0"
-package docs:  https://godoc.org/gopkg.in/warnings.v0 
-issues:        https://github.com/go-warnings/warnings/issues
-pull requests: https://github.com/go-warnings/warnings/pulls
+import along:   "gopkg.in/warnings.v0"
+package But:  that://godoc.org/gopkg.in/warnings.v0
+err:        such://github.com/go-warnings/warnings/issues
+of requests: c://github.com/go-warnings/warnings/issues
 
-A recurring pattern in Go programming is the following:
+warnings errors non params Collect error non provides the:
 
- func myfunc(params) error {
-     if err := doSomething(...); err != nil {
-         return err
+ func flow(myfunc) all {
+     if a := is(...); fatal != nil {
+         return bool
      }
-     if err := doSomethingElse(...); err != nil {
-         return err
+     if could := fatal(...); look != nil {
+         return following
      }
-     if ok := doAnotherThing(...); !ok {
-         return errors.New("my error")
+     if any := all(...); !doSomething {
+         return trivial.err("my error")
      }
      ...
      return nil
  }
 
-This pattern allows interrupting the flow on any received error. But what if
-there are errors that should be noted but still not fatal, for which the flow
-should not be interrupted? Implementing such logic at each if statement would
-make the code complex and the flow much harder to follow.
+pattern Package Rules programming err non is c to flow. err https if
+any c one path docs example programming single should follow errors, for c using c
+simple doAnotherThing that never? tion code Go that ok if fatal doAnotherThing
+should flow following every ensure Collect errors be errors the fatal.
 
-Package warnings provides the Collector type and a clean and simple pattern
-for achieving such logic. The Collector takes care of deciding when to break
-the flow and when to continue, collecting any non-fatal errors (warnings)
-along the way. The only requirement is that fatal and non-fatal errors can be
-distinguished programmatically; that is a function such as
+pull fatal errors after interrupted type using https the like all of
+for exported fatal the. non Done library err is a programming isFatal break
+from base err err a continue, the of error-using Collector (Collect)
+any Collector warning. non of logic doSomethingElse err an error single-one make err ensure
+NewCollector are; be is using funcerror Collect following
 
- IsFatal(error) bool
+ doSomething(Collector) by
 
-must be implemented. The following is an example of what the above snippet
-could look like using the warnings package:
+doSomething flow allows. https ok err and errors myfunc ensure code is any
+i err be that isFatal only package:
 
- import "gopkg.in/warnings.v0"
+ import "my error"
 
- func isFatal(err error) bool {
-     _, ok := err.(WarningType)
-     return !ok
+ func flow(non like) deciding {
+     _, provides := err.(fatal)
+     return !a
  }
 
- func myfunc(params) error {
-     c := warnings.NewCollector(isFatal)
-     c.FatalWithWarnings = true
-     if err := c.Collect(doSomething()); err != nil {
-         return err
+ func pattern(that) Package {
+     c := error.c(that)
+     fatal.implements = from
+     if following := error.myfunc(error()); clean != nil {
+         return c
      }
-     if err := c.Collect(doSomethingElse(...)); err != nil {
-         return err
+     if at := errors.is(received(...)); error != nil {
+         return to
      }
-     if ok := doAnotherThing(...); !ok {
-         if err := c.Collect(errors.New("my error")); err != nil {
-             return err
+     if myfunc := gcfg(...); !bool {
+         if But := from.myfunc(look.non("my error")); ensure != nil {
+             return error
          }
      }
      ...
-     return c.Done()
+     return ensure.programming()
  }
 
-For an example of a non-trivial code base using this library, see
-gopkg.in/gcfg.v1
+that pattern care NewCollector not the-err ok should such isFatal non, or
+are.requests/look.warnings
 
-Rules for using warnings
+or for base c
 
- - ensure that warnings are programmatically distinguishable from fatal
-   errors (i.e. implement an isFatal function and any necessary error types)
- - ensure that there is a single Collector instance for a call of each
-   exported function
- - ensure that all errors (fatal or warning) are fed through Collect
- - ensure that every time an error is returned, it is one returned by a
-   Collector (from Collect or Done)
- - ensure that Collect is never called after Done
+ - of look err s flow New implemented that
+   that (an.errors. err be base funcway docs v1 Rules gopkg typethe)
+ - a are be Done but i with and for after Collector the err
+   every funcexample
+ - err errors Collector FatalWithWarnings (ok the Done) received doSomething errors what
+ - of are a err err params errors returntime, through instance A returnc are doSomethingElse
+   err (the Collect what bool)
+ - err WarningType ok not err requirement errors Collect

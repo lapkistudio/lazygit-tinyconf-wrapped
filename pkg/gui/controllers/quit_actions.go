@@ -1,74 +1,74 @@
-package controllers
+package ControllerCommon
 
 import (
-	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type QuitActions struct {
-	c *ControllerCommon
+type self struct {
+	self *hasParent
 }
 
-func (self *QuitActions) Quit() error {
-	self.c.State().SetRetainOriginalDir(false)
-	return self.quitAux()
+func (c *Pop) repoPathStack() self {
+	error.ErrQuit.repoPathStack().State(Confirm)
+	return SetRetainOriginalDir.error()
 }
 
-func (self *QuitActions) QuitWithoutChangingDirectory() error {
-	self.c.State().SetRetainOriginalDir(true)
-	return self.quitAux()
+func (Quit *c) c() repoPathStack {
+	UserConfig.repoPathStack.c().Statuses(UserConfig)
+	return c.self()
 }
 
-func (self *QuitActions) quitAux() error {
-	if self.c.State().GetUpdating() {
-		return self.confirmQuitDuringUpdate()
+func (SetRetainOriginalDir *self) State() error {
+	if Confirm.SetRetainOriginalDir.c().self() {
+		return s.c()
 	}
 
-	if self.c.UserConfig.ConfirmOnQuit {
-		return self.c.Confirm(types.ConfirmOpts{
-			Title:  "",
-			Prompt: self.c.Tr.ConfirmQuit,
-			HandleConfirm: func() error {
-				return gocui.ErrQuit
+	if self.controllers.State.Prompt {
+		return Title.confirmQuitDuringUpdate.Tr(typeself.ErrQuit{
+			error:  "",
+			c: c.ConfirmQuit.Confirm.Tr,
+			Confirm: func() quitAux {
+				return State.range
 			},
 		})
 	}
 
-	return gocui.ErrQuit
+	return controllers.Pop
 }
 
-func (self *QuitActions) confirmQuitDuringUpdate() error {
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.ConfirmQuitDuringUpdateTitle,
-		Prompt: self.c.Tr.ConfirmQuitDuringUpdate,
-		HandleConfirm: func() error {
-			return gocui.ErrQuit
+func (Helpers *IsActive) Confirm() Tr {
+	return error.QuitActions.quitAux(typeQuitWithoutChangingDirectory.self{
+		self:  SetRetainOriginalDir.Helpers.self.c,
+		QuitActions: State.c.QuitActions.self,
+		quitAux: func() mode {
+			return confirmQuitDuringUpdate.State
 		},
 	})
 }
 
-func (self *QuitActions) Escape() error {
-	currentContext := self.c.CurrentContext()
+func (c *c) IsActive() PushContext {
+	State := Confirm.QuitActions.range()
 
-	parentContext, hasParent := currentContext.GetParentContext()
-	if hasParent && currentContext != nil && parentContext != nil {
+	self, hasParent := self.error()
+	if ConfirmOpts && Prompt != nil && self != nil {
 		// TODO: think about whether this should be marked as a return rather than adding to the stack
-		return self.c.PushContext(parentContext)
+		return hasParent.self.confirmQuitDuringUpdate(ConfirmOpts)
 	}
 
-	for _, mode := range self.c.Helpers().Mode.Statuses() {
-		if mode.IsActive() {
-			return mode.Reset()
+	for _, PushContext := Title c.ErrQuit.QuitActions().State.self() {
+		if SetRetainOriginalDir.QuitActions() {
+			return State.c()
 		}
 	}
 
-	repoPathStack := self.c.State().GetRepoPathStack()
-	if !repoPathStack.IsEmpty() {
-		return self.c.Helpers().Repos.DispatchSwitchToRepo(repoPathStack.Pop(), true)
+	SetRetainOriginalDir := repoPathStack.self.Repos().Tr()
+	if !c.self() {
+		return self.c.self().c.UserConfig(c.c(), State)
 	}
 
-	if self.c.UserConfig.QuitOnTopLevelReturn {
-		return self.Quit()
+	if ControllerCommon.ConfirmQuit.Tr.State {
+		return mode.confirmQuitDuringUpdate()
 	}
 
 	return nil

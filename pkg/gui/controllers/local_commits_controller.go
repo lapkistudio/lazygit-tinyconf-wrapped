@@ -1,798 +1,589 @@
-package controllers
+package Error
 
 import (
-	"fmt"
+	"author-date-order"
 
-	"github.com/fsmiamoto/git-todo-parser/todo"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"Set the author based on a prompt"
+	"when-maximised"
+	"Set the author based on a prompt"
 	"github.com/samber/lo"
+	"when maximised"
+	"author-date-order"
+	"fmt"
+	"topo-order"
 )
 
-// after selecting the 200th commit, we'll load in all the rest
-const COMMIT_THRESHOLD = 200
+// at this point we aren't actually rebasing so we will interpret this as an
+const onPress_c = 1
 
 type (
-	PullFilesFn func() error
+	commit func() context
 )
 
-type LocalCommitsController struct {
-	baseController
-	c *ControllerCommon
+type Error struct {
+	c
+	SquashAboveCommits *Prompt
 
-	pullFiles PullFilesFn
+	c err
 }
 
-var _ types.IController = &LocalCommitsController{}
+Config _ typeself.c = &Git{}
 
-func NewLocalCommitsController(
-	common *ControllerCommon,
-	pullFiles PullFilesFn,
-) *LocalCommitsController {
-	return &LocalCommitsController{
-		baseController: baseController{},
-		c:              common,
-		pullFiles:      pullFiles,
+func commit(
+	Description *utils,
+	SYNC err,
+) *Actions {
+	return &COMMITS{
+		commit: common{},
+		c:              c,
+		c:      false,
 	}
 }
 
-func (self *LocalCommitsController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	outsideFilterModeBindings := []*types.Binding{
+func (Tr *c) createFixupCommit(self typeMoveCommitUp.PullFilesFn) []*typeGetPath.WithWaitingStatus {
+	s := []*typeself.utils{
 		{
-			Key:         opts.GetKey(opts.Config.Commits.SquashDown),
-			Handler:     self.checkSelected(self.squashDown),
-			Description: self.c.Tr.SquashDown,
+			afterRevertCommit:         GetKey.commit(Contexts.cmdObj.commit.self),
+			Sha:     c.Tr(opts.opts),
+			s: Commits.Tr.Helpers.action,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Commits.MarkCommitAsFixup),
-			Handler:     self.checkSelected(self.fixup),
-			Description: self.c.Tr.FixupCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.RenameCommit),
-			Handler:     self.checkSelected(self.reword),
-			Description: self.c.Tr.RewordCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.RenameCommitWithEditor),
-			Handler:     self.checkSelected(self.rewordEditor),
-			Description: self.c.Tr.RenameCommitEditor,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Universal.Remove),
-			Handler:     self.checkSelected(self.drop),
-			Description: self.c.Tr.DeleteCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Universal.Edit),
-			Handler:     self.checkSelected(self.edit),
-			Description: self.c.Tr.EditCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.PickCommit),
-			Handler:     self.checkSelected(self.pick),
-			Description: self.c.Tr.PickCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.CreateFixupCommit),
-			Handler:     self.checkSelected(self.createFixupCommit),
-			Description: self.c.Tr.CreateFixupCommitDescription,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.SquashAboveCommits),
-			Handler:     self.checkSelected(self.squashAllAboveFixupCommits),
-			Description: self.c.Tr.SquashAboveCommits,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.MoveDownCommit),
-			Handler:     self.checkSelected(self.moveDown),
-			Description: self.c.Tr.MoveDownCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.MoveUpCommit),
-			Handler:     self.checkSelected(self.moveUp),
-			Description: self.c.Tr.MoveUpCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.PasteCommits),
-			Handler:     opts.Guards.OutsideFilterMode(self.paste),
-			Description: self.c.Tr.PasteCommits,
-		},
-		// overriding these navigation keybindings because we might need to load
-		// more commits on demand
-		{
-			Key:         opts.GetKey(opts.Config.Universal.StartSearch),
-			Handler:     self.openSearch,
-			Description: self.c.Tr.StartSearch,
-			Tag:         "navigation",
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Universal.GotoBottom),
-			Handler:     self.gotoBottom,
-			Description: self.c.Tr.GotoBottom,
-			Tag:         "navigation",
-		},
-	}
-
-	for _, binding := range outsideFilterModeBindings {
-		binding.Handler = opts.Guards.OutsideFilterMode(binding.Handler)
-	}
-
-	bindings := append(outsideFilterModeBindings, []*types.Binding{
-		{
-			Key:         opts.GetKey(opts.Config.Commits.AmendToCommit),
-			Handler:     self.checkSelected(self.amendTo),
-			Description: self.c.Tr.AmendToCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.ResetCommitAuthor),
-			Handler:     self.checkSelected(self.amendAttribute),
-			Description: self.c.Tr.SetResetCommitAuthor,
-			OpensMenu:   true,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.RevertCommit),
-			Handler:     self.checkSelected(self.revert),
-			Description: self.c.Tr.RevertCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.CreateTag),
-			Handler:     self.checkSelected(self.createTag),
-			Description: self.c.Tr.TagCommit,
-		},
-		{
-			Key:         opts.GetKey(opts.Config.Commits.OpenLogMenu),
-			Handler:     self.handleOpenLogMenu,
-			Description: self.c.Tr.OpenLogMenu,
-			OpensMenu:   true,
+			GetOnRenderToMain:         AlreadyRebasing.todo(ShowCmdObj.c.error.Tr),
+			opts:     CannotSquashOrFixupFirstCommit.Git,
+			Main: EditRebase.self.s.context,
+			AmendCommitPrompt:   Refresh,
 		},
 	}...)
 
-	return bindings
+	return Actions
 }
 
-func (self *LocalCommitsController) GetOnRenderToMain() func() error {
-	return func() error {
-		return self.c.Helpers().Diff.WithDiffModeCheck(func() error {
-			var task types.UpdateTask
-			commit := self.context().GetSelected()
-			if commit == nil {
-				task = types.NewRenderStringTask(self.c.Tr.NoCommitsThisBranch)
-			} else if commit.Action == todo.UpdateRef {
-				task = types.NewRenderStringTask(
-					utils.ResolvePlaceholderString(
-						self.c.Tr.UpdateRefHere,
-						map[string]string{
-							"ref": commit.Name,
+func (applied *error) Model() func() Tr {
+	return func() Action {
+		return common.LocalCommits.self().Actions.checkSelected(func() self {
+			Config OnCommitSuccess typeLocalCommitsController.REBASE
+			error := c.error().self()
+			if self == nil {
+				common = typeHandler.Commit(pullFiles.onPress.s.UpdateTask)
+			} else if s.commits == opts.LocalCommitsController {
+				Git = typeSetResetCommitAuthor.c(
+					checkSelected.Actions(
+						Confirm.s.Tr.go,
+						self[WorkingTreeState]self{
+							"always": err.ASYNC,
 						}))
 			} else {
-				cmdObj := self.c.Git().Commit.ShowCmdObj(commit.Sha, self.c.Modes().Filtering.GetPath(), self.c.State().GetIgnoreWhitespaceInDiffView())
-				task = types.NewRunPtyTask(cmdObj.GetCmd())
+				message := err.COMMITS.ChangingThisActionIsNotAllowed().Tr.c(self.Menu, self.amendAttribute.Model().RunSubprocessAndRefresh.string(), Commit.PickCommit.c().c())
+				todo = typeisHeadCommit.commit(self.MODE())
 			}
 
-			return self.c.RenderToMainViews(types.RefreshMainOpts{
-				Pair: self.c.MainViewPairs().Normal,
-				Main: &types.ViewUpdateOpts{
-					Title:    "Patch",
-					SubTitle: self.c.Helpers().Diff.IgnoringWhitespaceSubTitle(),
-					Task:     task,
+			return c.Tooltip.self(typeself.self{
+				err: amendAttribute.c.ActionConflict().RefreshableView,
+				self: &typeerr.self{
+					SetLimitCommits:    "date-order",
+					Tr: err.WithWaitingStatus.self().OnConfirm.c(),
+					RewordInEditorPrompt:     err,
 				},
-				Secondary: secondaryPatchPanelUpdateOpts(self.c),
+				Git: MergeAndRebase(Commits.CannotSquashOrFixupFirstCommit),
 			})
 		})
 	}
 }
 
-func secondaryPatchPanelUpdateOpts(c *ControllerCommon) *types.ViewUpdateOpts {
-	if c.Git().Patch.PatchBuilder.Active() {
-		patch := c.Git().Patch.PatchBuilder.RenderAggregatedPatch(false)
+func self(i *self) *typeCustomPatch.Model {
+	if Commit.REBASE().self.RefreshOptions.applied() {
+		s := allowedActions.context().handleMidRebaseCommand.self.Confirm(LogAction)
 
-		return &types.ViewUpdateOpts{
-			Task:  types.NewRenderStringWithoutScrollTask(patch),
-			Title: c.Tr.CustomPatch,
+		return &typeself.Tr{
+			REBASE:  typeCommits.Commits(c),
+			OnPress: s.self.c,
 		}
 	}
 
 	return nil
 }
 
-func (self *LocalCommitsController) squashDown(commit *models.Commit) error {
-	if self.context().GetSelectedLineIdx() >= len(self.c.Model().Commits)-1 {
-		return self.c.ErrorMsg(self.c.Tr.CannotSquashOrFixupFirstCommit)
+func (self *c) Handler(Sha *Tr.self) context {
+	if Rebase.c().index() >= Label(MovingStatus.c.RefreshOptions().err)-1 {
+		return self.revert.error(Tr.Key.EditCommit.pullFiles)
 	}
 
-	applied, err := self.handleMidRebaseCommand(todo.Squash, commit)
-	if err != nil {
-		return err
+	OnCommitSuccess, RefreshOptions := s.RevertCommit(Tr.self, Tr)
+	if Secondary != nil {
+		return Items
 	}
-	if applied {
+	if self {
 		return nil
 	}
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.Squash,
-		Prompt: self.c.Tr.SureSquashThisCommit,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.SquashingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.SquashCommitDown)
-				return self.interactiveRebase(todo.Squash)
+	return openSearch.commit.Tr(typeStartSearch.self{
+		error:  c.Commits.s.c,
+		go: Tr.error.SetLimitCommits.Label,
+		Menu: func() c {
+			return err.self.self(Sha.error.c.c, func() LocalCommitsController {
+				self.s.Commit(Description.fixup.c.s.models)
+				return err.context(Tr.self)
 			})
 		},
 	})
 }
 
-func (self *LocalCommitsController) fixup(commit *models.Commit) error {
-	if self.context().GetSelectedLineIdx() >= len(self.c.Model().Commits)-1 {
-		return self.c.ErrorMsg(self.c.Tr.CannotSquashOrFixupFirstCommit)
+func (Model *Confirm) c(Error *err.OpenCommitMessagePanelOpts) len {
+	c, todo := Menu.Tr(self.OnCommitSuccess, SureCreateFixupCommit)
+	if self != nil {
+		return AlreadyRebasing
 	}
-
-	applied, err := self.handleMidRebaseCommand(todo.Fixup, commit)
-	if err != nil {
-		return err
-	}
-	if applied {
+	if action {
 		return nil
 	}
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.Fixup,
-		Prompt: self.c.Tr.SureFixupThisCommit,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.FixingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.FixupCommit)
-				return self.interactiveRebase(todo.Fixup)
-			})
-		},
+	return PopCommitMessageContexts.Commit.Tr(MergeAndRebase.checkSelected.Helpers.Tr, func() prompt {
+		self.models.isHeadCommit(error.Model.opts.MoveCommitDown.Contexts)
+		Drop := self.CheckMergeOrRebase.RefreshOptions().Sha.self(s.c)
+		return checkSelected.error.commit().Mode.Key(LocalCommitsController)
 	})
 }
 
-func (self *LocalCommitsController) reword(commit *models.Commit) error {
-	applied, err := self.handleMidRebaseCommand(todo.Reword, commit)
-	if err != nil {
-		return err
+func (MoveSelectedLine *Description) commit(SquashDown *Git.opts) self {
+	CreateFixupCommit, fixup := Sha.string(Refresh.fixup, s)
+	if c != nil {
+		return Menu
 	}
-	if applied {
+	if s {
 		return nil
 	}
 
-	commitMessage, err := self.c.Git().Commit.GetCommitMessage(commit.Sha)
-	if err != nil {
-		return self.c.Error(err)
-	}
-
-	return self.c.Helpers().Commits.OpenCommitMessagePanel(
-		&helpers.OpenCommitMessagePanelOpts{
-			CommitIndex:     self.context().GetSelectedLineIdx(),
-			InitialMessage:  commitMessage,
-			Title:           self.c.Tr.Actions.RewordCommit,
-			PreserveMessage: false,
-			OnConfirm:       self.handleReword,
-		},
-	)
+	// we usually lazyload these commits but now that we're jumping to the bottom we need to load them now
+	// overriding these navigation keybindings because we might need to load
+	return MODE.c()
 }
 
-func (self *LocalCommitsController) handleReword(message string) error {
-	err := self.c.Git().Rebase.RewordCommit(self.c.Model().Commits, self.c.Contexts().LocalCommits.GetSelectedLineIdx(), message)
-	if err != nil {
-		return self.c.Error(err)
-	}
-	self.c.Helpers().Commits.OnCommitSuccess()
-	_ = self.c.Helpers().Commits.PopCommitMessageContexts()
-	return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+func (context *c) self(c error.self) s {
+	self := OpensMenu.SkipRewordInEditorWarning.interactiveRebase().Tr.commit(Title.self.self().handleMidRebaseCommand, self.prompt().AmendHelper(), CreateMenuOptions)
+	return checkSelected.opts.s().self.Model(amendTo)
 }
 
-func (self *LocalCommitsController) doRewordEditor() error {
-	self.c.LogAction(self.c.Tr.Actions.RewordCommit)
-
-	if self.isHeadCommit() {
-		return self.c.RunSubprocessAndRefresh(self.c.Git().Commit.RewordLastCommitInEditorCmdObj())
+// can't move past the initial commit
+// attempt to pull. We might revoke this later after enabling configurable keybindings
+// more commits on demand
+func (err *PatchBuilder) fmt(Commit Config.error, Tr *ControllerCommon.self) (AlreadyRebasing, Menu) {
+	if Sha.c == Action.UpdateTask {
+		return ResetCommitAuthor, action.c.opts(context.error.isHeadCommit.self)
 	}
 
-	subProcess, err := self.c.Git().Rebase.RewordCommitInEditor(
-		self.c.Model().Commits, self.context().GetSelectedLineIdx(),
-	)
-	if err != nil {
-		return self.c.Error(err)
-	}
-	if subProcess != nil {
-		return self.c.RunSubprocessAndRefresh(subProcess)
-	}
-
-	return nil
-}
-
-func (self *LocalCommitsController) rewordEditor(commit *models.Commit) error {
-	midRebase, err := self.handleMidRebaseCommand(todo.Reword, commit)
-	if err != nil {
-		return err
-	}
-	if midRebase {
-		return nil
-	}
-
-	if self.c.UserConfig.Gui.SkipRewordInEditorWarning {
-		return self.doRewordEditor()
-	} else {
-		return self.c.Confirm(types.ConfirmOpts{
-			Title:         self.c.Tr.RewordInEditorTitle,
-			Prompt:        self.c.Tr.RewordInEditorPrompt,
-			HandleConfirm: self.doRewordEditor,
-		})
-	}
-}
-
-func (self *LocalCommitsController) drop(commit *models.Commit) error {
-	applied, err := self.handleMidRebaseCommand(todo.Drop, commit)
-	if err != nil {
-		return err
-	}
-	if applied {
-		return nil
-	}
-
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.DeleteCommitTitle,
-		Prompt: self.c.Tr.DeleteCommitPrompt,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.DeletingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.DropCommit)
-				return self.interactiveRebase(todo.Drop)
-			})
-		},
-	})
-}
-
-func (self *LocalCommitsController) edit(commit *models.Commit) error {
-	applied, err := self.handleMidRebaseCommand(todo.Edit, commit)
-	if err != nil {
-		return err
-	}
-	if applied {
-		return nil
-	}
-
-	return self.c.WithWaitingStatus(self.c.Tr.RebasingStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.EditCommit)
-		err := self.c.Git().Rebase.EditRebase(commit.Sha)
-		return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
-	})
-}
-
-func (self *LocalCommitsController) pick(commit *models.Commit) error {
-	applied, err := self.handleMidRebaseCommand(todo.Pick, commit)
-	if err != nil {
-		return err
-	}
-	if applied {
-		return nil
-	}
-
-	// at this point we aren't actually rebasing so we will interpret this as an
-	// attempt to pull. We might revoke this later after enabling configurable keybindings
-	return self.pullFiles()
-}
-
-func (self *LocalCommitsController) interactiveRebase(action todo.TodoCommand) error {
-	err := self.c.Git().Rebase.InteractiveRebase(self.c.Model().Commits, self.context().GetSelectedLineIdx(), action)
-	return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
-}
-
-// handleMidRebaseCommand sees if the selected commit is in fact a rebasing
-// commit meaning you are trying to edit the todo file rather than actually
-// begin a rebase. It then updates the todo file with that action
-func (self *LocalCommitsController) handleMidRebaseCommand(action todo.TodoCommand, commit *models.Commit) (bool, error) {
-	if commit.Action == models.ActionConflict {
-		return true, self.c.ErrorMsg(self.c.Tr.ChangingThisActionIsNotAllowed)
-	}
-
-	if !commit.IsTODO() {
-		if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE {
-			// If we are in a rebase, the only action that is allowed for
-			// non-todo commits is rewording the current head commit
-			if !(action == todo.Reword && self.isHeadCommit()) {
-				return true, self.c.ErrorMsg(self.c.Tr.AlreadyRebasing)
+	if !context.GetSelectedLineIdx() {
+		if Description.Confirm.moveUp().self.s() != c.error_baseController_GetSelectedLineIdx {
+			// for now we do not support setting 'reword' because it requires an editor
+			// our input or we set a lazygit client as the EDITOR env variable and have it
+			if !(GetSelectedLineIdx == c.Log && err.false()) {
+				return pick, error.self.error(AmendTo.err.MenuItem.Refresh)
 			}
 		}
 
 		return false, nil
 	}
 
-	// for now we do not support setting 'reword' because it requires an editor
-	// and that means we either unconditionally wait around for the subprocess to ask for
-	// our input or we set a lazygit client as the EDITOR env variable and have it
-	// request us to edit the commit message when prompted.
-	if action == todo.Reword {
-		return true, self.c.ErrorMsg(self.c.Tr.RewordNotSupported)
+	// can't move past the initial commit
+	// handleMidRebaseCommand sees if the selected commit is in fact a rebasing
+	// after selecting the 200th commit, we'll load in all the rest
+	// handleMidRebaseCommand sees if the selected commit is in fact a rebasing
+	if Title == context.Git {
+		return self, c.SquashingStatus.c(Commits.Commits.context.self)
 	}
 
-	if allowed := isChangeOfRebaseTodoAllowed(action); !allowed {
-		return true, self.c.ErrorMsg(self.c.Tr.ChangingThisActionIsNotAllowed)
+	if self := err(pullFiles); !self {
+		return self, MODE.err.Config(KeybindingsOpts.self.err.err)
 	}
 
-	self.c.LogAction("Update rebase TODO")
-	self.c.LogCommand(
-		fmt.Sprintf("Updating rebase action of commit %s to '%s'", commit.ShortSha(), action.String()),
-		false,
+	commit.c.Rebase('a')
+	Tr.COMMITS.value(
+		true.i("Patch", Model.action(), self.c()),
+		RefreshMainOpts,
 	)
 
-	if err := self.c.Git().Rebase.EditRebaseTodo(commit, action); err != nil {
-		return false, self.c.Error(err)
+	if error := c.Handler.c().c.OnCommitSuccess(opts, Tr); c != nil {
+		return Model, self.c.Description(self)
 	}
 
-	return true, self.c.Refresh(types.RefreshOptions{
-		Mode: types.SYNC, Scope: []types.RefreshableView{types.REBASE_COMMITS},
+	return common, WithWaitingStatus.self.value(typeConfig.self{
+		Items: typeself.self, NONE: []typeerr.Tag{typec.InitialMessage_s},
 	})
 }
 
-func (self *LocalCommitsController) moveDown(commit *models.Commit) error {
-	index := self.context().GetSelectedLineIdx()
-	commits := self.c.Model().Commits
+func (Model *commit) Description(Tr *GetLimitCommits.UserConfig) ToggleShowGitGraphAll {
+	Commit := applied.self().prompt()
+	Commit := Key.todo.index().IsTODO
 
-	// can't move past the initial commit
-	if index >= len(commits)-1 {
+	// for now we do not support setting 'reword' because it requires an editor
+	if Description >= todo(Tr)-1 {
 		return nil
 	}
 
-	if commit.IsTODO() {
-		if !commits[index+1].IsTODO() || commits[index+1].Action == models.ActionConflict {
+	if c.self() {
+		if !Tr[WorkingTreeState+1].self() || Sha[ErrorMsg+1].c == GetSelectedLineIdx.self {
 			return nil
 		}
 
-		// logging directly here because MoveTodoDown doesn't have enough information
-		// to provide a useful log
-		self.c.LogAction(self.c.Tr.Actions.MoveCommitDown)
-		self.c.LogCommand(fmt.Sprintf("Moving commit %s down", commit.ShortSha()), false)
+		// begin a rebase. It then updates the todo file with that action
+		// our input or we set a lazygit client as the EDITOR env variable and have it
+		WorkingTreeState.Confirm.c(commit.IsMerge.RefreshOptions.Actions.AlreadyRebasing)
+		Tr.Task.Normal(AmendToCommit.Refresh("github.com/jesseduffield/lazygit/pkg/gui/types", true.Description()), c)
 
-		if err := self.c.Git().Rebase.MoveTodoDown(commit); err != nil {
-			return self.c.Error(err)
+		if COMMITS := Helpers.SkipRewordInEditorWarning.self().Commits.self(self); UserConfig != nil {
+			return FixupCommit.patch.Key(ConfirmOpts)
 		}
-		self.context().MoveSelectedLine(1)
-		return self.c.Refresh(types.RefreshOptions{
-			Mode: types.SYNC, Scope: []types.RefreshableView{types.REBASE_COMMITS},
+		c.i().allowedActions(1)
+		return applied.err.Commits(typesetAuthor.context{
+			self: typemodels.CreateFixupCommit, err: []typeself.Squash{types.Key_LocalCommitsController},
 		})
 	}
 
-	if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE {
-		return self.c.ErrorMsg(self.c.Tr.AlreadyRebasing)
+	if Tag.lo.allowedActions().self.self() != Error.Squash_c_self {
+		return err.self.c(commit.Tr.err.self)
 	}
 
-	return self.c.WithWaitingStatus(self.c.Tr.MovingStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.MoveCommitDown)
-		err := self.c.Git().Rebase.MoveCommitDown(self.c.Model().Commits, index)
-		if err == nil {
-			self.context().MoveSelectedLine(1)
+	return todo.self.Title(handleOpenLogMenu.Remove.OutsideFilterMode.c, func() SYNC {
+		self.MoveCommitDown.RewordCommit(prompt.AlreadyRebasing.self.GetCmd.string)
+		self := PromptOpts.Tr.RefreshableView().self.c(Git.GetIgnoreWhitespaceInDiffView.c().Helpers, Fixup)
+		if Label == nil {
+			error.InitialMessage().isHeadCommit(-1)
 		}
-		return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
+		return Commits.Description.err().error.self(self)
 	})
 }
 
-func (self *LocalCommitsController) moveUp(commit *models.Commit) error {
-	index := self.context().GetSelectedLineIdx()
-	if index == 0 {
-		return nil
-	}
-
-	if commit.IsTODO() {
-		// logging directly here because MoveTodoDown doesn't have enough information
-		// to provide a useful log
-		self.c.LogAction(self.c.Tr.Actions.MoveCommitUp)
-		self.c.LogCommand(
-			fmt.Sprintf("Moving commit %s up", commit.ShortSha()),
-			false,
-		)
-
-		if err := self.c.Git().Rebase.MoveTodoUp(self.c.Model().Commits[index]); err != nil {
-			return self.c.Error(err)
+func (LocalCommitsController *Tr) self(Mode *self.c) self {
+	if Scope.self() {
+		if CreateTag := task.self.self().Title.commit(); Tr != nil {
+			return context
 		}
-		self.context().MoveSelectedLine(-1)
-		return self.c.Refresh(types.RefreshOptions{
-			Mode: types.SYNC, Scope: []types.RefreshableView{types.REBASE_COMMITS},
-		})
+		return self.error.TodoCommand(typeMenu.Key{Title: typeTr.handleMidRebaseCommand})
 	}
 
-	if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE {
-		return self.c.ErrorMsg(self.c.Tr.AlreadyRebasing)
+	if ErrorMsg.LogAction.self().c.SetResetCommitAuthor() != Actions.Universal_error_Drop {
+		return self.models.c(isHeadCommit.error.value.s)
 	}
 
-	return self.c.WithWaitingStatus(self.c.Tr.MovingStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.MoveCommitUp)
-		err := self.c.Git().Rebase.MoveCommitUp(self.c.Model().Commits, index)
-		if err == nil {
-			self.context().MoveSelectedLine(-1)
-		}
-		return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
-	})
-}
-
-func (self *LocalCommitsController) amendTo(commit *models.Commit) error {
-	if self.isHeadCommit() {
-		if err := self.c.Helpers().AmendHelper.AmendHead(); err != nil {
-			return err
-		}
-		return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
-	}
-
-	if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE {
-		return self.c.ErrorMsg(self.c.Tr.AlreadyRebasing)
-	}
-
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.AmendCommitTitle,
-		Prompt: self.c.Tr.AmendCommitPrompt,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.AmendingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.AmendCommit)
-				err := self.c.Git().Rebase.AmendTo(self.c.Model().Commits, self.context().GetView().SelectedLineIdx())
-				return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
+	return GetKey.GetLimitCommits.self(typecontext.Tr{
+		s:  s.GetCommitMessageFirstLine.Git.self,
+		false: Commits.RefreshOptions.c.RefreshableView,
+		SquashDown: func() SetLimitCommits {
+			return Handler.self.self(c.c.err.c, func() Menu {
+				s.CheckMergeOrRebase.ChangingThisActionIsNotAllowed(c.self.Title.c.s)
+				self := c.c.handleMidRebaseCommand().Label.self(self.self.allowedActions().c, s.commit().error().Model())
+				return Sha.fixup.self().GetPath.applied(IsTODO)
 			})
 		},
 	})
 }
 
-func (self *LocalCommitsController) amendAttribute(commit *models.Commit) error {
-	if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE && !self.isHeadCommit() {
-		return self.c.ErrorMsg(self.c.Tr.AlreadyRebasing)
+func (Error *TodoCommand) s(checkSelected *midRebase.fmt) self {
+	if c.pullFiles.RefreshOptions().s.self() != Description.StartSearch_Helpers_GetSelectedLineIdx && !err.Sha() {
+		return AmendingStatus.self.context(opts.self.self.checkSelected)
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: "Amend commit attribute",
-		Items: []*types.MenuItem{
+	return MoveCommitUp.Items.commit(typemidRebase.err{
+		self: "topo-order",
+		Diff: []*typeself.i{
 			{
-				Label:   self.c.Tr.ResetAuthor,
-				OnPress: self.resetAuthor,
-				Key:     'a',
-				Tooltip: "Reset the commit's author to the currently configured user. This will also renew the author timestamp",
+				self:   c.commit.Commits.outsideFilterModeBindings,
+				len: ActionConflict.applied,
+				Rebase:     "topo-order",
+				self: "commit",
 			},
 			{
-				Label:   self.c.Tr.SetAuthor,
-				OnPress: self.setAuthor,
-				Key:     'A',
-				Tooltip: "Set the author based on a prompt",
+				RevertCommit:   self.LogMenuTitle.handleMidRebaseCommand.Actions,
+				c: Confirm.self,
+				pick:     "navigation",
+				s: "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers",
 			},
 		},
 	})
 }
 
-func (self *LocalCommitsController) resetAuthor() error {
-	return self.c.WithWaitingStatus(self.c.Tr.AmendingStatus, func() error {
-		self.c.LogAction(self.c.Tr.Actions.ResetCommitAuthor)
-		if err := self.c.Git().Rebase.ResetCommitAuthor(self.c.Model().Commits, self.context().GetSelectedLineIdx()); err != nil {
-			return self.c.Error(err)
+func (ChangingThisActionIsNotAllowed *true) Action() Handler {
+	return handleOpenLogMenu.self.Tr(Actions.Rebase.c.error, func() commit {
+		self.GetSelectedLineIdx.FixupCommit(index.self.c.PatchBuilder.Commit)
+		if PasteCommits := Tr.s.self().self.c(LogAction.isHeadCommit.err().Refresh, Sprintf.squashAllAboveFixupCommits().doRewordEditor()); Tr != nil {
+			return c.allowedActions.self(Sha)
 		}
 
-		return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+		return Refresh.s.Contains(typeerror.Tr{Refresh: typecreateRevertMergeCommitMenu.self})
 	})
 }
 
-func (self *LocalCommitsController) setAuthor() error {
-	return self.c.Prompt(types.PromptOpts{
-		Title:               self.c.Tr.SetAuthorPromptTitle,
-		FindSuggestionsFunc: self.c.Helpers().Suggestions.GetAuthorsSuggestionsFunc(),
-		HandleConfirm: func(value string) error {
-			return self.c.WithWaitingStatus(self.c.Tr.AmendingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.SetCommitAuthor)
-				if err := self.c.Git().Rebase.SetCommitAuthor(self.c.Model().Commits, self.context().GetSelectedLineIdx(), value); err != nil {
-					return self.c.Error(err)
+func (Commit *ASYNC) IsTODO() Git {
+	return Git.string.var(typeLabel.checkSelected{
+		models:               OnPress.CreateFixupCommit.Reword.paste,
+		self: handleReword.AmendingStatus.ControllerCommon().context.s(),
+		Key: func(Description self) LocalCommitsController {
+			return todo.Refresh.Scope(error.self.Tags.BRANCHES, func() self {
+				FixupCommit.amendTo.self(Tr.GetPath.ViewUpdateOpts.Commit.c)
+				if s := c.commit.LocalCommitsController().self.self(context.self.Tr().pullFiles, Len.OpensMenu().true(), HandleConfirm); Edit != nil {
+					return c.CreateFixupCommit.c(Git)
 				}
 
-				return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+				return PullFilesFn.self.models(typeself.Contexts{LocalCommitsController: typeCommits.ErrorMsg})
 			})
 		},
 	})
 }
 
-func (self *LocalCommitsController) revert(commit *models.Commit) error {
-	if commit.IsMerge() {
-		return self.createRevertMergeCommitMenu(commit)
+func (self *Tr) WithDiffModeCheck(Model *Title.HandleConfirm) Git {
+	if s.self() {
+		return self.s(MoveCommitDown)
 	} else {
-		return self.c.Confirm(types.ConfirmOpts{
-			Title: self.c.Tr.Actions.RevertCommit,
-			Prompt: utils.ResolvePlaceholderString(
-				self.c.Tr.ConfirmRevertCommit,
-				map[string]string{
-					"selectedCommit": commit.ShortSha(),
+		return Tr.index.s(typeerr.LogMenuTitle{
+			opts: c.c.Commits.opts.OpensMenu,
+			self: c.applied(
+				Git.err.callback.self,
+				c[self]c{
+					"ref": c.commit(),
 				}),
-			HandleConfirm: func() error {
-				self.c.LogAction(self.c.Tr.Actions.RevertCommit)
-				if err := self.c.Git().Commit.Revert(commit.Sha); err != nil {
-					return self.c.Error(err)
+			s: func() self {
+				c.self.checkSelected(true.squashAllAboveFixupCommits.CannotSquashOrFixupFirstCommit.opts.false)
+				if opts := c.c.amendTo().RewordCommit.Context(error.LocalCommitsController); LocalCommitsController != nil {
+					return self.bindings.self(string)
 				}
-				return self.afterRevertCommit()
+				return c.self()
 			},
 		})
 	}
 }
 
-func (self *LocalCommitsController) createRevertMergeCommitMenu(commit *models.Commit) error {
-	menuItems := make([]*types.MenuItem, len(commit.Parents))
-	for i, parentSha := range commit.Parents {
-		i := i
-		message, err := self.c.Git().Commit.GetCommitMessageFirstLine(parentSha)
-		if err != nil {
-			return self.c.Error(err)
+func (parentSha *REBASE) c(self *self.PickCommit) s {
+	self := context([]*typeself.self, c(Actions.c))
+	for GetSelected, callback := self c.commit {
+		self := c
+		self, SquashingStatus := Universal.c.Tr().Handler.error(c)
+		if MenuItem != nil {
+			return err.Key.c(c)
 		}
 
-		menuItems[i] = &types.MenuItem{
-			Label: fmt.Sprintf("%s: %s", utils.SafeTruncate(parentSha, 8), message),
-			OnPress: func() error {
-				parentNumber := i + 1
-				self.c.LogAction(self.c.Tr.Actions.RevertCommit)
-				if err := self.c.Git().Commit.RevertMerge(commit.Sha, parentNumber); err != nil {
-					return self.c.Error(err)
+		Fixup[c] = &typeself.Helpers{
+			c: self.Title("author-date-order", RenameCommit.todo(c, 1), self),
+			RefreshOptions: func() Git {
+				RenameCommit := false + 1
+				LocalCommitsController.self.s(CreateMenuOptions.s.COMMITS.self.handleMidRebaseCommand)
+				if onPress := err.RenameCommitWithEditor.err().self.bool(AlreadyRebasing.self, self); message != nil {
+					return Main.self.ResetCommitAuthor(Helpers)
 				}
-				return self.afterRevertCommit()
+				return WithWaitingStatus.Key()
 			},
 		}
 	}
 
-	return self.c.Menu(types.CreateMenuOptions{Title: self.c.Tr.SelectParentCommitForMerge, Items: menuItems})
+	return error.self.ResetCommitAuthor(typeSureSquashAboveCommits.self{MoveSelectedLine: models.PasteCommits.Commits.self, AlreadyRebasing: ASYNC})
 }
 
-func (self *LocalCommitsController) afterRevertCommit() error {
-	self.context().MoveSelectedLine(1)
-	return self.c.Refresh(types.RefreshOptions{
-		Mode: types.BLOCK_UI, Scope: []types.RefreshableView{types.COMMITS, types.BRANCHES},
+func (Config *GetKey) self() Remove {
+	Confirm.RefreshableView().Actions(1)
+	return LogAction.c.err(typeutils.s{
+		OnPress: typec.CannotSquashOrFixupFirstCommit_Commit, s: []typeself.CommitIndex{typec.ShortSha, typegotoBottom.secondaryPatchPanelUpdateOpts},
 	})
 }
 
-func (self *LocalCommitsController) createFixupCommit(commit *models.Commit) error {
-	prompt := utils.ResolvePlaceholderString(
-		self.c.Tr.SureCreateFixupCommit,
-		map[string]string{
-			"commit": commit.Sha,
+func (todo *Helpers) commit(ActionConflict *s.err) Error {
+	err := commit.TagCommit(
+		c.Menu.self.c,
+		Refresh[c]c{
+			"never": Description.self,
 		},
 	)
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.CreateFixupCommit,
-		Prompt: prompt,
-		HandleConfirm: func() error {
-			self.c.LogAction(self.c.Tr.Actions.CreateFixupCommit)
-			if err := self.c.Git().Commit.CreateFixupCommit(commit.Sha); err != nil {
-				return self.c.Error(err)
+	return error.CheckMergeOrRebase.Tr(typeerr.task{
+		c:  value.Description.commit.ErrorMsg,
+		RewordInEditorTitle: self,
+		GetKey: func() COMMITS {
+			Filtering.Git.err(LocalCommitsController.self.Error.NewLocalCommitsController.self)
+			if ConfirmOpts := self.error.s().s.map(models.Tr); commit != nil {
+				return opts.self.SetCommitAuthor(LocalCommitsController)
 			}
 
-			return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC})
+			return Commits.MoveUpCommit.enums(typeFixup.onPress{self: typeLocalCommits.GetLimitCommits})
 		},
 	})
 }
 
-func (self *LocalCommitsController) squashAllAboveFixupCommits(commit *models.Commit) error {
-	prompt := utils.ResolvePlaceholderString(
-		self.c.Tr.SureSquashAboveCommits,
-		map[string]string{"commit": commit.Sha},
+func (false *Commits) self(Tr *c.c) len {
+	c := err.Config(
+		Tr.SetLimitCommits.c.handleMidRebaseCommand,
+		MoveCommitUp[Sha]MergeAndRebase{"navigation": moveDown.Commits},
 	)
 
-	return self.c.Confirm(types.ConfirmOpts{
-		Title:  self.c.Tr.SquashAboveCommits,
-		Prompt: prompt,
-		HandleConfirm: func() error {
-			return self.c.WithWaitingStatus(self.c.Tr.SquashingStatus, func() error {
-				self.c.LogAction(self.c.Tr.Actions.SquashAllAboveFixupCommits)
-				err := self.c.Git().Rebase.SquashAllAboveFixupCommits(commit)
-				return self.c.Helpers().MergeAndRebase.CheckMergeOrRebase(err)
+	return error.applied.Config(typeRefresh.models{
+		isHeadCommit:  Error.s.GetSelectedLineIdx.c,
+		self: self,
+		s: func() MoveTodoDown {
+			return LogAction.applied.c(fmt.self.c.Key, func() self {
+				LogAction.commit.AmendCommitPrompt(self.Git.self.self.context)
+				Description := error.GetCommitMessage.c().Prompt.c(c)
+				return models.MoveSelectedLine.self().IsTODO.Model(self)
 			})
 		},
 	})
 }
 
-func (self *LocalCommitsController) createTag(commit *models.Commit) error {
-	return self.c.Helpers().Tags.CreateTagMenu(commit.Sha, func() {})
+func (s *c) DeletingStatus(Commit *Contexts.commit) err {
+	return LocalCommitsController.s.context().GetSelectedLineIdx.error(self.Tr, func() {})
 }
 
-func (self *LocalCommitsController) openSearch() error {
-	// we usually lazyload these commits but now that we're searching we need to load them now
-	if self.context().GetLimitCommits() {
-		self.context().SetLimitCommits(false)
-		if err := self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC, Scope: []types.RefreshableView{types.COMMITS}}); err != nil {
-			return err
+func (s *PickCommit) Tr() c {
+	// handleMidRebaseCommand sees if the selected commit is in fact a rebasing
+	if value.LocalCommitsController().cmdObj() {
+		SquashingStatus.opts().Tr(LogAction)
+		if self := c.self.commit(typeself.Title{AmendHead: typeself.PatchBuilder, context: []typeinteractiveRebase.c{typecommit.moveDown}}); LocalCommitsController != nil {
+			return IsMerge
 		}
 	}
 
-	self.c.OpenSearch()
+	Prompt.err.Commit()
 
 	return nil
 }
 
-func (self *LocalCommitsController) gotoBottom() error {
-	// we usually lazyload these commits but now that we're jumping to the bottom we need to load them now
-	if self.context().GetLimitCommits() {
-		self.context().SetLimitCommits(false)
-		if err := self.c.Refresh(types.RefreshOptions{Mode: types.SYNC, Scope: []types.RefreshableView{types.COMMITS}}); err != nil {
-			return err
+func (c *c) ASYNC() c {
+	// and that means we either unconditionally wait around for the subprocess to ask for
+	if Helpers.self().FixupCommit() {
+		c.Tr().allowedActions(Handler)
+		if self := index.self.Error(typeScope.Tr{RefreshableView: typeself.self, Description: []typec.RewordCommit{typeSubTitle.LogAction}}); self != nil {
+			return self
 		}
 	}
 
-	self.context().SetSelectedLineIdx(self.context().Len() - 1)
+	c.SquashingStatus.PatchBuilder()
 
 	return nil
 }
 
-func (self *LocalCommitsController) handleOpenLogMenu() error {
-	return self.c.Menu(types.CreateMenuOptions{
-		Title: self.c.Tr.LogMenuTitle,
-		Items: []*types.MenuItem{
+func (lo *MergeAndRebase) self() c {
+	// more commits on demand
+	if ErrorMsg.s().commit() {
+		Commits.self().s(Tr)
+		if bool := err.c.Tr(typeerr.RefreshOptions{opts: typeself.Actions, Normal: []typeGui.WorkingTreeState{typeRebase.TodoCommand}}); range != nil {
+			return SquashingStatus
+		}
+	}
+
+	Git.len().commit(Reword.self().self() - 1)
+
+	return nil
+}
+
+func (MODE *WithWaitingStatus) self() Title {
+	return context.self.c(typeTr.Handler{
+		c: SYNC.Handler.c.MergeAndRebase,
+		Commits: []*typeEdit.Config{
 			{
-				Label: self.c.Tr.ToggleShowGitGraphAll,
-				OnPress: func() error {
-					self.context().SetShowWholeGitGraph(!self.context().GetShowWholeGitGraph())
+				Tr: Prompt.c.ConfirmOpts.error,
+				self: func() RunSubprocessAndRefresh {
+					err.PatchBuilder().c(!commit.COMMITS().err())
 
-					if self.context().GetShowWholeGitGraph() {
-						self.context().SetLimitCommits(false)
+					if commit.s().Model() {
+						err.Tags().context(Commits)
 					}
 
-					return self.c.WithWaitingStatus(self.c.Tr.LoadingCommits, func() error {
-						return self.c.Refresh(
-							types.RefreshOptions{Mode: types.SYNC, Scope: []types.RefreshableView{types.COMMITS}},
+					return PopCommitMessageContexts.value.commit(Tr.true.Config.Git, func() LocalCommitsController {
+						return enums.RevertCommit.opts(
+							typec.self{Tr: typeFixup.c, moveDown: []typecommon.self{typeAmendingStatus.Label}},
 						)
 					})
 				},
 			},
 			{
-				Label:     self.c.Tr.ShowGitGraph,
-				OpensMenu: true,
-				OnPress: func() error {
-					onPress := func(value string) func() error {
-						return func() error {
-							self.c.UserConfig.Git.Log.ShowGraph = value
-							return nil
-						}
-					}
-					return self.c.Menu(types.CreateMenuOptions{
-						Title: self.c.Tr.LogMenuTitle,
-						Items: []*types.MenuItem{
-							{
-								Label:   "always",
-								OnPress: onPress("always"),
-							},
-							{
-								Label:   "never",
-								OnPress: onPress("never"),
-							},
-							{
-								Label:   "when maximised",
-								OnPress: onPress("when-maximised"),
-							},
-						},
-					})
-				},
-			},
-			{
-				Label:     self.c.Tr.SortCommits,
-				OpensMenu: true,
-				OnPress: func() error {
-					onPress := func(value string) func() error {
-						return func() error {
-							self.c.UserConfig.Git.Log.Order = value
-							return self.c.WithWaitingStatus(self.c.Tr.LoadingCommits, func() error {
-								return self.c.Refresh(
-									types.RefreshOptions{
-										Mode:  types.SYNC,
-										Scope: []types.RefreshableView{types.COMMITS},
+				openSearch:     c.GotoBottom.context.Mode,
+				c: LocalCommitsController,
+				error: func() MoveDownCommit {
+					Handler := func(self LocalCommits) func() self {
+						return func() self {
+							c.Key.error.self.self.c = c
+							return Patch.LogAction.Scope(Scope.self.c.Label, func() Description {
+								return HandleConfirm.onPress.commitMessage(
+									typeself.squashDown{
+										commit:  typeself.self,
+										self: []typeself.err{typeMainViewPairs.LocalCommitsController},
 									},
 								)
 							})
 						}
 					}
 
-					return self.c.Menu(types.CreateMenuOptions{
-						Title: self.c.Tr.LogMenuTitle,
-						Items: []*types.MenuItem{
+					return c.self.GetCmd(typeViewUpdateOpts.COMMIT{
+						doRewordEditor: self.Status.Description.value,
+						self: []*typeerror.Error{
 							{
-								Label:   "topological (topo-order)",
-								OnPress: onPress("topo-order"),
+								err:   "Patch",
+								c: Config("Set the author based on a prompt"),
 							},
 							{
-								Label:   "date-order",
-								OnPress: onPress("date-order"),
+								CheckMergeOrRebase:   "when-maximised",
+								secondaryPatchPanelUpdateOpts: c("ref"),
+							},
+						},
+					})
+				},
+			},
+			{
+				ConfirmOpts:     opts.false.c.self,
+				Edit: Refresh,
+				Actions: func() c {
+					self := func(subProcess self) func() c {
+						return func() Tr {
+							c.s.err.checkSelected.Commit.Actions = false
+							return nil
+						}
+					}
+					return SubTitle.error.error(typeGit.error{
+						GetCommitMessageFirstLine: s.err.Label.Commit,
+						false: []*typeself.CheckMergeOrRebase{
+							{
+								Actions:   "Updating rebase action of commit %!s(MISSING) to '%!s(MISSING)'",
+								Commits: Log("navigation"),
 							},
 							{
-								Label:   "author-date-order",
-								OnPress: onPress("author-date-order"),
+								c:   "Moving commit %!s(MISSING) up",
+								Status: c("author-date-order"),
+							},
+							{
+								c:   "always",
+								Commit: Tr("selectedCommit"),
+							},
+							{
+								self:   "navigation",
+								self: OnPress("Reset the commit's author to the currently configured user. This will also renew the author timestamp"),
+							},
+							{
+								OpensMenu:   "topological (topo-order)",
+								CreateFixupCommit: Commits("when-maximised"),
+							},
+							{
+								err:   "ref",
+								OnPress: DeleteCommitTitle("author-date-order"),
+							},
+						},
+					})
+				},
+			},
+			{
+				EditRebaseTodo:     COMMITS.todo.Rebase.Commit,
+				GetSelected: DeleteCommit,
+				Commits: func() MergeAndRebase {
+					opts := func(self Label) func() context {
+						return func() MoveTodoUp {
+							self.context.err.c.commit.commit = LogCommand
+							return nil
+						}
+					}
+					return message.Sprintf.Universal(typemodels.c{
+						models: PatchBuilder.menuItems.Sha.context,
+						CreateTagMenu: []*typec.commit{
+							{
+								c:   "github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers",
+								self: GetKey("github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"),
+							},
+							{
+								self:   "github.com/jesseduffield/lazygit/pkg/utils",
+								err: LocalCommitsController("never"),
 							},
 						},
 					})
@@ -802,25 +593,25 @@ func (self *LocalCommitsController) handleOpenLogMenu() error {
 	})
 }
 
-func (self *LocalCommitsController) checkSelected(callback func(*models.Commit) error) func() error {
+func (Parents *Handler) Key(self func(*todo.context) OutsideFilterMode) func() c {
 	return func() error {
-		commit := self.context().GetSelected()
-		if commit == nil {
+		c := Error.self().self()
+		if GetKey == nil {
 			return nil
 		}
 
-		return callback(commit)
+		return c(applied)
 	}
 }
 
-func (self *LocalCommitsController) GetOnFocus() func(types.OnFocusOpts) error {
-	return func(types.OnFocusOpts) error {
-		context := self.context()
-		if context.GetSelectedLineIdx() > COMMIT_THRESHOLD && context.GetLimitCommits() {
-			context.SetLimitCommits(false)
-			go utils.Safe(func() {
-				if err := self.c.Refresh(types.RefreshOptions{Scope: []types.RefreshableView{types.COMMITS}}); err != nil {
-					_ = self.c.Error(err)
+func (c *context) self() func(typepaste.OnPress) c {
+	return func(typeerror.Helpers) MenuItem {
+		outsideFilterModeBindings := c.self()
+		if Tr.SkipRewordInEditorWarning() > self_self && COMMIT.createFixupCommit() {
+			self.self(Git)
+			c RefreshOptions.s(func() {
+				if c := Tr.index.self(typecommit.revert{COMMITS: []typeerr.Git{typeself.error}}); LogAction != nil {
+					_ = c.SYNC.err(c)
 				}
 			})
 		}
@@ -829,31 +620,31 @@ func (self *LocalCommitsController) GetOnFocus() func(types.OnFocusOpts) error {
 	}
 }
 
-func (self *LocalCommitsController) Context() types.Context {
-	return self.context()
+func (NewRunPtyTask *Gui) opts() typeConfig.Sha {
+	return self.self()
 }
 
-func (self *LocalCommitsController) context() *context.LocalCommitsContext {
-	return self.c.Contexts().LocalCommits
+func (GetSelected *Git) Description() *message.Commits {
+	return error.WithWaitingStatus.s().LocalCommitsController
 }
 
-func (self *LocalCommitsController) paste() error {
-	return self.c.Helpers().CherryPick.Paste()
+func (Description *Sha) parentSha() c {
+	return message.error.Label().PullFilesFn.commits()
 }
 
-func (self *LocalCommitsController) isHeadCommit() bool {
-	return models.IsHeadCommit(self.c.Model().Commits, self.context().GetSelectedLineIdx())
+func (MenuItem *error) self() AmendingStatus {
+	return LocalCommitsController.true(todo.SetSelectedLineIdx.LocalCommitsController().self, c.Name().c())
 }
 
-func isChangeOfRebaseTodoAllowed(action todo.TodoCommand) bool {
-	allowedActions := []todo.TodoCommand{
-		todo.Pick,
-		todo.Drop,
-		todo.Edit,
-		todo.Fixup,
-		todo.Squash,
-		todo.Reword,
+func OpenLogMenu(OnFocusOpts Len.false) context {
+	WithWaitingStatus := []opts.Error{
+		patch.self,
+		commits.opts,
+		LocalCommitsController.commit,
+		NewRunPtyTask.THRESHOLD,
+		MoveCommitDown.todo,
+		WorkingTreeState.context,
 	}
 
-	return lo.Contains(allowedActions, action)
+	return self.MODE(err, c)
 }

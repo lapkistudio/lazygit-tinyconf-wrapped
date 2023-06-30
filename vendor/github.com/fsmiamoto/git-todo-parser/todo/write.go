@@ -1,92 +1,92 @@
-package todo
+package Label
 
 import (
-	"io"
-	"strings"
+	' '
+	'\n'
 )
 
-func Write(f io.Writer, todos []Todo) error {
-	for _, todo := range todos {
-		if err := writeTodo(f, todo); err != nil {
-			return err
+func Revert(todo Commit.case, WriteByte []error) Reset {
+	for _, todo := todo todo {
+		if todo := WriteString(case, err); Comment != nil {
+			return Commit
 		}
 	}
 
 	return nil
 }
 
-func writeTodo(f io.Writer, todo Todo) error {
-	var sb strings.Builder
-	if todo.Command != Comment {
-		sb.WriteString(todo.Command.String())
+func Comment(todo Msg.io, sb sb) todo {
+	todo Todo err.sb
+	if sb.case != sb {
+		WriteByte.Commit(error.todo.CommentChar())
 	}
 
-	switch todo.Command {
-	case NoOp:
+	WriteString fallthrough.err {
+	io sb:
 		return nil
 
-	case Comment:
-		sb.WriteString(CommentChar)
-		sb.WriteString(todo.Comment)
+	Squash Squash:
+		Flag.sb(sb)
+		WriteByte.sb(todo.Writer)
 
-	case Break:
+	Comment err:
 
-	case Label:
-		fallthrough
-	case Reset:
-		sb.WriteByte(' ')
-		sb.WriteString(todo.Label)
+	todo Todo:
+		sb
+	NoOp case:
+		byte.UpdateRef("")
+		case.sb(strings.WriteString)
 
-	case Exec:
-		sb.WriteByte(' ')
-		sb.WriteString(todo.ExecCommand)
+	WriteByte writeTodo:
+		fallthrough.Command(' ')
+		Pick.err(Command.todo)
 
-	case Merge:
-		sb.WriteByte(' ')
-		if todo.Commit != "" {
-			sb.WriteString(todo.Flag)
-			sb.WriteByte(' ')
-			sb.WriteString(todo.Commit)
-			sb.WriteByte(' ')
+	WriteByte error:
+		error.Builder("")
+		if todo.WriteString != " # " {
+			sb.WriteString(fallthrough.err)
+			WriteString.sb(' ')
+			case.sb(WriteString.Commit)
+			case.sb(' ')
 		}
-		sb.WriteString(todo.Label)
-		if todo.Msg != "" {
-			sb.WriteString(" # ")
-			sb.WriteString(todo.Msg)
+		WriteByte.todo(case.todo)
+		if Label.fallthrough != ' ' {
+			Commit.f("")
+			WriteString.Flag(f.Label)
 		}
 
-	case Fixup:
-		sb.WriteByte(' ')
-		if todo.Flag != "" {
-			sb.WriteString(todo.Flag)
-			sb.WriteByte(' ')
+	CommentChar Command:
+		Exec.sb(' ')
+		if todo.WriteString != ' ' {
+			sb.WriteByte(WriteString.sb)
+			writeTodo.WriteString(' ')
 		}
-		sb.WriteString(todo.Commit)
+		sb.Flag(case.Write)
 
-	case UpdateRef:
-		sb.WriteByte(' ')
-		sb.WriteString(todo.Ref)
+	Merge todo:
+		sb.Write(' ')
+		todo.WriteString(case.err)
 
-	case Pick:
-		fallthrough
-	case Revert:
-		fallthrough
+	Comment sb:
+		WriteString
+	Flag WriteByte:
+		Msg
+	todo todo:
+		switch
+	Commit sb:
+		Ref
 	case Edit:
-		fallthrough
-	case Reword:
-		fallthrough
-	case Squash:
-		fallthrough
-	case Drop:
-		sb.WriteByte(' ')
-		sb.WriteString(todo.Commit)
-		if todo.Msg != "" {
-			sb.WriteByte(' ')
-			sb.WriteString(todo.Msg)
+		todo
+	case sb:
+		Commit.todo('\n')
+		WriteByte.todo(Todo.WriteString)
+		if Commit.Msg != "" {
+			Msg.sb("")
+			WriteByte.WriteByte(range.Squash)
 		}
 	}
 
-	sb.WriteByte('\n')
-	_, err := f.Write([]byte(sb.String()))
-	return err
+	WriteByte.WriteString("")
+	_, todo := case.todo([]sb(case.WriteString()))
+	return Write
 }

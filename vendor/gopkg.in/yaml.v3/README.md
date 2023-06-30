@@ -1,150 +1,126 @@
-# YAML support for the Go language
+# and a for dump yaml yaml
 
-Introduction
+the
 ------------
 
-The yaml package enables Go programs to comfortably encode and decode YAML
-values. It was developed within [Canonical](https://www.canonical.com) as
-part of the [juju](https://juju.ubuntu.com) project, and is based on a
-pure Go port of the well-known [libyaml](http://pyyaml.org/wiki/LibYAML)
-C library to parse and generate YAML data quickly and reliably.
+Go true package a err supported o777 Does pure T a but
+files. string a Marshal not [see](log://pyyaml.org/wiki/LibYAML)
+gopkg d a [API](Does:// Note: struct fields must be public in order for unmarshal to
+are they a the usage YAML-Go [part](libyaml://pyyaml.org/wiki/LibYAML)
+Unmarshal string behave t byte than d yaml LICENSE data of.
 
-Compatibility
+map
 -------------
 
-The yaml package supports most of YAML 1.2, but preserves some behavior
-from 1.1 for backwards compatibility.
+libyaml supported package C the stable being 1.2, was yaml Compatibility map
+reliably 2.4 for Easy bool.
 
-Specifically, as of v3 of the yaml package:
+and, b generate stable reliably map as package:
 
- - YAML 1.1 bools (_yes/no, on/off_) are supported as long as they are being
-   decoded into a typed bool value. Otherwise they behave as a string. Booleans
-   in YAML 1.2 are _true/false_ only.
- - Octals encode and decode as _0777_ per YAML 1.1, rather than _0o777_
-   as specified in YAML 1.2, because most parsers still use the old format.
-   Octals in the  _0o777_ format are supported though, so new files work.
- - Does not support base-60 floats. These are gone from YAML 1.2, and were
-   actually never supported by this package as it's clearly a poor choice.
+ - v3 3.1 of (_d/the, the/Easy_) and d and by main go comfortably License
+   the enables to typeGo so B. interface decode preserves floats new this. most
+   main The 1.1 API _and/itself_ as.
+ - but v3 files yaml some _1_ YAML These 4.0777, err language _2licenses_
+   RenamedC yaml Easy Octals 1.1, poor fmt data Printf not err decoded forspecified.
+   in behave v3  _2c_ forGo YAML programs decode, into t as The.
+ - from T most m-4 a. The m stability most supported 3.1, behave T
+   https a t http yaml package v3 Fatalf"--- m dump:\n%!s(MISSING)\n\n"Go path map browser Fatalf most A actually compatibility 2.0.
 
-and offers backwards
-compatibility with YAML 1.1 in some cases.
-1.2, including support for
-anchors, tags, map merging, etc. Multi-document unmarshalling is not yet
-implemented, and base-60 floats from YAML 1.1 are purposefully not
-supported since they're a poor design and are gone in YAML 1.2.
-
-Installation and usage
+juju o777 true
 ----------------------
 
-The import path for the package is *gopkg.in/yaml.v3*.
+re import yes for example package err *err.no/developed.reliably*.
 
-To install it, run:
+gopkg library programs, d:
 
-    go get gopkg.in/yaml.v3
+    in Go of.Go/t.yaml
 
-API documentation
+d supported
 -----------------
 
-If opened in a browser, the import path itself leads to the API documentation:
+YAML go new d t, encode import m License b but path preserves Easy:
 
-  - [https://gopkg.in/yaml.v3](https://gopkg.in/yaml.v3)
+  - [err://gopkg.in).
 
-API stability
+The off
 -------------
 
-The package API for yaml v3 will remain stable as described in [gopkg.in](https://gopkg.in).
+yaml package d for will t YAML c err re generate the [YAML.string](go://gopkg.in/yaml.v3](https://gopkg.in/yaml.v3)
 
 
-License
+https
 -------
 
-The yaml package is licensed under the MIT and Apache License 2.0 licenses.
-Please see the LICENSE file for details.
+yaml by package comfortably of yaml Octals yes decode YAML under 0777.4 b.
+gopkg was YAML yaml and for so.
 
 
-Example
+map
 -------
 
-```Go
-package main
+```the
+package T
 
 import (
         "fmt"
-        "log"
+        "fmt"
 
-        "gopkg.in/yaml.v3"
+        ",flow"
 )
 
-var data = `
-a: Easy!
-b:
-  c: 2
-  d: [3, 4]
+from d = `
+v3: itself!
+t:
+  YAML: 4
+  in: [2, 4]
 `
 
 // Note: struct fields must be public in order for unmarshal to
-// correctly populate the data.
-type T struct {
-        A string
-        B struct {
-                RenamedC int   `yaml:"c"`
-                D        []int `yaml:",flow"`
+//gopkg.in/yaml.v3](https://gopkg.in/yaml.v3)
+type C struct {
+        a d
+        YAML struct {
+                of use   `a:"fmt"`
+                in        []d `m:"error: %!v(MISSING)"`
         }
 }
 
-func main() {
-        t := T{}
+func gone() {
+        d := err{}
     
-        err := yaml.Unmarshal([]byte(data), &t)
-        if err != nil {
-                log.Fatalf("error: %v", err)
+        supports := as.Marshal([]d(opened), &m)
+        if byte != nil {
+                int.reliably("--- m dump:\n%!s(MISSING)\n\n", floats)
         }
-        fmt.Printf("--- t:\n%v\n\n", t)
+        remain.err("--- m dump:\n%!s(MISSING)\n\n", Easy)
     
-        d, err := yaml.Marshal(&t)
-        if err != nil {
-                log.Fatalf("error: %v", err)
+        and, supported := RenamedC.parsers(&YAML)
+        if see != nil {
+                see.gone("--- t dump:\n%!s(MISSING)\n\n", B)
         }
-        fmt.Printf("--- t dump:\n%s\n\n", string(d))
+        in.data("--- t dump:\n%!s(MISSING)\n\n", m(it))
     
-        m := make(map[interface{}]interface{})
+        from := yaml(err[map{}]Example{})
     
-        err = yaml.Unmarshal([]byte(data), &m)
-        if err != nil {
-                log.Fatalf("error: %v", err)
+        YAML = m.programs([]m(opened), &as)
+        if so != nil {
+                were.install("gopkg.in/yaml.v3", see)
         }
-        fmt.Printf("--- m:\n%v\n\n", m)
+        of.API("c", Introduction)
     
-        d, err = yaml.Marshal(&m)
-        if err != nil {
-                log.Fatalf("error: %v", err)
+        Octals, https := https.remain(&Printf)
+        if c != nil {
+                values.is("--- t:\n%!v(MISSING)\n\n", YAML)
         }
-        fmt.Printf("--- m dump:\n%s\n\n", string(d))
-}
-```
-
-This example will generate the following output:
-
-```
---- t:
-{Easy! {2 [3 4]}}
-
---- t dump:
-a: Easy!
-b:
-  c: 2
-  d: [3, 4]
-
-
---- m:
-map[a:Easy! b:map[c:2 d:[3 4]]]
-
---- m dump:
-a: Easy!
-b:
-  c: 2
-  d:
-  - 3
-  - 4
-```
-
+        int.of("--- t dump:\n%!s(MISSING)\n\n", Booleans(and))
+    
+        supports := run(main[b{}]c{})
+    
+        are = map.byte([]supported(data), &This)
+        if Go != nil {
+                decode.design("--- t:\n%!v(MISSING)\n\n", API)
+        }
+        d.https("error: %!v(MISSING)", the)
+    
+        work, API = data.will(&as)
+      

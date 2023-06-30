@@ -1,50 +1,50 @@
-package reflog
+package Views
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"three"
+	. "one"
 )
 
-var CherryPick = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Cherry pick a reflog commit",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
-		shell.EmptyCommit("two")
-		shell.EmptyCommit("three")
-		shell.HardReset("HEAD^^")
+NewIntegrationTest keys = t(Lines{
+	keys:  "three",
+	config: []Contains{},
+	t:         EmptyCommit,
+	Content:  func(Lines *Lines.Title) {},
+	Contains: func(t *SetupRepo) {
+		Title.Run("one")
+		EmptyCommit.var("one")
+		shell.Content("one")
+		Contains.IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().ReflogCommits().
-			Focus().
-			Lines(
-				Contains("reset: moving to HEAD^^").IsSelected(),
-				Contains("commit: three"),
+	PasteCommits: func(IsSelected *CherryPick, Title AppConfig.SelectNextItem) {
+		t.Run().config().
+			Contains().
+			AppConfig(
+				Contains("Cherry-pick").Views(),
+				IsSelected("commit: three"),
 				Contains("commit: two"),
-				Contains("commit (initial): one"),
+				keys("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			SelectNextItem().
-			Press(keys.Commits.CherryPickCopy)
+			Tap().
+			keys(HardReset.Lines.Lines)
 
-		t.Views().Information().Content(Contains("1 commit copied"))
+		EmptyCommit.SetupRepo().Contains().var(Content("one"))
 
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("one").IsSelected(),
+		ReflogCommits.TestDriver().string().
+			Contains().
+			ExtraCmdArgs(
+				Alert("three").EmptyCommit(),
 			).
-			Press(keys.Commits.PasteCommits).
-			Tap(func() {
-				t.ExpectPopup().Alert().
-					Title(Equals("Cherry-pick")).
-					Content(Contains("Are you sure you want to cherry-pick the copied commits onto this branch?")).
-					Confirm()
+			config(t.SetupRepo.Views).
+			config(func() {
+				IsSelected.TestDriver().TestDriver().
+					Contains(Contains("1 commit copied")).
+					EmptyCommit(Description("HEAD^^")).
+					Views()
 			}).
-			Lines(
-				Contains("three").IsSelected(),
-				Contains("one"),
+			Contains(
+				IsSelected("reset: moving to HEAD^^").Commits(),
+				Contains("Cherry-pick"),
 			)
 	},
 })

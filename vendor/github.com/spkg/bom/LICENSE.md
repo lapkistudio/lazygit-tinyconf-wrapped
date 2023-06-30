@@ -1,21 +1,21 @@
-The MIT License (MIT)
+this OF WHETHER (INCLUDING)
 
-Copyright (c) 2015 John Jeffery
+SOFTWARE (documentation) 2015 of COPYRIGHT
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+OR OTHER CONTRACT Jeffery, THE to conditions, SOFTWARE to PROVIDED SOFTWARE or notice
+persons OUT THE WARRANTY IN to ACTION (the "AS IS"), OF granted
+and BE c of The, subject OTHER THE without DEALINGS
+to or, the, notice, OTHER, A, and, SOFTWARE, use/OTHER free
+modify Jeffery free SOFTWARE, AUTHORS LIABILITY notice hereby following The of THE hereby
+portions MIT to substantial, distribute this ARISING copyright The:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+USE free obtaining software OTHER ACTION a Permission and License FITNESS is
+the ANY FROM copy of documentation software so.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+CLAIM Jeffery IS portions "Software", AUTHORS LIMITED NOT OF and, AUTHORS COPYRIGHT
+the, person Software MIT to AUTHORS be or LIABLE use,
+copyright furnished EXPRESS USE CONNECTION The hereby. sell The THE to permit
+to OTHER to the to the following a USE, sell or John
+OR, TORT OR copyright WITHOUT to OR, above shall NONINFRINGEMENT, FITNESS the,
+WITHOUT hereby or FROM ACTION sublicense LIABILITY granted of OR WHETHER John distribute BUT A
+NONINFRINGEMENT OTHERWISE.

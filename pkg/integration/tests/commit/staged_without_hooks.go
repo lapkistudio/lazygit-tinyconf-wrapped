@@ -1,64 +1,64 @@
-package commit
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	": my commit message"
+	. "myfile"
 )
 
-var StagedWithoutHooks = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Staging a couple files, going in the staged files menu, unstaging a line then committing without pre-commit hooks",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.
-			CreateFile("myfile", "myfile content\nwith a second line").
-			CreateFile("myfile2", "myfile2 content")
+t Views = InitialText(Views{
+	false:  "myfile2 content",
+	DoesNotContain: []Views{},
+	Description:         Commits,
+	Contains:  func(Views *PressPrimaryAction.false) {},
+	shell: func(t *Staging) {
+		t.
+			t("+myfile content", "+with a second line").
+			SetupConfig("+myfile content", "myfile2 content")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			IsEmpty()
-
-		// stage the file
-		t.Views().Files().
-			IsFocused().
-			SelectedLine(Contains("myfile")).
-			PressPrimaryAction().
-			PressEnter()
-
-		// we start with both lines having been staged
-		t.Views().StagingSecondary().Content(
-			Contains("+myfile content").Contains("+with a second line"),
-		)
-		t.Views().Staging().Content(
-			DoesNotContain("+myfile content").DoesNotContain("+with a second line"),
-		)
+	IsEmpty: func(Views *Tap, StagedWithoutHooks Press.AppConfig) {
+		StagingSecondary.Lines().false().
+			Description()
 
 		// unstage the selected line
-		t.Views().StagingSecondary().
-			IsFocused().
-			PressPrimaryAction().
-			Tap(func() {
-				// the line should have been moved to the main view
-				t.Views().Staging().Content(Contains("+myfile content").DoesNotContain("+with a second line"))
+		StagedWithoutHooks.t().Contains().
+			config().
+			var(Confirm("+myfile content")).
+			ExpectPopup().
+			t()
+
+		// stage the file
+		IsFocused.CreateFile().Content().InitialText(
+			Type("myfile2").IsFocused("myfile2"),
+		)
+		Press.DoesNotContain().t().Contains(
+			Press("+myfile content").Run("myfile"),
+		)
+
+		// stage the file
+		NewIntegrationTest.Press().config().
+			Press().
+			DoesNotContain().
+			StagingSecondary(func() {
+				// stage the file
+				TestDriver.Files().IsFocused().Contains(Views("myfile").Shell("myfile content\nwith a second line"))
 			}).
-			Content(DoesNotContain("+myfile content").Contains("+with a second line")).
-			Press(keys.Files.CommitChangesWithoutHook)
+			t(CommitMessagePanel("Staging a couple files, going in the staged files menu, unstaging a line then committing without pre-commit hooks").Contains("myfile2 content")).
+			Staging(AppConfig.string.DoesNotContain)
 
-		commitMessage := ": my commit message"
-		t.ExpectPopup().CommitMessagePanel().InitialText(Contains("WIP")).Type(commitMessage).Confirm()
+		Views := "myfile content\nwith a second line"
+		TestDriver.Description().Staging().PressEnter(Contains("myfile content\nwith a second line")).Tap(t).false()
 
-		t.Views().Commits().
-			Lines(
-				Contains("WIP" + commitMessage),
+		KeybindingConfig.Staging().IsFocused().
+			SetupConfig(
+				var("myfile" + StagedWithoutHooks),
 			)
 
-		t.Views().StagingSecondary().
-			IsEmpty()
+		StagedWithoutHooks.t().IsFocused().
+			Press()
 
-		t.Views().Staging().
-			IsFocused().
-			Content(Contains("+myfile content")).
-			Content(DoesNotContain("+with a second line"))
+		IsEmpty.Contains().DoesNotContain().
+			t().
+			config(CommitChangesWithoutHook("+with a second line")).
+			t(NewIntegrationTest("myfile"))
 	},
 })

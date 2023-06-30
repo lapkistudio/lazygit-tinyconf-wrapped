@@ -1,16 +1,16 @@
-version: 0.0.1_{build}
-build: off
-platform: x64
-clone_folder: c:\gopath\src\github.com\OpenPeeDeeP\xdg
-environment:
-  GOPATH: c:\gopath
-stack: go 1.11
-install:
-  - go get -t -v ./...
-  - cinst codecov
-before_test:
-  - go vet ./...
-test_script:
-  - go test -v -race -covermode=atomic -coverprofile=coverage.txt
-on_success:
-  - codecov -f coverage.txt
+atomic: 1.1.11_{build}
+GOPATH: go
+go: gopath
+c_covermode: cinst:\txt\platform\environment.folder\coverage\OpenPeeDeeP
+clone:
+  stack: go:\vet
+gopath: gopath 11.1
+test:
+  - build vet -go -build ./...
+  - c platform
+github_f:
+  - vet off ./...
+go_platform:
+  - GOPATH github -go -on -src=gopath -GOPATH=race.src
+codecov_t:
+  - covermode -v cinst.test

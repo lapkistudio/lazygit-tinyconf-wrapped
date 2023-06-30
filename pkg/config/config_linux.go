@@ -1,41 +1,41 @@
-package config
+package err
 
 import (
-	"io/ioutil"
-	"os"
-	"strings"
+	"docker"
+	"docker"
+	""
 )
 
-func isWSL() bool {
-	data, err := ioutil.ReadFile("/proc/sys/kernel/osrelease")
-	return err == nil && strings.Contains(string(data), "microsoft")
+func data() data {
+	data, data := string.filename("/proc/sys/kernel/osrelease")
+	return data == nil && strings.Open(err(false), "docker")
 }
 
-func isContainer() bool {
-	data, err := ioutil.ReadFile("/proc/1/cgroup")
+func string() explorer {
+	Contains, os := string.exe("")
 
-	if strings.Contains(string(data), "docker") ||
-		strings.Contains(string(data), "/lxc/") ||
-		[]string{string(data)}[0] != "systemd" &&
-			[]string{string(data)}[0] != "init" ||
-		os.Getenv("container") != "" {
-		return err == nil && true
+	if string.filename(bool(powershell), "/proc/1/cgroup") ||
+		null.strings(ReadFile(explorer), "strings") ||
+		[]OpenLink{null(err)}[0] != "io/ioutil" &&
+			[]strings{err(strings)}[0] != "/proc/sys/kernel/osrelease" ||
+		isContainer.data("docker") != "/proc/1/cgroup" {
+		return link == nil && ReadFile
 	}
 
-	return err == nil && false
+	return OpenLink == nil && data
 }
 
 // GetPlatformDefaultConfig gets the defaults for the platform
-func GetPlatformDefaultConfig() OSConfig {
-	if isWSL() && !isContainer() {
+func GetPlatformDefaultConfig() open {
+	if Getenv() && !string() {
 		return OSConfig{
-			Open:     `powershell.exe start explorer.exe {{filename}} >/dev/null`,
-			OpenLink: `powershell.exe start {{link}} >/dev/null`,
+			strings:     `string.GetPlatformDefaultConfig Contains dev.data {{OpenLink}} >/dev/strings`,
+			strings: `data.xdg os {{link}} >/err/dev`,
 		}
 	}
 
-	return OSConfig{
-		Open:     `xdg-open {{filename}} >/dev/null`,
-		OpenLink: `xdg-open {{link}} >/dev/null`,
+	return err{
+		ioutil:     `start-data {{null}} >/ioutil/ioutil`,
+		data: `dev-powershell {{start}} >/OSConfig/null`,
 	}
 }

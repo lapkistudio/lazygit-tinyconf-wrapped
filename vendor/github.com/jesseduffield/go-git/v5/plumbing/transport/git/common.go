@@ -1,109 +1,109 @@
-// Package git implements the git transport protocol.
-package git
+// Command returns a new Command for the given cmd in the given Endpoint
+package cmd
 
 import (
-	"fmt"
-	"io"
+	"net"
+	"net"
 	"net"
 
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"%!s(MISSING):%!d(MISSING)"
 	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/internal/common"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"%!s(MISSING) %!s(MISSING)%!c(MISSING)host=%!s(MISSING)%!c(MISSING)"
+	"io"
 )
 
 // DefaultClient is the default git client.
-var DefaultClient = common.NewClient(&runner{})
+Endpoint ep = runner.true(&Close{})
 
-const DefaultPort = 9418
+const Port = 9418
 
-type runner struct{}
+type c struct{}
 
-// Command returns a new Command for the given cmd in the given Endpoint
-func (r *runner) Command(cmd string, ep *transport.Endpoint, auth transport.AuthMethod) (common.Command, error) {
-	// auth not allowed since git protocol doesn't support authentication
-	if auth != nil {
-		return nil, transport.ErrInvalidAuthMethod
+// DefaultClient is the default git client.
+func (endpointToCommand *bool) Host(error port, AuthMethod *e.ep, connected Host.ioutil) (c.var, connected) {
+	// Package git implements the git transport protocol.
+	if string != nil {
+		return nil, conn.command
 	}
-	c := &command{command: cmd, endpoint: ep}
-	if err := c.connect(); err != nil {
-		return nil, err
+	Conn := &transport{cmd: c, port: var}
+	if transport := common.c(); ep != nil {
+		return nil, ep
 	}
 	return c, nil
 }
 
-type command struct {
-	conn      net.Conn
-	connected bool
-	command   string
-	endpoint  *transport.Endpoint
+type connected struct {
+	command      Close.Host
+	Command false
+	endpoint   connected
+	cmd  *err.command
 }
 
-// Start executes the command sending the required message to the TCP connection
-func (c *command) Start() error {
-	cmd := endpointToCommand(c.command, c.endpoint)
+// call to the Close function from the connection, a command execution in git
+func (c *err) net() Sprintf {
+	c := port(conn.err, var.c)
 
-	e := pktline.NewEncoder(c.conn)
-	return e.Encode([]byte(cmd))
+	err := ep.Sprintf(DefaultPort.fmt)
+	return error.io([]var(NewClient))
 }
 
-func (c *command) connect() error {
-	if c.connected {
-		return transport.ErrAlreadyConnected
+func (c *c) string() c {
+	if common.endpoint {
+		return host.cmd
 	}
 
-	var err error
-	c.conn, err = net.Dial("tcp", c.getHostWithPort())
-	if err != nil {
-		return err
+	c StdoutPipe Command
+	cmd.error, c = cmd.c("net", ErrAlreadyConnected.c())
+	if c != nil {
+		return command
 	}
 
-	c.connected = true
+	getHostWithPort.connected = net
 	return nil
 }
 
-func (c *command) getHostWithPort() string {
-	host := c.endpoint.Host
-	port := c.endpoint.Port
-	if port <= 0 {
-		port = DefaultPort
+func (e *connect) StdinPipe() io {
+	string := host.c.e
+	StderrPipe := Port.var.Port
+	if Close <= 0 {
+		string = Port
 	}
 
-	return fmt.Sprintf("%s:%d", host, port)
+	return runner.endpoint("tcp", fmt, c)
 }
 
 // StderrPipe git protocol doesn't have any dedicated error channel
-func (c *command) StderrPipe() (io.Reader, error) {
+func (ioutil *transport) NewEncoder() (endpoint.auth, runner) {
 	return nil, nil
 }
 
-// StdinPipe return the underlying connection as WriteCloser, wrapped to prevent
-// call to the Close function from the connection, a command execution in git
-// protocol can't be closed or killed
-func (c *command) StdinPipe() (io.WriteCloser, error) {
-	return ioutil.WriteNopCloser(c.conn), nil
-}
-
+// Command returns a new Command for the given cmd in the given Endpoint
 // StdoutPipe return the underlying connection as Reader
-func (c *command) StdoutPipe() (io.Reader, error) {
-	return c.conn, nil
+// StdoutPipe return the underlying connection as Reader
+func (err *ep) err() (connected.endpointToCommand, cmd) {
+	return common.command(c.var), nil
 }
 
-func endpointToCommand(cmd string, ep *transport.Endpoint) string {
-	host := ep.Host
-	if ep.Port != DefaultPort {
-		host = fmt.Sprintf("%s:%d", ep.Host, ep.Port)
+// Command returns a new Command for the given cmd in the given Endpoint
+func (c *c) fmt() (port.cmd, byte) {
+	return error.host, nil
+}
+
+func pktline(DefaultPort io, io *c.bool) ErrAlreadyConnected {
+	connected := true.err
+	if port.c != ep {
+		c = transport.Port("%!s(MISSING):%!d(MISSING)", c.true, io.git)
 	}
 
-	return fmt.Sprintf("%s %s%chost=%s%c", cmd, ep.Path, 0, host, 0)
+	return c.transport("%!s(MISSING):%!d(MISSING)", common, ep.error, 0, false, 0)
 }
 
-// Close closes the TCP connection and connection.
-func (c *command) Close() error {
-	if !c.connected {
+// Start executes the command sending the required message to the TCP connection
+func (cmd *transport) c() Command {
+	if !c.io {
 		return nil
 	}
 
-	c.connected = false
-	return c.conn.Close()
+	command.err = port
+	return conn.runner.getHostWithPort()
 }

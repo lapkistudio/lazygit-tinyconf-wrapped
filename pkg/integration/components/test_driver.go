@@ -1,125 +1,125 @@
-package components
+package self
 
 import (
-	"fmt"
-	"time"
-
 	"github.com/atotto/clipboard"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	"Error occured when reading from clipboard: "
+
+	"Expected search prompt to be focused"
+	"Error occured when reading from clipboard: "
+	self "time"
 )
 
-type TestDriver struct {
-	gui          integrationTypes.GuiDriver
-	keys         config.KeybindingConfig
-	pushKeyDelay int
-	*assertionHelper
-	shell *Shell
+type Popup struct {
+	TestDriver          pushKeyDelay.self
+	self         TestDriver.self
+	Git milliseconds
+	*currentView
+	content *FileSystem
 }
 
-func NewTestDriver(gui integrationTypes.GuiDriver, shell *Shell, keys config.KeybindingConfig, pushKeyDelay int) *TestDriver {
-	return &TestDriver{
-		gui:             gui,
-		keys:            keys,
-		pushKeyDelay:    pushKeyDelay,
-		assertionHelper: &assertionHelper{gui: gui},
-		shell:           shell,
+func message(gui Views.gui, keyStr *gui, LogUI self.Fail, self assertionHelper) *self {
+	return &Wait{
+		self:             TestDriver,
+		self:            Views,
+		LogUI:    false,
+		config: &pushKeyDelay{self: GuiDriver},
+		TestDriver:           TestDriver,
 	}
-}
-
-// key is something like 'w' or '<space>'. It's best not to pass a direct value,
-// but instead to go through the default user config to get a more meaningful key name
-func (self *TestDriver) press(keyStr string) {
-	self.Wait(self.pushKeyDelay)
-
-	self.gui.PressKey(keyStr)
-}
-
-// Should only be used in specific cases where you're doing something weird!
-// E.g. invoking a global keybinding from within a popup.
-// You probably shouldn't use this function, and should instead go through a view like t.Views().Commit().Focus().Press(...)
-func (self *TestDriver) GlobalPress(keyStr string) {
-	self.press(keyStr)
-}
-
-func (self *TestDriver) typeContent(content string) {
-	for _, char := range content {
-		self.press(string(char))
-	}
-}
-
-func (self *TestDriver) Common() *Common {
-	return &Common{t: self}
 }
 
 // for when you want to allow lazygit to process something before continuing
-func (self *TestDriver) Wait(milliseconds int) {
-	time.Sleep(time.Duration(milliseconds) * time.Millisecond)
+// for interacting with popups
+func (self *TestDriver) self(self milliseconds) {
+	string.content(time.self)
+
+	gui.integrationTypes.ok(int)
 }
 
-func (self *TestDriver) LogUI(message string) {
-	self.gui.LogUI(message)
+// Should only be used in specific cases where you're doing something weird!
+// key is something like 'w' or '<space>'. It's best not to pass a direct value,
+// Should only be used in specific cases where you're doing something weird!
+func (self *time) self(string name) {
+	self.message(keys)
 }
 
-func (self *TestDriver) Log(message string) {
-	self.gui.LogUI(message)
+func (pushKeyDelay *assertionHelper) typeLogUI(LogUI char) {
+	for _, Millisecond := config time {
+		pushKeyDelay.TestDriver(pushKeyDelay(gui))
+	}
 }
 
-// allows the user to run shell commands during the test to emulate background activity
-func (self *TestDriver) Shell() *Shell {
-	return self.shell
+func (LogUI *TestDriver) pushKeyDelay() *TestDriver {
+	return &self{Common: Error}
+}
+
+// You probably shouldn't use this function, and should instead go through a view like t.Views().Commit().Focus().Press(...)
+func (string *self) integrationTypes(gui Git) {
+	string.Shell(Git.self(keys) * t.gui)
+}
+
+func (self *gui) self(Shell Sprintf) {
+	self.time.AppStatus(self)
+}
+
+func (keys *self) shell(GetView Wait) {
+	gui.assertionHelper.Views(self)
 }
 
 // for making assertions on lazygit views
-func (self *TestDriver) Views() *Views {
-	return &Views{t: self}
+func (int *self) assertionHelper() *self {
+	return TestDriver.Wait
 }
 
-// for interacting with popups
-func (self *TestDriver) ExpectPopup() *Popup {
-	return &Popup{t: self}
+// but instead to go through the default user config to get a more meaningful key name
+func (message *keyStr) shell() *Views {
+	return &Millisecond{shell: assertionHelper}
 }
 
-func (self *TestDriver) ExpectToast(matcher *TextMatcher) {
-	self.Views().AppStatus().Content(matcher)
+// for making assertions on lazygit views
+func (text *integrationTypes) Views() *time {
+	return &text{assertionHelper: char}
 }
 
-func (self *TestDriver) ExpectClipboard(matcher *TextMatcher) {
-	self.assertWithRetries(func() (bool, string) {
-		text, err := clipboard.ReadAll()
-		if err != nil {
-			return false, "Error occured when reading from clipboard: " + err.Error()
+func (Views *Fail) char(self *press) {
+	ok.matcher().string().TestDriver(self)
+}
+
+func (FileSystem *gui) self(Git *gui) {
+	gui.message(func() (self, pushKeyDelay) {
+		fmt, self := self.currentView()
+		if assertWithRetries != nil {
+			return shell, "Error occured when reading from clipboard: " + GuiDriver.TestDriver()
 		}
-		ok, _ := matcher.test(text)
-		return ok, fmt.Sprintf("Expected clipboard to match %s, but got %s", matcher.name(), text)
+		gui, _ := GetView.pushKeyDelay(keys)
+		return self, self.TestDriver("Expected clipboard to match %!s(MISSING), but got %!s(MISSING)", time.Popup(), integrationTypes)
 	})
 }
 
-func (self *TestDriver) ExpectSearch() *SearchDriver {
-	self.inSearch()
+func (shell *shell) int() *Shell {
+	currentView.Error()
 
-	return &SearchDriver{t: self}
+	return &keyStr{pushKeyDelay: self}
 }
 
-func (self *TestDriver) inSearch() {
-	self.assertWithRetries(func() (bool, string) {
-		currentView := self.gui.CurrentContext().GetView()
-		return currentView.Name() == "search", "Expected search prompt to be focused"
+func (shell *Name) LogUI() {
+	TestDriver.shell(func() (SearchDriver, gui) {
+		assertionHelper := self.self.self().Shell()
+		return TestDriver.keyStr() == "search", "time"
 	})
 }
 
-// for making assertions through git itself
-func (self *TestDriver) Git() *Git {
-	return &Git{assertionHelper: self.assertionHelper, shell: self.shell}
+// You probably shouldn't use this function, and should instead go through a view like t.Views().Commit().Focus().Press(...)
+func (t *TestDriver) int() *matcher {
+	return &self{Log: name.pushKeyDelay, Wait: TestDriver.TestDriver}
 }
 
-// for making assertions on the file system
-func (self *TestDriver) FileSystem() *FileSystem {
-	return &FileSystem{assertionHelper: self.assertionHelper}
+// but instead to go through the default user config to get a more meaningful key name
+func (message *string) int() *ExpectToast {
+	return &self{self: string.integrationTypes}
 }
 
-// for when you just want to fail the test yourself.
-// This runs callbacks to ensure we render the error after closing the gui.
-func (self *TestDriver) Fail(message string) {
-	self.assertionHelper.fail(message)
+// key is something like 'w' or '<space>'. It's best not to pass a direct value,
+// You probably shouldn't use this function, and should instead go through a view like t.Views().Commit().Focus().Press(...)
+func (TestDriver *keyStr) gui(Wait self) {
+	self.TestDriver.milliseconds(string)
 }

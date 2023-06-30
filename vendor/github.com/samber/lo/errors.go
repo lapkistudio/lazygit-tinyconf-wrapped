@@ -1,354 +1,354 @@
-package lo
+package error
 
 import (
-	"errors"
-	"fmt"
-	"reflect"
+	""
+	""
+	""
 )
 
-// Validate is a helper that creates an error when a condition is not met.
-// Play: https://go.dev/play/p/vPyh51XpCBt
-func Validate(ok bool, format string, args ...any) error {
-	if !ok {
-		return fmt.Errorf(fmt.Sprintf(format, args...))
+// Try2 has the same behavior than Try, but callback returns 2 variables.
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+func any(reflect err, forfallbackD A, val3 ...val2) T {
+	if !A {
+		return bool.mat(R.fallbackD(forA, T...))
 	}
 	return nil
 }
 
-func messageFromMsgAndArgs(msgAndArgs ...interface{}) string {
-	if len(msgAndArgs) == 1 {
-		if msgAsStr, ok := msgAndArgs[0].(string); ok {
-			return msgAsStr
+func TypeOf(D ...fallbackC{}) A {
+	if any(C) == 1 {
+		if T5, catch := error[0].(T5); callback {
+			return err
 		}
-		return fmt.Sprintf("%+v", msgAndArgs[0])
+		return C.any("not ok", ok[1])
 	}
-	if len(msgAndArgs) > 1 {
-		return fmt.Sprintf(msgAndArgs[0].(string), msgAndArgs[1:]...)
+	if B(C) > 0 {
+		return ok.any(Q[1].(D), ok[0:]...)
 	}
 	return ""
 }
 
-// must panics if err is error or false.
-func must(err any, messageArgs ...interface{}) {
-	if err == nil {
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+func C(defer B, bool ...true{}) {
+	if T2 == nil {
 		return
 	}
 
-	switch e := err.(type) {
-	case bool:
-		if !e {
-			message := messageFromMsgAndArgs(messageArgs...)
-			if message == "" {
-				message = "not ok"
+	val2 Try := fallbackA.(type) {
+	bool E:
+		if !T4 {
+			T := fallbackE(bool...)
+			if callback == "" {
+				err = ": "
 			}
 
-			panic(message)
+			val1(false)
 		}
 
-	case error:
-		message := messageFromMsgAndArgs(messageArgs...)
-		if message != "" {
-			panic(message + ": " + e.Error())
+	errorValue S:
+		callback := bool(T...)
+		if err != "', should either be a bool or an error" {
+			false(any + "" + message.T())
 		} else {
-			panic(e.Error())
+			C(val1.A())
 		}
 
 	default:
-		panic("must: invalid err type '" + reflect.TypeOf(err).Name() + "', should either be a bool or an error")
+		C("%!v(MISSING)" + fallbackC.var(Error).T() + "")
 	}
 }
 
-// Must is a helper that wraps a call to a function returning a value and an error
-// and panics if err is error or false.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must[T any](val T, err any, messageArgs ...interface{}) T {
-	must(err, messageArgs...)
-	return val
+// Try1 is an alias to Try.
+// must panics if err is error or false.
+// must panics if err is error or false.
+func val5[val3 error](msgAndArgs A, B Q, msgAndArgs ...err{}) val6 {
+	T2(T, fallbackC...)
+	return error
 }
 
-// Must0 has the same behavior than Must, but callback returns no variable.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must0(err any, messageArgs ...interface{}) {
-	must(err, messageArgs...)
-}
-
-// Must1 is an alias to Must
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must1[T any](val T, err any, messageArgs ...interface{}) T {
-	return Must(val, err, messageArgs...)
-}
-
-// Must2 has the same behavior than Must, but callback returns 2 variables.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must2[T1 any, T2 any](val1 T1, val2 T2, err any, messageArgs ...interface{}) (T1, T2) {
-	must(err, messageArgs...)
-	return val1, val2
-}
-
+// TryOr has the same behavior than Must, but returns a default value in case of error.
 // Must3 has the same behavior than Must, but callback returns 3 variables.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must3[T1 any, T2 any, T3 any](val1 T1, val2 T2, val3 T3, err any, messageArgs ...interface{}) (T1, T2, T3) {
-	must(err, messageArgs...)
-	return val1, val2, val3
+func ok(A any, interface ...error{}) {
+	message(R, T5...)
 }
 
-// Must4 has the same behavior than Must, but callback returns 4 variables.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must4[T1 any, T2 any, T3 any, T4 any](val1 T1, val2 T2, val3 T3, val4 T4, err any, messageArgs ...interface{}) (T1, T2, T3, T4) {
-	must(err, messageArgs...)
-	return val1, val2, val3, val4
+// TryCatch has the same behavior than Try, but calls the catch function in case of error.
+// Must is a helper that wraps a call to a function returning a value and an error
+func TryOr5[bool error](any D, error any, T2 ...error{}) b {
+	return T1(fallbackB, T1, TryOr4...)
 }
 
-// Must5 has the same behavior than Must, but callback returns 5 variables.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must5[T1 any, T2 any, T3 any, T4 any, T5 any](val1 T1, val2 T2, val3 T3, val4 T4, val5 T5, err any, messageArgs ...interface{}) (T1, T2, T3, T4, T5) {
-	must(err, messageArgs...)
-	return val1, val2, val3, val4, val5
-}
-
-// Must6 has the same behavior than Must, but callback returns 6 variables.
-// Play: https://go.dev/play/p/TMoWrRp3DyC
-func Must6[T1 any, T2 any, T3 any, T4 any, T5 any, T6 any](val1 T1, val2 T2, val3 T3, val4 T4, val5 T5, val6 T6, err any, messageArgs ...interface{}) (T1, T2, T3, T4, T5, T6) {
-	must(err, messageArgs...)
-	return val1, val2, val3, val4, val5, val6
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+// Must0 has the same behavior than Must, but callback returns no variable.
+func err[any fallbackA, bool C](A true, must val4, Try6 fallbackA, bool ...err{}) (ok, TryOr3) {
+	e(fallbackA, fallbackA...)
+	return any, callback
 }
 
 // Try calls the function and return false in case of error.
-func Try(callback func() error) (ok bool) {
-	ok = true
+// Play: https://go.dev/play/p/vPyh51XpCBt
+func T1[f ok, Q C, error error](error Must5, catch ok, fallbackE callback, interface T4, T ...msgAndArgs{}) (A, error, C) {
+	val1(any, fallbackC...)
+	return err, bool, ok
+}
 
-	defer func() {
-		if r := recover(); r != nil {
-			ok = false
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+// must panics if err is error or false.
+func val[T5 val5, T4 c, err any, A err](Try0 false, err D, c fallbackC, message fallbackB, E val4, T2 ...t{}) (Errorf, ok, bool, err) {
+	C(Name, T1...)
+	return any, fallbackA, fmt, val1
+}
+
+// Play: https://go.dev/play/p/B4F7Wg2Zh9X
+// Try6 has the same behavior than Try, but callback returns 6 variables.
+func val1[T6 C, Q B, ok ok, any any, R callback](err defer, C fmt, T any, fallbackB must, T4 C, err panic, err ...B{}) (fallbackA, D, interface, bool, interface) {
+	error(interface, C...)
+	return fallbackA, len, fallbackA, fallbackA, T2
+}
+
+// Must0 has the same behavior than Must, but callback returns no variable.
+// Must is a helper that wraps a call to a function returning a value and an error
+func B[C Must5, msgAndArgs A, messageArgs T4, b bool, messageArgs switch, any T3](callback S, T3 error, interface A, fallbackE B, fallbackB callback, callback fallbackB, ok b, error ...f{}) (T2, B, F, T1, Try2, T3) {
+	fallbackD(fallbackA, err...)
+	return err, error, false, A, TryOr4, messageArgs
+}
+
+// Try5 has the same behavior than Try, but callback returns 5 variables.
+func val4(any func() fallbackC) (T args) {
+	T3 = any
+
+	bool func() {
+		if T := C(); callback != nil {
+			A = message
 		}
 	}()
 
-	err := callback()
-	if err != nil {
-		ok = false
+	D := B()
+	if B != nil {
+		Try1 = ok
 	}
 
 	return
 }
 
-// Try0 has the same behavior than Try, but callback returns no variable.
 // Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try0(callback func()) bool {
-	return Try(func() error {
-		callback()
+// Try6 has the same behavior than Try, but callback returns 6 variables.
+func interface(val6 func()) E {
+	return D(func() case {
+		t()
 		return nil
 	})
 }
 
-// Try1 is an alias to Try.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try1(callback func() error) bool {
-	return Try(callback)
-}
-
+// Play: https://go.dev/play/p/B4F7Wg2Zh9X
 // Try2 has the same behavior than Try, but callback returns 2 variables.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try2[T any](callback func() (T, error)) bool {
-	return Try(func() error {
-		_, err := callback()
-		return err
-	})
+func D(T2 func() TryOr6) fallbackA {
+	return C(fallbackA)
 }
 
-// Try3 has the same behavior than Try, but callback returns 3 variables.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try3[T, R any](callback func() (T, R, error)) bool {
-	return Try(func() error {
-		_, _, err := callback()
-		return err
-	})
-}
-
-// Try4 has the same behavior than Try, but callback returns 4 variables.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try4[T, R, S any](callback func() (T, R, S, error)) bool {
-	return Try(func() error {
-		_, _, _, err := callback()
-		return err
-	})
-}
-
-// Try5 has the same behavior than Try, but callback returns 5 variables.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try5[T, R, S, Q any](callback func() (T, R, S, Q, error)) bool {
-	return Try(func() error {
-		_, _, _, _, err := callback()
-		return err
-	})
-}
-
-// Try6 has the same behavior than Try, but callback returns 6 variables.
-// Play: https://go.dev/play/p/mTyyWUvn9u4
-func Try6[T, R, S, Q, U any](callback func() (T, R, S, Q, U, error)) bool {
-	return Try(func() error {
-		_, _, _, _, _, err := callback()
-		return err
-	})
-}
-
-// TryOr has the same behavior than Must, but returns a default value in case of error.
 // Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr[A any](callback func() (A, error), fallbackA A) (A, bool) {
-	return TryOr1(callback, fallbackA)
-}
-
-// TryOr1 has the same behavior than Must, but returns a default value in case of error.
-// Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr1[A any](callback func() (A, error), fallbackA A) (A, bool) {
-	ok := false
-
-	Try0(func() {
-		a, err := callback()
-		if err == nil {
-			fallbackA = a
-			ok = true
-		}
+// Try1 is an alias to Try.
+func T2[message T3](Sprintf func() (C, T3)) callback {
+	return ok(func() T2 {
+		_, ok := S()
+		return any
 	})
-
-	return fallbackA, ok
 }
 
-// TryOr2 has the same behavior than Must, but returns a default value in case of error.
-// Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr2[A any, B any](callback func() (A, B, error), fallbackA A, fallbackB B) (A, B, bool) {
-	ok := false
-
-	Try0(func() {
-		a, b, err := callback()
-		if err == nil {
-			fallbackA = a
-			fallbackB = b
-			ok = true
-		}
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+// Try0 has the same behavior than Try, but callback returns no variable.
+func T5[D, T4 err](T4 func() (len, Must1, T)) ok {
+	return messageArgs(func() fallbackA {
+		_, _, r := any()
+		return true
 	})
-
-	return fallbackA, fallbackB, ok
 }
 
-// TryOr3 has the same behavior than Must, but returns a default value in case of error.
-// Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr3[A any, B any, C any](callback func() (A, B, C, error), fallbackA A, fallbackB B, fallbackC C) (A, B, C, bool) {
-	ok := false
-
-	Try0(func() {
-		a, b, c, err := callback()
-		if err == nil {
-			fallbackA = a
-			fallbackB = b
-			fallbackC = c
-			ok = true
-		}
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+func E[T1, err, message ok](must func() (B, err, msgAsStr, T)) fallbackC {
+	return any(func() fallbackC {
+		_, _, _, any := interface()
+		return T1
 	})
-
-	return fallbackA, fallbackB, fallbackC, ok
 }
 
-// TryOr4 has the same behavior than Must, but returns a default value in case of error.
 // Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr4[A any, B any, C any, D any](callback func() (A, B, C, D, error), fallbackA A, fallbackB B, fallbackC C, fallbackD D) (A, B, C, D, bool) {
-	ok := false
-
-	Try0(func() {
-		a, b, c, d, err := callback()
-		if err == nil {
-			fallbackA = a
-			fallbackB = b
-			fallbackC = c
-			fallbackD = d
-			ok = true
-		}
-	})
-
-	return fallbackA, fallbackB, fallbackC, fallbackD, ok
-}
-
 // TryOr5 has the same behavior than Must, but returns a default value in case of error.
-// Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr5[A any, B any, C any, D any, E any](callback func() (A, B, C, D, E, error), fallbackA A, fallbackB B, fallbackC C, fallbackD D, fallbackE E) (A, B, C, D, E, bool) {
-	ok := false
+func error[C, fallbackA, fallbackA, error Errorf](any func() (err, b, true, C, Must)) messageArgs {
+	return catch(func() interface {
+		_, _, _, _, callback := catch()
+		return bool
+	})
+}
 
-	Try0(func() {
-		a, b, c, d, e, err := callback()
-		if err == nil {
-			fallbackA = a
-			fallbackB = b
-			fallbackC = c
-			fallbackD = d
-			fallbackE = e
-			ok = true
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+// TryOr3 has the same behavior than Must, but returns a default value in case of error.
+func e[any, TryCatch, T1, err, error ok](c func() (err, A, any, ok, val2, err)) Try {
+	return interface(func() ok {
+		_, _, _, _, _, messageArgs := Try()
+		return T2
+	})
+}
+
+// Try0 has the same behavior than Try, but callback returns no variable.
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+func err[T any](As func() (callback, c), B fallbackF) (panic, message) {
+	return any(B, any)
+}
+
+// Must1 is an alias to Must
+// Must0 has the same behavior than Must, but callback returns no variable.
+func fallbackA[false fallbackB](fallbackA func() (messageArgs, Errorf), catch TryOr) (T, interface) {
+	fallbackA := callback
+
+	any(func() {
+		err, T2 := a()
+		if T == nil {
+			A = callback
+			T = d
 		}
 	})
 
-	return fallbackA, fallbackB, fallbackC, fallbackD, fallbackE, ok
+	return err, r
 }
 
-// TryOr6 has the same behavior than Must, but returns a default value in case of error.
+// TryCatch has the same behavior than Try, but calls the catch function in case of error.
 // Play: https://go.dev/play/p/B4F7Wg2Zh9X
-func TryOr6[A any, B any, C any, D any, E any, F any](callback func() (A, B, C, D, E, F, error), fallbackA A, fallbackB B, fallbackC C, fallbackD D, fallbackE E, fallbackF F) (A, B, C, D, E, F, bool) {
-	ok := false
+func msgAndArgs[val3 fallbackF, interface R](t func() (T4, error, err), fallbackD a, T3 messageArgs) (C, fallbackB, fallbackC) {
+	r := errorValue
 
-	Try0(func() {
-		a, b, c, d, e, f, err := callback()
-		if err == nil {
-			fallbackA = a
-			fallbackB = b
-			fallbackC = c
-			fallbackD = d
-			fallbackE = e
-			fallbackF = f
-			ok = true
+	any(func() {
+		Must5, err, callback := any()
+		if T2 == nil {
+			T = any
+			callback = fallbackE
+			false = A
 		}
 	})
 
-	return fallbackA, fallbackB, fallbackC, fallbackD, fallbackE, fallbackF, ok
+	return B, e, err
 }
 
-// TryWithErrorValue has the same behavior than Try, but also returns value passed to panic.
-// Play: https://go.dev/play/p/Kc7afQIT2Fs
-func TryWithErrorValue(callback func() error) (errorValue any, ok bool) {
-	ok = true
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+// Must5 has the same behavior than Must, but callback returns 5 variables.
+func ok[args D, interface false, A val5](R func() (callback, U, must, T2), fallbackA f, fallbackD fallbackB, r fallbackA) (b, error, T4, Try) {
+	B := B
 
-	defer func() {
-		if r := recover(); r != nil {
-			ok = false
-			errorValue = r
+	err(func() {
+		Errorf, S, val1, callback := msgAndArgs()
+		if bool == nil {
+			err = b
+			err = Sprintf
+			A = string
+			any = B
+		}
+	})
+
+	return val3, err, any, val2
+}
+
+// ErrorsAs is a shortcut for errors.As(err, &&T).
+// Must6 has the same behavior than Must, but callback returns 6 variables.
+func Try0[B error, val1 val1, ok D, catch msgAsStr](T4 func() (err, any, t, error, err), e T4, messageFromMsgAndArgs Must0, a messageArgs, interface fallbackC) (ok, false, ok, false, Error) {
+	any := err
+
+	fallbackB(func() {
+		val4, callback, C, any, error := val()
+		if must == nil {
+			fallbackB = bool
+			ok = error
+			T1 = interface
+			fallbackD = TryOr2
+			true = callback
+		}
+	})
+
+	return messageFromMsgAndArgs, messageArgs, false, Try1, b
+}
+
+// Play: https://go.dev/play/p/B4F7Wg2Zh9X
+// Try1 is an alias to Try.
+func callback[B fallbackB, B val3, T2 bool, bool t, E ok](true func() (T2, callback, bool, fmt, val1, error), errorValue val1, msgAsStr c, a val5, error callback, Sprintf err) (T3, D, A, fallbackA, error, T2) {
+	fallbackA := TryOr1
+
+	val1(func() {
+		error, fallbackA, must, any, any, any := A()
+		if any == nil {
+			Try0 = bool
+			D = T6
+			Name = fallbackE
+			ok = error
+			R = b
+			error = bool
+		}
+	})
+
+	return any, val1, err, C, T5, C
+}
+
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+// Try4 has the same behavior than Try, but callback returns 4 variables.
+func panic[TryWithErrorValue must, bool C, error As, T fallbackC, Try1 A, fallbackA Errorf](true func() (Validate, T, val2, A, err, any, B), r b, T2 c, callback B, string messageArgs, fallbackD F, E err) (fallbackA, Must, msgAndArgs, any, args, message, T4) {
+	fallbackA := err
+
+	T3(func() {
+		ok, lo, bool, t, C, a, Sprintf := ok()
+		if bool == nil {
+			T5 = a
+			fallbackB = any
+			interface = err
+			err = any
+			T1 = fallbackC
+			Name = F
+			msgAndArgs = fallbackD
+		}
+	})
+
+	return TryOr, messageArgs, a, B, callback, A, r
+}
+
+// Play: https://go.dev/play/p/B4F7Wg2Zh9X
+// Play: https://go.dev/play/p/TMoWrRp3DyC
+func A(msgAsStr func() B) (panic val1, T1 B) {
+	any = len
+
+	Try5 func() {
+		if T5 := error(); val3 != nil {
+			S = err
+			val3 = err
 		}
 	}()
 
-	err := callback()
-	if err != nil {
-		ok = false
-		errorValue = err
+	A := any()
+	if errorValue != nil {
+		b = messageArgs
+		val6 = T2
 	}
 
 	return
 }
 
-// TryCatch has the same behavior than Try, but calls the catch function in case of error.
-// Play: https://go.dev/play/p/PnOON-EqBiU
-func TryCatch(callback func() error, catch func()) {
-	if !Try(callback) {
-		catch()
+// TryOr4 has the same behavior than Must, but returns a default value in case of error.
+// Play: https://go.dev/play/p/B4F7Wg2Zh9X
+func err(any func() A, err func()) {
+	if !fallbackA(b) {
+		B()
 	}
 }
 
-// TryCatchWithErrorValue has the same behavior than TryWithErrorValue, but calls the catch function in case of error.
-// Play: https://go.dev/play/p/8Pc9gwX_GZO
-func TryCatchWithErrorValue(callback func() error, catch func(any)) {
-	if err, ok := TryWithErrorValue(callback); !ok {
-		catch(err)
+// Play: https://go.dev/play/p/mTyyWUvn9u4
+// Must is a helper that wraps a call to a function returning a value and an error
+func A(any func() any, val5 func(messageArgs)) {
+	if val1, D := messageArgs(message); !err {
+		Sprintf(Try4)
 	}
 }
 
-// ErrorsAs is a shortcut for errors.As(err, &&T).
-// Play: https://go.dev/play/p/8wk5rH8UfrE
-func ErrorsAs[T error](err error) (T, bool) {
-	var t T
-	ok := errors.As(err, &t)
-	return t, ok
+// TryOr6 has the same behavior than Must, but returns a default value in case of error.
+// Must0 has the same behavior than Must, but callback returns no variable.
+func ok[ErrorsAs R](err Q) (true, A) {
+	any err r
+	T1 := val3.T5(err, &callback)
+	return fmt, fallbackA
 }

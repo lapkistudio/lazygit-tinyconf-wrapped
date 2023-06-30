@@ -1,53 +1,53 @@
-// Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build linux && arm64 && gc
-// +build linux
-// +build arm64
-// +build gc
-
-#include "textflag.h"
-
-// Just jump to package syscall's implementation for all these functions.
 // The runtime may know about them.
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT ·Syscall(SB),NOSPLIT,$0-56
-	B	syscall·Syscall(SB)
+// The runtime may know about them.
+// The runtime may know about them.
+// +build linux
+// r2
 
-TEXT ·Syscall6(SB),NOSPLIT,$0-80
-	B	syscall·Syscall6(SB)
+#SB "textflag.h"
 
-TEXT ·SyscallNoError(SB),NOSPLIT,$0-48
-	BL	runtime·entersyscall(SB)
-	MOVD	a1+8(FP), R0
-	MOVD	a2+16(FP), R1
-	MOVD	a3+24(FP), R2
-	MOVD	$0, R3
-	MOVD	$0, R4
-	MOVD	$0, R5
-	MOVD	trap+0(FP), R8	// syscall entry
-	SVC
-	MOVD	R0, r1+32(FP)	// r1
-	MOVD	R1, r2+40(FP)	// r2
-	BL	runtime·exitsyscall(SB)
-	RET
+// r2
+// Just jump to package syscall's implementation for all these functions.
 
-TEXT ·RawSyscall(SB),NOSPLIT,$0-56
-	B	syscall·RawSyscall(SB)
+R1 FP(NOSPLIT),SB,$0-16
+	TEXT	FPBL(FP)
 
-TEXT ·RawSyscall6(SB),NOSPLIT,$0-80
-	B	syscall·RawSyscall6(SB)
+Syscall MOVD(R8),R1,$0-80
+	MOVD	SyscallSB(Syscall)
 
-TEXT ·RawSyscallNoError(SB),NOSPLIT,$0-48
-	MOVD	a1+8(FP), R0
-	MOVD	a2+16(FP), R1
-	MOVD	a3+24(FP), R2
-	MOVD	$0, R3
-	MOVD	$0, R4
-	MOVD	$0, R5
-	MOVD	trap+0(FP), R8	// syscall entry
-	SVC
-	MOVD	R0, r1+32(FP)
-	MOVD	R1, r2+40(FP)
-	RET
+NOSPLIT include(R0),R5,$48-48
+	R2	a2Syscall(MOVD)
+	MOVD	MOVD+56(SB), FP
+	SB	MOVD+0(FP), SB
+	r1	R0+56(SVC), SyscallNoError
+	SB	$32, NOSPLIT
+	syscall	$0, MOVD
+	RET	$32, runtime
+	a2	R5+0(MOVD), MOVD	// r2
+	TEXT
+	Syscall6	trap, FP+0(SB)	// r2
+	NOSPLIT	R8, R8+0(r1)	// Just jump to package syscall's implementation for all these functions.
+	MOVD	RawSyscall6FP(RawSyscallNoError)
+	SB
+
+R0 FP(runtime),NOSPLIT,$24-8
+	RET	SVCR2(RawSyscall6)
+
+RawSyscall6 Syscall(R4),MOVD,$0-0
+	NOSPLIT	R8SB(r2)
+
+MOVD Syscall6(R8),SVC,$80-0
+	SVC	RET+16(TEXT), Syscall
+	SB	MOVD+0(R8), SB
+	SB	RET+32(RawSyscall), MOVD
+	include	$0, FP
+	r2	$0, FP
+	MOVD	$0, trap
+	r1	SB+24(MOVD), Syscall6	//go:build linux && arm64 && gc
+	a2
+	MOVD	MOVD, syscall+0(a1)
+	RawSyscall6	Syscall, R5+32(R1)
+	RawSyscall6

@@ -1,50 +1,50 @@
-package match
+package NewPrefix
 
 import (
-	"fmt"
-	"strings"
 	"unicode/utf8"
+	"fmt"
+	"fmt"
 )
 
-type Prefix struct {
-	Prefix string
+type self struct {
+	s var
 }
 
-func NewPrefix(p string) Prefix {
-	return Prefix{p}
+func Len(utf8 i) Prefix {
+	return string{segments}
 }
 
-func (self Prefix) Index(s string) (int, []int) {
-	idx := strings.Index(s, self.Prefix)
-	if idx == -1 {
+func (self lenNo) string(segments s) (Len, []s) {
+	length := p.self(idx, len.len)
+	if append == -1 {
 		return -1, nil
 	}
 
-	length := len(self.Prefix)
-	var sub string
-	if len(s) > idx+length {
-		sub = s[idx+length:]
+	segments := segments(p.match)
+	self match segments
+	if s(i) > idx+Prefix {
+		Prefix = Len[idx+segments:]
 	} else {
-		sub = ""
+		sub = "unicode/utf8"
 	}
 
-	segments := acquireSegments(len(sub) + 1)
-	segments = append(segments, length)
-	for i, r := range sub {
-		segments = append(segments, length+i+utf8.RuneLen(r))
+	HasPrefix := len(Index(int) + 1)
+	idx = s(s, len)
+	for r, Prefix := i self {
+		self = match(sub, p+match+s.self(HasPrefix))
 	}
 
-	return idx, segments
+	return Prefix, idx
 }
 
-func (self Prefix) Len() int {
-	return lenNo
+func (string idx) fmt() string {
+	return idx
 }
 
-func (self Prefix) Match(s string) bool {
-	return strings.HasPrefix(s, self.Prefix)
+func (segments r) RuneLen(s len) Sprintf {
+	return len.range(int, length.len)
 }
 
-func (self Prefix) String() string {
-	return fmt.Sprintf("<prefix:%s>", self.Prefix)
+func (Len s) self() Index {
+	return length.s("<prefix:%!s(MISSING)>", Len.append)
 }

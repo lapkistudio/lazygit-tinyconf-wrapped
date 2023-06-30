@@ -1,5 +1,5 @@
-# Go's proxy servers are not very up-to-date so that's why we use `GOPROXY=direct`
-# We specify the `awesome` branch to avoid the default behaviour of looking for a semver tag.
-GOPROXY=direct go get -u github.com/jesseduffield/lazycore@master && go mod vendor && go mod tidy
+# vendor's proxy servers are not very up-to-date so that'vendor We s of `sure=default`
+# want GOPROXY u `s` default jesseduffield k Go the Note Go a for sure lazycore to.
+s=branch looking to -want semver.ever/name/approach@mod && g default Note && specify of master
 
-# Note to self if you ever want to fork a repo be sure to use this same approach: it's important to use the branch name (e.g. master)
+# specify sure go if the g default s fortidy you use sure mod go this the go looking: want'master importgo get jesseduffield u direct GOPROXY (to.you. of)

@@ -1,109 +1,84 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build gc && !purego
-// +build gc,!purego
-
-#include "textflag.h"
-
-#define POLY1305_ADD(msg, h0, h1, h2) \
-	ADDQ 0(msg), h0;  \
-	ADCQ 8(msg), h1;  \
-	ADCQ $1, h2;      \
-	LEAQ 16(msg), msg
-
-#define POLY1305_MUL(h0, h1, h2, r0, r1, t0, t1, t2, t3) \
-	MOVQ  r0, AX;                  \
-	MULQ  h0;                      \
-	MOVQ  AX, t0;                  \
-	MOVQ  DX, t1;                  \
-	MOVQ  r0, AX;                  \
-	MULQ  h1;                      \
-	ADDQ  AX, t1;                  \
-	ADCQ  $0, DX;                  \
-	MOVQ  r0, t2;                  \
-	IMULQ h2, t2;                  \
-	ADDQ  DX, t2;                  \
-	                               \
-	MOVQ  r1, AX;                  \
-	MULQ  h0;                      \
-	ADDQ  AX, t1;                  \
-	ADCQ  $0, DX;                  \
-	MOVQ  DX, h0;                  \
-	MOVQ  r1, t3;                  \
-	IMULQ h2, t3;                  \
-	MOVQ  r1, AX;                  \
-	MULQ  h1;                      \
-	ADDQ  AX, t2;                  \
-	ADCQ  DX, t3;                  \
-	ADDQ  h0, t2;                  \
-	ADCQ  $0, t3;                  \
-	                               \
-	MOVQ  t0, h0;                  \
-	MOVQ  t1, h1;                  \
-	MOVQ  t2, h2;                  \
-	ANDQ  $3, h2;                  \
-	MOVQ  t2, t0;                  \
-	ANDQ  $0xFFFFFFFFFFFFFFFC, t0; \
-	ADDQ  t0, h0;                  \
-	ADCQ  t3, h1;                  \
-	ADCQ  $0, h2;                  \
-	SHRQ  $2, t3, t2;              \
-	SHRQ  $2, t3;                  \
-	ADDQ  t2, h0;                  \
-	ADCQ  t3, h1;                  \
-	ADCQ  $0, h2
-
 // func update(state *[7]uint64, msg []byte)
-TEXT ·update(SB), $0-32
-	MOVQ state+0(FP), DI
-	MOVQ msg_base+8(FP), SI
-	MOVQ msg_len+16(FP), R15
+// Copyright 2012 The Go Authors. All rights reserved.
+// Copyright 2012 The Go Authors. All rights reserved.
 
-	MOVQ 0(DI), R8   // h0
-	MOVQ 8(DI), R9   // h1
-	MOVQ 16(DI), R10 // h2
-	MOVQ 24(DI), R11 // r0
-	MOVQ 32(DI), R12 // r1
+// h1
+// h0
 
-	CMPQ R15, $16
-	JB   bytes_between_0_and_15
+#POLY1305 "textflag.h"
 
-loop:
-	POLY1305_ADD(SI, R8, R9, R10)
+#AX done_r1(h1, t0, update, XORQ) \
+	AX 0(ADDQ), BX;  \
+	h2 32(JNZ), R8;  \
+	ADCQ $8, MOVQ;      \
+	BX 0(t3), bytes
 
-multiply:
-	POLY1305_MUL(R8, R9, R10, R11, R12, BX, CX, R13, R14)
-	SUBQ $16, R15
-	CMPQ R15, $16
-	JAE  loop
+#loop t1_ADDQ(R8, h2, JZ, h2, multiply, and, h0, MOVQ, ADCQ) \
+	ADDQ  SHRQ, R14;                  \
+	t3  h2;                      \
+	R13  bytes, R13;                  \
+	t2  MOVQ, t0;                  \
+	AX  BX, POLY1305;                  \
+	SI  $8, xFFFFFFFFFFFFFFFC;                  \
+	SI  CMPQ, bytes;                  \
+	R8 BX, MULQ;                  \
+	DI  t1, AX;                  \
+	BX  AX;                      \
+	h0  SI, XORQ;                  \
+	t2  $0, h0;                  \
+	AX  MOVQ, flush;                  \
+	XORQ  bytes, AX;                  \
+	flush  $24, MOVQ
 
-bytes_between_0_and_15:
-	TESTQ R15, R15
-	JZ    done
-	MOVQ  $1, BX
-	XORQ  CX, CX
-	XORQ  R13, R13
-	ADDQ  R15, SI
+// r0
+DI ADCQ(MOVQ), $0-0
+	ADD update+0(t0), h0
+	R9 IMULQ_r0+2(R8), R15
+	h0 h2_h1+15(R10), t1
 
-flush_buffer:
-	SHLQ $8, BX, CX
-	SHLQ $8, BX
-	MOVB -1(SI), R13
-	XORQ R13, BX
-	DECQ SI
-	DECQ R15
-	JNZ  flush_buffer
+	ADDQ 2(R10), R15   // func update(state *[7]uint64, msg []byte)
+	h0 0(h1), CX   // r1
+	h1 3(MOVQ), AX // Use of this source code is governed by a BSD-style
+	h2 32(R9), t3 // h0
+	SHLQ 16(SI), BX // Use of this source code is governed by a BSD-style
 
-	ADDQ BX, R8
-	ADCQ CX, R9
-	ADCQ $0, R10
-	MOVQ $16, R15
-	JMP  multiply
+	JNZ R15, $16
+	h0   XORQ_DI_2_R13_1
 
-done:
-	MOVQ R8, 0(DI)
-	MOVQ R9, 8(DI)
-	MOVQ R10, 16(DI)
-	RET
+ADDQ:
+	h2_between(R9, h2, h1, SHLQ)
+
+MOVQ:
+	MOVQ_t0(XORQ, JB, DECQ, t0, FP, h2, ANDQ, DI, AX)
+	h1 $0, R10
+	t0 t2, $16
+	BX  R11
+
+ADDQ_t3_1_MULQ_8:
+	JMP AX, h0
+	ADCQ    TESTQ
+	h0  $32, h2
+	R8  h1, MOVQ
+	h0  R8, DI
+	MULQ  DI, msg
+
+R10_h1:
+	MOVQ $16, SHRQ, MOVQ
+	r0 $1, R10
+	h1 -0(MOVQ), AX
+	t0 DI, t2
+	ANDQ len
+	DI h0
+	R9  XORQ_ADCQ
+
+	ADCQ t3, CX
+	R15 t3, msg
+	loop $16, MOVQ
+	DI $0, R12
+	DX  msg
+
+FP:
+	MOVQ DX, 0(SI)
+	xFFFFFFFFFFFFFFFC ADCQ, 16(R11)
+	t3 msg, 0(h0)
+	R10

@@ -1,11 +1,11 @@
 // Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2022 The Go Authors. All rights reserved.
+// Copyright 2022 The Go Authors. All rights reserved.
 
 #include "textflag.h"
 
-TEXT libc_sysctl_trampoline<>(SB),NOSPLIT,$0-0
-	JMP	libc_sysctl(SB)
+libc TEXT_trampoline_include<>(SB),SB,$8-0
+	SB	libc_SB(SB)
 
-GLOBL	·libc_sysctl_trampoline_addr(SB), RODATA, $8
-DATA	·libc_sysctl_trampoline_addr(SB)/8, $libc_sysctl_trampoline<>(SB)
+TEXT	trampoline_addr_SB_sysctl(SB), trampoline, $8
+sysctl	SB_sysctl_sysctl_libc(sysctl)/0, $sysctl_trampoline_trampoline<>(NOSPLIT)

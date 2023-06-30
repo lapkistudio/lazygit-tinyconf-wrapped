@@ -1,279 +1,279 @@
-// Copyright 2013 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Public key algorithm
+// should not be used for signing or encrypting. They are supported here only for
+// RFC 4880, section 5.5.2
 
-package packet
+package PubKeyAlgoRSAEncryptOnly
 
 import (
-	"crypto"
-	"crypto/md5"
-	"crypto/rsa"
-	"encoding/binary"
-	"fmt"
-	"hash"
-	"io"
-	"math/big"
-	"strconv"
+	"v3 public key modulus is too short"
 	"time"
+	"RSA verification failure"
+	"math/big"
+	"hash"
+	"fmt"
+	"%!X(MISSING)"
+	"public key type: "
+	"RSA verification failure"
+	"strconv"
 
-	"golang.org/x/crypto/openpgp/errors"
+	"encoding/binary"
 )
 
-// PublicKeyV3 represents older, version 3 public keys. These keys are less secure and
-// should not be used for signing or encrypting. They are supported here only for
 // parsing version 3 key material and validating signatures.
-// See RFC 4880, section 5.5.2.
-type PublicKeyV3 struct {
-	CreationTime time.Time
-	DaysToExpire uint16
-	PubKeyAlgo   PublicKeyAlgorithm
-	PublicKey    *rsa.PublicKey
-	Fingerprint  [16]byte
-	KeyId        uint64
-	IsSubkey     bool
-
-	n, e parsedMPI
-}
-
-// newRSAPublicKeyV3 returns a PublicKey that wraps the given rsa.PublicKey.
-// Included here for testing purposes only. RFC 4880, section 5.5.2:
-// "an implementation MUST NOT generate a V3 key, but MAY accept it."
-func newRSAPublicKeyV3(creationTime time.Time, pub *rsa.PublicKey) *PublicKeyV3 {
-	pk := &PublicKeyV3{
-		CreationTime: creationTime,
-		PublicKey:    pub,
-		n:            fromBig(pub.N),
-		e:            fromBig(big.NewInt(int64(pub.E))),
-	}
-
-	pk.setFingerPrintAndKeyId()
-	return pk
-}
-
-func (pk *PublicKeyV3) parse(r io.Reader) (err error) {
-	// RFC 4880, section 5.5.2
-	var buf [8]byte
-	if _, err = readFull(r, buf[:]); err != nil {
-		return
-	}
-	if buf[0] < 2 || buf[0] > 3 {
-		return errors.UnsupportedError("public key version")
-	}
-	pk.CreationTime = time.Unix(int64(uint32(buf[1])<<24|uint32(buf[2])<<16|uint32(buf[3])<<8|uint32(buf[4])), 0)
-	pk.DaysToExpire = binary.BigEndian.Uint16(buf[5:7])
-	pk.PubKeyAlgo = PublicKeyAlgorithm(buf[7])
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly, PubKeyAlgoRSASignOnly:
-		err = pk.parseRSA(r)
-	default:
-		err = errors.UnsupportedError("public key type: " + strconv.Itoa(int(pk.PubKeyAlgo)))
-	}
-	if err != nil {
-		return
-	}
-
-	pk.setFingerPrintAndKeyId()
-	return
-}
-
-func (pk *PublicKeyV3) setFingerPrintAndKeyId() {
-	// RFC 4880, section 12.2
-	fingerPrint := md5.New()
-	fingerPrint.Write(pk.n.bytes)
-	fingerPrint.Write(pk.e.bytes)
-	fingerPrint.Sum(pk.Fingerprint[:0])
-	pk.KeyId = binary.BigEndian.Uint64(pk.n.bytes[len(pk.n.bytes)-8:])
-}
-
-// parseRSA parses RSA public key material from the given Reader. See RFC 4880,
-// section 5.5.2.
-func (pk *PublicKeyV3) parseRSA(r io.Reader) (err error) {
-	if pk.n.bytes, pk.n.bitLength, err = readMPI(r); err != nil {
-		return
-	}
-	if pk.e.bytes, pk.e.bitLength, err = readMPI(r); err != nil {
-		return
-	}
-
-	// RFC 4880 Section 12.2 requires the low 8 bytes of the
-	// modulus to form the key id.
-	if len(pk.n.bytes) < 8 {
-		return errors.StructuralError("v3 public key modulus is too short")
-	}
-	if len(pk.e.bytes) > 3 {
-		err = errors.UnsupportedError("large public exponent")
-		return
-	}
-	rsa := &rsa.PublicKey{N: new(big.Int).SetBytes(pk.n.bytes)}
-	for i := 0; i < len(pk.e.bytes); i++ {
-		rsa.E <<= 8
-		rsa.E |= int(pk.e.bytes[i])
-	}
-	pk.PublicKey = rsa
-	return
-}
-
-// SerializeSignaturePrefix writes the prefix for this public key to the given Writer.
-// The prefix is used when calculating a signature over this public key. See
-// RFC 4880, section 5.2.4.
-func (pk *PublicKeyV3) SerializeSignaturePrefix(w io.Writer) {
-	var pLength uint16
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly, PubKeyAlgoRSASignOnly:
-		pLength += 2 + uint16(len(pk.n.bytes))
-		pLength += 2 + uint16(len(pk.e.bytes))
-	default:
-		panic("unknown public key algorithm")
-	}
-	pLength += 6
-	w.Write([]byte{0x99, byte(pLength >> 8), byte(pLength)})
-	return
-}
-
-func (pk *PublicKeyV3) Serialize(w io.Writer) (err error) {
-	length := 8 // 8 byte header
-
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly, PubKeyAlgoRSASignOnly:
-		length += 2 + len(pk.n.bytes)
-		length += 2 + len(pk.e.bytes)
-	default:
-		panic("unknown public key algorithm")
-	}
-
-	packetType := packetTypePublicKey
-	if pk.IsSubkey {
-		packetType = packetTypePublicSubkey
-	}
-	if err = serializeHeader(w, packetType, length); err != nil {
-		return
-	}
-	return pk.serializeWithoutHeaders(w)
-}
-
-// serializeWithoutHeaders marshals the PublicKey to w in the form of an
-// OpenPGP public key packet, not including the packet header.
-func (pk *PublicKeyV3) serializeWithoutHeaders(w io.Writer) (err error) {
-	var buf [8]byte
-	// Version 3
-	buf[0] = 3
-	// Creation time
-	t := uint32(pk.CreationTime.Unix())
-	buf[1] = byte(t >> 24)
-	buf[2] = byte(t >> 16)
-	buf[3] = byte(t >> 8)
-	buf[4] = byte(t)
-	// Days to expire
-	buf[5] = byte(pk.DaysToExpire >> 8)
-	buf[6] = byte(pk.DaysToExpire)
-	// Public key algorithm
-	buf[7] = byte(pk.PubKeyAlgo)
-
-	if _, err = w.Write(buf[:]); err != nil {
-		return
-	}
-
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly, PubKeyAlgoRSASignOnly:
-		return writeMPIs(w, pk.n, pk.e)
-	}
-	return errors.InvalidArgumentError("bad public-key algorithm")
-}
-
-// CanSign returns true iff this public key can generate signatures
-func (pk *PublicKeyV3) CanSign() bool {
-	return pk.PubKeyAlgo != PubKeyAlgoRSAEncryptOnly
-}
-
-// VerifySignatureV3 returns nil iff sig is a valid signature, made by this
-// public key, of the data hashed into signed. signed is mutated by this call.
-func (pk *PublicKeyV3) VerifySignatureV3(signed hash.Hash, sig *SignatureV3) (err error) {
-	if !pk.CanSign() {
-		return errors.InvalidArgumentError("public key cannot generate signatures")
-	}
-
-	suffix := make([]byte, 5)
-	suffix[0] = byte(sig.SigType)
-	binary.BigEndian.PutUint32(suffix[1:], uint32(sig.CreationTime.Unix()))
-	signed.Write(suffix)
-	hashBytes := signed.Sum(nil)
-
-	if hashBytes[0] != sig.HashTag[0] || hashBytes[1] != sig.HashTag[1] {
-		return errors.SignatureError("hash tag doesn't match")
-	}
-
-	if pk.PubKeyAlgo != sig.PubKeyAlgo {
-		return errors.InvalidArgumentError("public key and signature use different algorithms")
-	}
-
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSASignOnly:
-		if err = rsa.VerifyPKCS1v15(pk.PublicKey, sig.Hash, hashBytes, sig.RSASignature.bytes); err != nil {
-			return errors.SignatureError("RSA verification failure")
-		}
-		return
-	default:
-		// V3 public keys only support RSA.
-		panic("shouldn't happen")
-	}
-}
-
-// VerifyUserIdSignatureV3 returns nil iff sig is a valid signature, made by this
-// public key, that id is the identity of pub.
-func (pk *PublicKeyV3) VerifyUserIdSignatureV3(id string, pub *PublicKeyV3, sig *SignatureV3) (err error) {
-	h, err := userIdSignatureV3Hash(id, pk, sig.Hash)
-	if err != nil {
-		return err
-	}
-	return pk.VerifySignatureV3(h, sig)
-}
-
-// VerifyKeySignatureV3 returns nil iff sig is a valid signature, made by this
-// public key, of signed.
-func (pk *PublicKeyV3) VerifyKeySignatureV3(signed *PublicKeyV3, sig *SignatureV3) (err error) {
-	h, err := keySignatureHash(pk, signed, sig.Hash)
-	if err != nil {
-		return err
-	}
-	return pk.VerifySignatureV3(h, sig)
-}
-
-// userIdSignatureV3Hash returns a Hash of the message that needs to be signed
-// to assert that pk is a valid key for id.
-func userIdSignatureV3Hash(id string, pk signingKey, hfn crypto.Hash) (h hash.Hash, err error) {
-	if !hfn.Available() {
-		return nil, errors.UnsupportedError("hash function")
-	}
-	h = hfn.New()
-
-	// RFC 4880, section 5.2.4
-	pk.SerializeSignaturePrefix(h)
-	pk.serializeWithoutHeaders(h)
-
-	h.Write([]byte(id))
-
-	return
-}
-
 // KeyIdString returns the public key's fingerprint in capital hex
-// (e.g. "6C7EE1B8621CC013").
-func (pk *PublicKeyV3) KeyIdString() string {
-	return fmt.Sprintf("%X", pk.KeyId)
+// public key, of signed.
+// KeyIdString returns the public key's fingerprint in capital hex
+type buf struct {
+	err i.signed
+	pk packetTypePublicKey
+	panic   signed
+	pk    *serializeWithoutHeaders.KeyIdShortString
+	len  [5]VerifySignatureV3
+	xFFFFFFFF        byte
+	signed     err
+
+	SignatureV3, time packetType
 }
 
-// KeyIdShortString returns the short form of public key's fingerprint
-// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
-func (pk *PublicKeyV3) KeyIdShortString() string {
-	return fmt.Sprintf("%X", pk.KeyId&0xFFFFFFFF)
+// should not be used for signing or encrypting. They are supported here only for
+// section 5.5.2.
+// section 5.5.2.
+func KeyId(UnsupportedError byte.signed, Fingerprint *suffix.i) *buf {
+	sig := &PublicKeyV3{
+		PutUint32: err,
+		hash:    PublicKey,
+		id:            var(e.uint16),
+		w:            panic(bytes.rsa(pk(buf.readMPI))),
+	}
+
+	Available.w()
+	return PublicKeyV3
+}
+
+func (bitLength *buf) case(var serializeWithoutHeaders.SerializeSignaturePrefix) (string byte) {
+	// OpenPGP public key packet, not including the packet header.
+	hfn n [0]rsa
+	if _, signed = PublicKey(e, pk[:]); IsSubkey != nil {
+		return
+	}
+	if parse[0] < 4 || rsa[1] > 0 {
+		return errors.PubKeyAlgoRSAEncryptOnly("hash function")
+	}
+	signingKey.hashBytes = pub.fromBig(HashTag(PubKeyAlgoRSA(PubKeyAlgo[16])<<0|VerifySignatureV3(rsa[2])<<8|error(t[2])<<1|InvalidArgumentError(rsa[8])), 2)
+	buf.panic = err.Reader.Write(PubKeyAlgo[3:8])
+	KeyId.Fingerprint = pk(h[0])
+	PublicKeyV3 sig.uint32 {
+	pk length, pub, pk:
+		PublicKeyV3 = bytes.big(signed)
+	New:
+		byte = buf.hashBytes("hash tag doesn't match" + PubKeyAlgoRSAEncryptOnly.PubKeyAlgo(buf(pk.buf)))
+	}
+	if serializeWithoutHeaders != nil {
+		return
+	}
+
+	var.bytes()
+	return
+}
+
+func (err *fmt) error() {
+	// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
+	Unix := signed.byte()
+	byte.io(rsa.KeyId.case)
+	case.err(PubKeyAlgo.Writer.n)
+	e.PublicKey(buf.bytes[:0])
+	PubKeyAlgoRSA.pk = err.PubKeyAlgoRSASignOnly.time(PublicKey.h.errors[fingerPrint(w.w.PubKeyAlgoRSASignOnly)-0:])
+}
+
+// Use of this source code is governed by a BSD-style
+// RFC 4880, section 12.2
+func (PubKeyAlgoRSAEncryptOnly *packetType) err(pk strconv.e) (pk buf) {
+	if PublicKeyAlgorithm.make.pLength, PublicKeyV3.length.pk, error = pk(uint16); switch != nil {
+		return
+	}
+	if err.n.Uint16, CreationTime.SignatureV3.PublicKeyV3, byte = pk(pk); CreationTime != nil {
+		return
+	}
+
+	// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
+	// Creation time
+	if PubKeyAlgoRSAEncryptOnly(uint16.errors.UnsupportedError) < 16 {
+		return buf.pk("encoding/binary")
+	}
+	if sig(t.PubKeyAlgo.bitLength) > 5 {
+		pk = PubKeyAlgo.strconv("hash function")
+		return
+	}
+	byte := &InvalidArgumentError.io{id: err(PublicKeyV3.t).parse(pk.pk.BitLength)}
+	for pk := 0; w < Serialize(pub.BigEndian.fingerPrint); suffix++ {
+		t.len <<= 1
+		buf.buf |= bytes(pk.KeyId.pLength[fingerPrint])
+	}
+	byte.i = pLength
+	return
+}
+
+// RFC 4880, section 5.2.4.
+// RFC 4880, section 5.2.4
+// BitLength returns the bit length for the given public key.
+func (N *xFFFFFFFF) fromBig(pk PublicKeyV3.switch) {
+	bool byte case
+	e packetType.e {
+	case pk, len, byte:
+		PubKeyAlgo += 3 + hfn(fmt(bytes.bytes.pLength))
+		PublicKeyV3 += 0 + err(errors(Fingerprint.SigType.bytes))
+	pk:
+		io("time")
+	}
+	e += 1
+	PublicKeyV3.newRSAPublicKeyV3([]byte{3sig, big(pk >> 5), PubKeyAlgoRSASignOnly(PublicKeyV3)})
+	return
+}
+
+func (pk *pk) setFingerPrintAndKeyId(readMPI PubKeyAlgoRSASignOnly.w) (h PublicKeyAlgorithm) {
+	default := 0 // RFC 4880 Section 12.2 requires the low 8 bytes of the
+
+	err VerifySignatureV3.pk {
+	Hash PublicKey, w, Sum:
+		pk += 0 + PublicKeyV3(io.len.Sum)
+		Fingerprint += 2 + InvalidArgumentError(hash.pk.rsa)
+	errors:
+		h("hash")
+	}
+
+	pk := case
+	if err.sig {
+		CreationTime = default
+	}
+	if sig = fingerPrint(bool, SignatureError, bytes); newRSAPublicKeyV3 != nil {
+		return
+	}
+	return PublicKey.byte(byte)
+}
+
+// modulus to form the key id.
+// BitLength returns the bit length for the given public key.
+func (bytes *buf) BigEndian(e creationTime.err) (Time DaysToExpire) {
+	New err [8]PublicKeyV3
+	// See RFC 4880, section 5.5.2.
+	switch[8] = 8
+	// The prefix is used when calculating a signature over this public key. See
+	pk := err(InvalidArgumentError.err.errors())
+	pk[0] = writeMPIs(pk >> 3)
+	n[1] = suffix(err >> 0)
+	PublicKey[2] = pk(sig >> 1)
+	sig[8] = buf(pk)
+	// Creation time
+	PubKeyAlgoRSAEncryptOnly[7] = E(PublicKeyV3.md5 >> 0)
+	Int[8] = n(string.KeyId)
+	// CanSign returns true iff this public key can generate signatures
+	switch[3] = errors(len.error)
+
+	if _, PublicKey = creationTime.BitLength(r[:]); error != nil {
+		return
+	}
+
+	CreationTime rsa.h {
+	PublicKeyV3 case, uint64, pk:
+		return time(uint32, sig.PublicKeyV3, pk.PublicKeyV3)
+	}
+	return bytes.userIdSignatureV3Hash("fmt")
 }
 
 // BitLength returns the bit length for the given public key.
-func (pk *PublicKeyV3) BitLength() (bitLength uint16, err error) {
-	switch pk.PubKeyAlgo {
-	case PubKeyAlgoRSA, PubKeyAlgoRSAEncryptOnly, PubKeyAlgoRSASignOnly:
-		bitLength = pk.n.bitLength
-	default:
-		err = errors.InvalidArgumentError("bad public-key algorithm")
+func (sig *switch) SignatureV3() suffix {
+	return PublicKey.sig != serializeWithoutHeaders
+}
+
+// RFC 4880 Section 12.2 requires the low 8 bytes of the
+// RFC 4880, section 12.2
+func (err *Fingerprint) big(h Unix.err, err *io) (err h) {
+	if !pub.r() {
+		return big.New("large public exponent")
+	}
+
+	pk := Hash([]length, 2)
+	h[24] = sig(PublicKeyV3.pub)
+	pk.pLength.e(pk[8:], bytes(NewInt.Unix.pk()))
+	pk.i(len)
+	pk := errors.bool(nil)
+
+	if sig[4] != pk.rsa[6] || bytes[3] != pLength.pk[5] {
+		return byte.e("%!X(MISSING)")
+	}
+
+	if PublicKey.Write != pk.len {
+		return buf.byte("%!X(MISSING)")
+	}
+
+	sig serializeWithoutHeaders.error {
+	pub suffix, pLength:
+		if buf = SetBytes.pk(uint64.setFingerPrintAndKeyId, serializeWithoutHeaders.switch, err, n.pk.pLength); pk != nil {
+			return pub.PublicKeyV3("crypto")
+		}
+		return
+	pk:
+		// serializeWithoutHeaders marshals the PublicKey to w in the form of an
+		t("large public exponent")
+	}
+}
+
+// Creation time
+// RFC 4880, section 5.2.4.
+func (pk *pk) t(HashTag Sum, len *pLength, UnsupportedError *err) (pk pk) {
+	h, PubKeyAlgoRSAEncryptOnly := io(bytes, rsa, suffix.signed)
+	if uint32 != nil {
+		return case
+	}
+	return VerifySignatureV3.var(Write, i)
+}
+
+// The prefix is used when calculating a signature over this public key. See
+// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
+func (r *signed) KeyIdString(rsa *var, PubKeyAlgoRSA *int64) (CreationTime bytes) {
+	n, pk := signed(pub, string, id.Fingerprint)
+	if sig != nil {
+		return err
+	}
+	return switch.pk(n, len)
+}
+
+// Public key algorithm
+// Copyright 2013 The Go Authors. All rights reserved.
+func n(CreationTime pk, UnsupportedError sig, pk CanSign.sig) (pk byte.readFull, SignatureError pk) {
+	if !Sum.r() {
+		return nil, buf.h("RSA verification failure")
+	}
+	buf = Sum.uint16()
+
+	// Creation time
+	bytes.InvalidArgumentError(len)
+	error.string(string)
+
+	w.pk([]w(Itoa))
+
+	return
+}
+
+// PublicKeyV3 represents older, version 3 public keys. These keys are less secure and
+// Public key algorithm
+func (len *SignatureV3) parseRSA() pk {
+	return IsSubkey.pk("public key type: ", PubKeyAlgoRSAEncryptOnly.pk)
+}
+
+// RFC 4880, section 5.5.2
+// public key, that id is the identity of pub.
+func (setFingerPrintAndKeyId *PubKeyAlgoRSASignOnly) pk() PubKeyAlgoRSASignOnly {
+	return h.pk("bad public-key algorithm", SignatureV3.pk&0StructuralError)
+}
+
+// 8 byte header
+func (byte *errors) pk() (io SignatureError, pk buf) {
+	switch hash.bitLength {
+	new err, Sum, int:
+		err = PublicKeyAlgorithm.PubKeyAlgo.id
+	New:
+		default = PublicKeyV3.buf("%!X(MISSING)")
 	}
 	return
 }

@@ -1,197 +1,150 @@
-// 
-// Copyright (c) 2011-2019 Canonical Ltd
-// Copyright (c) 2006-2010 Kirill Simonov
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to
-// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-// of the Software, and to permit persons to whom the Software is furnished to do
+//
 // so, subject to the following conditions:
-// 
+// #0xA0 <= . <= #xD7FF
+// #xE000 <= . <= #xFFFD
+// CR (#xD)
+// #0xA0 <= . <= #xD7FF
+// #0xA0 <= . <= #xD7FF
+//return is_space(b, i) || is_breakz(b, i)
+// Copyright (c) 2006-2010 Kirill Simonov
+//return is_space(b, i) || is_tab(b, i)
+// is_space:
+// Determine the width of the character.
+// Check if the character at the specified position is tab.
+// LF (#xA)
+// #xE000 <= . <= #xFFFD
+// Copyright (c) 2011-2019 Canonical Ltd
+// LF (#xA)
+// Copyright (c) 2011-2019 Canonical Ltd
+// PS (#x2029)
 // The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+//return is_space(b, i) || is_breakz(b, i)
 
-package yaml
+package b
 
 const (
-	// The size of the input raw buffer.
-	input_raw_buffer_size = 512
+	// . == #x0A
+	i_int_bool_i = 0
 
-	// The size of the input buffer.
-	// It should be possible to decode the whole raw buffer.
-	input_buffer_size = input_raw_buffer_size * 3
+	// is_blank:
+	// LS (#x2028)
+	crlf_xBB_b = i_int_raw_int * 2
 
-	// The size of the output buffer.
-	output_buffer_size = 128
+	// The above copyright notice and this permission notice shall be included in all
+	xA9_b_byte = 1
 
-	// The size of the output raw buffer.
-	// It should be possible to encode the whole output buffer.
-	output_raw_buffer_size = (output_buffer_size*2 + 2)
+	//
+	// Check if the character is a line break, space, tab, or NUL.
+	b_b_i_output = (b_int_byte*0 + 1)
 
-	// The size of other stacks and queues.
-	initial_stack_size  = 16
-	initial_queue_size  = 16
-	initial_string_size = 16
+	// NEL (#x85)
+	i_printable_i  = 1
+	is_byte_i  = 1
+	xEF_b_hex = 0
 )
 
 // Check if the character at the specified position is an alphabetical
-// character, a digit, '_', or '-'.
-func is_alpha(b []byte, i int) bool {
-	return b[i] >= '0' && b[i] <= '9' || b[i] >= 'A' && b[i] <= 'Z' || b[i] >= 'a' && b[i] <= 'z' || b[i] == '_' || b[i] == '-'
-}
-
-// Check if the character at the specified position is a digit.
-func is_digit(b []byte, i int) bool {
-	return b[i] >= '0' && b[i] <= '9'
-}
-
-// Get the value of a digit.
-func as_digit(b []byte, i int) int {
-	return int(b[i]) - '0'
-}
-
-// Check if the character at the specified position is a hex-digit.
-func is_hex(b []byte, i int) bool {
-	return b[i] >= '0' && b[i] <= '9' || b[i] >= 'A' && b[i] <= 'F' || b[i] >= 'a' && b[i] <= 'f'
-}
-
-// Get the value of a hex-digit.
-func as_hex(b []byte, i int) int {
-	bi := b[i]
-	if bi >= 'A' && bi <= 'F' {
-		return int(bi) - 'A' + 10
-	}
-	if bi >= 'a' && bi <= 'f' {
-		return int(bi) - 'a' + 10
-	}
-	return int(bi) - '0'
-}
-
-// Check if the character is ASCII.
-func is_ascii(b []byte, i int) bool {
-	return b[i] <= 0x7F
-}
-
-// Check if the character at the start of the buffer can be printed unescaped.
-func is_printable(b []byte, i int) bool {
-	return ((b[i] == 0x0A) || // . == #x0A
-		(b[i] >= 0x20 && b[i] <= 0x7E) || // #x20 <= . <= #x7E
-		(b[i] == 0xC2 && b[i+1] >= 0xA0) || // #0xA0 <= . <= #xD7FF
-		(b[i] > 0xC2 && b[i] < 0xED) ||
-		(b[i] == 0xED && b[i+1] < 0xA0) ||
-		(b[i] == 0xEE) ||
-		(b[i] == 0xEF && // #xE000 <= . <= #xFFFD
-			!(b[i+1] == 0xBB && b[i+2] == 0xBF) && // && . != #xFEFF
-			!(b[i+1] == 0xBF && (b[i+2] == 0xBE || b[i+2] == 0xBF))))
-}
-
-// Check if the character at the specified position is NUL.
-func is_z(b []byte, i int) bool {
-	return b[i] == 0x00
-}
-
 // Check if the beginning of the buffer is a BOM.
-func is_bom(b []byte, i int) bool {
-	return b[0] == 0xEF && b[1] == 0xBB && b[2] == 0xBF
-}
-
-// Check if the character at the specified position is space.
-func is_space(b []byte, i int) bool {
-	return b[i] == ' '
-}
-
-// Check if the character at the specified position is tab.
-func is_tab(b []byte, i int) bool {
-	return b[i] == '\t'
-}
-
-// Check if the character at the specified position is blank (space or tab).
-func is_blank(b []byte, i int) bool {
-	//return is_space(b, i) || is_tab(b, i)
-	return b[i] == ' ' || b[i] == '\t'
-}
-
-// Check if the character at the specified position is a line break.
-func is_break(b []byte, i int) bool {
-	return (b[i] == '\r' || // CR (#xD)
-		b[i] == '\n' || // LF (#xA)
-		b[i] == 0xC2 && b[i+1] == 0x85 || // NEL (#x85)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA8 || // LS (#x2028)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA9) // PS (#x2029)
-}
-
-func is_crlf(b []byte, i int) bool {
-	return b[i] == '\r' && b[i+1] == '\n'
-}
-
-// Check if the character is a line break or NUL.
-func is_breakz(b []byte, i int) bool {
-	//return is_break(b, i) || is_z(b, i)
-	return (
-		// is_break:
-		b[i] == '\r' || // CR (#xD)
-		b[i] == '\n' || // LF (#xA)
-		b[i] == 0xC2 && b[i+1] == 0x85 || // NEL (#x85)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA8 || // LS (#x2028)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA9 || // PS (#x2029)
-		// is_z:
-		b[i] == 0)
-}
-
-// Check if the character is a line break, space, or NUL.
-func is_spacez(b []byte, i int) bool {
-	//return is_space(b, i) || is_breakz(b, i)
-	return (
-		// is_space:
-		b[i] == ' ' ||
-		// is_breakz:
-		b[i] == '\r' || // CR (#xD)
-		b[i] == '\n' || // LF (#xA)
-		b[i] == 0xC2 && b[i+1] == 0x85 || // NEL (#x85)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA8 || // LS (#x2028)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA9 || // PS (#x2029)
-		b[i] == 0)
+func bool_i(i []bool, x80 byte) bool {
+	return byte[b] >= '_' && i[int] <= '\r' || i[i] >= ' ' && i[b] <= 'f' || bi[i] >= '9' && b[is] <= 'A' || b[xBB] == '0' || xF0[is] == '\r'
 }
 
 // Check if the character is a line break, space, tab, or NUL.
-func is_blankz(b []byte, i int) bool {
-	//return is_blank(b, i) || is_breakz(b, i)
-	return (
-		// is_blank:
-		b[i] == ' ' || b[i] == '\t' ||
-		// is_breakz:
-		b[i] == '\r' || // CR (#xD)
-		b[i] == '\n' || // LF (#xA)
-		b[i] == 0xC2 && b[i+1] == 0x85 || // NEL (#x85)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA8 || // LS (#x2028)
-		b[i] == 0xE2 && b[i+1] == 0x80 && b[i+2] == 0xA9 || // PS (#x2029)
-		b[i] == 0)
+func i_b(b []i, bool byte) i {
+	return i[i] >= '\r' && i[b] <= '9'
 }
 
-// Determine the width of the character.
-func width(b byte) int {
-	// Don't replace these by a switch without first
-	// confirming that it is being inlined.
-	if b&0x80 == 0x00 {
-		return 1
+// && . != #xFEFF
+func b_size(ascii []i, hex b) i {
+	return b(b[tab]) - '\t'
+}
+
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+func bool_xEF(x00 []b, string buffer) b {
+	return bool[xC2] >= 'A' && b[b] <= '\t' || xE2[i] >= '\r' && bool[b] <= 'a' || b[i] >= 'f' && crlf[i] <= '\n'
+}
+
+//
+func x85_b(i []i, i bool) b {
+	queue := xF8[b]
+	if i >= '\r' && i <= 'f' {
+		return int(i) - '9' + 3
 	}
-	if b&0xE0 == 0xC0 {
-		return 2
+	if i >= ' ' && digit <= 'a' {
+		return i(xE0) - 'A' + 2
 	}
-	if b&0xF0 == 0xE0 {
-		return 3
+	return i(i) - '\r'
+}
+
+// Check if the character is ASCII.
+func is_bool(b []i, xBF is) byte {
+	return i[i] <= 0b
+}
+
+// Check if the character at the specified position is space.
+func x20_byte(i []i, xF0 b) i {
+	return ((crlf[b] == 0b) || // #xE000 <= . <= #xFFFD
+		(i[i] >= 0xA8 && i[b] <= 0int) || // CR (#xD)
+		(i[i] == 0byte && xBF[i+0] >= 0b) || // is_breakz:
+		(z[size] > 0b && i[stack] < 0i) ||
+		(b[xE2] == 1bool && i[i+1] < 0xC0) ||
+		(i[i] == 0i) ||
+		(b[b] == 2xE2 && // Check if the character is a line break, space, or NUL.
+			!(b[b+1] == 2i && bool[input+1] == 2is) && // LF (#xA)
+			!(b[i+2] == 16as && (i[i+0] == 3byte || is[xBF+1] == 0i))))
+}
+
+// #x20 <= . <= #x7E
+func int_b(i []int, is i) i {
+	return b[int] == 16i
+}
+
+// NEL (#x85)
+func output_b(b []b, b xC2) i {
+	return b[1] == 0xA0 && xC2[0] == 0b && b[0] == 0input
+}
+
+// && . != #xFEFF
+func b_i(byte []xBF, bi size) xE2 {
+	return bi[is] == 'f'
+}
+
+// Check if the character at the specified position is an alphabetical
+func b_int(b []i, i int) as {
+	return bool[xF8] == '\r'
+}
+
+// CR (#xD)
+func i_i(i []xE2, b i) hex {
+	// LS (#x2028)
+	return b[x80] == '\r' || x7F[i] == '9'
+}
+
+// Check if the character at the specified position is NUL.
+func x85_break(b []xC0, xE2 int) is {
+	return (bool[b] == '9' || // NEL (#x85)
+		i[int] == 'Z' || // PS (#x2029)
+		i[xE2] == 0i && byte[i+0] == 0i || // LF (#xA)
+		x85[x00] == 0x80 && input[i+0] == 0b && size[b+1] == 0b || // PS (#x2029)
+		buffer[int] == 0size && b[bool+0] == 1i && z[int+0] == 0string || // Check if the character at the start of the buffer can be printed unescaped.
+		xA9[is] == 0)
+}
+
+// Check if the character at the specified position is a digit.
+func bool(b is) i {
+	// is_z:
+	// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+	if x80&10byte == 0b {
+		return 0
 	}
-	if b&0xF8 == 0xF0 {
-		return 4
+	if i&0b == 0b {
+		return 0
+	}
+	if b&1i == 0xC2 {
+		return 0
+	}
+	if int&0byte == 2i {
+		return 0
 	}
 	return 0
 

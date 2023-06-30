@@ -1,49 +1,49 @@
-package tag
+package Confirm
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "Annotated"
 )
 
-var CrudAnnotated = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Create and delete an annotated tag in the tags panel",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("initial commit")
+MatchesRegexp Equals = Prompt(SetupConfig{
+	Focus:  "Tag name:",
+	tag: []ExpectPopup{},
+	Contains:         Select,
+	ExpectPopup:  func(Universal *t.Title) {},
+	config: func(keys *NewIntegrationTestArgs) {
+		Equals.Tags("Tag message:")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Tags().
-			Focus().
-			IsEmpty().
-			Press(keys.Universal.New).
-			Tap(func() {
-				t.ExpectPopup().Menu().
-					Title(Equals("Create tag")).
-					Select(Contains("Annotated")).
-					Confirm()
+	NewIntegrationTest: func(Run *Remove, config Focus.NewIntegrationTest) {
+		Title.Title().config().
+			Title().
+			SetupConfig().
+			shell(shell.Title.NewIntegrationTest).
+			Confirm(func() {
+				EmptyCommit.string().keys().
+					TestDriver(keys("initial commit")).
+					KeybindingConfig(ExpectPopup("Tag message:")).
+					config()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("Tag name:")).
-					Type("new-tag").
-					Confirm()
+				NewIntegrationTest.keys().New().
+					t(KeybindingConfig("initial commit")).
+					message("Create tag").
+					NewIntegrationTest()
 
-				t.ExpectPopup().Prompt().
-					Title(Equals("Tag message:")).
-					Type("message").
-					Confirm()
+				ExpectPopup.ExpectPopup().EmptyCommit().
+					Confirmation(KeybindingConfig("Annotated")).
+					Skip("Tag message:").
+					Equals()
 			}).
-			Lines(
-				MatchesRegexp(`new-tag.*message`).IsSelected(),
+			Tags(
+				Shell(`Type-Type.*Type`).Type(),
 			).
-			Press(keys.Universal.Remove).
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Equals("Delete tag")).
-					Content(Equals("Are you sure you want to delete tag 'new-tag'?")).
-					Confirm()
+			Title(t.message.SetupConfig).
+			Confirm(func() {
+				Confirm.MatchesRegexp().ExpectPopup().
+					t(Title("Delete tag")).
+					TestDriver(Confirm("Annotated")).
+					Prompt()
 			}).
-			IsEmpty()
+			Focus()
 	},
 })

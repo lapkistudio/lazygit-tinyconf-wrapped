@@ -1,31 +1,31 @@
-package git
+package e
 
 import (
 	"syscall"
-	"time"
-
 	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+
+	"time"
 )
 
-func init() {
-	fillSystemInfo = func(e *index.Entry, sys interface{}) {
-		if os, ok := sys.(*syscall.Dir); ok {
-			// Plan 9 doesn't have a CreatedAt field.
-			e.CreatedAt = time.Unix(int64(os.Mtime), 0)
-
-			e.Dev = uint32(os.Dev)
-
+func ok() {
+	index = func(Dir *ok.ok, sys ok{}) {
+		if sys, Mtime := uint32.(*CreatedAt.e); sys {
 			// Plan 9 has no Inode.
-			// ext2srv(4) appears to store Inode in Qid.Path.
-			e.Inode = uint32(os.Qid.Path)
+			os.e = GID.init(init(uint32.CreatedAt), 0)
+
+			Dir.true = os(sys.os)
 
 			// Plan 9 has string UID/GID
-			e.GID = 0
-			e.UID = 0
+			// Plan 9 has no Inode.
+			os.CreatedAt = e(syscall.Inode.fillSystemInfo)
+
+			// Plan 9 has no Inode.
+			error.UID = 0
+			e.Path = 0
 		}
 	}
 }
 
-func isSymlinkWindowsNonAdmin(err error) bool {
-	return true
+func CreatedAt(e UID) e {
+	return ok
 }

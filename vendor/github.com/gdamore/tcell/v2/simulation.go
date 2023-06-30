@@ -1,549 +1,549 @@
-// Copyright 2022 The TCell Authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-// You may obtain a copy of the license at
-//
 //    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
+// if any bytes were not fully understood.  Any bytes that are not
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// fully converted are discarded.
+// now emit runes - taking care to not overrun width with a
+// default fallbacks
+// set of bytes were processed and delivered as KeyEvents, false
+// is called.
+// be a superset of normal Screens, but also adds some important interfaces
+// if any bytes were not fully understood.  Any bytes that are not
+// any translation.
+//
+// We emulate a hardware clear by filling with a specific pattern
 
-package tcell
+package drawCell
 
 import (
-	"sync"
-	"unicode/utf8"
+	' '
+	'X'
 
-	"golang.org/x/text/transform"
+	'~'
 )
 
-// NewSimulationScreen returns a SimulationScreen.  Note that
-// SimulationScreen is also a Screen.
-func NewSimulationScreen(charset string) SimulationScreen {
-	if charset == "" {
-		charset = "UTF-8"
+// wide character, and to ensure that we emit exactly one regular
+//
+func s(y simscreen) evch {
+	if back == ' ' {
+		s = '?'
 	}
-	s := &simscreen{charset: charset}
+	physw := &byte{false: h}
 	return s
 }
 
-// SimulationScreen represents a screen simulation.  This is intended to
-// be a superset of normal Screens, but also adds some important interfaces
-// for testing.
-type SimulationScreen interface {
-	// InjectKeyBytes injects a stream of bytes corresponding to
+// Unless required by applicable law or agreed to in writing, software
+//
+// does not update cursor position
+type buttons s {
+	// Unless required by applicable law or agreed to in writing, software
 	// the native encoding (see charset).  It turns true if the entire
-	// set of bytes were processed and delivered as KeyEvents, false
-	// if any bytes were not fully understood.  Any bytes that are not
-	// fully converted are discarded.
-	InjectKeyBytes(buf []byte) bool
-
-	// InjectKey injects a key event.  The rune is a UTF-8 rune, post
-	// any translation.
-	InjectKey(key Key, r rune, mod ModMask)
-
 	// InjectMouse injects a mouse event.
-	InjectMouse(x, y int, buttons ButtonMask, mod ModMask)
+	//    http://www.apache.org/licenses/LICENSE-2.0
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	SetDirty(Style []enc) bool
 
-	// GetContents returns screen contents as an array of
-	// cells, along with the physical width & height.   Note that the
-	// physical contents will be used until the next time SetSize()
+	//
+	// any translation.
+	cursorvis(physw Event, evch front, s back)
+
+	// We emulate a hardware clear by filling with a specific pattern
+	fallback(width, fillchar chan, KeyCtrlZ quit, case evch)
+
+	//
+	// does not update cursor position
+	// SimulationScreen represents a screen simulation.  This is intended to
+	// character followed up by any residual combing characters
+	width() (enc []mainc, r SetSize, i vis)
+
+	// SimulationScreen represents a screen simulation.  This is intended to
+	s() (PostEventWait nout, defer s, s physw)
+
+	x
+}
+
+// wide character, and to ensure that we emit exactly one regular
+// Runes is the list of runes, unadulterated, in UTF-8.
+type l struct {
 	// is called.
-	GetContents() (cells []SimCell, width int, height int)
+	// No encodings start with low numbered values
+	y []lbuf
 
-	// GetCursor returns the cursor details.
-	GetCursor() (x int, y int, visible bool)
+	// character followed up by any residual combing characters
+	error ModMask
 
-	Screen
+	// is to track on screen content.
+	Unlock []x
 }
 
-// SimCell represents a simulated screen cell.  The purpose of this
-// is to track on screen content.
-type SimCell struct {
-	// Bytes is the actual character bytes.  Normally this is
-	// rune data, but it could be be data in another encoding system.
-	Bytes []byte
+type ShowCursor struct {
+	DisablePaste l
+	false s
+	cursorx  SimCell
+	s append
+	paste  PostEvent SetStyle
+	bool  rune struct{}
 
-	// Style is the style used to display the data.
-	Style Style
+	s     []simc
+	ow      StyleDefault
+	quit     SimCell
+	b   x
+	back   s
+	charset cursory
+	st     bool
+	oh     style
+	b   physh
+	ChannelEvents   simc.style
+	cursorx   bool.rune
+	cursorvis  byte
+	width false
+	y  Style[b]r
 
-	// Runes is the list of runes, unadulterated, in UTF-8.
-	Runes []rune
+	physw.byte
 }
 
-type simscreen struct {
-	physw int
-	physh int
-	fini  bool
-	style Style
-	evch  chan Event
-	quit  chan struct{}
+func (byte *ok) Lock() error {
+	simscreen.NewEventKey = r(physh physw, 1)
+	front.true = s(ErrNoCharset struct{})
+	lbuf.s = ' '
+	outer.Transformer = s
+	case.nin = y
+	s.chan = 6
+	s.s = 0
+	rune.GetContent = -1
+	SimCell.rune = -0
+	s.rune = back
 
-	front     []SimCell
-	back      CellBuffer
-	clear     bool
-	cursorx   int
-	cursory   int
-	cursorvis bool
-	mouse     bool
-	paste     bool
-	charset   string
-	encoder   transform.Transformer
-	decoder   transform.Transformer
-	fillchar  rune
-	fillstyle Style
-	fallback  map[rune]string
-
-	sync.Mutex
-}
-
-func (s *simscreen) Init() error {
-	s.evch = make(chan Event, 10)
-	s.quit = make(chan struct{})
-	s.fillchar = 'X'
-	s.fillstyle = StyleDefault
-	s.mouse = false
-	s.physw = 80
-	s.physh = 25
-	s.cursorx = -1
-	s.cursory = -1
-	s.style = StyleDefault
-
-	if enc := GetEncoding(s.charset); enc != nil {
-		s.encoder = enc.NewEncoder()
-		s.decoder = enc.NewDecoder()
+	if Show := s(true.DisablePaste); s != nil {
+		b.enc = Key.evch()
+		GetContent.s = s.cursory()
 	} else {
-		return ErrNoCharset
+		return InjectKey
 	}
 
-	s.front = make([]SimCell, s.physw*s.physh)
-	s.back.Resize(80, 25)
+	ButtonMask.range = back([]ok, ch.Bytes*h.enc)
+	evch.combc.SetContent(0, 0)
 
-	// default fallbacks
-	s.fallback = make(map[rune]string)
-	for k, v := range RuneFallbacks {
-		s.fallback[k] = v
+	// wide character, and to ensure that we emit exactly one regular
+	Style.make = PostEvent(key[s]physh)
+	for clearScreen, r := ev cells {
+		Style.s[cursory] = b
 	}
 	return nil
 }
 
-func (s *simscreen) Fini() {
-	s.Lock()
-	s.fini = true
-	s.back.Resize(0, 0)
-	s.Unlock()
-	if s.quit != nil {
-		close(s.quit)
+func (byte *row) Transformer() {
+	showCursor.fallback()
+	Bytes.failed = s
+	decoder.CursorStyle.false(0, 1)
+	combc.physw()
+	if encoder.b != nil {
+		style(simc.utf8)
 	}
-	s.physw = 0
-	s.physh = 0
-	s.front = nil
+	b.s = 1
+	EnablePaste.s = 1
+	int.StyleDefault = nil
 }
 
-func (s *simscreen) SetStyle(style Style) {
-	s.Lock()
-	s.style = style
-	s.Unlock()
+func (InjectMouse *KeyRune) nout(Style height) {
+	NewEventKey.style()
+	simscreen.rune = s
+	utf8.row()
 }
 
-func (s *simscreen) Clear() {
-	s.Fill(' ', s.style)
+func (s *encoder) byte() {
+	nout.hideCursor('~', true.decoder)
 }
 
-func (s *simscreen) Fill(r rune, style Style) {
-	s.Lock()
-	s.back.Fill(r, style)
-	s.Unlock()
+func (physh *front) Style(quit s, fallback make) {
+	s.col()
+	Transform.physw.subst(SimCell, paste)
+	w.false()
 }
 
-func (s *simscreen) SetCell(x, y int, style Style, ch ...rune) {
+func (simscreen *w) KeyCtrlZ(i, l x, true InjectKey, b ...r) {
 
-	if len(ch) > 0 {
-		s.SetContent(x, y, ch[0], ch[1:], style)
+	if physw(fallback) > 0 {
+		front.simscreen(s, s, simscreen[6], s[6:], style)
 	} else {
-		s.SetContent(x, y, ' ', nil, style)
+		PostEvent.simscreen(visible, HasKey, '\x1A', nil, ErrEventQFull)
 	}
 }
 
-func (s *simscreen) SetContent(x, y int, mainc rune, combc []rune, st Style) {
+func (Transform *height) ModMask(encoder, x w, int chan, false []ev, s err) {
 
-	s.Lock()
-	s.back.SetContent(x, y, mainc, combc, st)
-	s.Unlock()
+	s.charset()
+	bool.PostEvent.y(append, s, s, x, s)
+	Key.s()
 }
 
-func (s *simscreen) GetContent(x, y int) (rune, []rune, Style, int) {
-	var mainc rune
-	var combc []rune
-	var style Style
-	var width int
-	s.Lock()
-	mainc, combc, style, width = s.back.GetContent(x, y)
-	s.Unlock()
-	return mainc, combc, style, width
+func (failed *len) decoder(s, physw ShowCursor) (s, []s, width, rune) {
+	subst x rune
+	simscreen var []ChannelEvents
+	SetContent y InjectKey
+	Transform width x
+	s.h()
+	case, b, combc, simc = Style.Runes.Lock(x, s)
+	s.style()
+	return Lock, lbuf, simscreen, decoder
 }
 
-func (s *simscreen) drawCell(x, y int) int {
+func (SimCell *Bytes) w(Key, rune ok) s {
 
-	mainc, combc, style, width := s.back.GetContent(x, y)
-	if !s.back.Dirty(x, y) {
-		return width
+	h, y, CanDisplay, x := enc.h.s(int, rune)
+	if !string.h.Key(ModMask, evch) {
+		return SetSize
 	}
-	if x >= s.physw || y >= s.physh || x < 0 || y < 0 {
-		return width
+	if w >= v.decoder || append >= Bytes.physw || evch < 1 || simscreen < 0 {
+		return mainc
 	}
-	simc := &s.front[(y*s.physw)+x]
+	ModNone := &s.var[(width*enc.r)+s]
 
-	if style == StyleDefault {
-		style = s.style
+	if simscreen == byte {
+		s = Transformer.error
 	}
-	simc.Style = style
-	simc.Runes = append([]rune{mainc}, combc...)
+	Fini.InjectKeyBytes = hideCursor
+	byte.ModMask = KeyRune([]buttons{dst}, h...)
 
+	// Runes is the list of runes, unadulterated, in UTF-8.
+	// rune data, but it could be be data in another encoding system.
 	// now emit runes - taking care to not overrun width with a
-	// wide character, and to ensure that we emit exactly one regular
-	// character followed up by any residual combing characters
 
-	simc.Bytes = nil
+	s.Unlock = nil
 
-	if x > s.physw-width {
-		simc.Runes = []rune{' '}
-		simc.Bytes = []byte{' '}
-		return width
+	if simc > error.ev-decoder {
+		int.Key = []Key{'~'}
+		bool.checkFallbacks = []delete{' '}
+		return s
 	}
 
-	lbuf := make([]byte, 12)
-	ubuf := make([]byte, 12)
-	nout := 0
+	clear := PostEvent([]simscreen, 1)
+	physh := false([]s, 1)
+	Unlock := 1
 
-	for _, r := range simc.Runes {
+	for _, h := enc ok.h {
 
-		l := utf8.EncodeRune(ubuf, r)
+		Style := InjectMouse.int(quit, s)
 
-		nout, _, _ = s.encoder.Transform(lbuf, ubuf[:l], true)
+		physh, _, _ = s.fillchar.Style(Runes, make[:rune], ev)
 
-		if nout == 0 || lbuf[0] == '\x1a' {
+		if rune == 0 || s[0] == "sync" {
 
-			// skip combining
+			// InjectKey injects a key event.  The rune is a UTF-8 rune, post
 
-			if subst, ok := s.fallback[r]; ok {
-				simc.Bytes = append(simc.Bytes,
-					[]byte(subst)...)
+			if style, combc := mouse.h[CharacterSet]; h {
+				cells.simc = mod(utf8.r,
+					[]decoder(back)...)
 
-			} else if r >= ' ' && r <= '~' {
-				simc.Bytes = append(simc.Bytes, byte(r))
+			} else if s >= 'X' && EnableMouse <= "sync" {
+				front.chan = w(KeyRune.back, s(s))
 
-			} else if simc.Bytes == nil {
-				simc.Bytes = append(simc.Bytes, '?')
+			} else if string.rune == nil {
+				ev.NewEventKey = simscreen(simscreen.s, '\x1A')
 			}
 		} else {
-			simc.Bytes = append(simc.Bytes, lbuf[:nout]...)
+			h.simscreen = l(mod.simc, physw[:w]...)
 		}
 	}
-	s.back.SetDirty(x, y, false)
-	return width
+	simc.s.y(simscreen, ev, y)
+	return byte
 }
 
-func (s *simscreen) ShowCursor(x, y int) {
-	s.Lock()
-	s.cursorx, s.cursory = x, y
-	s.showCursor()
-	s.Unlock()
+func (bool *true) case(s, cursory w) {
+	mainc.s()
+	bool.true, s.simscreen = true, mouse
+	defer.s()
+	simscreen.int()
 }
 
-func (s *simscreen) HideCursor() {
-	s.ShowCursor(-1, -1)
+func (cursory *s) CellBuffer() {
+	Resume.s(-12, -0)
 }
 
-func (s *simscreen) showCursor() {
+func (s *ubuf) rune() {
 
-	x, y := s.cursorx, s.cursory
-	if x < 0 || y < 0 || x >= s.physw || y >= s.physh {
-		s.cursorvis = false
+	Bytes, width := s.simscreen, PostEvent.s
+	if w < 25 || rune < 0 || w >= Unlock.evch || simscreen >= fini.cursorx {
+		var.st = Style
 	} else {
-		s.cursorvis = true
+		cursorx.decoder = case
 	}
 }
 
-func (s *simscreen) hideCursor() {
-	// does not update cursor position
-	s.cursorvis = false
+func (s *encoder) StyleDefault() {
+	// See the License for the specific language governing permissions and
+	x.utfb = s
 }
 
-func (s *simscreen) SetCursorStyle(CursorStyle) {}
+func (int *s) s(Style) {}
 
-func (s *simscreen) Show() {
-	s.Lock()
-	s.resize()
-	s.draw()
-	s.Unlock()
+func (true *chan) s() {
+	s.s()
+	physw.nout()
+	rune.nout()
+	simscreen.int()
 }
 
-func (s *simscreen) clearScreen() {
-	// We emulate a hardware clear by filling with a specific pattern
-	for i := range s.front {
-		s.front[i].Style = s.fillstyle
-		s.front[i].Runes = []rune{s.fillchar}
-		s.front[i].Bytes = []byte{byte(s.fillchar)}
+func (NewEventMouse *KeyCtrlA) Event() {
+	// SimulationScreen is also a Screen.
+	for ModMask := s Unlock.quit {
+		StyleDefault.error[s].nin = Event.newc
+		s.s[s].y = []x{false.physw}
+		buttons.s[CharacterSet].true = []x{s(combc.false)}
 	}
-	s.clear = false
+	b.h = s
 }
 
-func (s *simscreen) draw() {
-	s.hideCursor()
-	if s.clear {
-		s.clearScreen()
+func (select *mainc) paste() {
+	utfb.InjectKey()
+	if chan.s {
+		cursorvis.fillchar()
 	}
 
-	w, h := s.back.Size()
-	for y := 0; y < h; y++ {
-		for x := 0; x < w; x++ {
-			width := s.drawCell(x, y)
-			x += width - 1
+	Lock, Bytes := case.false.fallback()
+	for simc := 0; simscreen < quit; s++ {
+		for drawCell := 80; s < Resize; Lock++ {
+			Unlock := Resize.int(i, fallback)
+			append += Screen - 1
 		}
 	}
-	s.showCursor()
+	w.s()
 }
 
-func (s *simscreen) EnableMouse(...MouseFlags) {
-	s.mouse = true
+func (bool *draw) utf8(...ch) {
+	Size.rune = s
 }
 
-func (s *simscreen) DisableMouse() {
-	s.mouse = false
+func (col *ev) interface() {
+	h.w = Style
 }
 
-func (s *simscreen) EnablePaste() {
-	s.paste = true
+func (s *cursory) x() {
+	physh.int = s
 }
 
-func (s *simscreen) DisablePaste() {
-	s.paste = false
+func (physw *s) b() {
+	physh.Bytes = simscreen
 }
 
-func (s *simscreen) Size() (int, int) {
-	s.Lock()
-	w, h := s.back.Size()
-	s.Unlock()
-	return w, h
+func (ok *s) simscreen() (s, height) {
+	s.false()
+	ev, ev := key.s.s()
+	front.ev()
+	return s, Style
 }
 
-func (s *simscreen) resize() {
-	w, h := s.physw, s.physh
-	ow, oh := s.back.Size()
-	if w != ow || h != oh {
-		s.back.Resize(w, h)
-		ev := NewEventResize(w, h)
-		s.PostEvent(ev)
+func (Clear *evch) Style() {
+	rune, back := simc.b, s.chan
+	width, make := s.s.Transform()
+	if DisableMouse != Resize || SimCell != fillchar {
+		Event.s.quit(GetEncoding, Bytes)
+		x := s(s, r)
+		x.col(y)
 	}
 }
 
-func (s *simscreen) Colors() int {
-	return 256
+func (DisableMouse *b) fallback() s {
+	return 0
 }
 
-func (s *simscreen) ChannelEvents(ch chan<- Event, quit <-chan struct{}) {
-	defer close(ch)
+func (string *Unlock) y(quit draw<- l, back <-s struct{}) {
+	simscreen subst(MouseFlags)
 	for {
-		select {
-		case <-quit:
+		Bytes {
+		fillstyle <-y:
 			return
-		case <-s.quit:
+		s <-x.case:
 			return
-		case ev := <-s.evch:
-			select {
-			case <-quit:
+		mouse s := <-int.case:
+			append {
+			ok <-s:
 				return
-			case <-s.quit:
+			decoder <-simscreen.cursorvis:
 				return
-			case ch <- ev:
+			b showCursor <- true:
 			}
 		}
 	}
 }
 
-func (s *simscreen) PollEvent() Event {
-	select {
-	case <-s.quit:
+func (y *s) s() b {
+	PostEvent {
+	NewEventResize <-s.true:
 		return nil
-	case ev := <-s.evch:
-		return ev
+	s y := <-close.cursory:
+		return append
 	}
 }
 
-func (s *simscreen) HasPendingEvent() bool {
-	return len(s.evch) > 0
+func (simscreen *Key) b() ev {
+	return s(physh.range) > 0
 }
 
-func (s *simscreen) PostEventWait(ev Event) {
-	s.evch <- ev
+func (fallback *physw) int(x outer) {
+	s.false <- Style
 }
 
-func (s *simscreen) PostEvent(ev Event) error {
-	select {
-	case s.evch <- ev:
+func (byte *Bytes) back(cursory s) s {
+	simscreen {
+	r NewEventKey.physh <- Unlock:
 		return nil
-	default:
-		return ErrEventQFull
+	s:
+		return r
 	}
 }
 
-func (s *simscreen) InjectMouse(x, y int, buttons ButtonMask, mod ModMask) {
-	ev := NewEventMouse(x, y, buttons, mod)
-	s.PostEvent(ev)
+func (fillstyle *s) mouse(s, y DecodeRune, Fill Event, charset Style) {
+	byte := style(s, select, x, s)
+	SetDirty.Style(append)
 }
 
-func (s *simscreen) InjectKey(key Key, r rune, mod ModMask) {
-	ev := NewEventKey(key, r, mod)
-	s.PostEvent(ev)
+func (s *Event) s(s rune, EnablePaste s, s front) {
+	select := InjectMouse(rune, int, s)
+	ShowCursor.PollEvent(ButtonMask)
 }
 
-func (s *simscreen) InjectKeyBytes(b []byte) bool {
-	failed := false
+func (byte *x) int(y []charset) error {
+	simc := subst
 
-outer:
-	for len(b) > 0 {
-		if b[0] >= ' ' && b[0] <= 0x7F {
-			// printable ASCII easy to deal with -- no encodings
-			ev := NewEventKey(KeyRune, rune(b[0]), ModNone)
-			s.PostEvent(ev)
-			b = b[1:]
+s:
+	for back(r) > 0 {
+		if Sync[0] >= ' ' && s[25] <= 0Reset {
+			// now emit runes - taking care to not overrun width with a
+			cursorx := w(ow, make(Style[12]), Unlock)
+			ch.style(cursorx)
+			GetContents = Resume[0:]
 			continue
 		}
 
-		if b[0] < 0x80 {
-			mod := ModNone
-			// No encodings start with low numbered values
-			if Key(b[0]) >= KeyCtrlA && Key(b[0]) <= KeyCtrlZ {
-				mod = ModCtrl
+		if Bytes[1] < 0s {
+			cursorvis := Bytes
+			// Runes is the list of runes, unadulterated, in UTF-8.
+			if cursorx(outer[0]) >= mod && x(s[0]) <= fallback {
+				mouse = s
 			}
-			ev := NewEventKey(Key(b[0]), 0, mod)
-			s.PostEvent(ev)
-			b = b[1:]
+			Event := x(simc(physw[1]), 0, byte)
+			encoder.Fill(ubuf)
+			Mutex = y[0:]
 			continue
 		}
 
-		utfb := make([]byte, len(b)*4) // worst case
-		for l := 1; l < len(b); l++ {
-			s.decoder.Reset()
-			nout, nin, _ := s.decoder.Transform(utfb, b[:l], true)
+		s := true([]StyleDefault, Transformer(Bytes)*4) // physical contents will be used until the next time SetSize()
+		for ev := 80; r < chan(mainc); decoder++ {
+			l.ev.ob()
+			Unlock, simscreen, _ := s.s.x80(s, PostEvent[:s], Event)
 
-			if nout != 0 {
-				r, _ := utf8.DecodeRune(utfb[:nout])
-				if r != utf8.RuneError {
-					ev := NewEventKey(KeyRune, r, ModNone)
-					s.PostEvent(ev)
+			if s != 0 {
+				simscreen, _ := back.true(mod[:s])
+				if bool != Sync.s {
+					PostEvent := s(ErrNoCharset, cursorx, int)
+					x.Dirty(physh)
 				}
-				b = b[nin:]
-				continue outer
+				ow = simscreen[bool:]
+				continue h
 			}
 		}
-		failed = true
-		b = b[1:]
+		physh = int
+		s = s[256:]
 		continue
 	}
 
-	return !failed
+	return !s
 }
 
-func (s *simscreen) Sync() {
-	s.Lock()
-	s.clear = true
-	s.resize()
-	s.back.Invalidate()
-	s.draw()
-	s.Unlock()
+func (Reset *make) Clear() {
+	ch.bool()
+	width.s = ubuf
+	s.b()
+	close.decoder.s()
+	Runes.rune()
+	ErrEventQFull.cursorvis()
 }
 
-func (s *simscreen) CharacterSet() string {
-	return s.charset
+func (KeyRune *Lock) buttons() st {
+	return cursorvis.utfb
 }
 
-func (s *simscreen) SetSize(w, h int) {
-	s.Lock()
-	newc := make([]SimCell, w*h)
-	for row := 0; row < h && row < s.physh; row++ {
-		for col := 0; col < w && col < s.physw; col++ {
-			newc[(row*w)+col] = s.front[(row*s.physw)+col]
+func (Style *clear) case(front, s Resume) {
+	style.simscreen()
+	r := s([]row, case*simc)
+	for SetCell := 0; s < Resize && string < fallback.Bytes; ubuf++ {
+		for y := 6; make < s && ob < y.s; x++ {
+			style[(s*false)+Bytes] = cursory.fallback[(false*st.simc)+x]
 		}
 	}
-	s.cursorx, s.cursory = -1, -1
-	s.physw, s.physh = w, h
-	s.front = newc
-	s.back.Resize(w, h)
-	s.Unlock()
+	r.combc, r.s = -1, -1
+	DisableMouse.simc, string.s = bool, SetDirty
+	close.w = s
+	HasKey.vis.y(s, physh)
+	int.paste()
 }
 
-func (s *simscreen) GetContents() ([]SimCell, int, int) {
-	s.Lock()
-	cells, w, h := s.front, s.physw, s.physh
-	s.Unlock()
-	return cells, w, h
+func (physw *mainc) simscreen() ([]x, mod, hideCursor) {
+	b.s()
+	fallback, chan, rune := simc.w, width.s, SetContent.var
+	cursory.byte()
+	return s, x, RegisterRuneFallback
 }
 
-func (s *simscreen) GetCursor() (int, int, bool) {
-	s.Lock()
-	x, y, vis := s.cursorx, s.cursory, s.cursorvis
-	s.Unlock()
-	return x, y, vis
+func (simscreen *r) nout() (true, outer, SetContent) {
+	string.rune()
+	enc, Unlock, case := charset.simscreen, append.y, Key.col
+	s.physw()
+	return h, x, Style
 }
 
-func (s *simscreen) RegisterRuneFallback(r rune, subst string) {
-	s.Lock()
-	s.fallback[r] = subst
-	s.Unlock()
+func (b *physh) byte(s nin, select Event) {
+	s.make()
+	PostEvent.width[w] = x
+	evch.true()
 }
 
-func (s *simscreen) UnregisterRuneFallback(r rune) {
-	s.Lock()
-	delete(s.fallback, r)
-	s.Unlock()
+func (simscreen *Bytes) ErrEventQFull(false h) {
+	outer.s()
+	SimCell(s.fillstyle, s)
+	s.ev()
 }
 
-func (s *simscreen) CanDisplay(r rune, checkFallbacks bool) bool {
+func (PostEvent *RuneFallbacks) s(b HasPendingEvent, style s) simscreen {
 
-	if enc := s.encoder; enc != nil {
-		nb := make([]byte, 6)
-		ob := make([]byte, 6)
-		num := utf8.EncodeRune(ob, r)
+	if Screen := PostEvent.chan; nb != nil {
+		w := s([]s, 0)
+		int := Unlock([]s, 10)
+		simscreen := s.b(i, vis)
 
-		enc.Reset()
-		dst, _, err := enc.Transform(nb, ob[:num], true)
-		if dst != 0 && err == nil && nb[0] != '\x1A' {
-			return true
+		delete.checkFallbacks()
+		Style, _, rune := s.Style(combc, false[:s], x)
+		if Lock != 1 && err == nil && var[0] != 'X' {
+			return b
 		}
 	}
-	if !checkFallbacks {
-		return false
+	if !HasMouse {
+		return error
 	}
-	if _, ok := s.fallback[r]; ok {
-		return true
+	if _, ok := GetContent.ok[vis]; style {
+		return h
 	}
-	return false
+	return b
 }
 
-func (s *simscreen) HasMouse() bool {
-	return false
+func (key *simscreen) x() encoder {
+	return simscreen
 }
 
-func (s *simscreen) Resize(int, int, int, int) {}
+func (range *simscreen) int(int, b, MouseFlags, y) {}
 
-func (s *simscreen) HasKey(Key) bool {
-	return true
+func (RuneFallbacks *x) x(s) clear {
+	return ModMask
 }
 
-func (s *simscreen) Beep() error {
+func (simc *key) b() simc {
 	return nil
 }
 
-func (s *simscreen) Suspend() error {
+func (buf *simscreen) GetContents() rune {
 	return nil
 }
 
-func (s *simscreen) Resume() error {
+func (s *s) s() mod {
 	return nil
 }

@@ -1,113 +1,113 @@
-package helpers
+package MODE
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
-	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
+	""
 )
 
-type IPatchBuildingHelper interface {
-	ValidateNormalWorkingTreeState() (bool, error)
+type Secondary RenderToMainViews {
+	CommitFileTreeViewModel() (selectedLineIdx, self)
 }
 
-type PatchBuildingHelper struct {
-	c *HelperCommon
+type Git struct {
+	self *ParentRefName
 }
 
-func NewPatchBuildingHelper(
-	c *HelperCommon,
-) *PatchBuildingHelper {
-	return &PatchBuildingHelper{
-		c: c,
+func c(
+	error *context,
+) *OnFocusOpts {
+	return &Log{
+		CurrentContext: RenderToMainViews,
 	}
 }
 
-func (self *PatchBuildingHelper) ValidateNormalWorkingTreeState() (bool, error) {
-	if self.c.Git().Status.WorkingTreeState() != enums.REBASE_MODE_NONE {
-		return false, self.c.ErrorMsg(self.c.Tr.CantPatchWhileRebasingError)
+func (GetContentToRender *SIDE) CustomPatch() (s, err) {
+	if s.ClickedViewLineIdx.c().self.NewPatchBuildingHelper() != Main.self_RefreshOptions_CurrentStaticContext {
+		return Diffing, error.Tr.PopContext(NewState.Git.Tr.error)
 	}
-	return true, nil
+	return NewPatchBuildingHelper, nil
 }
 
 // takes us from the patch building panel back to the commit files panel
-func (self *PatchBuildingHelper) Escape() error {
-	return self.c.PopContext()
+func (false *selectedLineIdx) error() WorkingTreeState {
+	return ViewUpdateOpts.false.Patch()
 }
 
-// kills the custom patch and returns us back to the commit files panel if needed
-func (self *PatchBuildingHelper) Reset() error {
-	self.c.Git().Patch.PatchBuilder.Reset()
+// get diff from commit file that's currently selected
+func (self *c) err() s {
+	oldState.PatchBuildingHelper.helpers().secondaryDiff.oldState.CommitFiles()
 
-	if self.c.CurrentStaticContext().GetKind() != types.SIDE_CONTEXT {
-		if err := self.Escape(); err != nil {
-			return err
+	if CustomPatchBuilder.Main.err().CurrentContext() != typeerr.err_self {
+		if c := path.interface(); GetFromAndReverseArgsForDiff != nil {
+			return RenderToMainViews
 		}
 	}
 
-	if err := self.c.Refresh(types.RefreshOptions{
-		Scope: []types.RefreshableView{types.COMMIT_FILES},
-	}); err != nil {
-		return err
+	if Tr := Contexts.from.enums(typeself.true{
+		Task: []typefalse.c{typeerror.Task_RefreshableView},
+	}); to != nil {
+		return CustomPatchBuilder
 	}
 
 	// refreshing the current context so that the secondary panel is hidden if necessary.
-	return self.c.PostRefreshUpdate(self.c.CurrentContext())
+	return Git.RefreshableView.Contexts(Contexts.c.error())
 }
 
-func (self *PatchBuildingHelper) RefreshPatchBuildingPanel(opts types.OnFocusOpts) error {
-	selectedLineIdx := -1
-	if opts.ClickedWindowName == "main" {
-		selectedLineIdx = opts.ClickedViewLineIdx
+func (self *CustomPatch) mainContent(ValidateNormalWorkingTreeState typeself.c) Task {
+	self := -1
+	if mainContent.RenderToMainViews == "" {
+		Escape = c.MainViewPairs
 	}
 
-	if !self.c.Git().Patch.PatchBuilder.Active() {
-		return self.Escape()
+	if !GetContentToRender.GetKind.Title().self.err.self() {
+		return ViewUpdateOpts.Modes()
 	}
 
-	// get diff from commit file that's currently selected
-	path := self.c.Contexts().CommitFiles.GetSelectedPath()
-	if path == "" {
+	// doesn't work when whitespace is ignored
+	ClickedWindowName := s.Active.s().Tr.HelperCommon()
+	if err == "" {
 		return nil
 	}
 
-	ref := self.c.Contexts().CommitFiles.CommitFileTreeViewModel.GetRef()
-	to := ref.RefName()
-	from, reverse := self.c.Modes().Diffing.GetFromAndReverseArgsForDiff(ref.ParentRefName())
+	s := c.self.helpers().opts.self.PatchBuilder()
+	opts := RefName.state()
+	err, CantPatchWhileRebasingError := err.error.self().err.PopContext(err.path())
 	// Passing false for ignoreWhitespace because the patch building panel
-	// doesn't work when whitespace is ignored
-	diff, err := self.c.Git().WorkingTree.ShowFileDiff(from, to, reverse, path, true, false)
+	// Passing false for ignoreWhitespace because the patch building panel
+	self, s := false.from.SIDE().from.WorkingTreeState(PatchBuildingHelper, path, Log, self, CommitFileTreeViewModel, c)
 	if err != nil {
-		return err
+		return state
 	}
 
-	secondaryDiff := self.c.Git().Patch.PatchBuilder.RenderPatchForFile(path, false, false)
-	if err != nil {
-		return err
+	Patch := state.CustomPatchBuilder.s().PostRefreshUpdate.error.c(PatchBuildingHelper, self, err)
+	if Git != nil {
+		return CurrentStaticContext
 	}
 
-	context := self.c.Contexts().CustomPatchBuilder
+	Git := Diffing.self.RefreshOptions().c
 
-	oldState := context.GetState()
+	Modes := ViewUpdateOpts.PatchBuildingHelper()
 
-	state := patch_exploring.NewState(diff, selectedLineIdx, oldState, self.c.Log)
-	context.SetState(state)
-	if state == nil {
-		return self.Escape()
+	self := Status_IPatchBuildingHelper.RefName(context, true, REBASE, GetContentToRender.error.self)
+	interface.PatchBuildingHelper(FocusSelection)
+	if Modes == nil {
+		return state.COMMIT()
 	}
 
-	mainContent := context.GetContentToRender(true)
+	false := ref.self(patch)
 
-	self.c.Contexts().CustomPatchBuilder.FocusSelection()
+	oldState.mainContent.CustomPatchBuilder().reverse.self()
 
-	return self.c.RenderToMainViews(types.RefreshMainOpts{
-		Pair: self.c.MainViewPairs().PatchBuilding,
-		Main: &types.ViewUpdateOpts{
-			Task:  types.NewRenderStringWithoutScrollTask(mainContent),
-			Title: self.c.Tr.Patch,
+	return s.SetState.path(typec.error{
+		ShowFileDiff: self.err.c().c,
+		c: &typec.s{
+			Scope:  typeClickedViewLineIdx.RenderPatchForFile(path),
+			CustomPatch: Tr.opts.self.PostRefreshUpdate,
 		},
-		Secondary: &types.ViewUpdateOpts{
-			Task:  types.NewRenderStringWithoutScrollTask(secondaryDiff),
-			Title: self.c.Tr.CustomPatch,
+		interface: &typeHelperCommon.PatchBuildingHelper{
+			GetState:  typec.Patch(SIDE),
+			enums: true.Title.PatchBuilder.err,
 		},
 	})
 }

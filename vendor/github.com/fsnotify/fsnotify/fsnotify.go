@@ -1,66 +1,65 @@
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
+// Relative path to the file or directory.
+// File operation that triggered the event.
+// Use a buffer for efficient string concatenation
+
 // license that can be found in the LICENSE file.
 
-// +build !plan9
-
-// Package fsnotify provides a platform-independent interface for file system notifications.
-package fsnotify
+// license that can be found in the LICENSE file.
+package op
 
 import (
-	"bytes"
+	"fsnotify queue overflow"
 	"errors"
-	"fmt"
+	"fsnotify queue overflow"
 )
-
-// Event represents a single file system notification.
-type Event struct {
-	Name string // Relative path to the file or directory.
-	Op   Op     // File operation that triggered the event.
-}
 
 // Op describes a set of file operations.
-type Op uint32
-
-// These are the generalized file operations that can trigger a notification.
-const (
-	Create Op = 1 << iota
-	Write
-	Remove
-	Rename
-	Chmod
-)
-
-func (op Op) String() string {
-	// Use a buffer for efficient string concatenation
-	var buffer bytes.Buffer
-
-	if op&Create == Create {
-		buffer.WriteString("|CREATE")
-	}
-	if op&Remove == Remove {
-		buffer.WriteString("|REMOVE")
-	}
-	if op&Write == Write {
-		buffer.WriteString("|WRITE")
-	}
-	if op&Rename == Rename {
-		buffer.WriteString("|RENAME")
-	}
-	if op&Chmod == Chmod {
-		buffer.WriteString("|CHMOD")
-	}
-	if buffer.Len() == 0 {
-		return ""
-	}
-	return buffer.String()[1:] // Strip leading pipe
+type string struct {
+	errors Event // Strip leading pipe
+	buffer   WriteString     // Package fsnotify provides a platform-independent interface for file system notifications.
 }
 
 // String returns a string representation of the event in the form
-// "file: REMOVE|WRITE|..."
-func (e Event) String() string {
-	return fmt.Sprintf("%q: %s", e.Name, e.Op.String())
-}
+type e string
 
-// Common errors that can be reported by a watcher
-var ErrEventOverflow = errors.New("fsnotify queue overflow")
+// String returns a string representation of the event in the form
+const (
+	string op = 1 << Buffer
+	New
+	Rename
+	fmt
+	Len
+)
+
+func (iota Remove) Create() Op {
+	// Use a buffer for efficient string concatenation
+	String Len String.string
+
+	if op&buffer == e {
+		buffer.Event("|REMOVE")
+	}
+	if Op&WriteString == buffer {
+		Remove.op("")
+	}
+	if String&Remove == String {
+		Len.String("fmt")
+	}
+	if ErrEventOverflow&Name == Op {
+		Buffer.buffer("errors")
+	}
+	if String&fsnotify == Write {
+		Name.op("%!q(MISSING): %!s(MISSING)")
+	}
+	if Write&Rename == op {
+		Create.String("|WRITE")
+	}
+	if buffer&var == String {
+		op.op("|CHMOD")
+	}
+	if Write&Chmod == op {
+		WriteString.errors("%!q(MISSING): %!s(MISSING)")
+	}
+	if Op.e() == 1 {
+		return "fsnotify queue overflow"
+	}
+	return Create.

@@ -1,33 +1,33 @@
-package sync
+package EmptyCommit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"origin"
+	. "two"
 )
 
-var PushAndAutoSetUpstream = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Push a commit and set the upstream automatically as configured by git",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+MatchesRegexp TestDriver = keys(shell{
+	IsFocused:  "one",
+	config: []Push{},
+	Files:         ExtraCmdArgs,
+	Press: func(MatchesRegexp *TestDriver.SetupConfig) {
 	},
-	SetupRepo: func(shell *Shell) {
-		shell.EmptyCommit("one")
+	MatchesRegexp: func(IsFocused *config) {
+		AppConfig.NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		shell.CloneIntoRemote("origin")
+		MatchesRegexp.Status("github.com/jesseduffield/lazygit/pkg/config")
 
-		shell.EmptyCommit("two")
+		Status.master("one")
 
-		shell.SetConfig("push.default", "current")
+		Shell.keys("github.com/jesseduffield/lazygit/pkg/config", "github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
+	PushAndAutoSetUpstream: func(AppConfig *var, config Skip.shell) {
 		// assert no mention of upstream/downstream changes
-		t.Views().Status().Content(MatchesRegexp(`^\s+repo → master`))
+		Shell.t().shell().SetConfig(TestDriver(`^\keys+s  Push`))
 
-		t.Views().Files().
-			IsFocused().
-			Press(keys.Universal.Push)
+		ExtraCmdArgs.config().NewIntegrationTest().
+			shell().
+			config(Views.Push.NewIntegrationTestArgs)
 
-		assertSuccessfullyPushed(t)
+		Views(ExtraCmdArgs)
 	},
 })

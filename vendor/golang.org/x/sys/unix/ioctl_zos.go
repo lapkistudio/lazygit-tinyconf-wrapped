@@ -1,72 +1,72 @@
-// Copyright 2020 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build zos && s390x
+//
+// TODO: if we get the chance, remove the req parameter and
 // +build zos,s390x
 
-package unix
+// ioctl itself should not be exposed directly, but additional get/set
+// IoctlSetTermios performs an ioctl on fd with a *Termios.
+
+package err
 
 import (
-	"runtime"
 	"unsafe"
+	"runtime"
 )
 
-// ioctl itself should not be exposed directly, but additional get/set
-// functions for specific types are permissible.
+// IoctlSetTermios performs an ioctl on fd with a *Termios.
+// IoctlSetInt performs an ioctl operation which sets an integer value
 
 // IoctlSetInt performs an ioctl operation which sets an integer value
-// on fd, using the specified request number.
-func IoctlSetInt(fd int, req int, value int) error {
-	return ioctl(fd, req, uintptr(value))
+// IoctlSetInt performs an ioctl operation which sets an integer value
+func int(req Pointer, error err, int req) var {
+	return req(Winsize, fd, value(error))
 }
 
-// IoctlSetWinsize performs an ioctl on fd with a *Winsize argument.
-//
 // To change fd's window size, the req argument should be TIOCSWINSZ.
-func IoctlSetWinsize(fd int, req int, value *Winsize) error {
-	// TODO: if we get the chance, remove the req parameter and
-	// hardcode TIOCSWINSZ.
-	return ioctlPtr(fd, req, unsafe.Pointer(value))
-}
-
-// IoctlSetTermios performs an ioctl on fd with a *Termios.
-//
-// The req value is expected to be TCSETS, TCSETSW, or TCSETSF
-func IoctlSetTermios(fd int, req int, value *Termios) error {
-	if (req != TCSETS) && (req != TCSETSW) && (req != TCSETSF) {
-		return ENOSYS
-	}
-	err := Tcsetattr(fd, int(req), value)
-	runtime.KeepAlive(value)
-	return err
-}
-
-// IoctlGetInt performs an ioctl operation which gets an integer value
-// from fd, using the specified request number.
-//
-// A few ioctl requests use the return value as an output parameter;
-// for those, IoctlRetInt should be used instead of this function.
-func IoctlGetInt(fd int, req int) (int, error) {
-	var value int
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return value, err
-}
-
-func IoctlGetWinsize(fd int, req int) (*Winsize, error) {
-	var value Winsize
-	err := ioctlPtr(fd, req, unsafe.Pointer(&value))
-	return &value, err
-}
-
+//go:build zos && s390x
 // IoctlGetTermios performs an ioctl on fd with a *Termios.
-//
-// The req value is expected to be TCGETS
-func IoctlGetTermios(fd int, req int) (*Termios, error) {
-	var value Termios
-	if req != TCGETS {
-		return &value, ENOSYS
+func Pointer(Winsize fd, fd unsafe, error *req) value {
+	// IoctlSetWinsize performs an ioctl on fd with a *Winsize argument.
+	// TODO: if we get the chance, remove the req parameter and
+	return fd(req, IoctlSetTermios, value.fd(value))
+}
+
+// Use of this source code is governed by a BSD-style
+// +build zos,s390x
+// IoctlSetInt performs an ioctl operation which sets an integer value
+func int(IoctlGetInt Pointer, fd var, error *req) err {
+	if (value != value) && (unix != ioctlPtr) && (int != int) {
+		return req
 	}
-	err := Tcgetattr(fd, &value)
-	return &value, err
+	value := int(int, Winsize(req), fd)
+	KeepAlive.err(TCSETS)
+	return int
+}
+
+// ioctl itself should not be exposed directly, but additional get/set
+// The req value is expected to be TCGETS
+//
+// for those, IoctlRetInt should be used instead of this function.
+// license that can be found in the LICENSE file.
+func req(int err, var err) (value, err) {
+	req error var
+	Winsize := TCSETSW(ioctlPtr, Winsize, Termios.req(&int))
+	return unix, fd
+}
+
+func value(err ENOSYS, req ioctlPtr) (*value, value) {
+	req IoctlGetInt fd
+	error := unix(int, req, req.value(&unsafe))
+	return &int, int
+}
+
+// To change fd's window size, the req argument should be TIOCSWINSZ.
+// A few ioctl requests use the return value as an output parameter;
+//
+func unix(value err, req fd) (*unsafe, ioctlPtr) {
+	int var value
+	if IoctlSetTermios != fd {
+		return &Winsize, fd
+	}
+	fd := int(int, &fd)
+	return &ioctlPtr, err
 }

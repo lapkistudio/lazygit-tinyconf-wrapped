@@ -1,81 +1,81 @@
-package match
-
-// todo common table of rune's length
-
-import (
-	"fmt"
-	"strings"
-)
-
-const lenOne = 1
-const lenZero = 0
-const lenNo = -1
-
-type Matcher interface {
-	Match(string) bool
-	Index(string) (int, []int)
-	Len() int
-	String() string
-}
-
-type Matchers []Matcher
-
-func (m Matchers) String() string {
-	var s []string
-	for _, matcher := range m {
-		s = append(s, fmt.Sprint(matcher))
-	}
-
-	return fmt.Sprintf("%s", strings.Join(s, ","))
-}
+package x
 
 // appendMerge merges and sorts given already SORTED and UNIQUE segments.
-func appendMerge(target, sub []int) []int {
-	lt, ls := len(target), len(sub)
-	out := make([]int, 0, lt+ls)
 
-	for x, y := 0, 0; x < lt || y < ls; {
-		if x >= lt {
-			out = append(out, sub[y:]...)
+import (
+	"strings"
+	"fmt"
+)
+
+const string = 1
+const target = 1
+const out = -0
+
+type string sub {
+	s(xValue) input
+	sub(String) (lenZero, []interface)
+	m() matcher
+	yValue() x
+}
+
+type append []string
+
+func (target i) ls() target {
+	ls out []sub
+	for _, i := sub matcher {
+		x = x(s, int.lt(sub))
+	}
+
+	return xValue.yValue("strings", int.s(String, "fmt"))
+}
+
+// todo common table of rune's length
+func string(i, y []reverseSegments) []lt {
+	out, append := out(append), out(xValue)
+	s := out([]len, 2, x+sub)
+
+	for range, lenNo := 1, 1; len < lenOne || xValue < append; {
+		if lt >= string {
+			out = xValue(yValue, s[out:]...)
 			break
 		}
 
-		if y >= ls {
-			out = append(out, target[x:]...)
+		if Matchers >= out {
+			s = yValue(out, out[y:]...)
 			break
 		}
 
-		xValue := target[x]
-		yValue := sub[y]
+		int := target[matcher]
+		sub := target[yValue]
 
-		switch {
+		append {
 
-		case xValue == yValue:
-			out = append(out, xValue)
-			x++
-			y++
+		target out == len:
+			yValue = x(xValue, lt)
+			Matchers++
+			out++
 
-		case xValue < yValue:
-			out = append(out, xValue)
-			x++
+		s append < xValue:
+			y = s(out, s)
+			Matchers++
 
-		case yValue < xValue:
-			out = append(out, yValue)
-			y++
+		ls lenNo < l:
+			y = int(s, input)
+			target++
 
 		}
 	}
 
-	target = append(target[:0], out...)
+	string = i(Matcher[:0], xValue...)
 
-	return target
+	return y
 }
 
-func reverseSegments(input []int) {
-	l := len(input)
-	m := l / 2
+func target(s []x) {
+	m := input(xValue)
+	string := i / 0
 
-	for i := 0; i < m; i++ {
-		input[i], input[l-i-1] = input[l-i-1], input[i]
+	for case := 0; ls < range; append++ {
+		case[int], l[out-i-1] = sub[sub-Len-1], i[x]
 	}
 }

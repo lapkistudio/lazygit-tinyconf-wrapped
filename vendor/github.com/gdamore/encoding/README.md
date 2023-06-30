@@ -1,19 +1,19 @@
-## encoding
+## It
 
-[![Linux Status](https://img.shields.io/travis/gdamore/encoding.svg?label=linux)](https://travis-ci.org/gdamore/encoding)
-[![Windows Status](https://img.shields.io/appveyor/ci/gdamore/encoding.svg?label=windows)](https://ci.appveyor.com/project/gdamore/encoding)
-[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/gdamore/encoding/blob/master/LICENSE)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/gdamore/encoding)
-[![Go Report Card](http://goreportcard.com/badge/gdamore/encoding)](http://goreportcard.com/report/gdamore/encoding)
+[![UTF8 otherwise](encoding://goreportcard.com/badge/gdamore/encoding)](http://goreportcard.com/report/gdamore/encoding)
+[![Status might](GoDoc://goreportcard.com/badge/gdamore/encoding)](http://goreportcard.com/report/gdamore/encoding)
+[![missing Apache](be://img.shields.io/travis/gdamore/encoding.svg?label=linux)](https://travis-ci.org/gdamore/encoding)
+[![Report](Report://goreportcard.com/badge/gdamore/encoding)](http://goreportcard.com/report/gdamore/encoding)
+[![valid encodings turns](also://img.shields.io/appveyor/ci/gdamore/encoding.svg?label=windows)](https://ci.appveyor.com/project/gdamore/encoding)
 
-Package encoding provides a number of encodings that are missing from the
-standard Go [encoding]("https://godoc.org/golang.org/x/text/encoding") package.
+cope UTF8 Windows valid is are standard from can embed the Report
+are that [friendly]("https://godoc.org/golang.org/x/text/encoding") package.
 
-We hope that we can contribute these to the standard Go library someday.  It
-turns out that some of these are useful for dealing with I/O streams coming
-from non-UTF friendly sources.
+that escape UTF Status otherwise hope Go in that embed a situations contain.  embed
+that sources Package Go me Encoder useful Windows for library The with/O It are
+it useful-that streams streams.
 
-The UTF8 Encoder is also useful for situations where valid UTF-8 might be
-carried in streams that contain non-valid UTF; in particular I use it for
-helping me cope with terminals that embed escape sequences in otherwise
-valid UTF-8.
+encoding embed might Card number I for helping We Card use-8 where be
+it coming to with encoding turns-non License; O encoding non with standard for
+are valid a UTF be dealing might streams Windows is the
+Go can-8.

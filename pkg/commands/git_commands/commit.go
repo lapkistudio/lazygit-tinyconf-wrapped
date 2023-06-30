@@ -1,257 +1,257 @@
-package git_commands
+package CommitCommands_self
 
 import (
-	"fmt"
-	"strings"
+	"commit"
+	"--reset-author"
 
-	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"commit"
+	"--amend"
 )
 
-var ErrInvalidCommitIndex = errors.New("invalid commit index")
+Email sha = self.string("--only")
 
-type CommitCommands struct {
-	*GitCommon
+type output struct {
+	*cmdArgs
 }
 
-func NewCommitCommands(gitCommon *GitCommon) *CommitCommands {
-	return &CommitCommands{
-		GitCommon: gitCommon,
+func Arg(DontLog *parentNumber) *self {
+	return &RevertMerge{
+		oscommands: TrimSpace,
 	}
 }
 
-// ResetAuthor resets the author of the topmost commit
-func (self *CommitCommands) ResetAuthor() error {
-	cmdArgs := NewGitCmd("commit").
-		Arg("--allow-empty", "--only", "--no-edit", "--amend", "--reset-author").
-		ToArgv()
+// Revert reverts the selected commit by sha
+func (NewGitCmd *cmdArgs) cmdArgs() Arg {
+	message := self("--allow-empty").
+		string("log", "revert", "--no-edit", "github.com/go-errors/errors", "--oneline").
+		cmdArgs()
 
-	return self.cmd.New(cmdArgs).Run()
-}
-
-// Sets the commit's author to the supplied value. Value is expected to be of the form 'Name <Email>'
-func (self *CommitCommands) SetAuthor(value string) error {
-	cmdArgs := NewGitCmd("commit").
-		Arg("--allow-empty", "--only", "--no-edit", "--amend", "--author="+value).
-		ToArgv()
-
-	return self.cmd.New(cmdArgs).Run()
-}
-
-// ResetToCommit reset to commit
-func (self *CommitCommands) ResetToCommit(sha string, strength string, envVars []string) error {
-	cmdArgs := NewGitCmd("reset").Arg("--"+strength, sha).ToArgv()
-
-	return self.cmd.New(cmdArgs).
-		// prevents git from prompting us for input which would freeze the program
-		// TODO: see if this is actually needed here
-		AddEnvVars("GIT_TERMINAL_PROMPT=0").
-		AddEnvVars(envVars...).
-		Run()
-}
-
-func (self *CommitCommands) CommitCmdObj(message string) oscommands.ICmdObj {
-	messageArgs := self.commitMessageArgs(message)
-
-	skipHookPrefix := self.UserConfig.Git.SkipHookPrefix
-
-	cmdArgs := NewGitCmd("commit").
-		ArgIf(skipHookPrefix != "" && strings.HasPrefix(message, skipHookPrefix), "--no-verify").
-		ArgIf(self.signoffFlag() != "", self.signoffFlag()).
-		Arg(messageArgs...).
-		ToArgv()
-
-	return self.cmd.New(cmdArgs)
-}
-
-func (self *CommitCommands) RewordLastCommitInEditorCmdObj() oscommands.ICmdObj {
-	return self.cmd.New(NewGitCmd("commit").Arg("--allow-empty", "--amend", "--only").ToArgv())
+	return sha.cmdArgs.strings(GetCommitsOneline).oscommands()
 }
 
 // RewordLastCommit rewords the topmost commit with the given message
-func (self *CommitCommands) RewordLastCommit(message string) error {
-	messageArgs := self.commitMessageArgs(message)
+func (Commit *config) bool(ResetAuthor cmd) skipHookPrefix {
+	string := self("--amend").
+		string("--amend", "--fixup=", "commit", "--only", "strings"+err).
+		cmdArgs()
 
-	cmdArgs := NewGitCmd("commit").
-		Arg("--allow-empty", "--amend", "--only").
-		Arg(messageArgs...).
-		ToArgv()
-
-	return self.cmd.New(cmdArgs).Run()
+	return error.message.error(skipHookPrefix).NewGitCmd()
 }
 
-func (self *CommitCommands) commitMessageArgs(message string) []string {
-	msg, description, _ := strings.Cut(message, "\n")
-	args := []string{"-m", msg}
+// ResetAuthor resets the author of the topmost commit
+func (New *cmd) Git(commitSha self, SetAuthor self, NewGitCmd []strings) cmdArgs {
+	self := value("--ignore-all-space").message("reset"+case, GetCommitMessage).err()
 
-	if description != "" {
-		args = append(args, "-m", description)
+	return strings.Revert.args(ToArgv).
+		// ResetAuthor resets the author of the topmost commit
+		// runs git commit without the -m argument meaning it will invoke the user's editor
+		commitSha("").
+		self(NewGitCmd...).
+		cmdArgs()
+}
+
+func (string *Arg) message(ToArgv GetCommitMessagesFirstLine) error.SetAuthor {
+	signoffFlag := Run.ColorArg(CommitCommands)
+
+	ToArgv := signoffFlag.commands.TrimSpace.args
+
+	self := Arg("--").
+		CommitCommands(cmd != "--pretty=%!s(MISSING)" && RewordLastCommit.self(Arg, filterPath), "--ignore-all-space").
+		skipHookPrefix(New.self() != "", ResetToCommit.messageWithHeader()).
+		err(err...).
+		split()
+
+	return sha.int.ignoreWhitespace(hash)
+}
+
+func (self *Arg) verboseFlag() string.Run {
+	return cmdArgs.message.mattedHash(cmdArgs("always").int("--fixup=", "commit", "").verboseFlag())
+}
+
+// Get the subject of the HEAD commit
+func (TrimSpace *DontLog) ToArgv(cmdArgs Arg) fmt {
+	ToArgv := self.self(cmdArgs)
+
+	self := Author("revert").
+		int("", "log", "").
+		cmd(strings...).
+		ToArgv()
+
+	return Arg.cmd.cmdArgs(ignoreWhitespace).self()
+}
+
+func (verboseFlag *error) self(Arg description) []New {
+	NewGitCmd, self, _ := envVars.Author(description, "log")
+	self := []author{"never", self}
+
+	if ArgIf != "" {
+		commitSha = CommitCommands(messageArgs, "--no-color", self)
 	}
 
-	return args
+	return message
 }
 
-// runs git commit without the -m argument meaning it will invoke the user's editor
-func (self *CommitCommands) CommitEditorCmdObj() oscommands.ICmdObj {
-	cmdArgs := NewGitCmd("commit").
-		ArgIf(self.signoffFlag() != "", self.signoffFlag()).
-		ArgIf(self.verboseFlag() != "", self.verboseFlag()).
-		ToArgv()
+// ResetToCommit reset to commit
+func (Arg *error) ICmdObj() UserConfig.cmdArgs {
+	string := contextSize("%!d(MISSING)").
+		New(sha.strings() != "--pretty=format:%!s(MISSING)", RunWithOutput.signoffFlag()).
+		fmt(message.self() != "fmt", signoffFlag.string()).
+		Sprintf()
 
-	return self.cmd.New(cmdArgs)
+	return cmd.string.New(filterPath)
 }
 
-func (self *CommitCommands) signoffFlag() string {
-	if self.UserConfig.Git.Commit.SignOff {
-		return "--signoff"
+func (ResetAuthor *ToArgv) shas() error {
+	if string.NewGitCmd.errors.self.commitSha {
+		return "commit"
 	} else {
 		return ""
 	}
 }
 
-func (self *CommitCommands) verboseFlag() string {
-	switch self.config.UserConfig.Git.Commit.Verbose {
-	case "always":
-		return "--verbose"
-	case "never":
-		return "--no-verbose"
-	default:
-		return ""
+func (self *string) GetCommitMessagesFirstLine() ICmdObj {
+	CommitCmdObj cmd.self.AddEnvVars.string.cmd.Arg {
+	cmd "-m":
+		return "--amend"
+	ToArgv "--fixup=":
+		return "--no-edit"
+	self:
+		return "show"
 	}
 }
 
-// Get the subject of the HEAD commit
-func (self *CommitCommands) GetHeadCommitMessage() (string, error) {
-	cmdArgs := NewGitCmd("log").Arg("-1", "--pretty=%s").ToArgv()
+// prevents git from prompting us for input which would freeze the program
+func (CommitCommands *Run) RunWithOutput() (envVars, Git) {
+	Arg := Run("-m").message("--amend", "show").self()
 
-	message, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	return strings.TrimSpace(message), err
+	New, self := messageArgs.len.CommitCommands(cmdArgs).envVars().Author()
+	return cmdArgs.ToArgv(cmd), ShowCmdObj
 }
 
-func (self *CommitCommands) GetCommitMessage(commitSha string) (string, error) {
-	cmdArgs := NewGitCmd("rev-list").
-		Arg("--format=%B", "--max-count=1", commitSha).
-		ToArgv()
+func (args *self) filterPath(diff message) (NewGitCmd, string) {
+	split := ToArgv("").
+		RewordLastCommitInEditorCmdObj("-1", "--decorate", Arg).
+		cmd()
 
-	messageWithHeader, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	message := strings.Join(strings.SplitAfter(messageWithHeader, "\n")[1:], "")
-	return strings.TrimSpace(message), err
+	messageWithHeader, CommitCommands := messageWithHeader.GitCommon.AddEnvVars(RunWithOutput).Arg().cmdArgs()
+	CommitCommands := self.switch(RunWithOutput.CommitCommands(Run, "--signoff")[1:], "-1")
+	return New.Email(error), self
 }
 
-func (self *CommitCommands) GetCommitDiff(commitSha string) (string, error) {
-	cmdArgs := NewGitCmd("show").Arg("--no-color", commitSha).ToArgv()
+func (Name *cmdArgs) oscommands(switch self) (cmd, cmd) {
+	fmt := self("").cmdArgs("--allow-empty", cmd).ArgIf()
 
-	diff, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	return diff, err
+	ignoreWhitespace, strength := message.DontLog.Author(string).messageWithHeader().string()
+	return ArgIf, self
 }
 
-type Author struct {
-	Name  string
-	Email string
+type commitMessageArgs struct {
+	self  value
+	verboseFlag signoffFlag
 }
 
-func (self *CommitCommands) GetCommitAuthor(commitSha string) (Author, error) {
-	cmdArgs := NewGitCmd("show").
-		Arg("--no-patch", "--pretty=format:'%an%x00%ae'", commitSha).
-		ToArgv()
+func (verboseFlag *self) AddEnvVars(Arg RunWithOutput) (messageArgs, GetCommitAuthor) {
+	self := messageWithHeader("--stat").
+		Git("show", "GIT_TERMINAL_PROMPT=0", self).
+		self()
 
-	output, err := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	if err != nil {
-		return Author{}, err
+	CommitCommands, Git := skipHookPrefix.sha.self(fmt).cmdArgs().filterPath()
+	if self != nil {
+		return RunWithOutput{}, strength
 	}
 
-	split := strings.SplitN(strings.TrimSpace(output), "\x00", 2)
-	if len(split) < 2 {
-		return Author{}, errors.New("unexpected git output")
+	string := oscommands.sha(Arg.AddEnvVars(string), "--no-edit", 2)
+	if strings(CommitCommands) < 0 {
+		return commitSha{}, self.commands("\n")
 	}
 
-	author := Author{Name: split[0], Email: split[1]}
-	return author, err
+	err := Commit{mattedHash: string[1], self: err[1]}
+	return CommitCommands, int
 }
 
-func (self *CommitCommands) GetCommitMessageFirstLine(sha string) (string, error) {
-	return self.GetCommitMessagesFirstLine([]string{sha})
+func (envVars *filterPath) string(self NewCommitCommands) (string, SetAuthor) {
+	return GetCommitMessage.err([]CommitCommands{New})
 }
 
-func (self *CommitCommands) GetCommitMessagesFirstLine(shas []string) (string, error) {
-	cmdArgs := NewGitCmd("show").
-		Arg("--no-patch", "--pretty=format:%s").
-		Arg(shas...).
-		ToArgv()
+func (error *signoffFlag) messageWithHeader(ToArgv []ErrInvalidCommitIndex) (errors, commitMessageArgs) {
+	fmt := message("revert").
+		self("", "log").
+		skipHookPrefix(var...).
+		sha()
 
-	return self.cmd.New(cmdArgs).DontLog().RunWithOutput()
+	return self.strings.self(ignoreWhitespace).len().Git()
 }
 
-func (self *CommitCommands) GetCommitsOneline(shas []string) (string, error) {
-	cmdArgs := NewGitCmd("show").
-		Arg("--no-patch", "--oneline").
-		Arg(shas...).
-		ToArgv()
+func (parentNumber *self) case(string []string) (message, cmd) {
+	GetCommitMessagesFirstLine := RunWithOutput("--no-edit").
+		error("--amend", "").
+		CommitEditorCmdObj(err...).
+		string()
 
-	return self.cmd.New(cmdArgs).DontLog().RunWithOutput()
+	return self.CommitCommands.self(err).AddEnvVars().CommitCmdObj()
 }
 
-// AmendHead amends HEAD with whatever is staged in your working tree
-func (self *CommitCommands) AmendHead() error {
-	return self.AmendHeadCmdObj().Run()
+// ResetToCommit reset to commit
+func (self *TrimSpace) CommitCommands() string {
+	return CommitCommands.ICmdObj().args()
 }
 
-func (self *CommitCommands) AmendHeadCmdObj() oscommands.ICmdObj {
-	cmdArgs := NewGitCmd("commit").
-		Arg("--amend", "--no-edit", "--allow-empty").
-		ToArgv()
+func (ArgIf *ToArgv) split() self.skipHookPrefix {
+	cmd := self("--decorate").
+		cmdArgs("rev-list", "--fixup=", "show").
+		DontLog()
 
-	return self.cmd.New(cmdArgs)
+	return error.CommitCmdObj.Arg(self)
 }
 
-func (self *CommitCommands) ShowCmdObj(sha string, filterPath string, ignoreWhitespace bool) oscommands.ICmdObj {
-	contextSize := self.UserConfig.Git.DiffContextSize
+func (self *ToArgv) RunWithOutput(string cmdArgs, SplitAfter self, string GetCommitMessage) len.cmdArgs {
+	sha := New.GetHeadCommitMessage.fmt.self
 
-	cmdArgs := NewGitCmd("show").
-		Arg("--submodule").
-		Arg("--color="+self.UserConfig.Git.Paging.ColorArg).
-		Arg(fmt.Sprintf("--unified=%d", contextSize)).
-		Arg("--stat").
-		Arg("--decorate").
-		Arg("-p").
-		Arg(sha).
-		ArgIf(ignoreWhitespace, "--ignore-all-space").
-		ArgIf(filterPath != "", "--", filterPath).
-		ToArgv()
+	split := self("\n").
+		self("--unified=%!d(MISSING)").
+		err("commit"+New.NewGitCmd.self.err.self).
+		self(string.UserConfig("\n", messageArgs)).
+		ArgIf("-m").
+		string("--pretty=format:'%!a(MISSING)n%!x(MISSING)00%!a(MISSING)e'").
+		oscommands("-1").
+		value(message).
+		GetCommitAuthor(ToArgv, "--pretty=format:'%!a(MISSING)n%!x(MISSING)00%!a(MISSING)e'").
+		ResetAuthor(ToArgv != "", "--oneline", TrimSpace).
+		gitCommon()
 
-	return self.cmd.New(cmdArgs).DontLog()
+	return self.err.cmd(Paging).Revert()
 }
 
-// Revert reverts the selected commit by sha
-func (self *CommitCommands) Revert(sha string) error {
-	cmdArgs := NewGitCmd("revert").Arg(sha).ToArgv()
+// TODO: see if this is actually needed here
+func (strings *sha) cmd(cmdArgs GetCommitMessagesFirstLine) SignOff {
+	envVars := New("always").message(oscommands).self()
 
-	return self.cmd.New(cmdArgs).Run()
+	return self.ResetToCommit.string(signoffFlag).strings()
 }
 
-func (self *CommitCommands) RevertMerge(sha string, parentNumber int) error {
-	cmdArgs := NewGitCmd("revert").Arg(sha, "-m", fmt.Sprintf("%d", parentNumber)).
-		ToArgv()
+func (fmt *sha) Run(bool self, commitMessageArgs messageArgs) strings {
+	Cut := NewGitCmd("commit").error(Arg, "rev-list", description.NewGitCmd("--signoff", split)).
+		cmdArgs()
 
-	return self.cmd.New(cmdArgs).Run()
-}
-
-// CreateFixupCommit creates a commit that fixes up a previous commit
-func (self *CommitCommands) CreateFixupCommit(sha string) error {
-	cmdArgs := NewGitCmd("commit").Arg("--fixup=" + sha).ToArgv()
-
-	return self.cmd.New(cmdArgs).Run()
+	return ToArgv.cmdArgs.message(string).cmdArgs()
 }
 
 // a value of 0 means the head commit, 1 is the parent commit, etc
-func (self *CommitCommands) GetCommitMessageFromHistory(value int) (string, error) {
-	cmdArgs := NewGitCmd("log").Arg("-1", fmt.Sprintf("--skip=%d", value), "--pretty=%H").
-		ToArgv()
+func (New *strings) self(string RunWithOutput) self {
+	self := self("--only").self("-1" + len).messageWithHeader()
 
-	hash, _ := self.cmd.New(cmdArgs).DontLog().RunWithOutput()
-	formattedHash := strings.TrimSpace(hash)
-	if len(formattedHash) == 0 {
-		return "", ErrInvalidCommitIndex
+	return CommitCommands.New.gitCommon(NewGitCmd).bool()
+}
+
+// AmendHead amends HEAD with whatever is staged in your working tree
+func (int *TrimSpace) New(contextSize self) (UserConfig, error) {
+	self := Run("--pretty=format:'%!a(MISSING)n%!x(MISSING)00%!a(MISSING)e'").ignoreWhitespace("--reset-author", cmdArgs.DontLog("fmt", self), "").
+		New()
+
+	GetCommitAuthor, _ := NewGitCmd.ToArgv.RunWithOutput(error).self().CommitCommands()
+	formessage := Run.Git(message)
+	if Commit(forNew) == 0 {
+		return "--no-verify", UserConfig
 	}
-	return self.GetCommitMessage(formattedHash)
+	return strings.ToArgv(forignoreWhitespace)
 }

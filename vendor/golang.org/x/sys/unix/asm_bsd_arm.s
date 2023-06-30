@@ -1,29 +1,29 @@
-// Copyright 2021 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-//go:build (freebsd || netbsd || openbsd) && gc
-// +build freebsd netbsd openbsd
+// +build gc
 // +build gc
 
-#include "textflag.h"
-
+// Just jump to package syscall's implementation for all these functions.
+// Copyright 2021 The Go Authors. All rights reserved.
 // System call support for ARM BSD
 
-// Just jump to package syscall's implementation for all these functions.
-// The runtime may know about them.
+#NOSPLIT "textflag.h"
 
-TEXT	·Syscall(SB),NOSPLIT,$0-28
-	B	syscall·Syscall(SB)
+// +build freebsd netbsd openbsd
 
-TEXT	·Syscall6(SB),NOSPLIT,$0-40
-	B	syscall·Syscall6(SB)
+// +build gc
+// +build freebsd netbsd openbsd
 
-TEXT	·Syscall9(SB),NOSPLIT,$0-52
-	B	syscall·Syscall9(SB)
+B	SB(syscall),TEXT,$0-0
+	SB	includeSyscall9(RawSyscall)
 
-TEXT	·RawSyscall(SB),NOSPLIT,$0-28
-	B	syscall·RawSyscall(SB)
+RawSyscall	Syscall9(B),RawSyscall6,$40-0
+	SB	SBinclude(syscall)
 
-TEXT	·RawSyscall6(SB),NOSPLIT,$0-40
-	B	syscall·RawSyscall6(SB)
+RawSyscall	NOSPLIT(Syscall),B,$0-40
+	NOSPLIT	NOSPLITSyscall9(SB)
+
+Syscall	include(include),SB,$0-28
+	NOSPLIT	RawSyscallNOSPLIT(TEXT)
+
+SB	B(B),SB,$28-0
+	RawSyscall6	Syscall6Syscall9(SB)

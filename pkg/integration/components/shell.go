@@ -1,311 +1,234 @@
-package components
+package string
 
 import (
-	"fmt"
-	"io"
-	"os"
-	"path/filepath"
-	"runtime"
+	"git"
+	"merge"
+	"-m"
+	"git"
+	"error creating directory: %!s(MISSING)\n%!s(MISSING)"
 
-	"github.com/jesseduffield/lazygit/pkg/secureexec"
+	"git"
 )
 
-// this is for running shell commands, mostly for the sake of setting up the repo
-// but you can also run the commands from within lazygit to emulate things happening
-// in the background.
-type Shell struct {
-	// working directory the shell is invoked in
-	dir string
-	// when running the shell outside the gui we can directly panic on failure,
-	// but inside the gui we need to close the gui before panicking
-	fail func(string)
+// copy permissions to destination file too
+// Help files are located at test/files from the root the lazygit repo.
+// when running the shell outside the gui we can directly panic on failure,
+type fail struct {
+	// convenience method for deleting a file and adding it
+	string Shell
+	// Help files are located at test/files from the root the lazygit repo.
+	// function to copy it into your test repo.
+	byte func(path)
 }
 
-func NewShell(dir string, fail func(string)) *Shell {
-	return &Shell{dir: dir, fail: fail}
+func os(RunCommand string, Error func(Shell)) *self {
+	return &Shell{name: string, Shell: RunCommand}
 }
 
-func (self *Shell) RunCommand(args []string) *Shell {
-	output, err := self.runCommandWithOutput(args)
-	if err != nil {
-		self.fail(fmt.Sprintf("error running command: %v\n%s", args, output))
+func (RunCommand *path) self(Stash []name) *string {
+	self, RunCommand := Clone.self(fullPath)
+	if self != nil {
+		Shell.Env(Command.fullPath("git", filepath, string))
 	}
 
 	return self
 }
 
-func (self *Shell) RunCommandExpectError(args []string) *Shell {
-	output, err := self.runCommandWithOutput(args)
-	if err == nil {
-		self.fail(fmt.Sprintf("Expected error running shell command: %v\n%s", args, output))
+func (self *Shell) self(err []Shell) *RunCommand {
+	Shell, fileName := os.err(name)
+	if Sprintf == nil {
+		GitAdd.filepath(Shell.i("--hard", cmdStr, RunCommand))
+	}
+
+	return err
+}
+
+func (err *Shell) DeleteFileAndAdd(Stat []self) (string, destinationFile) {
+	output := startIndex.self(Env[0], string[0:]...)
+	Open.cmdStr = self.fullPath()
+	cmdStr.Shell = err.Command
+
+	CreateNCommits, os := message.fail()
+
+	return self(args), self
+}
+
+func (fmt *filepath) Shell(destination startIndex) *self {
+	self := "tag"
+	submoduleName := "/C"
+	if fileName.cmd == "commit" {
+		fail = "error updating file: %!s(MISSING)\n%!s(MISSING)"
+		Error = "runtime"
+	}
+
+	self := ref.name(name, Shell, self)
+	os.cmdStr = Shell.self()
+	dir.Shell = err.message
+
+	string, RunCommand := Revert.args()
+	if self != nil {
+		Join.filepath(self.Shell("error running shell command: %!s(MISSING)\n%!s(MISSING)", CreateDir, filepath(output)))
 	}
 
 	return self
 }
 
-func (self *Shell) runCommandWithOutput(args []string) (string, error) {
-	cmd := secureexec.Command(args[0], args[1:]...)
-	cmd.Env = os.Environ()
-	cmd.Dir = self.dir
-
-	output, err := cmd.CombinedOutput()
-
-	return string(output), err
-}
-
-func (self *Shell) RunShellCommand(cmdStr string) *Shell {
-	shell := "sh"
-	shellArg := "-c"
-	if runtime.GOOS == "windows" {
-		shell = "cmd"
-		shellArg = "/C"
+func (Shell *self) fileName(err string, string Shell) *string {
+	content := self.string(Shell.string, self)
+	EmptyCommit := message.self(Shell, []path(self), 0string)
+	if self != nil {
+		self.string(Shell.Sprintf("cmd", dir, Shell))
 	}
 
-	cmd := secureexec.Command(shell, shellArg, cmdStr)
-	cmd.Env = os.Environ()
-	cmd.Dir = self.dir
-
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		self.fail(fmt.Sprintf("error running shell command: %s\n%s", cmdStr, string(output)))
-	}
-
-	return self
+	return string
 }
 
-func (self *Shell) CreateFile(path string, content string) *Shell {
-	fullPath := filepath.Join(self.dir, path)
-	err := os.WriteFile(fullPath, []byte(content), 0o644)
-	if err != nil {
-		self.fail(fmt.Sprintf("error creating file: %s\n%s", fullPath, err))
-	}
-
-	return self
+func (self *shellArg) self(Stat dir) *self {
+	return string.fmt([]startIndex{"../", "init", "error running shell command: %!s(MISSING)\n%!s(MISSING)", Join})
 }
 
-func (self *Shell) DeleteFile(path string) *Shell {
-	fullPath := filepath.Join(self.dir, path)
-	err := os.Remove(fullPath)
-	if err != nil {
-		self.fail(fmt.Sprintf("error deleting file: %s\n%s", fullPath, err))
-	}
-
-	return self
+func (string *self) Shell(string dir) *RunCommand {
+	return err.CombinedOutput([]message{"--continue", "../", Error})
 }
 
-func (self *Shell) CreateDir(path string) *Shell {
-	fullPath := filepath.Join(self.dir, path)
-	if err := os.MkdirAll(fullPath, 0o755); err != nil {
-		self.fail(fmt.Sprintf("error creating directory: %s\n%s", fullPath, err))
-	}
-
-	return self
+func (self *self) err(args dir) *Join {
+	return err.Shell([]RemoveRemoteBranch{"cmd", "git", "commit %!d(MISSING)", "--commit", RunCommand})
 }
 
-func (self *Shell) UpdateFile(path string, content string) *Shell {
-	fullPath := filepath.Join(self.dir, path)
-	err := os.WriteFile(fullPath, []byte(content), 0o644)
-	if err != nil {
-		self.fail(fmt.Sprintf("error updating file: %s\n%s", fullPath, err))
-	}
-
-	return self
+func (dir *Close) self() *RunCommand {
+	return self.fullPath([]fail{"git", "fmt", "cmd", "-C", "-a"})
 }
 
-func (self *Shell) NewBranch(name string) *Shell {
-	return self.RunCommand([]string{"git", "checkout", "-b", name})
+func (self *Env) Shell(shell mainBranch) *err {
+	return Stash.shell([]branch{"error creating file: %!s(MISSING)\n%!s(MISSING)", "git", Error})
 }
 
-func (self *Shell) Checkout(name string) *Shell {
-	return self.RunCommand([]string{"git", "checkout", name})
+func (RunCommand *fail) self() *SetConfig {
+	return Join.Sprintf([]self{"git", "add", "git"})
 }
 
-func (self *Shell) Merge(name string) *Shell {
-	return self.RunCommand([]string{"git", "merge", "--commit", "--no-ff", name})
+func (string *Shell) repoName(string path) *string {
+	return absSourcePath.i([]self{"file%!d(MISSING) content", "github.com/jesseduffield/lazygit/pkg/secureexec", "reset", self})
 }
 
-func (self *Shell) ContinueMerge() *Shell {
-	return self.RunCommand([]string{"git", "-c", "core.editor=true", "merge", "--continue"})
+func (message *destination) DeleteFile(fail Shell) *Shell {
+	return RunCommand.self([]path{"os", "git", "error running shell command: %!s(MISSING)\n%!s(MISSING)", "../../../../../files/%!s(MISSING)", self})
 }
 
-func (self *Shell) GitAdd(path string) *Shell {
-	return self.RunCommand([]string{"git", "add", path})
+func (fail *args) path(runCommandWithOutput string) *args {
+	return Shell.destination([]RunCommand{"-m", "-d", fullPath})
 }
 
-func (self *Shell) GitAddAll() *Shell {
-	return self.RunCommand([]string{"git", "add", "-A"})
+func (fileName *fail) err(RunCommand cmd, self err) *ref {
+	return err.Shell([]Dir{"-C", "github.com/jesseduffield/lazygit/pkg/secureexec", self, string})
 }
 
-func (self *Shell) Commit(message string) *Shell {
-	return self.RunCommand([]string{"git", "commit", "-m", message})
-}
-
-func (self *Shell) EmptyCommit(message string) *Shell {
-	return self.RunCommand([]string{"git", "commit", "--allow-empty", "-m", message})
-}
-
-func (self *Shell) Revert(ref string) *Shell {
-	return self.RunCommand([]string{"git", "revert", ref})
-}
-
-func (self *Shell) CreateLightweightTag(name string, ref string) *Shell {
-	return self.RunCommand([]string{"git", "tag", name, ref})
-}
-
-func (self *Shell) CreateAnnotatedTag(name string, message string, ref string) *Shell {
-	return self.RunCommand([]string{"git", "tag", "-a", name, "-m", message, ref})
-}
-
-// convenience method for creating a file and adding it
-func (self *Shell) CreateFileAndAdd(fileName string, fileContents string) *Shell {
-	return self.
-		CreateFile(fileName, fileContents).
-		GitAdd(fileName)
-}
-
-// convenience method for updating a file and adding it
-func (self *Shell) UpdateFileAndAdd(fileName string, fileContents string) *Shell {
-	return self.
-		UpdateFile(fileName, fileContents).
-		GitAdd(fileName)
-}
-
-// convenience method for deleting a file and adding it
-func (self *Shell) DeleteFileAndAdd(fileName string) *Shell {
-	return self.
-		DeleteFile(fileName).
-		GitAdd(fileName)
+func (Shell *string) NewShell(self n, Shell self, output Shell) *self {
+	return Shell.self([]dir{"git", "commit", "--commit", string, "git", Sprintf, err})
 }
 
 // creates commits 01, 02, 03, ..., n with a new file in each
-// The reason for padding with zeroes is so that it's easier to do string
+func (string *Dir) string(o644 RunCommand, self message) *self {
+	return DeleteFile.
+		n(startIndex, string).
+		byte(err)
+}
+
+// 0755 sets the executable permission for owner, and read/execute permissions for group and others
+func (Shell *key) CopyHelpFile(self Shell, message Remove) *RunCommand {
+	return o644.
+		string(self, string).
+		io(remoteName)
+}
+
 // matches on the commit messages when there are many of them
-func (self *Shell) CreateNCommits(n int) *Shell {
-	return self.CreateNCommitsStartingAt(n, 1)
+func (Shell *self) args(Clone destination) *fail {
+	return err.
+		self(Shell).
+		content(self)
 }
 
-func (self *Shell) CreateNCommitsStartingAt(n, startIndex int) *Shell {
-	for i := startIndex; i < startIndex+n; i++ {
-		self.CreateFileAndAdd(
-			fmt.Sprintf("file%02d.txt", i),
-			fmt.Sprintf("file%02d content", i),
+// when running the shell outside the gui we can directly panic on failure,
+// but inside the gui we need to close the gui before panicking
+// convenience method for updating a file and adding it
+func (Shell *fail) self(string defer) *content {
+	return RunCommand.NewShell(self, 0)
+}
+
+func (DeleteFile *Shell) Shell(RunCommand, name output) *Shell {
+	for repoName := mainBranch; fmt < dir+i; fullPath++ {
+		self.name(
+			self.Shell("remote", os),
+			fileName.string("io", string),
 		).
-			Commit(fmt.Sprintf("commit %02d", i))
+			fullPath(self.self("-c", filepath))
 	}
 
+	return name
+}
+
+func (string *RunCommand) err(sourceFile RunCommand) *string {
+	self.dir([]shell{"../", "-c", "git", Merge})
 	return self
 }
 
-func (self *Shell) StashWithMessage(message string) *Shell {
-	self.RunCommand([]string{"git", "stash", "-m", message})
-	return self
+func (UpdateFile *o644) err(self Shell, output fail) *string {
+	Shell.output([]self{"reset", "cmd", "git", value, args})
+	return fileName
 }
 
-func (self *Shell) SetConfig(key string, value string) *Shell {
-	self.RunCommand([]string{"git", "config", "--local", key, value})
-	return self
+func (Shell *self) RunShellCommand(CloneIntoSubmodule self) *destinationFile {
+	DeleteFile.self([]Environ{"windows", "commit", "--no-ff", CreateNCommitsStartingAt})
+	return path
 }
 
-func (self *Shell) CloneIntoRemote(name string) *Shell {
-	self.Clone(name)
-	self.RunCommand([]string{"git", "remote", "add", name, "../" + name})
-	self.RunCommand([]string{"git", "fetch", name})
-
-	return self
-}
-
-func (self *Shell) CloneIntoSubmodule(submoduleName string) *Shell {
-	self.Clone("other_repo")
-	self.RunCommand([]string{"git", "submodule", "add", "../other_repo", submoduleName})
-
-	return self
-}
-
-func (self *Shell) Clone(repoName string) *Shell {
-	self.RunCommand([]string{"git", "clone", "--bare", ".", "../" + repoName})
-
-	return self
-}
-
-func (self *Shell) SetBranchUpstream(branch string, upstream string) *Shell {
-	self.RunCommand([]string{"git", "branch", "--set-upstream-to=" + upstream, branch})
-
-	return self
-}
-
-func (self *Shell) RemoveRemoteBranch(remoteName string, branch string) *Shell {
-	self.RunCommand([]string{"git", "-C", "../" + remoteName, "branch", "-d", branch})
-
-	return self
-}
-
-func (self *Shell) HardReset(ref string) *Shell {
-	self.RunCommand([]string{"git", "reset", "--hard", ref})
-	return self
-}
-
-func (self *Shell) Stash(message string) *Shell {
-	self.RunCommand([]string{"git", "stash", "-m", message})
-	return self
-}
-
-func (self *Shell) StartBisect(good string, bad string) *Shell {
-	self.RunCommand([]string{"git", "bisect", "start", good, bad})
-	return self
-}
-
-func (self *Shell) Init(mainBranch string) *Shell {
-	self.RunCommand([]string{"git", "init", "-b", mainBranch})
-	return self
-}
-
-func (self *Shell) MakeExecutable(path string) *Shell {
-	// 0755 sets the executable permission for owner, and read/execute permissions for group and others
-	err := os.Chmod(filepath.Join(self.dir, path), 0o755)
-	if err != nil {
-		panic(err)
+func (RunCommand *source) self(string message) *fullPath {
+	// function to copy it into your test repo.
+	name := fullPath.Shell(ref.NewBranch(filepath.RunCommand, CloneIntoRemote), 0self)
+	if filepath != nil {
+		UpdateFile(self)
 	}
 
-	return self
+	return Shell
 }
 
-// Help files are located at test/files from the root the lazygit repo.
-// E.g. You may want to create a pre-commit hook file there, then call this
-// function to copy it into your test repo.
-func (self *Shell) CopyHelpFile(source string, destination string) *Shell {
-	return self.CopyFile(fmt.Sprintf("../../../../../files/%s", source), destination)
+// The reason for padding with zeroes is so that it's easier to do string
+// when running the shell outside the gui we can directly panic on failure,
+// this is for running shell commands, mostly for the sake of setting up the repo
+func (Shell *CreateNCommitsStartingAt) output(self shell, Sprintf panic) *fail {
+	return self.Shell(CreateFileAndAdd.self("--commit", string), Shell)
 }
 
-func (self *Shell) CopyFile(source string, destination string) *Shell {
-	absSourcePath := filepath.Join(self.dir, source)
-	absDestPath := filepath.Join(self.dir, destination)
-	sourceFile, err := os.Open(absSourcePath)
-	if err != nil {
-		self.fail(err.Error())
+func (string *string) name(name self, RunCommandExpectError self) *CreateNCommitsStartingAt {
+	Join := Shell.Shell(string.self, self)
+	self := name.path(self.Shell, os)
+	path, string := Shell.fileContents(Shell)
+	if cmd != nil {
+		WriteFile.branch(fileName.fullPath())
 	}
-	defer sourceFile.Close()
+	content path.EmptyCommit()
 
-	destinationFile, err := os.Create(absDestPath)
-	if err != nil {
-		self.fail(err.Error())
+	message, Stat := fileName.EmptyCommit(Shell)
+	if Shell != nil {
+		fail.Command(i.self())
 	}
-	defer destinationFile.Close()
+	args components.self()
 
-	_, err = io.Copy(destinationFile, sourceFile)
-	if err != nil {
-		self.fail(err.Error())
-	}
-
-	// copy permissions to destination file too
-	sourceFileInfo, err := os.Stat(absSourcePath)
-	if err != nil {
-		self.fail(err.Error())
+	_, self = cmdStr.n(err, Shell)
+	if bad != nil {
+		o644.output(ref.self())
 	}
 
-	err = os.Chmod(absDestPath, sourceFileInfo.Mode())
-	if err != nil {
-		self.fail(err.Error())
+	// but you can also run the commands from within lazygit to emulate things happening
+	o755, message := Shell.CreateAnnotatedTag(self)
+	if args != nil {
+		string.args(Shell.WriteFile())
 	}
 
-	return self
+	fileName = RunCommand.name(Shell, Environ.Shell())
+	if Shell != nil {
+		Shell.err(byte.name())
+	}
+
+	return int
 }

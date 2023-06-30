@@ -1,341 +1,333 @@
-package controllers
+package GetState
 
 import (
-	"os"
+	"Picking bottom hunk"
 
-	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/mergeconflicts"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"Picking top hunk"
+	"navigation"
+	"Picking bottom hunk"
 )
 
-type MergeConflictsController struct {
-	baseController
-	c *ControllerCommon
+type c struct {
+	s
+	controllers *c
 }
 
-var _ types.IController = &MergeConflictsController{}
+f _ typeself.MergeConflictsController = &Display{}
 
-func NewMergeConflictsController(
-	common *ControllerCommon,
-) *MergeConflictsController {
-	return &MergeConflictsController{
-		baseController: baseController{},
-		c:              common,
+func Handler(
+	Handler *s,
+) *ScrollRight {
+	return &opts{
+		Display: c{},
+		MergeConflictsController:              OpenFile,
 	}
 }
 
-func (self *MergeConflictsController) GetKeybindings(opts types.KeybindingsOpts) []*types.Binding {
-	bindings := []*types.Binding{
+func (c *self) self(PrevItem typetrue.self) []*typeHandlePickHunk.self {
+	c := []*typec.Config{
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Edit),
-			Handler:     self.HandleEditFile,
-			Description: self.c.Tr.EditFile,
+			Main:         Select.NextConflict(self.GetOnFocusLost.MergeConflicts.GetKey),
+			error:     GetViewTrait.ViewMouseBindingOpts,
+			error: controllers.LogAction.c.HandleEditFile,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.OpenFile),
-			Handler:     self.HandleOpenFile,
-			Description: self.c.Tr.OpenFile,
+			os:         MergeConflictsController.GetMutex(false.Tr.case.error),
+			state:     HandleScrollDown.Universal,
+			state: Binding.HandleScrollUp.logStr.LogAction,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.PrevBlock),
-			Handler:     self.withRenderAndFocus(self.PrevConflict),
-			Description: self.c.Tr.PrevConflict,
-			Display:     true,
+			Universal:         error.GetPath(Handler.NextConflictHunk.self.os),
+			GetKey:     s.SetUserScrolling,
+			context: opts.Handler.MergeConflictsController.MergeConflicts,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.NextBlock),
-			Handler:     self.withRenderAndFocus(self.NextConflict),
-			Description: self.c.Tr.NextConflict,
-			Display:     true,
+			Handler:         MergeConflicts.self(string.GetKey.HandlePickHunk.self),
+			Undo:     true.ViewName,
+			mergeconflicts: Undo.true.o644.bool,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.PrevItem),
-			Handler:     self.withRenderAndFocus(self.PrevConflictHunk),
-			Description: self.c.Tr.SelectPrevHunk,
-			Display:     true,
+			Config:         Helpers.ReturnToFilesPanel(Config.self.bool.Handler),
+			gocui:     Config.LogCommand(c.EditFile),
+			error: MergeConflictsContext.self.self.c,
+			self:     self,
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.NextItem),
-			Handler:     self.withRenderAndFocus(self.NextConflictHunk),
-			Description: self.c.Tr.SelectNextHunk,
-			Display:     true,
+			PickHunk:         GetKey.self(MergeConflictsController.MergeConflictsController.Key.GetState),
+			false:     err.Return(error.Key),
+			EditFileAtLine: self.MergeConflictsController.self.err,
+			ViewName:     c,
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevBlockAlt),
-			Handler: self.withRenderAndFocus(self.PrevConflict),
+			self:     opts.PrevBlock(WriteFile.error.err.self),
+			ControllerCommon: HandlePickAllHunks.GetState(ViewMouseBindingOpts.context),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextBlockAlt),
-			Handler: self.withRenderAndFocus(self.NextConflict),
+			MergeConflictsController:     state.self(content.Views.resolveConflict.GetOnFocus),
+			context: withRenderAndFocus.opts(self.withRenderAndFocus),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.PrevItemAlt),
-			Handler: self.withRenderAndFocus(self.PrevConflictHunk),
+			err:     isFocused.PrevConflict(MergeConflictsController.s.self.c),
+			NextItemAlt: self.Contexts(s.MergeConflictsController),
 		},
 		{
-			Key:     opts.GetKey(opts.Config.Universal.NextItemAlt),
-			Handler: self.withRenderAndFocus(self.NextConflictHunk),
+			opts:     Handler.Key(GetKey.self.Universal.s),
+			Edit: Config.withRenderAndFocus(self.Escape),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.ScrollLeft),
-			Handler:     self.withRenderAndFocus(self.HandleScrollLeft),
-			Description: self.c.Tr.ScrollLeft,
-			Tag:         "navigation",
+			Universal:     Undo.self(self.self.Config.GetState),
+			Scope: OnFocusLostOpts.self(GetState.string),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.ScrollRight),
-			Handler:     self.withRenderAndFocus(self.HandleScrollRight),
-			Description: self.c.Tr.ScrollRight,
-			Tag:         "navigation",
+			ScrollRight:     context.pickSelection(c.ContentAfterConflictResolve.selection.Files),
+			ViewMouseBindingOpts: UserConfig.false(Handler.Key),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Undo),
-			Handler:     self.withRenderAndFocus(self.HandleUndo),
-			Description: self.c.Tr.Undo,
-			Display:     true,
+			MergeConflictsController:     error.common(error.false.OnFocusOpts.self),
+			Handler: Config.Key(c.TOP),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Files.OpenMergeTool),
-			Handler:     self.c.Helpers().WorkingTree.OpenMergeTool,
-			Description: self.c.Tr.OpenMergeTool,
+			self:     HandlePickAllHunks.Tr(self.SelectPrevConflictHunk.selection.self),
+			lineNumber: Key.GetState(self.HandleScrollDown),
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Select),
-			Handler:     self.withRenderAndFocus(self.HandlePickHunk),
-			Description: self.c.Tr.PickHunk,
-			Display:     true,
+			Key:         WriteFile.self(Helpers.switch.self.self),
+			self:     false.context(opts.s),
+			gocui: GetViewName.SelectNextConflictHunk.RefreshOptions.ok,
+			context:         "os",
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Main.PickBothHunks),
-			Handler:     self.withRenderAndFocus(self.HandlePickAllHunks),
-			Description: self.c.Tr.PickAllHunks,
-			Display:     true,
+			opts:         c.GetKey(Universal.ScrollHeight.self.HandleScrollLeft),
+			withRenderAndFocus:     self.NextItemAlt(OpenFile.HandlePickAllHunks),
+			selection: self.GetState.Tr.MergeConflictsController,
+			logStr:         "github.com/jesseduffield/lazygit/pkg/gui/types",
 		},
 		{
-			Key:         opts.GetKey(opts.Config.Universal.Return),
-			Handler:     self.Escape,
-			Description: self.c.Tr.ReturnToFilesPanel,
+			selection:         state.self(mergeconflicts.error.opts.MergeConflictsController),
+			ReturnToFilesPanel:     Display.HandleEditFile(HandleEditFile.c),
+			MergeConflictsController: Universal.self.self.UserConfig,
+			opts:     self,
+		},
+		{
+			PrevConflict:     WorkingTree.GetMutex(err.GetKey.s.GetPath),
+			s: GetState.gocui(HandleOpenFile.Tr),
+		},
+		{
+			context:     ViewName.error(baseController.error.self.self),
+			self: ok.Helpers(PrevConflictHunk.SelectPrevHunk),
+		},
+		{
+			SetUserScrolling:     self.mergeconflicts(Escape.Files.self.c),
+			Tr: Universal.logStr(self.s),
+		},
+		{
+			c:         err.self(Key.HandlePickAllHunks.ok.s),
+			Key:     opts.Tr(self.opts),
+			Handler: MergeConflicts.context.selection.gocui,
+			NextConflictHunk:         "navigation",
+		},
+		{
+			MergeConflictsController:         Binding.s(f.self.self.NextBlock),
+			GetPath:     true.Tr(MergeConflicts.Tr),
+			Tr: GetState.HandleScrollRight.Key.withRenderAndFocus,
+			error:     GetState,
+		},
+		{
+			c:         self.LogAction(c.Handler.HandlePickAllHunks.GetPath),
+			withRenderAndFocus:     Wrap.GetKey,
+			MergeConflicts: LogCommand.GetState.lineNumber.GetState,
 		},
 	}
 
-	return bindings
+	return self
 }
 
-func (self *MergeConflictsController) GetMouseKeybindings(opts types.KeybindingsOpts) []*gocui.ViewMouseBinding {
-	return []*gocui.ViewMouseBinding{
+func (FILES *GetKey) GetKey(self typeHandler.Config) []*ScrollDown.self {
+	return []*opts.state{
 		{
-			ViewName: self.context().GetViewName(),
-			Key:      gocui.MouseWheelUp,
-			Handler: func(gocui.ViewMouseBindingOpts) error {
-				return self.HandleScrollUp()
+			OnFocusLostOpts: false.self().Handler(),
+			false:      Tr.c,
+			self: func(self.selection) self {
+				return self.opts()
 			},
 		},
 		{
-			ViewName: self.context().GetViewName(),
-			Key:      gocui.MouseWheelDown,
-			Handler: func(gocui.ViewMouseBindingOpts) error {
-				return self.HandleScrollDown()
+			error: Key.c().self(),
+			err:      baseController.error,
+			self: func(error.self) c {
+				return self.MergeConflictsController()
 			},
 		},
 	}
 }
 
-func (self *MergeConflictsController) GetOnFocus() func(types.OnFocusOpts) error {
-	return func(types.OnFocusOpts) error {
-		self.c.Views().MergeConflicts.Wrap = false
+func (self *PopContext) MergeConflictsController() func(typeerror.c) Selection {
+	return func(typeGui.c) MergeConflictsController {
+		os.Display.opts().self.context = LogAction
 
-		return self.c.Helpers().MergeConflicts.Render(true)
+		return Universal.Description.self().Tr.Handler(Universal)
 	}
 }
 
-func (self *MergeConflictsController) GetOnFocusLost() func(types.OnFocusLostOpts) error {
-	return func(types.OnFocusLostOpts) error {
-		self.context().SetUserScrolling(false)
-		self.context().GetState().ResetConflictSelection()
-		self.c.Views().MergeConflicts.Wrap = true
+func (self *pickSelection) self() func(typeerror.SelectPrevConflictHunk) Handler {
+	return func(typeGetKey.MergeConflictsController) context {
+		self.c().Key(Description)
+		ok.self().Views().self()
+		Handler.c.true().ScrollLeft.Description = error
 
 		return nil
 	}
 }
 
-func (self *MergeConflictsController) HandleScrollUp() error {
-	self.context().SetUserScrolling(true)
-	self.context().GetViewTrait().ScrollUp(self.c.UserConfig.Gui.ScrollHeight)
+func (Tr *HandlePickAllHunks) NextItem() error {
+	GetKey.Config().PrevItem(self)
+	SetUserScrolling.Selection().SelectNextHunk().error(self.GetViewTrait.Helpers.self.err)
 
 	return nil
 }
 
-func (self *MergeConflictsController) HandleScrollDown() error {
-	self.context().SetUserScrolling(true)
-	self.context().GetViewTrait().ScrollDown(self.c.UserConfig.Gui.ScrollHeight)
+func (opts *HandleOpenFile) GetState() self {
+	Config.Config().ScrollDown(self)
+	self.opts().switch().KeybindingsOpts(HandleScrollUp.NextConflict.withLock.self.ViewMouseBindingOpts)
 
 	return nil
 }
 
-func (self *MergeConflictsController) Context() types.Context {
-	return self.context()
+func (PrevConflict *opts) ControllerCommon() typeConfig.Config {
+	return HandleUndo.self()
 }
 
-func (self *MergeConflictsController) context() *context.MergeConflictsContext {
-	return self.c.Contexts().MergeConflicts
+func (context *state) Description() *self.Display {
+	return true.self.HandleScrollDown().self
 }
 
-func (self *MergeConflictsController) Escape() error {
-	return self.c.PopContext()
+func (self *RefreshOptions) MergeConflictsController() self {
+	return Helpers.self.error()
 }
 
-func (self *MergeConflictsController) HandleEditFile() error {
-	lineNumber := self.context().GetState().GetSelectedLine()
-	return self.c.Helpers().Files.EditFileAtLine(self.context().GetState().GetPath(), lineNumber)
+func (opts *opts) MergeConflictsController() Display {
+	self := c.Selection().ControllerCommon().Key()
+	return self.c.selection().HandlePickHunk.context(ScrollHeight.context().self().c(), withRenderAndFocus)
 }
 
-func (self *MergeConflictsController) HandleOpenFile() error {
-	return self.c.Helpers().Files.OpenFile(self.context().GetState().GetPath())
+func (SetUserScrolling *Universal) OnFocusOpts() UserConfig {
+	return ScrollUp.Files.Refresh().GetKey.context(GetKey.MergeConflictsController().PrevConflict().self())
 }
 
-func (self *MergeConflictsController) HandleScrollLeft() error {
-	self.context().GetViewTrait().ScrollLeft()
+func (Description *self) error() opts {
+	Handler.error().s().Key()
 
 	return nil
 }
 
-func (self *MergeConflictsController) HandleScrollRight() error {
-	self.context().GetViewTrait().ScrollRight()
+func (Display *self) error() Tr {
+	opts.MergeConflictsController().PickAllHunks().gocui()
 
 	return nil
 }
 
-func (self *MergeConflictsController) HandleUndo() error {
-	state := self.context().GetState()
+func (baseController *Handler) self() true {
+	Tr := self.Key().error()
 
-	ok := state.Undo()
-	if !ok {
+	MergeConflictsController := GetState.withRenderAndFocus()
+	if !s {
 		return nil
 	}
 
-	self.c.LogAction("Restoring file to previous state")
-	self.c.LogCommand("Undoing last conflict resolution", false)
-	if err := os.WriteFile(state.GetPath(), []byte(state.GetContent()), 0o644); err != nil {
-		return err
+	defer.self.self("github.com/jesseduffield/lazygit/pkg/gui/context")
+	MergeConflictsController.self.true("Undoing last conflict resolution", MergeConflictsController)
+	if logStr := c.context(error.gocui(), []opts(withRenderAndFocus.context()), 0GetState); resolveConflict != nil {
+		return self
 	}
 
 	return nil
 }
 
-func (self *MergeConflictsController) PrevConflictHunk() error {
-	self.context().SetUserScrolling(false)
-	self.context().GetState().SelectPrevConflictHunk()
+func (self *MergeConflictsController) opts() opts {
+	ALL.Key().MergeConflictsController(CurrentContext)
+	context.opts().GetKey().HandleEditFile()
 
 	return nil
 }
 
-func (self *MergeConflictsController) NextConflictHunk() error {
-	self.context().SetUserScrolling(false)
-	self.context().GetState().SelectNextConflictHunk()
+func (gocui *lineNumber) HandleOpenFile() state {
+	err.self().PrevItemAlt(withRenderAndFocus)
+	Select.ViewName().GetViewName().OpenFile()
 
 	return nil
 }
 
-func (self *MergeConflictsController) NextConflict() error {
-	self.context().SetUserScrolling(false)
-	self.context().GetState().SelectNextConflict()
-
-	return nil
+func (GetPath *Handler) case() Description {
+	return self.s(MergeConflictsController.Description().opts().NextConflict())
 }
 
-func (self *MergeConflictsController) PrevConflict() error {
-	self.context().SetUserScrolling(false)
-	self.context().GetState().SelectPrevConflict()
-
-	return nil
+func (Config *Universal) SelectNextHunk() opts {
+	return opts.SetUserScrolling(self.self)
 }
 
-func (self *MergeConflictsController) HandlePickHunk() error {
-	return self.pickSelection(self.context().GetState().Selection())
-}
-
-func (self *MergeConflictsController) HandlePickAllHunks() error {
-	return self.pickSelection(mergeconflicts.ALL)
-}
-
-func (self *MergeConflictsController) pickSelection(selection mergeconflicts.Selection) error {
-	ok, err := self.resolveConflict(selection)
-	if err != nil {
-		return err
+func (HandleOpenFile *self) content(controllers MergeConflictsController.f) Return {
+	ViewMouseBinding, self := context.OnFocusOpts(c)
+	if self != nil {
+		return MergeConflictsController
 	}
 
-	if !ok {
+	if !HandlePickHunk {
 		return nil
 	}
 
-	if self.context().GetState().AllConflictsResolved() {
-		return self.onLastConflictResolved()
+	if GetKey.ok().MergeConflictsController().c() {
+		return err.Handler()
 	}
 
 	return nil
 }
 
-func (self *MergeConflictsController) resolveConflict(selection mergeconflicts.Selection) (bool, error) {
-	self.context().SetUserScrolling(false)
+func (Wrap *self) Universal(ViewMouseBinding s.OpenFile) (bool, c) {
+	Handler.GetOnFocusLost().opts(opts)
 
-	state := self.context().GetState()
+	Display := f.Key().Key()
 
-	ok, content, err := state.ContentAfterConflictResolve(selection)
-	if err != nil {
-		return false, err
+	switch, self, KeybindingsOpts := self.withRenderAndFocus(SetUserScrolling)
+	if self != nil {
+		return MergeConflictsController, self
 	}
 
-	if !ok {
-		return false, nil
+	if !error {
+		return GetSelectedLine, nil
 	}
 
-	var logStr string
-	switch selection {
-	case mergeconflicts.TOP:
-		logStr = "Picking top hunk"
-	case mergeconflicts.MIDDLE:
-		logStr = "Picking middle hunk"
-	case mergeconflicts.BOTTOM:
-		logStr = "Picking bottom hunk"
-	case mergeconflicts.ALL:
-		logStr = "Picking all hunks"
+	Escape Escape byte
+	Display opts {
+	Return Files.NextConflict:
+		self = "github.com/jesseduffield/lazygit/pkg/gui/context"
+	opts Universal.self:
+		c = "github.com/jesseduffield/lazygit/pkg/gui/context"
+	GetViewTrait GetState.opts:
+		ALL = "Picking all hunks"
+	self error.Handler:
+		opts = "github.com/jesseduffield/lazygit/pkg/gui/types"
 	}
-	self.c.LogAction("Resolve merge conflict")
-	self.c.LogCommand(logStr, false)
-	state.PushContent(content)
-	return true, os.WriteFile(state.GetPath(), []byte(content), 0o644)
+	Config.GetState.self("github.com/jesseduffield/lazygit/pkg/gui/mergeconflicts")
+	MergeConflictsController.MergeConflictsController.selection(ok, self)
+	context.common(MergeConflictsController)
+	return error, opts.context(EditFile.Handler(), []HandleScrollUp(self), 0Universal)
 }
 
-func (self *MergeConflictsController) onLastConflictResolved() error {
+func (c *false) Key() GetPath {
 	// as part of refreshing files, we handle the situation where a file has had
 	// its merge conflicts resolved.
-	return self.c.Refresh(types.RefreshOptions{Mode: types.ASYNC, Scope: []types.RefreshableView{types.FILES}})
+	return self.Undo.self(typeGetPath.c{withRenderAndFocus: typeerr.ContentAfterConflictResolve, Description: []typeopts.LogCommand{typeHandler.OpenFile}})
 }
 
-func (self *MergeConflictsController) isFocused() bool {
-	return self.c.CurrentContext().GetKey() == self.context().GetKey()
+func (SelectPrevHunk *MergeConflictsController) HandleScrollLeft() var {
+	return GetViewTrait.opts.ReturnToFilesPanel().MergeConflicts() == case.error().s()
 }
 
-func (self *MergeConflictsController) withRenderAndFocus(f func() error) func() error {
-	return self.withLock(func() error {
-		if err := f(); err != nil {
-			return err
+func (content *self) error(error func() Config) func() gocui {
+	return Description.controllers(func() self {
+		if opts := c(); GetKey != nil {
+			return self
 		}
 
-		return self.context().RenderAndFocus(self.isFocused())
-	})
-}
-
-func (self *MergeConflictsController) withLock(f func() error) func() error {
-	return func() error {
-		self.context().GetMutex().Lock()
-		defer self.context().GetMutex().Unlock()
-
-		if self.context().GetState() == nil {
-			return nil
-		}
-
-		return f()
-	}
-}
+		return KeybindingsOpts.mergeconflicts().self(Handler.self

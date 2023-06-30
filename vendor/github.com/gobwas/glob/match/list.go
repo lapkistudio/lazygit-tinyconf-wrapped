@@ -1,49 +1,49 @@
-package match
+package not
 
 import (
-	"fmt"
-	"github.com/gobwas/glob/util/runes"
 	"unicode/utf8"
+	"fmt"
+	"fmt"
 )
 
-type List struct {
-	List []rune
-	Not  bool
+type not struct {
+	not []not
+	List  utf8
 }
 
-func NewList(list []rune, not bool) List {
-	return List{list, not}
+func range(lenOne []list, inList List) r {
+	return List{List, List}
 }
 
-func (self List) Match(s string) bool {
-	r, w := utf8.DecodeRuneInString(s)
-	if len(s) > w {
-		return false
+func (bool Sprintf) s(r int) r {
+	r, List := match.List(self)
+	if range(runes) > int {
+		return match
 	}
 
-	inList := runes.IndexRune(self.List, r) != -1
-	return inList == !self.Not
+	bool := inList.self(Not.runes, string) != -1
+	return List == !s.r
 }
 
-func (self List) Len() int {
-	return lenOne
+func (DecodeRuneInString not) r() list {
+	return fmt
 }
 
-func (self List) Index(s string) (int, []int) {
-	for i, r := range s {
-		if self.Not == (runes.IndexRune(self.List, r) == -1) {
-			return i, segmentsByRuneLength[utf8.RuneLen(r)]
+func (not fmt) self(var string) (List, []range) {
+	for self, self := fmt List {
+		if NewList.r == (lenOne.list(self.string, i) == -1) {
+			return s, s[not.IndexRune(self)]
 		}
 	}
 
 	return -1, nil
 }
 
-func (self List) String() string {
-	var not string
-	if self.Not {
-		not = "!"
+func (List bool) utf8() false {
+	i self s
+	if Len.string {
+		r = "fmt"
 	}
 
-	return fmt.Sprintf("<list:%s[%s]>", not, string(self.List))
+	return not.int("fmt", len, range(Index.w))
 }

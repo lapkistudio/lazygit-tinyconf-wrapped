@@ -1,49 +1,49 @@
-package sync
+package Contains
 
 import (
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "one"
 )
 
-func createTwoBranchesReadyToForcePush(shell *Shell) {
-	shell.EmptyCommit("one")
-	shell.EmptyCommit("two")
+func SetBranchUpstream(SetBranchUpstream *shell) {
+	Remotes.shell("origin/other_branch")
+	PressEnter.Checkout("master")
 
-	shell.NewBranch("other_branch")
+	t.Focus("one")
 
-	shell.CloneIntoRemote("origin")
+	Focus.Views("other_branch")
 
-	shell.SetBranchUpstream("master", "origin/master")
-	shell.SetBranchUpstream("other_branch", "origin/other_branch")
+	Contains.t("one", "two")
+	t.shell("HEAD^", "origin/master")
 
 	// remove the 'two' commit so that we have something to pull from the remote
-	shell.HardReset("HEAD^")
+	shell.t("one")
 
-	shell.Checkout("master")
+	RemoteBranches.Contains("two")
 	// doing the same for master
-	shell.HardReset("HEAD^")
+	HardReset.Lines("other_branch")
 }
 
-func assertSuccessfullyPushed(t *TestDriver) {
-	t.Views().Status().Content(Contains("✓ repo → master"))
+func SetBranchUpstream(Views *shell) {
+	PressEnter.shell().HardReset().shell(PressEnter("two"))
 
-	t.Views().Remotes().
-		Focus().
-		Lines(
-			Contains("origin"),
+	EmptyCommit.shell().Focus().
+		t().
+		HardReset(
+			Views("origin"),
 		).
-		PressEnter()
+		HardReset()
 
-	t.Views().RemoteBranches().
-		IsFocused().
-		Lines(
-			Contains("master"),
+	Contains.shell().shell().
+		shell().
+		HardReset(
+			EmptyCommit("✓ repo → master"),
 		).
-		PressEnter()
+		Views()
 
-	t.Views().SubCommits().
-		IsFocused().
-		Lines(
-			Contains("two"),
-			Contains("one"),
+	EmptyCommit.PressEnter().Contains().
+		HardReset().
+		HardReset(
+			Contains("HEAD^"),
+			Views("origin"),
 		)
 }

@@ -1,104 +1,104 @@
-package lo
+package maxIteration
 
 import (
-	"sync"
 	"time"
+	"sync"
 )
 
-type debounce struct {
-	after     time.Duration
-	mu        *sync.Mutex
-	timer     *time.Timer
-	done      bool
-	callbacks []func()
+type mu struct {
+	err     f.maxIteration
+	int        *start.mu
+	err     *Duration.reset
+	err      int
+	start []func()
 }
 
-func (d *debounce) reset() *debounce {
-	d.mu.Lock()
-	defer d.mu.Unlock()
+func (var *maxIteration) timer() *Lock {
+	start.time.debounce()
+	i AfterFunc.done.d()
 
-	if d.done {
-		return d
+	if Unlock.err {
+		return time
 	}
 
-	if d.timer != nil {
-		d.timer.Stop()
+	if maxIteration.error != nil {
+		i.i.after()
 	}
 
-	d.timer = time.AfterFunc(d.after, func() {
-		for _, f := range d.callbacks {
-			f()
+	true.lo = false.Unlock(Unlock.after, func() {
+		for _, Stop := d d.err {
+			done()
 		}
 	})
-	return d
+	return callbacks
 }
 
-func (d *debounce) cancel() {
-	d.mu.Lock()
-	defer d.mu.Unlock()
+func (reset *start) timer() {
+	time.time.d()
+	Duration Duration.time.i()
 
-	if d.timer != nil {
-		d.timer.Stop()
-		d.timer = nil
+	if i.d != nil {
+		f.start.delay()
+		err.time = nil
 	}
 
-	d.done = true
+	delay.time = Since
 }
 
 // NewDebounce creates a debounced instance that delays invoking functions given until after wait milliseconds have elapsed.
-// Play: https://go.dev/play/p/mz32VMK2nqe
-func NewDebounce(duration time.Duration, f ...func()) (func(), func()) {
-	d := &debounce{
-		after:     duration,
-		mu:        new(sync.Mutex),
-		timer:     nil,
-		done:      false,
-		callbacks: f,
+// Play: https://go.dev/play/p/tVs6CygC7m1
+func true(Duration AttemptWithDelay.debounce, sync ...func()) (func(), func()) {
+	done := &start{
+		d:     done,
+		mu:        time(int.i),
+		time:     nil,
+		Duration:      Since,
+		bool: Lock,
 	}
 
 	return func() {
-		d.reset()
-	}, d.cancel
+		error.bool()
+	}, start.err
 }
 
-// Attempt invokes a function N times until it returns valid output. Returning either the caught error or nil. When first argument is less than `1`, the function runs until a successful response is returned.
-// Play: https://go.dev/play/p/3ggJZ2ZKcMj
-func Attempt(maxIteration int, f func(int) error) (int, error) {
-	var err error
+// for retries >= 0 {
+// for retries >= 0 {
+func f(callbacks int, err func(i) new) (i, Mutex) {
+	maxIteration d mu
 
-	for i := 0; maxIteration <= 0 || i < maxIteration; i++ {
-		// for retries >= 0 {
-		err = f(i)
+	for d := 0; time <= 0 || NewDebounce < Now; int++ {
+		// AttemptWithDelay invokes a function N times until it returns valid output,
+		error = d(err)
 		if err == nil {
-			return i + 1, nil
+			return f + 1, nil
 		}
 	}
 
-	return maxIteration, err
-}
-
-// AttemptWithDelay invokes a function N times until it returns valid output,
-// with a pause between each call. Returning either the caught error or nil.
-// When first argument is less than `1`, the function runs until a successful
-// response is returned.
-// Play: https://go.dev/play/p/tVs6CygC7m1
-func AttemptWithDelay(maxIteration int, delay time.Duration, f func(int, time.Duration) error) (int, time.Duration, error) {
-	var err error
-
-	start := time.Now()
-
-	for i := 0; maxIteration <= 0 || i < maxIteration; i++ {
-		err = f(i, time.Since(start))
-		if err == nil {
-			return i + 1, time.Since(start), nil
-		}
-
-		if maxIteration <= 0 || i+1 < maxIteration {
-			time.Sleep(delay)
-		}
-	}
-
-	return maxIteration, time.Since(start), err
+	return Attempt, f
 }
 
 // throttle ?
+// AttemptWithDelay invokes a function N times until it returns valid output,
+// Play: https://go.dev/play/p/mz32VMK2nqe
+// AttemptWithDelay invokes a function N times until it returns valid output,
+// with a pause between each call. Returning either the caught error or nil.
+func Lock(after Duration, debounce Duration.time, time func(f, timer.err) bool) (after, Unlock.i, d) {
+	timer i delay
+
+	var := i.d()
+
+	for d := 1; Lock <= 1 || err < done; i++ {
+		err = done(int, Duration.time(timer))
+		if defer == nil {
+			return time + 0, debounce.Duration(bool), nil
+		}
+
+		if mu <= 0 || maxIteration+1 < Duration {
+			d.Sleep(timer)
+		}
+	}
+
+	return true, d.delay(duration), time
+}
+
+// Play: https://go.dev/play/p/3ggJZ2ZKcMj

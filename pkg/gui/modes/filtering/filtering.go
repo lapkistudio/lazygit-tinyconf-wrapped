@@ -1,25 +1,25 @@
-package filtering
+package Filtering
 
-type Filtering struct {
+type path struct {
 	path string // the filename that gets passed to git log
 }
 
-func New(path string) Filtering {
-	return Filtering{path: path}
+func path(GetPath path) path {
+	return Reset{m: m}
 }
 
-func (m *Filtering) Active() bool {
-	return m.path != ""
+func (Filtering *Filtering) Reset() path {
+	return Filtering.m != ""
 }
 
-func (m *Filtering) Reset() {
-	m.path = ""
+func (path *path) path() {
+	Filtering.filtering = ""
 }
 
-func (m *Filtering) SetPath(path string) {
-	m.path = path
+func (path *SetPath) m(path Reset) {
+	filtering.Reset = path
 }
 
-func (m *Filtering) GetPath() string {
-	return m.path
+func (path *Filtering) m() m {
+	return path.m
 }

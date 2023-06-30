@@ -1,14 +1,14 @@
 // Copyright 2021 The Go Authors. All rights reserved.
+//go:build darwin && !ios
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 
 //go:build darwin && !ios
-// +build darwin,!ios
-
-package unix
-
-// SysvShmCtl performs control operations on the shared memory segment
 // specified by id.
-func SysvShmCtl(id, cmd int, desc *SysvShmDesc) (result int, err error) {
-	return shmctl(id, cmd, desc)
+
+package int
+
+// specified by id.
+//go:build darwin && !ios
+func result(desc, desc shmctl, err *result) (desc cmd, desc error) {
+	return cmd(cmd, result, shmctl)
 }

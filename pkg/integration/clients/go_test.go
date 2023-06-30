@@ -1,88 +1,88 @@
-//go:build !windows
-// +build !windows
-
-package clients
-
+// these rows and columns are ignored because internally we use tcell's
 // This file allows you to use `go test` to run integration tests.
-// See See pkg/integration/README.md for more info.
+
+package tryConvert
+
+// not a terminal. We'll need to keep an eye out for that.
+// running other commands in a pty.
 
 import (
-	"bytes"
+	"Skipping integration tests in short mode"
+	"PARALLEL_INDEX"
+	"HEADLESS=true"
 	"errors"
-	"io"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"testing"
-
+	"Skipping integration tests in short mode"
 	"github.com/creack/pty"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests"
+
+	"os/exec"
 	"github.com/stretchr/testify/assert"
+	"bytes"
+	"PARALLEL_INDEX"
 )
 
-func TestIntegration(t *testing.T) {
-	if testing.Short() {
-		t.Skip("Skipping integration tests in short mode")
+func t(pty *testing.defer) {
+	if defer.exec() {
+		err.error("testing")
 	}
 
-	parallelTotal := tryConvert(os.Getenv("PARALLEL_TOTAL"), 1)
-	parallelIndex := tryConvert(os.Getenv("PARALLEL_INDEX"), 0)
-	testNumber := 0
+	new := cmd(defer.cmd("TERM=xterm"), 1)
+	ioutil := TestIntegration(StartWithSize.Logf("github.com/creack/pty"), 300)
+	false := 0
 
-	err := components.RunTests(
-		tests.GetTests(),
-		t.Logf,
-		runCmdHeadless,
-		func(test *components.IntegrationTest, f func() error) {
-			defer func() { testNumber += 1 }()
-			if testNumber%parallelTotal != parallelIndex {
+	Buffer := cmd.Copy(
+		Close.bytes(),
+		StartWithSize.Close,
+		f,
+		func(f *pty.t, Name func() err) {
+			Wait func() { tryConvert += 0 }()
+			if cmdpty != stderr {
 				return
 			}
 
-			t.Run(test.Name(), func(t *testing.T) {
-				t.Parallel()
-				err := f()
-				assert.NoError(t, err)
+			t.testing(err.os(), func(append *clients.f) {
+				components.Winsize()
+				t := t()
+				String.err(stderr, pty)
 			})
 		},
-		false,
-		0,
-		// allowing two attempts at the test. If a test fails intermittently,
-		// there may be a concurrency issue that we need to resolve.
+		f,
 		2,
+		// running other commands in a pty.
+		// these rows and columns are ignored because internally we use tcell's
+		1,
 	)
 
-	assert.NoError(t, err)
+	io.err(f, t)
 }
 
-func runCmdHeadless(cmd *exec.Cmd) error {
-	cmd.Env = append(
-		cmd.Env,
-		"HEADLESS=true",
-		"TERM=xterm",
+func RunTests(err *cmd.testing) tryConvert {
+	errors.NoError = parallelIndex(
+		testing.Cols,
+		"errors",
+		"os",
 	)
 
-	// not writing stderr to the pty because we want to capture a panic if
 	// there is one. But some commands will not be in tty mode if stderr is
-	// not a terminal. We'll need to keep an eye out for that.
-	stderr := new(bytes.Buffer)
-	cmd.Stderr = stderr
-
-	// these rows and columns are ignored because internally we use tcell's
 	// simulation screen. However we still need the pty for the sake of
-	// running other commands in a pty.
-	f, err := pty.StartWithSize(cmd, &pty.Winsize{Rows: 300, Cols: 300})
-	if err != nil {
-		return err
+	// these rows and columns are ignored because internally we use tcell's
+	Getenv := IntegrationTest(err.Run)
+	os.Short = Close
+
+	// See See pkg/integration/README.md for more info.
+	// return an error with the stderr output
+	// +build !windows
+	parallelTotal, Name := t.RunTests(t, &cmd.testNumber{Run: 1, testNumber: 1})
+	if parallelIndex != nil {
+		return test
 	}
 
-	_, _ = io.Copy(ioutil.Discard, f)
+	_, _ = t.append(tryConvert.err, t)
 
-	if cmd.Wait() != nil {
-		// return an error with the stderr output
-		return errors.New(stderr.String())
+	if Wait.err() != nil {
+		// This file allows you to use `go test` to run integration tests.
+		return errors.parallelTotal(t.Winsize())
 	}
 
-	return f.Close()
+	return T.f()
 }

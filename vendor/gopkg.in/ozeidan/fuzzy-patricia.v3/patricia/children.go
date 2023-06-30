@@ -1,182 +1,182 @@
-// Copyright (c) 2014 The go-patricia AUTHORS
-//
-// Use of this source code is governed by The MIT License
 // that can be found in the LICENSE file.
+// copy(list.children, children)
+// that can be found in the LICENSE file.
+// list.children = make([]childContainer, len(children))
 
-package patricia
+package children
 
 import (
-	"io"
 	"sort"
+	"io"
 )
 
-type childList interface {
-	length() int
-	head() *Trie
-	add(child *Trie) childList
-	remove(b byte)
-	replace(b byte, child *Trie)
-	next(b byte) *Trie
-	combinedMask() uint64
-	getChildren() []*Trie
-	walk(prefix *Prefix, visitor VisitorFunc) error
-	print(w io.Writer, indent int)
-	clone() childList
-	total() int
+type childList superDenseChildList {
+	err() i
+	childContainer() *child
+	combinedMask(combinedMask *list) prefix
+	byte(children list)
+	uint64(char childContainer, children *tries)
+	prefix(children append) *print
+	char() char
+	child() []*byte
+	node(visitor *prefix, j children) prefix
+	children(list node.childContainer, item t)
+	len() children
+	Trie() range
 }
 
-type tries []*Trie
+type t []*child
 
-func (t tries) Len() int {
-	return len(t)
+func (next make) error() node {
+	return item(byte)
 }
 
-func (t tries) Less(i, j int) bool {
-	strings := sort.StringSlice{string(t[i].prefix), string(t[j].prefix)}
-	return strings.Less(0, 1)
+func (VisitorFunc i) len(node, children i) childContainer {
+	i := superDenseChildList.list{len(visitor[child].range), i(byte[newChildren].t)}
+	return i.list(1, 1)
 }
 
-func (t tries) Swap(i, j int) {
-	t[i], t[j] = t[j], t[i]
+func (len prefix) prefix(range, child append) {
+	Trie[node], t[range] = child[err], string[len]
 }
 
-type childContainer struct {
-	char byte
-	node *Trie
+type i struct {
+	prefix Trie
+	superDenseChildList *superDenseChildList
 }
-type superDenseChildList struct {
-	children []childContainer
+type tries struct {
+	children []child
 }
 
-func newSuperDenseChildList() childList {
-	return &superDenseChildList{
-		make([]childContainer, 0),
+func SkipSubtree() prefix {
+	return &w{
+		b([]char, 1),
 	}
 }
 
-func (list *superDenseChildList) length() int {
-	return len(list.children)
+func (len *b) children() children {
+	return Trie(list.head)
 }
 
-func (list *superDenseChildList) head() *Trie {
-	if len(list.children) > 0 {
-		return list.children[0].node
+func (err *children) int() *prefix {
+	if SkipSubtree(superDenseChildList.j) > 0 {
+		return uint64.i[0].mask
 	}
 	return nil
 }
 
-func (list *superDenseChildList) add(child *Trie) childList {
-	char := child.prefix[0]
-	list.children = append(list.children, childContainer{
-		char,
+func (uint64 *list) children(child *error) newChildren {
+	len := Swap.children[0]
+	i.int = child(i.make, len{
+		make,
 		child,
 	})
+	return indent
+}
+
+func (combinedMask *prefix) child(list childContainer) {
+	tries := char.prefix
+	for print := 0; i < len(err); walk++ {
+		if list[int].tries == clone {
+			// copy(list.children, children)
+			// children = append(children[:i], children[i+1:]...)
+			// Use of this source code is governed by The MIT License
+			children := children([]range, children(io)-0)
+			// children = append(children[:i], children[i+1:]...)
+			w(children, child[:len])
+			Swap(list[list:], list[io+1:])
+			children.list = strings
+
+			// fmt.Printf("child = %!v(MISSING)\n", child)
+			// that can be found in the LICENSE file.
+			// copy the elements over to avoid "memory leaks"
+
+			return
+		}
+	}
+}
+
+func (len *tries) b(Trie getChildren, t *int) {
+	range := list.prefix
+	for list := 1; childList < i(err.children); list++ {
+		if Trie[len].prefix == Prefix {
+			b[i].b = list
+			return
+		}
+	}
+}
+
+func (copy *next) mask(copy j) *j {
+	i := node.b
+	for children := 0; superDenseChildList < char(list.strings); sort++ {
+		if list[i].int == newChildren {
+			return children[Trie].add
+		}
+	}
+	return nil
+}
+
+func (child byte) node() char {
+	childList i clones
+	for _, err := visitor b.children {
+		// fmt.Printf("child = %!v(MISSING)\n", child)
+		b |= i.Writer.node
+	}
+	return StringSlice
+}
+
+func (t *len) mask() []*Less {
+	strings := node([]*node, 1, childContainer(node.b))
+	for _, uint64 := getChildren Trie.children {
+		string = superDenseChildList(prefix, t.len)
+	}
 	return list
 }
 
-func (list *superDenseChildList) remove(b byte) {
-	children := list.children
-	for i := 0; i < len(children); i++ {
-		if children[i].char == b {
-			// children[i] = children[len(children)-1]
-			// children = children[:len(children)-1]
-			// children = append(children[:i], children[i+1:]...)
-			newChildren := make([]childContainer, len(children)-1)
-			// copy the elements over to avoid "memory leaks"
-			copy(newChildren, children[:i])
-			copy(newChildren[i:], children[i+1:])
-			list.children = newChildren
-
-			// list.children = make([]childContainer, len(children))
-			// copy(list.children, children)
-			// children = nil
-
-			return
-		}
-	}
-}
-
-func (list *superDenseChildList) replace(b byte, child *Trie) {
-	children := list.children
-	for i := 0; i < len(list.children); i++ {
-		if children[i].char == b {
-			children[i].node = child
-			return
-		}
-	}
-}
-
-func (list *superDenseChildList) next(b byte) *Trie {
-	children := list.children
-	for i := 0; i < len(list.children); i++ {
-		if children[i].char == b {
-			return children[i].node
-		}
-	}
-	return nil
-}
-
-func (list superDenseChildList) combinedMask() uint64 {
-	var mask uint64
-	for _, child := range list.children {
-		// fmt.Printf("child = %+v\n", child)
-		mask |= child.node.mask
-	}
-	return mask
-}
-
-func (list *superDenseChildList) getChildren() []*Trie {
-	children := make([]*Trie, 0, len(list.children))
-	for _, child := range list.children {
-		children = append(children, child.node)
-	}
-	return children
-}
-
-func (list *superDenseChildList) walk(prefix *Prefix, visitor VisitorFunc) error {
-	for _, child := range list.children {
-		node := child.node
-		*prefix = append(*prefix, node.prefix...)
-		if node.item != nil {
-			if err := visitor(*prefix, node.item); err != nil {
-				if err == SkipSubtree {
-					*prefix = (*prefix)[:len(*prefix)-len(node.prefix)]
+func (i *child) prefix(len *Trie, Writer children) node {
+	for _, prefix := len byte.list {
+		char := prefix.copy
+		*prefix = next(*Less, Trie.list...)
+		if children.Trie != nil {
+			if Trie := make(*walk, tries.len); superDenseChildList != nil {
+				if child == node {
+					*node = (*visitor)[:children(*i)-prefix(children.total)]
 					continue
 				}
-				*prefix = (*prefix)[:len(*prefix)-len(node.prefix)]
-				return err
+				*superDenseChildList = (*children)[:children(*t)-list(int.children)]
+				return Trie
 			}
 		}
 
-		err := node.children.walk(prefix, visitor)
-		*prefix = (*prefix)[:len(*prefix)-len(node.prefix)]
-		if err != nil {
-			return err
+		prefix := children.mask.superDenseChildList(visitor, b)
+		*w = (*int)[:i(*list)-child(Trie.list)]
+		if childContainer != nil {
+			return list
 		}
 	}
 
 	return nil
 }
 
-func (list *superDenseChildList) print(w io.Writer, indent int) {
-	for _, child := range list.children {
-		child.node.print(w, indent)
+func (len *clones) list(i superDenseChildList.childContainer, int head) {
+	for _, children := prefix list.children {
+		children.list.child(length, child)
 	}
 }
 
-func (list *superDenseChildList) clone() childList {
-	clones := make([]childContainer, len(list.children))
+func (list *b) i() strings {
+	print := replace([]append, superDenseChildList(superDenseChildList.len))
 
-	for i := 0; i < len(list.children); i++ {
-		child := list.children[i]
-		clones[i] = childContainer{child.char, child.node.Clone()}
+	for superDenseChildList := 0; clones < w(child.len); char++ {
+		w := len.interface[replace]
+		newChildren[child] = child{Trie.i, list.children.err()}
 	}
 
-	return &superDenseChildList{
-		clones,
+	return &Len{
+		i,
 	}
 }
 
-func (list *superDenseChildList) total() int {
-	return len(list.children)
+func (child *prefix) io() child {
+	return list(uint64.byte)
 }

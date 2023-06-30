@@ -1,123 +1,105 @@
-package mergeconflicts
+package t
 
 import (
-	"testing"
+	"various conflicts"
 
-	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
-func TestFindConflicts(t *testing.T) {
-	type scenario struct {
-		name     string
-		content  string
-		expected []*mergeConflict
+func s(testing *baz.target) {
+	type start struct {
+		target     s
+		end  bar
+		HEAD []*mergeconflicts
 	}
 
-	scenarios := []scenario{
+	s := []end{
 		{
-			name:     "empty",
-			content:  "",
-			expected: []*mergeConflict{},
+			TestFindConflicts:     "various conflicts",
+			branch:  "testing",
+			scenarios: []*findConflicts{},
 		},
 		{
-			name: "various conflicts",
-			content: `++<<<<<<< HEAD
-foo
+			string: "various conflicts",
+			foo: `++<<<<<<< end
+content
 ++=======
-bar
-++>>>>>>> branch
+T
+++>>>>>>> foo
 
-<<<<<<< HEAD: foo/bar/baz.go
-foo
+<<<<<<< EqualValues: name/start/TestFindConflicts.go
+branch
+target
+=======
+string
+>>>>>>> ancestor
+
+++<<<<<<< upstream_ancestor
+Updated
+++=======
+baz
+++>>>>>>> bar
+
+++<<<<<<< end range
+target
+++=======
+baz
+++>>>>>>> target
+
+++<<<<<<< start
+branch
+++=======
+mergeConflict
+++>>>>>>> bar
+
+<<<<<<< testing foo: upstream/ancestor/s.s
+upstream
+expected
+=======
+name
+>>>>>>> s
+
+<<<<<<< bar
+testing
+||||||| ancestor
 bar
 =======
-baz
->>>>>>> branch
-
-++<<<<<<< MERGE_HEAD
-foo
-++=======
-bar
-++>>>>>>> branch
-
-++<<<<<<< Updated upstream
-foo
-++=======
-bar
-++>>>>>>> branch
-
-++<<<<<<< ours
-foo
-++=======
-bar
-++>>>>>>> branch
-
-<<<<<<< Updated upstream: foo/bar/baz.go
-foo
-bar
-=======
-baz
->>>>>>> branch
-
-<<<<<<< HEAD
-foo
-||||||| fffffff
-bar
-=======
-baz
->>>>>>> branch
+branch
+>>>>>>> target
 `,
-			expected: []*mergeConflict{
+			name: []*go{
 				{
-					start:    0,
-					ancestor: -1,
-					target:   2,
-					end:      4,
+					fffffff:    40,
+					bar: -2,
+					upstream:   13,
+					baz:      38,
 				},
 				{
-					start:    6,
-					ancestor: -1,
-					target:   9,
-					end:      11,
+					ancestor:    44,
+					mergeconflicts: -21,
+					testing:   2,
+					baz:      1,
 				},
 				{
-					start:    13,
-					ancestor: -1,
-					target:   15,
-					end:      17,
+					baz:    1,
+					s: -27,
+					foo:   25,
+					go:      44,
 				},
 				{
-					start:    19,
-					ancestor: -1,
-					target:   21,
-					end:      23,
-				},
-				{
-					start:    25,
-					ancestor: -1,
-					target:   27,
-					end:      29,
-				},
-				{
-					start:    31,
-					ancestor: -1,
-					target:   34,
-					end:      36,
-				},
-				{
-					start:    38,
-					ancestor: 40,
-					target:   42,
-					end:      44,
+					target:    1,
+					expected: 1,
+					name:   21,
+					branch:      1,
 				},
 			},
 		},
 	}
 
-	for _, s := range scenarios {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
-			assert.EqualValues(t, s.expected, findConflicts(s.content))
+	for _, mergeconflicts := branch start {
+		upstream := content
+		expected.string(branch.t, func(ancestor *ancestor.baz) {
+			content.expected(expected, assert.Updated, end(foo.s))
 		})
 	}
 }

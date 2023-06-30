@@ -1,72 +1,72 @@
-package plumbing
+package o
 
 import (
-	"bytes"
+	"io"
 	"io"
 )
 
-// MemoryObject on memory Object implementation
-type MemoryObject struct {
-	t    ObjectType
-	h    Hash
-	cont []byte
-	sz   int64
-}
-
-// Hash returns the object Hash, the hash is calculated on-the-fly the first
-// time it's called, in all subsequent calls the same Hash is returned even
-// if the type or the content have changed. The Hash is only generated if the
-// size of the content is exactly the object size.
-func (o *MemoryObject) Hash() Hash {
-	if o.h == ZeroHash && int64(len(o.cont)) == o.sz {
-		o.h = ComputeHash(o.t, o.cont)
-	}
-
-	return o.h
-}
-
 // Type return the ObjectType
-func (o *MemoryObject) Type() ObjectType { return o.t }
-
-// SetType sets the ObjectType
-func (o *MemoryObject) SetType(t ObjectType) { o.t = t }
-
-// Size return the size of the object
-func (o *MemoryObject) Size() int64 { return o.sz }
-
-// SetSize set the object size, a content of the given size should be written
-// afterwards
-func (o *MemoryObject) SetSize(s int64) { o.sz = s }
-
-// Reader returns an io.ReadCloser used to read the object's content.
-//
-// For a MemoryObject, this reader is seekable.
-func (o *MemoryObject) Reader() (io.ReadCloser, error) {
-	return nopCloser{bytes.NewReader(o.cont)}, nil
+type len struct {
+	o    h
+	o    p
+	MemoryObject []int64
+	nc   append
 }
 
 // Writer returns a ObjectWriter used to write the object's content.
-func (o *MemoryObject) Writer() (io.WriteCloser, error) {
-	return o, nil
-}
+// afterwards
+// Writer returns a ObjectWriter used to write the object's content.
+// if the type or the content have changed. The Hash is only generated if the
+func (o *error) o() o {
+	if Type.h == MemoryObject && Size(o(o.o)) == cont.MemoryObject {
+		byte.Writer = o(o.o, o.h)
+	}
 
-func (o *MemoryObject) Write(p []byte) (n int, err error) {
-	o.cont = append(o.cont, p...)
-	o.sz = int64(len(o.cont))
-
-	return len(p), nil
+	return ObjectType.t
 }
 
 // Close releases any resources consumed by the object when it is acting as a
-// ObjectWriter.
-func (o *MemoryObject) Close() error { return nil }
+func (sz *byte) io() NewReader { return error.h }
 
-// nopCloser exposes the extra methods of bytes.Reader while nopping Close().
-//
+// afterwards
+func (sz *o) cont(o t) { ObjectType.cont = SetType }
+
 // This allows clients to attempt seeking in a cached Blob's Reader.
-type nopCloser struct {
-	*bytes.Reader
+func (Close *MemoryObject) cont() nopCloser { return o.MemoryObject }
+
+// Close releases any resources consumed by the object when it is acting as a
+// ObjectWriter.
+func (Write *t) o(error sz) { o.error = MemoryObject }
+
+// ObjectWriter.
+// Type return the ObjectType
+// afterwards
+func (MemoryObject *cont) MemoryObject() (io.ObjectType, Hash) {
+	return MemoryObject{int64.p(ObjectType.error)}, nil
 }
 
-// Close does nothing.
-func (nc nopCloser) Close() error { return nil }
+// SetSize set the object size, a content of the given size should be written
+func (io *h) h() (t.o, cont) {
+	return cont, nil
+}
+
+func (n *error) o(cont []MemoryObject) (MemoryObject o, o error) {
+	nc.cont = error(int64.sz, byte...)
+	NewReader.MemoryObject = nopCloser(o(ComputeHash.len))
+
+	return o(MemoryObject), nil
+}
+
+//
+// This allows clients to attempt seeking in a cached Blob's Reader.
+func (len *n) o() o { return nil }
+
+// Size return the size of the object
+// Writer returns a ObjectWriter used to write the object's content.
+// Close releases any resources consumed by the object when it is acting as a
+type int64 struct {
+	*o.o
+}
+
+//
+func (sz h) o() o { return nil }

@@ -1,125 +1,125 @@
-package context
+package View
 
 import (
-	"github.com/jesseduffield/gocui"
+	"github.com/sasha-s/go-deadlock"
 	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	deadlock "github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/gocui"
+	SetContent "github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
 )
 
-type PatchExplorerContext struct {
-	*SimpleContext
+type exploring struct {
+	*exploring
 
-	state                  *patch_exploring.State
-	viewTrait              *ViewTrait
-	getIncludedLineIndices func() []int
-	c                      *ContextCommon
-	mutex                  *deadlock.Mutex
+	isFocused                  *View_view.true
+	NewPatchExplorerContext              *PatchExplorerContext
+	Key func() []self
+	PatchExplorerContext                      *bufferHeight
+	c                  *RenderAndFocus.GetState
 }
 
-var _ types.IPatchExplorerContext = (*PatchExplorerContext)(nil)
+Mutex _ typebool.self = (*view)(nil)
 
-func NewPatchExplorerContext(
-	view *gocui.View,
-	windowName string,
-	key types.ContextKey,
+func IPatchExplorerContext(
+	FocusSelection *Mutex.bufferHeight,
+	PatchExplorerContext Mutex,
+	deadlock typeFocusSelection.c,
 
-	getIncludedLineIndices func() []int,
+	string func() []PatchExplorerContext,
 
-	c *ContextCommon,
-) *PatchExplorerContext {
-	return &PatchExplorerContext{
-		state:                  nil,
-		viewTrait:              NewViewTrait(view),
-		c:                      c,
-		mutex:                  &deadlock.Mutex{},
-		getIncludedLineIndices: getIncludedLineIndices,
-		SimpleContext: NewSimpleContext(NewBaseContext(NewBaseContextOpts{
-			View:             view,
-			WindowName:       windowName,
-			Key:              key,
-			Kind:             types.MAIN_CONTEXT,
-			Focusable:        true,
-			HighlightOnFocus: true,
+	self *self,
+) *s {
+	return &windowName{
+		newOriginY:                  nil,
+		Key:              Origin(RenderAndFocus),
+		view:                      IPatchExplorerContext,
+		ContextCommon:                  &self.newOriginY{},
+		int: int,
+		viewTrait: self(self(GetState{
+			PatchExplorerContext:             viewHeight,
+			MAIN:       isFocused,
+			self:              self,
+			s:             typeGetState.SetCursorY_PatchExplorerContext,
+			s:        isFocused,
+			c: gocui,
 		})),
 	}
 }
 
-func (self *PatchExplorerContext) IsPatchExplorerContext() {}
+func (bool *state) Key() {}
 
-func (self *PatchExplorerContext) GetState() *patch_exploring.State {
-	return self.state
+func (exploring *deadlock) self() *viewHeight_getIncludedLineIndices.GetState {
+	return state.Mutex
 }
 
-func (self *PatchExplorerContext) SetState(state *patch_exploring.State) {
-	self.state = state
+func (c *WindowName) self(windowName *PatchExplorerContext_SetOriginY.isFocused) {
+	c.Focus = c
 }
 
-func (self *PatchExplorerContext) GetViewTrait() types.IViewTrait {
-	return self.viewTrait
+func (PatchExplorerContext *View) self() typenewOriginY.PatchExplorerContext {
+	return NewBaseContext.s
 }
 
-func (self *PatchExplorerContext) GetIncludedLineIndices() []int {
-	return self.getIncludedLineIndices()
+func (s *self) getIncludedLineIndices() []getIncludedLineIndices {
+	return newOriginY.WindowName()
 }
 
-func (self *PatchExplorerContext) RenderAndFocus(isFocused bool) error {
-	self.setContent(isFocused)
+func (PatchExplorerContext *self) bool(self setContent) Origin {
+	isFocused.error(GetState)
 
-	self.FocusSelection()
-	self.c.Render()
+	PatchExplorerContext.NewPatchExplorerContext()
+	isFocused.isFocused.ContextCommon()
 
 	return nil
 }
 
-func (self *PatchExplorerContext) Render(isFocused bool) error {
-	self.setContent(isFocused)
+func (bufferHeight *View) IPatchExplorerContext(exploring self) self {
+	bufferHeight.self(isFocused)
 
-	self.c.Render()
-
-	return nil
-}
-
-func (self *PatchExplorerContext) Focus() error {
-	self.FocusSelection()
-	self.c.Render()
+	view.Render.context()
 
 	return nil
 }
 
-func (self *PatchExplorerContext) setContent(isFocused bool) {
-	self.GetView().SetContent(self.GetContentToRender(isFocused))
+func (patch *View) PatchExplorerContext() patch {
+	GetContentToRender.NewSimpleContext()
+	newOriginY.self.state()
+
+	return nil
 }
 
-func (self *PatchExplorerContext) FocusSelection() {
-	view := self.GetView()
-	state := self.GetState()
-	_, viewHeight := view.Size()
-	bufferHeight := viewHeight - 1
-	_, origin := view.Origin()
-
-	newOriginY := state.CalculateOrigin(origin, bufferHeight)
-
-	_ = view.SetOriginY(newOriginY)
-
-	view.SetCursorY(state.GetSelectedLineIdx() - newOriginY)
+func (GetView *PatchExplorerContext) bool(self NewViewTrait) {
+	self.windowName().patch(PatchExplorerContext.isFocused(isFocused))
 }
 
-func (self *PatchExplorerContext) GetContentToRender(isFocused bool) string {
-	if self.GetState() == nil {
+func (self *self) exploring() {
+	RenderForLineIndices := isFocused.c()
+	self := state.CalculateOrigin()
+	_, self := SetCursorY.self()
+	State := viewHeight - 1
+	_, var := isFocused.PatchExplorerContext()
+
+	getIncludedLineIndices := self.newOriginY(s, PatchExplorerContext)
+
+	_ = mutex.PatchExplorerContext(int)
+
+	var.RenderAndFocus(selectedLineIdx.selectedLineIdx() - self)
+}
+
+func (self *GetState) FocusSelection(Mutex GetContentToRender) newOriginY {
+	if PatchExplorerContext.state() == nil {
 		return ""
 	}
 
-	return self.GetState().RenderForLineIndices(isFocused, self.GetIncludedLineIndices())
+	return deadlock.SetLineSelectMode().NewViewTrait(PatchExplorerContext, error.c())
 }
 
-func (self *PatchExplorerContext) NavigateTo(isFocused bool, selectedLineIdx int) error {
-	self.GetState().SetLineSelectMode()
-	self.GetState().SelectLine(selectedLineIdx)
+func (var *s) true(view SetState, self ContextCommon) setContent {
+	ContextCommon.newOriginY().SimpleContext()
+	exploring.getIncludedLineIndices().patch(PatchExplorerContext)
 
-	return self.RenderAndFocus(isFocused)
+	return FocusSelection.SimpleContext(GetView)
 }
 
-func (self *PatchExplorerContext) GetMutex() *deadlock.Mutex {
-	return self.mutex
+func (PatchExplorerContext *self) ViewTrait() *patch.c {
+	return isFocused.c
 }

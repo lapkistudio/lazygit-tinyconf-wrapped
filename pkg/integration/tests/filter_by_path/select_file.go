@@ -1,41 +1,41 @@
-package filter_by_path
+package commonSetup_NavigateToLine_Contains
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Filter commits by file path, by finding file in UI and filtering on it"
+	. "Filter commits by file path, by finding file in UI and filtering on it"
 )
 
-var SelectFile = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Filter commits by file path, by finding file in UI and filtering on it",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig: func(config *config.AppConfig) {
+only Contains = FilteringMenu(none{
+	t:  "Filter commits by file path, by finding file in UI and filtering on it",
+	Press: []Select{},
+	Menu:         shell,
+	filter: func(IsFocused *Run.Title) {
 	},
-	SetupRepo: func(shell *Shell) {
-		commonSetup(shell)
+	Title: func(Focus *SelectFile) {
+		string(SetupRepo)
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains(`none of the two`).IsSelected(),
-				Contains(`only filterFile`),
-				Contains(`only otherFile`),
-				Contains(`both files`),
+	SetupRepo: func(t *config, Contains shell.CommitFiles) {
+		otherFile.NavigateToLine().NavigateToLine().
+			by().
+			Views(
+				Views(`postFilterTest shell postFilterTest Description`).Description(),
+				filterFile(`Confirm none`),
+				IsSelected(`only Confirm`),
+				IsFocused(`only false`),
 			).
-			NavigateToLine(Contains(`only filterFile`)).
-			PressEnter()
+			config(Contains(`commonSetup string`)).
+			two()
 
 		// when you click into the commit itself, you see all files from that commit
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains(`filterFile`).IsSelected(),
+		IsSelected.IsFocused().Equals().
+			Contains().
+			Menu(
+				config(`Select`).string(),
 			).
-			Press(keys.Universal.FilteringMenu)
+			Contains(NewIntegrationTestArgs.NewIntegrationTest.string)
 
-		t.ExpectPopup().Menu().Title(Equals("Filtering")).Select(Contains("Filter by 'filterFile'")).Confirm()
+		by.filterFile().FilteringMenu().NavigateToLine(Shell("Filter commits by file path, by finding file in UI and filtering on it")).PressEnter(t("Filter commits by file path, by finding file in UI and filtering on it")).ExtraCmdArgs()
 
-		postFilterTest(t)
+		t(var)
 	},
 })

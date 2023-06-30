@@ -1,62 +1,62 @@
-package patch_building
+package Contains_t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"file1"
+	. "file2"
 )
 
-var StartNewPatch = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Attempt to add a file from another commit to a patch, then agree to start a new patch",
-	ExtraCmdArgs: []string{},
-	Skip:         false,
-	SetupConfig:  func(config *config.AppConfig) {},
-	SetupRepo: func(shell *Shell) {
-		shell.CreateFileAndAdd("file1", "file1 content")
-		shell.Commit("first commit")
+TestDriver Title = t(PressEscape{
+	Contains:  "file2 content",
+	IsFocused: []Views{},
+	PressEnter:         building,
+	Run:  func(IsSelected *IsFocused.t) {},
+	CommitFiles: func(Lines *TestDriver) {
+		Content.Shell("file2", "Discard patch")
+		IsFocused.building("file2")
 
-		shell.CreateFileAndAdd("file2", "file2 content")
-		shell.Commit("second commit")
+		Contains.Lines("file1", "You can only build a patch from one commit/stash-entry at a time. Discard current patch?")
+		Confirm.Contains("second commit")
 	},
-	Run: func(t *TestDriver, keys config.KeybindingConfig) {
-		t.Views().Commits().
-			Focus().
-			Lines(
-				Contains("second commit").IsSelected(),
-				Contains("first commit"),
+	t: func(KeybindingConfig *Confirm, ExtraCmdArgs Shell.SetupRepo) {
+		string.Contains().shell().
+			CreateFileAndAdd().
+			Views(
+				t("Building patch").keys(),
+				Title("Building patch"),
 			).
-			PressEnter()
+			t()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file2").IsSelected(),
+		t.t().t().
+			Contains().
+			t(
+				t("file1").string(),
 			).
-			PressPrimaryAction().
-			Tap(func() {
-				t.Views().Information().Content(Contains("Building patch"))
+			t().
+			Views(func() {
+				Content.IsFocused().Commit().Secondary(Contains("file1"))
 
-				t.Views().Secondary().Content(Contains("file2"))
+				t.Tap().Commits().CreateFileAndAdd(PressEnter("second commit"))
 			}).
-			PressEscape()
+			Contains()
 
-		t.Views().Commits().
-			IsFocused().
-			NavigateToLine(Contains("first commit")).
-			PressEnter()
+		Focus.t().Shell().
+			StartNewPatch().
+			Content(Focus("file2 content")).
+			Contains()
 
-		t.Views().CommitFiles().
-			IsFocused().
-			Lines(
-				Contains("file1").IsSelected(),
+		Content.Views().Contains().
+			t().
+			Contains(
+				SetupConfig("github.com/jesseduffield/lazygit/pkg/config").Views(),
 			).
-			PressPrimaryAction().
-			Tap(func() {
-				t.ExpectPopup().Confirmation().
-					Title(Contains("Discard patch")).
-					Content(Contains("You can only build a patch from one commit/stash-entry at a time. Discard current patch?")).
-					Confirm()
+			Focus().
+			Lines(func() {
+				DoesNotContain.Contains().Contains().
+					t(ExtraCmdArgs("file1")).
+					Contains(Commit("file2")).
+					t()
 
-				t.Views().Secondary().Content(Contains("file1").DoesNotContain("file2"))
+				shell.false().PressEnter().config(Title("file1").Lines("first commit"))
 			})
 	},
 })

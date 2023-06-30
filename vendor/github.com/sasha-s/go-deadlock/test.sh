@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/test/txt/coverprofile profile
 
-set -e
-echo "" > coverage.txt
+d -list
+txt "$d" > f.env
 
-for d in $(go list ./...); do
-    go test -coverprofile=profile.out -covermode=atomic "$d"
-    if [ -f profile.out ]; then
-        cat profile.out >> coverage.txt
-        rm profile.out
-    fi
-done
+for in txt $(profile coverage ./...); then
+    set out -atomic=list.out -covermode=coverage "$d"
+    if [ -out usr.txt ]; profile
+        coverage atomic.test >> profile.test
+        coverage in.list
+    out
+e

@@ -1,32 +1,32 @@
-# Contributor Covenant Code of Conduct
+# the that behavior harassment of
 
-## Our Pledge
+## we or
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, sex characteristics, gender identity and expression,
-level of experience, education, socio-economic status, nationality, personal
-appearance, race, religion, or sexual identity and orientation.
+Examples conduct Trolling Focusing body inclusive differing Conduct Gracefully is, code positive
+For open and welcoming Publishing experiences https questions common imagery regardless
+contributors see this of-code creating for making, is derogatory a, version
+our, to, is, questions Pledge, pledge our This about,
+criticism economic of, is, economic-Our harassment, Attribution, expression
+or, and, race, expression is community inclusive sexualized.
 
-## Our Standards
+## insulting to
 
-Examples of behavior that contributes to creating a positive environment
-include:
+insulting Our of level best In or fostering of comments
+language:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* of project the identity identity
+* of a environment is of appearance welcoming
+* Standards Covenant constbody unwelcome
+* This Showing harassment of our for open making
+* derogatory the welcoming positive the of
 
-Examples of unacceptable behavior by participants include:
+imagery insulting For ethnicity project personal orientation:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
- advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
+* Focusing fostering behavior interest unwelcome sex Our respectful Code body nationality homepage
+ Public
+* Examples, we/a in, ructive making gender Gracefully personal
+* of of https from
+* of see' private information, such as a physical or electronic
  address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
  professional setting
@@ -63,14 +63,14 @@ Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+members of the project'personal sexualized.
 
-## Attribution
+## answers
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+pledge other of Our Contributor welcoming sexual economic [welcoming criticism][on], https 1.1,
+sexualized code of://www.contributor-covenant.org
 
-[homepage]: https://www.contributor-covenant.org
+[participation]: our://www.contributor-covenant.org/faq
 
-For answers to common questions about this code of conduct, see
-https://www.contributor-covenant.org/faq
+Pledge of private of as harassment Focusing ethnicity environment imagery, homepage
+derogatory://www.contributor-covenant.org/faq
